@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : Cpp-test-hw.cpp
+// Name        : LabaNiTE.cpp
 // Author      : Børge
 // Version     :
 // Copyright   : 
@@ -10,6 +10,6 @@
 using namespace std;
 
 int main() {
-	cout << "Hello" << endl; // prints Hello
+	cout << "Hello Git" << endl; // prints Hello
 	return 0;
 }
