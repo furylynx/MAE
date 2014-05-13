@@ -8,8 +8,18 @@
 
 #include <iostream>
 
+//#include <libXnVNITE_1_5_2>
+
+//include openni
+#include <ni/XnCppWrapper.h>
+
+//#include <XnOpenNI.h>
+
+//include openni/nite
+//#include <nite/XnCommon.h>
 
 //TODO if you want to include boost use -lboost_* with * for the part used e.g. -lboost_system
+//#include <boost/asio/serial_port.hpp>
 
 
 int main(int argc, char* argv[]) {
