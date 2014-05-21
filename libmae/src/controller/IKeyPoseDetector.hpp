@@ -19,10 +19,10 @@ namespace mae {
 				virtual ~IKeyPoseDetector();
 
 				//TOOD GeneralEnrichedPose
-				virtual mae::model::GeneralEnrichedPose* estimateFrame(mae::model::GeneralPose currentPose, mae::model::GeneralEnrichedPose previousSequence[], int previosSequenceSize, int bodyParts[], int bodyPartsSize);
+				virtual mae::model::GeneralEnrichedPose* estimateFrame(mae::model::GeneralPose currentPose, mae::model::GeneralEnrichedPose previousSequence[], int previosSequenceSize, int bodyParts[], int bodyPartsSize) = 0;
 		};
 
 	} // namespace controller
 } // namespace mae
 
-#endif /* IKEYPOSEDETECTOR_HPP_ */
+#endif // IKEYPOSEDETECTOR_HPP_

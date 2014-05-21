@@ -8,7 +8,11 @@
 #ifndef ISEQUENCEGENERATOR_HPP_
 #define ISEQUENCEGENERATOR_HPP_
 
-#include "GeneralEnrichedPose.hpp"
+//custom includes
+#include "../model/GeneralEnrichedPose.hpp"
+
+//global includes
+//...
 
 
 namespace mae {
@@ -19,7 +23,7 @@ namespace mae {
 			public:
 				virtual ~ISequenceGenerator();
 
-				virtual U generateSequence(mae::model::GeneralEnrichedPose keyPoses[], int keyPosesSize, int bodyParts[], int bodyPartsSize);
+				virtual U generateSequence(mae::model::GeneralEnrichedPose keyPoses[], int keyPosesSize, int bodyParts[], int bodyPartsSize) = 0;
 		};
 
 	} // namespace controller
