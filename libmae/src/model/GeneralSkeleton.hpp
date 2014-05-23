@@ -8,9 +8,12 @@
 #ifndef GENERALSKELETON_HPP_
 #define GENERALSKELETON_HPP_
 
+//custom includes
 #include "GeneralJoint.hpp"
 
+//global includes
 #include <unordered_map>
+#include <memory>
 
 namespace mae {
 	namespace model {
@@ -21,8 +24,8 @@ namespace mae {
 				GeneralSkeleton();
 
 
-				virtual void setJoint(int bodyPart, mae::model::GeneralJoint joint);
-				virtual mae::model::GeneralJoint getJoint(int bodyPart);
+				virtual void setJoint(int bodyPart, std::shared_ptr<mae::model::GeneralJoint> joint);
+				virtual std::shared_ptr<mae::model::GeneralJoint> getJoint(int bodyPart);
 
 
 
@@ -46,7 +49,7 @@ namespace mae {
 
 
 			private:
-			    std::unordered_map<int, mae::model::GeneralJoint> hashmap_joints;
+			    std::unordered_map<int, std::shared_ptr<mae::model::GeneralJoint> > hashmap_joints;
 		};
 
 	} // namespace model

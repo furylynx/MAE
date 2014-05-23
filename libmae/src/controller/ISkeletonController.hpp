@@ -8,7 +8,11 @@
 #ifndef ISKELETONCONTROLLER_HPP_
 #define ISKELETONCONTROLLER_HPP_
 
+//custom includes
 #include "../model/GeneralSkeleton.hpp"
+
+//global includes
+#include <memory>
 
 namespace mae {
 	namespace controller {
@@ -18,7 +22,7 @@ namespace mae {
 			public:
 				virtual ~ISkeletonController();
 
-				virtual T calculateSpecifiedSkeleton(mae::model::GeneralSkeleton* skeleton) = 0;
+				virtual std::shared_ptr<T> calculateSpecifiedSkeleton(std::shared_ptr<mae::model::GeneralSkeleton> skeleton) = 0;
 
 		};
 

@@ -8,7 +8,12 @@
 #ifndef MOVEMENTCONTROLLER_HPP_
 #define MOVEMENTCONTROLLER_HPP_
 
+//custom includes
 #include "IMovementDetector.hpp"
+
+//global includes
+#include <vector>
+#include <memory>
 
 namespace mae{
 	namespace controller {
@@ -16,7 +21,7 @@ namespace mae{
 		template <class T, class U>
 		class MovementController {
 			public:
-				MovementController(mae::controller::IMovementDetector<T,U> imd, int bodyParts[], int bodyPartsSize);
+				MovementController(std::shared_ptr<mae::controller::IMovementDetector<T,U> > imd, std::vector<int> bodyParts);
 				virtual ~MovementController();
 
 				//todo other methods in here

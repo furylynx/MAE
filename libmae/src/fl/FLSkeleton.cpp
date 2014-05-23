@@ -11,14 +11,14 @@ namespace mae {
 	namespace fl {
 
 		FLSkeleton::FLSkeleton() {
-			this->hashmap_joints = std::unordered_map<int, mae::fl::FLJoint>();
+			this->hashmap_joints = std::unordered_map<int, std::shared_ptr<mae::fl::FLJoint> >();
 		}
 
 		FLSkeleton::~FLSkeleton() {
 			hashmap_joints.clear();
 		}
 
-		void FLSkeleton::setJoint(int bodyPart, mae::fl::FLJoint joint){
+		void FLSkeleton::setJoint(int bodyPart, std::shared_ptr<mae::fl::FLJoint> joint){
 
 			if (hashmap_joints.find(bodyPart) == hashmap_joints.end()){
 				//key is not in map
@@ -30,12 +30,12 @@ namespace mae {
 			}
 		}
 
-		mae::fl::FLJoint FLSkeleton::getJoint(int bodyPart){
+		std::shared_ptr<mae::fl::FLJoint> FLSkeleton::getJoint(int bodyPart){
 
 			if (hashmap_joints.find(bodyPart) == hashmap_joints.end()){
 				// returns an invalid joint which means that the joint is
 				// not existing
-				return mae::fl::FLJoint();
+				return std::shared_ptr<mae::fl::FLJoint>(new mae::fl::FLJoint());
 			}else{
 				// returns the joint
 				return hashmap_joints[bodyPart];
@@ -66,11 +66,11 @@ namespace mae {
 			return coord_sys;
 		}
 
-		void FLSkeleton::setRelativeSkeleton(mae::model::GeneralSkeleton relative_skeleton){
+		void FLSkeleton::setRelativeSkeleton(std::shared_ptr<mae::model::GeneralSkeleton> relative_skeleton){
 			this->relative_skeleton = relative_skeleton;
 		}
 
-		mae::model::GeneralSkeleton FLSkeleton::getRelativeSkeleton(){
+		std::shared_ptr<mae::model::GeneralSkeleton> FLSkeleton::getRelativeSkeleton(){
 			return relative_skeleton;
 		}
 
