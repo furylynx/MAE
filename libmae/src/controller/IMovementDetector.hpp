@@ -8,6 +8,12 @@
 #ifndef IMOVEMENTDETECTOR_HPP_
 #define IMOVEMENTDETECTOR_HPP_
 
+//custom includes
+//...
+
+//global includes
+#include <memory>
+
 namespace mae {
 	namespace controller {
 
@@ -15,7 +21,7 @@ namespace mae {
 			public:
 				virtual ~IMovementDetector();
 
-				virtual U detectMovement(T skeleton) = 0;
+				virtual std::shared_ptr<U> detectMovement(std::shared_ptr<T> skeleton) = 0;
 				virtual void setPoseBufferSize(int size) = 0;
 		};
 

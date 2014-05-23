@@ -8,7 +8,12 @@
 #ifndef IPOSEDETECTOR_HPP_
 #define IPOSEDETECTOR_HPP_
 
+//custom includes
 #include "GeneralPose.hpp"
+
+//global includes
+#include <vector>
+#include <memory>
 
 namespace mae {
 	namespace controller {
@@ -18,7 +23,7 @@ namespace mae {
 			public:
 				virtual ~IPoseDetector();
 
-				virtual mae::model::GeneralPose detectPose(T skeleton, int bodyParts[], int bodyPartsSize) = 0;
+				virtual std::shared_ptr<mae::model::GeneralPose> detectPose(std::shared_ptr<T> skeleton, std::vector<int> bodyParts) = 0;
 		};
 
 	} // namespace controller

@@ -12,7 +12,8 @@
 #include "../model/GeneralEnrichedPose.hpp"
 
 //global includes
-//...
+#include <vector>
+#include <memory>
 
 
 namespace mae {
@@ -23,7 +24,7 @@ namespace mae {
 			public:
 				virtual ~ISequenceGenerator();
 
-				virtual U generateSequence(mae::model::GeneralEnrichedPose keyPoses[], int keyPosesSize, int bodyParts[], int bodyPartsSize) = 0;
+				virtual std::shared_ptr<U> generateSequence(std::vector<std::shared_ptr<mae::model::GeneralEnrichedPose> > keyPoses[], std::vector<int> bodyParts) = 0;
 		};
 
 	} // namespace controller

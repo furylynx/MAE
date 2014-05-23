@@ -29,8 +29,8 @@ namespace mae {
 				//todo joints are angular - but central coordinate system necessary?
 
 				//angular joint
-				virtual void setJoint(int bodyPart, mae::fl::FLJoint joint);
-				virtual mae::fl::FLJoint getJoint(int bodyPart);
+				virtual void setJoint(int bodyPart, std::shared_ptr<mae::fl::FLJoint> joint);
+				virtual std::shared_ptr<mae::fl::FLJoint> getJoint(int bodyPart);
 
 				//get central coordinate system
 				virtual void setCoordSys(std::vector<double> u, std::vector<double> r, std::vector<double> t);
@@ -43,10 +43,10 @@ namespace mae {
 				// Stored torso joint is therefore used for the offset of the world coordinate system given
 				// by the depth sensor. The central coordinate system of this FLSkeleton is used for the
 				// representation by translating it into the torso joint.
-				virtual void setRelativeSkeleton(mae::model::GeneralSkeleton relative_skeleton);
+				virtual void setRelativeSkeleton(std::shared_ptr<mae::model::GeneralSkeleton> relative_skeleton);
 				//this will return a copy, therefore no working on the skeleton possible unless it is stored by setRelativeSkeleton...
 				//probably a pointer here is better?
-				virtual mae::model::GeneralSkeleton getRelativeSkeleton();
+				virtual std::shared_ptr<mae::model::GeneralSkeleton> getRelativeSkeleton();
 
 
 
@@ -66,8 +66,8 @@ namespace mae {
 				static const int ANGLE_RIGHT_WHOLE_LEG = 28;
 
 			private:
-			    std::unordered_map<int, mae::fl::FLJoint> hashmap_joints;
-				mae::model::GeneralSkeleton relative_skeleton;
+			    std::unordered_map<int, std::shared_ptr<mae::fl::FLJoint> > hashmap_joints;
+			    std::shared_ptr<mae::model::GeneralSkeleton> relative_skeleton;
 
 			    //central coordinate system
 			    std::vector<double> u;
