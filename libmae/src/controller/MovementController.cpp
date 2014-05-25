@@ -12,7 +12,7 @@ namespace mae{
 
 
 		//this is a template class
-		template <class T, class U>
+		template <typename T, typename U>
 		MovementController<T, U>::~MovementController() {
 			// TODO dtor
 		}

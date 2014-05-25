@@ -25,7 +25,9 @@
 namespace mae {
 	namespace fl {
 
-		class FLSkeletonController : mae::controller::ISkeletonController<mae::fl::FLSkeleton> {
+		class FLSkeletonController : mae::controller::ISkeletonController<mae::fl::FLSkeleton>
+		{
+
 			public:
 				FLSkeletonController();
 				virtual ~FLSkeletonController();

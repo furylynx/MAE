@@ -17,10 +17,10 @@
 namespace mae {
 	namespace controller {
 
-		template <class T>
+		template <typename T>
 		class ISkeletonController {
 			public:
-				virtual ~ISkeletonController();
+				virtual ~ISkeletonController(){ }
 
 				virtual std::shared_ptr<T> calculateSpecifiedSkeleton(std::shared_ptr<mae::model::GeneralSkeleton> skeleton) = 0;
 

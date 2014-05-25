@@ -10,22 +10,27 @@
 
 //custom includes
 #include "FLLabanSequence.hpp"
+#include "../model/GeneralEnrichedPose.hpp"
 #include "../controller/ISequenceGenerator.hpp"
 
 //global includes
-//...
+#include <memory>
+#include <vector>
 
 
 
 namespace mae {
 	namespace fl {
 
-		class FLLabanSequenceGenerator: public mae::controller::ISequenceGenerator<mae::fl::FLLabanSequence> {
+		class FLLabanSequenceGenerator : public mae::controller::ISequenceGenerator<mae::fl::FLLabanSequence>
+		{
 			public:
+
 				FLLabanSequenceGenerator();
 				virtual ~FLLabanSequenceGenerator();
 
-				virtual FLLabanSequence generateSequence(mae::model::GeneralEnrichedPose keyPoses[], int keyPosesSize, int bodyParts[], int bodyPartsSize);
+				virtual std::shared_ptr<mae::fl::FLLabanSequence> generateSequence(std::vector<std::shared_ptr<mae::model::GeneralEnrichedPose> > keyPoses[], std::vector<int> bodyParts);
+
 		};
 
 	} // namespace fl

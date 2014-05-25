@@ -74,5 +74,21 @@ namespace mae {
 			return relative_skeleton;
 		}
 
+
+		//angle representations
+		const int FLSkeleton::ANGLE_HEAD = 16;
+		const int FLSkeleton::ANGLE_LEFT_UPPER_ARM = 17;
+		const int FLSkeleton::ANGLE_LEFT_FOREARM = 18;
+		const int FLSkeleton::ANGLE_LEFT_WHOLE_ARM = 19;
+		const int FLSkeleton::ANGLE_RIGHT_UPPER_ARM = 20;
+		const int FLSkeleton::ANGLE_RIGHT_FOREARM = 21;
+		const int FLSkeleton::ANGLE_RIGHT_WHOLE_ARM = 22;
+		const int FLSkeleton::ANGLE_LEFT_THIGH = 23; //Oberschenkel
+		const int FLSkeleton::ANGLE_LEFT_SHANK = 24; //Unterschenkel
+		const int FLSkeleton::ANGLE_LEFT_WHOLE_LEG = 25;
+		const int FLSkeleton::ANGLE_RIGHT_THIGH = 26; //Oberschenkel
+		const int FLSkeleton::ANGLE_RIGHT_SHANK = 27; //Unterschenkel
+		const int FLSkeleton::ANGLE_RIGHT_WHOLE_LEG = 28;
+
 	} // namespace fl
 } // namespace mae

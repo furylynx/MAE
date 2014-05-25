@@ -51,19 +51,33 @@ namespace mae {
 
 
 				//angle representations
-				static const int ANGLE_HEAD = 16;
-				static const int ANGLE_LEFT_UPPER_ARM = 17;
-				static const int ANGLE_LEFT_FOREARM = 18;
-				static const int ANGLE_LEFT_WHOLE_ARM = 19;
-				static const int ANGLE_RIGHT_UPPER_ARM = 20;
-				static const int ANGLE_RIGHT_FOREARM = 21;
-				static const int ANGLE_RIGHT_WHOLE_ARM = 22;
-				static const int ANGLE_LEFT_THIGH = 23; //Oberschenkel
-				static const int ANGLE_LEFT_SHANK = 24; //Unterschenkel
-				static const int ANGLE_LEFT_WHOLE_LEG = 25;
-				static const int ANGLE_RIGHT_THIGH = 26; //Oberschenkel
-				static const int ANGLE_RIGHT_SHANK = 27; //Unterschenkel
-				static const int ANGLE_RIGHT_WHOLE_LEG = 28;
+				static const int ANGLE_HEAD ;
+				static const int ANGLE_LEFT_UPPER_ARM ;
+				static const int ANGLE_LEFT_FOREARM ;
+				static const int ANGLE_LEFT_WHOLE_ARM;
+				static const int ANGLE_RIGHT_UPPER_ARM ;
+				static const int ANGLE_RIGHT_FOREARM ;
+				static const int ANGLE_RIGHT_WHOLE_ARM ;
+				static const int ANGLE_LEFT_THIGH; //Oberschenkel
+				static const int ANGLE_LEFT_SHANK ; //Unterschenkel
+				static const int ANGLE_LEFT_WHOLE_LEG ;
+				static const int ANGLE_RIGHT_THIGH ; //Oberschenkel
+				static const int ANGLE_RIGHT_SHANK ; //Unterschenkel
+				static const int ANGLE_RIGHT_WHOLE_LEG ;
+
+//				static const int ANGLE_HEAD = 16;
+//				static const int ANGLE_LEFT_UPPER_ARM = 17;
+//				static const int ANGLE_LEFT_FOREARM = 18;
+//				static const int ANGLE_LEFT_WHOLE_ARM = 19;
+//				static const int ANGLE_RIGHT_UPPER_ARM = 20;
+//				static const int ANGLE_RIGHT_FOREARM = 21;
+//				static const int ANGLE_RIGHT_WHOLE_ARM = 22;
+//				static const int ANGLE_LEFT_THIGH = 23; //Oberschenkel
+//				static const int ANGLE_LEFT_SHANK = 24; //Unterschenkel
+//				static const int ANGLE_LEFT_WHOLE_LEG = 25;
+//				static const int ANGLE_RIGHT_THIGH = 26; //Oberschenkel
+//				static const int ANGLE_RIGHT_SHANK = 27; //Unterschenkel
+//				static const int ANGLE_RIGHT_WHOLE_LEG = 28;
 
 			private:
 			    std::unordered_map<int, std::shared_ptr<mae::fl::FLJoint> > hashmap_joints;

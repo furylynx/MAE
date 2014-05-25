@@ -8,11 +8,28 @@
 #include "FLLabanSubsequence.hpp"
 
 namespace mae {
-namespace fl {
+	namespace fl {
 
-FLLabanSubsequence::~FLLabanSubsequence() {
-	// TODO Auto-generated destructor stub
-}
+		FLLabanSubsequence::FLLabanSubsequence(){
 
-} /* namespace fl */
-} /* namespace mae */
+		}
+
+		FLLabanSubsequence::~FLLabanSubsequence() {
+			// TODO Auto-generated destructor stub
+		}
+
+
+
+		int FLLabanSubsequence::getRepresentedBodyPart(){
+
+			//todo
+			return -1;
+		}
+
+		//todo some kind of datatype that can hold all elements
+		void FLLabanSubsequence::getElements(){
+			//todo
+		}
+
+	} // namespace fl
+} // namespace mae

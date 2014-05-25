@@ -18,10 +18,10 @@
 namespace mae {
 	namespace controller {
 
-		template <class T>
+		template <typename T>
 		class IPoseDetector {
 			public:
-				virtual ~IPoseDetector();
+				virtual ~IPoseDetector(){}
 
 				virtual std::shared_ptr<mae::model::GeneralPose> detectPose(std::shared_ptr<T> skeleton, std::vector<int> bodyParts) = 0;
 		};
