@@ -28,24 +28,21 @@ namespace mae {
 				virtual std::shared_ptr<mae::model::GeneralJoint> getJoint(int bodyPart);
 
 
-
-			    static const int SKEL_HEAD = 1;
-			    static const int SKEL_NECK = 2;
-			    static const int SKEL_LEFT_SHOULDER = 3;
-			    static const int SKEL_LEFT_ELBOW = 4;
-			    static const int SKEL_LEFT_HAND = 5;
-			    static const int SKEL_RIGHT_SHOULDER = 6;
-			    static const int SKEL_RIGHT_ELBOW = 7;
-			    static const int SKEL_RIGHT_HAND = 8;
-			    static const int SKEL_TORSO = 9;
-			    static const int SKEL_LEFT_HIP = 10;
-			    static const int SKEL_LEFT_KNEE = 11;
-			    static const int SKEL_LEFT_FOOT = 12;
-			    static const int SKEL_RIGHT_HIP = 13;
-			    static const int SKEL_RIGHT_KNEE = 14;
-			    static const int SKEL_RIGHT_FOOT = 15;
-
-
+			    static const int SKEL_HEAD;
+			    static const int SKEL_NECK;
+			    static const int SKEL_LEFT_SHOULDER;
+			    static const int SKEL_LEFT_ELBOW;
+			    static const int SKEL_LEFT_HAND;
+			    static const int SKEL_RIGHT_SHOULDER;
+			    static const int SKEL_RIGHT_ELBOW;
+			    static const int SKEL_RIGHT_HAND;
+			    static const int SKEL_TORSO;
+			    static const int SKEL_LEFT_HIP;
+			    static const int SKEL_LEFT_KNEE;
+			    static const int SKEL_LEFT_FOOT;
+			    static const int SKEL_RIGHT_HIP;
+			    static const int SKEL_RIGHT_KNEE;
+			    static const int SKEL_RIGHT_FOOT;
 
 
 			private:

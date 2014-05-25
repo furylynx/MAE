@@ -19,10 +19,10 @@
 namespace mae {
 	namespace controller {
 
-		template <class U>
+		template <typename U>
 		class ISequenceGenerator {
 			public:
-				virtual ~ISequenceGenerator();
+				virtual ~ISequenceGenerator(){}
 
 				virtual std::shared_ptr<U> generateSequence(std::vector<std::shared_ptr<mae::model::GeneralEnrichedPose> > keyPoses[], std::vector<int> bodyParts) = 0;
 		};

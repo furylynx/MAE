@@ -21,7 +21,7 @@ namespace mae {
 
 		class IKeyPoseDetector {
 			public:
-				virtual ~IKeyPoseDetector();
+				virtual ~IKeyPoseDetector(){}
 
 				// edits the handed enriched poses, e.g. setKeyPose(false) but does not append the new enriched pose to the vector
 				// instead the new enriched pose is returned

@@ -17,9 +17,9 @@
 namespace mae {
 	namespace controller {
 
-		template <class T, class U> class IMovementDetector {
+		template <typename T, typename U> class IMovementDetector {
 			public:
-				virtual ~IMovementDetector();
+				virtual ~IMovementDetector(){ }
 
 				virtual std::shared_ptr<U> detectMovement(std::shared_ptr<T> skeleton) = 0;
 				virtual void setPoseBufferSize(int size) = 0;

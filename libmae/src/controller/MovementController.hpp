@@ -18,7 +18,7 @@
 namespace mae{
 	namespace controller {
 
-		template <class T, class U>
+		template <typename T, typename U>
 		class MovementController {
 			public:
 				MovementController(std::shared_ptr<mae::controller::IMovementDetector<T,U> > imd, std::vector<int> bodyParts);

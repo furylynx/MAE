@@ -7,6 +7,9 @@
 
 #include "FLSkeletonController.hpp"
 
+
+//using mae::controller::ISkeletonController<mae::fl::FLSkeleton>::~ISkeletonController;
+
 namespace mae {
 	namespace fl {
 
@@ -14,10 +17,11 @@ namespace mae {
 			// TODO Auto-generated destructor stub
 		}
 
+
 		FLSkeletonController::FLSkeletonController() {
 			// TODO Auto-generated constructor stub
-
 		}
+
 
 		std::shared_ptr<mae::fl::FLSkeleton> FLSkeletonController::calculateSpecifiedSkeleton(std::shared_ptr<mae::model::GeneralSkeleton> skeleton){
 
@@ -167,6 +171,7 @@ namespace mae {
 			result->setJoint(joint_fl_i, joint);
 
 
+
 			//todo calculate relative skeleton
 
 			//todo set coordinate system
@@ -174,7 +179,7 @@ namespace mae {
 			return result;
 		}
 
-		cv::Vec2d calcFirstDegreeJoint(std::shared_ptr<mae::model::GeneralSkeleton> skeleton, int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t){
+		cv::Vec2d FLSkeletonController::calcFirstDegreeJoint(std::shared_ptr<mae::model::GeneralSkeleton> skeleton, int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t){
 			// ---
 			// calculate angles for first degree joints
 			// ---
@@ -221,7 +226,7 @@ namespace mae {
 
 		}
 
-		cv::Vec2d calcSecondDegreeJoint(std::shared_ptr<mae::model::GeneralSkeleton> skeleton, int adjacent_joint, int outer_joint, int extremity_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t){
+		cv::Vec2d FLSkeletonController::calcSecondDegreeJoint(std::shared_ptr<mae::model::GeneralSkeleton> skeleton, int adjacent_joint, int outer_joint, int extremity_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t){
 
 			// ---
 			// calculate angles for second degree joints
@@ -404,6 +409,7 @@ namespace mae {
 
 			// collinear if a = beta * b;
 
+			//todo or other assumption: angle between both is 0 or 180 degree
 
 			double beta;
 
