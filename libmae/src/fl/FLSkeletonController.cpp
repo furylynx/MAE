@@ -110,6 +110,7 @@ namespace mae {
 
 			joints.push_back(mae::fl::FLSkeleton::ANGLE_LEFT_UPPER_ARM);
 			joints.push_back(mae::fl::FLSkeleton::ANGLE_LEFT_FOREARM);
+			joints.push_back(mae::fl::FLSkeleton::ANGLE_LEFT_WHOLE_ARM);
 
 			extremities.push_back(joints);
 			joints.clear();
@@ -121,6 +122,7 @@ namespace mae {
 
 			joints.push_back(mae::fl::FLSkeleton::ANGLE_RIGHT_UPPER_ARM);
 			joints.push_back(mae::fl::FLSkeleton::ANGLE_RIGHT_FOREARM);
+			joints.push_back(mae::fl::FLSkeleton::ANGLE_RIGHT_WHOLE_ARM);
 
 			extremities.push_back(joints);
 			joints.clear();
@@ -132,6 +134,7 @@ namespace mae {
 
 			joints.push_back(mae::fl::FLSkeleton::ANGLE_LEFT_THIGH);
 			joints.push_back(mae::fl::FLSkeleton::ANGLE_LEFT_SHANK);//unterschenkel
+			joints.push_back(mae::fl::FLSkeleton::ANGLE_LEFT_WHOLE_LEG);
 
 			extremities.push_back(joints);
 			joints.clear();
@@ -144,11 +147,10 @@ namespace mae {
 
 			joints.push_back(mae::fl::FLSkeleton::ANGLE_RIGHT_THIGH);
 			joints.push_back(mae::fl::FLSkeleton::ANGLE_RIGHT_SHANK);//unterschenkel
+			joints.push_back(mae::fl::FLSkeleton::ANGLE_RIGHT_WHOLE_LEG);
 
 			extremities.push_back(joints);
 			joints.clear();
-
-
 
 			for (unsigned int i = 0; i < extremities.size(); i++){
 				joints = extremities[i];
@@ -158,6 +160,7 @@ namespace mae {
 
 				int joint_fl_i = joints[3];
 				int joint_fl_o = joints[4];
+				int joint_fl_w = joints[5];
 
 				cv::Vec2d angles = FLSkeletonController::calcFirstDegreeJoint(skeleton, joint_i, joint_o, u, r, t);
 				std::shared_ptr<mae::fl::FLJoint> joint = std::shared_ptr<mae::fl::FLJoint> (new mae::fl::FLJoint());
@@ -169,11 +172,15 @@ namespace mae {
 				joint = std::shared_ptr<mae::fl::FLJoint> (new mae::fl::FLJoint());
 				joint->setTheta(angles[0]);
 				joint->setPhi(angles[1]);
-
 				result->setJoint(joint_fl_o, joint);
+
+				//whole extremity joint
+				angles = FLSkeletonController::calcFirstDegreeJoint(skeleton, joint_i, joint_e, u, r, t);
+				joint = std::shared_ptr<mae::fl::FLJoint> (new mae::fl::FLJoint());
+				joint->setTheta(angles[0]);
+				joint->setPhi(angles[1]);
+				result->setJoint(joint_fl_w, joint);
 			}
-
-
 
 			//spherical coordinates for the head
 			int joint_i = mae::model::GeneralSkeleton::SKEL_NECK;
@@ -188,10 +195,39 @@ namespace mae {
 			result->setJoint(joint_fl_i, joint);
 
 
+			// calculate relative skeleton
+			std::shared_ptr<mae::model::GeneralSkeleton> rel_skeleton = std::shared_ptr<mae::model::GeneralSkeleton>(new mae::model::GeneralSkeleton());
 
-			//todo calculate relative skeleton
+			//origin of the coordinate system (torso)
+			rel_skeleton->setJoint(mae::model::GeneralSkeleton::SKEL_TORSO, skeleton->getJoint(mae::model::GeneralSkeleton::SKEL_TORSO));
 
-			//todo set coordinate system
+			std::vector<int> skel_joint_ids = mae::model::GeneralSkeleton::get_joint_ids();
+			for (int i = 0; i< skel_joint_ids.size(); i++){
+				if (skel_joint_ids[i] != mae::model::GeneralSkeleton::SKEL_TORSO){
+					rel_skeleton->setJoint((int)skel_joint_ids[i], FLSkeletonController::vecToJoint(FLSkeletonController::projectToBasis(FLSkeletonController::jointToVec(skeleton->getJoint((int)skel_joint_ids[i])),FLSkeletonController::jointToVec(skeleton->getJoint(mae::model::GeneralSkeleton::SKEL_TORSO)), u, r, t)));
+				}
+			}
+
+			result->setRelativeSkeleton(rel_skeleton);
+
+
+			//set coordinate system
+			std::vector<double> vec_u;
+			vec_u.push_back(u[0]);
+			vec_u.push_back(u[1]);
+			vec_u.push_back(u[2]);
+
+			std::vector<double> vec_r;
+			vec_r.push_back(r[0]);
+			vec_r.push_back(r[1]);
+			vec_r.push_back(r[2]);
+
+			std::vector<double> vec_t;
+			vec_t.push_back(t[0]);
+			vec_t.push_back(t[1]);
+			vec_t.push_back(t[2]);
+
+			result->setCoordSys(vec_u, vec_r, vec_t);
 
 			return result;
 		}
@@ -309,6 +345,46 @@ namespace mae {
 			result[1] = joint->getY();
 			result[2] = joint->getZ();
 			return result;
+		}
+
+		std::shared_ptr<mae::model::GeneralJoint> FLSkeletonController::vecToJoint(cv::Vec3d vec){
+			return std::shared_ptr<mae::model::GeneralJoint>(new mae::model::GeneralJoint(vec[0], vec[1], vec[2]));
+		}
+
+		cv::Vec3d FLSkeletonController::projectToBasis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t){
+			//point to be projected
+			cv::Mat p = cv::Mat(4, 1, CV_64F);
+			p.at<double>(0) = point[0];
+			p.at<double>(1) = point[1];
+			p.at<double>(2) = point[2];
+			p.at<double>(3) = 1;
+
+			//coordinate transform matrix
+			cv::Mat m = cv::Mat(4, 4, CV_64F);
+			for (int i = 0; i<3 ; i++){
+				m.at<double>(i,0) = u[i];
+			}
+			m.at<double>(3,0) = 0;
+
+			for (int i = 0; i<3 ; i++){
+				m.at<double>(i,1) = r[i];
+			}
+			m.at<double>(3,1) = 0;
+
+			for (int i = 0; i<3 ; i++){
+				m.at<double>(i,2) = t[i];
+			}
+			m.at<double>(3,2) = 0;
+
+			for (int i = 0; i<3 ; i++){
+				m.at<double>(i,3) = position_vector[i];
+			}
+			m.at<double>(3,3) = 1;
+
+			//calc result
+			cv::Mat result = m.inv()*p;
+
+			return result.rowRange(0,3);
 		}
 
 		cv::Vec3d FLSkeletonController::projectOrthogonal(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d plane_u, cv::Vec3d plane_v){
