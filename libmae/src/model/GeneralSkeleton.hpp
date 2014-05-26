@@ -14,6 +14,7 @@
 //global includes
 #include <unordered_map>
 #include <memory>
+#include <vector>
 
 namespace mae {
 	namespace model {
@@ -27,6 +28,7 @@ namespace mae {
 				virtual void setJoint(int bodyPart, std::shared_ptr<mae::model::GeneralJoint> joint);
 				virtual std::shared_ptr<mae::model::GeneralJoint> getJoint(int bodyPart);
 
+				static std::vector<int> get_joint_ids() const;
 
 			    static const int SKEL_HEAD;
 			    static const int SKEL_NECK;

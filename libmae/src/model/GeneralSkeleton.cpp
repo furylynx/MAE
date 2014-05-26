@@ -45,6 +45,26 @@ namespace mae {
 		}
 
 
+		std::vector<int> GeneralSkeleton::get_joint_ids() const{
+			std::vector<int> joint_ids;
+			joint_ids.push_back(GeneralSkeleton::SKEL_HEAD);
+			joint_ids.push_back(GeneralSkeleton::SKEL_NECK);
+			joint_ids.push_back(GeneralSkeleton::SKEL_LEFT_SHOULDER);
+			joint_ids.push_back(GeneralSkeleton::SKEL_LEFT_ELBOW);
+			joint_ids.push_back(GeneralSkeleton::SKEL_LEFT_HAND);
+			joint_ids.push_back(GeneralSkeleton::SKEL_RIGHT_SHOULDER);
+			joint_ids.push_back(GeneralSkeleton::SKEL_RIGHT_ELBOW);
+			joint_ids.push_back(GeneralSkeleton::SKEL_RIGHT_HAND);
+			joint_ids.push_back(GeneralSkeleton::SKEL_TORSO);
+			joint_ids.push_back(GeneralSkeleton::SKEL_LEFT_HIP);
+			joint_ids.push_back(GeneralSkeleton::SKEL_LEFT_KNEE);
+			joint_ids.push_back(GeneralSkeleton::SKEL_LEFT_FOOT);
+			joint_ids.push_back(GeneralSkeleton::SKEL_RIGHT_HIP);
+			joint_ids.push_back(GeneralSkeleton::SKEL_RIGHT_KNEE);
+			joint_ids.push_back(GeneralSkeleton::SKEL_RIGHT_FOOT);
+			return joint_ids;
+		}
+
 		//const int defs
 		const int GeneralSkeleton::SKEL_HEAD = 1;
 		const int GeneralSkeleton::SKEL_NECK = 2;

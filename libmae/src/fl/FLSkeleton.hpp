@@ -44,8 +44,6 @@ namespace mae {
 				// by the depth sensor. The central coordinate system of this FLSkeleton is used for the
 				// representation by translating it into the torso joint.
 				virtual void setRelativeSkeleton(std::shared_ptr<mae::model::GeneralSkeleton> relative_skeleton);
-				//this will return a copy, therefore no working on the skeleton possible unless it is stored by setRelativeSkeleton...
-				//probably a pointer here is better?
 				virtual std::shared_ptr<mae::model::GeneralSkeleton> getRelativeSkeleton();
 
 
