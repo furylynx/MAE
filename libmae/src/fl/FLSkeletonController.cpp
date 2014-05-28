@@ -88,8 +88,6 @@ namespace mae {
 				r = -r;
 			}
 
-			std::cout << std::endl;
-
 			// ---
 			// Calculate spherical coordinates
 			// for the resulting skeleton
@@ -162,24 +160,17 @@ namespace mae {
 				int joint_fl_o = joints[4];
 				int joint_fl_w = joints[5];
 
-				cv::Vec2d angles = FLSkeletonController::calcFirstDegreeJoint(skeleton, joint_i, joint_o, u, r, t);
-				std::shared_ptr<mae::fl::FLJoint> joint = std::shared_ptr<mae::fl::FLJoint> (new mae::fl::FLJoint());
-				joint->setTheta(angles[0]);
-				joint->setPhi(angles[1]);
-				result->setJoint(joint_fl_i, joint);
+				cv::Vec2d angles;
+
+				angles = FLSkeletonController::calcFirstDegreeJoint(skeleton, joint_i, joint_o, u, r, t);
+				result->setJoint(joint_fl_i, std::shared_ptr<mae::fl::FLJoint> (new mae::fl::FLJoint(angles[0], angles[1])));
 
 				angles = FLSkeletonController::calcSecondDegreeJoint(skeleton, joint_i, joint_o, joint_e, u, r, t);
-				joint = std::shared_ptr<mae::fl::FLJoint> (new mae::fl::FLJoint());
-				joint->setTheta(angles[0]);
-				joint->setPhi(angles[1]);
-				result->setJoint(joint_fl_o, joint);
+				result->setJoint(joint_fl_o, std::shared_ptr<mae::fl::FLJoint> (new mae::fl::FLJoint(angles[0], angles[1])));
 
 				//whole extremity joint
 				angles = FLSkeletonController::calcFirstDegreeJoint(skeleton, joint_i, joint_e, u, r, t);
-				joint = std::shared_ptr<mae::fl::FLJoint> (new mae::fl::FLJoint());
-				joint->setTheta(angles[0]);
-				joint->setPhi(angles[1]);
-				result->setJoint(joint_fl_w, joint);
+				result->setJoint(joint_fl_w, std::shared_ptr<mae::fl::FLJoint> (new mae::fl::FLJoint(angles[0], angles[1])));
 			}
 
 			//spherical coordinates for the head
@@ -189,10 +180,8 @@ namespace mae {
 			int joint_fl_i = mae::fl::FLSkeleton::ANGLE_HEAD;
 
 			cv::Vec2d angles = FLSkeletonController::calcFirstDegreeJoint(skeleton, joint_i, joint_o, r, t, u);
-			std::shared_ptr<mae::fl::FLJoint> joint = std::shared_ptr<mae::fl::FLJoint> (new mae::fl::FLJoint());
-			joint->setTheta(angles[0]);
-			joint->setPhi(angles[1]);
-			result->setJoint(joint_fl_i, joint);
+			result->setJoint(joint_fl_i, std::shared_ptr<mae::fl::FLJoint> (new mae::fl::FLJoint(angles[0], angles[1])));
+
 
 
 			// calculate relative skeleton
@@ -202,7 +191,7 @@ namespace mae {
 			rel_skeleton->setJoint(mae::model::GeneralSkeleton::SKEL_TORSO, skeleton->getJoint(mae::model::GeneralSkeleton::SKEL_TORSO));
 
 			std::vector<int> skel_joint_ids = mae::model::GeneralSkeleton::get_joint_ids();
-			for (int i = 0; i< skel_joint_ids.size(); i++){
+			for (unsigned int i = 0; i< skel_joint_ids.size(); i++){
 				if (skel_joint_ids[i] != mae::model::GeneralSkeleton::SKEL_TORSO){
 					rel_skeleton->setJoint((int)skel_joint_ids[i], FLSkeletonController::vecToJoint(FLSkeletonController::projectToBasis(FLSkeletonController::jointToVec(skeleton->getJoint((int)skel_joint_ids[i])),FLSkeletonController::jointToVec(skeleton->getJoint(mae::model::GeneralSkeleton::SKEL_TORSO)), u, r, t)));
 				}
@@ -246,15 +235,15 @@ namespace mae {
 
 			// inclination theta
 			// calculates theta in radian
-			double theta = FLSkeletonController::calcAngleHalfDeg(u, fdvec);
+			double phi = FLSkeletonController::calcAngleHalfDeg(u, fdvec);
 
 
 			// calculates phi in radian
-			double phi;
+			double theta;
 
 			if (FLSkeletonController::areCollinear(u, fdvec))
 			{
-				phi = 0;
+				theta = 0;
 			}
 			else
 			{
@@ -262,12 +251,12 @@ namespace mae {
 				cv::Vec3d vec_o_p = FLSkeletonController::projectOrthogonal(vec_o, vec_i, r, t);
 				cv::Vec3d fdvec_p = cv::normalize(vec_i - vec_o_p);
 
-				phi = FLSkeletonController::calcAngleDeg(r, fdvec_p);
+				theta = FLSkeletonController::calcAngleDeg(r, fdvec_p);
 			}
 
 			cv::Vec2d angles;
-			angles[0] = theta;
-			angles[1] = phi;
+			angles[0] = phi;
+			angles[1] = theta;
 
 			return angles;
 
@@ -290,19 +279,19 @@ namespace mae {
 			// get second degree bone vector
 			cv::Vec3d sdvec = cv::normalize(vec_e- vec_o);
 
-			// calc inclination theta
+			// calc inclination phi
 			// angle between fdvec and sdvec which is the angle between r_r and sdvec (angle ranges from 0 to 180 degree
-			double theta = FLSkeletonController::calcAngleHalfDeg(fdvec, sdvec);
+			double phi = FLSkeletonController::calcAngleHalfDeg(fdvec, sdvec);
 
 
-			// calc azimuth phi
-			double phi;
+			// calc azimuth theta
+			double theta;
 
 			if (FLSkeletonController::areCollinear(fdvec, sdvec))
 			{
 				// both joint vectors fdvec and sdvec are collinear
 				// therefore we can set phi to zero
-				phi = 0;
+				theta = 0;
 			}
 			else
 			{
@@ -325,14 +314,14 @@ namespace mae {
 				cv::Vec3d sdvec_p = FLSkeletonController::projectOrthogonal(sdvec+vec_o, vec_o, u_r, t_r);
 				sdvec_p = cv::normalize(vec_o - sdvec_p);
 
-				phi = FLSkeletonController::calcAngleDeg(t_r, sdvec_p);
+				theta = FLSkeletonController::calcAngleDeg(t_r, sdvec_p);
 			}
 
 
 			//return the angles
 			cv::Vec2d angles;
-			angles[0] = theta;
-			angles[1] = phi;
+			angles[0] = phi;
+			angles[1] = theta;
 
 			return angles;
 

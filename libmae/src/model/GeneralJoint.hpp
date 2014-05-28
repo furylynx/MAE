@@ -8,6 +8,11 @@
 #ifndef GENERALJOINT_H_
 #define GENERALJOINT_H_
 
+//custom includes
+
+//global includes
+#include <iostream>
+
 namespace mae {
 	namespace model {
 
@@ -30,10 +35,24 @@ namespace mae {
 				virtual bool isValid() const;
 
 
+				friend std::ostream& operator<<(std::ostream& os, const GeneralJoint& obj)
+				{
+					if (!obj.isValid())
+					{
+						os << "(invalid joint)";
+					}
+					else
+					{
+						os << "(" << obj.getX() << ", "<< obj.getY() << ", "<< obj.getZ() << ")";
+					}
+
+					return os;
+				}
+
 			private:
-				int x;
-				int y;
-				int z;
+				double x;
+				double y;
+				double z;
 
 				bool valid;
 

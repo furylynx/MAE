@@ -45,7 +45,7 @@ namespace mae {
 		}
 
 
-		std::vector<int> GeneralSkeleton::get_joint_ids() const{
+		std::vector<int> GeneralSkeleton::get_joint_ids(){
 			std::vector<int> joint_ids;
 			joint_ids.push_back(GeneralSkeleton::SKEL_HEAD);
 			joint_ids.push_back(GeneralSkeleton::SKEL_NECK);

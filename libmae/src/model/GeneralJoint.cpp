@@ -22,7 +22,8 @@ namespace mae {
 			this->valid = false;
 		}
 
-		GeneralJoint::GeneralJoint(double x, double y, double z){
+		GeneralJoint::GeneralJoint(double x, double y, double z)
+		{
 			this->x = x;
 			this->y = y;
 			this->z = z;
@@ -61,6 +62,7 @@ namespace mae {
 		bool GeneralJoint::isValid() const{
 			return valid;
 		}
+
 
 	} // namespace model
 } // namespace mae
