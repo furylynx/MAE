@@ -49,19 +49,19 @@ namespace mae {
 
 
 				//angle representations
-				static const int ANGLE_HEAD ;
-				static const int ANGLE_LEFT_UPPER_ARM ;
-				static const int ANGLE_LEFT_FOREARM ;
+				static const int ANGLE_HEAD;
+				static const int ANGLE_LEFT_UPPER_ARM;
+				static const int ANGLE_LEFT_FOREARM;
 				static const int ANGLE_LEFT_WHOLE_ARM;
-				static const int ANGLE_RIGHT_UPPER_ARM ;
-				static const int ANGLE_RIGHT_FOREARM ;
-				static const int ANGLE_RIGHT_WHOLE_ARM ;
+				static const int ANGLE_RIGHT_UPPER_ARM;
+				static const int ANGLE_RIGHT_FOREARM;
+				static const int ANGLE_RIGHT_WHOLE_ARM;
 				static const int ANGLE_LEFT_THIGH; //Oberschenkel
-				static const int ANGLE_LEFT_SHANK ; //Unterschenkel
+				static const int ANGLE_LEFT_SHANK; //Unterschenkel
 				static const int ANGLE_LEFT_WHOLE_LEG ;
-				static const int ANGLE_RIGHT_THIGH ; //Oberschenkel
-				static const int ANGLE_RIGHT_SHANK ; //Unterschenkel
-				static const int ANGLE_RIGHT_WHOLE_LEG ;
+				static const int ANGLE_RIGHT_THIGH; //Oberschenkel
+				static const int ANGLE_RIGHT_SHANK; //Unterschenkel
+				static const int ANGLE_RIGHT_WHOLE_LEG;
 
 //				static const int ANGLE_HEAD = 16;
 //				static const int ANGLE_LEFT_UPPER_ARM = 17;

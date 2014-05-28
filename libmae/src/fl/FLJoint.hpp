@@ -8,6 +8,11 @@
 #ifndef FLJOINT_HPP_
 #define FLJOINT_HPP_
 
+//custom includes
+
+//global includes
+#include <iostream>
+
 namespace mae {
 	namespace fl {
 
@@ -25,6 +30,20 @@ namespace mae {
 
 				virtual void setValid(bool isValid);
 				virtual bool isValid() const;
+
+				friend std::ostream& operator<<(std::ostream& os, const FLJoint& obj)
+				{
+					if (!obj.isValid())
+					{
+						os << "(invalid joint)";
+					}
+					else
+					{
+						os << "(phi = " << obj.getPhi() << "° , theta = " << obj.getTheta() << "°)";
+					}
+
+					return os;
+				}
 
 			private:
 				double theta;
