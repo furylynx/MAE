@@ -13,6 +13,7 @@
 
 //global includes
 #include <memory>
+#include <vector>
 
 namespace mae {
 	namespace controller {
@@ -21,7 +22,7 @@ namespace mae {
 			public:
 				virtual ~IMovementDetector(){ }
 
-				virtual std::shared_ptr<U> detectMovement(std::shared_ptr<T> skeleton) = 0;
+				virtual std::shared_ptr<U> detectMovement(std::shared_ptr<T> skeleton, std::vector<int> bodyParts) = 0;
 				virtual void setPoseBufferSize(int size) = 0;
 		};
 

@@ -13,6 +13,7 @@
 
 //global includes
 #include <vector>
+#include <queue>
 #include <memory>
 
 
@@ -24,7 +25,7 @@ namespace mae {
 			public:
 				virtual ~ISequenceGenerator(){}
 
-				virtual std::shared_ptr<U> generateSequence(std::vector<std::shared_ptr<mae::model::GeneralEnrichedPose> > keyPoses[], std::vector<int> bodyParts) = 0;
+				virtual std::shared_ptr<U> generateSequence(std::queue<std::shared_ptr<mae::model::GeneralEnrichedPose> > keyPoses, std::vector<int> bodyParts) = 0;
 		};
 
 	} // namespace controller

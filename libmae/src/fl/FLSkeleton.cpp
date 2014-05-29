@@ -75,6 +75,24 @@ namespace mae {
 		}
 
 
+		std::vector<int> FLSkeleton::get_joint_ids(){
+			std::vector<int> joint_ids;
+			joint_ids.push_back(FLSkeleton::ANGLE_HEAD);
+			joint_ids.push_back(FLSkeleton::ANGLE_LEFT_UPPER_ARM);
+			joint_ids.push_back(FLSkeleton::ANGLE_LEFT_FOREARM);
+			joint_ids.push_back(FLSkeleton::ANGLE_LEFT_WHOLE_ARM);
+			joint_ids.push_back(FLSkeleton::ANGLE_RIGHT_UPPER_ARM);
+			joint_ids.push_back(FLSkeleton::ANGLE_RIGHT_FOREARM);
+			joint_ids.push_back(FLSkeleton::ANGLE_RIGHT_WHOLE_ARM);
+			joint_ids.push_back(FLSkeleton::ANGLE_LEFT_THIGH);
+			joint_ids.push_back(FLSkeleton::ANGLE_LEFT_SHANK);
+			joint_ids.push_back(FLSkeleton::ANGLE_LEFT_WHOLE_LEG);
+			joint_ids.push_back(FLSkeleton::ANGLE_RIGHT_THIGH);
+			joint_ids.push_back(FLSkeleton::ANGLE_RIGHT_SHANK);
+			joint_ids.push_back(FLSkeleton::ANGLE_RIGHT_WHOLE_LEG);
+			return joint_ids;
+		}
+
 		//angle representations
 		const int FLSkeleton::ANGLE_HEAD = 16;
 		const int FLSkeleton::ANGLE_LEFT_UPPER_ARM = 17;

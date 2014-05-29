@@ -48,6 +48,8 @@ namespace mae {
 
 
 
+				static std::vector<int> get_joint_ids();
+
 				//angle representations
 				static const int ANGLE_HEAD;
 				static const int ANGLE_LEFT_UPPER_ARM;

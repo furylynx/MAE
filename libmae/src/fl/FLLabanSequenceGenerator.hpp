@@ -22,14 +22,14 @@
 namespace mae {
 	namespace fl {
 
-		class FLLabanSequenceGenerator : public mae::controller::ISequenceGenerator<mae::fl::FLLabanSequence>
+		class FLLabanSequenceGenerator : public mae::controller::ISequenceGenerator<FLLabanSequence>
 		{
 			public:
 
 				FLLabanSequenceGenerator();
 				virtual ~FLLabanSequenceGenerator();
 
-				virtual std::shared_ptr<mae::fl::FLLabanSequence> generateSequence(std::vector<std::shared_ptr<mae::model::GeneralEnrichedPose> > keyPoses[], std::vector<int> bodyParts);
+				virtual std::shared_ptr<FLLabanSequence> generateSequence(std::queue<std::shared_ptr<mae::model::GeneralEnrichedPose> > keyPoses, std::vector<int> bodyParts);
 
 		};
 
