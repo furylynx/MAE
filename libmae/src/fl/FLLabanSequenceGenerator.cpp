@@ -13,17 +13,14 @@ namespace mae {
 	namespace fl {
 
 		FLLabanSequenceGenerator::FLLabanSequenceGenerator() {
-			// TODO Auto-generated constructor stub
-
 		}
 
 		FLLabanSequenceGenerator::~FLLabanSequenceGenerator() {
-			// TODO Auto-generated destructor stub
 		}
 
-		std::shared_ptr<mae::fl::FLLabanSequence> FLLabanSequenceGenerator::generateSequence(std::vector<std::shared_ptr<mae::model::GeneralEnrichedPose> > keyPoses[], std::vector<int> bodyParts){
+		std::shared_ptr<FLLabanSequence> FLLabanSequenceGenerator::generateSequence(std::queue<std::shared_ptr<mae::model::GeneralEnrichedPose> > keyPoses, std::vector<int> bodyParts){
 
-			std::shared_ptr<mae::fl::FLLabanSequence> sequence = std::shared_ptr<mae::fl::FLLabanSequence>(new mae::fl::FLLabanSequence());
+			std::shared_ptr<mae::fl::FLLabanSequence> sequence;
 
 			//todo do stuff in here
 

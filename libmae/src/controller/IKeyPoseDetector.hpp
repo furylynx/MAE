@@ -9,11 +9,12 @@
 #define IKEYPOSEDETECTOR_HPP_
 
 //custom includes
-#include "GeneralPose.hpp"
-#include "GeneralEnrichedPose.hpp"
+#include "../model/GeneralPose.hpp"
+#include "../model/GeneralEnrichedPose.hpp"
 
 //global includes
 #include <vector>
+#include <queue>
 #include <memory>
 
 namespace mae {
@@ -25,7 +26,7 @@ namespace mae {
 
 				// edits the handed enriched poses, e.g. setKeyPose(false) but does not append the new enriched pose to the vector
 				// instead the new enriched pose is returned
-				virtual std::shared_ptr<mae::model::GeneralEnrichedPose> estimateFrame(std::shared_ptr<mae::model::GeneralPose> currentPose, std::vector<std::shared_ptr<mae::model::GeneralEnrichedPose> > previousSequence[], std::vector<int> bodyParts) = 0;
+				virtual std::shared_ptr<mae::model::GeneralEnrichedPose> estimateFrame(std::shared_ptr<mae::model::GeneralPose> currentPose, std::queue<std::shared_ptr<mae::model::GeneralEnrichedPose> > previousSequence, std::vector<int> bodyParts) = 0;
 		};
 
 	} // namespace controller

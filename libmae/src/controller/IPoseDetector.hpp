@@ -9,7 +9,7 @@
 #define IPOSEDETECTOR_HPP_
 
 //custom includes
-#include "GeneralPose.hpp"
+#include "../model/GeneralPose.hpp"
 
 //global includes
 #include <vector>

@@ -10,6 +10,7 @@
 
 //custom includes
 #include "FLSkeleton.hpp"
+#include "FLMath.hpp"
 #include "../controller/ISkeletonController.hpp"
 #include "../model/GeneralJoint.hpp"
 #include "../model/GeneralSkeleton.hpp"
@@ -41,26 +42,9 @@ namespace mae {
 				static cv::Vec2d calcSecondDegreeJoint(std::shared_ptr<mae::model::GeneralSkeleton> skeleton, int adjacent_joint, int outer_joint, int extremity_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
 
 
-				static cv::Vec3d jointToVec(std::shared_ptr<mae::model::GeneralJoint> joint);
-				static std::shared_ptr<mae::model::GeneralJoint> vecToJoint(cv::Vec3d vec);
-
-				static cv::Vec3d projectToBasis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
-
-				static cv::Vec3d projectOrthogonal(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d plane_u, cv::Vec3d plane_v);
-				static cv::Vec3d rotateAroundAxis(cv::Vec3d point, cv::Vec3d axis, double beta);
-				static bool areCollinear(cv::Vec3d a, cv::Vec3d b);
-
-				//return angle in radian
-				static double calcAngle(cv::Vec3d a, cv::Vec3d b);
-				static double calcAngleDeg(cv::Vec3d a, cv::Vec3d b);
-				static double radToDeg(double val);
-
-				static double calcAngleHalf(cv::Vec3d a, cv::Vec3d b);
-				static double calcAngleHalfDeg(cv::Vec3d a, cv::Vec3d b);
-
 		};
 
-	} /* namespace fl */
-} /* namespace mae */
+	} // namespace fl
+} // namespace mae
 
 #endif /* FLSKELETONCONTROLLER_HPP_ */
