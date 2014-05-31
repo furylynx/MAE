@@ -1,9 +1,9 @@
 /*
- * FLJoint.cpp
- *
- *  Created on: 20.05.2014
- *      Author: keks
- */
+* FLJoint.cpp
+*
+* Created on: 20.05.2014
+* Author: keks
+*/
 
 #include "FLJoint.hpp"
 

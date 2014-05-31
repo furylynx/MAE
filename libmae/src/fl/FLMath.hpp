@@ -54,6 +54,8 @@ namespace mae {
 				static double calcAngleHalf(cv::Vec3d a, cv::Vec3d b);
 				static double calcAngleHalfDeg(cv::Vec3d a, cv::Vec3d b);
 
+				static double fmod_pos(double a, double b);
+
 		};
 
 	} /* namespace fl */
