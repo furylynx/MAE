@@ -10,7 +10,8 @@
 namespace mae {
 	namespace fl {
 
-		cv::Vec3d FLMath::jointToVec(std::shared_ptr<mae::model::GeneralJoint> joint){
+		cv::Vec3d FLMath::jointToVec(std::shared_ptr<mae::model::GeneralJoint> joint)
+		{
 			cv::Vec3d result;
 
 			result[0] = joint->getX();
@@ -19,11 +20,13 @@ namespace mae {
 			return result;
 		}
 
-		std::shared_ptr<mae::model::GeneralJoint> FLMath::vecToJoint(cv::Vec3d vec){
+		std::shared_ptr<mae::model::GeneralJoint> FLMath::vecToJoint(cv::Vec3d vec)
+		{
 			return std::shared_ptr<mae::model::GeneralJoint>(new mae::model::GeneralJoint(vec[0], vec[1], vec[2]));
 		}
 
-		cv::Vec2d FLMath::jointToVec_fl(std::shared_ptr<mae::fl::FLJoint> joint){
+		cv::Vec2d FLMath::jointToVec_fl(std::shared_ptr<mae::fl::FLJoint> joint)
+		{
 			cv::Vec2d result;
 
 			result[0] = joint->getPhi();
@@ -31,11 +34,13 @@ namespace mae {
 			return result;
 		}
 
-		std::shared_ptr<mae::fl::FLJoint> FLMath::vecTojoint_fl(cv::Vec2d vec){
+		std::shared_ptr<mae::fl::FLJoint> FLMath::vecTojoint_fl(cv::Vec2d vec)
+		{
 			return std::shared_ptr<mae::fl::FLJoint>(new mae::fl::FLJoint(vec[0], vec[1]));
 		}
 
-		std::vector<double> FLMath::vecTostdVec(cv::Vec3d vec){
+		std::vector<double> FLMath::vecTostdVec(cv::Vec3d vec)
+		{
 			std::vector<double> result;
 
 			for (int i = 0; i< 3; i++){
@@ -45,7 +50,8 @@ namespace mae {
 			return result;
 		}
 
-		std::vector<double> FLMath::vecTostdVec(cv::Vec2d vec){
+		std::vector<double> FLMath::vecTostdVec(cv::Vec2d vec)
+		{
 			std::vector<double> result;
 
 			for (int i = 0; i< 2; i++){
@@ -55,7 +61,8 @@ namespace mae {
 			return result;
 		}
 
-		cv::Vec3d FLMath::stdVecToVec3d(std::vector<double> vec){
+		cv::Vec3d FLMath::stdVecToVec3d(std::vector<double> vec)
+		{
 
 			if (vec.size() != 3)
 			{
@@ -73,7 +80,8 @@ namespace mae {
 			}
 		}
 
-		cv::Vec2d FLMath::stdVecToVec2d(std::vector<double> vec){
+		cv::Vec2d FLMath::stdVecToVec2d(std::vector<double> vec)
+		{
 
 			if (vec.size() != 2)
 			{
@@ -92,7 +100,8 @@ namespace mae {
 		}
 
 
-		cv::Vec3d FLMath::projectToBasis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t){
+		cv::Vec3d FLMath::projectToBasis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t)
+		{
 			//point to be projected
 			cv::Mat p = cv::Mat(4, 1, CV_64F);
 			p.at<double>(0) = point[0];
@@ -128,7 +137,8 @@ namespace mae {
 			return result.rowRange(0,3);
 		}
 
-		cv::Vec3d FLMath::projectOrthogonal(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d plane_u, cv::Vec3d plane_v){
+		cv::Vec3d FLMath::projectOrthogonal(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d plane_u, cv::Vec3d plane_v)
+		{
 
 			//point to be projected
 			cv::Mat p = cv::Mat(4, 1, CV_64F);
@@ -176,7 +186,8 @@ namespace mae {
 			return result.rowRange(0,3);
 		}
 
-		cv::Vec3d FLMath::rotateAroundAxis(cv::Vec3d point, cv::Vec3d axis, double beta){
+		cv::Vec3d FLMath::rotateAroundAxis(cv::Vec3d point, cv::Vec3d axis, double beta)
+		{
 
 			//point to be projected
 			cv::Mat p = cv::Mat::zeros(3,1,CV_64F);
@@ -230,7 +241,8 @@ namespace mae {
 			return result.rowRange(0,3);
 		}
 
-		bool FLMath::areCollinear(cv::Vec3d a, cv::Vec3d b){
+		bool FLMath::areCollinear(cv::Vec3d a, cv::Vec3d b)
+		{
 
 			// collinear if a = beta * b;
 
@@ -244,7 +256,8 @@ namespace mae {
 			return angle == 0 || angle == M_PI || angle == -M_PI;
 		}
 
-		double FLMath::calcAngle(cv::Vec3d a, cv::Vec3d b){
+		double FLMath::calcAngle(cv::Vec3d a, cv::Vec3d b)
+		{
 
 			double halfAngle = FLMath::calcAngleHalf(a,b);
 
@@ -276,23 +289,37 @@ namespace mae {
 			return halfAngle*sign;
 		}
 
-		double FLMath::calcAngleDeg(cv::Vec3d a, cv::Vec3d b){
+		double FLMath::calcAngleDeg(cv::Vec3d a, cv::Vec3d b)
+		{
 			return FLMath::radToDeg(FLMath::calcAngle(a, b));
 		}
 
-		double FLMath::calcAngleHalf(cv::Vec3d a, cv::Vec3d b){
+		double FLMath::calcAngleHalf(cv::Vec3d a, cv::Vec3d b)
+		{
 			return std::acos(a.dot(b));
 		}
 
-		double FLMath::calcAngleHalfDeg(cv::Vec3d a, cv::Vec3d b){
+		double FLMath::calcAngleHalfDeg(cv::Vec3d a, cv::Vec3d b)
+		{
 			return FLMath::radToDeg(FLMath::calcAngleHalf(a, b));
 		}
 
-		double FLMath::radToDeg(double val){
+		double FLMath::radToDeg(double val)
+		{
 			return val*180 / M_PI;
 		}
 
+		double FLMath::fmod_pos(double a, double b)
+		{
+			double tmp = std::fmod(a,b);
 
+			if (tmp < 0)
+			{
+				tmp = b+tmp;
+			}
+
+			return tmp;
+		}
 		//todo other
 
 	} // namespace fl

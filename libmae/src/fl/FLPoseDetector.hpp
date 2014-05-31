@@ -12,6 +12,7 @@
 #include "../controller/IPoseDetector.hpp"
 #include "FLSkeleton.hpp"
 #include "FLMath.hpp"
+#include "FLLabanSequence.hpp"
 
 
 //global includes

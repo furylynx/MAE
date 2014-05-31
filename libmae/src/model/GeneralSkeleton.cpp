@@ -1,9 +1,9 @@
 /*
- * GeneralSkeleton.cpp
- *
- *  Created on: 15.05.2014
- *      Author: keks
- */
+* GeneralSkeleton.cpp
+*
+* Created on: 15.05.2014
+* Author: keks
+*/
 
 #include "GeneralSkeleton.hpp"
 
