@@ -98,8 +98,10 @@ namespace mae {
 
 
 			//fill vector with body parts in order to process them later
-			std::vector<std::vector<int> > extremities = std::vector<std::vector<int> >();
-			std::vector<int> joints = std::vector<int>();
+			std::vector<cv::Vec3d> md;
+
+			std::vector<std::vector<int> > extremities;
+			std::vector<int> joints;
 
 			//left arm
 			joints.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_SHOULDER);
@@ -111,6 +113,7 @@ namespace mae {
 			joints.push_back(FLSkeleton::ANGLE_LEFT_WHOLE_ARM);
 
 			extremities.push_back(joints);
+			md.push_back(r);
 			joints.clear();
 
 			//right arm
@@ -123,6 +126,7 @@ namespace mae {
 			joints.push_back(FLSkeleton::ANGLE_RIGHT_WHOLE_ARM);
 
 			extremities.push_back(joints);
+			md.push_back(-r);
 			joints.clear();
 
 			//left leg
@@ -135,6 +139,7 @@ namespace mae {
 			joints.push_back(mae::fl::FLSkeleton::ANGLE_LEFT_WHOLE_LEG);
 
 			extremities.push_back(joints);
+			md.push_back(u);
 			joints.clear();
 
 
@@ -148,6 +153,7 @@ namespace mae {
 			joints.push_back(FLSkeleton::ANGLE_RIGHT_WHOLE_LEG);
 
 			extremities.push_back(joints);
+			md.push_back(u);
 			joints.clear();
 
 			for (unsigned int i = 0; i < extremities.size(); i++){
@@ -162,7 +168,8 @@ namespace mae {
 
 				cv::Vec2d angles;
 
-				angles = FLSkeletonController::calcFirstDegreeJoint(skeleton, joint_i, joint_o, u, r, t);
+				angles = FLSkeletonController::calcFirstDegreeJoint_md(skeleton, joint_i, joint_o, u, r, t, (cv::Vec3d) md[i]);
+				//angles = FLSkeletonController::calcFirstDegreeJoint(skeleton, joint_i, joint_o, u, r, t);
 				result->setJoint(joint_fl_i, std::shared_ptr<mae::fl::FLJoint> (new mae::fl::FLJoint(angles[0], angles[1])));
 
 				angles = FLSkeletonController::calcSecondDegreeJoint(skeleton, joint_i, joint_o, joint_e, u, r, t);
@@ -219,6 +226,65 @@ namespace mae {
 			result->setCoordSys(vec_u, vec_r, vec_t);
 
 			return result;
+		}
+
+		cv::Vec2d FLSkeletonController::calcFirstDegreeJoint_md(std::shared_ptr<mae::model::GeneralSkeleton> skeleton, int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t, cv::Vec3d md){
+			// ---
+			// calculate angles for first degree joints
+			// ---
+
+			cv::Vec3d vec_i = FLMath::jointToVec(skeleton->getJoint(adjacent_joint));
+			cv::Vec3d vec_o = FLMath::jointToVec(skeleton->getJoint(outer_joint));
+
+			//set up new rotated basis
+			double beta = FLMath::calcAngle(md, r);
+
+			cv::Vec3d u_r = u;
+			cv::Vec3d r_r = r;
+			cv::Vec3d t_r = t;
+
+			if (beta != 0){
+				//rotate around axis b = md x r ...
+				cv::Vec3d b = cv::normalize(md.cross(r));
+
+				//todo dont calculate the rotation matrix several times : efficiency!!
+				//apply to all
+				cv::Vec3d u_r = FLMath::rotateAroundAxis(u, b, -beta);
+				// r is not needed to be rotated since the projection will work with the plane spanned by u and t
+				cv::Vec3d r_r = FLMath::rotateAroundAxis(r, b, -beta);
+				cv::Vec3d t_r = FLMath::rotateAroundAxis(t, b, -beta);
+			}
+
+			// get first degree bone vector
+			cv::Vec3d fdvec = cv::normalize(vec_o - vec_i);
+
+			// inclination theta
+			// calculates theta in radian
+			double phi = FLMath::calcAngleHalfDeg(r_r, fdvec);
+
+
+			// calculates phi in radian
+			double theta;
+
+			if (FLMath::areCollinear(r_r, fdvec))
+			{
+				theta = 0;
+			}
+			else
+			{
+				//get azimuth phi by projecting the joint on the r-t-plane
+				cv::Vec3d vec_o_p = FLMath::projectOrthogonal(vec_o, vec_i, u_r, t_r);
+				cv::Vec3d fdvec_p = cv::normalize(vec_i - vec_o_p);
+
+				theta = FLMath::calcAngleDeg(t_r, fdvec_p);
+			}
+
+			cv::Vec2d angles;
+			angles[0] = phi;
+			angles[1] = theta;
+
+			return angles;
+
 		}
 
 		cv::Vec2d FLSkeletonController::calcFirstDegreeJoint(std::shared_ptr<mae::model::GeneralSkeleton> skeleton, int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t){
@@ -307,7 +373,7 @@ namespace mae {
 				//apply to all
 				cv::Vec3d u_r = FLMath::rotateAroundAxis(u, b, -beta);
 				// r is not needed to be rotated since the projection will work with the plane spanned by u and t
-				//cv::Vec3d r_r = FLSkeletonController::rotateAroundAxis(r, b, -beta);
+				//cv::Vec3d r_r = FLMath::rotateAroundAxis(r, b, -beta);
 				cv::Vec3d t_r = FLMath::rotateAroundAxis(t, b, -beta);
 
 				//plane othogonal to v is E(u,t)

@@ -52,7 +52,7 @@ namespace mae {
 				{
 
 					//TODO
-					if (skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getPhi() > 67.5 && skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getPhi() < 112.5)
+					if (skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getPhi() < 22.5)
 					{
 						result->setDirection(FLSkeleton::ANGLE_LEFT_WHOLE_ARM, FLLabanSequence::LEFT_MID);
 					}
