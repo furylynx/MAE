@@ -189,6 +189,11 @@ namespace mae {
 		cv::Vec3d FLMath::rotateAroundAxis(cv::Vec3d point, cv::Vec3d axis, double beta)
 		{
 
+			if (beta == 0)
+			{
+				return point;
+			}
+
 			//point to be projected
 			cv::Mat p = cv::Mat::zeros(3,1,CV_64F);
 			p.at<double>(0) = point[0];
@@ -253,7 +258,8 @@ namespace mae {
 			//no need for angle ranging from 0-360 therefore this does the trick
 			double angle = FLMath::calcAngleHalf(a,b);//std::acos(a.dot(b));
 
-			return angle == 0 || angle == M_PI || angle == -M_PI;
+			//fix round-off errors
+			return (angle > -0.01 && angle < 0.01) || (angle > (M_PI - 0.01) && angle < (M_PI + 0.01)) || (angle > (-M_PI - 0.01) && angle < (-M_PI + 0.01));
 		}
 
 		double FLMath::calcAngle(cv::Vec3d a, cv::Vec3d b)
@@ -281,6 +287,9 @@ namespace mae {
 					if (sign == 0){
 						//todo throw exception ?
 						std::cerr << "This case should not occur" << std::endl;
+						std::cerr << "a=" << a << std::endl;
+						std::cerr << "b=" << b << std::endl;
+						std::cerr << "half angle=" << FLMath::radToDeg(halfAngle) <<"° "<< std::endl;
 						return halfAngle;
 					}
 				}
@@ -296,7 +305,17 @@ namespace mae {
 
 		double FLMath::calcAngleHalf(cv::Vec3d a, cv::Vec3d b)
 		{
-			return std::acos(a.dot(b));
+			a = cv::normalize(a);
+			b = cv::normalize(b);
+
+			double dot = a.dot(b);
+
+			// fix round-off errors
+			if ((dot > 1 && dot < 1.01) || (dot < -1 && dot > -1.01)){
+				dot = (int)dot;
+			}
+
+			return std::acos(dot);
 		}
 
 		double FLMath::calcAngleHalfDeg(cv::Vec3d a, cv::Vec3d b)

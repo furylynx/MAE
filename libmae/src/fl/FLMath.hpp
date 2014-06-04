@@ -19,10 +19,13 @@
 #include <cmath>
 #include <memory>
 
-namespace mae {
-	namespace fl {
+namespace mae
+{
+	namespace fl
+	{
 
-		class FLMath {
+		class FLMath
+		{
 			public:
 
 				// vector translations
@@ -39,9 +42,11 @@ namespace mae {
 				static cv::Vec2d stdVecToVec2d(std::vector<double> vec);
 
 				//projection, rotation
-				static cv::Vec3d projectToBasis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
+				static cv::Vec3d projectToBasis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r,
+						cv::Vec3d t);
 
-				static cv::Vec3d projectOrthogonal(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d plane_u, cv::Vec3d plane_v);
+				static cv::Vec3d projectOrthogonal(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d plane_u,
+						cv::Vec3d plane_v);
 				static cv::Vec3d rotateAroundAxis(cv::Vec3d point, cv::Vec3d axis, double beta);
 
 				//angle estimation
