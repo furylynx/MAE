@@ -7,39 +7,37 @@
 
 #include "FLPoseDetector.hpp"
 
-namespace mae {
-	namespace fl {
+namespace mae
+{
+	namespace fl
+	{
 
-		FLPoseDetector::FLPoseDetector() {
+		FLPoseDetector::FLPoseDetector()
+		{
 		}
 
-		FLPoseDetector::~FLPoseDetector() {
+		FLPoseDetector::~FLPoseDetector()
+		{
 		}
 
-
-		std::shared_ptr<mae::model::GeneralPose> FLPoseDetector::detectPose(std::shared_ptr<FLSkeleton> skeleton, std::vector<int> bodyParts)
+		std::shared_ptr<mae::model::GeneralPose> FLPoseDetector::detectPose(std::shared_ptr<FLSkeleton> skeleton,
+				std::vector<int> bodyParts)
 		{
 
 			//todo remove (is here just to show this method is invoked)
-			std::cout << "detecting pose for skeleton" << std::endl;
-			std::cout << "ANGLE_LEFT_FOREARM: " << *skeleton->getJoint(mae::fl::FLSkeleton::ANGLE_LEFT_FOREARM) << std::endl;
+//			std::cout << "detecting pose for skeleton" << std::endl;
 
-
-			std::shared_ptr<mae::model::GeneralPose> result = std::shared_ptr<mae::model::GeneralPose>(new mae::model::GeneralPose());
-
+			std::shared_ptr<mae::model::GeneralPose> result = std::shared_ptr<mae::model::GeneralPose>(
+					new mae::model::GeneralPose());
 
 			//todo distances
 
 			//left whole arm first
 
-			std::cout << "left forearm: phi=" << skeleton->getJoint(FLSkeleton::ANGLE_LEFT_FOREARM)->getPhi() << " # theta=" << skeleton->getJoint(FLSkeleton::ANGLE_LEFT_FOREARM)->getTheta() << std::endl;
-			std::cout << "left upper arm: phi=" << skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getPhi() << " # theta=" << skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getTheta() << std::endl;
-
 			//check for "place"
 			if (skeleton->getJoint(FLSkeleton::ANGLE_LEFT_FOREARM)->getPhi() > 157.5)
 			{
 				result->setDirection(FLSkeleton::ANGLE_LEFT_WHOLE_ARM, FLLabanSequence::PLACE_MID);
-
 
 				//TODO forearm and upper arm directions
 			}
@@ -97,16 +95,21 @@ namespace mae {
 						dir_circ_r.push_back(FLLabanSequence::DIAGONAL_FORWARD_RIGHT_LOW);
 						dir_circ.push_back(dir_circ_r);
 
-						for (int i = 0 ; i < 3; i++)
+						for (int i = 0; i < 3; i++)
 						{
-
-							for (int j = 0; j < 8 ; j++)
+							for (int j = 0; j < 8; j++)
 							{
-								if (skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getPhi() > ((i+1)*45-22.5) && skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getPhi() <= ((i+1)*45+22.5))
+								if (skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getPhi()
+										> ((i + 1) * 45 - 22.5)
+										&& skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getPhi()
+												<= ((i + 1) * 45 + 22.5))
 								{
-									if (skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getTheta() > (FLMath::fmod_pos(j*45-22.5,360)-180) && skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getTheta() <= (FLMath::fmod_pos(j*45+22.5,360)-180))
+									if (skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getTheta()
+											> (FLMath::fmod_pos(j * 45 - 22.5, 360) - 180)
+											&& skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getTheta()
+													<= (FLMath::fmod_pos(j * 45 + 22.5, 360) - 180))
 									{
-										result->setDirection(FLSkeleton::ANGLE_LEFT_WHOLE_ARM, (int)dir_circ[i][j]);
+										result->setDirection(FLSkeleton::ANGLE_LEFT_WHOLE_ARM, (int) dir_circ[i][j]);
 										break;
 									}
 								}
@@ -128,8 +131,9 @@ namespace mae {
 				}
 			}
 
-			std::cout << result->getDirection(FLSkeleton::ANGLE_LEFT_WHOLE_ARM) << std::endl;
-
+			std::cout << " DIR: " << result->getDirection(FLSkeleton::ANGLE_LEFT_WHOLE_ARM) << " # LFA: "
+					<< *skeleton->getJoint(mae::fl::FLSkeleton::ANGLE_LEFT_FOREARM) << " # LUA: "
+					<< *skeleton->getJoint(mae::fl::FLSkeleton::ANGLE_LEFT_UPPER_ARM) << std::endl;
 
 			//todo do stuff in here
 

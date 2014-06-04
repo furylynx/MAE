@@ -3,6 +3,7 @@
 	<name>LabaNiTe</name>
 	<comment></comment>
 	<projects>
+		<project>mae</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
