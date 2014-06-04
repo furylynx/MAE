@@ -10,7 +10,7 @@
 namespace mae {
 	namespace fl {
 
-		FLMovementController::FLMovementController() : MovementController(std::shared_ptr<FLPoseDetector>(new FLPoseDetector()),std::shared_ptr<FLLabanSequenceGenerator>(new FLLabanSequenceGenerator()), FLSkeleton::get_joint_ids())
+		FLMovementController::FLMovementController() : MovementController(std::shared_ptr<FLPoseDetector>(new FLPoseDetector()),std::shared_ptr<FLLabanSequenceGenerator>(new FLLabanSequenceGenerator()), get_flj_ids())
 		{
 			this->skel_ctrl = std::shared_ptr<FLSkeletonController>(new FLSkeletonController);
 		}

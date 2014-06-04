@@ -10,48 +10,40 @@
 
 //custom includes
 #include "GeneralJoint.hpp"
+#include "MAEJ.hpp"
 
 //global includes
 #include <unordered_map>
 #include <memory>
 #include <vector>
 
-namespace mae {
-	namespace model {
+namespace mae
+{
+	namespace model
+	{
 
-		class GeneralSkeleton {
+		class GeneralSkeleton
+		{
 			public:
 				virtual ~GeneralSkeleton();
 				GeneralSkeleton();
 
+				virtual void setJoint(int bodyPart, std::shared_ptr<GeneralJoint> joint);
+				virtual std::shared_ptr<GeneralJoint> getJoint(int bodyPart);
 
-				virtual void setJoint(int bodyPart, std::shared_ptr<mae::model::GeneralJoint> joint);
-				virtual std::shared_ptr<mae::model::GeneralJoint> getJoint(int bodyPart);
+				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<GeneralSkeleton>& obj)
+				{
+					os << "GeneralSkeleton:" << std::endl;
+					for ( int joint_id = MAEJ_INVALID+1; joint_id != MAEJ_SIZE; joint_id++ )
+					{
+					   os << maej_str[joint_id] << " " << obj->getJoint(joint_id) << std::endl;
+					}
 
-				static std::vector<int> get_joint_ids();
-
-			    static const int SKEL_HEAD;
-			    static const int SKEL_NECK;
-			    static const int SKEL_LEFT_SHOULDER;
-			    static const int SKEL_LEFT_ELBOW;
-			    static const int SKEL_LEFT_HAND;
-			    static const int SKEL_RIGHT_SHOULDER;
-			    static const int SKEL_RIGHT_ELBOW;
-			    static const int SKEL_RIGHT_HAND;
-			    static const int SKEL_TORSO;
-			    static const int SKEL_LEFT_HIP;
-			    static const int SKEL_LEFT_KNEE;
-			    static const int SKEL_LEFT_FOOT;
-			    static const int SKEL_RIGHT_HIP;
-			    static const int SKEL_RIGHT_KNEE;
-			    static const int SKEL_RIGHT_FOOT;
-
-			    //todo iterate through all joints...
-			    //todo begin ?
-			    //todo end ?
+					return os;
+				}
 
 			private:
-			    std::unordered_map<int, std::shared_ptr<mae::model::GeneralJoint> > hashmap_joints;
+				std::unordered_map<int, std::shared_ptr<mae::model::GeneralJoint> > hashmap_joints;
 		};
 
 	} // namespace model

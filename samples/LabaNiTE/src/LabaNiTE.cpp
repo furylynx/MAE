@@ -64,6 +64,9 @@
 #include <cstdlib>
 
 #include <XnCppWrapper.h>
+#include <XnOpenNI.h>
+#include <ni/Linux-x86/XnPlatformLinux-x86.h>
+#include <ni/XnOS.h>
 
 //fl : general includes
 #include <memory>
@@ -78,6 +81,7 @@
 #include <fl/FLMovementController.hpp>
 #include <model/GeneralSkeleton.hpp>
 #include <model/GeneralJoint.hpp>
+#include <model/MAEJ.hpp>
 
 //---------------------------------------------------------------------------
 // Defines
@@ -203,49 +207,49 @@ int main()
 	std::vector<int> joint_ids_mae;
 
 	joint_ids.push_back(XN_SKEL_LEFT_HIP);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_HIP);
+	joint_ids_mae.push_back(mae::MAEJ_LEFT_HIP);
 
 	joint_ids.push_back(XN_SKEL_RIGHT_HIP);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_HIP);
+	joint_ids_mae.push_back(mae::MAEJ_RIGHT_HIP);
 
 	joint_ids.push_back(XN_SKEL_TORSO);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_TORSO);
+	joint_ids_mae.push_back(mae::MAEJ_TORSO);
 
 	joint_ids.push_back(XN_SKEL_LEFT_SHOULDER);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_SHOULDER);
+	joint_ids_mae.push_back(mae::MAEJ_LEFT_SHOULDER);
 
 	joint_ids.push_back(XN_SKEL_RIGHT_SHOULDER);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_SHOULDER);
+	joint_ids_mae.push_back(mae::MAEJ_RIGHT_SHOULDER);
 
 	joint_ids.push_back(XN_SKEL_NECK);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_NECK);
+	joint_ids_mae.push_back(mae::MAEJ_NECK);
 
 	joint_ids.push_back(XN_SKEL_HEAD);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_HEAD);
+	joint_ids_mae.push_back(mae::MAEJ_HEAD);
 
 	joint_ids.push_back(XN_SKEL_LEFT_ELBOW);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_ELBOW);
+	joint_ids_mae.push_back(mae::MAEJ_LEFT_ELBOW);
 
 	joint_ids.push_back(XN_SKEL_LEFT_HAND);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_HAND);
+	joint_ids_mae.push_back(mae::MAEJ_LEFT_HAND);
 
 	joint_ids.push_back(XN_SKEL_RIGHT_ELBOW);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_ELBOW);
+	joint_ids_mae.push_back(mae::MAEJ_RIGHT_ELBOW);
 
 	joint_ids.push_back(XN_SKEL_RIGHT_HAND);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_HAND);
+	joint_ids_mae.push_back(mae::MAEJ_RIGHT_HAND);
 
 	joint_ids.push_back(XN_SKEL_LEFT_KNEE);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_KNEE);
+	joint_ids_mae.push_back(mae::MAEJ_LEFT_KNEE);
 
 	joint_ids.push_back(XN_SKEL_LEFT_FOOT);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_FOOT);
+	joint_ids_mae.push_back(mae::MAEJ_LEFT_FOOT);
 
 	joint_ids.push_back(XN_SKEL_RIGHT_KNEE);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_KNEE);
+	joint_ids_mae.push_back(mae::MAEJ_RIGHT_KNEE);
 
 	joint_ids.push_back(XN_SKEL_RIGHT_FOOT);
-	joint_ids_mae.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_FOOT);
+	joint_ids_mae.push_back(mae::MAEJ_RIGHT_FOOT);
 
 	int k = 0;
 	const int frame_each_k = 120;
@@ -404,7 +408,7 @@ int main()
 					if (store_skels)
 					{
 						//print joint assignment to file (for later use)
-						*a_file << "// (" << xn_joint.position.position.X << ", " << xn_joint.position.position.Y << ", "
+						*a_file << "// " << mae::maej_str[joint_ids_mae[j]] << " (" << xn_joint.position.position.X << ", " << xn_joint.position.position.Y << ", "
 								<< xn_joint.position.position.Z << ")" << std::endl;
 						*a_file << "skeleton->setJoint(" << (int) joint_ids_mae[j]
 								<< ", std::shared_ptr<mae::model::GeneralJoint>(new mae::model::GeneralJoint("

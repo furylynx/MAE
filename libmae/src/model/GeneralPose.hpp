@@ -8,7 +8,13 @@
 #ifndef GENERALPOSE_HPP_
 #define GENERALPOSE_HPP_
 
+
+//custom includes
+//...
+
+//global includes
 #include <unordered_map>
+
 
 
 namespace mae {

@@ -56,6 +56,9 @@ namespace mae
 				static double calcAngle(cv::Vec3d a, cv::Vec3d b);
 				static double calcAngleDeg(cv::Vec3d a, cv::Vec3d b);
 
+				static double calc_angle_plane(cv::Vec3d a, cv::Vec3d b, cv::Vec3d normal);
+				static double calc_angle_plane_deg(cv::Vec3d a, cv::Vec3d b, cv::Vec3d normal);
+
 				static double calcAngleHalf(cv::Vec3d a, cv::Vec3d b);
 				static double calcAngleHalfDeg(cv::Vec3d a, cv::Vec3d b);
 

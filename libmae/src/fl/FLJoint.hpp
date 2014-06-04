@@ -12,6 +12,7 @@
 
 //global includes
 #include <iostream>
+#include <memory>
 
 namespace mae {
 	namespace fl {
@@ -42,6 +43,12 @@ namespace mae {
 						os << "(phi = " << obj.getPhi() << "° , theta = " << obj.getTheta() << "°)";
 					}
 
+					return os;
+				}
+
+				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<FLJoint>& obj)
+				{
+					os << *obj;
 					return os;
 				}
 

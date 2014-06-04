@@ -14,14 +14,78 @@ namespace mae
 	namespace fl
 	{
 
-		FLSkeletonController::~FLSkeletonController()
-		{
-			// TODO Auto-generated destructor stub
-		}
-
 		FLSkeletonController::FLSkeletonController()
 		{
-			// TODO Auto-generated constructor stub
+
+			// initialize torso basis body parts
+			torso_basis_body_parts.push_back(MAEJ_LEFT_SHOULDER);
+			torso_basis_body_parts.push_back(MAEJ_RIGHT_SHOULDER);
+			torso_basis_body_parts.push_back(MAEJ_NECK);
+			torso_basis_body_parts.push_back(MAEJ_TORSO);
+			torso_basis_body_parts.push_back(MAEJ_LEFT_HIP);
+			torso_basis_body_parts.push_back(MAEJ_RIGHT_HIP);
+
+			//initialize extremities
+
+			//use temp vector
+			std::vector<int> joints;
+
+			//left arm
+			joints.push_back(MAEJ_LEFT_SHOULDER);
+			joints.push_back(MAEJ_LEFT_ELBOW);
+			joints.push_back(MAEJ_LEFT_HAND);
+
+			joints.push_back(FLJ_LEFT_UPPER_ARM);
+			joints.push_back(FLJ_LEFT_FOREARM);
+			joints.push_back(FLJ_LEFT_WHOLE_ARM);
+
+			skel_extremities.push_back(joints);
+			//skel_main_directions.push_back(r);
+			joints.clear();
+
+			//right arm
+			joints.push_back(MAEJ_RIGHT_SHOULDER);
+			joints.push_back(MAEJ_RIGHT_ELBOW);
+			joints.push_back(MAEJ_RIGHT_HAND);
+
+			joints.push_back(FLJ_RIGHT_UPPER_ARM);
+			joints.push_back(FLJ_RIGHT_FOREARM);
+			joints.push_back(FLJ_RIGHT_WHOLE_ARM);
+
+			skel_extremities.push_back(joints);
+			//						md.push_back(r);
+			joints.clear();
+
+			//left leg
+			joints.push_back(MAEJ_LEFT_HIP);
+			joints.push_back(MAEJ_LEFT_KNEE);
+			joints.push_back(MAEJ_LEFT_FOOT);
+
+			joints.push_back(FLJ_LEFT_THIGH);
+			joints.push_back(FLJ_LEFT_SHANK);			//unterschenkel
+			joints.push_back(FLJ_LEFT_WHOLE_LEG);
+
+			skel_extremities.push_back(joints);
+			//						md.push_back(u);
+			joints.clear();
+
+			//left leg
+			joints.push_back(MAEJ_RIGHT_HIP);
+			joints.push_back(MAEJ_RIGHT_KNEE);
+			joints.push_back(MAEJ_RIGHT_FOOT);
+
+			joints.push_back(FLJ_RIGHT_THIGH);
+			joints.push_back(FLJ_RIGHT_SHANK);			//unterschenkel
+			joints.push_back(FLJ_RIGHT_WHOLE_LEG);
+
+			skel_extremities.push_back(joints);
+			//						md.push_back(u);
+			joints.clear();
+		}
+
+		FLSkeletonController::~FLSkeletonController()
+		{
+			torso_basis_body_parts.clear();
 		}
 
 		std::shared_ptr<mae::fl::FLSkeleton> FLSkeletonController::calculateSpecifiedSkeleton(
@@ -36,51 +100,59 @@ namespace mae
 
 			// fill all joints of torso into matrix in order to
 			// reduce it to three vectors that are used for the coordinate system
-			cv::Mat torso = cv::Mat::zeros(3, 6, CV_64F);
-
-			std::vector<int> bodyParts;
-			bodyParts.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_SHOULDER);
-			bodyParts.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_SHOULDER);
-			bodyParts.push_back(mae::model::GeneralSkeleton::SKEL_NECK);
-			bodyParts.push_back(mae::model::GeneralSkeleton::SKEL_TORSO);
-			bodyParts.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_HIP);
-			bodyParts.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_HIP);
-
-			for (unsigned int i = 0; i < bodyParts.size(); i++)
+			int torso_valid_joints = 0;
+			for (unsigned int i = 0; i < torso_basis_body_parts.size(); i++)
 			{
-				int bodyPart = bodyParts[i];
-				std::shared_ptr<mae::model::GeneralJoint> joint = skeleton->getJoint(bodyPart);
-
-				//todo if one of the vectors is invalid -> remove from matrix
-				//todo if less than 3 vectors -> invalid skeleton
-
-				torso.at<double>(0, i) = joint->getX();
-				torso.at<double>(1, i) = joint->getY();
-				torso.at<double>(2, i) = joint->getZ();
+				int body_part = torso_basis_body_parts[i];
+				if (skeleton->getJoint(body_part)->isValid())
+				{
+					torso_valid_joints++;
+				}
 			}
 
-			// apply PCA to get 3 principal components
+			//check for enough torso joints to generate the basis
+			if (torso_valid_joints < 3)
+			{
+				throw new std::invalid_argument(
+						"Cannot generate torso basis from the skeleton for there are not enough valid joints.");
+			}
+
+			// fill torso matrix in order to apply a pca to it
+			cv::Mat torso = cv::Mat::zeros(3, torso_valid_joints, CV_64F);
+			int torso_it = 0;
+
+			for (unsigned int i = 0; i < torso_basis_body_parts.size(); i++)
+			{
+				int body_part = torso_basis_body_parts[i];
+
+				if (skeleton->getJoint(body_part)->isValid())
+				{
+					torso.at<double>(0, torso_it) = skeleton->getJoint(body_part)->getX();
+					torso.at<double>(1, torso_it) = skeleton->getJoint(body_part)->getY();
+					torso.at<double>(2, torso_it) = skeleton->getJoint(body_part)->getZ();
+					torso_it++;
+				}
+			}
+
+			// apply PCA to get 2 principal components
 			cv::Mat torso_coord;
 			cv::PCA torso_pca = cv::PCA(torso, cv::Mat(), CV_PCA_DATA_AS_COL, 2);
 
-			// create basis {u,r,t}
+			// get first two components
 			cv::Vec3d u = torso_pca.eigenvectors.row(0).clone();
 			cv::Vec3d r = torso_pca.eigenvectors.row(1).clone();
-			cv::Vec3d t = u.cross(r);
 
-			//normalize
+
+			// normalize in order to receive an orthonormal basis
 			u = cv::normalize(u);
 			r = cv::normalize(r);
-			t = cv::normalize(t);
 
 			//align vectors top-down/right-left
-			cv::Vec3d joint_torso = FLMath::jointToVec(skeleton->getJoint(mae::model::GeneralSkeleton::SKEL_TORSO));
-			cv::Vec3d joint_neck = FLMath::jointToVec(skeleton->getJoint(mae::model::GeneralSkeleton::SKEL_NECK));
+			cv::Vec3d joint_torso = FLMath::jointToVec(skeleton->getJoint(MAEJ_TORSO));
+			cv::Vec3d joint_neck = FLMath::jointToVec(skeleton->getJoint(MAEJ_NECK));
 
-			cv::Vec3d joint_ls = FLMath::jointToVec(
-					skeleton->getJoint(mae::model::GeneralSkeleton::SKEL_LEFT_SHOULDER));
-			cv::Vec3d joint_rs = FLMath::jointToVec(
-					skeleton->getJoint(mae::model::GeneralSkeleton::SKEL_RIGHT_SHOULDER));
+			cv::Vec3d joint_ls = FLMath::jointToVec(skeleton->getJoint(MAEJ_LEFT_SHOULDER));
+			cv::Vec3d joint_rs = FLMath::jointToVec(skeleton->getJoint(MAEJ_RIGHT_SHOULDER));
 
 			if (cv::norm(joint_neck - (joint_torso + u)) < cv::norm(joint_neck - joint_torso))
 			{
@@ -92,129 +164,91 @@ namespace mae
 				r = -r;
 			}
 
+			//get last component
+			cv::Vec3d t = u.cross(r);
+			t = cv::normalize(t);
+
 			// ---
 			// Calculate spherical coordinates
 			// for the resulting skeleton
 			// ---
 
+			//set up the resulting skeleton
 			std::shared_ptr<FLSkeleton> result = std::shared_ptr<mae::fl::FLSkeleton>(new FLSkeleton());
 
-			//fill vector with body parts in order to process them later
-			std::vector<cv::Vec3d> md;
-
-			std::vector<std::vector<int> > extremities;
-			std::vector<int> joints;
-
-			//left arm
-			joints.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_SHOULDER);
-			joints.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_ELBOW);
-			joints.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_HAND);
-
-			joints.push_back(FLSkeleton::ANGLE_LEFT_UPPER_ARM);
-			joints.push_back(FLSkeleton::ANGLE_LEFT_FOREARM);
-			joints.push_back(FLSkeleton::ANGLE_LEFT_WHOLE_ARM);
-
-			extremities.push_back(joints);
-			md.push_back(r);
-			joints.clear();
-
-			//right arm
-			joints.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_SHOULDER);
-			joints.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_ELBOW);
-			joints.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_HAND);
-
-			joints.push_back(FLSkeleton::ANGLE_RIGHT_UPPER_ARM);
-			joints.push_back(FLSkeleton::ANGLE_RIGHT_FOREARM);
-			joints.push_back(FLSkeleton::ANGLE_RIGHT_WHOLE_ARM);
-
-			extremities.push_back(joints);
-			md.push_back(r);
-			joints.clear();
-
-			//left leg
-			joints.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_HIP);
-			joints.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_KNEE);
-			joints.push_back(mae::model::GeneralSkeleton::SKEL_LEFT_FOOT);
-
-			joints.push_back(mae::fl::FLSkeleton::ANGLE_LEFT_THIGH);
-			joints.push_back(mae::fl::FLSkeleton::ANGLE_LEFT_SHANK);			//unterschenkel
-			joints.push_back(mae::fl::FLSkeleton::ANGLE_LEFT_WHOLE_LEG);
-
-			extremities.push_back(joints);
-			md.push_back(u);
-			joints.clear();
-
-			//left leg
-			joints.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_HIP);
-			joints.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_KNEE);
-			joints.push_back(mae::model::GeneralSkeleton::SKEL_RIGHT_FOOT);
-
-			joints.push_back(FLSkeleton::ANGLE_RIGHT_THIGH);
-			joints.push_back(FLSkeleton::ANGLE_RIGHT_SHANK);			//unterschenkel
-			joints.push_back(FLSkeleton::ANGLE_RIGHT_WHOLE_LEG);
-
-			extremities.push_back(joints);
-			md.push_back(u);
-			joints.clear();
-
-			for (unsigned int i = 0; i < extremities.size(); i++)
+			for (unsigned int i = 0; i < skel_extremities.size(); i++)
 			{
-				joints = extremities[i];
-				int joint_i = joints[0];
-				int joint_o = joints[1];
-				int joint_e = joints[2];
+				int joint_i = skel_extremities[i][0];
+				int joint_o = skel_extremities[i][1];
+				int joint_e = skel_extremities[i][2];
 
-				int joint_fl_i = joints[3];
-				int joint_fl_o = joints[4];
-				int joint_fl_w = joints[5];
+				int joint_fl_i = skel_extremities[i][3];
+				int joint_fl_o = skel_extremities[i][4];
+				int joint_fl_w = skel_extremities[i][5];
 
-				cv::Vec2d angles;
+				if (skeleton->getJoint(joint_i)->isValid() && skeleton->getJoint(joint_o)->isValid())
+				{
+					cv::Vec2d angles;
 
-				//angles = FLSkeletonController::calcFirstDegreeJoint_md(skeleton, joint_i, joint_o, u, r, t, (cv::Vec3d) md[i]);
-				//angles = FLSkeletonController::calcFirstDegreeJoint(skeleton, joint_i, joint_o, u, r, t);
-				angles = FLSkeletonController::calcFirstDegreeJoint_r(skeleton, joint_i, joint_o, u, r, t);
-				result->setJoint(joint_fl_i,
-						std::shared_ptr<mae::fl::FLJoint>(new mae::fl::FLJoint(angles[0], angles[1])));
+					angles = FLSkeletonController::calcFirstDegreeJoint_r(skeleton, joint_i, joint_o, u, r, t);
+					result->setJoint(joint_fl_i, std::shared_ptr<FLJoint>(new FLJoint(angles[0], angles[1])));
 
-				angles = FLSkeletonController::calcSecondDegreeJoint(skeleton, joint_i, joint_o, joint_e, u, r, t);
-				result->setJoint(joint_fl_o,
-						std::shared_ptr<mae::fl::FLJoint>(new mae::fl::FLJoint(angles[0], angles[1])));
+					if (skeleton->getJoint(joint_e)->isValid())
+					{
+						angles = FLSkeletonController::calcSecondDegreeJoint(skeleton, joint_i, joint_o, joint_e, u, r,
+								t);
+						result->setJoint(joint_fl_o, std::shared_ptr<FLJoint>(new FLJoint(angles[0], angles[1])));
 
-				//whole extremity joint
-				angles = FLSkeletonController::calcFirstDegreeJoint(skeleton, joint_i, joint_e, u, r, t);
-				result->setJoint(joint_fl_w,
-						std::shared_ptr<mae::fl::FLJoint>(new mae::fl::FLJoint(angles[0], angles[1])));
+						//whole extremity joint
+						angles = FLSkeletonController::calcFirstDegreeJoint(skeleton, joint_i, joint_e, u, r, t);
+						result->setJoint(joint_fl_w, std::shared_ptr<FLJoint>(new FLJoint(angles[0], angles[1])));
+					}
+					else
+					{
+						//outer parts of extremity are invalid
+						// TODO this is not necessary ?!
+//						result->setJoint(joint_fl_o, std::shared_ptr<FLJoint>(new FLJoint()));
+//						result->setJoint(joint_fl_w, std::shared_ptr<FLJoint>(new FLJoint()));
+					}
+				}
+				else
+				{
+					//whole extremity is invalid
+					// TODO this is not necessary ?!
+//					result->setJoint(joint_fl_i, std::shared_ptr<FLJoint>(new FLJoint()));
+//					result->setJoint(joint_fl_o, std::shared_ptr<FLJoint>(new FLJoint()));
+//					result->setJoint(joint_fl_w, std::shared_ptr<FLJoint>(new FLJoint()));
+				}
 			}
 
 			//spherical coordinates for the head
-			int joint_i = mae::model::GeneralSkeleton::SKEL_NECK;
-			int joint_o = mae::model::GeneralSkeleton::SKEL_HEAD;
+			int joint_head_i = MAEJ_NECK;
+			int joint_head_o = MAEJ_HEAD;
 
-			int joint_fl_i = mae::fl::FLSkeleton::ANGLE_HEAD;
+			int joint_fl_head_i = FLJ_HEAD;
 
-			cv::Vec2d angles = FLSkeletonController::calcFirstDegreeJoint(skeleton, joint_i, joint_o, r, t, u);
-			result->setJoint(joint_fl_i, std::shared_ptr<mae::fl::FLJoint>(new mae::fl::FLJoint(angles[0], angles[1])));
+			if (skeleton->getJoint(joint_head_i)->isValid() && skeleton->getJoint(joint_head_o)->isValid())
+			{
+				cv::Vec2d angles = FLSkeletonController::calcFirstDegreeJoint(skeleton, joint_head_i, joint_head_o, r,
+						t, u);
+				result->setJoint(joint_fl_head_i, std::shared_ptr<FLJoint>(new FLJoint(angles[0], angles[1])));
+			}
 
 			// calculate relative skeleton
 			std::shared_ptr<mae::model::GeneralSkeleton> rel_skeleton = std::shared_ptr<mae::model::GeneralSkeleton>(
 					new mae::model::GeneralSkeleton());
 
 			//origin of the coordinate system (torso)
-			rel_skeleton->setJoint(mae::model::GeneralSkeleton::SKEL_TORSO,
-					skeleton->getJoint(mae::model::GeneralSkeleton::SKEL_TORSO));
+			rel_skeleton->setJoint(MAEJ_TORSO, skeleton->getJoint(MAEJ_TORSO));
 
-			std::vector<int> skel_joint_ids = mae::model::GeneralSkeleton::get_joint_ids();
-			for (unsigned int i = 0; i < skel_joint_ids.size(); i++)
+			for (int joint_id = MAEJ_INVALID + 1; joint_id != MAEJ_SIZE; joint_id++)
 			{
-				if (skel_joint_ids[i] != mae::model::GeneralSkeleton::SKEL_TORSO)
+				if (joint_id != MAEJ_TORSO)
 				{
-					rel_skeleton->setJoint((int) skel_joint_ids[i],
+					rel_skeleton->setJoint(joint_id,
 							FLMath::vecToJoint(
-									FLMath::projectToBasis(
-											FLMath::jointToVec(skeleton->getJoint((int) skel_joint_ids[i])),
-											FLMath::jointToVec(
-													skeleton->getJoint(mae::model::GeneralSkeleton::SKEL_TORSO)), u, r,
-											t)));
+									FLMath::projectToBasis(FLMath::jointToVec(skeleton->getJoint(joint_id)),
+											FLMath::jointToVec(skeleton->getJoint(MAEJ_TORSO)), u, r, t)));
 				}
 			}
 
@@ -296,7 +330,8 @@ namespace mae
 				cv::Vec3d vec_o_p = FLMath::projectOrthogonal(vec_o, vec_i, u_r, t_r);
 				cv::Vec3d fdvec_p = cv::normalize(vec_i - vec_o_p);
 
-				theta = FLMath::calcAngleDeg(t_r, fdvec_p);
+//				theta = FLMath::calcAngleDeg(t_r, fdvec_p);
+				theta = FLMath::calc_angle_plane_deg(t_r, fdvec_p, r_r);
 			}
 
 			cv::Vec2d angles;
@@ -337,7 +372,8 @@ namespace mae
 				cv::Vec3d vec_o_p = FLMath::projectOrthogonal(vec_o, vec_i, u, t);
 				cv::Vec3d fdvec_p = cv::normalize(vec_i - vec_o_p);
 
-				theta = FLMath::calcAngleDeg(t, fdvec_p);
+//				theta = FLMath::calcAngleDeg(t, fdvec_p);
+				theta = FLMath::calc_angle_plane_deg(t, fdvec_p, r);
 
 			}
 
@@ -379,7 +415,8 @@ namespace mae
 				cv::Vec3d vec_o_p = FLMath::projectOrthogonal(vec_o, vec_i, r, t);
 				cv::Vec3d fdvec_p = cv::normalize(vec_i - vec_o_p);
 
-				theta = FLMath::calcAngleDeg(r, fdvec_p);
+//				theta = FLMath::calcAngleDeg(r, fdvec_p);
+				theta = FLMath::calc_angle_plane_deg(r, fdvec_p, u);
 			}
 
 			cv::Vec2d angles;
@@ -447,7 +484,8 @@ namespace mae
 				cv::Vec3d sdvec_p = FLMath::projectOrthogonal(vec_e, vec_o, u_r, t_r);
 				sdvec_p = cv::normalize(vec_o - sdvec_p);
 
-				theta = FLMath::calcAngleDeg(t_r, sdvec_p);
+//				theta = FLMath::calcAngleDeg(t_r, sdvec_p);
+				theta = FLMath::calc_angle_plane_deg(t_r, sdvec_p, fdvec);
 			}
 
 			//return the angles

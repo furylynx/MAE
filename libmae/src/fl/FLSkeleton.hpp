@@ -10,18 +10,21 @@
 
 //custom includes
 #include "FLJoint.hpp"
+#include "FLJ.hpp"
 #include "../model/GeneralSkeleton.hpp"
-
 
 //global includes
 #include <unordered_map>
 #include <vector>
 #include <stdexcept>
 
-namespace mae {
-	namespace fl {
+namespace mae
+{
+	namespace fl
+	{
 
-		class FLSkeleton {
+		class FLSkeleton
+		{
 			public:
 				FLSkeleton();
 				virtual ~FLSkeleton();
@@ -38,7 +41,6 @@ namespace mae {
 
 				//todo get vectors by themselves
 
-
 				// Torso joint is center of coordinate system; therefore torso joint has coordinates (0,0,0).
 				// Stored torso joint is therefore used for the offset of the world coordinate system given
 				// by the depth sensor. The central coordinate system of this FLSkeleton is used for the
@@ -46,47 +48,25 @@ namespace mae {
 				virtual void setRelativeSkeleton(std::shared_ptr<mae::model::GeneralSkeleton> relative_skeleton);
 				virtual std::shared_ptr<mae::model::GeneralSkeleton> getRelativeSkeleton();
 
+				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<FLSkeleton>& obj)
+				{
+					os << "FLSkeleton:" << std::endl;
+					for ( int joint_id = FLJ_INVALID+1; joint_id != FLJ_SIZE; joint_id++ )
+					{
+					   os << flj_str[joint_id] << " " << obj->getJoint(joint_id) << std::endl;
+					}
 
-
-				static std::vector<int> get_joint_ids();
-
-				//angle representations
-				static const int ANGLE_HEAD;
-				static const int ANGLE_LEFT_UPPER_ARM;
-				static const int ANGLE_LEFT_FOREARM;
-				static const int ANGLE_LEFT_WHOLE_ARM;
-				static const int ANGLE_RIGHT_UPPER_ARM;
-				static const int ANGLE_RIGHT_FOREARM;
-				static const int ANGLE_RIGHT_WHOLE_ARM;
-				static const int ANGLE_LEFT_THIGH; //Oberschenkel
-				static const int ANGLE_LEFT_SHANK; //Unterschenkel
-				static const int ANGLE_LEFT_WHOLE_LEG ;
-				static const int ANGLE_RIGHT_THIGH; //Oberschenkel
-				static const int ANGLE_RIGHT_SHANK; //Unterschenkel
-				static const int ANGLE_RIGHT_WHOLE_LEG;
-
-//				static const int ANGLE_HEAD = 16;
-//				static const int ANGLE_LEFT_UPPER_ARM = 17;
-//				static const int ANGLE_LEFT_FOREARM = 18;
-//				static const int ANGLE_LEFT_WHOLE_ARM = 19;
-//				static const int ANGLE_RIGHT_UPPER_ARM = 20;
-//				static const int ANGLE_RIGHT_FOREARM = 21;
-//				static const int ANGLE_RIGHT_WHOLE_ARM = 22;
-//				static const int ANGLE_LEFT_THIGH = 23; //Oberschenkel
-//				static const int ANGLE_LEFT_SHANK = 24; //Unterschenkel
-//				static const int ANGLE_LEFT_WHOLE_LEG = 25;
-//				static const int ANGLE_RIGHT_THIGH = 26; //Oberschenkel
-//				static const int ANGLE_RIGHT_SHANK = 27; //Unterschenkel
-//				static const int ANGLE_RIGHT_WHOLE_LEG = 28;
+					return os;
+				}
 
 			private:
-			    std::unordered_map<int, std::shared_ptr<mae::fl::FLJoint> > hashmap_joints;
-			    std::shared_ptr<mae::model::GeneralSkeleton> relative_skeleton;
+				std::unordered_map<int, std::shared_ptr<mae::fl::FLJoint> > hashmap_joints;
+				std::shared_ptr<mae::model::GeneralSkeleton> relative_skeleton;
 
-			    //central coordinate system
-			    std::vector<double> u;
-			    std::vector<double> r;
-			    std::vector<double> t;
+				//central coordinate system
+				std::vector<double> u;
+				std::vector<double> r;
+				std::vector<double> t;
 		};
 
 	} // namespace fl

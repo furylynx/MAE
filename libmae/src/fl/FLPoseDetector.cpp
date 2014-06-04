@@ -14,6 +14,41 @@ namespace mae
 
 		FLPoseDetector::FLPoseDetector()
 		{
+			//initialize directions on circle
+
+			//TODO change according to actual angle sequence
+			std::vector<int> dir_circ_l;
+			dir_circ_l.push_back(FLD_D_F_L_M);
+			dir_circ_l.push_back(FLD_D_F_L_L);
+			dir_circ_l.push_back(FLD_L_L);
+			dir_circ_l.push_back(FLD_D_B_L_L);
+			dir_circ_l.push_back(FLD_D_B_L_M);
+			dir_circ_l.push_back(FLD_D_B_L_H);
+			dir_circ_l.push_back(FLD_L_H);
+			dir_circ_l.push_back(FLD_D_F_L_H);
+			dir_circ.push_back(dir_circ_l);
+
+			std::vector<int> dir_circ_m;
+			dir_circ_m.push_back(FLD_F_L_M);
+			dir_circ_m.push_back(FLD_F_L_L);
+			dir_circ_m.push_back(FLD_P_L);
+			dir_circ_m.push_back(FLD_B_L_L);
+			dir_circ_m.push_back(FLD_B_L_M);
+			dir_circ_m.push_back(FLD_B_L_H);
+			dir_circ_m.push_back(FLD_P_H);
+			dir_circ_m.push_back(FLD_F_L_H);
+			dir_circ.push_back(dir_circ_m);
+
+			std::vector<int> dir_circ_r;
+			dir_circ_r.push_back(FLD_D_F_R_M);
+			dir_circ_r.push_back(FLD_D_F_R_L);
+			dir_circ_r.push_back(FLD_R_L);
+			dir_circ_r.push_back(FLD_D_B_R_L);
+			dir_circ_r.push_back(FLD_D_B_R_M);
+			dir_circ_r.push_back(FLD_D_B_R_H);
+			dir_circ_r.push_back(FLD_R_H);
+			dir_circ_r.push_back(FLD_D_F_R_H);
+			dir_circ.push_back(dir_circ_r);
 		}
 
 		FLPoseDetector::~FLPoseDetector()
@@ -35,105 +70,94 @@ namespace mae
 			//left whole arm first
 
 			//check for "place"
-			if (skeleton->getJoint(FLSkeleton::ANGLE_LEFT_FOREARM)->getPhi() > 157.5)
+			if (skeleton->getJoint(FLJ_LEFT_FOREARM)->getPhi() > 157.5)
 			{
-				result->setDirection(FLSkeleton::ANGLE_LEFT_WHOLE_ARM, FLLabanSequence::PLACE_MID);
+				result->setDirection(FLJ_LEFT_WHOLE_ARM, FLD_P_M);
 
-				//TODO forearm and upper arm directions
+				//TODO forearm and upper arm directions ?
 			}
 			else
 			{
 				//not "place"
 
 				//check whether the arm is bent
-				if (skeleton->getJoint(FLSkeleton::ANGLE_LEFT_FOREARM)->getPhi() < 22.5)
+				if (skeleton->getJoint(FLJ_LEFT_FOREARM)->getPhi() < 22.5)
 				{
-
-					//TODO
-					if (skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getPhi() < 22.5)
+					//get direction and level for non-bent arm
+					if (skeleton->getJoint(FLJ_LEFT_UPPER_ARM)->getPhi() < 22.5)
 					{
-						result->setDirection(FLSkeleton::ANGLE_LEFT_WHOLE_ARM, FLLabanSequence::LEFT_MID);
+						//left mid
+						result->setDirection(FLJ_LEFT_WHOLE_ARM, FLD_L_M);
 					}
-					else if (skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getPhi() > 157.5)
+					else if (skeleton->getJoint(FLJ_LEFT_UPPER_ARM)->getPhi() > 157.5)
 					{
-						result->setDirection(FLSkeleton::ANGLE_LEFT_WHOLE_ARM, FLLabanSequence::RIGHT_MID);
+						//right mid
+						result->setDirection(FLJ_LEFT_WHOLE_ARM, FLD_R_M);
 					}
 					else
 					{
-
-						std::vector<std::vector<int> > dir_circ;
-						std::vector<int> dir_circ_l;
-						dir_circ_l.push_back(FLLabanSequence::DIAGONAL_FORWARD_LEFT_MID);
-						dir_circ_l.push_back(FLLabanSequence::DIAGONAL_FORWARD_LEFT_HIGH);
-						dir_circ_l.push_back(FLLabanSequence::LEFT_HIGH);
-						dir_circ_l.push_back(FLLabanSequence::DIAGONAL_BACK_LEFT_HIGH);
-						dir_circ_l.push_back(FLLabanSequence::DIAGONAL_BACK_LEFT_MID);
-						dir_circ_l.push_back(FLLabanSequence::DIAGONAL_BACK_LEFT_LOW);
-						dir_circ_l.push_back(FLLabanSequence::LEFT_LOW);
-						dir_circ_l.push_back(FLLabanSequence::DIAGONAL_FORWARD_LEFT_LOW);
-						dir_circ.push_back(dir_circ_l);
-
-						std::vector<int> dir_circ_m;
-						dir_circ_m.push_back(FLLabanSequence::FORWARD_LEFT_MID);
-						dir_circ_m.push_back(FLLabanSequence::FORWARD_LEFT_HIGH);
-						dir_circ_m.push_back(FLLabanSequence::PLACE_HIGH);
-						dir_circ_m.push_back(FLLabanSequence::BACK_LEFT_HIGH);
-						dir_circ_m.push_back(FLLabanSequence::BACK_LEFT_MID);
-						dir_circ_m.push_back(FLLabanSequence::BACK_LEFT_LOW);
-						dir_circ_m.push_back(FLLabanSequence::PLACE_LOW);
-						dir_circ_m.push_back(FLLabanSequence::FORWARD_LEFT_LOW);
-						dir_circ.push_back(dir_circ_m);
-
-						std::vector<int> dir_circ_r;
-						dir_circ_r.push_back(FLLabanSequence::DIAGONAL_FORWARD_RIGHT_MID);
-						dir_circ_r.push_back(FLLabanSequence::DIAGONAL_FORWARD_RIGHT_HIGH);
-						dir_circ_r.push_back(FLLabanSequence::RIGHT_HIGH);
-						dir_circ_r.push_back(FLLabanSequence::DIAGONAL_BACK_RIGHT_HIGH);
-						dir_circ_r.push_back(FLLabanSequence::DIAGONAL_BACK_RIGHT_MID);
-						dir_circ_r.push_back(FLLabanSequence::DIAGONAL_BACK_RIGHT_LOW);
-						dir_circ_r.push_back(FLLabanSequence::RIGHT_LOW);
-						dir_circ_r.push_back(FLLabanSequence::DIAGONAL_FORWARD_RIGHT_LOW);
-						dir_circ.push_back(dir_circ_r);
-
+						//other 24=3x8 directions (8 per layer from left to right)
 						for (int i = 0; i < 3; i++)
 						{
 							for (int j = 0; j < 8; j++)
 							{
-								if (skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getPhi()
-										> ((i + 1) * 45 - 22.5)
-										&& skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getPhi()
-												<= ((i + 1) * 45 + 22.5))
+								//get direction left/left diagonal, mid, right/right diagonal
+								if (skeleton->getJoint(FLJ_LEFT_UPPER_ARM)->getPhi() > ((i + 1) * 45 - 22.5)
+										&& skeleton->getJoint(FLJ_LEFT_UPPER_ARM)->getPhi() <= ((i + 1) * 45 + 22.5))
 								{
-									if (skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getTheta()
-											> (FLMath::fmod_pos(j * 45 - 22.5, 360) - 180)
-											&& skeleton->getJoint(FLSkeleton::ANGLE_LEFT_UPPER_ARM)->getTheta()
-													<= (FLMath::fmod_pos(j * 45 + 22.5, 360) - 180))
+									//check for first case (front)
+									if (j == 0)
 									{
-										result->setDirection(FLSkeleton::ANGLE_LEFT_WHOLE_ARM, (int) dir_circ[i][j]);
-										break;
+										//front has other condition (_OR_)
+										if (skeleton->getJoint(FLJ_LEFT_UPPER_ARM)->getTheta()
+												> (FLMath::fmod_pos(j * 45 - 22.5, 360) - 180)
+												|| skeleton->getJoint(FLJ_LEFT_UPPER_ARM)->getTheta()
+														<= (FLMath::fmod_pos(j * 45 + 22.5, 360) - 180))
+										{
+											result->setDirection(FLJ_LEFT_WHOLE_ARM, (int) dir_circ[i][j]);
+											break;
+										}
+									}
+									else
+									{
+										//all other cases
+										if (skeleton->getJoint(FLJ_LEFT_UPPER_ARM)->getTheta()
+												> (FLMath::fmod_pos(j * 45 - 22.5, 360) - 180)
+												&& skeleton->getJoint(FLJ_LEFT_UPPER_ARM)->getTheta()
+														<= (FLMath::fmod_pos(j * 45 + 22.5, 360) - 180))
+										{
+											result->setDirection(FLJ_LEFT_WHOLE_ARM, (int) dir_circ[i][j]);
+											break;
+										}
 									}
 								}
 							}
-
 						}
-
-						//8 directions
-						//diag_f - hml
-						//diag_b - hml
-						//left - hl
 					}
-
-					//
 				}
 				else
 				{
 					//arm is bent therefore forearm and upper arm must be regarded separately
+					//TODO
+
+					std::cout << " :: ARM IS BENT" << std::endl;
 				}
 			}
 
-			std::cout << " DIR: " << result->getDirection(FLSkeleton::ANGLE_LEFT_WHOLE_ARM) << " # LFA: "
-					<< *skeleton->getJoint(mae::fl::FLSkeleton::ANGLE_LEFT_FOREARM) << " # LUA: "
-					<< *skeleton->getJoint(mae::fl::FLSkeleton::ANGLE_LEFT_UPPER_ARM) << std::endl;
+			if (result->getDirection(FLJ_LEFT_WHOLE_ARM) >= FLD_INVALID
+					&& result->getDirection(FLJ_LEFT_WHOLE_ARM) < FLD_SIZE)
+			{
+				const char * dir_str = fld_str[result->getDirection(FLJ_LEFT_WHOLE_ARM)];
+
+				std::cout << " DIR: " << dir_str << " # LUA: " << skeleton->getJoint(FLJ_LEFT_UPPER_ARM) << " # LFA: "
+						<< skeleton->getJoint(FLJ_LEFT_FOREARM) << std::endl;
+			}
+			else
+			{
+				std::cout << " DIR: " << result->getDirection(FLJ_LEFT_WHOLE_ARM) << " # LUA: "
+						<< skeleton->getJoint(FLJ_LEFT_UPPER_ARM) << " # LFA: "
+						<< skeleton->getJoint(FLJ_LEFT_FOREARM) << std::endl;
+			}
 
 			//todo do stuff in here
 
