@@ -44,7 +44,7 @@ namespace mae {
 		int GeneralPose::getDirection(int bodyPart){
 
 			if (hashmap_direction.find(bodyPart) == hashmap_direction.end()){
-				return -1;
+				return 0;
 			}else{
 				return hashmap_direction[bodyPart];
 			}

@@ -7,8 +7,10 @@
 
 #include "FLMath.hpp"
 
-namespace mae {
-	namespace fl {
+namespace mae
+{
+	namespace fl
+	{
 
 		cv::Vec3d FLMath::jointToVec(std::shared_ptr<mae::model::GeneralJoint> joint)
 		{
@@ -43,7 +45,8 @@ namespace mae {
 		{
 			std::vector<double> result;
 
-			for (int i = 0; i< 3; i++){
+			for (int i = 0; i < 3; i++)
+			{
 				result.push_back(vec[i]);
 			}
 
@@ -54,8 +57,9 @@ namespace mae {
 		{
 			std::vector<double> result;
 
-			for (int i = 0; i< 2; i++){
-				result.push_back((double)vec[i]);
+			for (int i = 0; i < 2; i++)
+			{
+				result.push_back((double) vec[i]);
 			}
 
 			return result;
@@ -72,7 +76,8 @@ namespace mae {
 			{
 				cv::Vec3d result;
 
-				for (int i = 0; i< 3; i++){
+				for (int i = 0; i < 3; i++)
+				{
 					result[i] = vec[i];
 				}
 
@@ -91,7 +96,8 @@ namespace mae {
 			{
 				cv::Vec2d result;
 
-				for (int i = 0; i< 2; i++){
+				for (int i = 0; i < 2; i++)
+				{
 					result[i] = vec[i];
 				}
 
@@ -99,8 +105,8 @@ namespace mae {
 			}
 		}
 
-
-		cv::Vec3d FLMath::projectToBasis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t)
+		cv::Vec3d FLMath::projectToBasis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r,
+				cv::Vec3d t)
 		{
 			//point to be projected
 			cv::Mat p = cv::Mat(4, 1, CV_64F);
@@ -111,33 +117,38 @@ namespace mae {
 
 			//coordinate transform matrix
 			cv::Mat m = cv::Mat(4, 4, CV_64F);
-			for (int i = 0; i<3 ; i++){
-				m.at<double>(i,0) = u[i];
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 0) = u[i];
 			}
-			m.at<double>(3,0) = 0;
+			m.at<double>(3, 0) = 0;
 
-			for (int i = 0; i<3 ; i++){
-				m.at<double>(i,1) = r[i];
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 1) = r[i];
 			}
-			m.at<double>(3,1) = 0;
+			m.at<double>(3, 1) = 0;
 
-			for (int i = 0; i<3 ; i++){
-				m.at<double>(i,2) = t[i];
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 2) = t[i];
 			}
-			m.at<double>(3,2) = 0;
+			m.at<double>(3, 2) = 0;
 
-			for (int i = 0; i<3 ; i++){
-				m.at<double>(i,3) = position_vector[i];
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 3) = position_vector[i];
 			}
-			m.at<double>(3,3) = 1;
+			m.at<double>(3, 3) = 1;
 
 			//calc result
-			cv::Mat result = m.inv()*p;
+			cv::Mat result = m.inv() * p;
 
-			return result.rowRange(0,3);
+			return result.rowRange(0, 3);
 		}
 
-		cv::Vec3d FLMath::projectOrthogonal(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d plane_u, cv::Vec3d plane_v)
+		cv::Vec3d FLMath::projectOrthogonal(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d plane_u,
+				cv::Vec3d plane_v)
 		{
 
 			//point to be projected
@@ -146,7 +157,6 @@ namespace mae {
 			p.at<double>(1) = point[1];
 			p.at<double>(2) = point[2];
 			p.at<double>(3) = 1;
-
 
 			plane_u = cv::normalize(plane_u);
 			plane_v = cv::normalize(plane_v);
@@ -156,34 +166,38 @@ namespace mae {
 
 			//coordinate transform matrix
 			cv::Mat m = cv::Mat(4, 4, CV_64F);
-			for (int i = 0; i<3 ; i++){
-				m.at<double>(i,0) = plane_u[i];
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 0) = plane_u[i];
 			}
-			m.at<double>(3,0) = 0;
+			m.at<double>(3, 0) = 0;
 
-			for (int i = 0; i<3 ; i++){
-				m.at<double>(i,1) = plane_v[i];
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 1) = plane_v[i];
 			}
-			m.at<double>(3,1) = 0;
+			m.at<double>(3, 1) = 0;
 
-			for (int i = 0; i<3 ; i++){
-				m.at<double>(i,2) = normal[i];
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 2) = normal[i];
 			}
-			m.at<double>(3,2) = 0;
+			m.at<double>(3, 2) = 0;
 
-			for (int i = 0; i<3 ; i++){
-				m.at<double>(i,3) = position_vector[i];
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 3) = position_vector[i];
 			}
-			m.at<double>(3,3) = 1;
+			m.at<double>(3, 3) = 1;
 
 			//reduce matrix
-			cv::Mat x = cv::Mat::eye(4,4, CV_64F);
-			x.at<double>(2,2) = 0;
+			cv::Mat x = cv::Mat::eye(4, 4, CV_64F);
+			x.at<double>(2, 2) = 0;
 
 			//calc result
-			cv::Mat result = m*x*m.inv()*p;
+			cv::Mat result = m * x * m.inv() * p;
 
-			return result.rowRange(0,3);
+			return result.rowRange(0, 3);
 		}
 
 		cv::Vec3d FLMath::rotateAroundAxis(cv::Vec3d point, cv::Vec3d axis, double beta)
@@ -195,7 +209,7 @@ namespace mae {
 			}
 
 			//point to be projected
-			cv::Mat p = cv::Mat::zeros(3,1,CV_64F);
+			cv::Mat p = cv::Mat::zeros(3, 1, CV_64F);
 			p.at<double>(0) = point[0];
 			p.at<double>(1) = point[1];
 			p.at<double>(2) = point[2];
@@ -207,43 +221,45 @@ namespace mae {
 			x[1] = 0;
 			x[2] = 0;
 
-			if (FLMath::areCollinear(axis, x)){
+			if (FLMath::areCollinear(axis, x))
+			{
 				x[0] = 0;
 				x[1] = 1;
 			}
-
 
 			cv::Vec3d axis_o1 = cv::normalize(axis.cross(x));
 			cv::Vec3d axis_o2 = cv::normalize(axis.cross(axis_o1));
 
 			//coordinate transform matrix
-			cv::Mat m = cv::Mat::zeros(3,3,CV_64F);
-			for (int i = 0; i<3 ; i++){
-				m.at<double>(i,0) = axis[i];
+			cv::Mat m = cv::Mat::zeros(3, 3, CV_64F);
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 0) = axis[i];
 			}
 
-			for (int i = 0; i<3 ; i++){
-				m.at<double>(i,1) = axis_o1[i];
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 1) = axis_o1[i];
 			}
 
-			for (int i = 0; i<3 ; i++){
-				m.at<double>(i,2) = axis_o2[i];
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 2) = axis_o2[i];
 			}
-
 
 			//rotation matrix
 			double cos_beta = std::cos(beta);
 			double sin_beta = std::sin(beta);
 
-			cv::Mat r_x = cv::Mat::zeros(3,3,CV_64F);
-			r_x.at<double>(1,1) = cos_beta;
-			r_x.at<double>(1,2) = -sin_beta;
-			r_x.at<double>(2,1) = sin_beta;
-			r_x.at<double>(2,2) = cos_beta;
-			r_x.at<double>(0,0) = 1;
+			cv::Mat r_x = cv::Mat::zeros(3, 3, CV_64F);
+			r_x.at<double>(1, 1) = cos_beta;
+			r_x.at<double>(1, 2) = -sin_beta;
+			r_x.at<double>(2, 1) = sin_beta;
+			r_x.at<double>(2, 2) = cos_beta;
+			r_x.at<double>(0, 0) = 1;
 
-			cv::Mat result = m*r_x*m.inv()*p;
-			return result.rowRange(0,3);
+			cv::Mat result = m * r_x * m.inv() * p;
+			return result.rowRange(0, 3);
 		}
 
 		bool FLMath::areCollinear(cv::Vec3d a, cv::Vec3d b)
@@ -256,51 +272,72 @@ namespace mae {
 			b = cv::normalize(b);
 
 			//no need for angle ranging from 0-360 therefore this does the trick
-			double angle = FLMath::calcAngleHalf(a,b);//std::acos(a.dot(b));
+			double angle = FLMath::calcAngleHalf(a, b); //std::acos(a.dot(b));
 
 			//fix round-off errors
-			return (angle > -0.01 && angle < 0.01) || (angle > (M_PI - 0.01) && angle < (M_PI + 0.01)) || (angle > (-M_PI - 0.01) && angle < (-M_PI + 0.01));
+			return (angle > -0.01 && angle < 0.01) || (angle > (M_PI - 0.01) && angle < (M_PI + 0.01))
+					|| (angle > (-M_PI - 0.01) && angle < (-M_PI + 0.01));
 		}
 
 		double FLMath::calcAngle(cv::Vec3d a, cv::Vec3d b)
 		{
 
-			double halfAngle = FLMath::calcAngleHalf(a,b);
+			double halfAngle = FLMath::calcAngleHalf(a, b);
 
-
-			if (halfAngle == 0 || halfAngle == M_PI || halfAngle == -M_PI){
+			if (halfAngle == 0 || halfAngle == M_PI || halfAngle == -M_PI)
+			{
 				return halfAngle;
 			}
-
 
 			//calc cross product
 			cv::Vec3d cross = a.cross(b);
 
 			int sign = (cross[2] > 0) - (cross[2] < 0);
 
-			if (sign == 0){
+			if (sign == 0)
+			{
 				sign = (cross[1] > 0) - (cross[1] < 0);
 
-				if (sign == 0){
+				if (sign == 0)
+				{
 					sign = (cross[0] > 0) - (cross[0] < 0);
 
-					if (sign == 0){
+					if (sign == 0)
+					{
 						//todo throw exception ?
 						std::cerr << "This case should not occur" << std::endl;
 						std::cerr << "a=" << a << std::endl;
 						std::cerr << "b=" << b << std::endl;
-						std::cerr << "half angle=" << FLMath::radToDeg(halfAngle) <<"° "<< std::endl;
+						std::cerr << "half angle=" << FLMath::radToDeg(halfAngle) << "° " << std::endl;
 						return halfAngle;
 					}
 				}
 			}
 
-			return halfAngle*sign;
+			return halfAngle * sign;
 		}
 
 		double FLMath::calcAngleDeg(cv::Vec3d a, cv::Vec3d b)
 		{
 			return FLMath::radToDeg(FLMath::calcAngle(a, b));
+		}
+
+		double FLMath::calc_angle_plane(cv::Vec3d a, cv::Vec3d b, cv::Vec3d normal)
+		{
+			a = cv::normalize(a);
+			b = cv::normalize(b);
+			normal = cv::normalize(normal);
+
+			double dot = a.dot(b);
+			double det = a[0] * b[1] * normal[2] + b[0] * normal[1] * a[2] + normal[0] * a[1] * b[3]
+					- normal[0] * b[1] * a[2] - b[0] * a[1] * normal[2] - a[0] * normal[1] * b[2];
+
+			return std::atan2(det, dot);
+		}
+
+		double FLMath::calc_angle_plane_deg(cv::Vec3d a, cv::Vec3d b, cv::Vec3d normal)
+		{
+			return FLMath::radToDeg(FLMath::calc_angle_plane(a, b, normal));
 		}
 
 		double FLMath::calcAngleHalf(cv::Vec3d a, cv::Vec3d b)
@@ -311,8 +348,9 @@ namespace mae {
 			double dot = a.dot(b);
 
 			// fix round-off errors
-			if ((dot > 1 && dot < 1.01) || (dot < -1 && dot > -1.01)){
-				dot = (int)dot;
+			if ((dot > 1 && dot < 1.01) || (dot < -1 && dot > -1.01))
+			{
+				dot = (int) dot;
 			}
 
 			return std::acos(dot);
@@ -325,21 +363,21 @@ namespace mae {
 
 		double FLMath::radToDeg(double val)
 		{
-			return val*180 / M_PI;
+			return val * 180 / M_PI;
 		}
 
 		double FLMath::fmod_pos(double a, double b)
 		{
-			double tmp = std::fmod(a,b);
+			double tmp = std::fmod(a, b);
 
 			if (tmp < 0)
 			{
-				tmp = b+tmp;
+				tmp = b + tmp;
 			}
 
 			return tmp;
 		}
-		//todo other
+	//todo other
 
-	} // namespace fl
+	}// namespace fl
 } // namespace mae

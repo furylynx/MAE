@@ -11,9 +11,11 @@
 //custom includes
 #include "FLSkeleton.hpp"
 #include "FLMath.hpp"
+#include "FLJ.hpp"
 #include "../controller/ISkeletonController.hpp"
 #include "../model/GeneralJoint.hpp"
 #include "../model/GeneralSkeleton.hpp"
+#include "../model/MAEJ.hpp"
 
 //global includes
 #include <opencv2/core/core.hpp>
@@ -44,7 +46,10 @@ namespace mae {
 				static cv::Vec2d calcFirstDegreeJoint(std::shared_ptr<mae::model::GeneralSkeleton> skeleton, int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
 				static cv::Vec2d calcSecondDegreeJoint(std::shared_ptr<mae::model::GeneralSkeleton> skeleton, int adjacent_joint, int outer_joint, int extremity_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
 
-
+			private:
+				std::vector<int> torso_basis_body_parts;
+				std::vector<std::vector<int> > skel_extremities;
+				std::vector<cv::Vec3d> skel_main_directions;
 		};
 
 	} // namespace fl

@@ -17,6 +17,7 @@
 #include "FLPoseDetector.hpp"
 #include "FLLabanSequenceGenerator.hpp"
 #include "FLSkeletonController.hpp"
+#include "FLJ.hpp"
 
 //global includes
 #include <iostream>
@@ -35,6 +36,7 @@ namespace mae {
 
 			private:
 				std::shared_ptr<FLSkeletonController> skel_ctrl;
+
 		};
 
 	} // namespace fl
