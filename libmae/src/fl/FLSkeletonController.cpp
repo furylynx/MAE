@@ -142,7 +142,6 @@ namespace mae
 			cv::Vec3d u = torso_pca.eigenvectors.row(0).clone();
 			cv::Vec3d r = torso_pca.eigenvectors.row(1).clone();
 
-
 			// normalize in order to receive an orthonormal basis
 			u = cv::normalize(u);
 			r = cv::normalize(r);
@@ -286,7 +285,7 @@ namespace mae
 			cv::Vec3d vec_o = FLMath::jointToVec(skeleton->getJoint(outer_joint));
 
 			//set up new rotated basis
-			double beta = FLMath::calcAngle(md, r);
+			double beta = FLMath::calcAngleHalf(md, r);
 
 			cv::Vec3d u_r = u;
 			cv::Vec3d r_r = r;
@@ -463,7 +462,8 @@ namespace mae
 
 				// ... by rotation angle beta
 				//double beta = std::acos(fdvec.dot(r));
-				double beta = FLMath::calcAngle(fdvec, r);
+				//double beta = FLMath::calcAngle(fdvec, r);
+				double beta = FLMath::calcAngleHalf(fdvec, r);
 
 				//rotate around axis b = v x r ...
 				cv::Vec3d b = t;
@@ -475,10 +475,10 @@ namespace mae
 
 				//todo dont calculate the rotation matrix several times : efficiency!!
 				//apply to all
-				cv::Vec3d u_r = FLMath::rotateAroundAxis(u, b, beta);
+				cv::Vec3d u_r = FLMath::rotateAroundAxis(u, b, -beta);
 				// r is not needed to be rotated since the projection will work with the plane spanned by u and t
-				//cv::Vec3d r_r = FLMath::rotateAroundAxis(r, b, -beta);
-				cv::Vec3d t_r = FLMath::rotateAroundAxis(t, b, beta);
+				// cv::Vec3d r_r = FLMath::rotateAroundAxis(r, b, beta);
+				cv::Vec3d t_r = FLMath::rotateAroundAxis(t, b, -beta);
 
 				//plane othogonal to v is E(u,t)
 				cv::Vec3d sdvec_p = FLMath::projectOrthogonal(vec_e, vec_o, u_r, t_r);
