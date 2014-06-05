@@ -37,6 +37,7 @@ namespace mae
 
 			private:
 				std::vector<std::vector<int> > dir_circ;
+				std::vector<int> flj_ext;
 		};
 
 	} // namespace fl
