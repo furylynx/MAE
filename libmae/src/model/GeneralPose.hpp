@@ -8,22 +8,24 @@
 #ifndef GENERALPOSE_HPP_
 #define GENERALPOSE_HPP_
 
-
 //custom includes
 //...
 
 //global includes
 #include <unordered_map>
+#include <iostream>
 
+namespace mae
+{
+	namespace model
+	{
 
-
-namespace mae {
-	namespace model {
-
-		class GeneralPose {
+		class GeneralPose
+		{
 			public:
 				GeneralPose();
-				GeneralPose(std::unordered_map<int, int> hashmap_direction, std::unordered_map<int, std::unordered_map<int, double> > hashmap_distance);
+				GeneralPose(std::unordered_map<int, int> hashmap_direction,
+						std::unordered_map<int, std::unordered_map<int, double> > hashmap_distance);
 				virtual ~GeneralPose();
 
 				virtual void setDirection(int bodyPart, int direction);
