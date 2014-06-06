@@ -167,6 +167,7 @@ namespace mae
 			cv::Vec3d t = u.cross(r);
 			t = cv::normalize(t);
 
+
 			// ---
 			// Calculate spherical coordinates
 			// for the resulting skeleton

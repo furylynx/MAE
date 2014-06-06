@@ -16,6 +16,8 @@
 #include <unordered_map>
 #include <memory>
 #include <vector>
+#include <string>
+#include <sstream>
 
 namespace mae
 {
@@ -30,6 +32,8 @@ namespace mae
 
 				virtual void setJoint(int bodyPart, std::shared_ptr<GeneralJoint> joint);
 				virtual std::shared_ptr<GeneralJoint> getJoint(int bodyPart);
+
+				virtual std::string to_ply_str();
 
 				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<GeneralSkeleton>& obj)
 				{
