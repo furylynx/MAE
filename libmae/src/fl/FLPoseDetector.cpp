@@ -114,15 +114,23 @@ namespace mae
 
 				//find minimum distance to set direction
 				int min_dist_dir = FLD_INVALID;
-				for (int dir = FLD_INVALID + 1; dir != FLD_SIZE; dir++)
-				{
-					if ((min_dist_dir == FLD_INVALID && result->getDistance(joint_id, dir) >= 0)
-							|| (result->getDistance(joint_id, dir) < result->getDistance(joint_id, min_dist_dir)
-									&& result->getDistance(joint_id, dir) >= 0))
-					{
-						min_dist_dir = dir;
-					}
 
+				if (result->getDistance(joint_id, FLD_P_M) < 22.5 &&  result->getDistance(joint_id, FLD_P_M) >= 0)
+				{
+					//favour place middle since although place is met other direction might have smaller distances
+					min_dist_dir = FLD_P_M;
+				}else{
+
+					for (int dir = FLD_INVALID + 1; dir != FLD_SIZE; dir++)
+					{
+						if ((min_dist_dir == FLD_INVALID && result->getDistance(joint_id, dir) >= 0)
+								|| (result->getDistance(joint_id, dir) < result->getDistance(joint_id, min_dist_dir)
+										&& result->getDistance(joint_id, dir) >= 0))
+						{
+							min_dist_dir = dir;
+						}
+
+					}
 				}
 
 				result->setDirection(joint_id, min_dist_dir);

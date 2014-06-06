@@ -55,43 +55,80 @@ namespace mae
 
 		}
 
-//		std::vector<int> GeneralSkeleton::get_joint_ids()
-//		{
-//			std::vector<int> joint_ids;
-//			joint_ids.push_back(GeneralSkeleton::SKEL_HEAD);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_NECK);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_LEFT_SHOULDER);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_LEFT_ELBOW);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_LEFT_HAND);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_RIGHT_SHOULDER);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_RIGHT_ELBOW);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_RIGHT_HAND);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_TORSO);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_LEFT_HIP);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_LEFT_KNEE);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_LEFT_FOOT);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_RIGHT_HIP);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_RIGHT_KNEE);
-//			joint_ids.push_back(GeneralSkeleton::SKEL_RIGHT_FOOT);
-//			return joint_ids;
-//		}
+		std::string GeneralSkeleton::to_ply_str()
+		{
+			std::stringstream sstr;
 
-		//const int defs
-//		const int GeneralSkeleton::SKEL_HEAD = 1;
-//		const int GeneralSkeleton::SKEL_NECK = 2;
-//		const int GeneralSkeleton::SKEL_LEFT_SHOULDER = 3;
-//		const int GeneralSkeleton::SKEL_LEFT_ELBOW = 4;
-//		const int GeneralSkeleton::SKEL_LEFT_HAND = 5;
-//		const int GeneralSkeleton::SKEL_RIGHT_SHOULDER = 6;
-//		const int GeneralSkeleton::SKEL_RIGHT_ELBOW = 7;
-//		const int GeneralSkeleton::SKEL_RIGHT_HAND = 8;
-//		const int GeneralSkeleton::SKEL_TORSO = 9;
-//		const int GeneralSkeleton::SKEL_LEFT_HIP = 10;
-//		const int GeneralSkeleton::SKEL_LEFT_KNEE = 11;
-//		const int GeneralSkeleton::SKEL_LEFT_FOOT = 12;
-//		const int GeneralSkeleton::SKEL_RIGHT_HIP = 13;
-//		const int GeneralSkeleton::SKEL_RIGHT_KNEE = 14;
-//		const int GeneralSkeleton::SKEL_RIGHT_FOOT = 15;
+			//print header
+			sstr << "ply" << std::endl;				//"\n";
+			sstr << "format ascii 1.0" << std::endl;				//"\n";
+			sstr << "element vertex " << MAEJ_SIZE - 1 << std::endl;				//"\n";
+			sstr << "property double x" << std::endl;				//"\n";
+			sstr << "property double y" << std::endl;				//"\n";
+			sstr << "property double z" << std::endl;				//"\n";
+			sstr << "element face " << 0 << std::endl;				//"\n";
+			sstr << "property list uchar uint vertex_indices" << std::endl; //"\n";
+			sstr << "element edge " << MAEJ_SIZE - 1 << std::endl;
+			sstr << "property int vertex1" << std::endl;
+			sstr << "property int vertex2" << std::endl;
+			sstr << "end_header" << std::endl; //"\n";
+
+			//scale to 1
+			double max_x = 1;
+			double max_y = 1;
+			double max_z = 1;
+
+			std::vector<std::shared_ptr<GeneralJoint> > joints;
+			for (int joint_id = MAEJ_INVALID + 1; joint_id != MAEJ_SIZE; joint_id++)
+			{
+				joints.push_back(
+						std::shared_ptr<GeneralJoint>(
+								new GeneralJoint(getJoint(joint_id)->getX() - getJoint(MAEJ_TORSO)->getX(),
+										getJoint(joint_id)->getY() - getJoint(MAEJ_TORSO)->getY(),
+										getJoint(joint_id)->getZ() - getJoint(MAEJ_TORSO)->getZ())));
+
+				if (((std::shared_ptr<GeneralJoint>)joints[joint_id - 1])->getX() > max_x)
+				{
+					max_x = ((std::shared_ptr<GeneralJoint>)joints[joint_id - 1])->getX();
+				}
+				if (((std::shared_ptr<GeneralJoint>)joints[joint_id - 1])->getY() > max_y)
+				{
+					max_y = ((std::shared_ptr<GeneralJoint>)joints[joint_id - 1])->getY();
+				}
+				if (((std::shared_ptr<GeneralJoint>)joints[joint_id - 1])->getZ() > max_z)
+				{
+					max_z = ((std::shared_ptr<GeneralJoint>)joints[joint_id - 1])->getZ();
+				}
+			}
+
+			//move to center
+
+			//Print points for data
+			for (int joint_id = MAEJ_INVALID + 1; joint_id != MAEJ_SIZE; joint_id++)
+			{
+				sstr << ((std::shared_ptr<GeneralJoint>)joints[joint_id - 1])->getX() / max_x << " " << ((std::shared_ptr<GeneralJoint>)joints[joint_id - 1])->getY() / max_y << " "
+						<< ((std::shared_ptr<GeneralJoint>)joints[joint_id - 1])->getZ() / max_z << " " << std::endl; //"\n";
+			}
+
+			//Print edges for data
+			sstr << MAEJ_LEFT_HAND-1 << " " <<  MAEJ_LEFT_ELBOW-1 << std::endl;
+			sstr << MAEJ_LEFT_ELBOW-1 << " " <<  MAEJ_LEFT_SHOULDER-1 << std::endl;
+			sstr << MAEJ_LEFT_SHOULDER-1 << " " <<  MAEJ_NECK-1 << std::endl;
+			sstr << MAEJ_NECK-1 << " " <<  MAEJ_RIGHT_SHOULDER-1 << std::endl;
+			sstr << MAEJ_RIGHT_SHOULDER-1 << " " <<  MAEJ_RIGHT_ELBOW-1 << std::endl;
+			sstr << MAEJ_RIGHT_ELBOW-1 << " " <<  MAEJ_RIGHT_HAND-1 << std::endl;
+			sstr << MAEJ_NECK-1 << " " <<  MAEJ_HEAD-1 << std::endl;
+			sstr << MAEJ_RIGHT_SHOULDER-1 << " " <<  MAEJ_TORSO-1 << std::endl;
+			sstr << MAEJ_LEFT_SHOULDER-1 << " " <<  MAEJ_TORSO-1 << std::endl;
+			sstr << MAEJ_TORSO-1 << " " <<  MAEJ_LEFT_HIP-1 << std::endl;
+			sstr << MAEJ_TORSO-1 << " " <<  MAEJ_RIGHT_HIP-1 << std::endl;
+			sstr << MAEJ_LEFT_HIP-1 << " " <<  MAEJ_LEFT_KNEE-1 << std::endl;
+			sstr << MAEJ_LEFT_KNEE-1 << " " <<  MAEJ_LEFT_FOOT-1 << std::endl;
+			sstr << MAEJ_RIGHT_HIP-1 << " " <<  MAEJ_RIGHT_KNEE-1 << std::endl;
+			sstr << MAEJ_RIGHT_KNEE-1 << " " <<  MAEJ_RIGHT_FOOT-1 << std::endl;
+
+			return sstr.str();
+		}
 
 	} // namespace model
 } // namespace mae
