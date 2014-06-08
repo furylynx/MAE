@@ -26,6 +26,13 @@ namespace mae {
 
 			std::shared_ptr<mae::model::GeneralEnrichedPose> result;
 
+			//last local minimum of distance denotes  the start of the motion
+			// probably do a low pass filtering in here
+
+			//first local maximum of distance denotes the key pose (key pose is moved when new frames come in)
+
+			std::cout << "estimate frame (key pose detection)" << std::endl;
+
 			return result;
 		}
 

@@ -55,7 +55,7 @@ namespace mae
 
 		}
 
-		std::string GeneralSkeleton::to_ply_str()
+		std::string GeneralSkeleton::ply_str()
 		{
 			std::stringstream sstr;
 
@@ -128,6 +128,12 @@ namespace mae
 			sstr << MAEJ_RIGHT_KNEE-1 << " " <<  MAEJ_RIGHT_FOOT-1 << std::endl;
 
 			return sstr.str();
+		}
+
+		void GeneralSkeleton::ply_file(std::string filename){
+			std::ofstream out_file(filename);
+			out_file << ply_str();
+			out_file.close();
 		}
 
 	} // namespace model
