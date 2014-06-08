@@ -12,6 +12,7 @@
 #include "IKeyPoseDetector.hpp"
 
 //global includes
+#include <iostream>
 
 
 namespace mae {
