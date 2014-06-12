@@ -105,6 +105,18 @@ namespace mae
 			}
 		}
 
+		cv::Vec3d FLMath::matrix_mul(cv::Mat m, cv::Vec3d vec)
+		{
+			//point to be multiplied
+			cv::Mat p = cv::Mat(3, 1, CV_64F);
+			p.at<double>(0) = vec[0];
+			p.at<double>(1) = vec[1];
+			p.at<double>(2) = vec[2];
+
+			cv::Mat result = m*p;
+			return result.rowRange(0,3);
+		}
+
 		cv::Vec3d FLMath::projectToBasis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r,
 				cv::Vec3d t)
 		{
@@ -262,17 +274,244 @@ namespace mae
 			return result.rowRange(0, 3);
 		}
 
-		bool FLMath::areCollinear(cv::Vec3d a, cv::Vec3d b)
+		cv::Vec3d FLMath::rotation_angles_zxy(cv::Vec3d a, cv::Vec3d b)
 		{
 
-			// collinear if a = beta * b;
+			//---------------------------------------------------------------
+			//quaternion
+			//---------------------------------------------------------------
+			cv::Vec4d q = FLMath::quaternion(a, b);
 
-			// assumption: angle between both is 0 or 180 degree (seems to be more robust than calculating beta)
+
+			double alpha = FLMath::calcAngleHalf(a,b);
+			if (alpha < 0.01 && alpha > -0.01)
+			{
+				return cv::Vec3d(0,0,0);
+			}
+
+			//w is first coefficient (note that other forms put w at the end)
+			double qw = q[0];
+			double qx = q[1];
+			double qy = q[2];
+			double qz = q[3];
+
+			//case zxy
+			double r11 = -2 * (qx * qy - qw * qz);
+			double r12 = qw * qw - qx * qx + qy * qy - qz * qz;
+			double r21 = 2 * (qy * qz + qw * qx);
+			double r31 = -2 * (qx * qz - qw * qy);
+			double r32 = qw * qw - qx * qx - qy * qy + qz * qz;
+
+			double ypsilon = std::atan2(r31, r32);
+			double xi = std::asin(r21);
+			double zeta = std::atan2(r11, r12);
+
+			return cv::Vec3d(zeta, xi, ypsilon);
+		}
+
+		cv::Vec3d FLMath::rotation_angles_yzx(cv::Vec3d a, cv::Vec3d b)
+		{
+			//---------------------------------------------------------------
+			//axis angle approach yzx order!!
+			//---------------------------------------------------------------
+
+			cv::Vec3d e1(1, 0, 0);
+			cv::Vec3d e2(0, 1, 0);
+			cv::Vec3d e3(0, 0, 1);
+
+			//orthogonal vector which is the rotation axis
+			cv::Vec3d v;
+			if (FLMath::areCollinear(a, b))
+			{
+				if (FLMath::areCollinear(a, e1))
+				{
+					if (FLMath::areCollinear(a, e2))
+					{
+						v = cv::normalize(a.cross(e3));
+					}
+					else
+					{
+						v = cv::normalize(a.cross(e2));
+					}
+				}
+				else
+				{
+					v = cv::normalize(a.cross(e1));
+				}
+			}
+			else
+			{
+				v = cv::normalize(a.cross(b));
+			}
+
+			//angle for axis-angle representation
+			double alpha = FLMath::calc_angle_plane(a, b, v);
+
+			if (alpha < 0.01 && alpha > -0.01)
+			{
+				return cv::Vec3d(0,0,0);
+			}
+
+			double s = std::sin(alpha);
+			double c = std::cos(alpha);
+			double t = 1 - c;
+
+			double x = v[0];
+			double y = v[1];
+			double z = v[2];
+
+			double ypsilon = 0;
+			double zeta = 0;
+			double xi = 0;
+
+			//check singularities
+			if ((x * y * t + z * s) > 0.998)
+			{
+				// north pole singularity detected
+				ypsilon = 2 * std::atan2(x * std::sin(alpha / 2), std::cos(alpha / 2));
+				zeta = M_PI_2;
+				xi = 0;
+				return cv::Vec3d(ypsilon, zeta, xi);
+			}
+			if ((x * y * t + z * s) < -0.998)
+			{
+				// south pole singularity detected
+				ypsilon = -2 * std::atan2(x * std::sin(alpha / 2), std::cos(alpha / 2));
+				zeta = M_PI_2;
+				xi = 0;
+				return cv::Vec3d(ypsilon, zeta, xi);
+			}
+			ypsilon = std::atan2(y * s - x * z * t, 1 - (y * y + z * z) * t);
+			zeta = std::asin(x * y * t + z * s);
+			xi = std::atan2(x * s - y * z * t, 1 - (x * x + z * z) * t);
+
+			return cv::Vec3d(ypsilon, zeta, xi);
+		}
+
+		cv::Vec3d FLMath::rotate_zxy(cv::Vec3d a, double zeta, double xi, double ypsilon)
+		{
+			//point to matrix
+			cv::Mat a_m = cv::Mat::zeros(3, 1, CV_64F);
+			a_m.at<double>(0) = a[0];
+			a_m.at<double>(1) = a[1];
+			a_m.at<double>(2) = a[2];
+
+			cv::Mat result = FLMath::matrix_rot_z(zeta) * FLMath::matrix_rot_x(xi) * FLMath::matrix_rot_y(ypsilon)
+					* a_m;
+			return result.rowRange(0, 3);
+		}
+
+		cv::Vec3d FLMath::rotate_yzx(cv::Vec3d a, double ypsilon, double zeta, double xi)
+		{
+			//point to matrix
+			cv::Mat a_m = cv::Mat::zeros(3, 1, CV_64F);
+			a_m.at<double>(0) = a[0];
+			a_m.at<double>(1) = a[1];
+			a_m.at<double>(2) = a[2];
+
+			cv::Mat result = FLMath::matrix_rot_y(ypsilon) * FLMath::matrix_rot_z(zeta) * FLMath::matrix_rot_x(xi)
+					* a_m;
+			return result.rowRange(0, 3);
+		}
+
+		cv::Mat FLMath::matrix_rot_x(double beta)
+		{
+			//rotation matrix
+			double cos_beta = std::cos(beta);
+			double sin_beta = std::sin(beta);
+
+			cv::Mat result = cv::Mat::zeros(3, 3, CV_64F);
+			result.at<double>(0, 0) = 1;
+			result.at<double>(1, 1) = cos_beta;
+			result.at<double>(1, 2) = -sin_beta;
+			result.at<double>(2, 1) = sin_beta;
+			result.at<double>(2, 2) = cos_beta;
+
+			return result;
+		}
+
+		cv::Mat FLMath::matrix_rot_y(double beta)
+		{
+			//rotation matrix
+			double cos_beta = std::cos(beta);
+			double sin_beta = std::sin(beta);
+
+			cv::Mat result = cv::Mat::zeros(3, 3, CV_64F);
+			result.at<double>(1, 1) = 1;
+			result.at<double>(0, 0) = cos_beta;
+			result.at<double>(0, 2) = sin_beta;
+			result.at<double>(2, 0) = -sin_beta;
+			result.at<double>(2, 2) = cos_beta;
+
+			return result;
+		}
+
+		cv::Mat FLMath::matrix_rot_z(double beta)
+		{
+			//rotation matrix
+			double cos_beta = std::cos(beta);
+			double sin_beta = std::sin(beta);
+
+			cv::Mat result = cv::Mat::zeros(3, 3, CV_64F);
+			result.at<double>(2, 2) = 1;
+			result.at<double>(0, 0) = cos_beta;
+			result.at<double>(0, 1) = -sin_beta;
+			result.at<double>(1, 0) = sin_beta;
+			result.at<double>(1, 1) = cos_beta;
+
+			return result;
+		}
+
+		cv::Mat FLMath::matrix_rot_zxy(double zeta, double xi, double ypsilon)
+		{
+			//TODO use direction matrix not calculation for all together
+
+			return FLMath::matrix_rot_z(zeta) * FLMath::matrix_rot_x(xi) * FLMath::matrix_rot_y(ypsilon);
+		}
+
+		cv::Vec4d FLMath::quaternion(cv::Vec3d a, cv::Vec3d b)
+		{
 			a = cv::normalize(a);
 			b = cv::normalize(b);
 
-			//no need for angle ranging from 0-360 therefore this does the trick
-			double angle = FLMath::calcAngleHalf(a, b); //std::acos(a.dot(b));
+			cv::Vec3d v;
+			if (FLMath::areCollinear(a, b))
+			{
+				//handle singularity
+
+				cv::Vec3d e1(1,0,0);
+				cv::Vec3d e2(0,1,0);
+				cv::Vec3d e3(0,0,1);
+
+				if (FLMath::areCollinear(a, e1))
+				{
+					if (FLMath::areCollinear(a, e2))
+					{
+						v = a.cross(e3);
+					}
+					else
+					{
+						v = a.cross(e2);
+					}
+				}
+				else
+				{
+					v = a.cross(e1);
+				}
+			}
+			else
+			{
+				v = a.cross(b);
+			}
+
+			cv::Vec4d q(1.0 + a.dot(b), v[0], v[1], v[2]);
+			return cv::normalize(q);
+		}
+
+		bool FLMath::areCollinear(cv::Vec3d a, cv::Vec3d b)
+		{
+			// assumption: angle between both is 0 or 180 degree
+			double angle = FLMath::calcAngleHalf(a, b);
 
 			//fix round-off errors
 			return (angle > -0.01 && angle < 0.01) || (angle > (M_PI - 0.01) && angle < (M_PI + 0.01))
@@ -329,7 +568,7 @@ namespace mae
 			normal = cv::normalize(normal);
 
 			double dot = a.dot(b);
-			double det = a[0] * b[1] * normal[2] + b[0] * normal[1] * a[2] + normal[0] * a[1] * b[3]
+			double det = a[0] * b[1] * normal[2] + b[0] * normal[1] * a[2] + normal[0] * a[1] * b[2]
 					- normal[0] * b[1] * a[2] - b[0] * a[1] * normal[2] - a[0] * normal[1] * b[2];
 
 			return std::atan2(det, dot);
@@ -366,6 +605,11 @@ namespace mae
 			return val * 180 / M_PI;
 		}
 
+		double FLMath::degToRad(double val)
+		{
+			return val * M_PI / 180;
+		}
+
 		double FLMath::fmod_pos(double a, double b)
 		{
 			double tmp = std::fmod(a, b);
@@ -377,7 +621,11 @@ namespace mae
 
 			return tmp;
 		}
-	//todo other
 
-	}// namespace fl
+		int FLMath::sign(double x)
+		{
+			return (x > 0) - (x < 0);
+		}
+
+	} // namespace fl
 } // namespace mae

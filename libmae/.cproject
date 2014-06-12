@@ -110,6 +110,7 @@
 									<listOptionValue builtIn="false" value="/usr/include/opencv2"/>
 									<listOptionValue builtIn="false" value="/usr/include/opencv2/core"/>
 									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu"/>
+									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.1387146456" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.other.pic.1656021026" name="Position Independent Code (-fPIC)" superClass="gnu.cpp.compiler.option.other.pic" value="true" valueType="boolean"/>
@@ -121,6 +122,7 @@
 								<option id="gnu.c.compiler.option.include.paths.629543054" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/include/c++/4.8"/>
 									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/c++/4.8/bits"/>
+									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2025000083" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -141,6 +143,7 @@
 								<option id="gnu.both.asm.option.include.paths.275282671" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/include/c++/4.8"/>
 									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/c++/4.8/bits"/>
+									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.551834422" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>

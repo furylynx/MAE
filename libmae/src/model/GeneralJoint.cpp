@@ -7,14 +7,18 @@
 
 #include "GeneralJoint.hpp"
 
-namespace mae {
-	namespace model {
+namespace mae
+{
+	namespace model
+	{
 
-		GeneralJoint::~GeneralJoint() {
+		GeneralJoint::~GeneralJoint()
+		{
 			this->valid = false;
 		}
 
-		GeneralJoint::GeneralJoint() {
+		GeneralJoint::GeneralJoint()
+		{
 			this->x = 0;
 			this->y = 0;
 			this->z = 0;
@@ -31,38 +35,60 @@ namespace mae {
 			this->valid = true;
 		}
 
-		void GeneralJoint::setX(double x){
+		void GeneralJoint::setX(double x)
+		{
 			this->x = x;
 		}
 
-		double GeneralJoint::getX() const{
+		double GeneralJoint::getX() const
+		{
 			return x;
 		}
 
-		void GeneralJoint::setY(double y){
+		void GeneralJoint::setY(double y)
+		{
 			this->y = y;
 		}
 
-		double GeneralJoint::getY() const{
+		double GeneralJoint::getY() const
+		{
 			return y;
 		}
 
-		void GeneralJoint::setZ(double z){
+		void GeneralJoint::setZ(double z)
+		{
 			this->z = z;
 		}
 
-		double GeneralJoint::getZ() const{
+		double GeneralJoint::getZ() const
+		{
 			return z;
 		}
 
-		void GeneralJoint::setValid(bool isValid){
+		void GeneralJoint::setValid(bool isValid)
+		{
 			this->valid = isValid;
 		}
 
-		bool GeneralJoint::isValid() const{
+		bool GeneralJoint::isValid() const
+		{
 			return valid;
 		}
 
+		std::string GeneralJoint::str() const
+		{
+			std::stringstream sstr;
+			if (!isValid())
+			{
+				sstr << "(invalid joint)";
+			}
+			else
+			{
+				sstr << "(" << getX() << ", " << getY() << ", " << getZ() << ")";
+			}
+
+			return sstr.str();
+		}
 
 	} // namespace model
 } // namespace mae

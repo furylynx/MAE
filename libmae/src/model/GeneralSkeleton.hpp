@@ -31,20 +31,63 @@ namespace mae
 				virtual ~GeneralSkeleton();
 				GeneralSkeleton();
 
+				/**
+				 * Sets a new joint for the given body part.
+				 *
+				 * @param bodyPart The addressed body part.
+				 * @param joint A shared pointer to the joint.
+				 */
 				virtual void setJoint(int bodyPart, std::shared_ptr<GeneralJoint> joint);
-				virtual std::shared_ptr<GeneralJoint> getJoint(int bodyPart);
 
+				/**
+				 * Returns a shared pointer to the joint of the body part.
+				 *
+				 * @param bodyPart The addressed body part.
+				 * @return A shared pointer to the joint.
+				 */
+				virtual std::shared_ptr<GeneralJoint> getJoint(int bodyPart) const;
+
+				virtual std::string str() const;
+
+				/**
+				 * Exports the skeleton data in the Stanford Triagle format as a string.
+				 * @return
+				 */
 				virtual std::string ply_str();
+
+				/**
+				 * Exports the skeleton data to the file using the Stanford Triangle Format format.
+				 *
+				 * @param filename The target output file.
+				 *
+				 */
 				virtual void ply_file(std::string filename);
 
 
+				/**
+				 * Prints the object to the stream.
+				 *
+				 * @param os
+				 * @param obj The object to be printed.
+				 * @return
+				 */
 				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<GeneralSkeleton>& obj)
 				{
-					os << "GeneralSkeleton:" << std::endl;
-					for ( int joint_id = MAEJ_INVALID+1; joint_id != MAEJ_SIZE; joint_id++ )
-					{
-					   os << maej_str[joint_id] << " " << obj->getJoint(joint_id) << std::endl;
-					}
+					os << obj->str();
+
+					return os;
+				}
+
+				/**
+				 * Prints the object to the stream.
+				 *
+				 * @param os
+				 * @param obj The object to be printed.
+				 * @return
+				 */
+				friend std::ostream& operator<<(std::ostream& os, const GeneralSkeleton& obj)
+				{
+					os << obj.str();
 
 					return os;
 				}

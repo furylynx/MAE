@@ -23,7 +23,7 @@ namespace mae {
 			public:
 				virtual ~IPoseDetector(){}
 
-				virtual std::shared_ptr<mae::model::GeneralPose> detectPose(std::shared_ptr<T> skeleton, std::vector<int> bodyParts) = 0;
+				virtual std::shared_ptr<mae::model::GeneralPose> pose(std::shared_ptr<T> skeleton, std::vector<int> bodyParts) = 0;
 		};
 
 	} // namespace controller
