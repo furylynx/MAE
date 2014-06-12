@@ -12,11 +12,16 @@
 
 //global includes
 #include <iostream>
+#include <sstream>
+#include <memory>
 
-namespace mae {
-	namespace model {
+namespace mae
+{
+	namespace model
+	{
 
-		class GeneralJoint {
+		class GeneralJoint
+		{
 			public:
 				virtual ~GeneralJoint();
 				GeneralJoint();
@@ -34,18 +39,17 @@ namespace mae {
 				virtual void setValid(bool isValid);
 				virtual bool isValid() const;
 
+				virtual std::string str() const;
 
 				friend std::ostream& operator<<(std::ostream& os, const GeneralJoint& obj)
 				{
-					if (!obj.isValid())
-					{
-						os << "(invalid joint)";
-					}
-					else
-					{
-						os << "(" << obj.getX() << ", "<< obj.getY() << ", "<< obj.getZ() << ")";
-					}
+					os << obj.str();
+					return os;
+				}
 
+				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<GeneralJoint>& obj)
+				{
+					os << obj->str();
 					return os;
 				}
 
@@ -55,7 +59,6 @@ namespace mae {
 				double z;
 
 				bool valid;
-
 
 		};
 

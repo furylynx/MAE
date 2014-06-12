@@ -40,7 +40,7 @@ namespace mae {
 
 		template<typename T, typename U>
 		std::shared_ptr<U> KPMovementDetector<T, U>::detectMovement(std::shared_ptr<T> skeleton, std::vector<int> bodyParts){
-			std::shared_ptr<mae::model::GeneralPose> pose = ipd->detectPose(skeleton, bodyParts);
+			std::shared_ptr<mae::model::GeneralPose> pose = ipd->pose(skeleton, bodyParts);
 
 			std::shared_ptr<mae::model::GeneralEnrichedPose> enriched_pose = ikpd->estimateFrame(pose, queue, bodyParts);
 

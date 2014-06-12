@@ -70,7 +70,19 @@ namespace mae
 		{
 		}
 
-		std::shared_ptr<mae::model::GeneralPose> FLPoseDetector::detectPose(std::shared_ptr<FLSkeleton> skeleton,
+		std::shared_ptr<mae::model::GeneralPose> FLPoseDetector::pose(std::shared_ptr<FLSkeleton> skeleton,
+						std::vector<int> bodyParts)
+		{
+			std::shared_ptr<mae::model::GeneralPose> result = std::shared_ptr<mae::model::GeneralPose>(
+								new mae::model::GeneralPose());
+
+
+			//TODO do stuff in here (angles between vectors)
+
+			return result;
+		}
+
+		std::shared_ptr<mae::model::GeneralPose> FLPoseDetector::angle_pose(std::shared_ptr<FLSkeleton> skeleton,
 				std::vector<int> bodyParts)
 		{
 
