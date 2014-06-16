@@ -8,6 +8,9 @@
 #ifndef FLMATH_HPP_
 #define FLMATH_HPP_
 
+//eclipse indexer fix
+#include "../indexer_fix.hpp"
+
 //custom includes
 #include "../model/GeneralJoint.hpp"
 #include "FLJoint.hpp"

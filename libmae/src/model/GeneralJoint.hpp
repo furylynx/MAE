@@ -8,7 +8,11 @@
 #ifndef GENERALJOINT_H_
 #define GENERALJOINT_H_
 
+//eclipse indexer fix
+#include "../indexer_fix.hpp"
+
 //custom includes
+//...
 
 //global includes
 #include <iostream>

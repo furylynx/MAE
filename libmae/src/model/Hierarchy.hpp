@@ -8,6 +8,9 @@
 #ifndef HIERARCHY_HPP_
 #define HIERARCHY_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
 //custom includes
 #include "HierarchyElement.hpp"
 

@@ -8,6 +8,9 @@
 #ifndef GENERALSKELETON_HPP_
 #define GENERALSKELETON_HPP_
 
+//eclipse indexer fix
+#include "../indexer_fix.hpp"
+
 //custom includes
 #include "GeneralJoint.hpp"
 #include "MAEJ.hpp"

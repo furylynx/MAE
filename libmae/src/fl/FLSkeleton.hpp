@@ -8,6 +8,9 @@
 #ifndef FLSKELETON_HPP_
 #define FLSKELETON_HPP_
 
+//eclipse indexer fix
+#include "../indexer_fix.hpp"
+
 //custom includes
 #include "FLJoint.hpp"
 #include "FLJ.hpp"
@@ -45,8 +48,10 @@ namespace mae
 				// Stored torso joint is therefore used for the offset of the world coordinate system given
 				// by the depth sensor. The central coordinate system of this FLSkeleton is used for the
 				// representation by translating it into the torso joint.
-				virtual void setRelativeSkeleton(std::shared_ptr<mae::model::GeneralSkeleton> relative_skeleton);
-				virtual std::shared_ptr<mae::model::GeneralSkeleton> getRelativeSkeleton();
+
+				virtual void set_offset_skeleton(std::shared_ptr<mae::model::GeneralSkeleton> offset_skeleton);
+
+				virtual std::shared_ptr<mae::model::GeneralSkeleton> get_offset_skeleton();
 
 				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<FLSkeleton>& obj)
 				{
@@ -61,7 +66,7 @@ namespace mae
 
 			private:
 				std::unordered_map<int, std::shared_ptr<mae::fl::FLJoint> > hashmap_joints;
-				std::shared_ptr<mae::model::GeneralSkeleton> relative_skeleton;
+				std::shared_ptr<mae::model::GeneralSkeleton> offset_skeleton;
 
 				//central coordinate system
 				std::vector<double> u;

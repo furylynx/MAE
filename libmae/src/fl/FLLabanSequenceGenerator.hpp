@@ -8,6 +8,9 @@
 #ifndef FLLABANSEQUENCEGENERATOR_HPP_
 #define FLLABANSEQUENCEGENERATOR_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
 //custom includes
 #include "FLLabanSequence.hpp"
 #include "../model/GeneralEnrichedPose.hpp"

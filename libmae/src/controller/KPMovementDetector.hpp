@@ -8,6 +8,9 @@
 #ifndef KPMOVEMENTDETECTOR_HPP_
 #define KPMOVEMENTDETECTOR_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
 //custom includes
 #include "IMovementDetector.hpp"
 #include "IPoseDetector.hpp"

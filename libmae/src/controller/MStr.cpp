@@ -19,27 +19,15 @@ namespace mae
 		return value;
 	}
 
-	std::pair<int, int> MStr::find_line(std::string& haystack, std::string& needle)
+	std::pair<int, int> MStr::find_line(std::string& haystack, std::string needle)
 	{
 		return MStr::find_line(haystack, needle, 0);
 	}
 
-	std::pair<int, int> MStr::find_line(std::string& haystack, const char * needle)
+	std::pair<int, int> MStr::find_line(std::string& haystack, std::string needle, unsigned int pos)
 	{
-		std::string needle_str(needle);
-		return MStr::find_line(haystack, needle_str);
-	}
-
-	std::pair<int, int> MStr::find_line(std::string& haystack, const char * needle, unsigned int pos)
-	{
-		std::string needle_str(needle);
-		return MStr::find_line(haystack, needle_str, pos);
-	}
-
-	std::pair<int, int> MStr::find_line(std::string& haystack, std::string& needle, unsigned int pos)
-	{
-		std::string::size_type pos_needle = haystack.find(needle, pos);
-		std::string::size_type pos_endl = haystack.find("\n", (std::string::size_type) (pos_needle + needle.size()));
+		unsigned int pos_needle = haystack.find(needle, pos);
+		unsigned int pos_endl = haystack.find("\n", (pos_needle + needle.size()));
 		return std::pair<int, int>(pos_needle, pos_endl - pos_needle);
 	}
 
@@ -50,7 +38,7 @@ namespace mae
 
 	std::vector<std::string> MStr::split(std::string& value)
 	{
-		return MStr::split(value, ' ', 0, (unsigned int)value.size());
+		return MStr::split(value, ' ', 0, value.size());
 	}
 
 	std::vector<std::string> MStr::split(std::string& value, char delim, unsigned int pos, unsigned int n)
@@ -74,7 +62,7 @@ namespace mae
 
 	std::vector<std::string> MStr::split(std::string& value, char delim)
 	{
-		return MStr::split(value, delim, 0, (unsigned int)value.size());
+		return MStr::split(value, delim, 0, value.size());
 	}
 
 	std::vector<double> MStr::double_list(std::string& value, unsigned int pos, unsigned int n)
@@ -85,7 +73,7 @@ namespace mae
 
 		for (unsigned int i = 0; i < split.size(); i++)
 		{
-			result.push_back(std::stod((std::string) split[i]));
+			result.push_back(std::stod(split.at(i)));
 		}
 
 		return result;
@@ -93,7 +81,7 @@ namespace mae
 
 	std::vector<double> MStr::double_list(std::string& value)
 	{
-		return MStr::double_list(value, 0, (unsigned int)value.size());
+		return MStr::double_list(value, 0, value.size());
 	}
 
 } // namespace mae

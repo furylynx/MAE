@@ -8,6 +8,9 @@
 #ifndef ISKELETONCONTROLLER_HPP_
 #define ISKELETONCONTROLLER_HPP_
 
+//eclipse indexer fix
+#include "../indexer_fix.hpp"
+
 //custom includes
 #include "../model/GeneralSkeleton.hpp"
 
