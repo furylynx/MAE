@@ -38,6 +38,7 @@
 									<listOptionValue builtIn="false" value="/usr/include/opencv2"/>
 									<listOptionValue builtIn="false" value="/usr/include/opencv2/core"/>
 									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu"/>
+									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.1719826930" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def"/>
 								<option id="gnu.cpp.compiler.option.other.pic.1750557846" name="Position Independent Code (-fPIC)" superClass="gnu.cpp.compiler.option.other.pic" value="true" valueType="boolean"/>
