@@ -8,6 +8,9 @@
 #ifndef MSTR_HPP_
 #define MSTR_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
 //custom includes
 //...
 
@@ -18,6 +21,7 @@
 #include <memory>
 #include <vector>
 
+
 namespace mae
 {
 
@@ -27,10 +31,8 @@ namespace mae
 
 			static std::string trim(std::string value);
 
-			static std::pair<int, int> find_line(std::string& haystack, std::string& needle);
-			static std::pair<int, int> find_line(std::string& haystack, const char * needle);
-			static std::pair<int, int> find_line(std::string& haystack, std::string& needle, unsigned int pos);
-			static std::pair<int, int> find_line(std::string& haystack, const char * needle, unsigned int pos);
+			static std::pair<int, int> find_line(std::string& haystack, std::string needle);
+			static std::pair<int, int> find_line(std::string& haystack, std::string needle, unsigned int pos);
 
 			static std::vector<std::string> split(std::string& value);
 			static std::vector<std::string> split(std::string& value, unsigned int pos, unsigned int n);

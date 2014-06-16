@@ -8,6 +8,9 @@
 #ifndef FLJ_HPP_
 #define FLJ_HPP_
 
+//eclipse indexer fix
+#include "../indexer_fix.hpp"
+
 //custom includes
 //...
 

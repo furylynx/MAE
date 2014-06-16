@@ -8,6 +8,9 @@
 #ifndef FLSKELETONCONTROLLER_HPP_
 #define FLSKELETONCONTROLLER_HPP_
 
+//eclipse indexer fix
+#include "../indexer_fix.hpp"
+
 //custom includes
 #include "FLSkeleton.hpp"
 #include "FLMath.hpp"

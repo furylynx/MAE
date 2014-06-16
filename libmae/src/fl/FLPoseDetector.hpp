@@ -8,6 +8,9 @@
 #ifndef FLPOSEDETECTOR_HPP_
 #define FLPOSEDETECTOR_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
 //custom includes
 #include "../controller/IPoseDetector.hpp"
 #include "FLSkeleton.hpp"

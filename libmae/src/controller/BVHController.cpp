@@ -167,19 +167,16 @@ namespace mae
 				if (j == 0)
 				{
 					//parent is torso
-					p_x = ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint(MAEJ_TORSO)->getX();
-					p_y = ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint(MAEJ_TORSO)->getY();
-					p_z = ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint(MAEJ_TORSO)->getZ();
+					p_x = data.at(0)->getJoint(MAEJ_TORSO)->getX();
+					p_y = data.at(0)->getJoint(MAEJ_TORSO)->getY();
+					p_z = data.at(0)->getJoint(MAEJ_TORSO)->getZ();
 				}
 				else
 				{
 					//parent is joint before
-					p_x =
-							((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint((int) ext[i][j - 1])->getX();
-					p_y =
-							((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint((int) ext[i][j - 1])->getY();
-					p_z =
-							((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint((int) ext[i][j - 1])->getZ();
+					p_x = data.at(0)->getJoint(ext.at(i).at(j - 1))->getX();
+					p_y = data.at(0)->getJoint(ext.at(i).at(j - 1))->getY();
+					p_z = data.at(0)->getJoint(ext.at(i).at(j - 1))->getZ();
 				}
 
 				sstr << indent.str() << "OFFSET" << " " << std::setprecision(2)
@@ -396,8 +393,8 @@ namespace mae
 
 		while (read_depth > 0)
 		{
-			std::pair<int, int> pos_joint = MStr::find_line(tmp, "joint", read_pos);
-			std::string::size_type pos_bracket = tmp.find("}", read_pos);
+			std::pair<int, int> pos_joint = MStr::find_line(tmp, std::string("joint"), read_pos);
+			unsigned int pos_bracket = tmp.find("}", read_pos);
 
 			if (pos_bracket == std::string::npos)
 			{
@@ -454,8 +451,8 @@ namespace mae
 				//set parent to current joint
 				el_parent = el_joint_id;
 
-				std::string::size_type pos_joint = tmp.find("joint", read_pos);
-				std::string::size_type pos_end_site = tmp.find("end site", read_pos);
+				unsigned int pos_joint = tmp.find("joint", read_pos);
+				unsigned int pos_end_site = tmp.find("end site", read_pos);
 
 				if (pos_end_site < pos_joint)
 				{
@@ -501,7 +498,8 @@ namespace mae
 		//------------------------------
 		// read motion data
 		//------------------------------
-		std::string::size_type pos_motion = tmp.find("motion");
+		std::string::
+		size_type pos_motion = tmp.find("motion");
 		if (pos_motion == std::string::npos)
 		{
 			return result;
@@ -552,8 +550,8 @@ namespace mae
 					cv::Vec3d orig_offset = fl::FLMath::jointToVec(offset_skel->getJoint((int) joint_sequence[j]))
 							- fl::FLMath::jointToVec(offset_skel->getJoint((int) joint_parent[joint_sequence[j]]));
 
-					cv::Vec3d new_offset = fl::FLMath::matrix_mul((cv::Mat) joint_rot_mat[joint_parent[joint_sequence[j]]],
-							orig_offset);
+					cv::Vec3d new_offset = fl::FLMath::matrix_mul(
+							(cv::Mat) joint_rot_mat[joint_parent[joint_sequence[j]]], orig_offset);
 
 					cv::Vec3d parent_pos = fl::FLMath::jointToVec(
 							next_skel->getJoint((int) joint_parent[joint_sequence[j]]));
@@ -616,7 +614,8 @@ namespace mae
 							std::list<cv::Mat>::iterator iterator;
 							iterator = rot_mats_tmp_vec.begin();
 							iterator++;
-							rot_mats_tmp_vec.insert(iterator, fl::FLMath::matrix_rot_y(fl::FLMath::degToRad(rot_ypsilon)));
+							rot_mats_tmp_vec.insert(iterator,
+									fl::FLMath::matrix_rot_y(fl::FLMath::degToRad(rot_ypsilon)));
 						}
 					}
 
@@ -677,7 +676,8 @@ namespace mae
 						cv::Vec3d new_offset = orig_offset;
 						if (j != 0)
 						{
-							new_offset = fl::FLMath::matrix_mul((cv::Mat)joint_rot_mat[joint_parent[joint_sequence[j]]], orig_offset);
+							new_offset = fl::FLMath::matrix_mul(
+									(cv::Mat) joint_rot_mat[joint_parent[joint_sequence[j]]], orig_offset);
 						}
 
 						cv::Vec3d parent_pos = fl::FLMath::jointToVec(

@@ -8,6 +8,9 @@
 #ifndef IPOSEDETECTOR_HPP_
 #define IPOSEDETECTOR_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
 //custom includes
 #include "../model/GeneralPose.hpp"
 

@@ -8,6 +8,14 @@
 #ifndef FLLABANSUBSEQUENCE_HPP_
 #define FLLABANSUBSEQUENCE_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
+//custom includes
+//...
+
+//global includes
+
 namespace mae {
 	namespace fl {
 

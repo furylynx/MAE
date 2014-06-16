@@ -8,6 +8,9 @@
 #ifndef ISEQUENCEGENERATOR_HPP_
 #define ISEQUENCEGENERATOR_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
 //custom includes
 #include "../model/GeneralEnrichedPose.hpp"
 

@@ -235,6 +235,7 @@ namespace mae
 			}
 
 			// calculate relative skeleton
+			//TODO make this an offset skeleton
 			std::shared_ptr<mae::model::GeneralSkeleton> rel_skeleton = std::shared_ptr<mae::model::GeneralSkeleton>(
 					new mae::model::GeneralSkeleton());
 
@@ -252,7 +253,7 @@ namespace mae
 				}
 			}
 
-			result->setRelativeSkeleton(rel_skeleton);
+			result->set_offset_skeleton(rel_skeleton);
 
 			//set coordinate system
 			std::vector<double> vec_u;

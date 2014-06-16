@@ -8,6 +8,9 @@
 #ifndef BVHCONTROLLER_HPP_
 #define BVHCONTROLLER_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
 //custom includes
 #include "../model/GeneralSkeleton.hpp"
 #include "../model/MAEJ.hpp"

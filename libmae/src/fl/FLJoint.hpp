@@ -8,6 +8,9 @@
 #ifndef FLJOINT_HPP_
 #define FLJOINT_HPP_
 
+//eclipse indexer fix
+#include "../indexer_fix.hpp"
+
 //custom includes
 
 //global includes

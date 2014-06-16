@@ -8,6 +8,9 @@
 #ifndef FLLABANSEQUENCE_HPP_
 #define FLLABANSEQUENCE_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
 //custom includes
 #include "FLLabanSubsequence.hpp"
 

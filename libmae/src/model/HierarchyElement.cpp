@@ -14,7 +14,6 @@ namespace mae
 	{
 		this->id = id;
 		this->name = name;
-
 	}
 
 	HierarchyElement::~HierarchyElement()
@@ -41,7 +40,7 @@ namespace mae
 	{
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
-			if (element_id == ((std::shared_ptr<HierarchyElement>) children[i])->get_id())
+			if (element_id == children.at(i)->get_id())
 			{
 				return true;
 			}
@@ -71,40 +70,39 @@ namespace mae
 	}
 
 	std::vector<std::shared_ptr<HierarchyElement> > HierarchyElement::get_element_sequence()
+	{
+		std::vector<std::shared_ptr<HierarchyElement> > result;
+
+		for (unsigned int i = 0; i < children.size(); i++)
 		{
-			std::vector<std::shared_ptr<HierarchyElement> > result;
+			result.push_back(children.at(i));
 
-			for (unsigned int i = 0; i< children.size(); i++)
-			{
-				result.push_back((std::shared_ptr<HierarchyElement>)children.at((std::size_t) i));
-
-				std::vector<std::shared_ptr<HierarchyElement> > childrens_sequence = ((std::shared_ptr<HierarchyElement>)children.at(i))->get_element_sequence();
-				result.insert(result.end(), childrens_sequence.begin(), childrens_sequence.end());
-			}
-
-			return result;
+			std::vector<std::shared_ptr<HierarchyElement> > childrens_sequence = children.at(i)->get_element_sequence();
+			result.insert(result.end(), childrens_sequence.begin(), childrens_sequence.end());
 		}
+
+		return result;
+	}
 
 	std::shared_ptr<HierarchyElement> HierarchyElement::find_parent(int element_id)
 	{
 		if (children.empty())
 		{
-			//return nullpointer
+			//return null pointer
 			std::shared_ptr<HierarchyElement>();
 		}
 
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
-			if (((std::shared_ptr<HierarchyElement>) children.at(i))->is_parent_of(element_id))
+			if (children.at(i)->is_parent_of(element_id))
 			{
-				return (std::shared_ptr<HierarchyElement>) children.at(i);
+				return children.at(i);
 			}
 		}
 
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
-			std::shared_ptr<HierarchyElement> element = ((std::shared_ptr<HierarchyElement>) children[i])->find_parent(
-					element_id);
+			std::shared_ptr<HierarchyElement> element = children.at(i)->find_parent(element_id);
 
 			if (element)
 			{
@@ -112,7 +110,7 @@ namespace mae
 			}
 		}
 
-		//return nullpointer
+		//return null pointer
 		return std::shared_ptr<HierarchyElement>();
 	}
 
@@ -126,7 +124,7 @@ namespace mae
 
 		if (id == element_id)
 		{
-			return children.at((long unsigned int) 0);
+			return children.at(0);
 		}
 
 		for (unsigned int i = 0; i < children.size(); i++)
@@ -148,7 +146,7 @@ namespace mae
 	{
 		if (children.empty())
 		{
-			//return nullpointer
+			//return null pointer
 			return std::vector<std::shared_ptr<HierarchyElement> >();
 		}
 
@@ -159,8 +157,7 @@ namespace mae
 
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
-			std::vector<std::shared_ptr<HierarchyElement> > elements =
-					((std::shared_ptr<HierarchyElement>) children[i])->find_children(element_id);
+			std::vector<std::shared_ptr<HierarchyElement> > elements = children[i]->find_children(element_id);
 
 			if (!elements.empty())
 			{
@@ -168,7 +165,7 @@ namespace mae
 			}
 		}
 
-		//return nullpointer
+		//return null pointer
 		return std::vector<std::shared_ptr<HierarchyElement> >();
 	}
 
@@ -182,16 +179,15 @@ namespace mae
 
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
-			if (((std::shared_ptr<HierarchyElement>) children.at(i))->get_id() == element_id)
+			if (children.at(i)->get_id() == element_id)
 			{
-				return (std::shared_ptr<HierarchyElement>) children.at(i);
+				return children.at(i);
 			}
 		}
 
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
-			std::shared_ptr<HierarchyElement> element = ((std::shared_ptr<HierarchyElement>) children[i])->find_element(
-					element_id);
+			std::shared_ptr<HierarchyElement> element = children.at(i)->find_element(element_id);
 
 			if (element)
 			{

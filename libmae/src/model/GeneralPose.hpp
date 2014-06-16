@@ -8,6 +8,9 @@
 #ifndef GENERALPOSE_HPP_
 #define GENERALPOSE_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
 //custom includes
 //...
 

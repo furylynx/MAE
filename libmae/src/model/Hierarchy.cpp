@@ -31,7 +31,7 @@ namespace mae
 		return root;
 	}
 
-	virtual void Hierarchy::set_root(std::shared_ptr<HierarchyElement> root)
+	void Hierarchy::set_root(std::shared_ptr<HierarchyElement> root)
 	{
 		this->root = root;
 	}

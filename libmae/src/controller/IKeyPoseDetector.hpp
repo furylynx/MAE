@@ -8,6 +8,9 @@
 #ifndef IKEYPOSEDETECTOR_HPP_
 #define IKEYPOSEDETECTOR_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
 //custom includes
 #include "../model/GeneralPose.hpp"
 #include "../model/GeneralEnrichedPose.hpp"

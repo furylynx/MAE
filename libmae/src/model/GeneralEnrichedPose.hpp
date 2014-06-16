@@ -8,8 +8,13 @@
 #ifndef GENERALENRICHEDPOSE_HPP_
 #define GENERALENRICHEDPOSE_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
+//custom includes
 #include "GeneralPose.hpp"
 
+//global includes
 #include <unordered_map>
 
 namespace mae {

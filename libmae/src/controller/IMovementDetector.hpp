@@ -8,6 +8,9 @@
 #ifndef IMOVEMENTDETECTOR_HPP_
 #define IMOVEMENTDETECTOR_HPP_
 
+//eclipse indexer fix
+#include "indexer_fix.hpp"
+
 //custom includes
 //...
 

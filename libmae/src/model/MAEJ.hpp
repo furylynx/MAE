@@ -8,6 +8,9 @@
 #ifndef MAEJ_HPP_
 #define MAEJ_HPP_
 
+//eclipse indexer fix
+#include "../indexer_fix.hpp"
+
 //custom includes
 //...
 
