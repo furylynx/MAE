@@ -14,6 +14,7 @@
 //custom includes
 #include "GeneralJoint.hpp"
 #include "MAEJ.hpp"
+#include "Hierarchy.hpp"
 
 //global includes
 #include <unordered_map>
@@ -31,8 +32,10 @@ namespace mae
 		class GeneralSkeleton
 		{
 			public:
-				virtual ~GeneralSkeleton();
 				GeneralSkeleton();
+				GeneralSkeleton(std::shared_ptr<Hierarchy> hierarchy);
+				virtual ~GeneralSkeleton();
+
 
 				/**
 				 * Sets a new joint for the given body part.
@@ -40,7 +43,7 @@ namespace mae
 				 * @param bodyPart The addressed body part.
 				 * @param joint A shared pointer to the joint.
 				 */
-				virtual void setJoint(int bodyPart, std::shared_ptr<GeneralJoint> joint);
+				virtual void set_joint(int body_part, std::shared_ptr<GeneralJoint> joint);
 
 				/**
 				 * Returns a shared pointer to the joint of the body part.
@@ -48,15 +51,33 @@ namespace mae
 				 * @param bodyPart The addressed body part.
 				 * @return A shared pointer to the joint.
 				 */
-				virtual std::shared_ptr<GeneralJoint> getJoint(int bodyPart) const;
+				virtual std::shared_ptr<GeneralJoint> get_joint(int body_part) const;
 
+				/**
+				 * Returns a shared pointer to the used hierarchy. If not hierarchy is set, a default hierarchy is assumed.
+				 * @return A shared pointer to the hierarchy.
+				 */
+				virtual std::shared_ptr<Hierarchy> get_hierarchy() const;
+
+				/**
+				 * Sets the hierarchy
+				 * @param hierarchy  A smart pointer to the hierarchy.
+				 */
+				virtual void set_hierarchy(std::shared_ptr<Hierarchy> hierarchy);
+
+
+				/**
+				 * Converts this object to a string.
+				 *
+				 * @return This object as a string.
+				 */
 				virtual std::string str() const;
 
 				/**
 				 * Exports the skeleton data in the Stanford Triagle format as a string.
 				 * @return
 				 */
-				virtual std::string ply_str();
+				virtual std::string ply_str() const;
 
 				/**
 				 * Exports the skeleton data to the file using the Stanford Triangle Format format.
@@ -64,7 +85,7 @@ namespace mae
 				 * @param filename The target output file.
 				 *
 				 */
-				virtual void ply_file(std::string filename);
+				virtual void ply_file(std::string filename) const;
 
 
 				/**
@@ -97,6 +118,7 @@ namespace mae
 
 			private:
 				std::unordered_map<int, std::shared_ptr<mae::model::GeneralJoint> > hashmap_joints;
+				std::shared_ptr<Hierarchy> hierarchy;
 		};
 
 	} // namespace model

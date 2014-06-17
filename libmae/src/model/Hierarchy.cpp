@@ -6,27 +6,35 @@
  */
 
 #include "Hierarchy.hpp"
+#include "HierarchyElement.hpp"
 
 namespace mae
 {
 
 	Hierarchy::Hierarchy()
 	{
-		// TODO Auto-generated constructor stub
-
 	}
 
 	Hierarchy::Hierarchy(std::shared_ptr<HierarchyElement> root)
 	{
 		this->root = root;
+
+		if (root)
+		{
+			root->set_parent(nullptr);
+			//root->set_hierarchy(this);
+		}
 	}
 
 	Hierarchy::~Hierarchy()
 	{
-		// TODO Auto-generated destructor stub
+		if (root)
+		{
+			root->set_hierarchy(nullptr);
+		}
 	}
 
-	std::shared_ptr<HierarchyElement> Hierarchy::get_root()
+	std::shared_ptr<HierarchyElement> Hierarchy::get_root() const
 	{
 		return root;
 	}
@@ -34,6 +42,11 @@ namespace mae
 	void Hierarchy::set_root(std::shared_ptr<HierarchyElement> root)
 	{
 		this->root = root;
+		if (root)
+		{
+			root->set_parent(nullptr);
+			//root->set_hierarchy(this);
+		}
 	}
 
 	std::vector<std::shared_ptr<HierarchyElement> > Hierarchy::get_element_sequence()
@@ -49,38 +62,48 @@ namespace mae
 		return result;
 	}
 
-	std::shared_ptr<HierarchyElement> Hierarchy::find_parent(int element_id)
+	HierarchyElement * const Hierarchy::at(int element_id) const
 	{
-		if (root->is_parent_of(element_id))
+		if (hashmap_elements.find(element_id) == hashmap_elements.end())
 		{
-			return root;
+			// returns nullpointer
+			return nullptr;
 		}
 		else
 		{
-			return root->find_parent(element_id);
+			// returns the element
+			return hashmap_elements.at(element_id);
 		}
-
 	}
 
-	std::shared_ptr<HierarchyElement> Hierarchy::find_first_child(int element_id)
+	std::shared_ptr<Hierarchy> Hierarchy::default_hierarchy()
 	{
-		return root->find_first_child(element_id);
+		std::shared_ptr<Hierarchy> result;
+
+		//TODO construct this one!
+
+		//dummy joints for torso split
+
+		//dummy joints for end sites
+
+		return result;
 	}
 
-	std::vector<std::shared_ptr<HierarchyElement> > Hierarchy::find_children(int element_id)
+	void Hierarchy::add_element(HierarchyElement* element)
 	{
-		return root->find_children(element_id);
-	}
-
-	std::shared_ptr<HierarchyElement> Hierarchy::find_element(int element_id)
-	{
-		if (root->get_id() == element_id)
+		if (hashmap_elements.find(element->get_id()) == hashmap_elements.end())
 		{
-			return root;
+			//not in hashmap, therefore element will be added
+			hashmap_elements.insert(std::make_pair(element->get_id(), element));
 		}
-		else
+	}
+
+	void Hierarchy::remove_element(HierarchyElement* element)
+	{
+		if (hashmap_elements.find(element->get_id()) != hashmap_elements.end())
 		{
-			return root->find_element(element_id);
+			//in hashmap, therefore element will be erased
+			hashmap_elements.erase(element->get_id());
 		}
 	}
 

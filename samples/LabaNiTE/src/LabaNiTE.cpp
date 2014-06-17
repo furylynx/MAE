@@ -403,7 +403,7 @@ int main()
 					std::shared_ptr<mae::model::GeneralJoint> g_joint = std::shared_ptr<mae::model::GeneralJoint>(
 							new mae::model::GeneralJoint(xn_joint.position.position.X, xn_joint.position.position.Y,
 									xn_joint.position.position.Z));
-					skeleton->setJoint((int) joint_ids_mae[j], g_joint);
+					skeleton->set_joint((int) joint_ids_mae[j], g_joint);
 
 					if (store_skels)
 					{

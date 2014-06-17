@@ -12,17 +12,25 @@ namespace mae
 	namespace model
 	{
 
-		GeneralSkeleton::~GeneralSkeleton()
-		{
-			hashmap_joints.clear();
-		}
-
 		GeneralSkeleton::GeneralSkeleton()
 		{
-			hashmap_joints = std::unordered_map<int, std::shared_ptr<mae::model::GeneralJoint> >();
+			this->hashmap_joints = std::unordered_map<int, std::shared_ptr<mae::model::GeneralJoint> >();
+
+			this->hierarchy = Hierarchy::default_hierarchy();
 		}
 
-		void GeneralSkeleton::setJoint(int bodyPart, std::shared_ptr<mae::model::GeneralJoint> joint)
+		GeneralSkeleton::GeneralSkeleton(std::shared_ptr<Hierarchy> hierarchy)
+		{
+			this->hierarchy = hierarchy;
+			this->hashmap_joints = std::unordered_map<int, std::shared_ptr<mae::model::GeneralJoint> >();
+		}
+
+		GeneralSkeleton::~GeneralSkeleton()
+		{
+			this->hashmap_joints.clear();
+		}
+
+		void GeneralSkeleton::set_joint(int bodyPart, std::shared_ptr<mae::model::GeneralJoint> joint)
 		{
 
 			if (hashmap_joints.find(bodyPart) == hashmap_joints.end())
@@ -38,7 +46,7 @@ namespace mae
 			}
 		}
 
-		std::shared_ptr<mae::model::GeneralJoint> GeneralSkeleton::getJoint(int bodyPart) const
+		std::shared_ptr<mae::model::GeneralJoint> GeneralSkeleton::get_joint(int bodyPart) const
 		{
 
 			if (hashmap_joints.find(bodyPart) == hashmap_joints.end())
@@ -55,7 +63,17 @@ namespace mae
 
 		}
 
-		std::string GeneralSkeleton::ply_str()
+		std::shared_ptr<Hierarchy> GeneralSkeleton::get_hierarchy() const
+		{
+			return hierarchy;
+		}
+
+		void GeneralSkeleton::set_hierarchy(std::shared_ptr<Hierarchy> hierarchy)
+		{
+			this->hierarchy = hierarchy;
+		}
+
+		std::string GeneralSkeleton::ply_str() const
 		{
 			std::stringstream sstr;
 
@@ -83,9 +101,9 @@ namespace mae
 			{
 				joints.push_back(
 						std::shared_ptr<GeneralJoint>(
-								new GeneralJoint(getJoint(joint_id)->getX() - getJoint(MAEJ_TORSO)->getX(),
-										getJoint(joint_id)->getY() - getJoint(MAEJ_TORSO)->getY(),
-										getJoint(joint_id)->getZ() - getJoint(MAEJ_TORSO)->getZ())));
+								new GeneralJoint(get_joint(joint_id)->getX() - get_joint(MAEJ_TORSO)->getX(),
+										get_joint(joint_id)->getY() - get_joint(MAEJ_TORSO)->getY(),
+										get_joint(joint_id)->getZ() - get_joint(MAEJ_TORSO)->getZ())));
 
 				if (((std::shared_ptr<GeneralJoint>) joints[joint_id - 1])->getX() > max_x)
 				{
@@ -111,6 +129,8 @@ namespace mae
 						<< ((std::shared_ptr<GeneralJoint>) joints[joint_id - 1])->getZ() / max_z << " " << std::endl; //"\n";
 			}
 
+			//TODO do this according to the hiearchy
+
 			//Print edges for data
 			sstr << MAEJ_LEFT_HAND - 1 << " " << MAEJ_LEFT_ELBOW - 1 << std::endl;
 			sstr << MAEJ_LEFT_ELBOW - 1 << " " << MAEJ_LEFT_SHOULDER - 1 << std::endl;
@@ -131,7 +151,7 @@ namespace mae
 			return sstr.str();
 		}
 
-		void GeneralSkeleton::ply_file(std::string filename)
+		void GeneralSkeleton::ply_file(std::string filename) const
 		{
 			std::ofstream out_file(filename);
 			out_file << ply_str();
@@ -144,7 +164,7 @@ namespace mae
 			sstr << "GeneralSkeleton:" << std::endl;
 			for (int joint_id = MAEJ_INVALID + 1; joint_id != MAEJ_SIZE; joint_id++)
 			{
-				sstr << maej_str[joint_id] << " " << getJoint(joint_id) << std::endl;
+				sstr << maej_str[joint_id] << " " << get_joint(joint_id) << std::endl;
 			}
 
 			return sstr.str();
