@@ -116,9 +116,9 @@ namespace mae
 		sstr << "{" << std::endl;
 
 		//offset of root element (torso)
-		double torso_offset_x = ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint(MAEJ_TORSO)->getX();
-		double torso_offset_y = ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint(MAEJ_TORSO)->getY();
-		double torso_offset_z = ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint(MAEJ_TORSO)->getZ();
+		double torso_offset_x = ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint(MAEJ_TORSO)->getX();
+		double torso_offset_y = ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint(MAEJ_TORSO)->getY();
+		double torso_offset_z = ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint(MAEJ_TORSO)->getZ();
 
 		sstr << "\t" << "OFFSET" << " " << std::setprecision(2) << torso_offset_x << " " << std::setprecision(2)
 				<< torso_offset_y << " " << std::setprecision(2) << torso_offset_z << std::endl;
@@ -167,24 +167,24 @@ namespace mae
 				if (j == 0)
 				{
 					//parent is torso
-					p_x = data.at(0)->getJoint(MAEJ_TORSO)->getX();
-					p_y = data.at(0)->getJoint(MAEJ_TORSO)->getY();
-					p_z = data.at(0)->getJoint(MAEJ_TORSO)->getZ();
+					p_x = data.at(0)->get_joint(MAEJ_TORSO)->getX();
+					p_y = data.at(0)->get_joint(MAEJ_TORSO)->getY();
+					p_z = data.at(0)->get_joint(MAEJ_TORSO)->getZ();
 				}
 				else
 				{
 					//parent is joint before
-					p_x = data.at(0)->getJoint(ext.at(i).at(j - 1))->getX();
-					p_y = data.at(0)->getJoint(ext.at(i).at(j - 1))->getY();
-					p_z = data.at(0)->getJoint(ext.at(i).at(j - 1))->getZ();
+					p_x = data.at(0)->get_joint(ext.at(i).at(j - 1))->getX();
+					p_y = data.at(0)->get_joint(ext.at(i).at(j - 1))->getY();
+					p_z = data.at(0)->get_joint(ext.at(i).at(j - 1))->getZ();
 				}
 
 				sstr << indent.str() << "OFFSET" << " " << std::setprecision(2)
-						<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint((int) ext[i][j])->getX()
+						<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint((int) ext[i][j])->getX()
 								- p_x << " " << std::setprecision(2)
-						<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint((int) ext[i][j])->getY()
+						<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint((int) ext[i][j])->getY()
 								- p_y << " " << std::setprecision(2)
-						<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint((int) ext[i][j])->getZ()
+						<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint((int) ext[i][j])->getZ()
 								- p_z << std::endl;
 
 				//channels for the joint (if not end site)
@@ -249,11 +249,11 @@ namespace mae
 		{
 			//torso location
 			sstr << std::setprecision(2)
-					<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->getJoint(MAEJ_TORSO)->getX()
+					<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->get_joint(MAEJ_TORSO)->getX()
 							- torso_offset_x << " " << std::setprecision(2)
-					<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->getJoint(MAEJ_TORSO)->getY()
+					<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->get_joint(MAEJ_TORSO)->getY()
 							- torso_offset_y << " " << std::setprecision(2)
-					<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->getJoint(MAEJ_TORSO)->getZ()
+					<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->get_joint(MAEJ_TORSO)->getZ()
 							- torso_offset_z << " ";
 			//torso hold unrotated state
 			sstr << std::setprecision(2) << 0.0 << " " << std::setprecision(2) << 0.0 << " " << std::setprecision(2)
@@ -263,7 +263,7 @@ namespace mae
 			{
 				//offset for each joint
 				cv::Vec3d p_vec = fl::FLMath::jointToVec(
-						((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->getJoint(MAEJ_TORSO));
+						((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->get_joint(MAEJ_TORSO));
 
 				cv::Mat rot_mat = cv::Mat::eye(3, 3, CV_64F);
 
@@ -271,7 +271,7 @@ namespace mae
 				{
 
 					cv::Vec3d cur_vec = fl::FLMath::jointToVec(
-							((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->getJoint((int) ext[i][j]));
+							((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->get_joint((int) ext[i][j]));
 
 					int old_vec_ref = MAEJ_TORSO;
 					if (j > 1)
@@ -279,9 +279,9 @@ namespace mae
 						old_vec_ref = (int) ext[i][j - 1];
 					}
 					cv::Vec3d old_vec = fl::FLMath::jointToVec(
-							((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint((int) ext[i][j]))
+							((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint((int) ext[i][j]))
 							- fl::FLMath::jointToVec(
-									((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->getJoint(old_vec_ref));
+									((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint(old_vec_ref));
 					cv::Vec3d new_vec = cur_vec - p_vec;
 
 					//rotate old vector according to previous rotations
@@ -377,7 +377,7 @@ namespace mae
 		int el_root_id = joint_str[el_root];
 
 		//parse root offset
-		offset_skel->setJoint(el_root_id,
+		offset_skel->set_joint(el_root_id,
 				parse_offset(tmp, pos_root.first + pos_root.second,
 						std::shared_ptr<model::GeneralJoint>(new model::GeneralJoint(0, 0, 0))));
 
@@ -436,8 +436,8 @@ namespace mae
 				read_pos = pos_joint.first + pos_joint.second;
 
 				//parse offset
-				offset_skel->setJoint(el_joint_id,
-						parse_offset(tmp, (unsigned int) read_pos, offset_skel->getJoint(el_parent)));
+				offset_skel->set_joint(el_joint_id,
+						parse_offset(tmp, (unsigned int) read_pos, offset_skel->get_joint(el_parent)));
 
 				//parse channels
 				joint_channel.insert(std::make_pair(el_joint_id, parse_channels(tmp, (unsigned int) read_pos)));
@@ -471,8 +471,8 @@ namespace mae
 					joint_parent.insert(std::make_pair(el_joint_id, el_parent));
 
 					//parse offset
-					offset_skel->setJoint(el_joint_id,
-							parse_offset(tmp, (unsigned int) read_pos, offset_skel->getJoint(el_parent)));
+					offset_skel->set_joint(el_joint_id,
+							parse_offset(tmp, (unsigned int) read_pos, offset_skel->get_joint(el_parent)));
 
 					//set sequence
 					joint_sequence.push_back(el_joint_id);
@@ -547,16 +547,16 @@ namespace mae
 					//joint has no motion information
 
 					//offset
-					cv::Vec3d orig_offset = fl::FLMath::jointToVec(offset_skel->getJoint((int) joint_sequence[j]))
-							- fl::FLMath::jointToVec(offset_skel->getJoint((int) joint_parent[joint_sequence[j]]));
+					cv::Vec3d orig_offset = fl::FLMath::jointToVec(offset_skel->get_joint((int) joint_sequence[j]))
+							- fl::FLMath::jointToVec(offset_skel->get_joint((int) joint_parent[joint_sequence[j]]));
 
 					cv::Vec3d new_offset = fl::FLMath::matrix_mul(
 							(cv::Mat) joint_rot_mat[joint_parent[joint_sequence[j]]], orig_offset);
 
 					cv::Vec3d parent_pos = fl::FLMath::jointToVec(
-							next_skel->getJoint((int) joint_parent[joint_sequence[j]]));
+							next_skel->get_joint((int) joint_parent[joint_sequence[j]]));
 
-					next_skel->setJoint((int) joint_sequence[j], fl::FLMath::vecToJoint(new_offset + parent_pos));
+					next_skel->set_joint((int) joint_sequence[j], fl::FLMath::vecToJoint(new_offset + parent_pos));
 				}
 				else
 				{
@@ -664,15 +664,15 @@ namespace mae
 					if (j == 0)
 					{
 						//handle root element
-						cv::Vec3d orig_offset = fl::FLMath::jointToVec(offset_skel->getJoint((int) joint_sequence[j]));
-						next_skel->setJoint((int) joint_sequence[j],
+						cv::Vec3d orig_offset = fl::FLMath::jointToVec(offset_skel->get_joint((int) joint_sequence[j]));
+						next_skel->set_joint((int) joint_sequence[j],
 								fl::FLMath::vecToJoint(orig_offset + motion_offset));
 					}
 					else
 					{
 						//handle any other element
-						cv::Vec3d orig_offset = fl::FLMath::jointToVec(offset_skel->getJoint((int) joint_sequence[j]))
-								- fl::FLMath::jointToVec(offset_skel->getJoint((int) joint_parent[joint_sequence[j]]));
+						cv::Vec3d orig_offset = fl::FLMath::jointToVec(offset_skel->get_joint((int) joint_sequence[j]))
+								- fl::FLMath::jointToVec(offset_skel->get_joint((int) joint_parent[joint_sequence[j]]));
 						cv::Vec3d new_offset = orig_offset;
 						if (j != 0)
 						{
@@ -681,9 +681,9 @@ namespace mae
 						}
 
 						cv::Vec3d parent_pos = fl::FLMath::jointToVec(
-								next_skel->getJoint((int) joint_parent[joint_sequence[j]]));
+								next_skel->get_joint((int) joint_parent[joint_sequence[j]]));
 
-						next_skel->setJoint((int) joint_sequence[j],
+						next_skel->set_joint((int) joint_sequence[j],
 								fl::FLMath::vecToJoint(new_offset + parent_pos + motion_offset));
 					}
 

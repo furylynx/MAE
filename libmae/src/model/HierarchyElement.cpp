@@ -6,19 +6,34 @@
  */
 
 #include "HierarchyElement.hpp"
+#include "Hierarchy.hpp"
 
 namespace mae
 {
 
-	HierarchyElement::HierarchyElement(int id, std::string name)
+	HierarchyElement::HierarchyElement(int id, std::string name, std::string bone_name)
 	{
 		this->id = id;
 		this->name = name;
+		this->bone_name = bone_name;
+
+		this->parent = nullptr;
+		this->hierarchy = nullptr;
 	}
 
 	HierarchyElement::~HierarchyElement()
 	{
-		children.clear();
+		//reset parent of children and hierarchy
+		for (unsigned int i = 0; i < children.size(); i++)
+		{
+			children.at(i)->set_parent(nullptr);
+
+			if (hierarchy)
+			{
+				//update hierarchy
+				children.at(i)->set_hierarchy(nullptr);
+			}
+		}
 	}
 
 	int HierarchyElement::get_id() const
@@ -29,6 +44,16 @@ namespace mae
 	std::string HierarchyElement::get_name() const
 	{
 		return name;
+	}
+
+	std::string HierarchyElement::get_bone_name() const
+	{
+		return bone_name;
+	}
+
+	HierarchyElement * const HierarchyElement::get_parent() const
+	{
+		return parent;
 	}
 
 	bool HierarchyElement::is_parent() const
@@ -49,7 +74,7 @@ namespace mae
 		return false;
 	}
 
-	std::vector<std::shared_ptr<HierarchyElement> > HierarchyElement::get_children()
+	std::vector<std::shared_ptr<HierarchyElement> > HierarchyElement::get_children() const
 	{
 		return children;
 	}
@@ -57,16 +82,56 @@ namespace mae
 	void HierarchyElement::push_front(std::shared_ptr<HierarchyElement> child)
 	{
 		children.insert(children.begin(), child);
+
+		//assign parent and hierarchy
+		child->set_parent(this, false);
+
 	}
 
 	void HierarchyElement::add_child(unsigned int pos, std::shared_ptr<HierarchyElement> child)
 	{
 		children.insert(children.begin() + pos, child);
+
+		//assign parent and hierarchy
+		child->set_parent(this, false);
 	}
 
 	void HierarchyElement::push_back(std::shared_ptr<HierarchyElement> child)
 	{
 		children.push_back(child);
+
+		//assign parent and hierarchy
+		child->set_parent(this, false);
+	}
+
+	void HierarchyElement::erase(int element_id)
+	{
+		for (unsigned int i = 0; i < children.size(); i++)
+		{
+			if (children.at(i)->get_id() == element_id)
+			{
+				erase_at(i);
+			}
+		}
+	}
+
+	void HierarchyElement::erase_at(unsigned int i)
+	{
+		if (i < children.size())
+		{
+			children.at(i)->set_parent(nullptr, false);
+			children.erase(children.begin() + i);
+		}
+	}
+
+	void HierarchyElement::clear()
+	{
+		for (unsigned int i = 0; i < children.size(); i++)
+		{
+			children.at(i)->set_parent(nullptr, false);
+		}
+
+		children.clear();
 	}
 
 	std::vector<std::shared_ptr<HierarchyElement> > HierarchyElement::get_element_sequence()
@@ -84,119 +149,74 @@ namespace mae
 		return result;
 	}
 
-	std::shared_ptr<HierarchyElement> HierarchyElement::find_parent(int element_id)
+	void HierarchyElement::set_parent(HierarchyElement * const parent, bool fix_parent)
 	{
-		if (children.empty())
+		if (this->parent == parent)
 		{
-			//return null pointer
-			std::shared_ptr<HierarchyElement>();
+			return;
 		}
 
-		for (unsigned int i = 0; i < children.size(); i++)
+		HierarchyElement* former_parent = this->parent;
+
+		this->parent = parent;
+
+		if (this->hierarchy && this->hierarchy->get_root().get() == this)
 		{
-			if (children.at(i)->is_parent_of(element_id))
-			{
-				return children.at(i);
-			}
+			//this element is assigned to a hierarchy
+			//therefore the root of the old hierarchy must be
+			//cleared
+			hierarchy->set_root(std::shared_ptr<HierarchyElement>());
 		}
 
-		for (unsigned int i = 0; i < children.size(); i++)
+		if (former_parent && fix_parent)
 		{
-			std::shared_ptr<HierarchyElement> element = children.at(i)->find_parent(element_id);
-
-			if (element)
-			{
-				return element;
-			}
+			//remove this element from the former parent
+			former_parent->erase(id);
 		}
 
-		//return null pointer
-		return std::shared_ptr<HierarchyElement>();
+		//update hierarchy
+		if (!parent)
+		{
+			set_hierarchy(nullptr);
+		}
+		else if (parent->hierarchy != this->hierarchy)
+		{
+			//update hierarchy to parent's one
+			set_hierarchy(parent->hierarchy);
+		}
+
 	}
 
-	std::shared_ptr<HierarchyElement> HierarchyElement::find_first_child(int element_id)
+	void HierarchyElement::set_hierarchy(Hierarchy * const hierarchy)
 	{
-		if (children.empty())
+		if (this->hierarchy == hierarchy)
 		{
-			//return nullpointer
-			return std::shared_ptr<HierarchyElement>();
+			return;
 		}
 
-		if (id == element_id)
+		Hierarchy* former_hierarchy = this->hierarchy;
+
+		if (former_hierarchy && former_hierarchy->get_root().get() == this)
 		{
-			return children.at(0);
+			//this element is assigned to another hierarchy
+			//therefore the root of the old hierarchy must be
+			//cleared
+			former_hierarchy->set_root(std::shared_ptr<HierarchyElement>());
 		}
 
+		//update former hierarchy
+		former_hierarchy->remove_element(this);
+
+		this->hierarchy = hierarchy;
+
+		//update new hierarchy
+		hierarchy->add_element(this);
+
+		//update children, too
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
-			std::shared_ptr<HierarchyElement> element =
-					((std::shared_ptr<HierarchyElement>) children.at(i))->find_first_child(element_id);
-
-			if (element)
-			{
-				return element;
-			}
+			children.at(i)->set_hierarchy(hierarchy);
 		}
-
-		//return nullpointer
-		return std::shared_ptr<HierarchyElement>();
-	}
-
-	std::vector<std::shared_ptr<HierarchyElement> > HierarchyElement::find_children(int element_id)
-	{
-		if (children.empty())
-		{
-			//return null pointer
-			return std::vector<std::shared_ptr<HierarchyElement> >();
-		}
-
-		if (id == element_id)
-		{
-			return children;
-		}
-
-		for (unsigned int i = 0; i < children.size(); i++)
-		{
-			std::vector<std::shared_ptr<HierarchyElement> > elements = children[i]->find_children(element_id);
-
-			if (!elements.empty())
-			{
-				return elements;
-			}
-		}
-
-		//return null pointer
-		return std::vector<std::shared_ptr<HierarchyElement> >();
-	}
-
-	std::shared_ptr<HierarchyElement> HierarchyElement::find_element(int element_id)
-	{
-		if (children.empty())
-		{
-			//return nullpointer
-			std::shared_ptr<HierarchyElement>();
-		}
-
-		for (unsigned int i = 0; i < children.size(); i++)
-		{
-			if (children.at(i)->get_id() == element_id)
-			{
-				return children.at(i);
-			}
-		}
-
-		for (unsigned int i = 0; i < children.size(); i++)
-		{
-			std::shared_ptr<HierarchyElement> element = children.at(i)->find_element(element_id);
-
-			if (element)
-			{
-				return element;
-			}
-		}
-
-		//return nullpointer
-		return std::shared_ptr<HierarchyElement>();
 	}
 
 } // namespace mae

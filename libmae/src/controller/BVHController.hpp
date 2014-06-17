@@ -9,7 +9,7 @@
 #define BVHCONTROLLER_HPP_
 
 //eclipse indexer fix
-#include "indexer_fix.hpp"
+#include "../indexer_fix.hpp"
 
 //custom includes
 #include "../model/GeneralSkeleton.hpp"
