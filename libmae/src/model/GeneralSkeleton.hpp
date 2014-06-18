@@ -15,6 +15,7 @@
 #include "GeneralJoint.hpp"
 #include "MAEJ.hpp"
 #include "Hierarchy.hpp"
+#include "HierarchyElement.hpp"
 
 //global includes
 #include <unordered_map>

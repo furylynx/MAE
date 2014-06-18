@@ -22,26 +22,26 @@ namespace mae
 			hashmap_joints.clear();
 		}
 
-		void FLSkeleton::setJoint(int bodyPart, std::shared_ptr<mae::fl::FLJoint> joint)
+		void FLSkeleton::set_joint(int body_part, std::shared_ptr<mae::fl::FLJoint> joint)
 		{
 
-			if (hashmap_joints.find(bodyPart) == hashmap_joints.end())
+			if (hashmap_joints.find(body_part) == hashmap_joints.end())
 			{
 				//key is not in map
-				hashmap_joints.insert(std::make_pair(bodyPart, joint));
+				hashmap_joints.insert(std::make_pair(body_part, joint));
 
 			}
 			else
 			{
 				//key already exists and will therefore be overwritten
-				hashmap_joints[bodyPart] = joint;
+				hashmap_joints[body_part] = joint;
 			}
 		}
 
-		std::shared_ptr<mae::fl::FLJoint> FLSkeleton::getJoint(int bodyPart)
+		std::shared_ptr<mae::fl::FLJoint> FLSkeleton::get_joint(int body_part) const
 		{
 
-			if (hashmap_joints.find(bodyPart) == hashmap_joints.end())
+			if (hashmap_joints.find(body_part) == hashmap_joints.end())
 			{
 				// returns an invalid joint which means that the joint is
 				// not existing
@@ -50,13 +50,13 @@ namespace mae
 			else
 			{
 				// returns the joint
-				return hashmap_joints[bodyPart];
+				return hashmap_joints.at(body_part);
 			}
 
 		}
 
 		//throws invalid_argument exception if sizes are incorrect
-		void FLSkeleton::setCoordSys(std::vector<double> u, std::vector<double> r, std::vector<double> t)
+		void FLSkeleton::set_coord_sys(std::vector<double> u, std::vector<double> r, std::vector<double> t)
 		{
 
 			if (u.size() == 3 && r.size() == 3 && t.size() == 3)
@@ -71,7 +71,7 @@ namespace mae
 			}
 		}
 
-		std::vector<std::vector<double> > FLSkeleton::getCoordSys()
+		std::vector<std::vector<double> > FLSkeleton::get_coord_sys() const
 		{
 			std::vector<std::vector<double> > coord_sys = std::vector<std::vector<double> >();
 			coord_sys.push_back(u);
@@ -86,43 +86,10 @@ namespace mae
 			this->offset_skeleton = offset_skeleton;
 		}
 
-		std::shared_ptr<mae::model::GeneralSkeleton> FLSkeleton::get_offset_skeleton()
+		std::shared_ptr<mae::model::GeneralSkeleton> FLSkeleton::get_offset_skeleton() const
 		{
 			return offset_skeleton;
 		}
-
-//		std::vector<int> FLSkeleton::get_joint_ids(){
-//			std::vector<int> joint_ids;
-//			joint_ids.push_back(FLSkeleton::ANGLE_HEAD);
-//			joint_ids.push_back(FLSkeleton::ANGLE_LEFT_UPPER_ARM);
-//			joint_ids.push_back(FLSkeleton::ANGLE_LEFT_FOREARM);
-//			joint_ids.push_back(FLSkeleton::ANGLE_LEFT_WHOLE_ARM);
-//			joint_ids.push_back(FLSkeleton::ANGLE_RIGHT_UPPER_ARM);
-//			joint_ids.push_back(FLSkeleton::ANGLE_RIGHT_FOREARM);
-//			joint_ids.push_back(FLSkeleton::ANGLE_RIGHT_WHOLE_ARM);
-//			joint_ids.push_back(FLSkeleton::ANGLE_LEFT_THIGH);
-//			joint_ids.push_back(FLSkeleton::ANGLE_LEFT_SHANK);
-//			joint_ids.push_back(FLSkeleton::ANGLE_LEFT_WHOLE_LEG);
-//			joint_ids.push_back(FLSkeleton::ANGLE_RIGHT_THIGH);
-//			joint_ids.push_back(FLSkeleton::ANGLE_RIGHT_SHANK);
-//			joint_ids.push_back(FLSkeleton::ANGLE_RIGHT_WHOLE_LEG);
-//			return joint_ids;
-//		}
-//
-//		//angle representations
-//		const int FLSkeleton::ANGLE_HEAD = 16;
-//		const int FLSkeleton::ANGLE_LEFT_UPPER_ARM = 17;
-//		const int FLSkeleton::ANGLE_LEFT_FOREARM = 18;
-//		const int FLSkeleton::ANGLE_LEFT_WHOLE_ARM = 19;
-//		const int FLSkeleton::ANGLE_RIGHT_UPPER_ARM = 20;
-//		const int FLSkeleton::ANGLE_RIGHT_FOREARM = 21;
-//		const int FLSkeleton::ANGLE_RIGHT_WHOLE_ARM = 22;
-//		const int FLSkeleton::ANGLE_LEFT_THIGH = 23; //Oberschenkel
-//		const int FLSkeleton::ANGLE_LEFT_SHANK = 24; //Unterschenkel
-//		const int FLSkeleton::ANGLE_LEFT_WHOLE_LEG = 25;
-//		const int FLSkeleton::ANGLE_RIGHT_THIGH = 26; //Oberschenkel
-//		const int FLSkeleton::ANGLE_RIGHT_SHANK = 27; //Unterschenkel
-//		const int FLSkeleton::ANGLE_RIGHT_WHOLE_LEG = 28;
 
 	}// namespace fl
 } // namespace mae
