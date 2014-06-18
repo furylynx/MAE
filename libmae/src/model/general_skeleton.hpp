@@ -25,6 +25,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <iostream>
 
 namespace mae
 {

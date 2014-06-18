@@ -104,7 +104,7 @@ XnChar g_strPose[20] = "";
 #define MAX_NUM_USERS 15
 
 //fl globals
-mae::fl::FLMovementController move;
+mae::fl::fl_movement_controller move;
 
 //---------------------------------------------------------------------------
 // Code
@@ -200,7 +200,7 @@ int main()
 	// fl : custom init
 	//----------
 	//fl : setup movement controller
-	move = mae::fl::FLMovementController();
+	move = mae::fl::fl_movement_controller();
 
 	//fl : setup joint ids
 	std::vector<XnSkeletonJoint> joint_ids;

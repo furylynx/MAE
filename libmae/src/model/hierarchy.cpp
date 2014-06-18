@@ -21,8 +21,7 @@ namespace mae
 
 		if (root)
 		{
-			root->set_parent(nullptr);
-			//root->set_hierarchy(this);
+			root->update_ph(nullptr, this, false, true);
 		}
 	}
 
@@ -30,7 +29,7 @@ namespace mae
 	{
 		if (root)
 		{
-			root->set_hierarchy(nullptr);
+			root->update_ph(nullptr, nullptr, false, false);
 		}
 	}
 
@@ -41,11 +40,16 @@ namespace mae
 
 	void hierarchy::set_root(std::shared_ptr<hierarchy_element> root)
 	{
+		//fix former root if existing
+		if (root)
+		{
+			root->update_ph(nullptr, nullptr, false, false);
+		}
+
 		this->root = root;
 		if (root)
 		{
-			root->set_parent(nullptr);
-			root->set_hierarchy(this);
+			root->update_ph(nullptr, this, false, true);
 		}
 	}
 
@@ -67,6 +71,7 @@ namespace mae
 		if (hashmap_elements.find(element_id) == hashmap_elements.end())
 		{
 			// returns nullpointer
+			std::cout << "element not in map: " << element_id << std::endl;
 			return nullptr;
 		}
 		else
@@ -78,15 +83,73 @@ namespace mae
 
 	std::shared_ptr<hierarchy> hierarchy::default_hierarchy()
 	{
-		std::shared_ptr<hierarchy> result;
+		//push all joints as hierarchy elements to joint
+		std::vector<std::shared_ptr<hierarchy_element>> all_elements;
+		for (int i = MAEJ_INVALID + 1; i != MAEJ_SIZE; i++)
+		{
+			bool dummy = false;
+			if (i == MAEJ_TLS || i == MAEJ_TRS || i == MAEJ_TLH || i == MAEJ_TRH || i == MAEJ_TN || i == MAEJ_END_LH
+					|| i == MAEJ_END_RH || i == MAEJ_END_LF || i == MAEJ_END_RF || i == MAEJ_END_H)
+			{
+				dummy = true;
+			}
 
-		//TODO construct this one!
-		std::shared_ptr<hierarchy_element> root = std::shared_ptr<hierarchy_element>(new hierarchy_element(MAEJ_TORSO, maej_str[MAEJ_TORSO], true));
+			bool torso = false;
+			if (i == MAEJ_TORSO || i == MAEJ_LEFT_SHOULDER || i == MAEJ_RIGHT_SHOULDER || i == MAEJ_LEFT_HIP
+					|| i == MAEJ_RIGHT_HIP || i == MAEJ_NECK)
+			{
+				torso = true;
+			}
 
+			all_elements.push_back(
+					std::shared_ptr<hierarchy_element>(new hierarchy_element(i, maej_str[i], torso, dummy)));
+		}
 
-		//dummy joints for torso split
+		//set parents
 
-		//dummy joints for end sites
+		//extremities
+		all_elements.at(MAEJ_TN - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_NECK - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_NECK - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_HEAD - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_HEAD - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_END_H - MAEJ_INVALID - 1));
+
+		all_elements.at(MAEJ_TLS - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_LEFT_SHOULDER - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_LEFT_SHOULDER - MAEJ_INVALID - 1)->push_back(
+				all_elements.at(MAEJ_LEFT_ELBOW - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_LEFT_ELBOW - MAEJ_INVALID - 1)->push_back(
+				all_elements.at(MAEJ_LEFT_HAND - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_LEFT_HAND - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_END_LH - MAEJ_INVALID - 1));
+
+		all_elements.at(MAEJ_TRS - MAEJ_INVALID - 1)->push_back(
+				all_elements.at(MAEJ_RIGHT_SHOULDER - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_RIGHT_SHOULDER - MAEJ_INVALID - 1)->push_back(
+				all_elements.at(MAEJ_RIGHT_ELBOW - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_RIGHT_ELBOW - MAEJ_INVALID - 1)->push_back(
+				all_elements.at(MAEJ_RIGHT_HAND - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_RIGHT_HAND - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_END_RH - MAEJ_INVALID - 1));
+
+		all_elements.at(MAEJ_TLH - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_LEFT_HIP - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_LEFT_HIP - MAEJ_INVALID - 1)->push_back(
+				all_elements.at(MAEJ_LEFT_KNEE - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_LEFT_KNEE - MAEJ_INVALID - 1)->push_back(
+				all_elements.at(MAEJ_LEFT_FOOT - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_LEFT_FOOT - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_END_LF - MAEJ_INVALID - 1));
+
+		all_elements.at(MAEJ_TRH - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_RIGHT_HIP - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_RIGHT_HIP - MAEJ_INVALID - 1)->push_back(
+				all_elements.at(MAEJ_RIGHT_KNEE - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_RIGHT_KNEE - MAEJ_INVALID - 1)->push_back(
+				all_elements.at(MAEJ_RIGHT_FOOT - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_RIGHT_FOOT - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_END_RF - MAEJ_INVALID - 1));
+
+		//set torso
+		all_elements.at(MAEJ_TORSO - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_TLS - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_TORSO - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_TRS - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_TORSO - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_TLH - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_TORSO - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_TRH - MAEJ_INVALID - 1));
+		all_elements.at(MAEJ_TORSO - MAEJ_INVALID - 1)->push_back(all_elements.at(MAEJ_TN - MAEJ_INVALID - 1));
+
+		std::shared_ptr<hierarchy> result = std::shared_ptr<hierarchy>(
+				new hierarchy(all_elements.at(MAEJ_TORSO - MAEJ_INVALID - 1)));
 
 		return result;
 	}
@@ -98,6 +161,15 @@ namespace mae
 			//not in hashmap, therefore element will be added
 			hashmap_elements.insert(std::make_pair(element->get_id(), element));
 		}
+		else
+		{
+			std::stringstream sstr;
+			sstr << "An element with the id " << element->get_id();
+			sstr << " (known: " << hashmap_elements.at(element->get_id())->get_name() << " - added: ";
+			sstr << element->get_name() << ")";
+			sstr << " is already mapped. Please use a unique id and make sure an element is not added twice.";
+			throw std::invalid_argument(sstr.str().c_str());
+		}
 	}
 
 	void hierarchy::remove_element(hierarchy_element* element)
@@ -106,6 +178,18 @@ namespace mae
 		{
 			//in hashmap, therefore element will be erased
 			hashmap_elements.erase(element->get_id());
+		}
+	}
+
+	std::string hierarchy::str() const
+	{
+		if (root)
+		{
+			return root->str();
+		}
+		else
+		{
+			return "--No root set--";
 		}
 	}
 

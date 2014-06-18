@@ -41,6 +41,9 @@ namespace mae
 			virtual void set_valid(bool isValid);
 			virtual bool is_valid() const;
 
+			virtual bool equals(general_joint joint) const;
+			virtual bool equals(std::shared_ptr<general_joint> joint) const;
+
 			virtual std::string str() const;
 
 			friend std::ostream& operator<<(std::ostream& os, const general_joint& obj)
