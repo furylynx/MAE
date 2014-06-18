@@ -27,7 +27,7 @@ namespace mae {
 
 
 		void FLMovementController::nextFrame(long timestamp,std::shared_ptr<mae::model::GeneralSkeleton> skeleton){
-			std::shared_ptr<FLSkeleton> fl_skel = skel_ctrl->calculateSpecifiedSkeleton(skeleton);
+			std::shared_ptr<FLSkeleton> fl_skel = skel_ctrl->specified_skeleton(skeleton);
 			mae::controller::MovementController<FLSkeleton, FLLabanSequence>::nextFrame(timestamp, fl_skel);
 		}
 

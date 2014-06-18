@@ -32,33 +32,72 @@ namespace mae
 				FLSkeleton();
 				virtual ~FLSkeleton();
 
-				//todo joints are angular - but central coordinate system necessary?
+				//angular joint - not used currently
+				/**
+				 * Sets an angular joint.
+				 *
+				 * @param body_part The addresses body part.
+				 * @param joint A shared pointer to the joint.
+				 */
+				virtual void set_joint(int body_part, std::shared_ptr<mae::fl::FLJoint> joint);
 
-				//angular joint
-				virtual void setJoint(int bodyPart, std::shared_ptr<mae::fl::FLJoint> joint);
-				virtual std::shared_ptr<mae::fl::FLJoint> getJoint(int bodyPart);
+				/**
+				 * Returns an angular joint.
+				 *
+				 * @param body_part The addressed body part.
+				 * @return A shared pointer to the joint.
+				 */
+				virtual std::shared_ptr<mae::fl::FLJoint> get_joint(int body_part) const;
 
-				//get central coordinate system
-				virtual void setCoordSys(std::vector<double> u, std::vector<double> r, std::vector<double> t);
-				virtual std::vector<std::vector<double> > getCoordSys();
+				/**
+				 * Sets the torso basis. All three vectors must be 3d giving values by [x,y,z].
+				 *
+				 * @param u The top-down direction.
+				 * @param r The right-left direction.
+				 * @param t The direction standing on u and r.
+				 */
+				virtual void set_coord_sys(std::vector<double> u, std::vector<double> r, std::vector<double> t);
 
-				//todo get vectors by themselves
+				/**
+				 * Returns the torso basis consisting of three vectors. The vector containing the
+				 * basis contains the three vectors in the [u,r,t] form. Each vector is a 3d vector
+				 * containing information [x,y,z] beginning at index 0.
+				 *
+				 * @return The torso basis.
+				 */
+				virtual std::vector<std::vector<double> > get_coord_sys() const;
 
-				// Torso joint is center of coordinate system; therefore torso joint has coordinates (0,0,0).
-				// Stored torso joint is therefore used for the offset of the world coordinate system given
-				// by the depth sensor. The central coordinate system of this FLSkeleton is used for the
-				// representation by translating it into the torso joint.
-
+				/**
+				 * Sets the offset skeleton. The root joint is used to define the offset of the
+				 * whole skeleton in x,y,z world coordinates. All other joints are given by offset
+				 * to their parent in the u,r,t object coordinates.
+				 *
+				 * @param offset_skeleton A shared pointer to the offset skeleton.
+				 */
 				virtual void set_offset_skeleton(std::shared_ptr<mae::model::GeneralSkeleton> offset_skeleton);
 
-				virtual std::shared_ptr<mae::model::GeneralSkeleton> get_offset_skeleton();
+				/**
+				 * Returns the offset skeleton. The root joint is used to define the offset of the
+				 * whole skeleton in x,y,z world coordinates. All other joints are given by offset
+				 * to their parent in the u,r,t object coordinates.
+				 *
+				 * @return A shared pointer to the offset skeleton.
+				 */
+				virtual std::shared_ptr<mae::model::GeneralSkeleton> get_offset_skeleton() const;
 
+				/**
+				 * Prints this object tot the stream.
+				 *
+				 * @param os
+				 * @param obj
+				 * @return
+				 */
 				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<FLSkeleton>& obj)
 				{
 					os << "FLSkeleton:" << std::endl;
-					for ( int joint_id = FLJ_INVALID+1; joint_id != FLJ_SIZE; joint_id++ )
+					for (int joint_id = FLJ_INVALID + 1; joint_id != FLJ_SIZE; joint_id++)
 					{
-					   os << flj_str[joint_id] << " " << obj->getJoint(joint_id) << std::endl;
+						os << flj_str[joint_id] << " " << obj->get_joint(joint_id) << std::endl;
 					}
 
 					return os;

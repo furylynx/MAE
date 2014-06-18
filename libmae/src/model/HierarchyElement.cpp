@@ -11,11 +11,12 @@
 namespace mae
 {
 
-	HierarchyElement::HierarchyElement(int id, std::string name, std::string bone_name)
+	HierarchyElement::HierarchyElement(int id, std::string name, bool torso_joint, bool dummy)
 	{
 		this->id = id;
 		this->name = name;
-		this->bone_name = bone_name;
+		this->torso_joint = torso_joint;
+		this->dummy = dummy;
 
 		this->parent = nullptr;
 		this->hierarchy = nullptr;
@@ -46,9 +47,9 @@ namespace mae
 		return name;
 	}
 
-	std::string HierarchyElement::get_bone_name() const
+	bool HierarchyElement::is_dummy() const
 	{
-		return bone_name;
+		return dummy;
 	}
 
 	HierarchyElement * const HierarchyElement::get_parent() const

@@ -31,12 +31,33 @@ namespace mae
 			friend class Hierarchy;
 
 		public:
-			HierarchyElement(int id, std::string name, std::string bone_name);
+			/**
+			 * Creates a new hierarchy element. Elements are defined by their id and
+			 * have a name that is printed whenever needed (e.g. for bvh export).
+			 *
+			 * Please note that at least three torso joints must be defined in order
+			 * to use the skeleton for the FL* motion controller.
+			 *
+			 *
+			 * @param id
+			 * @param name
+			 * @param torso
+			 * @param dummy
+			 */
+			HierarchyElement(int id, std::string name, bool torso_joint=false, bool dummy=false);
 			virtual ~HierarchyElement();
 
 			virtual int get_id() const;
 			virtual std::string get_name() const;
-			virtual std::string get_bone_name() const;
+
+			/**
+			 * Returns the torso joint property of the element. If torso joint is set
+			 * this joint is part of the torso.
+			 *
+			 * @return
+			 */
+			virtual bool is_torso_joint() const;
+			virtual bool is_dummy() const;
 
 			virtual HierarchyElement * const get_parent() const;
 
@@ -75,7 +96,9 @@ namespace mae
 		private:
 			int id;
 			std::string name;
-			std::string bone_name;
+			bool dummy;
+			bool torso_joint;
+
 			std::vector<std::shared_ptr<HierarchyElement> > children;
 
 			HierarchyElement* parent;

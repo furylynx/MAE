@@ -105,12 +105,12 @@ namespace mae
 				if (k % 3 == 0)
 				{
 					//estimate place middle for whole arm (only dependent on extremity bone (forearm, shank))
-					result->setDistance(joint_id, FLD_P_M, 180 - skeleton->getJoint((int) flj_ext[k + 2])->getPhi());
+					result->setDistance(joint_id, FLD_P_M, 180 - skeleton->get_joint((int) flj_ext[k + 2])->getPhi());
 				}
 
-				result->setDistance(joint_id, FLD_L_M, skeleton->getJoint(joint_id)->getPhi());
+				result->setDistance(joint_id, FLD_L_M, skeleton->get_joint(joint_id)->getPhi());
 
-				result->setDistance(joint_id, FLD_R_M, 180 - skeleton->getJoint(joint_id)->getPhi());
+				result->setDistance(joint_id, FLD_R_M, 180 - skeleton->get_joint(joint_id)->getPhi());
 
 				//other 24=3x8 directions (8 per layer from left to right)
 				for (int i = 0; i < 3; i++)
@@ -118,8 +118,8 @@ namespace mae
 					for (int j = 0; j < 8; j++)
 					{
 						double dist = std::sqrt(
-								std::pow(((i + 1) * 45) - skeleton->getJoint(joint_id)->getPhi(), 2)
-										+ std::pow((j * 45) - 180 - skeleton->getJoint(joint_id)->getTheta(), 2));
+								std::pow(((i + 1) * 45) - skeleton->get_joint(joint_id)->getPhi(), 2)
+										+ std::pow((j * 45) - 180 - skeleton->get_joint(joint_id)->getTheta(), 2));
 						result->setDistance(joint_id, (int) dir_circ[i][j], dist);
 					}
 				}
@@ -232,16 +232,16 @@ namespace mae
 
 				std::cout << " DIR: " << dir_str << " "
 						<< result->getDistance(FLJ_LEFT_WHOLE_ARM, result->getDirection(FLJ_LEFT_WHOLE_ARM))
-						<< " # LWA: " << skeleton->getJoint(FLJ_LEFT_WHOLE_ARM) << " # LUA: "
-						<< skeleton->getJoint(FLJ_LEFT_UPPER_ARM) << " # LFA: " << skeleton->getJoint(FLJ_LEFT_FOREARM)
+						<< " # LWA: " << skeleton->get_joint(FLJ_LEFT_WHOLE_ARM) << " # LUA: "
+						<< skeleton->get_joint(FLJ_LEFT_UPPER_ARM) << " # LFA: " << skeleton->get_joint(FLJ_LEFT_FOREARM)
 						<< std::endl;
 			}
 			else
 			{
 				std::cout << " DIR: " << result->getDirection(FLJ_LEFT_WHOLE_ARM) << " "
 						<< result->getDistance(FLJ_LEFT_WHOLE_ARM, result->getDirection(FLJ_LEFT_WHOLE_ARM))
-						<< " # LUA: " << skeleton->getJoint(FLJ_LEFT_UPPER_ARM) << " # LFA: "
-						<< skeleton->getJoint(FLJ_LEFT_FOREARM) << std::endl;
+						<< " # LUA: " << skeleton->get_joint(FLJ_LEFT_UPPER_ARM) << " # LFA: "
+						<< skeleton->get_joint(FLJ_LEFT_FOREARM) << std::endl;
 			}
 
 			//todo do stuff in here
