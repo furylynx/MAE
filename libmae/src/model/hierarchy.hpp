@@ -12,7 +12,11 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
+#include "maej.hpp"
+
+//this is forwarded
 //#include "HierarchyElement.hpp"
+
 
 //global includes
 #include <vector>
@@ -22,26 +26,26 @@
 namespace mae
 {
 	//forward declaration of the hierarchy element
-	class HierarchyElement;
+	class hierarchy_element;
 
 
-	class Hierarchy
+	class hierarchy
 	{
-			friend class HierarchyElement;
+			friend class hierarchy_element;
 
 		public:
-			Hierarchy();
-			Hierarchy(std::shared_ptr<HierarchyElement> root);
-			virtual ~Hierarchy();
+			hierarchy();
+			hierarchy(std::shared_ptr<hierarchy_element> root);
+			virtual ~hierarchy();
 
-			virtual std::shared_ptr<HierarchyElement> get_root() const;
-			virtual void set_root(std::shared_ptr<HierarchyElement> root);
+			virtual std::shared_ptr<hierarchy_element> get_root() const;
+			virtual void set_root(std::shared_ptr<hierarchy_element> root);
 
-			virtual std::vector<std::shared_ptr<HierarchyElement> > get_element_sequence();
+			virtual std::vector<std::shared_ptr<hierarchy_element> > get_element_sequence();
 
-			virtual HierarchyElement * const at(int element_id) const;
+			virtual hierarchy_element * const at(int element_id) const;
 
-			static std::shared_ptr<Hierarchy> default_hierarchy();
+			static std::shared_ptr<hierarchy> default_hierarchy();
 
 		protected:
 			/**
@@ -50,7 +54,7 @@ namespace mae
 			 *
 			 * @param element The element to be added.
 			 */
-			virtual void add_element(HierarchyElement * const element);
+			virtual void add_element(hierarchy_element * const element);
 
 			/**
 			 * Removes an element from the elements hashmap in order to provide fast access to
@@ -58,12 +62,12 @@ namespace mae
 			 *
 			 * @param element The element to be removed
 			 */
-			virtual void remove_element(HierarchyElement * const element);
+			virtual void remove_element(hierarchy_element * const element);
 
 		private:
-			std::shared_ptr<HierarchyElement> root;
+			std::shared_ptr<hierarchy_element> root;
 
-			std::unordered_map<int, HierarchyElement * const> hashmap_elements;
+			std::unordered_map<int, hierarchy_element * const> hashmap_elements;
 
 	};
 

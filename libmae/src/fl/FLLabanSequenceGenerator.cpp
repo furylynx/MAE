@@ -18,7 +18,7 @@ namespace mae {
 		FLLabanSequenceGenerator::~FLLabanSequenceGenerator() {
 		}
 
-		std::shared_ptr<FLLabanSequence> FLLabanSequenceGenerator::generateSequence(std::queue<std::shared_ptr<mae::model::GeneralEnrichedPose> > keyPoses, std::vector<int> bodyParts){
+		std::shared_ptr<FLLabanSequence> FLLabanSequenceGenerator::generateSequence(std::queue<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<int> bodyParts){
 
 			std::shared_ptr<mae::fl::FLLabanSequence> sequence;
 

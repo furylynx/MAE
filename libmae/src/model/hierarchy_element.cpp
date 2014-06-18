@@ -5,13 +5,13 @@
  *      Author: keks
  */
 
-#include "HierarchyElement.hpp"
-#include "Hierarchy.hpp"
+#include "hierarchy_element.hpp"
+#include "hierarchy.hpp"
 
 namespace mae
 {
 
-	HierarchyElement::HierarchyElement(int id, std::string name, bool torso_joint, bool dummy)
+	hierarchy_element::hierarchy_element(int id, std::string name, bool torso_joint, bool dummy)
 	{
 		this->id = id;
 		this->name = name;
@@ -19,17 +19,17 @@ namespace mae
 		this->dummy = dummy;
 
 		this->parent = nullptr;
-		this->hierarchy = nullptr;
+		this->hierarchy_ = nullptr;
 	}
 
-	HierarchyElement::~HierarchyElement()
+	hierarchy_element::~hierarchy_element()
 	{
 		//reset parent of children and hierarchy
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
 			children.at(i)->set_parent(nullptr);
 
-			if (hierarchy)
+			if (hierarchy_)
 			{
 				//update hierarchy
 				children.at(i)->set_hierarchy(nullptr);
@@ -37,32 +37,32 @@ namespace mae
 		}
 	}
 
-	int HierarchyElement::get_id() const
+	int hierarchy_element::get_id() const
 	{
 		return id;
 	}
 
-	std::string HierarchyElement::get_name() const
+	std::string hierarchy_element::get_name() const
 	{
 		return name;
 	}
 
-	bool HierarchyElement::is_dummy() const
+	bool hierarchy_element::is_dummy() const
 	{
 		return dummy;
 	}
 
-	HierarchyElement * const HierarchyElement::get_parent() const
+	hierarchy_element * const hierarchy_element::get_parent() const
 	{
 		return parent;
 	}
 
-	bool HierarchyElement::is_parent() const
+	bool hierarchy_element::is_parent() const
 	{
 		return !children.empty();
 	}
 
-	bool HierarchyElement::is_parent_of(int element_id) const
+	bool hierarchy_element::is_parent_of(int element_id) const
 	{
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
@@ -75,12 +75,12 @@ namespace mae
 		return false;
 	}
 
-	std::vector<std::shared_ptr<HierarchyElement> > HierarchyElement::get_children() const
+	std::vector<std::shared_ptr<hierarchy_element> > hierarchy_element::get_children() const
 	{
 		return children;
 	}
 
-	void HierarchyElement::push_front(std::shared_ptr<HierarchyElement> child)
+	void hierarchy_element::push_front(std::shared_ptr<hierarchy_element> child)
 	{
 		children.insert(children.begin(), child);
 
@@ -89,7 +89,7 @@ namespace mae
 
 	}
 
-	void HierarchyElement::add_child(unsigned int pos, std::shared_ptr<HierarchyElement> child)
+	void hierarchy_element::add_child(unsigned int pos, std::shared_ptr<hierarchy_element> child)
 	{
 		children.insert(children.begin() + pos, child);
 
@@ -97,7 +97,7 @@ namespace mae
 		child->set_parent(this, false);
 	}
 
-	void HierarchyElement::push_back(std::shared_ptr<HierarchyElement> child)
+	void hierarchy_element::push_back(std::shared_ptr<hierarchy_element> child)
 	{
 		children.push_back(child);
 
@@ -105,7 +105,7 @@ namespace mae
 		child->set_parent(this, false);
 	}
 
-	void HierarchyElement::erase(int element_id)
+	void hierarchy_element::erase(int element_id)
 	{
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
@@ -116,7 +116,7 @@ namespace mae
 		}
 	}
 
-	void HierarchyElement::erase_at(unsigned int i)
+	void hierarchy_element::erase_at(unsigned int i)
 	{
 		if (i < children.size())
 		{
@@ -125,7 +125,7 @@ namespace mae
 		}
 	}
 
-	void HierarchyElement::clear()
+	void hierarchy_element::clear()
 	{
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
@@ -135,38 +135,38 @@ namespace mae
 		children.clear();
 	}
 
-	std::vector<std::shared_ptr<HierarchyElement> > HierarchyElement::get_element_sequence()
+	std::vector<std::shared_ptr<hierarchy_element> > hierarchy_element::get_element_sequence()
 	{
-		std::vector<std::shared_ptr<HierarchyElement> > result;
+		std::vector<std::shared_ptr<hierarchy_element> > result;
 
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
 			result.push_back(children.at(i));
 
-			std::vector<std::shared_ptr<HierarchyElement> > childrens_sequence = children.at(i)->get_element_sequence();
+			std::vector<std::shared_ptr<hierarchy_element> > childrens_sequence = children.at(i)->get_element_sequence();
 			result.insert(result.end(), childrens_sequence.begin(), childrens_sequence.end());
 		}
 
 		return result;
 	}
 
-	void HierarchyElement::set_parent(HierarchyElement * const parent, bool fix_parent)
+	void hierarchy_element::set_parent(hierarchy_element * const parent, bool fix_parent)
 	{
 		if (this->parent == parent)
 		{
 			return;
 		}
 
-		HierarchyElement* former_parent = this->parent;
+		hierarchy_element* former_parent = this->parent;
 
 		this->parent = parent;
 
-		if (this->hierarchy && this->hierarchy->get_root().get() == this)
+		if (this->hierarchy_ && this->hierarchy_->get_root().get() == this)
 		{
 			//this element is assigned to a hierarchy
 			//therefore the root of the old hierarchy must be
 			//cleared
-			hierarchy->set_root(std::shared_ptr<HierarchyElement>());
+			hierarchy_->set_root(std::shared_ptr<hierarchy_element>());
 		}
 
 		if (former_parent && fix_parent)
@@ -180,44 +180,49 @@ namespace mae
 		{
 			set_hierarchy(nullptr);
 		}
-		else if (parent->hierarchy != this->hierarchy)
+		else if (parent->get_hierarchy() != this->hierarchy_)
 		{
 			//update hierarchy to parent's one
-			set_hierarchy(parent->hierarchy);
+			set_hierarchy(parent->hierarchy_);
 		}
 
 	}
 
-	void HierarchyElement::set_hierarchy(Hierarchy * const hierarchy)
+	void hierarchy_element::set_hierarchy(hierarchy * const h)
 	{
-		if (this->hierarchy == hierarchy)
+		if (this->hierarchy_ == h)
 		{
 			return;
 		}
 
-		Hierarchy* former_hierarchy = this->hierarchy;
+		hierarchy* former_h = this->hierarchy_;
 
-		if (former_hierarchy && former_hierarchy->get_root().get() == this)
+		if (former_h && former_h->get_root().get() == this)
 		{
 			//this element is assigned to another hierarchy
 			//therefore the root of the old hierarchy must be
 			//cleared
-			former_hierarchy->set_root(std::shared_ptr<HierarchyElement>());
+			former_h->set_root(std::shared_ptr<hierarchy_element>());
 		}
 
 		//update former hierarchy
-		former_hierarchy->remove_element(this);
+		former_h->remove_element(this);
 
-		this->hierarchy = hierarchy;
+		this->hierarchy_ = h;
 
 		//update new hierarchy
-		hierarchy->add_element(this);
+		hierarchy_->add_element(this);
 
 		//update children, too
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
-			children.at(i)->set_hierarchy(hierarchy);
+			children.at(i)->set_hierarchy(hierarchy_);
 		}
+	}
+
+	hierarchy * const hierarchy_element::get_hierarchy() const
+	{
+		return hierarchy_;
 	}
 
 } // namespace mae

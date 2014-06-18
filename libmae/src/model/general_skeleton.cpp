@@ -14,12 +14,12 @@ namespace mae
 	{
 		this->hashmap_joints = std::unordered_map<int, std::shared_ptr<general_joint> >();
 
-		this->hierarchy = Hierarchy::default_hierarchy();
+		this->hierarchy_ = hierarchy::default_hierarchy();
 	}
 
-	general_skeleton::general_skeleton(std::shared_ptr<Hierarchy> hierarchy)
+	general_skeleton::general_skeleton(std::shared_ptr<hierarchy> hierarchy)
 	{
-		this->hierarchy = hierarchy;
+		this->hierarchy_ = hierarchy;
 		this->hashmap_joints = std::unordered_map<int, std::shared_ptr<general_joint> >();
 	}
 
@@ -61,27 +61,27 @@ namespace mae
 
 	}
 
-	std::shared_ptr<Hierarchy> general_skeleton::get_hierarchy() const
+	std::shared_ptr<hierarchy> general_skeleton::get_hierarchy() const
 	{
-		return hierarchy;
+		return hierarchy_;
 	}
 
-	void general_skeleton::set_hierarchy(std::shared_ptr<Hierarchy> hierarchy)
+	void general_skeleton::set_hierarchy(std::shared_ptr<hierarchy> hierarchy)
 	{
-		this->hierarchy = hierarchy;
+		this->hierarchy_ = hierarchy;
 	}
 
 	void general_skeleton::set_top_down(std::shared_ptr<bone> top_down)
 	{
 		//check bone
-		if (!hierarchy)
+		if (!hierarchy_)
 		{
 			throw std::invalid_argument("Invoked set_top_down for a general_skeleton, but no hierarchy was defined.");
 		}
 		else
 		{
-			if (!hierarchy->at(top_down->get_from())->is_torso_joint()
-					|| !hierarchy->at(top_down->get_to())->is_torso_joint())
+			if (!hierarchy_->at(top_down->get_from())->is_torso_joint()
+					|| !hierarchy_->at(top_down->get_to())->is_torso_joint())
 			{
 				throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
 			}
@@ -98,14 +98,14 @@ namespace mae
 	void general_skeleton::set_right_left(std::shared_ptr<bone> right_left)
 	{
 		//check bone
-		if (!hierarchy)
+		if (!hierarchy_)
 		{
 			throw std::invalid_argument("Invoked set_right_left for a general_skeleton, but no hierarchy was defined.");
 		}
 		else
 		{
-			if (!hierarchy->at(top_down->get_from())->is_torso_joint()
-					|| !hierarchy->at(top_down->get_to())->is_torso_joint())
+			if (!hierarchy_->at(top_down->get_from())->is_torso_joint()
+					|| !hierarchy_->at(top_down->get_to())->is_torso_joint())
 			{
 				throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
 			}

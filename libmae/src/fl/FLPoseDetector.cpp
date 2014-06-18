@@ -69,34 +69,32 @@ namespace mae
 		{
 		}
 
-		std::shared_ptr<mae::model::GeneralPose> FLPoseDetector::pose(std::shared_ptr<FLSkeleton> skeleton,
-						std::vector<int> body_parts)
+		std::shared_ptr<general_pose> FLPoseDetector::pose(std::shared_ptr<FLSkeleton> skeleton,
+				std::vector<int> body_parts)
 		{
 			const bool angles = false;
 
-			std::shared_ptr<mae::model::GeneralPose> result = std::shared_ptr<mae::model::GeneralPose>(
-								new mae::model::GeneralPose());
+			std::shared_ptr<general_pose> result = std::shared_ptr<general_pose>(
+					new general_pose());
 
 			if (angles)
 			{
 				result = angle_pose(skeleton, body_parts);
 			}
 
-
 			//TODO do stuff in here (angles between vectors)
 
 			return result;
 		}
 
-		std::shared_ptr<mae::model::GeneralPose> FLPoseDetector::angle_pose(std::shared_ptr<FLSkeleton> skeleton,
+		std::shared_ptr<general_pose> FLPoseDetector::angle_pose(std::shared_ptr<FLSkeleton> skeleton,
 				std::vector<int> body_parts)
 		{
 
 			//todo remove (is here just to show this method is invoked)
 //			std::cout << "detecting pose for skeleton" << std::endl;
 
-			std::shared_ptr<mae::model::GeneralPose> result = std::shared_ptr<mae::model::GeneralPose>(
-					new mae::model::GeneralPose());
+			std::shared_ptr<general_pose> result = std::shared_ptr<general_pose>(new general_pose());
 
 			//todo distances
 
@@ -110,7 +108,6 @@ namespace mae
 
 				int joint_id = flj_ext_bones[k];
 
-
 				//iterate dir+lvl's
 				for (int dir = FLD_INVALID + 1; dir != FLD_SIZE; dir++)
 				{
@@ -120,21 +117,22 @@ namespace mae
 						if (k % 3 == 0)
 						{
 							//estimate place middle for whole arm (only dependent on extremity bone (forearm, shank))
-							result->setDistance(joint_id, dir, 180 - skeleton->get_joint((int)flj_ext_bones[k+2])->getPhi());
+							result->set_distance(joint_id, dir,
+									180 - skeleton->get_joint((int) flj_ext_bones[k + 2])->getPhi());
 						}
 						else
 						{
 							//place does not exist for bones
 							continue;
 						}
-				}
+					}
 					else if (dir == FLD_L_M)
 					{
-						result->setDistance(joint_id, dir, skeleton->get_joint(joint_id)->getPhi());
+						result->set_distance(joint_id, dir, skeleton->get_joint(joint_id)->getPhi());
 					}
 					else if (dir == FLD_R_M)
 					{
-						result->setDistance(joint_id, dir, 180 - skeleton->get_joint(joint_id)->getPhi());
+						result->set_distance(joint_id, dir, 180 - skeleton->get_joint(joint_id)->getPhi());
 					}
 					else
 					{
@@ -146,7 +144,7 @@ namespace mae
 								double dist = std::sqrt(
 										std::pow(((i + 1) * 45) - skeleton->get_joint(joint_id)->getPhi(), 2)
 												+ std::pow((j * 45) - skeleton->get_joint(joint_id)->getTheta(), 2));
-								result->setDistance(joint_id, dir, dist);
+								result->set_distance(joint_id, dir, dist);
 							}
 						}
 
@@ -157,14 +155,14 @@ namespace mae
 				int min_dist_dir = FLD_INVALID;
 				for (int dir = FLD_INVALID + 1; dir != FLD_SIZE; dir++)
 				{
-					if ((min_dist_dir == FLD_INVALID && result->getDistance(joint_id, dir) >= 0)
-							|| (result->getDistance(joint_id, dir) < result->getDistance(joint_id, min_dist_dir)
-									&& result->getDistance(joint_id, dir) >= 0))
+					if ((min_dist_dir == FLD_INVALID && result->get_distance(joint_id, dir) >= 0)
+							|| (result->get_distance(joint_id, dir) < result->get_distance(joint_id, min_dist_dir)
+									&& result->get_distance(joint_id, dir) >= 0))
 					{
 						min_dist_dir = dir;
 					}
 				}
-				result->setDirection(joint_id, min_dist_dir);
+				result->set_direction(joint_id, min_dist_dir);
 			}
 
 //			//left whole arm first
@@ -244,22 +242,22 @@ namespace mae
 //				}
 //			}
 
-			if (result->getDirection(FLJ_LEFT_WHOLE_ARM) >= FLD_INVALID
-					&& result->getDirection(FLJ_LEFT_WHOLE_ARM) < FLD_SIZE)
+			if (result->get_direction(FLJ_LEFT_WHOLE_ARM) >= FLD_INVALID
+					&& result->get_direction(FLJ_LEFT_WHOLE_ARM) < FLD_SIZE)
 			{
-				const char * dir_str = fld_str[result->getDirection(FLJ_LEFT_WHOLE_ARM)];
+				const char * dir_str = fld_str[result->get_direction(FLJ_LEFT_WHOLE_ARM)];
 
 				std::cout << " DIR: " << dir_str << " "
-						<< result->getDistance(FLJ_LEFT_WHOLE_ARM, result->getDirection(FLJ_LEFT_WHOLE_ARM))
+						<< result->get_distance(FLJ_LEFT_WHOLE_ARM, result->get_direction(FLJ_LEFT_WHOLE_ARM))
 						<< " # LWA: " << skeleton->get_joint(FLJ_LEFT_WHOLE_ARM) << " # LUA: "
-						<< skeleton->get_joint(FLJ_LEFT_UPPER_ARM) << " # LFA: " << skeleton->get_joint(FLJ_LEFT_FOREARM)
-						<< std::endl;
+						<< skeleton->get_joint(FLJ_LEFT_UPPER_ARM) << " # LFA: "
+						<< skeleton->get_joint(FLJ_LEFT_FOREARM) << std::endl;
 			}
 			else
 			{
-				std::cout << " DIR: " << result->getDirection(FLJ_LEFT_WHOLE_ARM) << " # LUA: "
-						<< skeleton->get_joint(FLJ_LEFT_UPPER_ARM) << " # LFA: " << skeleton->get_joint(FLJ_LEFT_FOREARM)
-						<< std::endl;
+				std::cout << " DIR: " << result->get_direction(FLJ_LEFT_WHOLE_ARM) << " # LUA: "
+						<< skeleton->get_joint(FLJ_LEFT_UPPER_ARM) << " # LFA: "
+						<< skeleton->get_joint(FLJ_LEFT_FOREARM) << std::endl;
 			}
 
 			//todo do stuff in here

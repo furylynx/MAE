@@ -35,10 +35,10 @@ namespace mae
 				FLPoseDetector();
 				virtual ~FLPoseDetector();
 
-				virtual std::shared_ptr<mae::model::GeneralPose> pose(std::shared_ptr<FLSkeleton> skeleton,
+				virtual std::shared_ptr<mae::general_pose> pose(std::shared_ptr<FLSkeleton> skeleton,
 						std::vector<int> body_parts);
 
-				virtual std::shared_ptr<mae::model::GeneralPose> angle_pose(std::shared_ptr<FLSkeleton> skeleton,
+				virtual std::shared_ptr<mae::general_pose> angle_pose(std::shared_ptr<FLSkeleton> skeleton,
 										std::vector<int> body_parts);
 
 			private:

@@ -20,11 +20,11 @@ namespace mae {
 		}
 
 
-		std::shared_ptr<mae::model::GeneralEnrichedPose> GeneralKeyPoseDetector::estimateFrame(std::shared_ptr<mae::model::GeneralPose> currentPose, std::queue<std::shared_ptr<mae::model::GeneralEnrichedPose> > previousSequence, std::vector<int> bodyParts){
+		std::shared_ptr<general_enriched_pose> GeneralKeyPoseDetector::estimateFrame(std::shared_ptr<general_pose> currentPose, std::queue<std::shared_ptr<general_enriched_pose> > previousSequence, std::vector<int> bodyParts){
 
 			//todo do stuff in here
 
-			std::shared_ptr<mae::model::GeneralEnrichedPose> result;
+			std::shared_ptr<general_enriched_pose> result;
 
 			//last local minimum of distance denotes  the start of the motion
 			// probably do a low pass filtering in here

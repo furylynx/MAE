@@ -12,7 +12,7 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-#include "../model/GeneralEnrichedPose.hpp"
+#include "../model/general_enriched_pose.hpp"
 
 //global includes
 #include <vector>
@@ -28,7 +28,7 @@ namespace mae {
 			public:
 				virtual ~ISequenceGenerator(){}
 
-				virtual std::shared_ptr<U> generateSequence(std::queue<std::shared_ptr<mae::model::GeneralEnrichedPose> > keyPoses, std::vector<int> bodyParts) = 0;
+				virtual std::shared_ptr<U> generateSequence(std::queue<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<int> bodyParts) = 0;
 		};
 
 	} // namespace controller

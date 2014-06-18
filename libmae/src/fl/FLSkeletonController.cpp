@@ -85,7 +85,7 @@ namespace mae
 			const bool calculate_angular = false;
 
 			//get elements from the hierarchy
-			std::vector<std::shared_ptr<HierarchyElement>> elements = skeleton->get_hierarchy()->get_element_sequence();
+			std::vector<std::shared_ptr<hierarchy_element>> elements = skeleton->get_hierarchy()->get_element_sequence();
 
 			// ---
 			// calculate the torso frame

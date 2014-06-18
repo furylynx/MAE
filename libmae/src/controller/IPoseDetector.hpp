@@ -12,7 +12,7 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-#include "../model/GeneralPose.hpp"
+#include "../model/general_pose.hpp"
 
 //global includes
 #include <vector>
@@ -26,7 +26,7 @@ namespace mae {
 			public:
 				virtual ~IPoseDetector(){}
 
-				virtual std::shared_ptr<mae::model::GeneralPose> pose(std::shared_ptr<T> skeleton, std::vector<int> bodyParts) = 0;
+				virtual std::shared_ptr<general_pose> pose(std::shared_ptr<T> skeleton, std::vector<int> body_parts) = 0;
 		};
 
 	} // namespace controller

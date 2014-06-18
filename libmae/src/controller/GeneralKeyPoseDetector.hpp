@@ -26,7 +26,7 @@ namespace mae {
 				GeneralKeyPoseDetector();
 				virtual ~GeneralKeyPoseDetector();
 
-				virtual std::shared_ptr<mae::model::GeneralEnrichedPose> estimateFrame(std::shared_ptr<mae::model::GeneralPose> currentPose, std::queue<std::shared_ptr<mae::model::GeneralEnrichedPose> > previousSequence, std::vector<int> bodyParts);
+				virtual std::shared_ptr<general_enriched_pose> estimateFrame(std::shared_ptr<general_pose> currentPose, std::queue<std::shared_ptr<general_enriched_pose> > previousSequence, std::vector<int> body_parts);
 		};
 
 	} // namespace controller

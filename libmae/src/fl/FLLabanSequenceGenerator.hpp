@@ -13,7 +13,7 @@
 
 //custom includes
 #include "FLLabanSequence.hpp"
-#include "../model/GeneralEnrichedPose.hpp"
+#include "../model/general_enriched_pose.hpp"
 #include "../controller/ISequenceGenerator.hpp"
 
 //global includes
@@ -32,7 +32,7 @@ namespace mae {
 				FLLabanSequenceGenerator();
 				virtual ~FLLabanSequenceGenerator();
 
-				virtual std::shared_ptr<FLLabanSequence> generateSequence(std::queue<std::shared_ptr<mae::model::GeneralEnrichedPose> > keyPoses, std::vector<int> bodyParts);
+				virtual std::shared_ptr<FLLabanSequence> generateSequence(std::queue<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<int> bodyParts);
 
 		};
 
