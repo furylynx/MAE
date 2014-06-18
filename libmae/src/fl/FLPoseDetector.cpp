@@ -70,10 +70,17 @@ namespace mae
 		}
 
 		std::shared_ptr<mae::model::GeneralPose> FLPoseDetector::pose(std::shared_ptr<FLSkeleton> skeleton,
-						std::vector<int> bodyParts)
+						std::vector<int> body_parts)
 		{
+			const bool angles = false;
+
 			std::shared_ptr<mae::model::GeneralPose> result = std::shared_ptr<mae::model::GeneralPose>(
 								new mae::model::GeneralPose());
+
+			if (angles)
+			{
+				result = angle_pose(skeleton, body_parts);
+			}
 
 
 			//TODO do stuff in here (angles between vectors)
@@ -82,7 +89,7 @@ namespace mae
 		}
 
 		std::shared_ptr<mae::model::GeneralPose> FLPoseDetector::angle_pose(std::shared_ptr<FLSkeleton> skeleton,
-				std::vector<int> bodyParts)
+				std::vector<int> body_parts)
 		{
 
 			//todo remove (is here just to show this method is invoked)
