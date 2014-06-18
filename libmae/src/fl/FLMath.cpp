@@ -12,19 +12,19 @@ namespace mae
 	namespace fl
 	{
 
-		cv::Vec3d FLMath::jointToVec(std::shared_ptr<mae::model::GeneralJoint> joint)
+		cv::Vec3d FLMath::jointToVec(std::shared_ptr<general_joint> joint)
 		{
 			cv::Vec3d result;
 
-			result[0] = joint->getX();
-			result[1] = joint->getY();
-			result[2] = joint->getZ();
+			result[0] = joint->get_x();
+			result[1] = joint->get_y();
+			result[2] = joint->get_z();
 			return result;
 		}
 
-		std::shared_ptr<mae::model::GeneralJoint> FLMath::vecToJoint(cv::Vec3d vec)
+		std::shared_ptr<general_joint> FLMath::vecToJoint(cv::Vec3d vec)
 		{
-			return std::shared_ptr<mae::model::GeneralJoint>(new mae::model::GeneralJoint(vec[0], vec[1], vec[2]));
+			return std::shared_ptr<general_joint>(new general_joint(vec[0], vec[1], vec[2]));
 		}
 
 		cv::Vec2d FLMath::jointToVec_fl(std::shared_ptr<mae::fl::FLJoint> joint)

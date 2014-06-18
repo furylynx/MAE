@@ -80,7 +80,7 @@ namespace mae
 		}
 
 		std::shared_ptr<mae::fl::FLSkeleton> FLSkeletonController::specified_skeleton(
-				std::shared_ptr<mae::model::GeneralSkeleton> skeleton)
+				std::shared_ptr<general_skeleton> skeleton)
 		{
 			const bool calculate_angular = false;
 
@@ -99,7 +99,7 @@ namespace mae
 			{
 				if (elements.at(i)->is_torso_joint())
 				{
-					if (skeleton->get_joint(elements.at(i)->get_id())->isValid())
+					if (skeleton->get_joint(elements.at(i)->get_id())->is_valid())
 					{
 						torso_parts.push_back(elements.at(i)->get_id());
 					}
@@ -131,9 +131,9 @@ namespace mae
 
 			for (unsigned int i = 0; i < torso_parts.size(); i++)
 			{
-				torso.at<double>(0, i) = skeleton->get_joint(torso_parts.at(i))->getX();
-				torso.at<double>(1, i) = skeleton->get_joint(torso_parts.at(i))->getY();
-				torso.at<double>(2, i) = skeleton->get_joint(torso_parts.at(i))->getZ();
+				torso.at<double>(0, i) = skeleton->get_joint(torso_parts.at(i))->get_x();
+				torso.at<double>(1, i) = skeleton->get_joint(torso_parts.at(i))->get_y();
+				torso.at<double>(2, i) = skeleton->get_joint(torso_parts.at(i))->get_z();
 			}
 
 			// apply PCA to get 2 principal components
@@ -148,21 +148,32 @@ namespace mae
 			u = cv::normalize(u);
 			r = cv::normalize(r);
 
-			//TODO top-down and left-right direction?? how to know?
-
 			//align vectors top-down/right-left
-			cv::Vec3d joint_torso = FLMath::jointToVec(skeleton->get_joint(MAEJ_TORSO));
-			cv::Vec3d joint_neck = FLMath::jointToVec(skeleton->get_joint(MAEJ_NECK));
+			std::shared_ptr<bone> top_down = skeleton->get_top_down();
+			std::shared_ptr<bone> right_left = skeleton->get_right_left();
 
-			cv::Vec3d joint_ls = FLMath::jointToVec(skeleton->get_joint(MAEJ_LEFT_SHOULDER));
-			cv::Vec3d joint_rs = FLMath::jointToVec(skeleton->get_joint(MAEJ_RIGHT_SHOULDER));
+			if (!top_down || !skeleton->get_joint(top_down->get_from())->is_valid() || !skeleton->get_joint(top_down->get_to())->is_valid())
+			{
+				throw std::invalid_argument("skeleton has either not top-down definition or the joints are invalid.");
+			}
 
-			if (cv::norm(joint_neck - (joint_torso + u)) < cv::norm(joint_neck - joint_torso))
+			if (!right_left || !skeleton->get_joint(right_left->get_from())->is_valid() || !skeleton->get_joint(right_left->get_to())->is_valid())
+			{
+				throw std::invalid_argument("skeleton has either not right-left definition or the joints are invalid.");
+			}
+
+			cv::Vec3d joint_top = FLMath::jointToVec(skeleton->get_joint(top_down->get_from()));
+			cv::Vec3d joint_down = FLMath::jointToVec(skeleton->get_joint(top_down->get_to()));
+
+			cv::Vec3d joint_right = FLMath::jointToVec(skeleton->get_joint(right_left->get_from()));
+			cv::Vec3d joint_left = FLMath::jointToVec(skeleton->get_joint(right_left->get_to()));
+
+			if (cv::norm(joint_top - (joint_down + u)) < cv::norm(joint_top - joint_down))
 			{
 				u = -u;
 			}
 
-			if (cv::norm(joint_ls - (joint_rs + r)) > cv::norm(joint_ls - joint_rs))
+			if (cv::norm(joint_left - (joint_right + r)) > cv::norm(joint_left - joint_right))
 			{
 				r = -r;
 			}
@@ -184,8 +195,8 @@ namespace mae
 			//calculate the offset skeleton
 			//----------
 
-			std::shared_ptr<mae::model::GeneralSkeleton> offset_skeleton = std::shared_ptr<mae::model::GeneralSkeleton>(
-					new mae::model::GeneralSkeleton());
+			std::shared_ptr<general_skeleton> offset_skeleton = std::shared_ptr<general_skeleton>(
+					new general_skeleton());
 
 			//origin of the coordinate system is the torso (is displayed in x,y,z coordinates)
 			offset_skeleton->set_joint(elements.at(0)->get_id(), skeleton->get_joint(elements.at(0)->get_id()));
@@ -225,7 +236,7 @@ namespace mae
 		}
 
 		std::shared_ptr<FLSkeleton> FLSkeletonController::calculate_angular_skeleton(
-				std::shared_ptr<mae::model::GeneralSkeleton> skeleton, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t)
+				std::shared_ptr<general_skeleton> skeleton, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t)
 		{
 			// ---
 			// Calculate spherical coordinates
@@ -245,14 +256,14 @@ namespace mae
 				int joint_fl_o = skel_extremities[i][4];
 				int joint_fl_w = skel_extremities[i][5];
 
-				if (skeleton->get_joint(joint_i)->isValid() && skeleton->get_joint(joint_o)->isValid())
+				if (skeleton->get_joint(joint_i)->is_valid() && skeleton->get_joint(joint_o)->is_valid())
 				{
 					cv::Vec2d angles;
 
 					angles = FLSkeletonController::first_degree_r(skeleton, joint_i, joint_o, u, r, t);
 					result->set_joint(joint_fl_i, std::shared_ptr<FLJoint>(new FLJoint(angles[0], angles[1])));
 
-					if (skeleton->get_joint(joint_e)->isValid())
+					if (skeleton->get_joint(joint_e)->is_valid())
 					{
 						angles = FLSkeletonController::second_degree(skeleton, joint_i, joint_o, joint_e, u, r,
 								t);
@@ -262,21 +273,6 @@ namespace mae
 						angles = FLSkeletonController::first_degree_r(skeleton, joint_i, joint_e, u, r, t);
 						result->set_joint(joint_fl_w, std::shared_ptr<FLJoint>(new FLJoint(angles[0], angles[1])));
 					}
-					else
-					{
-						//outer parts of extremity are invalid
-						// TODO this is not necessary ?!
-						//						result->setJoint(joint_fl_o, std::shared_ptr<FLJoint>(new FLJoint()));
-						//						result->setJoint(joint_fl_w, std::shared_ptr<FLJoint>(new FLJoint()));
-					}
-				}
-				else
-				{
-					//whole extremity is invalid
-					// TODO this is not necessary ?!
-					//					result->setJoint(joint_fl_i, std::shared_ptr<FLJoint>(new FLJoint()));
-					//					result->setJoint(joint_fl_o, std::shared_ptr<FLJoint>(new FLJoint()));
-					//					result->setJoint(joint_fl_w, std::shared_ptr<FLJoint>(new FLJoint()));
 				}
 			}
 
@@ -286,7 +282,7 @@ namespace mae
 
 			int joint_fl_head_i = FLJ_HEAD;
 
-			if (skeleton->get_joint(joint_head_i)->isValid() && skeleton->get_joint(joint_head_o)->isValid())
+			if (skeleton->get_joint(joint_head_i)->is_valid() && skeleton->get_joint(joint_head_o)->is_valid())
 			{
 				cv::Vec2d angles = FLSkeletonController::first_degree(skeleton, joint_head_i, joint_head_o, r,
 						t, u);
@@ -296,7 +292,7 @@ namespace mae
 			return result;
 		}
 
-		cv::Vec2d FLSkeletonController::first_degree_md(std::shared_ptr<mae::model::GeneralSkeleton> skeleton,
+		cv::Vec2d FLSkeletonController::first_degree_md(std::shared_ptr<general_skeleton> skeleton,
 				int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t, cv::Vec3d md)
 		{
 			// ---
@@ -323,7 +319,7 @@ namespace mae
 					b = cv::normalize(md.cross(r));
 				}
 
-				//todo dont calculate the rotation matrix several times : efficiency!!
+				//TODO dont calculate the rotation matrix several times : efficiency!!
 				//apply to all
 				u_r = FLMath::rotateAroundAxis(u, b, -beta);
 				// r is not needed to be rotated since the projection will work with the plane spanned by u and t
@@ -363,7 +359,7 @@ namespace mae
 
 		}
 
-		cv::Vec2d FLSkeletonController::first_degree_r(std::shared_ptr<mae::model::GeneralSkeleton> skeleton,
+		cv::Vec2d FLSkeletonController::first_degree_r(std::shared_ptr<general_skeleton> skeleton,
 				int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t)
 		{
 			// ---
@@ -406,7 +402,7 @@ namespace mae
 
 		}
 
-		cv::Vec2d FLSkeletonController::first_degree(std::shared_ptr<mae::model::GeneralSkeleton> skeleton,
+		cv::Vec2d FLSkeletonController::first_degree(std::shared_ptr<general_skeleton> skeleton,
 				int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t)
 		{
 			// ---
@@ -448,7 +444,7 @@ namespace mae
 
 		}
 
-		cv::Vec2d FLSkeletonController::second_degree(std::shared_ptr<mae::model::GeneralSkeleton> skeleton,
+		cv::Vec2d FLSkeletonController::second_degree(std::shared_ptr<general_skeleton> skeleton,
 				int adjacent_joint, int outer_joint, int extremity_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t)
 		{
 
@@ -495,7 +491,7 @@ namespace mae
 					b = cv::normalize(fdvec.cross(r));
 				}
 
-				//todo dont calculate the rotation matrix several times : efficiency!!
+				//TODO dont calculate the rotation matrix several times : efficiency!!
 				//apply to all
 				cv::Vec3d u_r = FLMath::rotateAroundAxis(u, b, -beta);
 				// r is not needed to be rotated since the projection will work with the plane spanned by u and t
