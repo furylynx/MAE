@@ -73,6 +73,16 @@ namespace mae
 		return valid;
 	}
 
+	bool general_joint::equals(general_joint joint) const
+	{
+		return x == joint.get_x() && y == joint.get_y() && z == joint.get_z() && valid == joint.is_valid();
+	}
+
+	bool general_joint::equals(std::shared_ptr<general_joint> joint) const
+	{
+		return equals(*joint);
+	}
+
 	std::string general_joint::str() const
 	{
 		std::stringstream sstr;

@@ -15,6 +15,11 @@ namespace mae
 		this->hashmap_joints = std::unordered_map<int, std::shared_ptr<general_joint> >();
 
 		this->hierarchy_ = hierarchy::default_hierarchy();
+
+		//set top-down and right-left direction
+		this->top_down = std::shared_ptr<bone>(new bone(99, "TOP_DOWN", MAEJ_NECK, MAEJ_TORSO));
+		this->right_left = std::shared_ptr<bone>(new bone(100, "RIGHT_LEFT", MAEJ_RIGHT_SHOULDER, MAEJ_LEFT_SHOULDER));
+
 	}
 
 	general_skeleton::general_skeleton(std::shared_ptr<hierarchy> hierarchy)
@@ -123,88 +128,78 @@ namespace mae
 	{
 		std::stringstream sstr;
 		sstr << "general_skeleton:" << std::endl;
-		for (int joint_id = MAEJ_INVALID + 1; joint_id != MAEJ_SIZE; joint_id++)
+
+		if (hierarchy_)
 		{
-			sstr << maej_str[joint_id] << " " << get_joint(joint_id) << std::endl;
+			std::vector<std::shared_ptr<hierarchy_element> > elements = hierarchy_->get_element_sequence();
+
+			for (unsigned int i = 0; i < elements.size(); i++)
+			{
+				sstr << elements.at(i)->get_name() << " " << get_joint(elements.at(i)->get_id()) << std::endl;
+			}
+		}
+		else
+		{
+			sstr << "--no hierarchy defined--" << std::endl;
 		}
 
 		return sstr.str();
+
 	}
 
 	std::string general_skeleton::ply_str() const
 	{
 		std::stringstream sstr;
 
+		std::vector<std::shared_ptr<hierarchy_element> > all_elements = hierarchy_->get_element_sequence();
+
 		//print header
-		sstr << "ply" << std::endl;				//"\n";
-		sstr << "format ascii 1.0" << std::endl;				//"\n";
-		sstr << "element vertex " << MAEJ_SIZE - 1 << std::endl;				//"\n";
-		sstr << "property double x" << std::endl;				//"\n";
-		sstr << "property double y" << std::endl;				//"\n";
-		sstr << "property double z" << std::endl;				//"\n";
-		sstr << "element face " << 0 << std::endl;				//"\n";
-		sstr << "property list uchar uint vertex_indices" << std::endl; //"\n";
-		sstr << "element edge " << MAEJ_SIZE - 1 << std::endl;
+		sstr << "ply" << std::endl;
+		sstr << "format ascii 1.0" << std::endl;
+		sstr << "element vertex " << all_elements.size() << std::endl;
+		sstr << "property double x" << std::endl;
+		sstr << "property double y" << std::endl;
+		sstr << "property double z" << std::endl;
+		sstr << "element face " << 0 << std::endl;
+		sstr << "property list uchar uint vertex_indices" << std::endl;
+		sstr << "element edge " << all_elements.size() - 1 << std::endl;
 		sstr << "property int vertex1" << std::endl;
 		sstr << "property int vertex2" << std::endl;
-		sstr << "end_header" << std::endl; //"\n";
+		sstr << "end_header" << std::endl;
 
-		//scale to 1
-		double max_x = 1;
-		double max_y = 1;
-		double max_z = 1;
-
-		std::vector<std::shared_ptr<general_joint> > joints;
-		for (int joint_id = MAEJ_INVALID + 1; joint_id != MAEJ_SIZE; joint_id++)
+		//print data
+		for (int i = 0; i < all_elements.size(); i++)
 		{
-			joints.push_back(
-					std::shared_ptr<general_joint>(
-							new general_joint(get_joint(joint_id)->get_x() - get_joint(MAEJ_TORSO)->get_x(),
-									get_joint(joint_id)->get_y() - get_joint(MAEJ_TORSO)->get_y(),
-									get_joint(joint_id)->get_z() - get_joint(MAEJ_TORSO)->get_z())));
+			int element_id = all_elements.at(i)->get_id();
 
-			if (((std::shared_ptr<general_joint>) joints[joint_id - 1])->get_x() > max_x)
+			while (hierarchy_ && hierarchy_->at(element_id) && hierarchy_->at(element_id)->is_dummy()
+					&& hierarchy_->at(element_id)->get_parent())
 			{
-				max_x = ((std::shared_ptr<general_joint>) joints[joint_id - 1])->get_x();
+				element_id = hierarchy_->at(element_id)->get_parent()->get_id();
 			}
-			if (((std::shared_ptr<general_joint>) joints[joint_id - 1])->get_y() > max_y)
-			{
-				max_y = ((std::shared_ptr<general_joint>) joints[joint_id - 1])->get_y();
-			}
-			if (((std::shared_ptr<general_joint>) joints[joint_id - 1])->get_z() > max_z)
-			{
-				max_z = ((std::shared_ptr<general_joint>) joints[joint_id - 1])->get_z();
-			}
+
+			sstr << get_joint(element_id)->get_x() << " " << get_joint(element_id)->get_y() << " "
+					<< get_joint(element_id)->get_z() << std::endl;
 		}
-
-		//move to center
-
-		//Print points for data
-		for (int joint_id = MAEJ_INVALID + 1; joint_id != MAEJ_SIZE; joint_id++)
-		{
-			sstr << ((std::shared_ptr<general_joint>) joints[joint_id - 1])->get_x() / max_x << " "
-					<< ((std::shared_ptr<general_joint>) joints[joint_id - 1])->get_y() / max_y << " "
-					<< ((std::shared_ptr<general_joint>) joints[joint_id - 1])->get_z() / max_z << " " << std::endl; //"\n";
-		}
-
-		//TODO do this according to the hiearchy
 
 		//Print edges for data
-		sstr << MAEJ_LEFT_HAND - 1 << " " << MAEJ_LEFT_ELBOW - 1 << std::endl;
-		sstr << MAEJ_LEFT_ELBOW - 1 << " " << MAEJ_LEFT_SHOULDER - 1 << std::endl;
-		sstr << MAEJ_LEFT_SHOULDER - 1 << " " << MAEJ_NECK - 1 << std::endl;
-		sstr << MAEJ_NECK - 1 << " " << MAEJ_RIGHT_SHOULDER - 1 << std::endl;
-		sstr << MAEJ_RIGHT_SHOULDER - 1 << " " << MAEJ_RIGHT_ELBOW - 1 << std::endl;
-		sstr << MAEJ_RIGHT_ELBOW - 1 << " " << MAEJ_RIGHT_HAND - 1 << std::endl;
-		sstr << MAEJ_NECK - 1 << " " << MAEJ_HEAD - 1 << std::endl;
-		sstr << MAEJ_RIGHT_SHOULDER - 1 << " " << MAEJ_TORSO - 1 << std::endl;
-		sstr << MAEJ_LEFT_SHOULDER - 1 << " " << MAEJ_TORSO - 1 << std::endl;
-		sstr << MAEJ_TORSO - 1 << " " << MAEJ_LEFT_HIP - 1 << std::endl;
-		sstr << MAEJ_TORSO - 1 << " " << MAEJ_RIGHT_HIP - 1 << std::endl;
-		sstr << MAEJ_LEFT_HIP - 1 << " " << MAEJ_LEFT_KNEE - 1 << std::endl;
-		sstr << MAEJ_LEFT_KNEE - 1 << " " << MAEJ_LEFT_FOOT - 1 << std::endl;
-		sstr << MAEJ_RIGHT_HIP - 1 << " " << MAEJ_RIGHT_KNEE - 1 << std::endl;
-		sstr << MAEJ_RIGHT_KNEE - 1 << " " << MAEJ_RIGHT_FOOT - 1 << std::endl;
+		for (int i = 1; i < all_elements.size(); i++)
+		{
+			if (all_elements.at(i)->get_parent()->get_id() == all_elements.at(i - 1)->get_id())
+			{
+				sstr << i - 1 << " " << i << std::endl;
+			}
+			else
+			{
+				for (int j = 0; j < all_elements.size(); j++)
+				{
+					if (all_elements.at(i)->get_parent()->get_id() == all_elements.at(j)->get_id())
+					{
+						sstr << j << " " << i << std::endl;
+					}
+				}
+			}
+		}
 
 		return sstr.str();
 	}

@@ -27,13 +27,7 @@ namespace mae
 		//reset parent of children and hierarchy
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
-			children.at(i)->set_parent(nullptr);
-
-			if (hierarchy_)
-			{
-				//update hierarchy
-				children.at(i)->set_hierarchy(nullptr);
-			}
+			children.at(i)->update_ph(nullptr, nullptr, false, false);
 		}
 	}
 
@@ -45,6 +39,11 @@ namespace mae
 	std::string hierarchy_element::get_name() const
 	{
 		return name;
+	}
+
+	bool hierarchy_element::is_torso_joint() const
+	{
+		return torso_joint;
 	}
 
 	bool hierarchy_element::is_dummy() const
@@ -80,56 +79,65 @@ namespace mae
 		return children;
 	}
 
-	void hierarchy_element::push_front(std::shared_ptr<hierarchy_element> child)
+	void hierarchy_element::push_front(std::shared_ptr<hierarchy_element> child, bool fix_child)
 	{
 		children.insert(children.begin(), child);
 
 		//assign parent and hierarchy
-		child->set_parent(this, false);
+		child->update_ph(this, hierarchy_, false, true);
 
 	}
 
-	void hierarchy_element::add_child(unsigned int pos, std::shared_ptr<hierarchy_element> child)
+	void hierarchy_element::insert(unsigned int pos, std::shared_ptr<hierarchy_element> child, bool fix_child)
 	{
 		children.insert(children.begin() + pos, child);
 
 		//assign parent and hierarchy
-		child->set_parent(this, false);
+		child->update_ph(this, hierarchy_, false, true);
 	}
 
-	void hierarchy_element::push_back(std::shared_ptr<hierarchy_element> child)
+	void hierarchy_element::push_back(std::shared_ptr<hierarchy_element> child, bool fix_child)
 	{
 		children.push_back(child);
 
-		//assign parent and hierarchy
-		child->set_parent(this, false);
+		if (fix_child)
+		{
+			//assign parent and hierarchy
+			child->update_ph(this, hierarchy_, false, true);
+		}
 	}
 
-	void hierarchy_element::erase(int element_id)
+	void hierarchy_element::erase(int element_id, bool fix_child)
 	{
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
 			if (children.at(i)->get_id() == element_id)
 			{
-				erase_at(i);
+				erase_at(i, fix_child);
 			}
 		}
 	}
 
-	void hierarchy_element::erase_at(unsigned int i)
+	void hierarchy_element::erase_at(unsigned int i, bool fix_child)
 	{
 		if (i < children.size())
 		{
-			children.at(i)->set_parent(nullptr, false);
+			if (fix_child)
+			{
+				children.at(i)->update_ph(nullptr, nullptr, false, false);
+			}
 			children.erase(children.begin() + i);
 		}
 	}
 
-	void hierarchy_element::clear()
+	void hierarchy_element::clear(bool fix_child)
 	{
-		for (unsigned int i = 0; i < children.size(); i++)
+		if (fix_child)
 		{
-			children.at(i)->set_parent(nullptr, false);
+			for (unsigned int i = 0; i < children.size(); i++)
+			{
+				children.at(i)->update_ph(nullptr, nullptr, false, false);
+			}
 		}
 
 		children.clear();
@@ -143,81 +151,101 @@ namespace mae
 		{
 			result.push_back(children.at(i));
 
-			std::vector<std::shared_ptr<hierarchy_element> > childrens_sequence = children.at(i)->get_element_sequence();
+			std::vector<std::shared_ptr<hierarchy_element> > childrens_sequence =
+					children.at(i)->get_element_sequence();
 			result.insert(result.end(), childrens_sequence.begin(), childrens_sequence.end());
 		}
 
 		return result;
 	}
 
-	void hierarchy_element::set_parent(hierarchy_element * const parent, bool fix_parent)
+	std::string hierarchy_element::str(int offset) const
 	{
-		if (this->parent == parent)
+		std::stringstream sstr;
+
+		for (int i = 0; i < offset; i++)
 		{
-			return;
+			sstr << "\t";
 		}
 
-		hierarchy_element* former_parent = this->parent;
+		sstr << name;
 
-		this->parent = parent;
-
-		if (this->hierarchy_ && this->hierarchy_->get_root().get() == this)
+		if (dummy)
 		{
-			//this element is assigned to a hierarchy
-			//therefore the root of the old hierarchy must be
-			//cleared
-			hierarchy_->set_root(std::shared_ptr<hierarchy_element>());
+			sstr << " #DUMMY_JOINT";
 		}
 
-		if (former_parent && fix_parent)
+		if (torso_joint)
 		{
-			//remove this element from the former parent
-			former_parent->erase(id);
+			sstr << " #TORSO_JOINT";
 		}
 
-		//update hierarchy
-		if (!parent)
-		{
-			set_hierarchy(nullptr);
-		}
-		else if (parent->get_hierarchy() != this->hierarchy_)
-		{
-			//update hierarchy to parent's one
-			set_hierarchy(parent->hierarchy_);
-		}
+		sstr << std::endl;
 
-	}
-
-	void hierarchy_element::set_hierarchy(hierarchy * const h)
-	{
-		if (this->hierarchy_ == h)
-		{
-			return;
-		}
-
-		hierarchy* former_h = this->hierarchy_;
-
-		if (former_h && former_h->get_root().get() == this)
-		{
-			//this element is assigned to another hierarchy
-			//therefore the root of the old hierarchy must be
-			//cleared
-			former_h->set_root(std::shared_ptr<hierarchy_element>());
-		}
-
-		//update former hierarchy
-		former_h->remove_element(this);
-
-		this->hierarchy_ = h;
-
-		//update new hierarchy
-		hierarchy_->add_element(this);
-
-		//update children, too
 		for (unsigned int i = 0; i < children.size(); i++)
 		{
-			children.at(i)->set_hierarchy(hierarchy_);
+			sstr << children.at(i)->str(offset + 1);
 		}
+
+		return sstr.str();
+	}
+
+	void hierarchy_element::update_ph(hierarchy_element * const parent, hierarchy * const h, bool fix_parent,
+			bool fix_former_h)
+	{
+		if (this->parent != parent)
+		{
+			hierarchy_element* former_parent = this->parent;
+
+			this->parent = parent;
+
+			if (h && h->get_root().get() == this)
+			{
+				//this element is assigned to a hierarchy
+				//therefore the root of the old hierarchy must be
+				//cleared
+				h->set_root(std::shared_ptr<hierarchy_element>());
+			}
+
+			if (former_parent && fix_parent)
+			{
+				//remove this element from the former parent
+				former_parent->erase(id, false);
+			}
+		}
+
+		if (hierarchy_ != h)
+		{
+			hierarchy* former_h = hierarchy_;
+
+			if (fix_former_h && former_h && former_h->get_root().get() == this)
+			{
+				//this element is assigned to another hierarchy
+				//therefore the root of the old hierarchy must be
+				//cleared
+				former_h->set_root(std::shared_ptr<hierarchy_element>());
+			}
+
+			if (fix_former_h && former_h)
+			{
+				//update former hierarchy
+				former_h->remove_element(this);
+			}
+
+			hierarchy_ = h;
+
+			if (hierarchy_)
+			{
+				//update new hierarchy
+				hierarchy_->add_element(this);
+			}
+
+			for (unsigned int i = 0; i < children.size(); i++)
+			{
+				children.at(i)->update_ph(this, hierarchy_, false, false);
+			}
+		}
+
 	}
 
 	hierarchy * const hierarchy_element::get_hierarchy() const
