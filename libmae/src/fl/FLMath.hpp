@@ -12,7 +12,7 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-#include "../model/GeneralJoint.hpp"
+#include "../model/general_joint.hpp"
 #include "FLJoint.hpp"
 
 //global includes
@@ -32,8 +32,8 @@ namespace mae
 			public:
 
 				// vector translations
-				static cv::Vec3d jointToVec(std::shared_ptr<mae::model::GeneralJoint> joint);
-				static std::shared_ptr<mae::model::GeneralJoint> vecToJoint(cv::Vec3d vec);
+				static cv::Vec3d jointToVec(std::shared_ptr<general_joint> joint);
+				static std::shared_ptr<general_joint> vecToJoint(cv::Vec3d vec);
 
 				static cv::Vec2d jointToVec_fl(std::shared_ptr<mae::fl::FLJoint> joint);
 				static std::shared_ptr<mae::fl::FLJoint> vecTojoint_fl(cv::Vec2d vec);

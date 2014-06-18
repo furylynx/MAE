@@ -81,12 +81,12 @@ namespace mae
 			return coord_sys;
 		}
 
-		void FLSkeleton::set_offset_skeleton(std::shared_ptr<mae::model::GeneralSkeleton> offset_skeleton)
+		void FLSkeleton::set_offset_skeleton(std::shared_ptr<general_skeleton> offset_skeleton)
 		{
 			this->offset_skeleton = offset_skeleton;
 		}
 
-		std::shared_ptr<mae::model::GeneralSkeleton> FLSkeleton::get_offset_skeleton() const
+		std::shared_ptr<general_skeleton> FLSkeleton::get_offset_skeleton() const
 		{
 			return offset_skeleton;
 		}

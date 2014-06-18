@@ -93,7 +93,7 @@ namespace mae
 		// TODO Auto-generated destructor stub
 	}
 
-	std::string BVHController::bvh_str(std::vector<std::shared_ptr<mae::model::GeneralSkeleton> > data,
+	std::string BVHController::bvh_str(std::vector<std::shared_ptr<general_skeleton> > data,
 			double framerate)
 	{
 		if (data.size() <= 0)
@@ -116,9 +116,9 @@ namespace mae
 		sstr << "{" << std::endl;
 
 		//offset of root element (torso)
-		double torso_offset_x = ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint(MAEJ_TORSO)->getX();
-		double torso_offset_y = ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint(MAEJ_TORSO)->getY();
-		double torso_offset_z = ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint(MAEJ_TORSO)->getZ();
+		double torso_offset_x = ((std::shared_ptr<general_skeleton>) data[0])->get_joint(MAEJ_TORSO)->get_x();
+		double torso_offset_y = ((std::shared_ptr<general_skeleton>) data[0])->get_joint(MAEJ_TORSO)->get_y();
+		double torso_offset_z = ((std::shared_ptr<general_skeleton>) data[0])->get_joint(MAEJ_TORSO)->get_z();
 
 		sstr << "\t" << "OFFSET" << " " << std::setprecision(2) << torso_offset_x << " " << std::setprecision(2)
 				<< torso_offset_y << " " << std::setprecision(2) << torso_offset_z << std::endl;
@@ -167,24 +167,24 @@ namespace mae
 				if (j == 0)
 				{
 					//parent is torso
-					p_x = data.at(0)->get_joint(MAEJ_TORSO)->getX();
-					p_y = data.at(0)->get_joint(MAEJ_TORSO)->getY();
-					p_z = data.at(0)->get_joint(MAEJ_TORSO)->getZ();
+					p_x = data.at(0)->get_joint(MAEJ_TORSO)->get_x();
+					p_y = data.at(0)->get_joint(MAEJ_TORSO)->get_y();
+					p_z = data.at(0)->get_joint(MAEJ_TORSO)->get_z();
 				}
 				else
 				{
 					//parent is joint before
-					p_x = data.at(0)->get_joint(ext.at(i).at(j - 1))->getX();
-					p_y = data.at(0)->get_joint(ext.at(i).at(j - 1))->getY();
-					p_z = data.at(0)->get_joint(ext.at(i).at(j - 1))->getZ();
+					p_x = data.at(0)->get_joint(ext.at(i).at(j - 1))->get_x();
+					p_y = data.at(0)->get_joint(ext.at(i).at(j - 1))->get_y();
+					p_z = data.at(0)->get_joint(ext.at(i).at(j - 1))->get_z();
 				}
 
 				sstr << indent.str() << "OFFSET" << " " << std::setprecision(2)
-						<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint((int) ext[i][j])->getX()
+						<< ((std::shared_ptr<general_skeleton>) data[0])->get_joint((int) ext[i][j])->get_x()
 								- p_x << " " << std::setprecision(2)
-						<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint((int) ext[i][j])->getY()
+						<< ((std::shared_ptr<general_skeleton>) data[0])->get_joint((int) ext[i][j])->get_y()
 								- p_y << " " << std::setprecision(2)
-						<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint((int) ext[i][j])->getZ()
+						<< ((std::shared_ptr<general_skeleton>) data[0])->get_joint((int) ext[i][j])->get_z()
 								- p_z << std::endl;
 
 				//channels for the joint (if not end site)
@@ -249,11 +249,11 @@ namespace mae
 		{
 			//torso location
 			sstr << std::setprecision(2)
-					<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->get_joint(MAEJ_TORSO)->getX()
+					<< ((std::shared_ptr<general_skeleton>) data[skel_id])->get_joint(MAEJ_TORSO)->get_x()
 							- torso_offset_x << " " << std::setprecision(2)
-					<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->get_joint(MAEJ_TORSO)->getY()
+					<< ((std::shared_ptr<general_skeleton>) data[skel_id])->get_joint(MAEJ_TORSO)->get_y()
 							- torso_offset_y << " " << std::setprecision(2)
-					<< ((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->get_joint(MAEJ_TORSO)->getZ()
+					<< ((std::shared_ptr<general_skeleton>) data[skel_id])->get_joint(MAEJ_TORSO)->get_z()
 							- torso_offset_z << " ";
 			//torso hold unrotated state
 			sstr << std::setprecision(2) << 0.0 << " " << std::setprecision(2) << 0.0 << " " << std::setprecision(2)
@@ -263,7 +263,7 @@ namespace mae
 			{
 				//offset for each joint
 				cv::Vec3d p_vec = fl::FLMath::jointToVec(
-						((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->get_joint(MAEJ_TORSO));
+						((std::shared_ptr<general_skeleton>) data[skel_id])->get_joint(MAEJ_TORSO));
 
 				cv::Mat rot_mat = cv::Mat::eye(3, 3, CV_64F);
 
@@ -271,7 +271,7 @@ namespace mae
 				{
 
 					cv::Vec3d cur_vec = fl::FLMath::jointToVec(
-							((std::shared_ptr<mae::model::GeneralSkeleton>) data[skel_id])->get_joint((int) ext[i][j]));
+							((std::shared_ptr<general_skeleton>) data[skel_id])->get_joint((int) ext[i][j]));
 
 					int old_vec_ref = MAEJ_TORSO;
 					if (j > 1)
@@ -279,9 +279,9 @@ namespace mae
 						old_vec_ref = (int) ext[i][j - 1];
 					}
 					cv::Vec3d old_vec = fl::FLMath::jointToVec(
-							((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint((int) ext[i][j]))
+							((std::shared_ptr<general_skeleton>) data[0])->get_joint((int) ext[i][j]))
 							- fl::FLMath::jointToVec(
-									((std::shared_ptr<mae::model::GeneralSkeleton>) data[0])->get_joint(old_vec_ref));
+									((std::shared_ptr<general_skeleton>) data[0])->get_joint(old_vec_ref));
 					cv::Vec3d new_vec = cur_vec - p_vec;
 
 					//rotate old vector according to previous rotations
@@ -306,33 +306,33 @@ namespace mae
 		return sstr.str();
 	}
 
-	std::string BVHController::bvh_str(std::vector<std::shared_ptr<mae::model::GeneralSkeleton> > data)
+	std::string BVHController::bvh_str(std::vector<std::shared_ptr<general_skeleton> > data)
 	{
 		return bvh_str(data, (double) 1 / 30);
 	}
 
-	std::string BVHController::bvh_str(std::shared_ptr<mae::model::GeneralSkeleton> data)
+	std::string BVHController::bvh_str(std::shared_ptr<general_skeleton> data)
 	{
-		std::vector<std::shared_ptr<mae::model::GeneralSkeleton> > vec;
+		std::vector<std::shared_ptr<general_skeleton> > vec;
 		vec.push_back(data);
 		return bvh_str(vec);
 	}
 
-	void BVHController::bvh_file(std::vector<std::shared_ptr<mae::model::GeneralSkeleton> > data, std::string filename)
+	void BVHController::bvh_file(std::vector<std::shared_ptr<general_skeleton> > data, std::string filename)
 	{
 		std::ofstream out_file(filename);
 		out_file << bvh_str(data);
 		out_file.close();
 	}
 
-	void BVHController::bvh_file(std::shared_ptr<mae::model::GeneralSkeleton> data, std::string filename)
+	void BVHController::bvh_file(std::shared_ptr<general_skeleton> data, std::string filename)
 	{
-		std::vector<std::shared_ptr<mae::model::GeneralSkeleton> > result;
+		std::vector<std::shared_ptr<general_skeleton> > result;
 		result.push_back(data);
 		return bvh_file(result, filename);
 	}
 
-	std::vector<std::shared_ptr<mae::model::GeneralSkeleton> > BVHController::read_bvh(std::string bvh_str)
+	std::vector<std::shared_ptr<general_skeleton> > BVHController::read_bvh(std::string bvh_str)
 	{
 		//frame time
 		//TODO how to return this? via class var?
@@ -347,13 +347,13 @@ namespace mae
 		}
 
 		//the resulting skeletons
-		std::vector<std::shared_ptr<mae::model::GeneralSkeleton> > result;
+		std::vector<std::shared_ptr<general_skeleton> > result;
 
 		//------------------------------
 		// read offsets
 		//------------------------------
-		std::shared_ptr<mae::model::GeneralSkeleton> offset_skel = std::shared_ptr<mae::model::GeneralSkeleton>(
-				new mae::model::GeneralSkeleton());
+		std::shared_ptr<general_skeleton> offset_skel = std::shared_ptr<general_skeleton>(
+				new general_skeleton());
 
 		std::unordered_map<int, int> joint_parent;
 		std::unordered_map<int, std::vector<int> > joint_channel;
@@ -379,7 +379,7 @@ namespace mae
 		//parse root offset
 		offset_skel->set_joint(el_root_id,
 				parse_offset(tmp, pos_root.first + pos_root.second,
-						std::shared_ptr<model::GeneralJoint>(new model::GeneralJoint(0, 0, 0))));
+						std::shared_ptr<general_joint>(new general_joint(0, 0, 0))));
 
 		//parse root channels
 		joint_channel.insert(std::make_pair(el_root_id, parse_channels(tmp, pos_root.first + pos_root.second)));
@@ -529,8 +529,8 @@ namespace mae
 			std::string line;
 			std::getline(tmp_sstr, line);
 
-			std::shared_ptr<mae::model::GeneralSkeleton> next_skel = std::shared_ptr<mae::model::GeneralSkeleton>(
-					new mae::model::GeneralSkeleton());
+			std::shared_ptr<general_skeleton> next_skel = std::shared_ptr<general_skeleton>(
+					new general_skeleton());
 
 			std::vector<double> motion = MStr::double_list(line);
 
@@ -697,7 +697,7 @@ namespace mae
 		return result;
 	}
 
-	std::vector<std::shared_ptr<mae::model::GeneralSkeleton> > BVHController::read_bvh_file(std::string filename)
+	std::vector<std::shared_ptr<general_skeleton> > BVHController::read_bvh_file(std::string filename)
 	{
 		std::ifstream in_file(filename);
 		std::stringstream sstr;
@@ -714,7 +714,7 @@ namespace mae
 		}
 		else
 		{
-			return std::vector<std::shared_ptr<mae::model::GeneralSkeleton> >();
+			return std::vector<std::shared_ptr<general_skeleton> >();
 		}
 	}
 
@@ -764,8 +764,8 @@ namespace mae
 
 	}
 
-	std::shared_ptr<model::GeneralJoint> BVHController::parse_offset(std::string& value, unsigned int pos,
-			std::shared_ptr<model::GeneralJoint> parent_joint)
+	std::shared_ptr<general_joint> BVHController::parse_offset(std::string& value, unsigned int pos,
+			std::shared_ptr<general_joint> parent_joint)
 	{
 		std::pair<int, int> pos_offset = MStr::find_line(value, "offset", pos);
 
@@ -774,7 +774,7 @@ namespace mae
 		if (offset.size() != 3)
 		{
 			//syntax error
-			return std::shared_ptr<model::GeneralJoint>(new model::GeneralJoint());
+			return std::shared_ptr<general_joint>(new general_joint());
 		}
 
 		cv::Vec3d el_position = fl::FLMath::stdVecToVec3d(offset) + fl::FLMath::jointToVec(parent_joint);

@@ -12,12 +12,12 @@ namespace mae {
 
 		FLMovementController::FLMovementController() : MovementController(std::shared_ptr<FLPoseDetector>(new FLPoseDetector()),std::shared_ptr<FLLabanSequenceGenerator>(new FLLabanSequenceGenerator()), get_flj_ids())
 		{
-			this->skel_ctrl = std::shared_ptr<FLSkeletonController>(new FLSkeletonController);
+			this->skel_ctrl = std::shared_ptr<FLSkeletonController>(new FLSkeletonController());
 		}
 
 		FLMovementController::FLMovementController(std::vector<int> bodyParts) : MovementController(std::shared_ptr<FLPoseDetector>(new FLPoseDetector()),std::shared_ptr<FLLabanSequenceGenerator>(new FLLabanSequenceGenerator()), bodyParts)
 		{
-			this->skel_ctrl = std::shared_ptr<FLSkeletonController>(new FLSkeletonController);
+			this->skel_ctrl = std::shared_ptr<FLSkeletonController>(new FLSkeletonController());
 		}
 
 
@@ -26,7 +26,7 @@ namespace mae {
 		}
 
 
-		void FLMovementController::nextFrame(long timestamp,std::shared_ptr<mae::model::GeneralSkeleton> skeleton){
+		void FLMovementController::nextFrame(long timestamp,std::shared_ptr<general_skeleton> skeleton){
 			std::shared_ptr<FLSkeleton> fl_skel = skel_ctrl->specified_skeleton(skeleton);
 			mae::controller::MovementController<FLSkeleton, FLLabanSequence>::nextFrame(timestamp, fl_skel);
 		}

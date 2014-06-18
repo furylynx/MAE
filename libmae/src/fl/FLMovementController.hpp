@@ -12,7 +12,7 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-#include "../model/GeneralSkeleton.hpp"
+#include "../model/general_skeleton.hpp"
 #include "../controller/MovementController.hpp"
 #include "../controller/IPoseDetector.hpp"
 #include "FLSkeleton.hpp"
@@ -35,7 +35,7 @@ namespace mae {
 				FLMovementController(std::vector<int> bodyParts);
 				virtual ~FLMovementController();
 
-				virtual void nextFrame(long timestamp,std::shared_ptr<mae::model::GeneralSkeleton> skeleton);
+				virtual void nextFrame(long timestamp,std::shared_ptr<general_skeleton> skeleton);
 
 			private:
 				std::shared_ptr<FLSkeletonController> skel_ctrl;

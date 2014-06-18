@@ -12,7 +12,7 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-#include "../model/GeneralSkeleton.hpp"
+#include "../model/general_skeleton.hpp"
 
 //global includes
 #include <memory>
@@ -25,7 +25,7 @@ namespace mae {
 			public:
 				virtual ~ISkeletonController(){ }
 
-				virtual std::shared_ptr<T> specified_skeleton(std::shared_ptr<mae::model::GeneralSkeleton> skeleton) = 0;
+				virtual std::shared_ptr<T> specified_skeleton(std::shared_ptr<general_skeleton> skeleton) = 0;
 
 		};
 

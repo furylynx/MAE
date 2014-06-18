@@ -12,7 +12,7 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-#include "../model/GeneralSkeleton.hpp"
+#include "../model/general_skeleton.hpp"
 #include "../model/MAEJ.hpp"
 #include "MStr.hpp"
 
@@ -42,19 +42,19 @@ namespace mae
 			BVHController();
 			virtual ~BVHController();
 
-			virtual std::string bvh_str(std::vector<std::shared_ptr<mae::model::GeneralSkeleton> > data);
-			virtual std::string bvh_str(std::vector<std::shared_ptr<mae::model::GeneralSkeleton> > data, double framerate);
+			virtual std::string bvh_str(std::vector<std::shared_ptr<general_skeleton> > data);
+			virtual std::string bvh_str(std::vector<std::shared_ptr<general_skeleton> > data, double framerate);
 
-			virtual std::string bvh_str(std::shared_ptr<mae::model::GeneralSkeleton> data);
+			virtual std::string bvh_str(std::shared_ptr<general_skeleton> data);
 
-			virtual void bvh_file(std::vector<std::shared_ptr<mae::model::GeneralSkeleton> > data, std::string filename);
-			virtual void bvh_file(std::shared_ptr<mae::model::GeneralSkeleton> data, std::string filename);
+			virtual void bvh_file(std::vector<std::shared_ptr<general_skeleton> > data, std::string filename);
+			virtual void bvh_file(std::shared_ptr<general_skeleton> data, std::string filename);
 
-			virtual std::vector<std::shared_ptr<mae::model::GeneralSkeleton> > read_bvh(std::string bvh_str);
-			virtual std::vector<std::shared_ptr<mae::model::GeneralSkeleton> > read_bvh_file(std::string filename);
+			virtual std::vector<std::shared_ptr<general_skeleton> > read_bvh(std::string bvh_str);
+			virtual std::vector<std::shared_ptr<general_skeleton> > read_bvh_file(std::string filename);
 
 		private:
-			std::shared_ptr<model::GeneralJoint> parse_offset(std::string& value, unsigned int pos, std::shared_ptr<model::GeneralJoint> parent_joint);
+			std::shared_ptr<general_joint> parse_offset(std::string& value, unsigned int pos, std::shared_ptr<general_joint> parent_joint);
 			std::vector<int> parse_channels(std::string& value, unsigned int pos);
 
 			std::vector<std::vector<int> > ext;

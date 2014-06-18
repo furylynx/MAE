@@ -14,7 +14,7 @@
 //custom includes
 #include "FLJoint.hpp"
 #include "FLJ.hpp"
-#include "../model/GeneralSkeleton.hpp"
+#include "../model/general_skeleton.hpp"
 
 //global includes
 #include <unordered_map>
@@ -74,7 +74,7 @@ namespace mae
 				 *
 				 * @param offset_skeleton A shared pointer to the offset skeleton.
 				 */
-				virtual void set_offset_skeleton(std::shared_ptr<mae::model::GeneralSkeleton> offset_skeleton);
+				virtual void set_offset_skeleton(std::shared_ptr<general_skeleton> offset_skeleton);
 
 				/**
 				 * Returns the offset skeleton. The root joint is used to define the offset of the
@@ -83,7 +83,7 @@ namespace mae
 				 *
 				 * @return A shared pointer to the offset skeleton.
 				 */
-				virtual std::shared_ptr<mae::model::GeneralSkeleton> get_offset_skeleton() const;
+				virtual std::shared_ptr<general_skeleton> get_offset_skeleton() const;
 
 				/**
 				 * Prints this object tot the stream.
@@ -105,7 +105,7 @@ namespace mae
 
 			private:
 				std::unordered_map<int, std::shared_ptr<mae::fl::FLJoint> > hashmap_joints;
-				std::shared_ptr<mae::model::GeneralSkeleton> offset_skeleton;
+				std::shared_ptr<general_skeleton> offset_skeleton;
 
 				//central coordinate system
 				std::vector<double> u;

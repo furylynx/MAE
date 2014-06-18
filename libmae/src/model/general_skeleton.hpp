@@ -12,10 +12,11 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-#include "GeneralJoint.hpp"
+#include "general_joint.hpp"
 #include "MAEJ.hpp"
 #include "Hierarchy.hpp"
 #include "HierarchyElement.hpp"
+#include "bone.hpp"
 
 //global includes
 #include <unordered_map>
@@ -27,15 +28,13 @@
 
 namespace mae
 {
-	namespace model
-	{
 
-		class GeneralSkeleton
+		class general_skeleton
 		{
 			public:
-				GeneralSkeleton();
-				GeneralSkeleton(std::shared_ptr<Hierarchy> hierarchy);
-				virtual ~GeneralSkeleton();
+				general_skeleton();
+				general_skeleton(std::shared_ptr<Hierarchy> hierarchy);
+				virtual ~general_skeleton();
 
 
 				/**
@@ -44,7 +43,7 @@ namespace mae
 				 * @param bodyPart The addressed body part.
 				 * @param joint A shared pointer to the joint.
 				 */
-				virtual void set_joint(int body_part, std::shared_ptr<GeneralJoint> joint);
+				virtual void set_joint(int body_part, std::shared_ptr<general_joint> joint);
 
 				/**
 				 * Returns a shared pointer to the joint of the body part.
@@ -52,7 +51,7 @@ namespace mae
 				 * @param bodyPart The addressed body part.
 				 * @return A shared pointer to the joint.
 				 */
-				virtual std::shared_ptr<GeneralJoint> get_joint(int body_part) const;
+				virtual std::shared_ptr<general_joint> get_joint(int body_part) const;
 
 				/**
 				 * Returns a shared pointer to the used hierarchy. If not hierarchy is set, a default hierarchy is assumed.
@@ -66,6 +65,40 @@ namespace mae
 				 */
 				virtual void set_hierarchy(std::shared_ptr<Hierarchy> hierarchy);
 
+
+				/**
+				 * Sets the top-down direction of this skeleton by defining a bone. The bone must
+				 * range from one torso joint to another and need not to follow the hierarchy (but
+				 * the id's must be defined).
+				 *
+				 * @param top_down A shared pointer to the bone.
+				 */
+				virtual void set_top_down(std::shared_ptr<bone> top_down);
+
+				/**
+				 * Returns the top-down direction of this skeleton by giving a bone. The bone ranges
+				 * from one torso joint to another.
+				 *
+				 * @param top_down A shared pointer to the bone.
+				 */
+				virtual std::shared_ptr<bone> get_top_down() const;
+
+				/**
+				 * Sets the right-left direction of this skeleton by defining a bone. The bone must
+				 * range from one torso joint to another and need not to follow the hierarchy (but
+				 * the id's must be defined).
+				 *
+				 * @param top_down A shared pointer to the bone.
+				 */
+				virtual void set_right_left(std::shared_ptr<bone> right_left);
+
+				/**
+				 * Returns the right-left direction of this skeleton by giving a bone. The bone ranges
+				 * from one torso joint to another.
+				 *
+				 * @param top_down A shared pointer to the bone.
+				 */
+				virtual std::shared_ptr<bone> get_right_left() const;
 
 				/**
 				 * Converts this object to a string.
@@ -96,7 +129,7 @@ namespace mae
 				 * @param obj The object to be printed.
 				 * @return
 				 */
-				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<GeneralSkeleton>& obj)
+				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<general_skeleton>& obj)
 				{
 					os << obj->str();
 
@@ -110,7 +143,7 @@ namespace mae
 				 * @param obj The object to be printed.
 				 * @return
 				 */
-				friend std::ostream& operator<<(std::ostream& os, const GeneralSkeleton& obj)
+				friend std::ostream& operator<<(std::ostream& os, const general_skeleton& obj)
 				{
 					os << obj.str();
 
@@ -118,11 +151,13 @@ namespace mae
 				}
 
 			private:
-				std::unordered_map<int, std::shared_ptr<mae::model::GeneralJoint> > hashmap_joints;
+				std::unordered_map<int, std::shared_ptr<general_joint> > hashmap_joints;
 				std::shared_ptr<Hierarchy> hierarchy;
+
+				std::shared_ptr<bone> top_down;
+				std::shared_ptr<bone> right_left;
 		};
 
-	} // namespace model
 } // namespace mae
 
 #endif // GENERALSKELETON_HPP_
