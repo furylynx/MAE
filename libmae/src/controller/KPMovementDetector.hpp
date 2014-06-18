@@ -17,7 +17,7 @@
 #include "ISequenceGenerator.hpp"
 #include "IKeyPoseDetector.hpp"
 
-#include "../model/GeneralEnrichedPose.hpp"
+#include "../model/general_enriched_pose.hpp"
 
 //todo
 #include "GeneralKeyPoseDetector.hpp"
@@ -49,7 +49,7 @@ namespace mae {
 				std::shared_ptr<IKeyPoseDetector> ikpd;
 
 				int pose_buffer_size;
-				std::queue<std::shared_ptr<mae::model::GeneralEnrichedPose> > queue;
+				std::queue<std::shared_ptr<general_enriched_pose> > queue;
 
 		};
 

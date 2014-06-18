@@ -23,12 +23,12 @@
 namespace mae
 {
 	//forward declaration of the hierarchy
-	class Hierarchy;
+	class hierarchy;
 
 
-	class HierarchyElement
+	class hierarchy_element
 	{
-			friend class Hierarchy;
+			friend class hierarchy;
 
 		public:
 			/**
@@ -44,8 +44,8 @@ namespace mae
 			 * @param torso
 			 * @param dummy
 			 */
-			HierarchyElement(int id, std::string name, bool torso_joint=false, bool dummy=false);
-			virtual ~HierarchyElement();
+			hierarchy_element(int id, std::string name, bool torso_joint=false, bool dummy=false);
+			virtual ~hierarchy_element();
 
 			virtual int get_id() const;
 			virtual std::string get_name() const;
@@ -59,22 +59,22 @@ namespace mae
 			virtual bool is_torso_joint() const;
 			virtual bool is_dummy() const;
 
-			virtual HierarchyElement * const get_parent() const;
+			virtual hierarchy_element * const get_parent() const;
 
 			virtual bool is_parent() const;
 			virtual bool is_parent_of(int element_id) const;
 
-			virtual std::vector<std::shared_ptr<HierarchyElement> > get_children() const;
+			virtual std::vector<std::shared_ptr<hierarchy_element> > get_children() const;
 
-			virtual void push_front(std::shared_ptr<HierarchyElement> child);
-			virtual void add_child(unsigned int pos, std::shared_ptr<HierarchyElement> child);
-			virtual void push_back(std::shared_ptr<HierarchyElement> child);
+			virtual void push_front(std::shared_ptr<hierarchy_element> child);
+			virtual void add_child(unsigned int pos, std::shared_ptr<hierarchy_element> child);
+			virtual void push_back(std::shared_ptr<hierarchy_element> child);
 
 			virtual void erase(int element_id);
 			virtual void erase_at(unsigned int i);
 			virtual void clear();
 
-			virtual std::vector<std::shared_ptr<HierarchyElement> > get_element_sequence();
+			virtual std::vector<std::shared_ptr<hierarchy_element> > get_element_sequence();
 
 		protected:
 			/**
@@ -83,7 +83,7 @@ namespace mae
 			 *
 			 * @param parent A shared pointer to the parent.
 			 */
-			virtual void set_parent(HierarchyElement * const parent, bool fix_parent = true);
+			virtual void set_parent(hierarchy_element * const parent, bool fix_parent = true);
 
 			/**
 			 * Sets the root hierarchy of this element. This is done automatically
@@ -91,7 +91,9 @@ namespace mae
 			 *
 			 * @param hierarchy
 			 */
-			virtual void set_hierarchy(Hierarchy * const  hierarchy);
+			virtual void set_hierarchy(hierarchy * const  h);
+
+			virtual hierarchy * const get_hierarchy() const;
 
 		private:
 			int id;
@@ -99,10 +101,10 @@ namespace mae
 			bool dummy;
 			bool torso_joint;
 
-			std::vector<std::shared_ptr<HierarchyElement> > children;
+			std::vector<std::shared_ptr<hierarchy_element> > children;
 
-			HierarchyElement* parent;
-			Hierarchy* hierarchy;
+			hierarchy_element* parent;
+			hierarchy* hierarchy_;
 	};
 
 } // namespace mae

@@ -18,7 +18,7 @@
 #include "../controller/ISkeletonController.hpp"
 #include "../model/general_joint.hpp"
 #include "../model/general_skeleton.hpp"
-#include "../model/MAEJ.hpp"
+#include "../model/maej.hpp"
 
 //global includes
 #include <opencv2/core/core.hpp>

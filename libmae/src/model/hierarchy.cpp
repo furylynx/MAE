@@ -5,17 +5,17 @@
  *      Author: keks
  */
 
-#include "Hierarchy.hpp"
-#include "HierarchyElement.hpp"
+#include "hierarchy.hpp"
+#include "hierarchy_element.hpp"
 
 namespace mae
 {
 
-	Hierarchy::Hierarchy()
+	hierarchy::hierarchy()
 	{
 	}
 
-	Hierarchy::Hierarchy(std::shared_ptr<HierarchyElement> root)
+	hierarchy::hierarchy(std::shared_ptr<hierarchy_element> root)
 	{
 		this->root = root;
 
@@ -26,7 +26,7 @@ namespace mae
 		}
 	}
 
-	Hierarchy::~Hierarchy()
+	hierarchy::~hierarchy()
 	{
 		if (root)
 		{
@@ -34,35 +34,35 @@ namespace mae
 		}
 	}
 
-	std::shared_ptr<HierarchyElement> Hierarchy::get_root() const
+	std::shared_ptr<hierarchy_element> hierarchy::get_root() const
 	{
 		return root;
 	}
 
-	void Hierarchy::set_root(std::shared_ptr<HierarchyElement> root)
+	void hierarchy::set_root(std::shared_ptr<hierarchy_element> root)
 	{
 		this->root = root;
 		if (root)
 		{
 			root->set_parent(nullptr);
-			//root->set_hierarchy(this);
+			root->set_hierarchy(this);
 		}
 	}
 
-	std::vector<std::shared_ptr<HierarchyElement> > Hierarchy::get_element_sequence()
+	std::vector<std::shared_ptr<hierarchy_element> > hierarchy::get_element_sequence()
 	{
-		std::vector<std::shared_ptr<HierarchyElement> > result;
+		std::vector<std::shared_ptr<hierarchy_element> > result;
 
 		result.push_back(root);
 
-		std::vector<std::shared_ptr<HierarchyElement> > roots_sequence = root->get_element_sequence();
+		std::vector<std::shared_ptr<hierarchy_element> > roots_sequence = root->get_element_sequence();
 
 		result.insert(result.end(), roots_sequence.begin(), roots_sequence.end());
 
 		return result;
 	}
 
-	HierarchyElement * const Hierarchy::at(int element_id) const
+	hierarchy_element * const hierarchy::at(int element_id) const
 	{
 		if (hashmap_elements.find(element_id) == hashmap_elements.end())
 		{
@@ -76,11 +76,12 @@ namespace mae
 		}
 	}
 
-	std::shared_ptr<Hierarchy> Hierarchy::default_hierarchy()
+	std::shared_ptr<hierarchy> hierarchy::default_hierarchy()
 	{
-		std::shared_ptr<Hierarchy> result;
+		std::shared_ptr<hierarchy> result;
 
 		//TODO construct this one!
+		std::shared_ptr<hierarchy_element> root = std::shared_ptr<hierarchy_element>(new hierarchy_element(MAEJ_TORSO, maej_str[MAEJ_TORSO], true));
 
 
 		//dummy joints for torso split
@@ -90,7 +91,7 @@ namespace mae
 		return result;
 	}
 
-	void Hierarchy::add_element(HierarchyElement* element)
+	void hierarchy::add_element(hierarchy_element* element)
 	{
 		if (hashmap_elements.find(element->get_id()) == hashmap_elements.end())
 		{
@@ -99,7 +100,7 @@ namespace mae
 		}
 	}
 
-	void Hierarchy::remove_element(HierarchyElement* element)
+	void hierarchy::remove_element(hierarchy_element* element)
 	{
 		if (hashmap_elements.find(element->get_id()) != hashmap_elements.end())
 		{

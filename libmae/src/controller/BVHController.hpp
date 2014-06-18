@@ -13,7 +13,7 @@
 
 //custom includes
 #include "../model/general_skeleton.hpp"
-#include "../model/MAEJ.hpp"
+#include "../model/maej.hpp"
 #include "MStr.hpp"
 
 #include "../fl/FLMath.hpp"
