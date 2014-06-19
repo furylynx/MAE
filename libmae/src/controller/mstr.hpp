@@ -20,7 +20,6 @@
 #include <sstream>
 #include <memory>
 #include <vector>
-#include <iostream>
 
 
 namespace mae
@@ -38,15 +37,15 @@ namespace mae
 			static std::string to_upper(const std::string& value);
 
 			static std::pair<std::string::size_type, std::string::size_type> find_line(const std::string& haystack, const std::string& needle);
-			static std::pair<std::string::size_type, std::string::size_type> find_line(const std::string& haystack, const std::string& needle, unsigned int pos);
+			static std::pair<std::string::size_type, std::string::size_type> find_line(const std::string& haystack, const std::string& needle, std::string::size_type pos);
 
-			static std::vector<std::string> split(const std::string& value);
-			static std::vector<std::string> split(const std::string& value, std::string::size_type pos, std::string::size_type n);
-			static std::vector<std::string> split(const std::string& value, char delim);
-			static std::vector<std::string> split(const std::string& value, char delim, std::string::size_type pos, std::string::size_type n);
+			static std::vector<std::string> split(const std::string&  value);
+			static std::vector<std::string> split(const std::string&  value, std::string::size_type pos, std::string::size_type n);
+			static std::vector<std::string> split(const std::string&  value, char delim);
+			static std::vector<std::string> split(const std::string&  value, char delim, std::string::size_type pos, std::string::size_type n);
 
-			static std::vector<double> double_list(const std::string& value);
-			static std::vector<double> double_list(const std::string& value, std::string::size_type pos, std::string::size_type n);
+			static std::vector<double> double_list(const std::string&  value);
+			static std::vector<double> double_list(const std::string&  value, std::string::size_type pos, std::string::size_type n);
 	};
 
 } // namespace mae

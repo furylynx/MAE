@@ -35,16 +35,16 @@ namespace mae {
 				kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_key_pose_detector> ikpd);
 				virtual ~kp_movement_detector();
 
-				virtual std::shared_ptr<U> detect_movement(std::shared_ptr<T> skeleton, std::vector<int> body_parts);
+				virtual std::shared_ptr<U> detect_movement(std::shared_ptr<T> skeleton, std::vector<int> bodyParts);
 				virtual void set_buffer(int size);
 
 			private:
-				std::shared_ptr<i_pose_detector<T> > ipd_;
-				std::shared_ptr<i_sequence_generator<U> > isg_;
-				std::shared_ptr<i_key_pose_detector> ikpd_;
+				std::shared_ptr<i_pose_detector<T> > ipd;
+				std::shared_ptr<i_sequence_generator<U> > isg;
+				std::shared_ptr<i_key_pose_detector> ikpd;
 
-				int buffer_size_;
-				std::queue<std::shared_ptr<general_enriched_pose> > queue_;
+				int pose_buffer_size;
+				std::queue<std::shared_ptr<general_enriched_pose> > queue;
 
 		};
 } // namespace mae
@@ -58,11 +58,11 @@ namespace mae
 	kp_movement_detector<T, U>::kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
 			std::shared_ptr<i_sequence_generator<U> > isg)
 	{
-		this->ipd_ = ipd;
-		this->isg_ = isg;
-		this->ikpd_ = std::shared_ptr<i_key_pose_detector>(new general_key_pose_detector());
+		this->ipd = ipd;
+		this->isg = isg;
+		this->ikpd = std::shared_ptr<i_key_pose_detector>(new general_key_pose_detector());
 
-		this->buffer_size_ = 20;
+		this->pose_buffer_size = 20;
 
 	}
 
@@ -70,35 +70,35 @@ namespace mae
 	kp_movement_detector<T, U>::kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
 			std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_key_pose_detector> ikpd)
 	{
-		this->ipd_ = ipd;
-		this->isg_ = isg;
-		this->ikpd_ = ikpd;
+		this->ipd = ipd;
+		this->isg = isg;
+		this->ikpd = ikpd;
 
-		this->buffer_size_ = 20;
+		this->pose_buffer_size = 20;
 	}
 
 	template<typename T, typename U>
 	kp_movement_detector<T, U>::~kp_movement_detector()
 	{
 		//clear the queue
-		std::queue<std::shared_ptr<general_enriched_pose> >().swap(queue_);
+		std::queue<std::shared_ptr<general_enriched_pose> >().swap(queue);
 	}
 
 	template<typename T, typename U>
 	std::shared_ptr<U> kp_movement_detector<T, U>::detect_movement(std::shared_ptr<T> skeleton,
 			std::vector<int> body_parts)
 	{
-		std::shared_ptr < general_pose > pose = ipd_->pose(skeleton, body_parts);
+		std::shared_ptr < general_pose > pose = ipd->pose(skeleton, body_parts);
 
-		std::shared_ptr < general_enriched_pose > enriched_pose = ikpd_->estimate_frame(pose, queue_, body_parts);
+		std::shared_ptr < general_enriched_pose > enriched_pose = ikpd->estimate_frame(pose, queue, body_parts);
 
-		queue_.push(enriched_pose);
-		if (queue_.size() > buffer_size_)
+		queue.push(enriched_pose);
+		if (queue.size() > pose_buffer_size)
 		{
-			queue_.pop();
+			queue.pop();
 		}
 
-		std::shared_ptr < U > sequence = isg_->generate_sequence(queue_, body_parts);
+		std::shared_ptr < U > sequence = isg->generate_sequence(queue, body_parts);
 
 		return sequence;
 	}
@@ -106,7 +106,7 @@ namespace mae
 	template<typename T, typename U>
 	void kp_movement_detector<T, U>::set_buffer(int size)
 	{
-		buffer_size_ = size;
+		pose_buffer_size = size;
 	}
 
 } // namespace mae
