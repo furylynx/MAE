@@ -813,6 +813,7 @@ namespace mae
 			return std::shared_ptr<hierarchy_element>(
 					new hierarchy_element(element_id, mstr::replace(element_name, "#_", "#"), element_torso, is_dummy));
 
+
 		}
 
 	} // namespace fl

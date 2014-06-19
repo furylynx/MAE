@@ -79,7 +79,7 @@ namespace mae
 		return mstr::find_line(haystack, needle, 0);
 	}
 
-	std::pair<std::string::size_type, std::string::size_type> mstr::find_line(const std::string& haystack, const std::string& needle, unsigned int pos)
+	std::pair<std::string::size_type, std::string::size_type> mstr::find_line(const std::string& haystack, const std::string& needle, std::string::size_type pos)
 	{
 		std::string::size_type pos_needle = haystack.find(needle, pos);
 		std::string::size_type pos_endl = haystack.find('\n', (pos_needle + needle.size()));
