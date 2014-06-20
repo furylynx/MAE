@@ -214,6 +214,9 @@ namespace mae
 
 			result->set_offset_skeleton(offset_skeleton);
 
+			//set the original skeleton
+			result->set_orig_skeleton(skeleton);
+
 			//set coordinate system to skeleton
 			std::vector<double> vec_u;
 			vec_u.push_back(u[0]);

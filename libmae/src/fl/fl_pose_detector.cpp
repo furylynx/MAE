@@ -15,6 +15,167 @@ namespace mae
 		fl_pose_detector::fl_pose_detector()
 		{
 			//initialize directions on circle
+			map_directions_.insert(std::make_pair(FLD_P_H, cv::Vec3d(-1, 0, 0)));
+			map_directions_.insert(std::make_pair(FLD_P_M, cv::Vec3d(0, 0, 0))); //TODO not as vector possible
+			map_directions_.insert(std::make_pair(FLD_P_L, cv::Vec3d(1, 0, 0)));
+
+			map_directions_.insert(std::make_pair(FLD_L_H, cv::Vec3d(-1, 1, 0)));
+			map_directions_.insert(std::make_pair(FLD_L_M, cv::Vec3d(0, 1, 0)));
+			map_directions_.insert(std::make_pair(FLD_L_L, cv::Vec3d(1, 1, 0)));
+
+			map_directions_.insert(std::make_pair(FLD_D_F_L_H, cv::Vec3d(-1, 1, 1)));
+			map_directions_.insert(std::make_pair(FLD_D_F_L_M, cv::Vec3d(0, 1, 1)));
+			map_directions_.insert(std::make_pair(FLD_D_F_L_L, cv::Vec3d(1, 1, 1)));
+
+			map_directions_.insert(std::make_pair(FLD_F_L_H, cv::Vec3d(-1, 0, 1)));
+			map_directions_.insert(std::make_pair(FLD_F_L_M, cv::Vec3d(0, 0, 1)));
+			map_directions_.insert(std::make_pair(FLD_F_L_L, cv::Vec3d(1, 0, 1)));
+
+			map_directions_.insert(std::make_pair(FLD_F_R_H, cv::Vec3d(-1, 0, 1)));
+			map_directions_.insert(std::make_pair(FLD_F_R_M, cv::Vec3d(0, 0, 1)));
+			map_directions_.insert(std::make_pair(FLD_F_R_L, cv::Vec3d(1, 0, 1)));
+
+			map_directions_.insert(std::make_pair(FLD_D_F_R_H, cv::Vec3d(-1, -1, 1)));
+			map_directions_.insert(std::make_pair(FLD_D_F_R_M, cv::Vec3d(0, -1, 1)));
+			map_directions_.insert(std::make_pair(FLD_D_F_R_L, cv::Vec3d(1, -1, 1)));
+
+			map_directions_.insert(std::make_pair(FLD_R_H, cv::Vec3d(-1, -1, 0)));
+			map_directions_.insert(std::make_pair(FLD_R_M, cv::Vec3d(0, -1, 0)));
+			map_directions_.insert(std::make_pair(FLD_R_L, cv::Vec3d(1, -1, 0)));
+
+			map_directions_.insert(std::make_pair(FLD_D_B_R_H, cv::Vec3d(-1, -1, -1)));
+			map_directions_.insert(std::make_pair(FLD_D_B_R_M, cv::Vec3d(0, -1, -1)));
+			map_directions_.insert(std::make_pair(FLD_D_B_R_L, cv::Vec3d(1, -1, -1)));
+
+			map_directions_.insert(std::make_pair(FLD_B_R_H, cv::Vec3d(-1, 0, -1)));
+			map_directions_.insert(std::make_pair(FLD_B_R_M, cv::Vec3d(0, 0, -1)));
+			map_directions_.insert(std::make_pair(FLD_B_R_L, cv::Vec3d(1, 0, -1)));
+
+			map_directions_.insert(std::make_pair(FLD_B_L_H, cv::Vec3d(-1, 0, -1)));
+			map_directions_.insert(std::make_pair(FLD_B_L_M, cv::Vec3d(0, 0, -1)));
+			map_directions_.insert(std::make_pair(FLD_B_L_L, cv::Vec3d(1, 0, -1)));
+
+			map_directions_.insert(std::make_pair(FLD_D_B_L_H, cv::Vec3d(-1, 1, -1)));
+			map_directions_.insert(std::make_pair(FLD_D_B_L_M, cv::Vec3d(0, 1, -1)));
+			map_directions_.insert(std::make_pair(FLD_D_B_L_L, cv::Vec3d(1, 1, -1)));
+
+		}
+
+		fl_pose_detector::~fl_pose_detector()
+		{
+		}
+
+		std::shared_ptr<general_pose> fl_pose_detector::pose(std::shared_ptr<fl_skeleton> skeleton,
+				std::vector<int> body_parts)
+		{
+			const bool angles = false;
+
+			std::shared_ptr<general_pose> result = std::shared_ptr<general_pose>(new general_pose());
+
+			if (angles)
+			{
+				result = angle_pose(skeleton, body_parts);
+			}
+			else
+			{
+				//TODO bones
+				std::vector<bone> body_parts_bones;
+
+				result = vector_pose(skeleton, body_parts_bones);
+			}
+
+			return result;
+		}
+
+		std::shared_ptr<mae::general_pose> fl_pose_detector::vector_pose(std::shared_ptr<fl_skeleton> skeleton,
+				std::vector<bone> body_parts)
+		{
+			std::shared_ptr<mae::general_pose> result;
+
+			//TODO do stuff in here (angles between vectors)
+
+			//TODO find extremities in the hierachy ?? really? they don't have the bone_id which is needed for the laban_sequence later!
+
+			//calculated distances for all bones
+			for (int bone_index = 0; bone_index < body_parts.size(); bone_index++)
+			{
+				for (int dir = FLD_INVALID + 1; dir != FLD_SIZE; dir++)
+				{
+					if (dir == FLD_P_M)
+					{
+						//TODO handle this case different!
+
+						//TODO in class bone: create mid joint for extremities
+					}
+					else
+					{
+						//set value for the direction
+						cv::Vec3d set_dir = map_directions_.at(dir);
+
+						//real value for the direction
+						cv::Vec3d real_dir;
+						if (skeleton->get_hierarchy()->at(body_parts.at(bone_index).get_to())->get_parent()->get_id()
+								== body_parts.at(bone_index).get_from())
+						{
+							real_dir = math::jointToVec(
+									skeleton->get_offset_skeleton()->get_joint(body_parts.at(bone_index).get_to()));
+						}
+						else
+						{
+							//get bone vector in {u,r,t}
+							std::vector<std::vector<double> > coord = skeleton->get_coord_sys();
+							cv::Vec3d u = math::stdVecToVec3d(coord[0]);
+							cv::Vec3d r = math::stdVecToVec3d(coord[1]);
+							cv::Vec3d t = math::stdVecToVec3d(coord[2]);
+
+							real_dir = math::projectToBasis(
+									math::jointToVec(skeleton->get_orig_skeleton()->get_joint(body_parts.at(bone_index).get_to())),
+									math::jointToVec(skeleton->get_orig_skeleton()->get_joint(body_parts.at(bone_index).get_from())), u, r,
+									t);
+
+						}
+
+						//angle between the vectors is the distance
+						double angle = math::calcAngleHalf(set_dir, real_dir);
+
+						result->set_distance(body_parts.at(bone_index).get_id(), dir, angle);
+					}
+				}
+
+				//handle place middle different than the other directions
+				if (result->get_distance(body_parts.at(bone_index).get_id(), FLD_P_M) < PM_ACCEPT_DIST)
+				{
+					//favor place mid since the distance is less than the defined PM_ACCEPT_DIST distance
+					result->set_direction(body_parts.at(bone_index).get_id(), FLD_P_M);
+				}
+				else
+				{
+					//find minimum distance to set direction
+					int min_dist_dir = FLD_INVALID;
+					for (int dir = FLD_INVALID + 1; dir != FLD_SIZE; dir++)
+					{
+						if ((min_dist_dir == FLD_INVALID
+								&& result->get_distance(body_parts.at(bone_index).get_id(), dir) >= 0)
+								|| (result->get_distance(body_parts.at(bone_index).get_id(), dir)
+										< result->get_distance(body_parts.at(bone_index).get_id(), min_dist_dir)
+										&& result->get_distance(body_parts.at(bone_index).get_id(), dir) >= 0))
+						{
+							min_dist_dir = dir;
+						}
+					}
+					result->set_direction(body_parts.at(bone_index).get_id(), min_dist_dir);
+				}
+			}
+
+			return result;
+		}
+
+		std::shared_ptr<general_pose> fl_pose_detector::angle_pose(std::shared_ptr<fl_skeleton> skeleton,
+				std::vector<int> body_parts)
+		{
+			std::vector<std::vector<int> > dir_circ;
+			std::vector<int> flj_ext_bones;
+			std::vector<int> flj_ext_whole;
 
 			//TODO change according to actual angle sequence
 			std::vector<int> dir_circ_l;
@@ -63,36 +224,6 @@ namespace mae
 			flj_ext_bones.push_back(FLJ_RIGHT_WHOLE_LEG);
 			flj_ext_bones.push_back(FLJ_RIGHT_THIGH);
 			flj_ext_bones.push_back(FLJ_RIGHT_SHANK);
-		}
-
-		fl_pose_detector::~fl_pose_detector()
-		{
-		}
-
-		std::shared_ptr<general_pose> fl_pose_detector::pose(std::shared_ptr<fl_skeleton> skeleton,
-				std::vector<int> body_parts)
-		{
-			const bool angles = false;
-
-			std::shared_ptr<general_pose> result = std::shared_ptr<general_pose>(
-					new general_pose());
-
-			if (angles)
-			{
-				result = angle_pose(skeleton, body_parts);
-			}
-
-			//TODO do stuff in here (angles between vectors)
-
-			return result;
-		}
-
-		std::shared_ptr<general_pose> fl_pose_detector::angle_pose(std::shared_ptr<fl_skeleton> skeleton,
-				std::vector<int> body_parts)
-		{
-
-			//todo remove (is here just to show this method is invoked)
-//			std::cout << "detecting pose for skeleton" << std::endl;
 
 			std::shared_ptr<general_pose> result = std::shared_ptr<general_pose>(new general_pose());
 
@@ -103,7 +234,7 @@ namespace mae
 
 			//iterate bones
 
-			for (unsigned int k = 0; k < (signed int) flj_ext_bones.size(); k++)
+			for (unsigned int k = 0; k < flj_ext_bones.size(); k++)
 			{
 
 				int joint_id = flj_ext_bones[k];

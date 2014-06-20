@@ -91,6 +91,16 @@ namespace mae
 			return offset_skeleton;
 		}
 
+		void fl_skeleton::set_orig_skeleton(std::shared_ptr<general_skeleton> orig_skeleton)
+		{
+			this->orig_skeleton_ = offset_skeleton;
+		}
+
+		std::shared_ptr<general_skeleton> fl_skeleton::get_orig_skeleton() const
+		{
+			return orig_skeleton_;
+		}
+
 		void fl_skeleton::set_hierarchy(std::shared_ptr<hierarchy> h)
 		{
 			this->hierarchy_ = h;
