@@ -17,8 +17,9 @@ namespace mae
 		this->hierarchy_ = hierarchy::default_hierarchy();
 
 		//set top-down and right-left direction
-		this->top_down = std::shared_ptr<bone>(new bone(99, "TOP_DOWN", MAEJ_NECK, MAEJ_TORSO));
-		this->right_left = std::shared_ptr<bone>(new bone(100, "RIGHT_LEFT", MAEJ_RIGHT_SHOULDER, MAEJ_LEFT_SHOULDER));
+		this->top_down = std::shared_ptr<bone>(new bone(bone::RESERVED_TOP_DOWN, "TOP_DOWN", MAEJ_NECK, MAEJ_TORSO));
+		this->right_left = std::shared_ptr<bone>(
+				new bone(bone::RESERVED_RIGHT_LEFT, "RIGHT_LEFT", MAEJ_RIGHT_SHOULDER, MAEJ_LEFT_SHOULDER));
 
 	}
 
@@ -74,21 +75,27 @@ namespace mae
 	void general_skeleton::set_hierarchy(std::shared_ptr<hierarchy> hierarchy)
 	{
 		this->hierarchy_ = hierarchy;
+		set_top_down(std::shared_ptr<bone>());
+		set_right_left(std::shared_ptr<bone>());
 	}
 
 	void general_skeleton::set_top_down(std::shared_ptr<bone> top_down)
 	{
 		//check bone
-		if (!hierarchy_)
+		if (top_down)
 		{
-			throw std::invalid_argument("Invoked set_top_down for a general_skeleton, but no hierarchy was defined.");
-		}
-		else
-		{
-			if (!hierarchy_->at(top_down->get_from())->is_torso_joint()
-					|| !hierarchy_->at(top_down->get_to())->is_torso_joint())
+			if (!hierarchy_)
 			{
-				throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
+				throw std::invalid_argument(
+						"Invoked set_top_down for a general_skeleton, but no hierarchy was defined.");
+			}
+			else
+			{
+				if (!hierarchy_->at(top_down->get_from())->is_torso_joint()
+						|| !hierarchy_->at(top_down->get_to())->is_torso_joint())
+				{
+					throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
+				}
 			}
 		}
 
@@ -103,16 +110,20 @@ namespace mae
 	void general_skeleton::set_right_left(std::shared_ptr<bone> right_left)
 	{
 		//check bone
-		if (!hierarchy_)
+		if (right_left)
 		{
-			throw std::invalid_argument("Invoked set_right_left for a general_skeleton, but no hierarchy was defined.");
-		}
-		else
-		{
-			if (!hierarchy_->at(top_down->get_from())->is_torso_joint()
-					|| !hierarchy_->at(top_down->get_to())->is_torso_joint())
+			if (!hierarchy_)
 			{
-				throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
+				throw std::invalid_argument(
+						"Invoked set_right_left for a general_skeleton, but no hierarchy was defined.");
+			}
+			else
+			{
+				if (!hierarchy_->at(top_down->get_from())->is_torso_joint()
+						|| !hierarchy_->at(top_down->get_to())->is_torso_joint())
+				{
+					throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
+				}
 			}
 		}
 
@@ -168,7 +179,7 @@ namespace mae
 		sstr << "end_header" << std::endl;
 
 		//print data
-		for (int i = 0; i < all_elements.size(); i++)
+		for (unsigned int i = 0; i < all_elements.size(); i++)
 		{
 			int element_id = all_elements.at(i)->get_id();
 
@@ -183,7 +194,7 @@ namespace mae
 		}
 
 		//Print edges for data
-		for (int i = 1; i < all_elements.size(); i++)
+		for (unsigned int i = 1; i < all_elements.size(); i++)
 		{
 			if (all_elements.at(i)->get_parent()->get_id() == all_elements.at(i - 1)->get_id())
 			{
@@ -191,7 +202,7 @@ namespace mae
 			}
 			else
 			{
-				for (int j = 0; j < all_elements.size(); j++)
+				for (unsigned int j = 0; j < all_elements.size(); j++)
 				{
 					if (all_elements.at(i)->get_parent()->get_id() == all_elements.at(j)->get_id())
 					{

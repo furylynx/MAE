@@ -14,6 +14,7 @@
 //custom includes
 #include "../model/general_pose.hpp"
 #include "../model/general_enriched_pose.hpp"
+#include "../model/bone.hpp"
 
 //global includes
 #include <vector>
@@ -22,13 +23,13 @@
 
 namespace mae {
 
-		class i_key_pose_detector {
+		class i_kp_detector {
 			public:
-				virtual ~i_key_pose_detector(){}
+				virtual ~i_kp_detector(){}
 
 				// edits the handed enriched poses, e.g. setKeyPose(false) but does not append the new enriched pose to the vector
 				// instead the new enriched pose is returned
-				virtual std::shared_ptr<general_enriched_pose> estimate_frame(std::shared_ptr<general_pose> currentPose, std::queue<std::shared_ptr<general_enriched_pose> > previousSequence, std::vector<int> bodyParts) = 0;
+				virtual std::shared_ptr<general_enriched_pose> estimate_frame(std::shared_ptr<general_pose> currentPose, std::queue<std::shared_ptr<general_enriched_pose> > previousSequence, std::vector<bone> bodyParts) = 0;
 		};
 
 } // namespace mae

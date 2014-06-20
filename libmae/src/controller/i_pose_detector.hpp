@@ -13,6 +13,7 @@
 
 //custom includes
 #include "../model/general_pose.hpp"
+#include "../model/bone.hpp"
 
 //global includes
 #include <vector>
@@ -24,7 +25,7 @@ namespace mae {
 			public:
 				virtual ~i_pose_detector(){}
 
-				virtual std::shared_ptr<general_pose> pose(std::shared_ptr<T> skeleton, std::vector<int> body_parts) = 0;
+				virtual std::shared_ptr<general_pose> pose(std::shared_ptr<T> skeleton, std::vector<bone> body_parts) = 0;
 		};
 
 } // namespace mae

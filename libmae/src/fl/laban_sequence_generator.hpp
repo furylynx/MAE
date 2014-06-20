@@ -14,6 +14,7 @@
 //custom includes
 #include "laban_sequence.hpp"
 #include "../model/general_enriched_pose.hpp"
+#include "../model/bone.hpp"
 #include "../controller/i_sequence_generator.hpp"
 
 //global includes
@@ -33,7 +34,7 @@ namespace mae
 				virtual ~laban_sequence_generator();
 
 				virtual std::shared_ptr<laban_sequence> generate_sequence(
-						std::queue<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<int> bodyParts);
+						std::queue<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<bone> body_parts);
 
 		};
 

@@ -16,6 +16,8 @@
 #include "i_pose_detector.hpp"
 #include "i_sequence_generator.hpp"
 
+#include "../model/bone.hpp"
+
 //global includes
 #include <vector>
 #include <memory>
@@ -27,8 +29,8 @@ namespace mae{
 		class movement_controller {
 			public:
 
-				movement_controller(std::shared_ptr<i_movement_detector<T,U> > imd, std::vector<int> body_parts);
-				movement_controller(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::vector<int> body_parts);
+				movement_controller(std::shared_ptr<i_movement_detector<T,U> > imd, std::vector<bone> body_parts);
+				movement_controller(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::vector<bone> body_parts);
 				virtual ~movement_controller();
 
 				//todo other methods in here
@@ -38,7 +40,7 @@ namespace mae{
 
 			private:
 				std::shared_ptr<i_movement_detector<T,U> > imd;
-				std::vector<int> body_parts;
+				std::vector<bone> body_parts;
 
 		};
 
@@ -55,7 +57,7 @@ namespace mae{
 namespace mae{
 
 		template <typename T, typename U>
-		movement_controller<T, U>::movement_controller(std::shared_ptr<i_movement_detector<T,U> > imd, std::vector<int> body_parts)
+		movement_controller<T, U>::movement_controller(std::shared_ptr<i_movement_detector<T,U> > imd, std::vector<bone> body_parts)
 		{
 			this->imd = imd;
 			this->body_parts = body_parts;
@@ -63,7 +65,7 @@ namespace mae{
 
 
 		template <typename T, typename U>
-		movement_controller<T, U>::movement_controller(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::vector<int> body_parts)
+		movement_controller<T, U>::movement_controller(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::vector<bone> body_parts)
 		{
 			std::shared_ptr<kp_movement_detector<T,U> > imd_n(new kp_movement_detector<T,U>(ipd, isg));
 			this->imd = imd_n;
@@ -73,20 +75,21 @@ namespace mae{
 
 		template <typename T, typename U>
 		movement_controller<T, U>::~movement_controller() {
-			// TODO dtor
 		}
 
 		template <typename T, typename U>
-		void movement_controller<T, U>::next_frame(long timestamp,std::shared_ptr<T> skeleton){
+		void movement_controller<T, U>::next_frame(long timestamp,std::shared_ptr<T> skeleton)
+		{
+			std::cout << "next frame (movement controller)" << std::endl;
+			std::cout << body_parts.size() << std::endl;
 
-			//TODO check for null pointers??
-			if (imd != nullptr)
+			if (imd)
 			{
 				std::shared_ptr<U> sequence = imd->detect_movement(skeleton, body_parts);
 			}
 			else
 			{
-				std::cerr << "imd nullpointer" << std::endl;
+				throw std::invalid_argument("No movement detector defined in the movement controller.");
 			}
 
 			//TODO do stuff with the sequence
