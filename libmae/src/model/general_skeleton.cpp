@@ -127,7 +127,7 @@ namespace mae
 	std::string general_skeleton::str() const
 	{
 		std::stringstream sstr;
-		sstr << "general_skeleton:" << std::endl;
+		sstr << "general skeleton:" << std::endl;
 
 		if (hierarchy_)
 		{

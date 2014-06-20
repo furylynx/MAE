@@ -15,6 +15,7 @@
 #include "fl_joint.hpp"
 #include "flj.hpp"
 #include "../model/general_skeleton.hpp"
+#include "../model/bone.hpp"
 
 //global includes
 #include <unordered_map>
@@ -86,6 +87,59 @@ namespace mae
 				virtual std::shared_ptr<general_skeleton> get_offset_skeleton() const;
 
 				/**
+				 * Returns a shared pointer to the used hierarchy. If not hierarchy is set, a default hierarchy is assumed.
+				 * @return A shared pointer to the hierarchy.
+				 */
+				virtual std::shared_ptr<hierarchy> get_hierarchy() const;
+
+				/**
+				 * Sets the hierarchy
+				 * @param hierarchy  A smart pointer to the hierarchy.
+				 */
+				virtual void set_hierarchy(std::shared_ptr<hierarchy> hierarchy);
+
+				/**
+				 * Sets the top-down direction of this skeleton by defining a bone. The bone must
+				 * range from one torso joint to another and need not to follow the hierarchy (but
+				 * the id's must be defined).
+				 *
+				 * @param top_down A shared pointer to the bone.
+				 */
+				virtual void set_top_down(std::shared_ptr<bone> top_down);
+
+				/**
+				 * Returns the top-down direction of this skeleton by giving a bone. The bone ranges
+				 * from one torso joint to another.
+				 *
+				 * @param top_down A shared pointer to the bone.
+				 */
+				virtual std::shared_ptr<bone> get_top_down() const;
+
+				/**
+				 * Sets the right-left direction of this skeleton by defining a bone. The bone must
+				 * range from one torso joint to another and need not to follow the hierarchy (but
+				 * the id's must be defined).
+				 *
+				 * @param top_down A shared pointer to the bone.
+				 */
+				virtual void set_right_left(std::shared_ptr<bone> right_left);
+
+				/**
+				 * Returns the right-left direction of this skeleton by giving a bone. The bone ranges
+				 * from one torso joint to another.
+				 *
+				 * @param top_down A shared pointer to the bone.
+				 */
+				virtual std::shared_ptr<bone> get_right_left() const;
+
+				/**
+				 * Converts this object to a string.
+				 *
+				 * @return This object as a string.
+				 */
+				virtual std::string str() const;
+
+				/**
 				 * Prints this object tot the stream.
 				 *
 				 * @param os
@@ -106,6 +160,11 @@ namespace mae
 			private:
 				std::unordered_map<int, std::shared_ptr<fl_joint> > hashmap_joints;
 				std::shared_ptr<general_skeleton> offset_skeleton;
+
+				std::shared_ptr<hierarchy> hierarchy_;
+
+				std::shared_ptr<bone> top_down;
+				std::shared_ptr<bone> right_left;
 
 				//central coordinate system
 				std::vector<double> u;

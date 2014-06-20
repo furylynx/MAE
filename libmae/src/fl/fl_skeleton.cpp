@@ -91,5 +91,93 @@ namespace mae
 			return offset_skeleton;
 		}
 
-	}// namespace fl
+		void fl_skeleton::set_hierarchy(std::shared_ptr<hierarchy> h)
+		{
+			this->hierarchy_ = h;
+		}
+
+		std::shared_ptr<hierarchy> fl_skeleton::get_hierarchy() const
+		{
+			return hierarchy_;
+		}
+
+		void fl_skeleton::set_top_down(std::shared_ptr<bone> top_down)
+		{
+			//check bone
+			if (!hierarchy_)
+			{
+				throw std::invalid_argument(
+						"Invoked set_top_down for a general_skeleton, but no hierarchy was defined.");
+			}
+			else
+			{
+				if (!hierarchy_->at(top_down->get_from())->is_torso_joint()
+						|| !hierarchy_->at(top_down->get_to())->is_torso_joint())
+				{
+					throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
+				}
+			}
+
+			this->top_down = top_down;
+		}
+
+		std::shared_ptr<bone> fl_skeleton::get_top_down() const
+		{
+			return this->top_down;
+		}
+
+		void fl_skeleton::set_right_left(std::shared_ptr<bone> right_left)
+		{
+			//check bone
+			if (!hierarchy_)
+			{
+				throw std::invalid_argument(
+						"Invoked set_right_left for a general_skeleton, but no hierarchy was defined.");
+			}
+			else
+			{
+				if (!hierarchy_->at(top_down->get_from())->is_torso_joint()
+						|| !hierarchy_->at(top_down->get_to())->is_torso_joint())
+				{
+					throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
+				}
+			}
+
+			this->right_left = right_left;
+		}
+
+		std::shared_ptr<bone> fl_skeleton::get_right_left() const
+		{
+			return this->right_left;
+		}
+
+		std::string fl_skeleton::str() const
+		{
+			std::stringstream sstr;
+			sstr << "fl skeleton:" << std::endl;
+
+			if (hierarchy_)
+			{
+				std::vector<std::shared_ptr<hierarchy_element> > elements = hierarchy_->get_element_sequence();
+
+				for (unsigned int i = 0; i < elements.size(); i++)
+				{
+					sstr << elements.at(i)->get_name() << " " << get_joint(elements.at(i)->get_id()) << std::endl;
+				}
+			}
+			else
+			{
+				sstr << "--no hierarchy defined--" << std::endl;
+			}
+
+
+//			for (int joint_id = FLJ_INVALID + 1; joint_id != FLJ_SIZE; joint_id++)
+//			{
+//				sstr << flj_str[joint_id] << " " << get_joint(joint_id) << std::endl;
+//			}
+
+			return sstr.str();
+		}
+
+	}				// namespace fl
 } // namespace mae
