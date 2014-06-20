@@ -87,6 +87,20 @@ namespace mae
 				virtual std::shared_ptr<general_skeleton> get_offset_skeleton() const;
 
 				/**
+				 * Sets the original general skeleton.
+				 *
+				 * @param offset_skeleton A shared pointer to the general skeleton.
+				 */
+				virtual void set_orig_skeleton(std::shared_ptr<general_skeleton> offset_skeleton);
+
+				/**
+				 * Returns the original general skeleton.
+				 *
+				 * @return A shared pointer to the general skeleton.
+				 */
+				virtual std::shared_ptr<general_skeleton> get_orig_skeleton() const;
+
+				/**
 				 * Returns a shared pointer to the used hierarchy. If not hierarchy is set, a default hierarchy is assumed.
 				 * @return A shared pointer to the hierarchy.
 				 */
@@ -160,6 +174,7 @@ namespace mae
 			private:
 				std::unordered_map<int, std::shared_ptr<fl_joint> > hashmap_joints;
 				std::shared_ptr<general_skeleton> offset_skeleton;
+				std::shared_ptr<general_skeleton> orig_skeleton_;
 
 				std::shared_ptr<hierarchy> hierarchy_;
 

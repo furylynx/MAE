@@ -13,6 +13,8 @@
 
 //custom includes
 #include "../model/general_enriched_pose.hpp"
+#include "../model/bone.hpp"
+
 
 //global includes
 #include <vector>
@@ -26,7 +28,7 @@ namespace mae {
 			public:
 				virtual ~i_sequence_generator(){}
 
-				virtual std::shared_ptr<U> generate_sequence(std::queue<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<int> bodyParts) = 0;
+				virtual std::shared_ptr<U> generate_sequence(std::queue<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<bone> bodyParts) = 0;
 		};
 
 } // namespace mae

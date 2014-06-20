@@ -5,21 +5,21 @@
  *      Author: keks
  */
 
-#include "general_key_pose_detector.hpp"
+#include "kp_detector.hpp"
 
 namespace mae {
 
-		general_key_pose_detector::general_key_pose_detector() {
+		kp_detector::kp_detector() {
 			// TODO Auto-generated constructor stub
 
 		}
 
-		general_key_pose_detector::~general_key_pose_detector() {
+		kp_detector::~kp_detector() {
 			// TODO Auto-generated destructor stub
 		}
 
 
-		std::shared_ptr<general_enriched_pose> general_key_pose_detector::estimate_frame(std::shared_ptr<general_pose> currentPose, std::queue<std::shared_ptr<general_enriched_pose> > previousSequence, std::vector<int> bodyParts){
+		std::shared_ptr<general_enriched_pose> kp_detector::estimate_frame(std::shared_ptr<general_pose> currentPose, std::queue<std::shared_ptr<general_enriched_pose> > previousSequence, std::vector<bone> body_parts){
 
 			//todo do stuff in here
 

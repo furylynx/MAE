@@ -61,7 +61,6 @@ namespace mae
 
 		void general_pose::set_distance(int body_part, int direction, double distance)
 		{
-
 			if (hashmap_distance.find(body_part) == hashmap_distance.end())
 			{
 				//key is not in map

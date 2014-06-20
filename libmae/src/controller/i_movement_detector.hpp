@@ -12,7 +12,7 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "../model/bone.hpp"
 
 //global includes
 #include <memory>
@@ -24,7 +24,7 @@ namespace mae {
 			public:
 				virtual ~i_movement_detector(){ }
 
-				virtual std::shared_ptr<U> detect_movement(std::shared_ptr<T> skeleton, std::vector<int> bodyParts) = 0;
+				virtual std::shared_ptr<U> detect_movement(std::shared_ptr<T> skeleton, std::vector<bone> body_parts) = 0;
 				virtual void set_buffer(int size) = 0;
 		};
 

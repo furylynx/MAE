@@ -191,6 +191,9 @@ namespace mae
 				result = calculate_angular_skeleton(skeleton, u, r, t);
 			}
 
+			//set hierarchy
+			result->set_hierarchy(skeleton->get_hierarchy());
+
 			//----------
 			//calculate the offset skeleton
 			//----------
@@ -213,6 +216,9 @@ namespace mae
 			}
 
 			result->set_offset_skeleton(offset_skeleton);
+
+			//set the original skeleton
+			result->set_orig_skeleton(skeleton);
 
 			//set coordinate system to skeleton
 			std::vector<double> vec_u;

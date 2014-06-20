@@ -15,7 +15,9 @@
 #include "i_movement_detector.hpp"
 #include "i_pose_detector.hpp"
 #include "i_sequence_generator.hpp"
-#include "general_key_pose_detector.hpp"
+#include "kp_detector.hpp"
+
+#include "../model/bone.hpp"
 
 
 //global includes
@@ -32,16 +34,16 @@ namespace mae {
 		{
 			public:
 				kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg);
-				kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_key_pose_detector> ikpd);
+				kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_kp_detector> ikpd);
 				virtual ~kp_movement_detector();
 
-				virtual std::shared_ptr<U> detect_movement(std::shared_ptr<T> skeleton, std::vector<int> bodyParts);
+				virtual std::shared_ptr<U> detect_movement(std::shared_ptr<T> skeleton, std::vector<bone> body_parts);
 				virtual void set_buffer(int size);
 
 			private:
 				std::shared_ptr<i_pose_detector<T> > ipd;
 				std::shared_ptr<i_sequence_generator<U> > isg;
-				std::shared_ptr<i_key_pose_detector> ikpd;
+				std::shared_ptr<i_kp_detector> ikpd;
 
 				int pose_buffer_size;
 				std::queue<std::shared_ptr<general_enriched_pose> > queue;
@@ -60,7 +62,7 @@ namespace mae
 	{
 		this->ipd = ipd;
 		this->isg = isg;
-		this->ikpd = std::shared_ptr<i_key_pose_detector>(new general_key_pose_detector());
+		this->ikpd = std::shared_ptr<i_kp_detector>(new kp_detector());
 
 		this->pose_buffer_size = 20;
 
@@ -68,7 +70,7 @@ namespace mae
 
 	template<typename T, typename U>
 	kp_movement_detector<T, U>::kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
-			std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_key_pose_detector> ikpd)
+			std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_kp_detector> ikpd)
 	{
 		this->ipd = ipd;
 		this->isg = isg;
@@ -86,8 +88,12 @@ namespace mae
 
 	template<typename T, typename U>
 	std::shared_ptr<U> kp_movement_detector<T, U>::detect_movement(std::shared_ptr<T> skeleton,
-			std::vector<int> body_parts)
+			std::vector<bone> body_parts)
 	{
+		std::cout << "detect movement" << std::endl;
+		std::cout << body_parts.size() << std::endl;
+
+
 		std::shared_ptr < general_pose > pose = ipd->pose(skeleton, body_parts);
 
 		std::shared_ptr < general_enriched_pose > enriched_pose = ikpd->estimate_frame(pose, queue, body_parts);

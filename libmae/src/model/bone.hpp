@@ -12,10 +12,13 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "maeb.hpp"
+#include "maej.hpp"
+
 
 //global includes
 #include <string>
+#include <vector>
 
 namespace mae
 {
@@ -38,6 +41,8 @@ namespace mae
 			 * @param to Bone ranging to the joint with this id.
 			 */
 			bone(int id, std::string name, int from, int to);
+
+			bone(int id, std::string name, int from, int to, int middle_joint);
 			virtual ~bone();
 
 			virtual int get_id() const;
@@ -45,11 +50,31 @@ namespace mae
 			virtual int get_from() const;
 			virtual int get_to() const;
 
+			virtual bool has_middle_joint() const;
+			virtual int get_middle_joint() const;
+
+			/**
+			 * Returns a default bones vector that fits the needs of the OpenNI/NiTE
+			 * skeletons. If the OpenNI/NiTE hierarchy is not sufficient and/or other
+			 * bones are needed it must be constructed manually.
+			 *
+			 * @return The default hierarchy.
+			 */
+			static std::vector<bone> default_bones();
+
+			static const int RESERVED_TOP_DOWN 	= 9999;
+			static const int RESERVED_RIGHT_LEFT 	= 10000;
+
 		private:
-			int id;
-			std::string name;
-			int from;
-			int to;
+			int id_;
+			std::string name_;
+			int from_;
+			int to_;
+
+			bool middle_;
+			int middle_joint_;
+
+			static std::vector<bone> default_bones_;
 	};
 
 } // namespace mae

@@ -13,6 +13,7 @@
 
 //custom includes
 #include "../controller/i_pose_detector.hpp"
+#include "../model/bone.hpp"
 #include "fl_skeleton.hpp"
 #include "math.hpp"
 #include "laban_sequence.hpp"
@@ -20,6 +21,8 @@
 #include "flj.hpp"
 
 //global includes
+#include <opencv2/opencv.hpp>
+#include <unordered_map>
 #include <memory>
 #include <vector>
 #include <iostream>
@@ -36,15 +39,19 @@ namespace mae
 				virtual ~fl_pose_detector();
 
 				virtual std::shared_ptr<mae::general_pose> pose(std::shared_ptr<fl_skeleton> skeleton,
-						std::vector<int> body_parts);
+						std::vector<bone> body_parts);
 
 				virtual std::shared_ptr<mae::general_pose> angle_pose(std::shared_ptr<fl_skeleton> skeleton,
-										std::vector<int> body_parts);
+										std::vector<bone> body_parts);
+
+				virtual std::shared_ptr<mae::general_pose> vector_pose(std::shared_ptr<fl_skeleton> skeleton,
+														std::vector<bone> body_parts);
 
 			private:
-				std::vector<std::vector<int> > dir_circ;
-				std::vector<int> flj_ext_bones;
-				std::vector<int> flj_ext_whole;
+				std::unordered_map<int, cv::Vec3d> map_directions_;
+
+				const double PM_ACCEPT_DIST = 22.5;
+
 		};
 
 	} // namespace fl
