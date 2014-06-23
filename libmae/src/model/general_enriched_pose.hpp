@@ -15,6 +15,7 @@
 #include "general_pose.hpp"
 
 //global includes
+#include <memory>
 #include <unordered_map>
 
 namespace mae
@@ -24,6 +25,7 @@ namespace mae
 	{
 		public:
 			general_enriched_pose();
+			general_enriched_pose(std::shared_ptr<general_pose> pose);
 			general_enriched_pose(std::unordered_map<int, bool> hashmap_keypose,
 					std::unordered_map<int, bool> hashmap_inmotion);
 			virtual ~general_enriched_pose();

@@ -31,9 +31,12 @@ namespace mae
 
 			virtual void set_direction(int body_part, int direction);
 			virtual int get_direction(int body_part);
+			virtual std::unordered_map<int, int> get_directions();
 
 			virtual void set_distance(int body_part, int direction, double distance);
 			virtual double get_distance(int body_part, int direction);
+			virtual std::unordered_map<int, std::unordered_map<int, double> > get_distances();
+
 
 		private:
 			std::unordered_map<int, int> hashmap_direction;

@@ -11,6 +11,14 @@ namespace mae
 {
 
 	general_enriched_pose::general_enriched_pose()
+			: general_pose()
+	{
+		this->hashmap_keypose = std::unordered_map<int, bool>();
+		this->hashmap_inmotion = std::unordered_map<int, bool>();
+	}
+
+	general_enriched_pose::general_enriched_pose(std::shared_ptr<general_pose> pose)
+			: general_pose(pose->get_directions(), pose->get_distances())
 	{
 		this->hashmap_keypose = std::unordered_map<int, bool>();
 		this->hashmap_inmotion = std::unordered_map<int, bool>();
