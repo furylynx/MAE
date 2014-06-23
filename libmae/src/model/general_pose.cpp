@@ -59,6 +59,11 @@ namespace mae
 
 		}
 
+		std::unordered_map<int, int> general_pose::get_directions()
+		{
+			return hashmap_direction;
+		}
+
 		void general_pose::set_distance(int body_part, int direction, double distance)
 		{
 			if (hashmap_distance.find(body_part) == hashmap_distance.end())
@@ -111,6 +116,11 @@ namespace mae
 					return hm_dist_val[direction];
 				}
 			}
+		}
+
+		std::unordered_map<int, std::unordered_map<int, double> > general_pose::get_distances()
+		{
+			return hashmap_distance;
 		}
 
 } // namespace mae
