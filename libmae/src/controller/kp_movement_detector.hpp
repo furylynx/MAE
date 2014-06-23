@@ -18,39 +18,46 @@
 #include "kp_detector.hpp"
 
 #include "../model/bone.hpp"
-
+#include "../model/pose_listener.hpp"
 
 //global includes
 #include <memory>
 #include <queue>
 #include <iostream>
 
+namespace mae
+{
 
+	template<typename T, typename U>
+	class kp_movement_detector: public i_movement_detector<T, U>
+	{
+		public:
+			kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
+					std::shared_ptr<i_sequence_generator<U> > isg);
+			kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
+					std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_kp_detector> ikpd);
+			virtual ~kp_movement_detector();
 
-namespace mae {
+			virtual std::shared_ptr<U> detect_movement(std::shared_ptr<T> skeleton, std::vector<bone> body_parts);
+			virtual void set_buffer(int size);
 
-		template <typename T, typename U>
-		class kp_movement_detector : public i_movement_detector<T,U>
-		{
-			public:
-				kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg);
-				kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_kp_detector> ikpd);
-				virtual ~kp_movement_detector();
+			virtual void add_listener(std::shared_ptr<pose_listener> listener);
+			virtual void remove_listener(std::shared_ptr<pose_listener> listener);
+			virtual void clear_listeners();
 
-				virtual std::shared_ptr<U> detect_movement(std::shared_ptr<T> skeleton, std::vector<bone> body_parts);
-				virtual void set_buffer(int size);
+			virtual void notify_listeners(long timestamp, std::shared_ptr<general_pose> pose);
 
-			private:
-				std::shared_ptr<i_pose_detector<T> > ipd;
-				std::shared_ptr<i_sequence_generator<U> > isg;
-				std::shared_ptr<i_kp_detector> ikpd;
+		private:
+			std::shared_ptr<i_pose_detector<T> > ipd;
+			std::shared_ptr<i_sequence_generator<U> > isg;
+			std::shared_ptr<i_kp_detector> ikpd;
 
-				int pose_buffer_size;
-				std::queue<std::shared_ptr<general_enriched_pose> > queue;
+			std::list<std::shared_ptr<pose_listener> > listeners_;
+			int pose_buffer_size;
+			std::queue<std::shared_ptr<general_enriched_pose> > queue;
 
-		};
+	};
 } // namespace mae
-
 
 //template implementation
 namespace mae
@@ -93,10 +100,11 @@ namespace mae
 		std::cout << "detect movement" << std::endl;
 		std::cout << body_parts.size() << std::endl;
 
+		std::shared_ptr<general_pose> pose = ipd->pose(skeleton, body_parts);
 
-		std::shared_ptr < general_pose > pose = ipd->pose(skeleton, body_parts);
+		notify_listeners(0, pose);//TODO timestamp??
 
-		std::shared_ptr < general_enriched_pose > enriched_pose = ikpd->estimate_frame(pose, queue, body_parts);
+		std::shared_ptr<general_enriched_pose> enriched_pose = ikpd->estimate_frame(pose, queue, body_parts);
 
 		queue.push(enriched_pose);
 		if (queue.size() > pose_buffer_size)
@@ -104,7 +112,7 @@ namespace mae
 			queue.pop();
 		}
 
-		std::shared_ptr < U > sequence = isg->generate_sequence(queue, body_parts);
+		std::shared_ptr<U> sequence = isg->generate_sequence(queue, body_parts);
 
 		return sequence;
 	}
@@ -113,6 +121,40 @@ namespace mae
 	void kp_movement_detector<T, U>::set_buffer(int size)
 	{
 		pose_buffer_size = size;
+	}
+
+	template<typename T, typename U>
+	void kp_movement_detector<T, U>::add_listener(std::shared_ptr<pose_listener> listener)
+	{
+		listeners_.push_back(listener);
+	}
+
+	template<typename T, typename U>
+	void kp_movement_detector<T, U>::remove_listener(std::shared_ptr<pose_listener> listener)
+	{
+		for (std::list<std::shared_ptr<pose_listener>>::iterator it = listeners_.begin(); it != listeners_.end(); it++)
+		{
+			if (listener == *it)
+			{
+				listeners_.erase(it);
+				break;
+			}
+		}
+	}
+
+	template<typename T, typename U>
+	void kp_movement_detector<T, U>::clear_listeners()
+	{
+		listeners_.clear();
+	}
+
+	template<typename T, typename U>
+	void kp_movement_detector<T, U>::notify_listeners(long timestamp, std::shared_ptr<general_pose> pose)
+	{
+		for (std::list<std::shared_ptr<pose_listener>>::iterator it = listeners_.begin(); it != listeners_.end(); it++)
+		{
+			(*it)->on_pose(timestamp, pose);
+		}
 	}
 
 } // namespace mae
