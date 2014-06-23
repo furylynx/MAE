@@ -16,6 +16,7 @@
 #include "i_pose_detector.hpp"
 #include "i_sequence_generator.hpp"
 
+#include "../model/pose_listener.hpp"
 #include "../model/bone.hpp"
 
 //global includes
@@ -36,11 +37,16 @@ namespace mae{
 				//todo other methods in here
 				virtual void next_frame(long timestamp,std::shared_ptr<T> skeleton);
 
-				//todo listener stuff
+				//todo more listener stuff
+				virtual void add_listener(std::shared_ptr<pose_listener> pose_listener);
+				virtual void remove_listener(std::shared_ptr<pose_listener> pose_listener);
+				virtual void clear_listeners();
 
 			private:
 				std::shared_ptr<i_movement_detector<T,U> > imd;
 				std::vector<bone> body_parts;
+
+
 
 		};
 
@@ -63,7 +69,6 @@ namespace mae{
 			this->body_parts = body_parts;
 		}
 
-
 		template <typename T, typename U>
 		movement_controller<T, U>::movement_controller(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::vector<bone> body_parts)
 		{
@@ -71,7 +76,6 @@ namespace mae{
 			this->imd = imd_n;
 			this->body_parts = body_parts;
 		}
-
 
 		template <typename T, typename U>
 		movement_controller<T, U>::~movement_controller() {
@@ -93,6 +97,24 @@ namespace mae{
 			}
 
 			//TODO do stuff with the sequence
+		}
+
+		template <typename T, typename U>
+		void movement_controller<T, U>::add_listener(std::shared_ptr<pose_listener> pose_listener)
+		{
+			imd->add_listener(pose_listener);
+		}
+
+		template <typename T, typename U>
+		void movement_controller<T, U>::remove_listener(std::shared_ptr<pose_listener> pose_listener)
+		{
+			imd->remove_listener(pose_listener);
+		}
+
+		template <typename T, typename U>
+		void movement_controller<T, U>::clear_listeners()
+		{
+			imd->clear_listeners();
 		}
 
 } // namespace mae
