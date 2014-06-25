@@ -35,6 +35,7 @@ namespace mae
 
 		private:
 			const unsigned int RANGE_KP = 5; //10 ??
+
 	};
 
 } // namespace mae
