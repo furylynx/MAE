@@ -30,15 +30,15 @@ namespace mae
 					std::unordered_map<int, bool> hashmap_inmotion);
 			virtual ~general_enriched_pose();
 
-			virtual void setKeyPose(int bodyPart, bool isKeyPose);
-			virtual bool isKeyPose(int bodyPart);
+			virtual void set_key_pose(int bodyPart, bool isKeyPose);
+			virtual bool is_key_pose(int bodyPart);
 
-			virtual void setInMotion(int bodyPart, bool isInMotion);
-			virtual bool isInMotion(int bodyPart);
+			virtual void set_in_motion(int bodyPart, bool isInMotion);
+			virtual bool is_in_motion(int bodyPart);
 
 		private:
-			std::unordered_map<int, bool> hashmap_keypose;
-			std::unordered_map<int, bool> hashmap_inmotion;
+			std::unordered_map<int, bool> hashmap_keypose_;
+			std::unordered_map<int, bool> hashmap_inmotion_;
 
 	};
 

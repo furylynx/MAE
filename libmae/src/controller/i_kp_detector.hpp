@@ -18,7 +18,7 @@
 
 //global includes
 #include <vector>
-#include <queue>
+#include <list>
 #include <memory>
 
 namespace mae {
@@ -29,7 +29,7 @@ namespace mae {
 
 				// edits the handed enriched poses, e.g. setKeyPose(false) but does not append the new enriched pose to the vector
 				// instead the new enriched pose is returned
-				virtual std::shared_ptr<general_enriched_pose> estimate_frame(std::shared_ptr<general_pose> currentPose, std::queue<std::shared_ptr<general_enriched_pose> > previousSequence, std::vector<bone> bodyParts) = 0;
+				virtual std::shared_ptr<general_enriched_pose> estimate_frame(std::shared_ptr<general_pose> currentPose, std::list<std::shared_ptr<general_enriched_pose> > previousSequence, std::vector<bone> bodyParts) = 0;
 		};
 
 } // namespace mae
