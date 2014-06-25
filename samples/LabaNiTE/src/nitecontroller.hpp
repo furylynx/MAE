@@ -44,6 +44,7 @@ namespace lni
 			static bool file_exists(const char * file);
 			static XnStatus check_rc(XnStatus nRetVal, const char * what);
 
+
 		private:
 			xn::Context g_Context;
 			xn::ScriptNode g_scriptNode;
