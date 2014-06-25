@@ -78,10 +78,10 @@
 #include <ctime>
 
 //fl : mae includes
-#include <fl/FLMovementController.hpp>
-#include <model/GeneralSkeleton.hpp>
-#include <model/GeneralJoint.hpp>
-#include <model/MAEJ.hpp>
+#include <fl/fl_movement_controller.hpp>
+#include <model/general_skeleton.hpp>
+#include <model/general_joint.hpp>
+#include <model/maej.hpp>
 
 //---------------------------------------------------------------------------
 // Defines
