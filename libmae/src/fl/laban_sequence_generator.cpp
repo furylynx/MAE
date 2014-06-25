@@ -22,7 +22,7 @@ namespace mae
 		}
 
 		std::shared_ptr<laban_sequence> laban_sequence_generator::generate_sequence(
-				std::queue<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<bone> bodyParts)
+				std::list<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<bone> bodyParts)
 		{
 
 			std::shared_ptr<mae::fl::laban_sequence> sequence;

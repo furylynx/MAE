@@ -54,7 +54,7 @@ namespace mae
 
 			std::list<std::shared_ptr<pose_listener> > listeners_;
 			int pose_buffer_size;
-			std::queue<std::shared_ptr<general_enriched_pose> > queue;
+			std::list<std::shared_ptr<general_enriched_pose> > poses;
 
 	};
 } // namespace mae
@@ -90,7 +90,7 @@ namespace mae
 	kp_movement_detector<T, U>::~kp_movement_detector()
 	{
 		//clear the queue
-		std::queue<std::shared_ptr<general_enriched_pose> >().swap(queue);
+		poses.clear();
 	}
 
 	template<typename T, typename U>
@@ -100,19 +100,30 @@ namespace mae
 		std::cout << "detect movement" << std::endl;
 		std::cout << body_parts.size() << std::endl;
 
-		std::shared_ptr<general_pose> pose = ipd->pose(skeleton, body_parts);
+		std::shared_ptr<U> sequence;
 
-		notify_listeners(0, pose);//TODO timestamp??
-
-		std::shared_ptr<general_enriched_pose> enriched_pose = ikpd->estimate_frame(pose, queue, body_parts);
-
-		queue.push(enriched_pose);
-		if (queue.size() > pose_buffer_size)
+		if (ipd)
 		{
-			queue.pop();
-		}
+			std::shared_ptr<general_pose> pose = ipd->pose(skeleton, body_parts);
 
-		std::shared_ptr<U> sequence = isg->generate_sequence(queue, body_parts);
+			notify_listeners(0, pose); //TODO timestamp??
+
+			if (ikpd)
+			{
+				std::shared_ptr<general_enriched_pose> enriched_pose = ikpd->estimate_frame(pose, poses, body_parts);
+
+				poses.push_front(enriched_pose);
+				if (poses.size() > pose_buffer_size)
+				{
+					poses.pop_back();
+				}
+
+				if (isg)
+				{
+					sequence = isg->generate_sequence(poses, body_parts);
+				}
+			}
+		}
 
 		return sequence;
 	}
