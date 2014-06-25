@@ -20,6 +20,7 @@
 //global includes
 #include <memory>
 #include <vector>
+#include <list>
 
 namespace mae
 {
@@ -34,7 +35,7 @@ namespace mae
 				virtual ~laban_sequence_generator();
 
 				virtual std::shared_ptr<laban_sequence> generate_sequence(
-						std::queue<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<bone> body_parts);
+						std::list<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<bone> body_parts);
 
 		};
 
