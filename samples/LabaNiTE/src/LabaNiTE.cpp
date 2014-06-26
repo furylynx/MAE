@@ -10,6 +10,7 @@
 #include "nitecontroller.hpp"
 #include "nite_display.hpp"
 
+
 //general includes
 #include <memory>
 #include <fstream>
@@ -45,7 +46,6 @@ int main()
 
 	mae::fl::bvh_controller bvh_ctrl = mae::fl::bvh_controller();
 	std::vector<std::shared_ptr<mae::general_skeleton> > wb_skels;
-
 
 	unsigned int k = 0;
 
