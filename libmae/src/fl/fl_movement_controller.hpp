@@ -37,7 +37,7 @@ namespace mae {
 				fl_movement_controller(std::vector<bone> bodyParts);
 				virtual ~fl_movement_controller();
 
-				virtual void next_frame(long timestamp,std::shared_ptr<general_skeleton> skeleton);
+				virtual void next_frame(long timestamp, std::shared_ptr<general_skeleton> skeleton);
 
 			private:
 				std::shared_ptr<fl_skeleton_controller> skel_ctrl;
