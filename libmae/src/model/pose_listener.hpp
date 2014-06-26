@@ -12,10 +12,10 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "../model/general_pose.hpp"
 
 //global includes
-//...
+#include <memory>
 
 namespace mae
 {
@@ -23,8 +23,7 @@ namespace mae
 	class pose_listener
 	{
 		public:
-			pose_listener();
-			virtual ~pose_listener();
+			virtual ~pose_listener(){}
 
 			virtual void on_pose(long timestamp, std::shared_ptr<general_pose> pose) = 0;
 	};

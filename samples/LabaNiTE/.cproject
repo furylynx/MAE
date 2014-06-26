@@ -24,15 +24,20 @@
 								<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.1616387895" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.995761652" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.2000649078" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Cpp_test-shared-lib}&quot;"/>
-									<listOptionValue builtIn="false" value="/usr/include/nite"/>
-									<listOptionValue builtIn="false" value="/usr/include"/>
 									<listOptionValue builtIn="false" value="/usr/lib"/>
-									<listOptionValue builtIn="false" value="/usr/include/ni"/>
-									<listOptionValue builtIn="false" value="/usr/include/c++/4.8"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/src}&quot;"/>
-									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/c++/4.8"/>
 									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.8/include/"/>
+									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/"/>
+									<listOptionValue builtIn="false" value="/usr/include/opencv2/core/"/>
+									<listOptionValue builtIn="false" value="/usr/include/opencv2/"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/src/}&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/include/c++/4.8/"/>
+									<listOptionValue builtIn="false" value="/usr/include/ni/"/>
+									<listOptionValue builtIn="false" value="/usr/include/"/>
+									<listOptionValue builtIn="false" value="/usr/include/nite/"/>
+									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/c++/4.8/bits"/>
+									<listOptionValue builtIn="false" value="/usr/local/include"/>
+									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.1991319381" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.828926030" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -41,19 +46,14 @@
 								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.1924056236" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.1653285668" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.dialect.std.2079625122" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.include.paths.1687206168" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Cpp_test-shared-lib}&quot;"/>
-								</option>
+								<option id="gnu.c.compiler.option.include.paths.1687206168" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.444272164" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.1896549993" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.1572373633" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
-								<option id="gnu.cpp.link.option.paths.1579849522" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Cpp_test-shared-lib/Release}&quot;"/>
-								</option>
+								<option id="gnu.cpp.link.option.paths.1579849522" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths"/>
 								<option id="gnu.cpp.link.option.userobjs.1297300877" name="Other objects" superClass="gnu.cpp.link.option.userobjs"/>
 								<option id="gnu.cpp.link.option.libs.1125577975" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="Cpp_test-shared-lib"/>
 									<listOptionValue builtIn="false" value="XnVCNITE_1_5_2"/>
 									<listOptionValue builtIn="false" value="OpenNI"/>
 									<listOptionValue builtIn="false" value="XnDDK"/>
@@ -62,6 +62,10 @@
 									<listOptionValue builtIn="false" value="XnFormats"/>
 									<listOptionValue builtIn="false" value="XnCore"/>
 									<listOptionValue builtIn="false" value="boost_system"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL2"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL2_image"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL2main"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.723042991" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -69,9 +73,7 @@
 								</inputType>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.860857800" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug">
-								<option id="gnu.both.asm.option.include.paths.822445499" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Cpp_test-shared-lib}&quot;"/>
-								</option>
+								<option id="gnu.both.asm.option.include.paths.822445499" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths"/>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.507465943" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
@@ -81,15 +83,7 @@
 					</sourceEntries>
 				</configuration>
 			</storageModule>
-			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
-				<externalSettings containerId="mae;" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/Cpp_test-shared-lib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/Cpp_test-shared-lib/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="Cpp_test-shared-lib" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
 		<cconfiguration id="cdt.managedbuild.config.gnu.exe.release.1651914598">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.exe.release.1651914598" moduleId="org.eclipse.cdt.core.settings" name="Release">
@@ -113,6 +107,23 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1078639795" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release">
 								<option id="gnu.cpp.compiler.exe.release.option.optimization.level.2126367340" name="Optimization Level" superClass="gnu.cpp.compiler.exe.release.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.release.option.debugging.level.1736301100" name="Debug Level" superClass="gnu.cpp.compiler.exe.release.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.include.paths.1616286129" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.8/include/"/>
+									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/"/>
+									<listOptionValue builtIn="false" value="/usr/include/opencv2/core/"/>
+									<listOptionValue builtIn="false" value="/usr/include/opencv2/"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/src/}&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/include/c++/4.8/"/>
+									<listOptionValue builtIn="false" value="/usr/include/ni/"/>
+									<listOptionValue builtIn="false" value="/usr/include/"/>
+									<listOptionValue builtIn="false" value="/usr/include/nite/"/>
+									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/c++/4.8/bits"/>
+									<listOptionValue builtIn="false" value="/usr/local/include"/>
+									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/"/>
+								</option>
+								<option id="gnu.cpp.compiler.option.dialect.std.1969485971" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.other.other.2026817504" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -Wno-unknown-pragmas -Wno-reorder" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1060032004" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.623717502" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release">
@@ -122,6 +133,14 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.553879756" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.21347814" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
+								<option id="gnu.cpp.link.option.libs.869099102" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="OpenNI"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="XnCore"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL2"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL2_image"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL2main"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1042776978" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
