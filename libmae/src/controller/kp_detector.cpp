@@ -30,6 +30,9 @@ namespace mae
 		std::shared_ptr<general_enriched_pose> result = std::shared_ptr<general_enriched_pose>(
 				new general_enriched_pose(current_pose));
 
+		//TODO remove
+		return result;
+
 		//TODO handle glitches!!
 
 		for (unsigned int i = 0; i < body_parts.size(); i++)

@@ -137,6 +137,7 @@ namespace mae
 	template<typename T, typename U>
 	void kp_movement_detector<T, U>::add_listener(std::shared_ptr<pose_listener> listener)
 	{
+		std::cout << "listener added!" << std::endl;
 		listeners_.push_back(listener);
 	}
 
@@ -162,8 +163,10 @@ namespace mae
 	template<typename T, typename U>
 	void kp_movement_detector<T, U>::notify_listeners(long timestamp, std::shared_ptr<general_pose> pose)
 	{
+		std::cout << "notifying listeners" << std::endl;
 		for (std::list<std::shared_ptr<pose_listener>>::iterator it = listeners_.begin(); it != listeners_.end(); it++)
 		{
+			std::cout << "notifying listeners #it" << std::endl;
 			(*it)->on_pose(timestamp, pose);
 		}
 	}
