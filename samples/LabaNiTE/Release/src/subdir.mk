@@ -5,7 +5,6 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../src/LabaNiTE.cpp \
-<<<<<<< HEAD
 ../src/nite_display.cpp \
 ../src/nitecontroller.cpp 
 
@@ -17,16 +16,6 @@ OBJS += \
 CPP_DEPS += \
 ./src/LabaNiTE.d \
 ./src/nite_display.d \
-=======
-../src/nitecontroller.cpp 
-
-OBJS += \
-./src/LabaNiTE.o \
-./src/nitecontroller.o 
-
-CPP_DEPS += \
-./src/LabaNiTE.d \
->>>>>>> branch 'master' of https://github.com/furylynx/MAE
 ./src/nitecontroller.d 
 
 

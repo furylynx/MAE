@@ -10,7 +10,6 @@
 #include "nitecontroller.hpp"
 #include "nite_display.hpp"
 
-
 //general includes
 #include <memory>
 #include <fstream>
@@ -21,6 +20,8 @@
 #include <ctime>
 
 #include <XnCppWrapper.h>
+
+#include <SDL2/SDL.h>
 
 //fl : mae includes
 #include <fl/fl_movement_controller.hpp>
@@ -37,26 +38,39 @@ using namespace lni;
 
 int main()
 {
+	std::cout << "LabaNiTe started" << std::endl;
 	bool store_skels = false;
+
 	mae::fl::fl_movement_controller move = mae::fl::fl_movement_controller();
 
 	//create and add listener
 	std::shared_ptr<nite_display> ndisp = std::shared_ptr<nite_display>(new nite_display());
 	move.add_listener(ndisp);
+	std::cout << "done" << std::endl;
 
 	mae::fl::bvh_controller bvh_ctrl = mae::fl::bvh_controller();
 	std::vector<std::shared_ptr<mae::general_skeleton> > wb_skels;
 
 	unsigned int k = 0;
+	bool quit = false;
 
-	while (!xnOSWasKeyboardHit())
+	while (!xnOSWasKeyboardHit() && !quit)
 	{
-		std::vector<std::shared_ptr<mae::general_skeleton> > skeletons = nite_controller::wait_for_update();
+		//keep window alive
+		SDL_Event event;
+		while (SDL_PollEvent(&event))
+		{
+			if (event.type == SDL_QUIT)
+			{
+				quit = true;
+			}
+		}
 
+		std::vector<std::shared_ptr<mae::general_skeleton> > skeletons = nite_controller::wait_for_update();
 
 		if (skeletons.size() > 0)
 		{
-			std::cout << "Generated general_skeleton for each user" << std::endl;
+			//std::cout << "Generated general_skeleton for each user" << std::endl;
 			wb_skels.push_back(skeletons.at(0));
 
 			// ofstream def
@@ -115,14 +129,12 @@ int main()
 
 			try
 			{
-				//move.next_frame(0, skeletons.at(0));
-			}
-			catch (std::exception& e)
+				move.next_frame(0, skeletons.at(0));
+			} catch (std::exception& e)
 			{
 				std::cout << "exception: " << e.what() << std::endl;
 				return -1;
-			}
-			catch (...)
+			} catch (...)
 			{
 				std::cout << "Unknown exception or error occured" << std::endl;
 				return -1;

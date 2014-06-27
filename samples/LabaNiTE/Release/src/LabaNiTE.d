@@ -20,7 +20,12 @@ src/LabaNiTE.d: ../src/LabaNiTE.cpp ../src/nitecontroller.hpp \
  /usr/include/ni/XnModuleInterface.h /usr/include/ni/XnPrdNodeInfo.h \
  /usr/include/ni/XnQueries.h /usr/include/ni/XnPrdNode.h \
  /usr/include/ni/XnEnumerationErrors.h /usr/include/ni/XnVersion.h \
- /usr/include/ni/XnCodecIDs.h \
+ /usr/include/ni/XnCodecIDs.h ../src/nite_display.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/model/maeb.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/fl/fld.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/model/general_pose.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/model/pose_listener.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/model/../model/general_pose.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/fl/fl_movement_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/fl/../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/fl/fl_skeleton.hpp \
@@ -34,7 +39,6 @@ src/LabaNiTE.d: ../src/LabaNiTE.cpp ../src/nitecontroller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/fl/../controller/i_pose_detector.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/fl/../controller/../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/fl/../controller/../model/general_pose.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/fl/../controller/../model/../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/fl/../controller/../model/bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/fl/math.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/fl/../model/general_joint.hpp \
@@ -133,6 +137,18 @@ src/LabaNiTE.d: ../src/LabaNiTE.cpp ../src/nitecontroller.hpp \
 
 /usr/include/ni/XnCodecIDs.h:
 
+../src/nite_display.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/model/maeb.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/fl/fld.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/model/general_pose.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/model/pose_listener.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/model/../model/general_pose.hpp:
+
 /sda7/data/workspace-git/MAE/libmae/src/fl/fl_movement_controller.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/fl/../indexer_fix.hpp:
@@ -158,8 +174,6 @@ src/LabaNiTE.d: ../src/LabaNiTE.cpp ../src/nitecontroller.hpp \
 /sda7/data/workspace-git/MAE/libmae/src/fl/../controller/../indexer_fix.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/fl/../controller/../model/general_pose.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/fl/../controller/../model/../indexer_fix.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/fl/../controller/../model/bone.hpp:
 

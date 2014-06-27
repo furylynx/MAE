@@ -15,10 +15,16 @@
 //...
 
 //global includes
+#include <model/maeb.hpp>
+#include <fl/fld.hpp>
+
+#include <model/general_pose.hpp>
 #include <model/pose_listener.hpp>
-#include <model/general_skeleton.hpp>
+//#include <model/general_skeleton.hpp>
+
 
 #include <memory>
+#include <sstream>
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -33,7 +39,7 @@ namespace lni
 			nite_display();
 			virtual ~nite_display();
 
-			void on_pose(long timestamp, std::shared_ptr<mae::general_pose> pose);
+			virtual void on_pose(long timestamp, std::shared_ptr<mae::general_pose> pose);
 
 		private:
 			//The window we'll be rendering to
@@ -45,13 +51,16 @@ namespace lni
 			//The image we will load and show on the screen
 			SDL_Surface* g_background_ = NULL;
 
+			std::vector<SDL_Surface*> g_directions;
+
 			//TODO other size?
-			int SCREEN_WIDTH = 1024;
-			int SCREEN_HEIGHT = 768;
+			const int SCREEN_WIDTH = 1024;
+			const int SCREEN_HEIGHT = 768;
 
 			bool init_sdl();
 			bool load_media_sdl();
 			void close_sdl();
+
 	};
 
 } // namespace lni

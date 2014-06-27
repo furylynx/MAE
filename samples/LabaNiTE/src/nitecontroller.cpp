@@ -44,14 +44,14 @@ namespace lni
 	}
 
 	// Callback: An existing user was lost
-	void nite_controller::User_LostUser(xn::UserGenerator& /*generator*/, XnUserID nId, void* /*pCookie*/)
+	void nite_controller::User_LostUser(xn::UserGenerator& generator, XnUserID nId, void* pCookie)
 	{
 		XnUInt32 epochTime = 0;
 		xnOSGetEpochTime(&epochTime);
 		printf("%d Lost user %d\n", epochTime, nId);
 	}
 	// Callback: Detected a pose
-	void nite_controller::UserPose_PoseDetected(xn::PoseDetectionCapability& /*capability*/, const XnChar* strPose,
+	void nite_controller::UserPose_PoseDetected(xn::PoseDetectionCapability& capability, const XnChar* strPose,
 			XnUserID nId, void* /*pCookie*/)
 	{
 		XnUInt32 epochTime = 0;
@@ -61,16 +61,16 @@ namespace lni
 		g_UserGenerator.GetSkeletonCap().RequestCalibration(nId, TRUE);
 	}
 	// Callback: Started calibration
-	void nite_controller::UserCalibration_CalibrationStart(xn::SkeletonCapability& /*capability*/, XnUserID nId,
-			void* /*pCookie*/)
+	void nite_controller::UserCalibration_CalibrationStart(xn::SkeletonCapability& capability, XnUserID nId,
+			void* pCookie)
 	{
 		XnUInt32 epochTime = 0;
 		xnOSGetEpochTime(&epochTime);
 		printf("%d Calibration started for user %d\n", epochTime, nId);
 	}
 
-	void nite_controller::UserCalibration_CalibrationComplete(xn::SkeletonCapability& /*capability*/, XnUserID nId,
-			XnCalibrationStatus eStatus, void* /*pCookie*/)
+	void nite_controller::UserCalibration_CalibrationComplete(xn::SkeletonCapability& capability, XnUserID nId,
+			XnCalibrationStatus eStatus, void* pCookie)
 	{
 		XnUInt32 epochTime = 0;
 		xnOSGetEpochTime(&epochTime);
