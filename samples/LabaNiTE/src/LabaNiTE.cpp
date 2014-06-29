@@ -56,16 +56,6 @@ int main()
 
 	while (!xnOSWasKeyboardHit() && !quit)
 	{
-		//keep window alive
-		SDL_Event event;
-		while (SDL_PollEvent(&event))
-		{
-			if (event.type == SDL_QUIT)
-			{
-				quit = true;
-			}
-		}
-
 		std::vector<std::shared_ptr<mae::general_skeleton> > skeletons = nite_controller::wait_for_update();
 
 		if (skeletons.size() > 0)

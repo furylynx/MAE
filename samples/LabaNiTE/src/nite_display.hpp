@@ -12,7 +12,7 @@
 
 
 //custom includes
-//...
+#include "sdl_controller.hpp"
 
 //global includes
 #include <model/maeb.hpp>
@@ -42,6 +42,9 @@ namespace lni
 			virtual void on_pose(long timestamp, std::shared_ptr<mae::general_pose> pose);
 
 		private:
+			static unsigned int ref_count_;
+			static bool sdl_controller_;
+
 			//The window we'll be rendering to
 			SDL_Window* g_window_ = NULL;
 

@@ -10,6 +10,9 @@
 namespace lni
 {
 
+	unsigned int nite_display::ref_count_ = 0;
+	bool nite_display::sdl_controller_ = false;
+
 	nite_display::nite_display()
 	{
 		//Start up SDL and create window
@@ -177,29 +180,47 @@ namespace lni
 	{
 		//Initialization flag
 		bool success = true;
-		//Initialize SDL
-		if (SDL_Init( SDL_INIT_VIDEO) < 0)
+
+		if (!sdl_controller_)
 		{
-			std::cout << "SDL could not initialize! SDL_Error: " << SDL_GetError() << std::endl;
+			try
+			{
+				sdl_controller_ = sdl_controller::initialize_sdl();
+			} catch (std::exception &e)
+			{
+				std::cout << "SDL could not initialize! SDL_Error: " << SDL_GetError() << std::endl;
+				success = false;
+			}
+		}
+
+		if (sdl_controller_)
+		{
+			ref_count_++;
+		}
+
+		//Initialize SDL
+//		if (SDL_Init( SDL_INIT_VIDEO) < 0)
+//		{
+//			std::cout << "SDL could not initialize! SDL_Error: " << SDL_GetError() << std::endl;
+//			success = false;
+//		}
+//		else
+//		{
+		//Create window
+		g_window_ = SDL_CreateWindow("LabaNiTe", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
+				SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+
+		if (g_window_ == NULL)
+		{
+			printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
 			success = false;
 		}
 		else
 		{
-			//Create window
-			g_window_ = SDL_CreateWindow("LabaNiTe", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
-					SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-
-			if (g_window_ == NULL)
-			{
-				printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
-				success = false;
-			}
-			else
-			{
-				//Get window surface
-				g_screen_surface = SDL_GetWindowSurface(g_window_);
-			}
+			//Get window surface
+			g_screen_surface = SDL_GetWindowSurface(g_window_);
 		}
+//		}
 		return success;
 
 	}
@@ -285,8 +306,17 @@ namespace lni
 		g_window_ = NULL;
 
 		//Quit SDL subsystems
-		SDL_Quit();
-	}
+		if (sdl_controller_)
+		{
+			ref_count_--;
+		}
 
+//		SDL_Quit();
+
+		if (ref_count_ == 0)
+		{
+			sdl_controller::close_sdl();
+		}
+	}
 
 } // namespace lni
