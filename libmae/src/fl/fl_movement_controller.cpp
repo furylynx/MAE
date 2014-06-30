@@ -27,11 +27,7 @@ namespace mae {
 
 
 		void fl_movement_controller::next_frame(long timestamp,std::shared_ptr<general_skeleton> skeleton){
-			std::cout << "next frame (fl)" << std::endl;
-
 			std::shared_ptr<fl_skeleton> fl_skel = skel_ctrl->specified_skeleton(skeleton);
-
-			std::cout << "skeleton generated" << std::endl;
 
 			//call next_frame for base class
 			movement_controller<fl_skeleton, laban_sequence>::next_frame(timestamp, fl_skel);

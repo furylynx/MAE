@@ -84,8 +84,6 @@ namespace mae{
 		template <typename T, typename U>
 		void movement_controller<T, U>::next_frame(long timestamp,std::shared_ptr<T> skeleton)
 		{
-			std::cout << "next frame (movement controller)" << std::endl;
-			std::cout << body_parts.size() << std::endl;
 
 			if (imd)
 			{
