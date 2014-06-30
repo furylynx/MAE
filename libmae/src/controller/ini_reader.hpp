@@ -15,6 +15,7 @@
 #include "mstr.hpp"
 
 //global includes
+#include <iostream>
 #include <string>
 #include <fstream>
 #include <sstream>

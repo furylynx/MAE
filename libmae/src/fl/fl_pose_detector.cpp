@@ -68,8 +68,6 @@ namespace mae
 		std::shared_ptr<general_pose> fl_pose_detector::pose(std::shared_ptr<fl_skeleton> skeleton,
 				std::vector<bone> body_parts)
 		{
-			std::cout << "pose (fl)" << std::endl;
-
 			const bool angles = false;
 
 			std::shared_ptr<general_pose> result = std::shared_ptr<general_pose>(new general_pose());
@@ -187,13 +185,6 @@ namespace mae
 					result->set_direction(body_parts.at(bone_index).get_id(), min_dist_dir);
 				}
 			}
-
-			//print direction
-			std::cout << " DIR: " << fld_str[result->get_direction(FLJ_LEFT_WHOLE_ARM)];
-			std::cout << " || DIST: " << result->get_distance(FLJ_LEFT_WHOLE_ARM, result->get_direction(FLJ_LEFT_WHOLE_ARM));
-			std::cout << std::endl;
-
-			std::cout << "BONE VEC: " << skeleton->get_offset_skeleton()->get_joint(MAEJ_RIGHT_FOOT) << std::endl;
 
 			return result;
 		}
