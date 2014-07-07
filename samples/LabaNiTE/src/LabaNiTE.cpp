@@ -44,12 +44,15 @@ int main()
 	bool store_skels = false;
 
 	//trigger for bvh export
-	bool bvh_export = true;
+	bool bvh_export = false;
 	unsigned int bvh_frames = 300; //30fps openni
+
+	//trigger for demo screen
+	bool show_demo = false;
 
 	mae::fl::fl_movement_controller move = mae::fl::fl_movement_controller();
 
-	if (!bvh_export)
+	if (show_demo)
 	{
 		//create and add listener
 		std::shared_ptr<nite_display> ndisp = std::shared_ptr<nite_display>(new nite_display());
