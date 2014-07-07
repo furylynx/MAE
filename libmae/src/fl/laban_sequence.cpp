@@ -18,15 +18,6 @@ namespace mae {
 			// TODO Auto-generated destructor stub
 		}
 
-		std::shared_ptr<mae::fl::laban_subsequence> laban_sequence::get_subsequence(int bodyPart){
-
-			std::shared_ptr<mae::fl::laban_subsequence> subsequence;// = std::shared_ptr<mae::fl::FLLabanSubsequence>(new mae::fl::FLLabanSubsequence());
-
-			//todo do stuff in here
-
-			return subsequence;
-
-		}
 
 
 
