@@ -25,7 +25,7 @@ namespace mae {
 			public:
 				virtual ~i_movement_detector(){ }
 
-				virtual std::shared_ptr<U> detect_movement(std::shared_ptr<T> skeleton, std::vector<bone> body_parts) = 0;
+				virtual std::shared_ptr<U> detect_movement(long timestamp, std::shared_ptr<T> skeleton, std::vector<bone> body_parts) = 0;
 				virtual void set_buffer(int size) = 0;
 
 				virtual void add_listener(std::shared_ptr<pose_listener> listener) = 0;

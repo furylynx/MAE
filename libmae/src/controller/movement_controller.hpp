@@ -35,7 +35,7 @@ namespace mae{
 				virtual ~movement_controller();
 
 				//todo other methods in here
-				virtual void next_frame(long timestamp,std::shared_ptr<T> skeleton);
+				virtual void next_frame(long timestamp, std::shared_ptr<T> skeleton);
 
 				//todo more listener stuff
 				virtual void add_listener(std::shared_ptr<pose_listener> pose_listener);

@@ -38,7 +38,7 @@ namespace mae
 					std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_kp_detector> ikpd);
 			virtual ~kp_movement_detector();
 
-			virtual std::shared_ptr<U> detect_movement(std::shared_ptr<T> skeleton, std::vector<bone> body_parts);
+			virtual std::shared_ptr<U> detect_movement(long timestamp, std::shared_ptr<T> skeleton, std::vector<bone> body_parts);
 			virtual void set_buffer(int size);
 
 			virtual void add_listener(std::shared_ptr<pose_listener> listener);
@@ -94,7 +94,7 @@ namespace mae
 	}
 
 	template<typename T, typename U>
-	std::shared_ptr<U> kp_movement_detector<T, U>::detect_movement(std::shared_ptr<T> skeleton,
+	std::shared_ptr<U> kp_movement_detector<T, U>::detect_movement(long timestamp, std::shared_ptr<T> skeleton,
 			std::vector<bone> body_parts)
 	{
 		std::shared_ptr<U> sequence;
@@ -103,7 +103,7 @@ namespace mae
 		{
 			std::shared_ptr<general_pose> pose = ipd->pose(skeleton, body_parts);
 
-			notify_listeners(0, pose); //TODO timestamp??
+			notify_listeners(timstamp, pose);
 
 			if (ikpd)
 			{
