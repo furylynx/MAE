@@ -87,7 +87,7 @@ namespace mae{
 
 			if (imd)
 			{
-				std::shared_ptr<U> sequence = imd->detect_movement(skeleton, body_parts);
+				std::shared_ptr<U> sequence = imd->detect_movement(timestamp, skeleton, body_parts);
 			}
 			else
 			{
