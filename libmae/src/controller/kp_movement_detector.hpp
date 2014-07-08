@@ -103,7 +103,7 @@ namespace mae
 		{
 			std::shared_ptr<general_pose> pose = ipd->pose(skeleton, body_parts);
 
-			notify_listeners(timstamp, pose);
+			notify_listeners(timestamp, pose);
 
 			if (ikpd)
 			{

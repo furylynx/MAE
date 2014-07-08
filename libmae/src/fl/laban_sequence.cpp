@@ -11,60 +11,222 @@ namespace mae {
 	namespace fl {
 
 		laban_sequence::laban_sequence() {
-			// TODO Auto-generated destructor stub
+			version_ = "0.5";
+			authors_.push_back("Anonymous");
+			title_ = "Untitled";
+			description_ = "";
+
+			measures_ = 0;
+			time_unit_ = time_unit::MILLISECOND;
+			beat_duration_ = 0;
+			beats_ = 0;
 		}
 
 		laban_sequence::~laban_sequence() {
-			// TODO Auto-generated destructor stub
+
 		}
 
+		void laban_sequence::set_authors(std::vector<std::string> authors)
+		{
+			authors_ = authors;
+		}
+		std::vector<std::string> laban_sequence::get_authors()
+		{
+			return authors_;
+		}
+
+		void laban_sequence::set_title(std::string title)
+		{
+			title_ = title;
+		}
+
+		std::string laban_sequence::get_title()
+		{
+			return title_;
+		}
+
+		void laban_sequence::set_description(std::string description)
+		{
+			description_ = description;
+		}
+
+		std::string laban_sequence::get_description()
+		{
+			return description_;
+		}
+
+		void laban_sequence::set_measures(unsigned int measures)
+		{
+			measures_ = measures;
+		}
+
+		unsigned int laban_sequence::get_measures()
+		{
+			return measures_;
+		}
+
+		void laban_sequence::set_time_unit(time_unit tu)
+		{
+			time_unit_ = tu;
+		}
+
+		time_unit laban_sequence::get_time_unit()
+		{
+			return time_unit_;
+		}
+
+		void laban_sequence::set_beat_duration(unsigned int beat_duration)
+		{
+			beat_duration_ = beat_duration;
+		}
+
+		unsigned int laban_sequence::get_beat_duration()
+		{
+			return beat_duration_;
+		}
+
+		void laban_sequence::set_beats(unsigned int beats)
+		{
+			beats_ = beats;
+		}
+
+		unsigned int laban_sequence::get_beats()
+		{
+			return beats_;
+		}
+
+		void laban_sequence::set_column_definitions(std::vector<std::shared_ptr<laban_column> > column_definitions)
+		{
+			column_definitions_ = column_definitions;
+		}
+
+		void laban_sequence::add_column_definition(std::shared_ptr<laban_column> definition)
+		{
+			column_definitions_.push_back(definition);
+		}
+
+		std::vector<std::shared_ptr<laban_column> > laban_sequence::get_column_definitions()
+		{
+			return column_definitions_;
+		}
+
+		void laban_sequence::set_movements(std::vector<std::shared_ptr<laban_movement> > movements)
+		{
+			for (unsigned int i = 0; i < movements.size(); i++)
+			{
+				add_movement(movements.at(i));
+			}
+		}
+
+		std::vector<std::shared_ptr<laban_movement> > laban_sequence::get_movements()
+		{
+			return movements_vec_;
+		}
+
+		void laban_sequence::add_movement(std::shared_ptr<laban_movement> movement)
+		{
+			movements_vec_.push_back(movement);
+
+			std::vector<std::shared_ptr<laban_movement> > col;
+			if (movements_.find(movement->get_column()) != movements_.end())
+			{
+				col = movements_.at(movement->get_column());
+
+				//insert new movement at the correct position in order to have ascending time in the vector
+				for (unsigned int i = 0; i <= col.size(); i++)
+				{
+					if (i == col.size())
+					{
+						//insert at the end of the vector
+						col.push_back(movement);
+					}
+					else if (col.at(i)->get_measure() <= movement->get_measure() && col.at(i)->get_beat() <= movement->get_beat())
+					{
+						//insert at the position
+						col.insert(col.begin()+i, movement);
+						break;
+					}
+				}
+
+				//update the map
+				movements_[movement->get_column()] = col;
+			}
+			else
+			{
+				col.push_back(movement);
+				movements_.insert(std::make_pair(movement->get_column(), col));
+			}
+		}
+
+		std::vector<std::shared_ptr<laban_movement> > laban_sequence::get_movements(int column)
+		{
+			if (movements_.find(column) != movements_.end())
+			{
+				return movements_.at(column);
+			}
+			else
+			{
+				return std::vector<std::shared_ptr<laban_movement> >();
+			}
+		}
+
+		std::string laban_sequence::xml()
+		{
+			std::stringstream sstr;
+
+			//print score tag
+			sstr << "<score>" << std::endl;
+
+			//print header
+			sstr << "\t" << "<version>" << version_ << "</version>" << std::endl;
+
+			for (unsigned int i = 0; i < authors_.size(); i++)
+			{
+				sstr << "\t" << "<author>" << authors_.at(i) << "</author>" << std::endl;
+			}
+			sstr << "\t" << "<title>" << title_ << "</title>" << std::endl;
+			sstr << "\t" << "<description>" << description_ << "</description>" << std::endl;
+
+			//print staff
+			sstr << "\t" << "<staff>" << std::endl;
+
+			//print staff header
+			sstr << "\t\t" << "<measures>" << measures_ << "</measures>" << std::endl;
+			sstr << "\t\t" << "<timing>" << std::endl;
+			sstr << "\t\t\t" << "<timeUnit>" << time_unit_str[(int)time_unit_] << "</timeUnit>" << std::endl;
+			sstr << "\t\t\t" << "<measure>" << std::endl;
+			sstr << "\t\t\t\t" << "<index>" << 0 << "</index>" << std::endl;
+			sstr << "\t\t\t\t" << "<beatDuration>" << beat_duration_ << "</beatDuration>" << std::endl;
+			sstr << "\t\t\t\t" << "<beats>" << beats_ << "</beats>" << std::endl;
+			sstr << "\t\t\t" << "</measure>" << std::endl;
+			sstr << "\t\t" << "</timing>" << std::endl;
+
+			//print columns
+			sstr << "\t\t" << "<columns>" << std::endl;
+			for (unsigned int i = 0; i < column_definitions_.size(); i++)
+			{
+				sstr << column_definitions_.at(i)->xml(3);
+			}
+			sstr << "\t\t" << "</columns>" << std::endl;
 
 
+			//print movements
+			sstr << "\t\t" << "<movements>" << std::endl;
+			for (unsigned int i = 0; i < column_definitions_.size(); i++)
+			{
+				sstr << movements_vec_.at(i)->xml(3);
+			}
+			sstr << "\t\t" << "</movements>" << std::endl;
 
-//		//directions and levels
-//		const int FLLabanSequence::PLACE_HIGH = 1;
-//		const int FLLabanSequence::PLACE_MID = 2;
-//		const int FLLabanSequence::PLACE_LOW = 3;
-//
-//		const int FLLabanSequence::LEFT_HIGH = 4;
-//		const int FLLabanSequence::LEFT_MID = 5;
-//		const int FLLabanSequence::LEFT_LOW = 6;
-//
-//		const int FLLabanSequence::DIAGONAL_FORWARD_LEFT_HIGH = 7;
-//		const int FLLabanSequence::DIAGONAL_FORWARD_LEFT_MID = 8;
-//		const int FLLabanSequence::DIAGONAL_FORWARD_LEFT_LOW = 9;
-//
-//		const int FLLabanSequence::FORWARD_LEFT_HIGH = 10;
-//		const int FLLabanSequence::FORWARD_LEFT_MID = 11;
-//		const int FLLabanSequence::FORWARD_LEFT_LOW = 12;
-//
-//		const int FLLabanSequence::FORWARD_RIGHT_HIGH = 13;
-//		const int FLLabanSequence::FORWARD_RIGHT_MID = 14;
-//		const int FLLabanSequence::FORWARD_RIGHT_LOW = 15;
-//
-//		const int FLLabanSequence::DIAGONAL_FORWARD_RIGHT_HIGH = 16;
-//		const int FLLabanSequence::DIAGONAL_FORWARD_RIGHT_MID = 17;
-//		const int FLLabanSequence::DIAGONAL_FORWARD_RIGHT_LOW = 18;
-//
-//		const int FLLabanSequence::RIGHT_HIGH = 19;
-//		const int FLLabanSequence::RIGHT_MID = 20;
-//		const int FLLabanSequence::RIGHT_LOW = 21;
-//
-//		const int FLLabanSequence::DIAGONAL_BACK_RIGHT_HIGH = 22;
-//		const int FLLabanSequence::DIAGONAL_BACK_RIGHT_MID = 23;
-//		const int FLLabanSequence::DIAGONAL_BACK_RIGHT_LOW = 24;
-//
-//		const int FLLabanSequence::BACK_RIGHT_HIGH = 25;
-//		const int FLLabanSequence::BACK_RIGHT_MID = 26;
-//		const int FLLabanSequence::BACK_RIGHT_LOW = 27;
-//
-//		const int FLLabanSequence::BACK_LEFT_HIGH = 28;
-//		const int FLLabanSequence::BACK_LEFT_MID = 29;
-//		const int FLLabanSequence::BACK_LEFT_LOW = 30;
-//
-//		const int FLLabanSequence::DIAGONAL_BACK_LEFT_HIGH = 31;
-//		const int FLLabanSequence::DIAGONAL_BACK_LEFT_MID = 32;
-//		const int FLLabanSequence::DIAGONAL_BACK_LEFT_LOW = 33;
+			//close staff
+			sstr << "\t" << "</staff>" << std::endl;
+
+			//close score tag
+			sstr << "</score>" << std::endl;
+
+			return sstr.str();
+		}
+
 
 	} // namespace fl
 } // namespace mae
