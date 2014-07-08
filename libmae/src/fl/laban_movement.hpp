@@ -32,11 +32,18 @@ namespace mae
 		{
 			public:
 				laban_movement();
+				laban_movement(int column, unsigned int measure, double beat, double duration, bool hold, direction dir, level lvl, contact_hook c_hook = contact_hook::NONE);
 				virtual ~laban_movement();
 
 				virtual std::string xml();
 
-				static std::shared_ptr<laban_movement> parse(std::string str);
+				int get_column();
+				unsigned int get_measure();
+				double get_beat();
+				double get_duration();
+				bool get_hold();
+				direction get_direction();
+				level get_level();
 
 			private:
 				int column_;

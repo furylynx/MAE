@@ -22,12 +22,52 @@ namespace mae
 	namespace fl
 	{
 
-		enum class area_sign {HEAD, CHEST, WAIST, PELVIS, TORSO};
-		enum class joint_sign {SHOULDER, ELBOW, WRIST, HAND, FINGERS, HIP, KNEE, ANKLE, FOOT, TOES};
-		enum class digit_sign {THUMB, INDEXFINGER, MIDDLEFINGER, RINGFINGER, LITTLEFINGER, BIGTOE, LONGTOE, MIDDLETOE, RINGTOE, LITTLETOE};
-		enum class limb_sign {ARM, LEG, NECK, UPPER_ARM, LOWER_ARM, THIGH, LOWER_LEG };
-		enum class surface_sign {OUTER, LITTLEFINGER, THUMB, OUTERLITTLEFINGER, INNERLITTLEFINGER, OUTERTHUMB, INNERTHUMB};
+		enum class pre_sign {AREA_HEAD,
+		                     AREA_CHEST,
+		                     AREA_WAIST,
+		                     AREA_PELVIS,
+		                     AREA_TORSO,
+		                     JOINT_SHOULDER,
+                             JOINT_ELBOW,
+                             JOINT_WRIST,
+                             JOINT_HAND,
+                             JOINT_FINGERS,
+                             JOINT_HIP,
+                             JOINT_KNEE,
+		                     JOINT_ANKLE,
+		                     JOINT_FOOT,
+		                     JOINT_TOES,
+		                     DIGIT_THUMB,
+		                     DIGIT_INDEXFINGER,
+		                     DIGIT_MIDDLEFINGER,
+		                     DIGIT_RINGFINGER,
+		                     DIGIT_LITTLEFINGER,
+		                     DIGIT_BIGTOE,
+		                     DIGIT_LONGTOE,
+		                     DIGIT_MIDDLETOE,
+		                     DIGIT_RINGTOE,
+		                     DIGIT_LITTLETOE,
+		                     LIMB_ARM,
+		     				 LIMB_LEG,
+		     				 LIMB_NECK,
+		     				 LIMB_UPPER_ARM,
+		     				 LIMB_LOWER_ARM,
+		     				 LIMB_THIGH,
+		     				 LIMB_LOWER_LEG,
+		     				 };
 
+		enum class side {
+				NONE,
+				LEFT,
+				RIGHT,
+				SURFACE_OUTER,
+				SURFACE_LITTLEFINGER,
+				SURFACE_THUMB,
+				SURFACE_OUTERLITTLEFINGER,
+				SURFACE_INNERLITTLEFINGER,
+				SURFACE_OUTERTHUMB,
+				SURFACE_INNERTHUMB
+		};
 
 		class laban_column
 		{
@@ -37,6 +77,11 @@ namespace mae
 
 			private:
 				int column_index_;
+				pre_sign pre_sign_;
+				side side_;
+				unsigned int digit_joint;//0-4 for a digit pre-sign
+
+				//TODO custom limb
 
 		};
 
