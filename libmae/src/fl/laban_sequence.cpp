@@ -18,7 +18,142 @@ namespace mae {
 			// TODO Auto-generated destructor stub
 		}
 
+		void laban_sequence::set_version(std::string version)
+		{
+			version_ = version;
+		}
 
+		std::string laban_sequence::get_version()
+		{
+			return version_;
+		}
+
+		void laban_sequence::set_authors(std::vector<std::string> authors)
+		{
+			authors_ = authors;
+		}
+		std::vector<std::string> laban_sequence::get_authors()
+		{
+			return authors_;
+		}
+
+		void laban_sequence::set_title(std::string title)
+		{
+			title_ = title;
+		}
+
+		std::string laban_sequence::get_title()
+		{
+			return title_;
+		}
+
+		void laban_sequence::set_description(std::string description)
+		{
+			description_ = description;
+		}
+
+		std::string laban_sequence::get_description()
+		{
+			return description_;
+		}
+
+		void laban_sequence::set_measures(unsigned int measures)
+		{
+			measures_ = measures;
+		}
+
+		unsigned int laban_sequence::get_measures()
+		{
+			return measures_;
+		}
+
+		void laban_sequence::set_time_unit(time_unit tu)
+		{
+			time_unit_ = tu;
+		}
+
+		time_unit laban_sequence::get_time_unit()
+		{
+			return time_unit_;
+		}
+
+		void laban_sequence::set_beat_duration(unsigned int beat_duration)
+		{
+			beat_duration_ = beat_duration;
+		}
+
+		unsigned int laban_sequence::get_beat_duration()
+		{
+			return beat_duration_;
+		}
+
+		void laban_sequence::set_beats(unsigned int beats)
+		{
+			beats_ = beats;
+		}
+
+		unsigned int laban_sequence::get_beats()
+		{
+			return beats_;
+		}
+
+		void laban_sequence::set_column_definitions(std::vector<std::string> column_definitions)
+		{
+			column_definitions_ = column_definitions;
+		}
+		std::vector<std::string> laban_sequence::get_column_definitions()
+		{
+			return column_definitions_;
+		}
+
+		void laban_sequence::set_movements(std::vector<std::shared_ptr<laban_movement> > movements)
+		{
+			movements_vec_ = movements;
+
+			//TODO
+//			for (unsigned int i = 0; i< movements.size(); i++)
+//			{
+//				movements_.insert(std::make_pair(movements.at(i)->get_column(), movements.at(i)));
+//			}
+		}
+
+		std::vector<std::shared_ptr<laban_movement> > laban_sequence::get_movements()
+		{
+			return movements_vec_;
+		}
+
+		void laban_sequence::add_movement(int column, std::shared_ptr<laban_movement> movement)
+		{
+			movements_vec_.push_back(movement);
+
+			std::vector<std::shared_ptr<laban_movement> > col;
+			if (movements_.find(movement->get_column()) != movements_.end())
+			{
+				col = movements_.at(movement->get_column());
+
+				//TODO insert at correct position (order by time)
+				//TODO check for intersections...
+				col.push_back(movement);
+				movements_[movement->get_column()] = col;
+			}
+			else
+			{
+				col.push_back(movement);
+				movements_.insert(col);
+			}
+		}
+
+		std::vector<std::shared_ptr<laban_movement> > laban_sequence::get_movements(int column)
+		{
+			if (movements_.find(column) != movements_.end())
+			{
+				return movements_.at(column);
+			}
+			else
+			{
+				return std::vector<std::shared_ptr<laban_movement> >();
+			}
+		}
 
 
 //		//directions and levels
