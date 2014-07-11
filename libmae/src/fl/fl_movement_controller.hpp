@@ -13,11 +13,12 @@
 
 //custom includes
 #include "fl_skeleton.hpp"
-#include "laban_sequence.hpp"
 #include "fl_pose_detector.hpp"
-#include "laban_sequence_generator.hpp"
 #include "fl_skeleton_controller.hpp"
 #include "flj.hpp"
+
+#include "laban/laban_sequence.hpp"
+#include "laban/laban_sequence_generator.hpp"
 
 #include "../model/bone.hpp"
 #include "../model/general_skeleton.hpp"
@@ -31,7 +32,7 @@
 namespace mae {
 	namespace fl {
 
-		class fl_movement_controller : public movement_controller<fl_skeleton, laban_sequence>{
+		class fl_movement_controller : public movement_controller<fl_skeleton, laban::laban_sequence>{
 			public:
 				fl_movement_controller();
 				fl_movement_controller(std::vector<bone> bodyParts);

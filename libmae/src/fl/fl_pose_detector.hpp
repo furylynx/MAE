@@ -14,9 +14,11 @@
 //custom includes
 #include "../controller/i_pose_detector.hpp"
 #include "../model/bone.hpp"
+
+#include "laban/laban_sequence.hpp"
+
 #include "fl_skeleton.hpp"
 #include "math.hpp"
-#include "laban_sequence.hpp"
 #include "fld.hpp"
 #include "flj.hpp"
 
