@@ -77,7 +77,7 @@ namespace mae
 		{
 		}
 
-		std::shared_ptr<mae::fl::fl_skeleton> fl_skeleton_controller::specified_skeleton(
+		std::shared_ptr<fl_skeleton> fl_skeleton_controller::specified_skeleton(
 				std::shared_ptr<general_skeleton> skeleton)
 		{
 			const bool calculate_angular = false;
