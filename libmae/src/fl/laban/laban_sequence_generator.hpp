@@ -1,21 +1,21 @@
 /*
- * FLLabanSequenceGenerator.hpp
+ * laban_sequence_generator.hpp
  *
  *  Created on: 20.05.2014
  *      Author: keks
  */
 
-#ifndef FLLABANSEQUENCEGENERATOR_HPP_
-#define FLLABANSEQUENCEGENERATOR_HPP_
+#ifndef LABAN_SEQUENCE_GENERATOR_HPP_
+#define LABAN_SEQUENCE_GENERATOR_HPP_
 
 //eclipse indexer fix
-#include "../indexer_fix.hpp"
+#include "../../indexer_fix.hpp"
 
 //custom includes
 #include "laban_sequence.hpp"
-#include "../model/general_enriched_pose.hpp"
-#include "../model/bone.hpp"
-#include "../controller/i_sequence_generator.hpp"
+#include "../../model/general_enriched_pose.hpp"
+#include "../../model/bone.hpp"
+#include "../../controller/i_sequence_generator.hpp"
 
 //global includes
 #include <memory>
@@ -26,6 +26,8 @@ namespace mae
 {
 	namespace fl
 	{
+		namespace laban
+		{
 
 		class laban_sequence_generator: public i_sequence_generator<laban_sequence>
 		{
@@ -39,7 +41,8 @@ namespace mae
 
 		};
 
+		} // namespace laban
 	} // namespace fl
 } // namespace mae
 
-#endif // FLLABANSEQUENCEGENERATOR_HPP_
+#endif // LABAN_SEQUENCE_GENERATOR_HPP_

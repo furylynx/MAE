@@ -12,6 +12,8 @@ namespace mae
 {
 	namespace fl
 	{
+		namespace laban
+		{
 
 		laban_sequence_generator::laban_sequence_generator()
 		{
@@ -25,12 +27,13 @@ namespace mae
 				std::list<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<bone> bodyParts)
 		{
 
-			std::shared_ptr<mae::fl::laban_sequence> sequence;
+			std::shared_ptr<laban_sequence> sequence;
 
 			//todo do stuff in here
 
 			return sequence;
 		}
 
+		} // namespace laban
 	} // namespace fl
 } // namespace mae
