@@ -27,7 +27,6 @@
 //global includes
 #include <iostream>
 
-
 namespace mae {
 	namespace fl {
 

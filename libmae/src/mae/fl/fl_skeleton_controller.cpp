@@ -7,8 +7,6 @@
 
 #include "fl_skeleton_controller.hpp"
 
-//using mae::controller::ISkeletonController<mae::fl::FLSkeleton>::~ISkeletonController;
-
 namespace mae
 {
 	namespace fl
