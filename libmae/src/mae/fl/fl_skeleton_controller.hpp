@@ -38,7 +38,7 @@ namespace mae {
 				fl_skeleton_controller();
 				virtual ~fl_skeleton_controller();
 
-				virtual std::shared_ptr<mae::fl::fl_skeleton> specified_skeleton(std::shared_ptr<general_skeleton> skeleton);
+				virtual std::shared_ptr<fl_skeleton> specified_skeleton(std::shared_ptr<general_skeleton> skeleton);
 
 
 				//only defined in FLSkeletonController
