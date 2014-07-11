@@ -28,7 +28,6 @@
 #include <cmath>
 #include <memory>
 
-
 namespace mae {
 	namespace fl {
 

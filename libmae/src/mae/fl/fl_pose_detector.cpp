@@ -7,6 +7,7 @@
 
 #include "fl_pose_detector.hpp"
 
+
 namespace mae
 {
 	namespace fl
