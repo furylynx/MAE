@@ -15,7 +15,7 @@ namespace mae
 		{
 			namespace mv
 			{
-				std::string e_direction_str::str(e_direction direction)
+				std::string e_direction_c::str(e_direction direction)
 				{
 					switch (direction)
 					{
@@ -34,7 +34,95 @@ namespace mae
 					throw std::invalid_argument("Enum value not listed in the str() method");
 				}
 
+				e_direction e_direction_c::dir(e_fl_direction direction)
+				{
+					if (
+							direction == e_fl_direction::P_H	||
+							direction == e_fl_direction::P_M	||
+							direction == e_fl_direction::P_L
+					)
+					{
+						return e_direction::PLACE;
+					}
+					else if (
+							direction == e_fl_direction::L_H	||
+							direction == e_fl_direction::L_M	||
+							direction == e_fl_direction::L_L
+					)
+					{
+						return e_direction::LEFT;
+					}
+					else if (
+							direction == e_fl_direction::D_F_L_H	||
+							direction == e_fl_direction::D_F_L_M	||
+							direction == e_fl_direction::D_F_L_L
+					)
+					{
+						return e_direction::LEFT_FORWARD;
+					}
+					else if (
+							direction == e_fl_direction::F_L_H	||
+							direction == e_fl_direction::F_L_M	||
+							direction == e_fl_direction::F_L_L  ||
+							direction == e_fl_direction::F_R_H	||
+							direction == e_fl_direction::F_R_M	||
+							direction == e_fl_direction::F_R_L
+					)
+					{
+						return e_direction::FORWARD;
+					}
+					else if (
+							direction == e_fl_direction::D_F_R_H	||
+							direction == e_fl_direction::D_F_R_M	||
+							direction == e_fl_direction::D_F_R_L
+					)
+					{
+						return e_direction::RIGHT_FORWARD;
+					}
+					else if (
+							direction == e_fl_direction::R_H	||
+							direction == e_fl_direction::R_M	||
+							direction == e_fl_direction::R_L
+					)
+					{
+						return e_direction::RIGHT;
+					}
+					else if (
+							direction == e_fl_direction::D_B_R_H	||
+							direction == e_fl_direction::D_B_R_M	||
+							direction == e_fl_direction::D_B_R_L
+					)
+					{
+						return e_direction::RIGHT_BACKWARD;
+					}
+					else if (
+							direction == e_fl_direction::B_R_H	||
+							direction == e_fl_direction::B_R_M	||
+							direction == e_fl_direction::B_R_L  ||
+							direction == e_fl_direction::B_L_H	||
+							direction == e_fl_direction::B_L_M	||
+							direction == e_fl_direction::B_L_L
+					)
+					{
+						return e_direction::BACKWARD;
+					}
+					else if (
+							direction == e_fl_direction::D_B_L_H	||
+							direction == e_fl_direction::D_B_L_M	||
+							direction == e_fl_direction::D_B_L_L
+					)
+					{
+						return e_direction::LEFT_BACKWARD;
+					}
+					else if (direction == e_fl_direction::INVALID)
+					{
+						return e_direction::NONE;
+					}
 
+
+
+					throw std::invalid_argument("Enum value not listed in the dir() method");
+				}
 
 			} // namespace mv
 		} // namespace laban

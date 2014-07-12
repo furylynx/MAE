@@ -12,7 +12,7 @@
 #include "../../../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "../../e_fl_direction.hpp"
 
 //global includes
 #include <string>
@@ -41,10 +41,11 @@ namespace mae
 						RIGHT_BACKWARD
 				};
 
-				class e_direction_str
+				class e_direction_c
 				{
 					public:
 						static std::string str(e_direction direction);
+						static e_direction dir(e_fl_direction direction);
 				};
 
 			} // namespace mv

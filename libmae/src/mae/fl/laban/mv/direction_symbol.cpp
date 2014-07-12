@@ -80,8 +80,8 @@ namespace mae
 					//print accent sign
 					sstr << indent_stream.str() << "<direction>" << std::endl;
 
-					sstr << indent_stream.str() << "\t" << "<vertical>" << e_level_str::str(vertical_) << "</vertical>" << std::endl;
-					sstr << indent_stream.str() << "\t" << "<horizontal>" << e_direction_str::str(horizontal_) << "</horizontal>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<vertical>" << e_level_c::str(vertical_) << "</vertical>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<horizontal>" << e_direction_c::str(horizontal_) << "</horizontal>" << std::endl;
 
 					if (modification_pin_ != nullptr)
 					{

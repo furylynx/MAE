@@ -12,7 +12,7 @@
 #include "../../../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "../../e_fl_direction.hpp"
 
 //global includes
 #include <string>
@@ -35,10 +35,11 @@ namespace mae
 						LOW
 				};
 
-				class e_level_str
+				class e_level_c
 				{
 					public:
 						static std::string str(e_level level);
+						static e_level lvl(e_fl_direction direction);
 				};
 
 			} // namespace mv

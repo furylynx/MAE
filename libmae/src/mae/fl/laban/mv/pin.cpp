@@ -59,7 +59,7 @@ namespace mae
 					std::stringstream sstr;
 
 					//print accent sign
-					sstr << indent_stream.str() << "<vertical>" << e_level_str::str(level_) << "</vertical>" << std::endl;
+					sstr << indent_stream.str() << "<vertical>" << e_level_c::str(level_) << "</vertical>" << std::endl;
 					sstr << indent_stream.str() << "<horizontal>" << horizontal_ << "</horizontal>" << std::endl;
 
 					return sstr.str();

@@ -13,6 +13,14 @@
 
 //custom includes
 #include "laban_sequence.hpp"
+
+#include "mv/i_symbol.hpp"
+#include "mv/direction_symbol.hpp"
+#include "mv/e_level.hpp"
+#include "mv/e_direction.hpp"
+
+#include "../e_fl_direction.hpp"
+
 #include "../../general_enriched_pose.hpp"
 #include "../../bone.hpp"
 #include "../../i_sequence_generator.hpp"
@@ -21,6 +29,7 @@
 #include <memory>
 #include <vector>
 #include <list>
+#include <unordered_map>
 
 namespace mae
 {
