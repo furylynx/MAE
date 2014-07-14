@@ -29,7 +29,7 @@ namespace mae
 				class i_pre_sign
 				{
 					public:
-						virtual ~i_pre_sign();
+						virtual ~i_pre_sign(){}
 
 						virtual std::string xml(unsigned int indent = 0) = 0;
 				};

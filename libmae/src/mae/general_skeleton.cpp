@@ -55,7 +55,11 @@ namespace mae
 
 		if (hashmap_joints.find(body_part) == hashmap_joints.end())
 		{
-			throw std::invalid_argument("Body part not listed in the map.");
+			std::stringstream sstr;
+			sstr << "Body part not listed in the skeleton's map";
+			sstr << " (body part " << body_part << ").";
+
+			throw std::invalid_argument(sstr.str().c_str());
 		}
 		else
 		{

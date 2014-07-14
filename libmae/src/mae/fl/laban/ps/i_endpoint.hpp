@@ -30,7 +30,7 @@ namespace mae
 				class i_endpoint: public i_part
 				{
 					public:
-						virtual ~i_endpoint();
+						virtual ~i_endpoint(){}
 
 						virtual std::string xml(unsigned int indent = 0) = 0;
 				};

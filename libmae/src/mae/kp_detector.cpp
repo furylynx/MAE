@@ -10,10 +10,9 @@
 namespace mae
 {
 
-	kp_detector::kp_detector()
+	kp_detector::kp_detector(bool debug)
 	{
-
-
+		this->debug_ = debug;
 	}
 
 	kp_detector::~kp_detector()
@@ -25,23 +24,31 @@ namespace mae
 			std::list<std::shared_ptr<general_enriched_pose> > previous_sequence, std::vector<bone> body_parts)
 	{
 
+		if (debug_)
+		{
+			std::cout << "kp_detector: estimate fame" << std::endl;
+		}
+
 		std::shared_ptr<general_enriched_pose> result = std::shared_ptr<general_enriched_pose>(
 				new general_enriched_pose(current_pose));
 
+		//initialize with false
+		std::cout << "KPDet:" << std::endl;
+		for (unsigned int i = 0; i < body_parts.size(); i++)
+		{
+			std::cout << "KPDet: bone id " << body_parts.at(i).get_id() << std::endl;
+			result->set_key_pose(body_parts.at(i).get_id(), true);
+			result->set_in_motion(body_parts.at(i).get_id(), false);
+		}
 
 		//TODO handle glitches!!
 
-		for (unsigned int i = 0; i < body_parts.size(); i++)
+		if (!previous_sequence.empty())
 		{
-			int body_part_id = body_parts.at(i).get_id();
+			for (unsigned int i = 0; i < body_parts.size(); i++)
+			{
+				int body_part_id = body_parts.at(i).get_id();
 
-			if (previous_sequence.empty())
-			{
-				result->set_key_pose(body_part_id, true);
-				result->set_in_motion(body_part_id, false);
-			}
-			else
-			{
 				//find the last key pose
 				std::shared_ptr<general_enriched_pose> prev_kp = *previous_sequence.begin();
 				unsigned int dist = 1;
@@ -56,7 +63,6 @@ namespace mae
 					}
 					dist++;
 				}
-
 
 				if (prev_kp->get_direction(body_part_id) == result->get_direction(body_part_id))
 				{
@@ -113,9 +119,6 @@ namespace mae
 				}
 			}
 		}
-
-		//TODO remove
-		std::cout << "estimate key frames - done" << std::endl;
 
 		return result;
 	}

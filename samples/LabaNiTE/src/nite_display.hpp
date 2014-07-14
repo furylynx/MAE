@@ -15,11 +15,11 @@
 #include "sdl_controller.hpp"
 
 //global includes
-#include <model/maeb.hpp>
-#include <fl/fld.hpp>
+#include <mae/e_bone.hpp>
+#include <mae/fl/e_fl_direction.hpp>
 
-#include <model/general_pose.hpp>
-#include <model/pose_listener.hpp>
+#include <mae/general_pose.hpp>
+#include <mae/pose_listener.hpp>
 //#include <model/general_skeleton.hpp>
 
 

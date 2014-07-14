@@ -29,7 +29,7 @@ namespace mae
 				class i_symbol
 				{
 					public:
-						virtual ~i_symbol();
+						virtual ~i_symbol(){}
 
 						virtual std::string xml(unsigned int indent = 0) = 0;
 				};

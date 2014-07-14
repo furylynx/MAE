@@ -11,7 +11,8 @@
 //eclipse indexer fix
 
 //custom includes
-#include <model/general_skeleton.hpp>
+#include <mae/general_skeleton.hpp>
+#include <mae/e_joint.hpp>
 
 //global includes
 #include <fstream>

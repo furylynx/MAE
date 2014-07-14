@@ -201,49 +201,81 @@ namespace lni
 			//----------
 
 			joint_ids.push_back(XN_SKEL_LEFT_HIP);
-			joint_ids_mae.push_back(mae::MAEJ_LEFT_HIP);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::LEFT_HIP));
 
 			joint_ids.push_back(XN_SKEL_RIGHT_HIP);
-			joint_ids_mae.push_back(mae::MAEJ_RIGHT_HIP);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::RIGHT_HIP));
 
 			joint_ids.push_back(XN_SKEL_TORSO);
-			joint_ids_mae.push_back(mae::MAEJ_TORSO);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::TORSO));
 
 			joint_ids.push_back(XN_SKEL_LEFT_SHOULDER);
-			joint_ids_mae.push_back(mae::MAEJ_LEFT_SHOULDER);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::LEFT_SHOULDER));
 
 			joint_ids.push_back(XN_SKEL_RIGHT_SHOULDER);
-			joint_ids_mae.push_back(mae::MAEJ_RIGHT_SHOULDER);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::RIGHT_SHOULDER));
 
 			joint_ids.push_back(XN_SKEL_NECK);
-			joint_ids_mae.push_back(mae::MAEJ_NECK);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::NECK));
 
 			joint_ids.push_back(XN_SKEL_HEAD);
-			joint_ids_mae.push_back(mae::MAEJ_HEAD);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::HEAD));
 
 			joint_ids.push_back(XN_SKEL_LEFT_ELBOW);
-			joint_ids_mae.push_back(mae::MAEJ_LEFT_ELBOW);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::LEFT_ELBOW));
 
 			joint_ids.push_back(XN_SKEL_LEFT_HAND);
-			joint_ids_mae.push_back(mae::MAEJ_LEFT_HAND);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::LEFT_HAND));
 
 			joint_ids.push_back(XN_SKEL_RIGHT_ELBOW);
-			joint_ids_mae.push_back(mae::MAEJ_RIGHT_ELBOW);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::RIGHT_ELBOW));
 
 			joint_ids.push_back(XN_SKEL_RIGHT_HAND);
-			joint_ids_mae.push_back(mae::MAEJ_RIGHT_HAND);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::RIGHT_HAND));
 
 			joint_ids.push_back(XN_SKEL_LEFT_KNEE);
-			joint_ids_mae.push_back(mae::MAEJ_LEFT_KNEE);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::LEFT_KNEE));
 
 			joint_ids.push_back(XN_SKEL_LEFT_FOOT);
-			joint_ids_mae.push_back(mae::MAEJ_LEFT_FOOT);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::LEFT_FOOT));
 
 			joint_ids.push_back(XN_SKEL_RIGHT_KNEE);
-			joint_ids_mae.push_back(mae::MAEJ_RIGHT_KNEE);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::RIGHT_KNEE));
 
 			joint_ids.push_back(XN_SKEL_RIGHT_FOOT);
-			joint_ids_mae.push_back(mae::MAEJ_RIGHT_FOOT);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::RIGHT_FOOT));
+
+
+			//dummy joints
+			joint_ids.push_back(XN_SKEL_TORSO);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::TLS));
+
+			joint_ids.push_back(XN_SKEL_TORSO);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::TRS));
+
+			joint_ids.push_back(XN_SKEL_TORSO);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::TLH));
+
+			joint_ids.push_back(XN_SKEL_TORSO);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::TRH));
+
+			joint_ids.push_back(XN_SKEL_TORSO);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::TN));
+
+			joint_ids.push_back(XN_SKEL_LEFT_HAND);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::END_LH));
+
+			joint_ids.push_back(XN_SKEL_RIGHT_HAND);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::END_RH));
+
+			joint_ids.push_back(XN_SKEL_LEFT_FOOT);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::END_LF));
+
+			joint_ids.push_back(XN_SKEL_RIGHT_FOOT);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::END_RF));
+
+			joint_ids.push_back(XN_SKEL_HEAD);
+			joint_ids_mae.push_back(mae::e_joint_c::to_int(mae::e_joint::END_H));
 
 			//----------
 			//NiTE initialization stuff here

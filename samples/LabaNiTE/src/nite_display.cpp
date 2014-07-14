@@ -90,67 +90,67 @@ namespace lni
 
 				//Give the offsets to the rectangle
 
-				if (*it == mae::MAEB_HEAD)
+				if (*it == mae::e_bone_c::to_int(mae::e_bone::HEAD))
 				{
 					offset_scale.x = 930;
 					offset_scale.y = 100;
 				}
-				else if (*it == mae::MAEB_LEFT_UPPER_ARM)
+				else if (*it == mae::e_bone_c::to_int(mae::e_bone::LEFT_UPPER_ARM))
 				{
 					offset_scale.x = 400;
 					offset_scale.y = 150;
 				}
-				else if (*it == mae::MAEB_LEFT_FOREARM)
+				else if (*it == mae::e_bone_c::to_int(mae::e_bone::LEFT_FOREARM))
 				{
 					offset_scale.x = 400;
 					offset_scale.y = 400;
 				}
-				else if (*it == mae::MAEB_LEFT_WHOLE_ARM)
+				else if (*it == mae::e_bone_c::to_int(mae::e_bone::LEFT_WHOLE_ARM))
 				{
 					offset_scale.x = 300;
 					offset_scale.y = 275;
 				}
-				else if (*it == mae::MAEB_RIGHT_UPPER_ARM)
+				else if (*it == mae::e_bone_c::to_int(mae::e_bone::RIGHT_UPPER_ARM))
 				{
 					offset_scale.x = 1520;
 					offset_scale.y = 150;
 				}
-				else if (*it == mae::MAEB_RIGHT_FOREARM)
+				else if (*it == mae::e_bone_c::to_int(mae::e_bone::RIGHT_FOREARM))
 				{
 					offset_scale.x = 1520;
 					offset_scale.y = 400;
 				}
-				else if (*it == mae::MAEB_RIGHT_WHOLE_ARM)
+				else if (*it == mae::e_bone_c::to_int(mae::e_bone::RIGHT_WHOLE_ARM))
 				{
 					offset_scale.x = 1620;
 					offset_scale.y = 275;
 				}
-				else if (*it == mae::MAEB_LEFT_THIGH)
+				else if (*it == mae::e_bone_c::to_int(mae::e_bone::LEFT_THIGH))
 				{
 					offset_scale.x = 700;
 					offset_scale.y = 650;
 				}
-				else if (*it == mae::MAEB_LEFT_SHANK)
+				else if (*it == mae::e_bone_c::to_int(mae::e_bone::LEFT_SHANK))
 				{
 					offset_scale.x = 700;
 					offset_scale.y = 900;
 				}
-				else if (*it == mae::MAEB_LEFT_WHOLE_LEG)
+				else if (*it == mae::e_bone_c::to_int(mae::e_bone::LEFT_WHOLE_LEG))
 				{
 					offset_scale.x = 600;
 					offset_scale.y = 775;
 				}
-				else if (*it == mae::MAEB_RIGHT_THIGH)
+				else if (*it == mae::e_bone_c::to_int(mae::e_bone::RIGHT_THIGH))
 				{
 					offset_scale.x = 1220;
 					offset_scale.y = 650;
 				}
-				else if (*it == mae::MAEB_RIGHT_SHANK)
+				else if (*it == mae::e_bone_c::to_int(mae::e_bone::RIGHT_SHANK))
 				{
 					offset_scale.x = 1220;
 					offset_scale.y = 900;
 				}
-				else if (*it == mae::MAEB_RIGHT_WHOLE_LEG)
+				else if (*it == mae::e_bone_c::to_int(mae::e_bone::RIGHT_WHOLE_LEG))
 				{
 					offset_scale.x = 1320;
 					offset_scale.y = 775;
@@ -254,11 +254,17 @@ namespace lni
 		}
 
 		//load all other directions (33 images)
-		for (unsigned int i = mae::fl::FLD_INVALID + 1; i < mae::fl::FLD_SIZE; i++)
+		std::vector<mae::fl::e_fl_direction> fl_dirs = mae::fl::e_fl_direction_c::vec();
+		for (unsigned int i = 0; i < fl_dirs.size(); i++)
 		{
+			if (fl_dirs.at(i) == mae::fl::e_fl_direction::INVALID)
+			{
+				continue;
+			}
+
 			//load direction png image
 			std::stringstream sstr;
-			sstr << "resources/laban_direction" << i << ".png";
+			sstr << "resources/laban_direction" << mae::fl::e_fl_direction_c::to_int(fl_dirs.at(i)) << ".png";
 
 			SDL_Surface* png_sur = IMG_Load(sstr.str().c_str());
 

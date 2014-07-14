@@ -1,12 +1,13 @@
 src/nitecontroller.d: ../src/nitecontroller.cpp ../src/nitecontroller.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/model/general_skeleton.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/model/../indexer_fix.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/model/general_joint.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/model/maej.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/model/hierarchy.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/model/hierarchy_element.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/model/bone.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/model/maeb.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/general_skeleton.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/general_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy_element.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/e_bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp \
  /usr/include/ni/XnCppWrapper.h /usr/include/ni/XnOpenNI.h \
  /usr/include/ni/XnTypes.h /usr/include/ni/XnStatus.h \
  /usr/include/ni/XnPlatform.h \
@@ -24,21 +25,23 @@ src/nitecontroller.d: ../src/nitecontroller.cpp ../src/nitecontroller.hpp \
 
 ../src/nitecontroller.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/model/general_skeleton.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/general_skeleton.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/model/../indexer_fix.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/indexer_fix.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/model/general_joint.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/general_joint.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/model/maej.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/model/hierarchy.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/model/hierarchy_element.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy_element.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/model/bone.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/bone.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/model/maeb.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/e_bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp:
 
 /usr/include/ni/XnCppWrapper.h:
 

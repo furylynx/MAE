@@ -27,6 +27,7 @@
 #include <vector>
 #include <cmath>
 #include <memory>
+#include <iostream>
 
 namespace mae {
 	namespace fl {
@@ -35,7 +36,7 @@ namespace mae {
 		{
 
 			public:
-				fl_skeleton_controller();
+				fl_skeleton_controller(bool debug = false);
 				virtual ~fl_skeleton_controller();
 
 				virtual std::shared_ptr<fl_skeleton> specified_skeleton(std::shared_ptr<general_skeleton> skeleton);
@@ -51,6 +52,7 @@ namespace mae {
 				static cv::Vec2d second_degree(std::shared_ptr<general_skeleton> skeleton, int adjacent_joint, int outer_joint, int extremity_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
 
 			private:
+				bool debug_;
 				std::vector<std::vector<int> > skel_extremities;
 		};
 

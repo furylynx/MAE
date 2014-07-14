@@ -29,7 +29,7 @@ namespace mae
 				class i_dynamics_sign
 				{
 					public:
-						virtual ~i_dynamics_sign();
+						virtual ~i_dynamics_sign(){}
 
 						virtual std::string xml(unsigned int indent = 0) = 0;
 				};
