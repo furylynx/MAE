@@ -13,8 +13,10 @@ namespace mae
 	namespace fl
 	{
 
-		fl_pose_detector::fl_pose_detector()
+		fl_pose_detector::fl_pose_detector(bool debug)
 		{
+			debug_ = debug;
+
 			//initialize directions on circle
 			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::P_H), cv::Vec3d(-1, 0, 0)));
 			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::P_M), cv::Vec3d(0, 0, 0)));
@@ -69,6 +71,11 @@ namespace mae
 		std::shared_ptr<general_pose> fl_pose_detector::pose(std::shared_ptr<fl_skeleton> skeleton,
 				std::vector<bone> body_parts)
 		{
+			if (debug_)
+			{
+				std::cout << "fl_pose_detector: detect pose" << std::endl;
+			}
+
 			return vector_pose(skeleton, body_parts);
 		}
 
@@ -82,6 +89,11 @@ namespace mae
 			{
 				for (e_fl_direction dir : e_fl_direction_c::vec())
 				{
+					if (dir == e_fl_direction::INVALID)
+					{
+						continue;
+					}
+
 					if (dir == e_fl_direction::P_M)
 					{
 						if (body_parts.at(bone_index).has_middle_joint())
@@ -161,6 +173,11 @@ namespace mae
 					e_fl_direction min_dist_dir = e_fl_direction::INVALID;
 					for (e_fl_direction dir : e_fl_direction_c::vec())
 					{
+						if (dir == e_fl_direction::INVALID)
+						{
+							continue;
+						}
+
 						if ((min_dist_dir == e_fl_direction::INVALID
 								&& result->get_distance(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(dir)) >= 0)
 								|| (result->get_distance(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(dir))

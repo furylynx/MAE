@@ -58,11 +58,11 @@ namespace mae
 	{
 		if (hashmap_keypose_.find(bodyPart) == hashmap_keypose_.end())
 		{
-			return hashmap_keypose_.at(bodyPart);
+			throw std::invalid_argument("Body part not listed in the enriched pose's map.");
 		}
 		else
 		{
-			throw std::invalid_argument("Body part not listed in the map.");
+			return hashmap_keypose_.at(bodyPart);
 		}
 	}
 
@@ -87,11 +87,11 @@ namespace mae
 
 		if (hashmap_inmotion_.find(bodyPart) == hashmap_inmotion_.end())
 		{
-			return hashmap_inmotion_.at(bodyPart);
+			throw std::invalid_argument("Body part not listed in the enriched pose's map.");
 		}
 		else
 		{
-			throw std::invalid_argument("Body part not listed in the map.");
+			return hashmap_inmotion_.at(bodyPart);
 		}
 	}
 

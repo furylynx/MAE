@@ -51,7 +51,7 @@ namespace mae
 
 			if (hashmap_direction_.find(body_part) == hashmap_direction_.end())
 			{
-				throw std::invalid_argument("Body part not listed in the map.");
+				throw std::invalid_argument("Body part not listed in the pose's map.");
 			}
 			else
 			{
@@ -102,7 +102,7 @@ namespace mae
 
 			if (hashmap_distance_.find(body_part) == hashmap_distance_.end())
 			{
-				throw std::invalid_argument("Body part not listed in the map.");
+				throw std::invalid_argument("Body part not listed in the pose's map.");
 			}
 			else
 			{

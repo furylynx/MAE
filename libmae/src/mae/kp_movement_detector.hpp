@@ -33,9 +33,9 @@ namespace mae
 	{
 		public:
 			kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
-					std::shared_ptr<i_sequence_generator<U> > isg);
+					std::shared_ptr<i_sequence_generator<U> > isg, bool debug = false);
 			kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
-					std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_kp_detector> ikpd);
+					std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_kp_detector> ikpd, bool debug = false);
 			virtual ~kp_movement_detector();
 
 			virtual std::shared_ptr<U> detect_movement(long timestamp, std::shared_ptr<T> skeleton, std::vector<bone> body_parts);
@@ -48,6 +48,7 @@ namespace mae
 			virtual void notify_listeners(long timestamp, std::shared_ptr<general_pose> pose);
 
 		private:
+			bool debug_;
 			std::shared_ptr<i_pose_detector<T> > ipd;
 			std::shared_ptr<i_sequence_generator<U> > isg;
 			std::shared_ptr<i_kp_detector> ikpd;
@@ -65,11 +66,12 @@ namespace mae
 
 	template<typename T, typename U>
 	kp_movement_detector<T, U>::kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
-			std::shared_ptr<i_sequence_generator<U> > isg)
+			std::shared_ptr<i_sequence_generator<U> > isg, bool debug)
 	{
+		this->debug_ = debug;
 		this->ipd = ipd;
 		this->isg = isg;
-		this->ikpd = std::shared_ptr<i_kp_detector>(new kp_detector());
+		this->ikpd = std::shared_ptr<i_kp_detector>(new kp_detector(debug));
 
 		this->pose_buffer_size = 20;
 
@@ -77,8 +79,9 @@ namespace mae
 
 	template<typename T, typename U>
 	kp_movement_detector<T, U>::kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
-			std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_kp_detector> ikpd)
+			std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_kp_detector> ikpd, bool debug)
 	{
+		this->debug_ = debug;
 		this->ipd = ipd;
 		this->isg = isg;
 		this->ikpd = ikpd;
@@ -97,6 +100,11 @@ namespace mae
 	std::shared_ptr<U> kp_movement_detector<T, U>::detect_movement(long timestamp, std::shared_ptr<T> skeleton,
 			std::vector<bone> body_parts)
 	{
+		if (debug_)
+		{
+			std::cout << "kp_movement_detector: detect movement" << std::endl;
+		}
+
 		std::shared_ptr<U> sequence;
 
 		if (ipd)
@@ -160,6 +168,11 @@ namespace mae
 	template<typename T, typename U>
 	void kp_movement_detector<T, U>::notify_listeners(long timestamp, std::shared_ptr<general_pose> pose)
 	{
+		if (debug_ && listeners_.size() > 0)
+		{
+			std::cout << "kp_movement_detector: notify (pose) listeners" << std::endl;
+		}
+
 		for (std::list<std::shared_ptr<pose_listener>>::iterator it = listeners_.begin(); it != listeners_.end(); it++)
 		{
 			(*it)->on_pose(timestamp, pose);

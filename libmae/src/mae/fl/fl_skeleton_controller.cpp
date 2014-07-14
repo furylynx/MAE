@@ -12,8 +12,9 @@ namespace mae
 	namespace fl
 	{
 
-		fl_skeleton_controller::fl_skeleton_controller()
+		fl_skeleton_controller::fl_skeleton_controller(bool debug)
 		{
+			debug_ = debug;
 
 			//initialize extremities
 
@@ -80,6 +81,11 @@ namespace mae
 		std::shared_ptr<fl_skeleton> fl_skeleton_controller::specified_skeleton(
 				std::shared_ptr<general_skeleton> skeleton)
 		{
+			if (debug_)
+			{
+				std::cout << "fl_skeleton_controller: specified skeleton" << std::endl;
+			}
+
 			const bool calculate_angular = false;
 
 			//get elements from the hierarchy

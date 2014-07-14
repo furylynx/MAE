@@ -30,7 +30,7 @@ namespace mae
 				class i_limb: public i_part
 				{
 					public:
-						virtual ~i_limb();
+						virtual ~i_limb(){}
 
 						virtual std::string xml(unsigned int indent = 0) = 0;
 				};

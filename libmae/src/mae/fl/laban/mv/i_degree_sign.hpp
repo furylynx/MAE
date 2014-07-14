@@ -29,7 +29,7 @@ namespace mae
 				class i_degree_sign
 				{
 					public:
-						virtual ~i_degree_sign();
+						virtual ~i_degree_sign(){}
 
 						virtual std::string xml(unsigned int indent = 0) = 0;
 				};

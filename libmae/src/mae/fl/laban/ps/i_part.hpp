@@ -29,7 +29,7 @@ namespace mae
 				class i_part
 				{
 					public:
-						virtual ~i_part();
+						virtual ~i_part(){}
 
 						virtual std::string xml(unsigned int indent = 0) = 0;
 				};

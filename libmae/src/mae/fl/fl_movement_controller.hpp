@@ -26,16 +26,39 @@
 
 //global includes
 #include <iostream>
+#include <vector>
+#include <memory>
 
 namespace mae {
 	namespace fl {
 
 		class fl_movement_controller : public movement_controller<fl_skeleton, laban::laban_sequence>{
 			public:
-				fl_movement_controller();
-				fl_movement_controller(std::vector<bone> bodyParts);
+				/**
+				 * Creates a new controller for movements analysis based on Labanotation and fl_skeletons.
+				 * The used body parts are assumed to be the default ones used by the NITE skeleton. Since
+				 * no column definition is given the default columns are the only ones that can be used.
+				 */
+				fl_movement_controller(bool debug = false);
+
+				/**
+				 * Creates a new controller for movements analysis based on Labanotation and fl_skeletons
+				 * which handles the given body parts and uses the defined columns for the Labanotation
+				 * sequence.
+				 *
+				 * @param bodyParts The body part which shall be handled.
+				 * @param column_definitions The columns which shall be defined besides those that are defined by default.
+				 */
+				fl_movement_controller(std::vector<bone> bodyParts, std::vector<std::shared_ptr<laban::column_definition> > column_definitions, bool debug = false);
 				virtual ~fl_movement_controller();
 
+				/**
+				 * Invokes the processing for a new frame. The skeleton provides the information wich
+				 * is the basis for any further calculations.
+				 *
+				 * @param timestamp The timestamp on which the skeleton occured.
+				 * @param skeleton The skeleton data for the frame.
+				 */
 				virtual void next_frame(long timestamp, std::shared_ptr<general_skeleton> skeleton);
 
 			private:

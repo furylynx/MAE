@@ -27,7 +27,7 @@ namespace mae
 			class i_movement
 			{
 				public:
-					virtual ~i_movement();
+					virtual ~i_movement(){}
 
 					virtual std::string xml(unsigned int indent = 0) = 0;
 			};

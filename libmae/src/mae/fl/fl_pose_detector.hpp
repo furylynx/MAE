@@ -37,19 +37,17 @@ namespace mae
 		class fl_pose_detector: public mae::i_pose_detector<fl_skeleton>
 		{
 			public:
-				fl_pose_detector();
+				fl_pose_detector(bool debug = false);
 				virtual ~fl_pose_detector();
 
 				virtual std::shared_ptr<mae::general_pose> pose(std::shared_ptr<fl_skeleton> skeleton,
 						std::vector<bone> body_parts);
 
-				virtual std::shared_ptr<mae::general_pose> angle_pose(std::shared_ptr<fl_skeleton> skeleton,
-										std::vector<bone> body_parts);
-
 				virtual std::shared_ptr<mae::general_pose> vector_pose(std::shared_ptr<fl_skeleton> skeleton,
 														std::vector<bone> body_parts);
 
 			private:
+				bool debug_;
 				std::unordered_map<int, cv::Vec3d> map_directions_;
 
 				const double PM_ACCEPT_DIST = 22.5;
