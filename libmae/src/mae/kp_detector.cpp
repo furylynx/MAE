@@ -7,6 +7,7 @@
 
 #include "kp_detector.hpp"
 
+
 namespace mae
 {
 
