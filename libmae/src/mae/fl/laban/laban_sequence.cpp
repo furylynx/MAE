@@ -179,14 +179,8 @@ namespace mae
 
 			void laban_sequence::add_movement(std::shared_ptr<i_movement> i_mov)
 			{
-				i_movements_vec_.push_back(i_mov);
-
 				if (std::shared_ptr<movement> mov = std::dynamic_pointer_cast<movement>(i_mov))
 				{
-					//i_mov is a movement
-
-					movements_vec_.push_back(mov);
-
 					int col_index = mov->get_column();
 
 					if (col_index != -4 && col_index != -2 && col_index != -1 && col_index != 1 && col_index != 2
@@ -199,27 +193,36 @@ namespace mae
 						}
 					}
 
+					movements_vec_.push_back(mov);
+
 					std::vector<std::shared_ptr<movement> > col;
 					if (movements_map_.find(mov->get_column()) != movements_map_.end())
 					{
 						col = movements_map_.at(mov->get_column());
 
 						//insert new movement at the correct position in order to have ascending time in the vector
-						for (unsigned int i = 0; i <= col.size(); i++)
+						unsigned int insert_pos = 0;
+						for (insert_pos = 0; insert_pos < col.size(); insert_pos++)
 						{
-							if (i == col.size())
-							{
-								//insert at the end of the vector
-								col.push_back(mov);
-							}
-							else if (col.at(i)->get_measure() <= mov->get_measure()
-									&& col.at(i)->get_beat() <= mov->get_beat())
+//							if (i == col.size())
+//							{
+//								//insert at the end of the vector
+//								col.push_back(mov);
+//
+//								//must break because
+//								break;
+//							}
+//							else
+
+							if (col.at(insert_pos)->get_measure() <= mov->get_measure()
+									&& col.at(insert_pos)->get_beat() <= mov->get_beat())
 							{
 								//insert at the position
-								col.insert(col.begin() + i, mov);
+
 								break;
 							}
 						}
+						col.insert(col.begin() + insert_pos, mov);
 
 						//update the map
 						movements_map_[mov->get_column()] = col;
@@ -231,6 +234,7 @@ namespace mae
 					}
 				}
 
+				i_movements_vec_.push_back(i_mov);
 			}
 
 			std::vector<std::shared_ptr<movement> > laban_sequence::get_column_movements(int column)

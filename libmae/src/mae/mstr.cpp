@@ -51,7 +51,7 @@ namespace mae
 	std::string mstr::to_lower(const std::string& value)
 	{
 		std::locale loc;
-		std::string result(value);
+		std::string result = value;
 
 		for (unsigned int k = 0; k < result.length(); k++)
 		{

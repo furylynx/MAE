@@ -56,6 +56,7 @@ namespace mae
 				bool debug_;
 				std::vector<std::shared_ptr<column_definition> > column_definitions_;
 
+
 		};
 
 		} // namespace laban

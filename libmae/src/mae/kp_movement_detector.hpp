@@ -73,7 +73,7 @@ namespace mae
 		this->isg = isg;
 		this->ikpd = std::shared_ptr<i_kp_detector>(new kp_detector(debug));
 
-		this->pose_buffer_size = 20;
+		this->pose_buffer_size = 400;
 
 	}
 
@@ -86,7 +86,7 @@ namespace mae
 		this->isg = isg;
 		this->ikpd = ikpd;
 
-		this->pose_buffer_size = 20;
+		this->pose_buffer_size = 400;
 	}
 
 	template<typename T, typename U>

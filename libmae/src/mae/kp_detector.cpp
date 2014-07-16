@@ -33,15 +33,18 @@ namespace mae
 				new general_enriched_pose(current_pose));
 
 		//initialize with false
-		std::cout << "KPDet:" << std::endl;
 		for (unsigned int i = 0; i < body_parts.size(); i++)
 		{
-			std::cout << "KPDet: bone id " << body_parts.at(i).get_id() << std::endl;
-			result->set_key_pose(body_parts.at(i).get_id(), true);
+			if (previous_sequence.empty())
+			{
+				result->set_key_pose(body_parts.at(i).get_id(), true);
+			}
+			else
+			{
+				result->set_key_pose(body_parts.at(i).get_id(), false);
+			}
 			result->set_in_motion(body_parts.at(i).get_id(), false);
 		}
-
-		//TODO handle glitches!!
 
 		if (!previous_sequence.empty())
 		{
@@ -64,9 +67,9 @@ namespace mae
 					dist++;
 				}
 
+				//check for same or different direction
 				if (prev_kp->get_direction(body_part_id) == result->get_direction(body_part_id))
 				{
-
 					//same direction, therefore check whether current pose is closer to the direction
 
 					if (dist < RANGE_KP
@@ -81,8 +84,8 @@ namespace mae
 				}
 				else
 				{
+					//different direction, therefore a new key pose was detected
 
-					//set current pose as key pose
 					result->set_key_pose(body_part_id, true);
 
 					//search for beginning of the motion
