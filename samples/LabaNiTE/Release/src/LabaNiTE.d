@@ -27,8 +27,20 @@ src/LabaNiTE.d: ../src/LabaNiTE.cpp ../src/nitecontroller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/e_fl_direction.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/general_pose.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/pose_listener.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/i_pose_listener.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/general_pose.hpp \
+ ../src/sequence_printer.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_listener.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/column_definition.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/i_movement.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/movement.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/i_symbol.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/e_time_unit.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_movement_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_skeleton.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_joint.hpp \
@@ -40,15 +52,6 @@ src/LabaNiTE.d: ../src/LabaNiTE.cpp ../src/nitecontroller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_pose.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/column_definition.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../indexer_fix.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/i_movement.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/movement.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/i_symbol.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../../indexer_fix.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/e_time_unit.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/math.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/e_fl_direction.hpp \
@@ -81,15 +84,19 @@ src/LabaNiTE.d: ../src/LabaNiTE.cpp ../src/nitecontroller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../i_sequence_generator.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../general_enriched_pose.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_recognizer.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../i_sequence_recognizer.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../movement_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../kp_movement_detector.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_movement_detector.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../pose_listener.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_pose_listener.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_pose_detector.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_sequence_generator.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../kp_detector.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_kp_detector.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_enriched_pose.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_sequence_recognizer.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_sequence_listener.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/bvh_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/bvh_spec.hpp
@@ -178,9 +185,33 @@ src/LabaNiTE.d: ../src/LabaNiTE.cpp ../src/nitecontroller.hpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/general_pose.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/pose_listener.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/i_pose_listener.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/general_pose.hpp:
+
+../src/sequence_printer.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_listener.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/column_definition.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/i_movement.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/movement.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/i_symbol.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/e_time_unit.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_movement_controller.hpp:
 
@@ -203,24 +234,6 @@ src/LabaNiTE.d: ../src/LabaNiTE.cpp ../src/nitecontroller.hpp \
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../bone.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/column_definition.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../indexer_fix.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/i_movement.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/movement.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/i_symbol.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../../indexer_fix.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/e_time_unit.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/math.hpp:
 
@@ -286,13 +299,17 @@ src/LabaNiTE.d: ../src/LabaNiTE.cpp ../src/nitecontroller.hpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../bone.hpp:
 
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_recognizer.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../i_sequence_recognizer.hpp:
+
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../movement_controller.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../kp_movement_detector.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_movement_detector.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../pose_listener.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_pose_listener.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_pose_detector.hpp:
 
@@ -303,6 +320,10 @@ src/LabaNiTE.d: ../src/LabaNiTE.cpp ../src/nitecontroller.hpp \
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_kp_detector.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_enriched_pose.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_sequence_recognizer.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_sequence_listener.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/bvh_controller.hpp:
 

@@ -6,6 +6,7 @@
 //custom includes
 #include "nitecontroller.hpp"
 #include "nite_display.hpp"
+#include "sequence_printer.hpp"
 
 //general includes
 #include <memory>
@@ -28,19 +29,20 @@
 using namespace lni;
 
 //---------------------------------------------------------------------------
-// Defines
+// MAIN
 //---------------------------------------------------------------------------
 
 int main()
 {
 	std::cout << "LabaNiTe started" << std::endl;
 
-	//not working currently
-	bool store_skels = false;
-
 	//trigger for bvh export
 	bool bvh_export = false;
-	unsigned int bvh_frames = 300; //30fps openni
+	unsigned int bvh_frames = 300; //30fps openni => 10 sec
+
+	//bvh controller
+	mae::fl::bvh_controller bvh_ctrl = mae::fl::bvh_controller();
+	std::vector<std::shared_ptr<mae::general_skeleton> > wb_skels;
 
 	//trigger for demo screen
 	bool show_demo = false;
@@ -54,8 +56,17 @@ int main()
 		move.add_listener(ndisp);
 	}
 
-	mae::fl::bvh_controller bvh_ctrl = mae::fl::bvh_controller();
-	std::vector<std::shared_ptr<mae::general_skeleton> > wb_skels;
+
+	bool print_sequence = true;
+	unsigned int sequence_frames = 300;//30fps openni => 10 sec
+	std::string sequence_name = "mae_seq.laban";
+
+	if (print_sequence)
+	{
+		std::shared_ptr<sequence_printer> nseq = std::shared_ptr<sequence_printer>(new sequence_printer(sequence_frames, sequence_name));
+		move.add_listener(nseq);
+	}
+
 
 	unsigned int k = 0;
 	bool quit = false;
@@ -66,30 +77,6 @@ int main()
 
 		if (skeletons.size() > 0)
 		{
-
-			//std::cout << "Generated general_skeleton for each user" << std::endl;
-			wb_skels.push_back(skeletons.at(0));
-
-			// ofstream def
-			std::ofstream* a_file;
-
-			if (bvh_export)
-			{
-				if (wb_skels.size() > bvh_frames)
-				{
-					try
-					{
-
-						bvh_ctrl.bvh_file(wb_skels, "/home/keks/whole_sequence.bvh");
-						std::cout << ">>  BVH EXPORT DONE" << std::endl;
-						return 0;
-
-					} catch (...)
-					{
-						std::cout << "unknown exception occured" << std::endl;
-					}
-				}
-			}
 
 			try
 			{
@@ -103,6 +90,36 @@ int main()
 				std::cout << "Unknown exception or error occured" << std::endl;
 				return -1;
 			}
+
+			if (bvh_export)
+			{
+				wb_skels.push_back(skeletons.at(0));
+
+				if (wb_skels.size() > bvh_frames)
+				{
+					try
+					{
+
+						bvh_ctrl.bvh_file(wb_skels, "/home/keks/whole_sequence.bvh");
+						std::cout << ">>  BVH EXPORT DONE" << std::endl;
+						return 0;
+
+					} catch (...)
+					{
+						std::cout << "unknown exception occured" << std::endl;
+						return -1;
+					}
+				}
+			}
+
+			if (print_sequence && !bvh_export)
+			{
+				if (k > sequence_frames)
+				{
+					return 0;
+				}
+			}
+
 			k++;
 		}
 	}

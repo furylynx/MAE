@@ -19,7 +19,7 @@
 #include <mae/fl/e_fl_direction.hpp>
 
 #include <mae/general_pose.hpp>
-#include <mae/pose_listener.hpp>
+#include <mae/i_pose_listener.hpp>
 //#include <model/general_skeleton.hpp>
 
 

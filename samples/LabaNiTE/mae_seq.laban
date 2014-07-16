@@ -1,0 +1,43 @@
+<score>
+	<version>0.5</version>
+	<author>mae</author>
+	<title>Streamed Sequence</title>
+	<description></description>
+	<staff>
+		<measures>1</measures>
+		<timing>
+			<timeUnit>millisecond</timeUnit>
+			<measure>
+				<index>0</index>
+				<beatDuration>33</beatDuration>
+				<beats>30</beats>
+			</measure>
+		</timing>
+		<columns>
+		</columns>
+		<movements>
+			<movement>
+				<column>-2</column>
+				<measure>0</measure>
+				<beat>1.00</beat>
+				<duration>19.00</duration>
+				<hold>false</hold>
+				<direction>
+					<vertical>low</vertical>
+					<horizontal>place</horizontal>
+				</direction>
+			</movement>
+			<movement>
+				<column>2</column>
+				<measure>0</measure>
+				<beat>1.00</beat>
+				<duration>19.00</duration>
+				<hold>false</hold>
+				<direction>
+					<vertical>low</vertical>
+					<horizontal>place</horizontal>
+				</direction>
+			</movement>
+		</movements>
+	</staff>
+</score>
