@@ -7,19 +7,22 @@ CPP_SRCS += \
 ../src/LabaNiTE.cpp \
 ../src/nite_display.cpp \
 ../src/nitecontroller.cpp \
-../src/sdl_controller.cpp 
+../src/sdl_controller.cpp \
+../src/sequence_printer.cpp 
 
 OBJS += \
 ./src/LabaNiTE.o \
 ./src/nite_display.o \
 ./src/nitecontroller.o \
-./src/sdl_controller.o 
+./src/sdl_controller.o \
+./src/sequence_printer.o 
 
 CPP_DEPS += \
 ./src/LabaNiTE.d \
 ./src/nite_display.d \
 ./src/nitecontroller.d \
-./src/sdl_controller.d 
+./src/sdl_controller.d \
+./src/sequence_printer.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

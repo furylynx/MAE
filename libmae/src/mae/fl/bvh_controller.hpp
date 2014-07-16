@@ -46,10 +46,10 @@ namespace mae
 
 				virtual std::string bvh_str(std::shared_ptr<general_skeleton> data);
 
-				virtual void bvh_file(std::vector<std::shared_ptr<general_skeleton> > data, std::string filename);
-				virtual void bvh_file(std::shared_ptr<general_skeleton> data, std::string filename);
+				virtual void print_bvh_file(std::vector<std::shared_ptr<general_skeleton> > data, std::string filename);
+				virtual void print_bvh_file(std::shared_ptr<general_skeleton> data, std::string filename);
 
-				virtual std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> read_bvh(std::string bvh_str, std::shared_ptr<bvh_spec> spec = std::shared_ptr<bvh_spec>());
+				virtual std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> read_bvh_str(std::string bvh_str, std::shared_ptr<bvh_spec> spec = std::shared_ptr<bvh_spec>());
 				virtual std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> read_bvh_file(std::string filename, std::shared_ptr<bvh_spec> spec = std::shared_ptr<bvh_spec>());
 
 			private:
