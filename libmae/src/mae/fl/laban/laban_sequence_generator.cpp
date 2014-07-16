@@ -55,7 +55,6 @@ namespace mae
 				std::vector<bone> used_body_parts;
 				for (unsigned int i = 0; i < body_parts.size(); i++)
 				{
-
 					bool defined = std::abs(body_parts.at(i).get_id()) == 4 || std::abs(body_parts.at(i).get_id()) == 2
 							|| std::abs(body_parts.at(i).get_id()) == 1;
 
@@ -97,8 +96,6 @@ namespace mae
 				{
 					for (bone b : used_body_parts)
 					{
-						//TODO remove
-						//std::cout << "bone id " << b.get_id() << std::endl;
 
 						if (tmp_kd.at(b.get_id()).second != nullptr && (*it)->is_in_motion(b.get_id()))
 						{
@@ -124,13 +121,10 @@ namespace mae
 							sequence->add_movement(mv);
 						}
 
-						//TODO remove
-						std::cout << "prevXX" << std::endl;
 						if (tmp_kd.at(b.get_id()).second == nullptr && (*it)->is_key_pose(b.get_id()))
 						{
 							tmp_kd[b.get_id()] = std::make_pair(curr_frame, *it);
 						}
-
 					}
 
 					curr_frame--;

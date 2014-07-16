@@ -33,10 +33,8 @@ namespace mae
 				new general_enriched_pose(current_pose));
 
 		//initialize with false
-		std::cout << "KPDet:" << std::endl;
 		for (unsigned int i = 0; i < body_parts.size(); i++)
 		{
-			std::cout << "KPDet: bone id " << body_parts.at(i).get_id() << std::endl;
 			result->set_key_pose(body_parts.at(i).get_id(), true);
 			result->set_in_motion(body_parts.at(i).get_id(), false);
 		}
