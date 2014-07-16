@@ -18,6 +18,7 @@
 
 #include "laban/laban_sequence.hpp"
 #include "laban/laban_sequence_generator.hpp"
+#include "laban/laban_sequence_recognizer.hpp"
 
 #include "../bone.hpp"
 #include "../general_skeleton.hpp"

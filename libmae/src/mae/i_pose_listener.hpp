@@ -5,8 +5,8 @@
  *      Author: keks
  */
 
-#ifndef POSE_LISTENER_HPP_
-#define POSE_LISTENER_HPP_
+#ifndef _I_POSE_LISTENER_HPP_
+#define _I_POSE_LISTENER_HPP_
 
 //eclipse indexer fix
 #include "indexer_fix.hpp"
@@ -20,10 +20,10 @@
 namespace mae
 {
 
-	class pose_listener
+	class i_pose_listener
 	{
 		public:
-			virtual ~pose_listener(){}
+			virtual ~i_pose_listener(){}
 
 			virtual void on_pose(long timestamp, std::shared_ptr<general_pose> pose) = 0;
 	};

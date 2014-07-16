@@ -18,7 +18,7 @@
 #include "kp_detector.hpp"
 
 #include "bone.hpp"
-#include "pose_listener.hpp"
+#include "i_pose_listener.hpp"
 
 //global includes
 #include <memory>
@@ -41,8 +41,8 @@ namespace mae
 			virtual std::shared_ptr<U> detect_movement(long timestamp, std::shared_ptr<T> skeleton, std::vector<bone> body_parts);
 			virtual void set_buffer(int size);
 
-			virtual void add_listener(std::shared_ptr<pose_listener> listener);
-			virtual void remove_listener(std::shared_ptr<pose_listener> listener);
+			virtual void add_listener(std::shared_ptr<i_pose_listener> listener);
+			virtual void remove_listener(std::shared_ptr<i_pose_listener> listener);
 			virtual void clear_listeners();
 
 			virtual void notify_listeners(long timestamp, std::shared_ptr<general_pose> pose);
@@ -53,7 +53,7 @@ namespace mae
 			std::shared_ptr<i_sequence_generator<U> > isg;
 			std::shared_ptr<i_kp_detector> ikpd;
 
-			std::list<std::shared_ptr<pose_listener> > listeners_;
+			std::list<std::shared_ptr<i_pose_listener> > listeners_;
 			int pose_buffer_size;
 			std::list<std::shared_ptr<general_enriched_pose> > poses;
 
@@ -140,16 +140,15 @@ namespace mae
 	}
 
 	template<typename T, typename U>
-	void kp_movement_detector<T, U>::add_listener(std::shared_ptr<pose_listener> listener)
+	void kp_movement_detector<T, U>::add_listener(std::shared_ptr<i_pose_listener> listener)
 	{
-		std::cout << "listener added!" << std::endl;
 		listeners_.push_back(listener);
 	}
 
 	template<typename T, typename U>
-	void kp_movement_detector<T, U>::remove_listener(std::shared_ptr<pose_listener> listener)
+	void kp_movement_detector<T, U>::remove_listener(std::shared_ptr<i_pose_listener> listener)
 	{
-		for (std::list<std::shared_ptr<pose_listener>>::iterator it = listeners_.begin(); it != listeners_.end(); it++)
+		for (std::list<std::shared_ptr<i_pose_listener> >::iterator it = listeners_.begin(); it != listeners_.end(); it++)
 		{
 			if (listener == *it)
 			{
@@ -173,7 +172,7 @@ namespace mae
 			std::cout << "kp_movement_detector: notify (pose) listeners" << std::endl;
 		}
 
-		for (std::list<std::shared_ptr<pose_listener>>::iterator it = listeners_.begin(); it != listeners_.end(); it++)
+		for (std::list<std::shared_ptr<i_pose_listener> >::iterator it = listeners_.begin(); it != listeners_.end(); it++)
 		{
 			(*it)->on_pose(timestamp, pose);
 		}

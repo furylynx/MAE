@@ -33,7 +33,7 @@
 namespace lni
 {
 
-	class nite_display : public mae::pose_listener
+	class nite_display : public mae::i_pose_listener
 	{
 		public:
 			nite_display();

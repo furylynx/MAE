@@ -45,7 +45,7 @@ int main()
 	//trigger for demo screen
 	bool show_demo = false;
 
-	mae::fl::fl_movement_controller move = mae::fl::fl_movement_controller(true);
+	mae::fl::fl_movement_controller move = mae::fl::fl_movement_controller();
 
 	if (show_demo)
 	{
