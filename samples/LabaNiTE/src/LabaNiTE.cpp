@@ -41,14 +41,26 @@ int main()
 	bool bvh_export = true;
 	unsigned int bvh_frames = 300; //30fps openni => 10 sec
 
-	//bvh controller
-	mae::fl::bvh_controller bvh_ctrl = mae::fl::bvh_controller();
-	std::vector<std::shared_ptr<mae::general_skeleton> > wb_skels;
+	bool print_sequence = true;
+	unsigned int sequence_frames = 300;//30fps openni => 10 sec
+	std::string sequence_name = "mae_seq.laban";
 
 	//trigger for demo screen
 	bool show_demo = false;
 
-	mae::fl::fl_movement_controller move = mae::fl::fl_movement_controller();
+
+
+
+
+	//bvh controller
+	mae::fl::bvh_controller bvh_ctrl = mae::fl::bvh_controller();
+	std::vector<std::shared_ptr<mae::general_skeleton> > wb_skels;
+
+
+	//movement controller
+	mae::fl::fl_movement_controller move = mae::fl::fl_movement_controller(sequence_frames+50);
+
+
 
 	if (show_demo)
 	{
@@ -57,10 +69,6 @@ int main()
 		move.add_listener(ndisp);
 	}
 
-
-	bool print_sequence = true;
-	unsigned int sequence_frames = 300;//30fps openni => 10 sec
-	std::string sequence_name = "mae_seq.laban";
 
 	if (print_sequence)
 	{

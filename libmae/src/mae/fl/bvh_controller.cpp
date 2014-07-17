@@ -320,8 +320,6 @@ namespace mae
 
 			std::string tmp = mstr::to_lower(bvh_str);
 
-			std::cout << tmp << std::endl;
-
 			//the resulting skeletons
 			std::vector<std::shared_ptr<general_skeleton> > skeletons;
 
