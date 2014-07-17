@@ -37,7 +37,7 @@ namespace mae
 						TORSO
 				};
 
-				class e_area_str
+				class e_area_c
 				{
 					public:
 						static std::string str(e_area area);

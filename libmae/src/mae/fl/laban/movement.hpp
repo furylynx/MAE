@@ -46,7 +46,7 @@ namespace mae
 				bool get_hold();
 				std::shared_ptr<mv::i_symbol> get_symbol();
 
-				virtual std::string xml(unsigned int indent = 0);
+				virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 			private:
 				int column_;

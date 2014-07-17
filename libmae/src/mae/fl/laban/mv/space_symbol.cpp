@@ -42,7 +42,7 @@ namespace mae
 					return space_measurement_;
 				}
 
-				std::string space_symbol::xml(unsigned int indent)
+				std::string space_symbol::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;
 
@@ -51,19 +51,25 @@ namespace mae
 						indent_stream << "\t";
 					}
 
+					std::string ns = namesp;
+					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					{
+						ns.push_back(':');
+					}
+
 					std::stringstream sstr;
 
 					//print accent sign
-					sstr << indent_stream.str() << "<space>" << std::endl;
+					sstr << indent_stream.str() << "<" << ns << "space>" << std::endl;
 
 					if (dynamics_ != nullptr)
 					{
-						sstr << dynamics_->xml(indent+1);
+						sstr << dynamics_->xml(indent+1, namesp);
 					}
 
-					sstr << space_measurement_->xml(indent+1);
+					sstr << space_measurement_->xml(indent+1, namesp);
 
-					sstr << indent_stream.str() << "</space>" << std::endl;
+					sstr << indent_stream.str() << "</" << ns << "space>" << std::endl;
 
 					return sstr.str();
 				}

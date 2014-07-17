@@ -39,7 +39,7 @@ namespace mae
 						std::shared_ptr<i_endpoint> get_fixed_end();
 						std::shared_ptr<i_endpoint> get_extremity();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
 						std::shared_ptr<i_endpoint> fixed_end_;

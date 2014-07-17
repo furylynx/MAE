@@ -31,7 +31,7 @@ namespace mae
 					public:
 						virtual ~i_dynamics_sign(){}
 
-						virtual std::string xml(unsigned int indent = 0) = 0;
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") = 0;
 				};
 
 			} // namespace mv

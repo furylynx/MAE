@@ -52,7 +52,7 @@ namespace mae
 			}
 
 
-			std::string room_direction::xml(unsigned int indent)
+			std::string room_direction::xml(unsigned int indent, std::string namesp)
 			{
 				std::stringstream indent_stream;
 
@@ -61,18 +61,24 @@ namespace mae
 					indent_stream << "\t";
 				}
 
+				std::string ns = namesp;
+				if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+				{
+					ns.push_back(':');
+				}
+
 				std::stringstream sstr;
 
 				sstr << std::fixed << std::setprecision(2);
 
 				//print turn symbol
-				sstr << indent_stream.str() << "<roomDirection>" << std::endl;
+				sstr << indent_stream.str() << "<" << ns << "roomDirection>" << std::endl;
 
-				sstr << indent_stream.str() << "\t" << "<measure>" << measure_ << "</measure>" << std::endl;
-				sstr << indent_stream.str() << "\t" << "<beat>" << beat_ << "</beat>" << std::endl;
-				sstr << direction_->xml(indent+1);
+				sstr << indent_stream.str() << "\t" << "<" << ns << "measure>" << measure_ << "</" << ns << "measure>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "beat>" << beat_ << "</" << ns << "beat>" << std::endl;
+				sstr << direction_->xml(indent+1, namesp);
 
-				sstr << indent_stream.str() << "</roomDirection>" << std::endl;
+				sstr << indent_stream.str() << "</" << ns << "roomDirection>" << std::endl;
 
 				return sstr.str();
 

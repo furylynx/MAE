@@ -39,7 +39,7 @@ namespace mae
 						std::string get_name();
 						std::string get_description();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
 						std::string name_;

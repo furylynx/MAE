@@ -48,7 +48,7 @@ namespace mae
 					return direction_;
 				}
 
-				std::string space_measurement::xml(unsigned int indent)
+				std::string space_measurement::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;
 
@@ -57,20 +57,26 @@ namespace mae
 						indent_stream << "\t";
 					}
 
+					std::string ns = namesp;
+					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					{
+						ns.push_back(':');
+					}
+
 					std::stringstream sstr;
 
 					//print accent sign
-					sstr << indent_stream.str() << "<spaceMeasurement>" << std::endl;
+					sstr << indent_stream.str() << "<" << ns << "spaceMeasurement>" << std::endl;
 
-					sstr << indent_stream.str() << "\t" << "<type>" << e_space_str::str(type_) << "</type>" << std::endl;
-					sstr << indent_stream.str() << "\t" << "<degree>" << degree_ << "</degree>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "type>" << e_space_c::str(type_) << "</" << ns << "type>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "degree>" << degree_ << "</" << ns << "degree>" << std::endl;
 
 					if (direction_ != e_space_direction::NONE)
 					{
-						sstr << indent_stream.str() << "\t" << "<direction>" << e_space_direction_str::str(direction_) << "</direction>" << std::endl;
+						sstr << indent_stream.str() << "\t" << "<" << ns << "direction>" << e_space_direction_c::str(direction_) << "</" << ns << "direction>" << std::endl;
 					}
 
-					sstr << indent_stream.str() << "</spaceMeasurement>" << std::endl;
+					sstr << indent_stream.str() << "</" << ns << "spaceMeasurement>" << std::endl;
 
 					return sstr.str();
 

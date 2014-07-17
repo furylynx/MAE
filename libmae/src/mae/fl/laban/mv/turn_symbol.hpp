@@ -42,7 +42,7 @@ namespace mae
 						std::shared_ptr<i_dynamics_sign> get_dynamics();
 						std::shared_ptr<i_degree_sign> get_degree();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
 						e_turn_direction direction_;

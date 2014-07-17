@@ -16,7 +16,7 @@ namespace mae
 			namespace ps
 			{
 
-				std::string e_side_str::str(e_side e_side_)
+				std::string e_side_c::str(e_side e_side_)
 				{
 					switch (e_side_)
 					{

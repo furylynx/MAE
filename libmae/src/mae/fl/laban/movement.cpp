@@ -80,7 +80,7 @@ namespace mae
 				return symbol_;
 			}
 
-			std::string movement::xml(unsigned int indent)
+			std::string movement::xml(unsigned int indent, std::string namesp)
 			{
 				std::stringstream indent_stream;
 
@@ -89,31 +89,38 @@ namespace mae
 					indent_stream << "\t";
 				}
 
+				std::string ns = namesp;
+				if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+				{
+					ns.push_back(':');
+				}
+
+
 				std::stringstream sstr;
 
 				//set fixed decimals and precision
 				sstr << std::fixed << std::setprecision(2);
 
 				//print definition
-				sstr << indent_stream.str() << "<movement>" << std::endl;
+				sstr << indent_stream.str() << "<" << ns << "movement>" << std::endl;
 
-				sstr << indent_stream.str() << "\t" << "<column>" << column_ << "</column>" << std::endl;
-				sstr << indent_stream.str() << "\t" << "<measure>" << measure_ << "</measure>" << std::endl;
-				sstr << indent_stream.str() << "\t" << "<beat>" << beat_ << "</beat>" << std::endl;
-				sstr << indent_stream.str() << "\t" << "<duration>" << duration_ << "</duration>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "column>" << column_ << "</" << ns << "column>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "measure>" << measure_ << "</" << ns << "measure>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "beat>" << beat_ << "</" << ns << "beat>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "duration>" << duration_ << "</" << ns << "duration>" << std::endl;
 
 				if (pre_sign_ != nullptr)
 				{
-					sstr << pre_sign_->xml(indent + 1);
+					sstr << pre_sign_->xml(indent + 1, namesp);
 				}
 
-				sstr << indent_stream.str() << "\t" << "<hold>" << std::boolalpha << hold_ << std::noboolalpha
-						<< "</hold>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "hold>" << std::boolalpha << hold_ << std::noboolalpha
+						<< "</" << ns << "hold>" << std::endl;
 
-				sstr << symbol_->xml(indent + 1);
+				sstr << symbol_->xml(indent + 1, namesp);
 
 				//close movement
-				sstr << indent_stream.str() << "</movement>" << std::endl;
+				sstr << indent_stream.str() << "</" << ns << "movement>" << std::endl;
 
 				return sstr.str();
 			}

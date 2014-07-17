@@ -41,7 +41,7 @@ namespace mae
 						std::shared_ptr<i_dynamics_sign> get_dynamics();
 						std::shared_ptr<space_measurement> get_space_measurement();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
 						std::shared_ptr<i_dynamics_sign> dynamics_;

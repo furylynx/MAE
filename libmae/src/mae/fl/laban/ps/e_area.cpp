@@ -15,7 +15,7 @@ namespace mae
 		{
 			namespace ps
 			{
-				std::string e_area_str::str(e_area area)
+				std::string e_area_c::str(e_area area)
 				{
 					switch (area)
 					{

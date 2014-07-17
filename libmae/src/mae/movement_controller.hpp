@@ -57,6 +57,9 @@ namespace mae{
 
 				//todo event listener stuff
 
+			protected:
+				virtual std::shared_ptr<i_movement_detector<T,U> > get_movement_detector();
+
 			private:
 				bool debug_;
 				std::vector<bone> body_parts_;
@@ -135,6 +138,12 @@ namespace mae{
 			{
 				throw std::invalid_argument("No movement detector defined in the movement controller.");
 			}
+		}
+
+		template <typename T, typename U>
+		std::shared_ptr<i_movement_detector<T,U> >  movement_controller<T, U>::get_movement_detector()
+		{
+			return imd_;
 		}
 
 		template <typename T, typename U>

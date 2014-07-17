@@ -42,7 +42,7 @@ namespace mae
 						e_side get_side();
 						std::shared_ptr<i_part> get_part();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
 						e_side side_;

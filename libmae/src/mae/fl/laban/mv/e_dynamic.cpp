@@ -15,7 +15,7 @@ namespace mae
 		{
 			namespace mv
 			{
-				std::string e_dynamic_str::str(e_dynamic dynamic)
+				std::string e_dynamic_c::str(e_dynamic dynamic)
 				{
 					switch (dynamic)
 					{

@@ -15,7 +15,7 @@ namespace mae
 		{
 			namespace ps
 			{
-				std::string e_limb_str::str(e_limb limb)
+				std::string e_limb_c::str(e_limb limb)
 				{
 					switch (limb)
 					{

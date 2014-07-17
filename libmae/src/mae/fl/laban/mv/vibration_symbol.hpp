@@ -42,7 +42,7 @@ namespace mae
 						std::shared_ptr<pin> get_displacement1();
 						std::shared_ptr<pin> get_displacement2();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
 						std::shared_ptr<i_dynamics_sign> dynamics_;

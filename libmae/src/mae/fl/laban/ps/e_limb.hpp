@@ -39,7 +39,7 @@ namespace mae
 				};
 
 
-				class e_limb_str
+				class e_limb_c
 				{
 					public:
 						static std::string str(e_limb limb);

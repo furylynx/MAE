@@ -16,7 +16,7 @@ namespace mae
 			namespace ps
 			{
 
-				std::string e_digit_str::str(e_digit digit)
+				std::string e_digit_c::str(e_digit digit)
 				{
 					switch (digit)
 					{

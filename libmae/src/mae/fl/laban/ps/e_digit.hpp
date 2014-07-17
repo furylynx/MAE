@@ -42,7 +42,7 @@ namespace mae
 						LITTLETOE
 				};
 
-				class e_digit_str
+				class e_digit_c
 				{
 					public:
 						static std::string str(e_digit digit);

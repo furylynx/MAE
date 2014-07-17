@@ -16,7 +16,7 @@ namespace mae
 			namespace ps
 			{
 
-				std::string e_joint_str::str(e_joint joint_)
+				std::string e_joint_c::str(e_joint joint_)
 				{
 					switch (joint_)
 					{

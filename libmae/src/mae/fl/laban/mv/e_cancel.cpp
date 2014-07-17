@@ -16,7 +16,7 @@ namespace mae
 			namespace mv
 			{
 
-				std::string e_cancel_str::str(e_cancel cancel)
+				std::string e_cancel_c::str(e_cancel cancel)
 				{
 					switch (cancel)
 					{

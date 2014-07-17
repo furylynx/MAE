@@ -49,7 +49,7 @@ namespace mae
 					return degree_;
 				}
 
-				std::string turn_symbol::xml(unsigned int indent)
+				std::string turn_symbol::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;
 
@@ -58,24 +58,30 @@ namespace mae
 						indent_stream << "\t";
 					}
 
+					std::string ns = namesp;
+					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					{
+						ns.push_back(':');
+					}
+
 					std::stringstream sstr;
 
 					//print turn symbol
-					sstr << indent_stream.str() << "<turn>" << std::endl;
+					sstr << indent_stream.str() << "<" << ns << "turn>" << std::endl;
 
 					if (dynamics_ != nullptr)
 					{
-						sstr << dynamics_->xml(indent+1);
+						sstr << dynamics_->xml(indent+1, namesp);
 					}
 
-					sstr << indent_stream.str() << "\t" << "<direction>" << e_turn_direction_str::str(direction_) << "</direction>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "direction>" << e_turn_direction_c::str(direction_) << "</" << ns << "direction>" << std::endl;
 
 					if (degree_ != nullptr)
 					{
-						sstr << degree_->xml(indent+1);
+						sstr << degree_->xml(indent+1, namesp);
 					}
 
-					sstr << indent_stream.str() << "</turn>" << std::endl;
+					sstr << indent_stream.str() << "</" << ns << "turn>" << std::endl;
 
 					return sstr.str();
 

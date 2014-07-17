@@ -35,7 +35,7 @@ namespace mae
 						ANY
 				};
 
-				class e_turn_direction_str
+				class e_turn_direction_c
 				{
 					public:
 						static std::string str(e_turn_direction turn);

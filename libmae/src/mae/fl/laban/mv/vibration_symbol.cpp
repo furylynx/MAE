@@ -50,7 +50,7 @@ namespace mae
 				}
 
 
-				std::string vibration_symbol::xml(unsigned int indent)
+				std::string vibration_symbol::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;
 
@@ -59,26 +59,32 @@ namespace mae
 						indent_stream << "\t";
 					}
 
+					std::string ns = namesp;
+					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					{
+						ns.push_back(':');
+					}
+
 					std::stringstream sstr;
 
 					//print vibration symbol
-					sstr << indent_stream.str() << "<vibration>" << std::endl;
+					sstr << indent_stream.str() << "<" << ns << "vibration>" << std::endl;
 
 					if (dynamics_ != nullptr)
 					{
-						sstr << dynamics_->xml(indent+1);
+						sstr << dynamics_->xml(indent+1, namesp);
 					}
 
 					//print displacements
-					sstr << indent_stream.str() << "\t" << "<displacement>" << std::endl;
-					sstr << displacement1_->xml(indent+1);
-					sstr << indent_stream.str() << "\t" << "</displacement>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "displacement>" << std::endl;
+					sstr << displacement1_->xml(indent+1, namesp);
+					sstr << indent_stream.str() << "\t" << "</" << ns << "displacement>" << std::endl;
 
-					sstr << indent_stream.str() << "\t" << "<displacement>" << std::endl;
-					sstr << displacement2_->xml(indent+1);
-					sstr << indent_stream.str() << "\t" << "</displacement>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "displacement>" << std::endl;
+					sstr << displacement2_->xml(indent+1, namesp);
+					sstr << indent_stream.str() << "\t" << "</" << ns << "displacement>" << std::endl;
 
-					sstr << indent_stream.str() << "</vibration>" << std::endl;
+					sstr << indent_stream.str() << "</" << ns << "vibration>" << std::endl;
 
 					return sstr.str();
 

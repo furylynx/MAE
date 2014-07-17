@@ -40,22 +40,28 @@ namespace mae {
 				 * Creates a new controller for movements analysis based on Labanotation and fl_skeletons.
 				 * The used body parts are assumed to be the default ones used by the NITE skeleton. Since
 				 * no column definition is given the default columns are the only ones that can be used.
+				 *
+				 * @param pose_buffer_size The buffer size for the movement detector (number of frames to process). Values <= 1 means calculating the buffer size from the registered sequences.
+				 * @param debug True for debug console print.
 				 */
-				fl_movement_controller(bool debug = false);
+				fl_movement_controller(unsigned int pose_buffer_size = 0, bool debug = false);
 
 				/**
 				 * Creates a new controller for movements analysis based on Labanotation and fl_skeletons
 				 * which handles the given body parts and uses the defined columns for the Labanotation
 				 * sequence.
 				 *
-				 * @param bodyParts The body part which shall be handled.
+				 * @param body_parts The body parts which shall be handled.
 				 * @param column_definitions The columns which shall be defined besides those that are defined by default.
+				 * @param pose_buffer_size The buffer size for the movement detector (number of frames to process).
+				 * 		Values <= 1 means calculating the buffer size from the registered sequences.
+				 * @param debug True for debug console print.
 				 */
-				fl_movement_controller(std::vector<bone> bodyParts, std::vector<std::shared_ptr<laban::column_definition> > column_definitions, bool debug = false);
+				fl_movement_controller(std::vector<bone> body_parts, std::vector<std::shared_ptr<laban::column_definition> > column_definitions, unsigned int pose_buffer_size = 0, bool debug = false);
 				virtual ~fl_movement_controller();
 
 				/**
-				 * Invokes the processing for a new frame. The skeleton provides the information wich
+				 * Invokes the processing for a new frame. The skeleton provides the information which
 				 * is the basis for any further calculations.
 				 *
 				 * @param timestamp The timestamp on which the skeleton occured.

@@ -15,7 +15,7 @@ namespace mae
 		{
 			namespace mv
 			{
-				std::string e_turn_direction_str::str(e_turn_direction turn)
+				std::string e_turn_direction_c::str(e_turn_direction turn)
 				{
 					switch (turn)
 					{

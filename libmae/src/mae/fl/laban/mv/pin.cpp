@@ -47,7 +47,7 @@ namespace mae
 					return horizontal_;
 				}
 
-				std::string pin::xml(unsigned int indent)
+				std::string pin::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;
 
@@ -56,11 +56,17 @@ namespace mae
 						indent_stream << "\t";
 					}
 
+					std::string ns = namesp;
+					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					{
+						ns.push_back(':');
+					}
+
 					std::stringstream sstr;
 
 					//print accent sign
-					sstr << indent_stream.str() << "<vertical>" << e_level_c::str(level_) << "</vertical>" << std::endl;
-					sstr << indent_stream.str() << "<horizontal>" << horizontal_ << "</horizontal>" << std::endl;
+					sstr << indent_stream.str() << "<" << ns << "vertical>" << e_level_c::str(level_) << "</" << ns << "vertical>" << std::endl;
+					sstr << indent_stream.str() << "<" << ns << "horizontal>" << horizontal_ << "</" << ns << "horizontal>" << std::endl;
 
 					return sstr.str();
 

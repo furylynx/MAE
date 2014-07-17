@@ -15,7 +15,7 @@ namespace mae
 		{
 			namespace mv
 			{
-				std::string e_space_direction_str::str(e_space_direction space_direction)
+				std::string e_space_direction_c::str(e_space_direction space_direction)
 				{
 					switch (space_direction)
 					{

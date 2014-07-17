@@ -35,7 +35,7 @@ namespace mae
 					return cancel_;
 				}
 
-				std::string cancellation_symbol::xml(unsigned int indent)
+				std::string cancellation_symbol::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;
 
@@ -44,14 +44,20 @@ namespace mae
 						indent_stream << "\t";
 					}
 
+					std::string ns = namesp;
+					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					{
+						ns.push_back(':');
+					}
+
 					std::stringstream sstr;
 
 					//print cancel symbol
-					sstr << indent_stream.str() << "<cancel>" << std::endl;
+					sstr << indent_stream.str() << "<" << ns << "cancel>" << std::endl;
 
-					sstr << indent_stream.str() << "\t" << "<cancel>" << e_cancel_str::str(cancel_) << "</cancel>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "cancel>" << e_cancel_c::str(cancel_) << "</" << ns << "cancel>" << std::endl;
 
-					sstr << indent_stream.str() << "</cancel>" << std::endl;
+					sstr << indent_stream.str() << "</" << ns << "cancel>" << std::endl;
 
 					return sstr.str();
 

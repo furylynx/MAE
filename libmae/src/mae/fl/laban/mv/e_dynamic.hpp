@@ -40,7 +40,7 @@ namespace mae
 						VERY_RESILIENT
 				};
 
-				class e_dynamic_str
+				class e_dynamic_c
 				{
 					public:
 						static std::string str(e_dynamic dynamic);
