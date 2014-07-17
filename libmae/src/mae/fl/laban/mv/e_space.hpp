@@ -38,7 +38,7 @@ namespace mae
 						SPREADING
 				};
 
-				class e_space_str
+				class e_space_c
 				{
 					public:
 						static std::string str(e_space space);

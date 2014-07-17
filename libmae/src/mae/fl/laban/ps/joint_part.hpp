@@ -38,7 +38,7 @@ namespace mae
 
 						e_joint get_joint();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
 						e_joint joint_;

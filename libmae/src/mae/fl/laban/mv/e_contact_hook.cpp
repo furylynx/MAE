@@ -15,7 +15,7 @@ namespace mae
 		{
 			namespace mv
 			{
-				std::string e_contact_hook_str::str(e_contact_hook hook)
+				std::string e_contact_hook_c::str(e_contact_hook hook)
 				{
 					switch (hook)
 					{

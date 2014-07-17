@@ -42,7 +42,7 @@ namespace mae
 					return extremity_;
 				}
 
-				std::string custom_limb::xml(unsigned int indent)
+				std::string custom_limb::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;
 
@@ -51,26 +51,33 @@ namespace mae
 						indent_stream << "\t";
 					}
 
+					std::string ns = namesp;
+					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					{
+						ns.push_back(':');
+					}
+
+
 					std::stringstream sstr;
 
 					//print definition
-					sstr << indent_stream.str() << "<limb>" << std::endl;
+					sstr << indent_stream.str() << "<" << ns << "limb>" << std::endl;
 
 					//custom
-					sstr << indent_stream.str() << "\t" << "<custom>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "custom>" << std::endl;
 
 					//print fixed end
-					sstr << fixed_end_->xml(indent+2);
+					sstr << fixed_end_->xml(indent+2, namesp);
 
 					if (extremity_ != nullptr)
 					{
 						//print extremity
-						sstr << extremity_->xml(indent+2);
+						sstr << extremity_->xml(indent+2, namesp);
 					}
 
-					sstr << indent_stream.str() << "\t" << "</custom>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "</" << ns << "custom>" << std::endl;
 
-					sstr << indent_stream.str() << "</limb>" << std::endl;
+					sstr << indent_stream.str() << "</" << ns << "limb>" << std::endl;
 
 					return sstr.str();
 				}

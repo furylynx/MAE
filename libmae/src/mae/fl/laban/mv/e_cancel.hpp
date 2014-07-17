@@ -34,7 +34,7 @@ namespace mae
 						RELEASE_CONTACT
 				};
 
-				class e_cancel_str
+				class e_cancel_c
 				{
 					public:
 						static std::string str(e_cancel cancel);

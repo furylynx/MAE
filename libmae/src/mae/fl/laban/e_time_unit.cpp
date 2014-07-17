@@ -13,7 +13,7 @@ namespace mae
 	{
 		namespace laban
 		{
-			std::string e_time_unit_str::str(e_time_unit unit)
+			std::string e_time_unit_c::str(e_time_unit unit)
 			{
 				switch (unit)
 				{

@@ -39,7 +39,7 @@ namespace mae
 						INNERTHUMB
 				};
 
-				class e_limb_side_str
+				class e_limb_side_c
 				{
 					public:
 						static std::string str(e_limb_side lside);

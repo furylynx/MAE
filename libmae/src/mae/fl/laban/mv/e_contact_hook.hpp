@@ -43,7 +43,7 @@ namespace mae
 						FULL_BALL
 				};
 
-				class e_contact_hook_str
+				class e_contact_hook_c
 				{
 					public:
 						static std::string str(e_contact_hook hook);

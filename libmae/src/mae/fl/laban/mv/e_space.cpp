@@ -15,7 +15,7 @@ namespace mae
 		{
 			namespace mv
 			{
-				std::string e_space_str::str(e_space space)
+				std::string e_space_c::str(e_space space)
 				{
 					switch (space)
 					{

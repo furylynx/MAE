@@ -34,7 +34,7 @@ namespace mae
 						RIGHT
 				};
 
-				class e_side_str
+				class e_side_c
 				{
 					public:
 						static std::string str(e_side e_side_);

@@ -41,7 +41,7 @@ namespace mae
 						e_limb_side get_limb_side();
 						std::shared_ptr<i_limb> get_limb();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
 						e_limb_side lside_;

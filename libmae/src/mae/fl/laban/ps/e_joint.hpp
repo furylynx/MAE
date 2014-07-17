@@ -42,7 +42,7 @@ namespace mae
 						TOES
 				};
 
-				class e_joint_str
+				class e_joint_c
 				{
 					public:
 						static std::string str(e_joint joint_);

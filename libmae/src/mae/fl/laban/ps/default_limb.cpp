@@ -35,7 +35,7 @@ namespace mae
 					return limb_;
 				}
 
-				std::string default_limb::xml(unsigned int indent)
+				std::string default_limb::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;
 
@@ -44,21 +44,27 @@ namespace mae
 						indent_stream << "\t";
 					}
 
+					std::string ns = namesp;
+					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					{
+						ns.push_back(':');
+					}
+
 					std::stringstream sstr;
 
 					//print definition
-					sstr << indent_stream.str() << "<limb>" << std::endl;
+					sstr << indent_stream.str() << "<" << ns << "limb>" << std::endl;
 
 					//default
-					sstr << indent_stream.str() << "\t" << "<default>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "default>" << std::endl;
 
 					//print limb
-					sstr << indent_stream.str() << "\t\t" << "<limb>" << e_limb_str::str(limb_) << "</limb>"
+					sstr << indent_stream.str() << "\t\t" << "<" << ns << "limb>" << e_limb_c::str(limb_) << "</" << ns << "limb>"
 							<< std::endl;
 
-					sstr << indent_stream.str() << "\t" << "</default>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "</" << ns << "default>" << std::endl;
 
-					sstr << indent_stream.str() << "</limb>" << std::endl;
+					sstr << indent_stream.str() << "</" << ns << "limb>" << std::endl;
 
 					return sstr.str();
 				}

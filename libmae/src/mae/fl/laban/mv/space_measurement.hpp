@@ -41,7 +41,7 @@ namespace mae
 						unsigned int get_degree();
 						e_space_direction get_direction();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
 						e_space type_;

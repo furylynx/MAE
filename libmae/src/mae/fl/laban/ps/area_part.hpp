@@ -38,7 +38,7 @@ namespace mae
 
 						e_area get_area();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
 						e_area area_;

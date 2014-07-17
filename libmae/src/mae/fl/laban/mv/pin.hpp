@@ -38,7 +38,7 @@ namespace mae
 						e_level get_level();
 						int get_horizontal();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
 						e_level level_;

@@ -66,7 +66,7 @@ namespace mae
 					return space_measurement_;
 				}
 
-				std::string direction_symbol::xml(unsigned int indent)
+				std::string direction_symbol::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;
 
@@ -75,44 +75,50 @@ namespace mae
 						indent_stream << "\t";
 					}
 
+					std::string ns = namesp;
+					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					{
+						ns.push_back(':');
+					}
+
 					std::stringstream sstr;
 
 					//print accent sign
-					sstr << indent_stream.str() << "<direction>" << std::endl;
+					sstr << indent_stream.str() << "<" << ns << "direction>" << std::endl;
 
-					sstr << indent_stream.str() << "\t" << "<vertical>" << e_level_c::str(vertical_) << "</vertical>" << std::endl;
-					sstr << indent_stream.str() << "\t" << "<horizontal>" << e_direction_c::str(horizontal_) << "</horizontal>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "vertical>" << e_level_c::str(vertical_) << "</" << ns << "vertical>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "horizontal>" << e_direction_c::str(horizontal_) << "</" << ns << "horizontal>" << std::endl;
 
 					if (modification_pin_ != nullptr)
 					{
-						sstr << indent_stream.str() << "\t" << "<modificationPin>" << std::endl;
-						sstr << modification_pin_->xml(indent+1);
-						sstr << indent_stream.str() << "\t" << "</modificationPin>" << std::endl;
+						sstr << indent_stream.str() << "\t" << "<" << ns << "modificationPin>" << std::endl;
+						sstr << modification_pin_->xml(indent+1, namesp);
+						sstr << indent_stream.str() << "\t" << "</" << ns << "modificationPin>" << std::endl;
 					}
 
 					if (relationship_pin_ != nullptr)
 					{
-						sstr << indent_stream.str() << "\t" << "<relationshipPin>" << std::endl;
-						sstr << relationship_pin_->xml(indent+1);
-						sstr << indent_stream.str() << "\t" << "</relationshipPin>" << std::endl;
+						sstr << indent_stream.str() << "\t" << "<" << ns << "relationshipPin>" << std::endl;
+						sstr << relationship_pin_->xml(indent+1, namesp);
+						sstr << indent_stream.str() << "\t" << "</" << ns << "relationshipPin>" << std::endl;
 					}
 
 					if (space_measurement_ != nullptr)
 					{
-						sstr << space_measurement_->xml(indent+1);
+						sstr << space_measurement_->xml(indent+1, namesp);
 					}
 
 					if (dynamics_ != nullptr)
 					{
-						sstr << dynamics_->xml(indent+1);
+						sstr << dynamics_->xml(indent+1, namesp);
 					}
 
 					if (contact_hook_ != e_contact_hook::NONE)
 					{
-						sstr << indent_stream.str() << "\t" << "<contactHook>" << e_contact_hook_str::str(contact_hook_) << "</contactHook>" << std::endl;
+						sstr << indent_stream.str() << "\t" << "<" << ns << "contactHook>" << e_contact_hook_c::str(contact_hook_) << "</" << ns << "contactHook>" << std::endl;
 					}
 
-					sstr << indent_stream.str() << "</direction>" << std::endl;
+					sstr << indent_stream.str() << "</" << ns << "direction>" << std::endl;
 
 					return sstr.str();
 				}

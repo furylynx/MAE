@@ -13,23 +13,33 @@ namespace mae
 	namespace fl
 	{
 
-		fl_movement_controller::fl_movement_controller(bool debug)
+		fl_movement_controller::fl_movement_controller(unsigned int pose_buffer_size, bool debug)
 				: movement_controller(std::shared_ptr<fl_pose_detector>(new fl_pose_detector(debug)),
 						std::shared_ptr<laban::laban_sequence_generator>(new laban::laban_sequence_generator(debug)),
 						std::shared_ptr<laban::laban_sequence_recognizer>(new laban::laban_sequence_recognizer(debug)),
 						bone::default_bones(), debug)
 		{
 			this->skel_ctrl = std::shared_ptr<fl_skeleton_controller>(new fl_skeleton_controller(debug));
+
+			if (pose_buffer_size > 1)
+			{
+				movement_controller<fl_skeleton, laban::laban_sequence>::get_movement_detector()->set_buffer(pose_buffer_size);
+			}
 		}
 
 		fl_movement_controller::fl_movement_controller(std::vector<bone> body_parts,
-				std::vector<std::shared_ptr<laban::column_definition> > column_definitions, bool debug)
+				std::vector<std::shared_ptr<laban::column_definition> > column_definitions, unsigned int pose_buffer_size, bool debug)
 				: movement_controller(std::shared_ptr<fl_pose_detector>(new fl_pose_detector(debug)),
 						std::shared_ptr<laban::laban_sequence_generator>(new laban::laban_sequence_generator(column_definitions, debug)),
 						std::shared_ptr<laban::laban_sequence_recognizer>(new laban::laban_sequence_recognizer(debug)),
 						body_parts, debug)
 		{
 			this->skel_ctrl = std::shared_ptr<fl_skeleton_controller>(new fl_skeleton_controller(debug));
+
+			if (pose_buffer_size > 1)
+			{
+				movement_controller<fl_skeleton, laban::laban_sequence>::get_movement_detector()->set_buffer(pose_buffer_size);
+			}
 		}
 
 		fl_movement_controller::~fl_movement_controller()

@@ -37,7 +37,7 @@ namespace mae
 
 						e_cancel get_cancel();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
 						e_cancel cancel_;

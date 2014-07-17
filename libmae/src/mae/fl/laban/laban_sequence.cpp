@@ -257,54 +257,58 @@ namespace mae
 				//set fixed decimals and precision
 				sstr << std::fixed << std::setprecision(2);
 
+				//print xml header
+				sstr << "<?xml version=\"1.0\"?>" << std::endl;
+
+
 				//print score tag
-				sstr << "<score>" << std::endl;
+				sstr << "<laban:score xmlns:laban=\"http://www.example.org/labanotation\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/labanotation labanotation.xsd \">" << std::endl;
 
 				//print header
-				sstr << "\t" << "<version>" << version_ << "</version>" << std::endl;
+				sstr << "\t" << "<laban:version>" << version_ << "</laban:version>" << std::endl;
 
 				for (unsigned int i = 0; i < authors_.size(); i++)
 				{
-					sstr << "\t" << "<author>" << authors_.at(i) << "</author>" << std::endl;
+					sstr << "\t" << "<laban:author>" << authors_.at(i) << "</laban:author>" << std::endl;
 				}
-				sstr << "\t" << "<title>" << title_ << "</title>" << std::endl;
-				sstr << "\t" << "<description>" << description_ << "</description>" << std::endl;
+				sstr << "\t" << "<laban:title>" << title_ << "</laban:title>" << std::endl;
+				sstr << "\t" << "<laban:description>" << description_ << "</laban:description>" << std::endl;
 
 				//print staff
-				sstr << "\t" << "<staff>" << std::endl;
+				sstr << "\t" << "<laban:staff>" << std::endl;
 
 				//print staff header
-				sstr << "\t\t" << "<measures>" << measures_ << "</measures>" << std::endl;
-				sstr << "\t\t" << "<timing>" << std::endl;
-				sstr << "\t\t\t" << "<timeUnit>" << e_time_unit_str::str(time_unit_) << "</timeUnit>" << std::endl;
-				sstr << "\t\t\t" << "<measure>" << std::endl;
-				sstr << "\t\t\t\t" << "<index>" << 0 << "</index>" << std::endl;
-				sstr << "\t\t\t\t" << "<beatDuration>" << beat_duration_ << "</beatDuration>" << std::endl;
-				sstr << "\t\t\t\t" << "<beats>" << beats_ << "</beats>" << std::endl;
-				sstr << "\t\t\t" << "</measure>" << std::endl;
-				sstr << "\t\t" << "</timing>" << std::endl;
+				sstr << "\t\t" << "<laban:measures>" << measures_ << "</laban:measures>" << std::endl;
+				sstr << "\t\t" << "<laban:timing>" << std::endl;
+				sstr << "\t\t\t" << "<laban:timeUnit>" << e_time_unit_c::str(time_unit_) << "</laban:timeUnit>" << std::endl;
+				sstr << "\t\t\t" << "<laban:measure>" << std::endl;
+				sstr << "\t\t\t\t" << "<laban:index>" << 0 << "</laban:index>" << std::endl;
+				sstr << "\t\t\t\t" << "<laban:beatDuration>" << beat_duration_ << "</laban:beatDuration>" << std::endl;
+				sstr << "\t\t\t\t" << "<laban:beats>" << beats_ << "</laban:beats>" << std::endl;
+				sstr << "\t\t\t" << "</laban:measure>" << std::endl;
+				sstr << "\t\t" << "</laban:timing>" << std::endl;
 
 				//print columns
-				sstr << "\t\t" << "<columns>" << std::endl;
+				sstr << "\t\t" << "<laban:columns>" << std::endl;
 				for (unsigned int i = 0; i < column_definitions_vec_.size(); i++)
 				{
-					sstr << column_definitions_vec_.at(i)->xml(3);
+					sstr << column_definitions_vec_.at(i)->xml(3, "laban");
 				}
-				sstr << "\t\t" << "</columns>" << std::endl;
+				sstr << "\t\t" << "</laban:columns>" << std::endl;
 
 				//print movements
-				sstr << "\t\t" << "<movements>" << std::endl;
+				sstr << "\t\t" << "<laban:movements>" << std::endl;
 				for (unsigned int i = 0; i < i_movements_vec_.size(); i++)
 				{
-					sstr << i_movements_vec_.at(i)->xml(3);
+					sstr << i_movements_vec_.at(i)->xml(3, "laban");
 				}
-				sstr << "\t\t" << "</movements>" << std::endl;
+				sstr << "\t\t" << "</laban:movements>" << std::endl;
 
 				//close staff
-				sstr << "\t" << "</staff>" << std::endl;
+				sstr << "\t" << "</laban:staff>" << std::endl;
 
 				//close score tag
-				sstr << "</score>" << std::endl;
+				sstr << "</laban:score>" << std::endl;
 
 				return sstr.str();
 			}

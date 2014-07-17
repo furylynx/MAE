@@ -55,7 +55,7 @@ namespace mae
 				 * @param indent The number of tab indent.
 				 * @return The xml string.
 				 */
-				virtual std::string xml(unsigned int indent = 0);
+				virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 			private:
 				int column_index_;

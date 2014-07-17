@@ -33,7 +33,7 @@ namespace mae
 					MILLISECOND
 			};
 
-			class e_time_unit_str
+			class e_time_unit_c
 			{
 				public:
 					static std::string str(e_time_unit unit);

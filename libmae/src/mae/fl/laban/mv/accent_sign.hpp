@@ -38,7 +38,7 @@ namespace mae
 
 						unsigned int get_accent();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
 						unsigned int accent_;

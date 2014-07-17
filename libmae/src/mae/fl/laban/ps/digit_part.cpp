@@ -57,7 +57,7 @@ namespace mae
 					return knuckle_;
 				}
 
-				std::string digit_part::xml(unsigned int indent)
+				std::string digit_part::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;
 
@@ -66,19 +66,26 @@ namespace mae
 						indent_stream << "\t";
 					}
 
+					std::string ns = namesp;
+					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					{
+						ns.push_back(':');
+					}
+
+
 					std::stringstream sstr;
 
 					//print definition
-					sstr << indent_stream.str() << "<digit>" << std::endl;
+					sstr << indent_stream.str() << "<" << ns << "digit>" << std::endl;
 
 					//print digit
-					sstr << indent_stream.str() << "\t" << "<digit>" << e_digit_str::str(digit_) << "</digit>"
+					sstr << indent_stream.str() << "\t" << "<" << ns << "digit>" << e_digit_c::str(digit_) << "</" << ns << "digit>"
 							<< std::endl;
 
 					//print joint
-					sstr << indent_stream.str() << "\t" << "<joint>" << knuckle_ << "</joint>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "joint>" << knuckle_ << "</" << ns << "joint>" << std::endl;
 
-					sstr << indent_stream.str() << "</digit>" << std::endl;
+					sstr << indent_stream.str() << "</" << ns << "digit>" << std::endl;
 
 					return sstr.str();
 				}

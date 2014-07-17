@@ -41,7 +41,7 @@ namespace mae
 					double get_beat();
 					std::shared_ptr<mv::pin> get_direction();
 
-					virtual std::string xml(unsigned int indent = 0);
+					virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 				private:
 					unsigned int measure_;

@@ -50,7 +50,7 @@ namespace mae
 						std::shared_ptr<space_measurement> get_space_measurement();
 						e_contact_hook get_contact_hook();
 
-						virtual std::string xml(unsigned int indent = 0);
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 
 					private:

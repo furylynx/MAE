@@ -51,7 +51,7 @@ namespace mae
 				return duration_;
 			}
 
-			std::string path::xml(unsigned int indent)
+			std::string path::xml(unsigned int indent, std::string namesp)
 			{
 				std::stringstream indent_stream;
 
@@ -60,20 +60,26 @@ namespace mae
 					indent_stream << "\t";
 				}
 
+				std::string ns = namesp;
+				if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+				{
+					ns.push_back(':');
+				}
+
 				std::stringstream sstr;
 
 				//set fixed decimals and precision
 				sstr << std::fixed << std::setprecision(2);
 
 				//print path
-				sstr << indent_stream.str() << "<path>" << std::endl;
+				sstr << indent_stream.str() << "<" << ns << "path>" << std::endl;
 
-				sstr << indent_stream.str() << "\t" << "<type>" << e_path_type_c::str(type_) << "</type>" << std::endl;
-				sstr << indent_stream.str() << "\t" << "<measure>" << measure_ << "</measure>" << std::endl;
-				sstr << indent_stream.str() << "\t" << "<beat>" << beat_ << "</beat>" << std::endl;
-				sstr << indent_stream.str() << "\t" << "<duration>" << duration_ << "</duration>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "type>" << e_path_type_c::str(type_) << "</" << ns << "type>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "measure>" << measure_ << "</" << ns << "measure>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "beat>" << beat_ << "</" << ns << "beat>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "duration>" << duration_ << "</" << ns << "duration>" << std::endl;
 
-				sstr << indent_stream.str() << "</path>" << std::endl;
+				sstr << indent_stream.str() << "</" << ns << "path>" << std::endl;
 
 				return sstr.str();
 

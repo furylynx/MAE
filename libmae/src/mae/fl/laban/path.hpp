@@ -41,7 +41,7 @@ namespace mae
 					double get_beat();
 					double get_duration();
 
-					virtual std::string xml(unsigned int indent = 0);
+					virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 				private:
 					e_path_type type_;

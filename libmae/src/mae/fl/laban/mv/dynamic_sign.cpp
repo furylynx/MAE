@@ -35,7 +35,7 @@ namespace mae
 					return dynamic_;
 				}
 
-				std::string dynamic_sign::xml(unsigned int indent)
+				std::string dynamic_sign::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;
 
@@ -44,14 +44,20 @@ namespace mae
 						indent_stream << "\t";
 					}
 
+					std::string ns = namesp;
+					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					{
+						ns.push_back(':');
+					}
+
 					std::stringstream sstr;
 
 					//print accent sign
-					sstr << indent_stream.str() << "<dynamics>" << std::endl;
+					sstr << indent_stream.str() << "<" << ns << "dynamics>" << std::endl;
 
-					sstr << indent_stream.str() << "\t" << "<dynamic>" << e_dynamic_str::str(dynamic_) << "</dynamic>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "dynamic>" << e_dynamic_c::str(dynamic_) << "</" << ns << "dynamic>" << std::endl;
 
-					sstr << indent_stream.str() << "</dynamics>" << std::endl;
+					sstr << indent_stream.str() << "</" << ns << "dynamics>" << std::endl;
 
 					return sstr.str();
 				}

@@ -40,7 +40,7 @@ namespace mae
 						BACK_LEFT
 				};
 
-				class e_space_direction_str
+				class e_space_direction_c
 				{
 					public:
 						static std::string str(e_space_direction space_direction);
