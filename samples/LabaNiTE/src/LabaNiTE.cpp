@@ -48,7 +48,7 @@ int main()
 	//trigger for demo screen
 	bool show_demo = false;
 
-
+	bool read_stored_data = false;
 
 
 
@@ -76,7 +76,6 @@ int main()
 		move.add_listener(nseq);
 	}
 
-	bool read_stored_data = true;
 
 	if (read_stored_data)
 	{
