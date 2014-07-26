@@ -10,15 +10,23 @@
 namespace mae
 {
 
+	std::string mstr::trim_left(const std::string& value)
+	{
+		std::string result = value;
+		result.erase(result.begin(), std::find_if(result.begin(), result.end(), std::not1(std::ptr_fun<int, int>(std::isspace))));
+		return result;
+	}
+
+	std::string mstr::trim_right(const std::string& value)
+	{
+		std::string result = value;
+		result.erase(std::find_if(result.rbegin(), result.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), result.end());
+		return result;
+	}
+
 	std::string mstr::trim(const std::string& value)
 	{
-		std::string result(value);
-
-		std::stringstream trimmer;
-		trimmer << value;
-		result.clear();
-		trimmer >> result;
-		return result;
+		return mstr::trim_left(mstr::trim_right(value));
 	}
 
 	std::string mstr::replace(const std::string& haystack, const std::string& needle, const std::string& replacement)

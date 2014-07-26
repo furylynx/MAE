@@ -20,6 +20,10 @@
 #include <sstream>
 #include <memory>
 #include <vector>
+#include <algorithm>
+#include <functional>
+#include <cctype>
+#include <locale>
 
 
 namespace mae
@@ -29,6 +33,8 @@ namespace mae
 	{
 		public:
 
+			static std::string trim_left(const std::string& value);
+			static std::string trim_right(const std::string& value);
 			static std::string trim(const std::string& value);
 
 			static std::string replace(const std::string& haystack, const std::string& needle, const std::string& replacement);
