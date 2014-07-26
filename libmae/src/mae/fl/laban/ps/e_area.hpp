@@ -12,10 +12,11 @@
 #include "../../../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "../../../mstr.hpp"
 
 //global includes
 #include <string>
+#include <vector>
 #include <stdexcept>
 
 namespace mae
@@ -41,6 +42,8 @@ namespace mae
 				{
 					public:
 						static std::string str(e_area area);
+						static std::vector<e_area> vec();
+						static e_area parse(std::string str);
 				};
 
 			} // namespace ps

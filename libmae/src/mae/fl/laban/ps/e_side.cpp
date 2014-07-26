@@ -31,6 +31,34 @@ namespace mae
 					throw std::invalid_argument("Enum value not listed in the str() method");
 				}
 
+				std::vector<e_side> e_side_c::vec()
+				{
+					std::vector<e_side> result;
+					result.push_back(e_side::NONE 		);
+					result.push_back(e_side::LEFT 	  	);
+					result.push_back(e_side::RIGHT	 	);
+
+					return result;
+				}
+
+				e_side e_side_c::parse(std::string str)
+				{
+					std::string str_l = mstr::to_lower(str);
+
+					std::vector<e_side> v = e_side_c::vec();
+
+					for (unsigned int i = 0; i < v.size(); i++)
+					{
+						std::string t = e_side_c::str(v.at(i));
+						if (str_l == mstr::to_lower(t))
+						{
+							return v.at(i);
+						}
+					}
+
+					throw std::invalid_argument("Could not parse the given value since no match was found.");
+				}
+
 			} // namespace ps
 		} // namespace laban
 	} // namespace fl
