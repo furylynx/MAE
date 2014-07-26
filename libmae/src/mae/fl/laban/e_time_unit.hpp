@@ -12,11 +12,12 @@
 #include "../../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "../../mstr.hpp"
 
 //global includes
 #include <string>
 #include <stdexcept>
+
 
 namespace mae
 {
@@ -37,6 +38,8 @@ namespace mae
 			{
 				public:
 					static std::string str(e_time_unit unit);
+					static std::vector<e_time_unit> vec();
+					static e_time_unit parse(std::string str);
 			};
 
 		} // namespace laban

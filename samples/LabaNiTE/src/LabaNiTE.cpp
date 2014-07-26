@@ -48,7 +48,7 @@ int main()
 	//trigger for demo screen
 	bool show_demo = false;
 
-	bool read_stored_data = false;
+	bool read_stored_data = true;
 
 
 
