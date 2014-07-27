@@ -22,7 +22,6 @@
 #include "ps/e_side.hpp"
 #include "ps/e_area.hpp"
 
-
 //global includes
 #include <memory>
 #include <string>
