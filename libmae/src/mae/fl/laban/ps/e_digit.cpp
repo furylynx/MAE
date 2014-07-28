@@ -36,6 +36,41 @@ namespace mae
 					throw std::invalid_argument("Enum value not listed in the str() method");
 				}
 
+				std::vector<e_digit> e_digit_c::vec()
+				{
+					std::vector<e_digit> result;
+					result.push_back(e_digit::NONE        	);
+					result.push_back(e_digit::THUMB        	);
+					result.push_back(e_digit::INDEXFINGER 	);
+					result.push_back(e_digit::MIDDLEFINGER 	);
+					result.push_back(e_digit::RINGFINGER  	);
+					result.push_back(e_digit::LITTLEFINGER 	);
+					result.push_back(e_digit::BIGTOE      	);
+					result.push_back(e_digit::LONGTOE      	);
+					result.push_back(e_digit::MIDDLETOE   	);
+					result.push_back(e_digit::RINGTOE      	);
+					result.push_back(e_digit::LITTLETOE   	);
+
+					return result;
+				}
+
+				e_digit e_digit_c::parse(std::string str)
+				{
+					std::string str_l = mstr::to_lower(str);
+
+					std::vector<e_digit> v = e_digit_c::vec();
+
+					for (unsigned int i = 0; i < v.size(); i++)
+					{
+						std::string t = e_digit_c::str(v.at(i));
+						if (str_l == mstr::to_lower(t))
+						{
+							return v.at(i);
+						}
+					}
+
+					throw std::invalid_argument("Could not parse the given value since no match was found.");
+				}
 
 
 			} // namespace ps

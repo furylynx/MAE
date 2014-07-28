@@ -12,11 +12,12 @@
 #include "../../../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "../../../mstr.hpp"
 
 //global includes
 #include <string>
 #include <stdexcept>
+#include <vector>
 
 namespace mae
 {
@@ -43,6 +44,8 @@ namespace mae
 				{
 					public:
 						static std::string str(e_limb_side lside);
+						static std::vector<e_limb_side> vec();
+						static e_limb_side parse(std::string str);
 				};
 
 			} // namespace ps

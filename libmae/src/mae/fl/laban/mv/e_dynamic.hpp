@@ -12,11 +12,12 @@
 #include "../../../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "../../../mstr.hpp"
 
 //global includes
 #include <string>
 #include <stdexcept>
+#include <vector>
 
 namespace mae
 {
@@ -44,6 +45,9 @@ namespace mae
 				{
 					public:
 						static std::string str(e_dynamic dynamic);
+						static std::vector<e_dynamic> vec();
+						static e_dynamic parse(std::string str);
+
 				};
 
 

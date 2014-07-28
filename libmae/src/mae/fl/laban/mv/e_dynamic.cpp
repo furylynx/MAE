@@ -34,6 +34,39 @@ namespace mae
 
 				}
 
+				std::vector<e_dynamic> e_dynamic_c::vec()
+				{
+					std::vector<e_dynamic> result;
+					result.push_back(e_dynamic::NONE 			);
+					result.push_back(e_dynamic::STRONG         );
+					result.push_back(e_dynamic::GENTLE         );
+					result.push_back(e_dynamic::EMPHASIZED     );
+					result.push_back(e_dynamic::RELAXED        );
+					result.push_back(e_dynamic::LIMP           );
+					result.push_back(e_dynamic::UNEMPHASIZED   );
+					result.push_back(e_dynamic::RESILIENT      );
+					result.push_back(e_dynamic::VERY_RESILIENT );
+
+					return result;
+				}
+
+				e_dynamic e_dynamic_c::parse(std::string str)
+				{
+					std::string str_l = mstr::to_lower(str);
+
+					std::vector<e_dynamic> v = e_dynamic_c::vec();
+
+					for (unsigned int i = 0; i < v.size(); i++)
+					{
+						std::string t = e_dynamic_c::str(v.at(i));
+						if (str_l == mstr::to_lower(t))
+						{
+							return v.at(i);
+						}
+					}
+
+					throw std::invalid_argument("Could not parse the given value since no match was found.");
+				}
 
 
 			} // namespace mv
