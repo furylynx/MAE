@@ -17,6 +17,13 @@
 #include "ps/i_pre_sign.hpp"
 #include "ps/body_part.hpp"
 #include "ps/area_part.hpp"
+#include "ps/digit_part.hpp"
+#include "ps/joint_part.hpp"
+#include "ps/i_limb.hpp"
+#include "ps/i_endpoint.hpp"
+#include "ps/surface_part.hpp"
+#include "ps/default_limb.hpp"
+#include "ps/custom_limb.hpp"
 #include "ps/prop.hpp"
 
 #include "ps/e_side.hpp"
@@ -63,6 +70,11 @@ namespace mae
 					 */
 					static std::shared_ptr<i_movement> read_movement(xmlpp::Node* node);
 
+					static std::shared_ptr<ps::i_endpoint> read_end_point(xmlpp::Node* node);
+
+					static std::shared_ptr<ps::i_limb> read_limb(xmlpp::Node* node);
+
+					static std::shared_ptr<ps::surface_part> read_surface(xmlpp::Node* node);
 
 			};
 
