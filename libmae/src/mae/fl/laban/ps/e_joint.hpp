@@ -12,11 +12,12 @@
 #include "../../../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "../../../mstr.hpp"
 
 //global includes
 #include <string>
 #include <stdexcept>
+#include <vector>
 
 namespace mae
 {
@@ -46,6 +47,8 @@ namespace mae
 				{
 					public:
 						static std::string str(e_joint joint_);
+						static std::vector<e_joint> vec();
+						static e_joint parse(std::string str);
 				};
 
 
