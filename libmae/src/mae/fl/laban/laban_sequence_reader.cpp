@@ -394,7 +394,7 @@ namespace mae
 
 								if (hold_node_set.size() > 0)
 								{
-									bool hold = mbool::parse(dynamic_cast<xmlpp::ContentNode*>(hold_node_set.at(0))->get_content());
+									hold = mbool::parse(dynamic_cast<xmlpp::ContentNode*>(hold_node_set.at(0))->get_content());
 								}
 
 								xmlpp::NodeSet direction_node_set = node->find("/direction");
@@ -566,43 +566,181 @@ namespace mae
 			{
 				std::shared_ptr<mv::direction_symbol> result = nullptr;
 
-				//TODO read direction
+				xmlpp::NodeSet vertical_node_set = node->find("/vertical");
+
+				if (vertical_node_set.size() > 0)
+				{
+					mv::e_level vertical = mv::e_level_c::parse(dynamic_cast<xmlpp::ContentNode*>(vertical_node_set.at(0))->get_content());
+
+
+					xmlpp::NodeSet horizontal_node_set = node->find("/horizontal");
+
+					if (horizontal_node_set.size() > 0)
+					{
+						mv::e_direction horizontal = mv::e_direction_c::parse(dynamic_cast<xmlpp::ContentNode*>(horizontal_node_set.at(0))->get_content());
+
+						//modification pin
+						xmlpp::NodeSet modification_pin_node_set = node->find("/modificationPin");
+						std::shared_ptr<mv::pin> modification_pin = nullptr;
+
+						if (modification_pin_node_set.size() > 0)
+						{
+							modification_pin = laban_sequence_reader::read_pin(modification_pin_node_set.at(0));
+						}
+
+						//modification pin
+						xmlpp::NodeSet relationship_pin_node_set = node->find("/relationshipPin");
+						std::shared_ptr<mv::pin> relationship_pin = nullptr;
+
+						if (relationship_pin_node_set.size() > 0)
+						{
+							relationship_pin = laban_sequence_reader::read_pin(relationship_pin_node_set.at(0));
+						}
+
+
+						//spaceMeasurement
+						xmlpp::NodeSet space_measurement_node_set = node->find("/spaceMeasurement");
+						std::shared_ptr<mv::space_measurement> space_measurement = nullptr;
+
+						if (space_measurement_node_set.size() > 0)
+						{
+							space_measurement = laban_sequence_reader::read_space_measurement(node);
+						}
+
+						//dynamics
+						xmlpp::NodeSet dynamics_node_set = node->find("/dynamics");
+						std::shared_ptr<mv::i_dynamics_sign> dynamics = nullptr;
+
+						if (dynamics_node_set.size() > 0)
+						{
+							dynamics = laban_sequence_reader::read_dynamics(node);
+						}
+
+						//dynamics
+						xmlpp::NodeSet contact_hook_node_set = node->find("/contactHook");
+						mv::e_contact_hook contact_hook = mv::e_contact_hook::NONE;
+
+						if (contact_hook_node_set.size() > 0)
+						{
+							contact_hook = mv::e_contact_hook_c::parse(dynamic_cast<xmlpp::ContentNode*>(contact_hook_node_set.at(0))->get_content());
+						}
+
+
+						result = std::shared_ptr<mv::direction_symbol>(new mv::direction_symbol(vertical, horizontal, modification_pin, relationship_pin, dynamics, space_measurement, contact_hook));
+					}
+				}
+
 
 				return result;
 			}
 
-			std::shared_ptr<mv::space_symbol> read_space(xmlpp::Node* node)
+			std::shared_ptr<mv::space_symbol> laban_sequence_reader::read_space(xmlpp::Node* node)
 			{
 				std::shared_ptr<mv::space_symbol> result = nullptr;
 
-				//TODO read direction
+				//dynamics
+				xmlpp::NodeSet space_measurement_node_set = node->find("/spaceMeasurement");
+				std::shared_ptr<mv::space_measurement> space_measurement = nullptr;
+
+				if (space_measurement_node_set.size() > 0)
+				{
+					space_measurement = laban_sequence_reader::read_space_measurement(node);
+
+					//dynamics
+					xmlpp::NodeSet dynamics_node_set = node->find("/dynamics");
+					std::shared_ptr<mv::i_dynamics_sign> dynamics = nullptr;
+
+					if (dynamics_node_set.size() > 0)
+					{
+						dynamics = laban_sequence_reader::read_dynamics(node);
+					}
+
+					result = std::shared_ptr<mv::space_symbol>(new mv::space_symbol(space_measurement, dynamics));
+				}
 
 				return result;
 			}
 
-			std::shared_ptr<mv::turn_symbol> read_turn(xmlpp::Node* node)
+			std::shared_ptr<mv::turn_symbol> laban_sequence_reader::read_turn(xmlpp::Node* node)
 			{
 				std::shared_ptr<mv::turn_symbol> result = nullptr;
 
-				//TODO read direction
+				//dynamics
+				xmlpp::NodeSet direction_node_set = node->find("/direction");
+
+				if (direction_node_set.size() > 0)
+				{
+					mv::e_turn_direction direction = mv::e_turn_direction_c::parse(dynamic_cast<xmlpp::ContentNode*>(direction_node_set.at(0))->get_content());
+
+					//dynamics
+					xmlpp::NodeSet dynamics_node_set = node->find("/dynamics");
+					std::shared_ptr<mv::i_dynamics_sign> dynamics = nullptr;
+
+					if (dynamics_node_set.size() > 0)
+					{
+						dynamics = laban_sequence_reader::read_dynamics(node);
+					}
+
+					//degree
+					xmlpp::NodeSet degree_node_set = node->find("/degree");
+					std::shared_ptr<mv::i_degree_sign> degree = nullptr;
+
+					if (dynamics_node_set.size() > 0)
+					{
+						degree = laban_sequence_reader::read_space_measurement(degree_node_set.at(0));
+
+						if (degree == nullptr)
+						{
+							degree = laban_sequence_reader::read_pin(degree_node_set.at(0));
+						}
+					}
+
+					result = std::shared_ptr<mv::turn_symbol>(new mv::turn_symbol(direction, dynamics, degree));
+				}
 
 				return result;
 			}
 
-			std::shared_ptr<mv::vibration_symbol> read_vibration(xmlpp::Node* node)
+			std::shared_ptr<mv::vibration_symbol> laban_sequence_reader::read_vibration(xmlpp::Node* node)
 			{
 				std::shared_ptr<mv::vibration_symbol> result = nullptr;
 
-				//TODO read direction
+				//dynamics
+				xmlpp::NodeSet displacement_node_set = node->find("/displacement");
+
+				if (displacement_node_set.size() > 1)
+				{
+					std::shared_ptr<mv::pin> displacement1 = laban_sequence_reader::read_pin(displacement_node_set.at(0));
+					std::shared_ptr<mv::pin> displacement2 = laban_sequence_reader::read_pin(displacement_node_set.at(1));
+
+					//dynamics
+					xmlpp::NodeSet dynamics_node_set = node->find("/dynamics");
+					std::shared_ptr<mv::i_dynamics_sign> dynamics = nullptr;
+
+					if (dynamics_node_set.size() > 0)
+					{
+						dynamics = laban_sequence_reader::read_dynamics(node);
+					}
+
+					result = std::shared_ptr<mv::vibration_symbol>(new mv::vibration_symbol(displacement1, displacement2, dynamics));
+				}
 
 				return result;
 			}
 
-			std::shared_ptr<mv::cancellation_symbol> read_cancellation(xmlpp::Node* node)
+			std::shared_ptr<mv::cancellation_symbol> laban_sequence_reader::read_cancellation(xmlpp::Node* node)
 			{
 				std::shared_ptr<mv::cancellation_symbol> result = nullptr;
 
-				//TODO read direction
+				//cancel
+				xmlpp::NodeSet cancel_node_set = node->find("/cancel");
+
+				if (cancel_node_set.size() > 0)
+				{
+					mv::e_cancel cancel = mv::e_cancel_c::parse(dynamic_cast<xmlpp::ContentNode*>(cancel_node_set.at(0))->get_content());
+
+					result = std::shared_ptr<mv::cancellation_symbol>(new mv::cancellation_symbol(cancel));
+				}
 
 				return result;
 			}

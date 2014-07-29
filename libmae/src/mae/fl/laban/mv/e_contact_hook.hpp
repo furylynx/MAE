@@ -12,11 +12,12 @@
 #include "../../../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "../../../mstr.hpp"
 
 //global includes
 #include <string>
 #include <stdexcept>
+#include <vector>
 
 namespace mae
 {
@@ -47,6 +48,9 @@ namespace mae
 				{
 					public:
 						static std::string str(e_contact_hook hook);
+						static std::vector<e_contact_hook> vec();
+						static e_contact_hook parse(std::string str);
+
 				};
 
 			} // namespace mv
