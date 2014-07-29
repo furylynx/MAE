@@ -28,6 +28,35 @@ namespace mae
 					throw std::invalid_argument("Enum value not listed in the str() method");
 				}
 
+				std::vector<e_turn_direction> e_turn_direction_c::vec()
+				{
+					std::vector<e_turn_direction> result;
+					result.push_back(e_turn_direction::NONE 			);
+					result.push_back(e_turn_direction::COUNTER_CLOCKWISE);
+					result.push_back(e_turn_direction::CLOCKWISE        );
+					result.push_back(e_turn_direction::ANY              );
+
+					return result;
+				}
+
+				e_turn_direction e_turn_direction_c::parse(std::string str)
+				{
+					std::string str_l = mstr::to_lower(str);
+
+					std::vector<e_turn_direction> v = e_turn_direction_c::vec();
+
+					for (unsigned int i = 0; i < v.size(); i++)
+					{
+						std::string t = e_turn_direction_c::str(v.at(i));
+						if (str_l == mstr::to_lower(t))
+						{
+							return v.at(i);
+						}
+					}
+
+					throw std::invalid_argument("Could not parse the given value since no match was found.");
+				}
+
 
 			} // namespace mv
 		} // namespace laban

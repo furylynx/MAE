@@ -12,11 +12,12 @@
 #include "../../../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "../../../mstr.hpp"
 
 //global includes
 #include <string>
 #include <stdexcept>
+#include <vector>
 
 namespace mae
 {
@@ -39,6 +40,8 @@ namespace mae
 				{
 					public:
 						static std::string str(e_turn_direction turn);
+						static std::vector<e_turn_direction> vec();
+						static e_turn_direction parse(std::string str);
 				};
 
 

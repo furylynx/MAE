@@ -13,10 +13,12 @@
 
 //custom includes
 #include "../../e_fl_direction.hpp"
+#include "../../../mstr.hpp"
 
 //global includes
 #include <string>
 #include <stdexcept>
+#include <vector>
 
 namespace mae
 {
@@ -46,6 +48,9 @@ namespace mae
 					public:
 						static std::string str(e_direction direction);
 						static e_direction dir(e_fl_direction direction);
+						static std::vector<e_direction> vec();
+						static e_direction parse(std::string str);
+
 				};
 
 			} // namespace mv
