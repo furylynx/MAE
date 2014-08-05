@@ -35,7 +35,25 @@ namespace mae {
 
 		class laban_sequence {
 			public:
+				/**
+				 * Creates a new sequence with default values for title and author and no
+				 * definitions for measures, beats and beat duration.
+				 *
+				 * The timing attributes must be set when having movements in the score.
+				 *
+				 */
 				laban_sequence();
+
+				/**
+				 * Creates a new sequence.
+				 *
+				 * @param title The title of the sequence.
+				 * @param author The first author of the sequence.
+				 * @param measures The total number of measures this score contains.
+				 * @param time_unit The time unit in which the beat duration is given.
+				 * @param beat_duration The beat duration (in given time unit).
+				 * @param beats The number of beats a measure consists of.
+				 */
 				laban_sequence(std::string title, std::string author, unsigned int measures, e_time_unit time_unit, unsigned int beat_duration, unsigned int beats);
 				virtual ~laban_sequence();
 

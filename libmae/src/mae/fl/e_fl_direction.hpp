@@ -12,7 +12,7 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "../mstr.hpp"
 
 //global includes
 #include <string>
@@ -75,8 +75,27 @@ namespace mae
 		class e_fl_direction_c
 		{
 			public:
+				/**
+				 * Returns the string representation for this enum value.
+				 *
+				 * @param direction The element.
+				 * @return The string representation.
+				 */
 				static std::string str(e_fl_direction direction);
+
+				/**
+				 * Returns the integer value corresponding to this element.
+				 *
+				 * @param direction The element.
+				 * @return The integer ID.
+				 */
 				static int to_int(e_fl_direction direction);
+
+				/**
+				 * Returns a vector containing all possible enum values.
+				 *
+				 * @return A vector.
+				 */
 				static std::vector<e_fl_direction> vec();
 		};
 

@@ -12,11 +12,12 @@
 #include "indexer_fix.hpp"
 
 //custom includes
-//...
+#include "mstr.hpp"
 
 //global includes
 #include <string>
 #include <stdexcept>
+#include <vector>
 
 namespace mae
 {
@@ -42,8 +43,29 @@ namespace mae
 	class e_bone_c
 	{
 		public:
+			/**
+			 * Returns the string representation for this enum value.
+			 *
+			 * @param bone The element.
+			 * @return The string representation.
+			 */
 			static std::string str(e_bone bone);
+
+			/**
+			 * Returns the integer value corresponding to this element.
+			 *
+			 * @param bone The element.
+			 * @return The integer ID.
+			 */
 			static int to_int(e_bone bone);
+
+			/**
+			 * Returns a vector containing all possible enum values.
+			 *
+			 * @return A vector.
+			 */
+			static std::vector<e_bone> vec();
+
 	};
 
 } // namespace mae

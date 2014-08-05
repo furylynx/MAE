@@ -46,9 +46,35 @@ namespace mae
 				class e_direction_c
 				{
 					public:
+						/**
+						 * Returns the string representation for this enum value.
+						 *
+						 * @param direction The element.
+						 * @return The string representation.
+						 */
 						static std::string str(e_direction direction);
+
+						/**
+						 * Returns the corresponding direction value.
+						 *
+						 * @param direction The direction+level enum value.
+						 * @return The direction.
+						 */
 						static e_direction dir(e_fl_direction direction);
+
+						/**
+						 * Returns a vector containing all possible enum values.
+						 *
+						 * @return A vector.
+						 */
 						static std::vector<e_direction> vec();
+
+						/**
+						 * Parses the string and returns the corresponding element.
+						 *
+						 * @param str The string to be parsed.
+						 * @return The element.
+						 */
 						static e_direction parse(std::string str);
 
 				};

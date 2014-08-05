@@ -24,17 +24,61 @@ namespace mae {
 
 		class fl_joint {
 			public:
+				/**
+				 * Creates a new joint.
+				 *
+				 */
 				fl_joint();
+
+				/**
+				 * Creates a new joint with the values set.
+				 *
+				 * @param phi The elevation phi.
+				 * @param theta The azimuth theta.
+				 */
 				fl_joint(double phi, double theta);
+
 				virtual ~fl_joint();
 
+				/**
+				 * Sets the value for phi.
+				 *
+				 * @param x The value.
+				 */
 				virtual void set_phi(double x);
+
+				/**
+				 * Returns the value for phi.
+				 *
+				 * @return The value.
+				 */
 				virtual double get_phi() const;
 
+				/**
+				 * Sets the value for theta.
+				 *
+				 * @param x The value.
+				 */
 				virtual void set_theta(double x);
+				/**
+				 * Returns the value for theta.
+				 *
+				 * @return The value.
+				 */
 				virtual double get_theta() const;
 
+				/**
+				 * Sets the validity of this joint.
+				 *
+				 * @param isValid The validity.
+				 */
 				virtual void set_valid(bool isValid);
+
+				/**
+				 * Returns the validity of this joint.
+				 *
+				 * @return True if valid.
+				 */
 				virtual bool is_valid() const;
 
 				friend std::ostream& operator<<(std::ostream& os, const fl_joint& obj)

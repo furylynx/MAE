@@ -46,8 +46,27 @@ namespace mae
 				class e_joint_c
 				{
 					public:
-						static std::string str(e_joint joint_);
+						/**
+						 * Returns the string representation for this enum value.
+						 *
+						 * @param joint The element.
+						 * @return The string representation.
+						 */
+						static std::string str(e_joint joint);
+
+						/**
+						 * Returns a vector containing all possible enum values.
+						 *
+						 * @return A vector.
+						 */
 						static std::vector<e_joint> vec();
+
+						/**
+						 * Parses the string and returns the corresponding element.
+						 *
+						 * @param str The string to be parsed.
+						 * @return The element.
+						 */
 						static e_joint parse(std::string str);
 				};
 

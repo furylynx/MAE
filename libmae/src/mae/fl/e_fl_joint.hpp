@@ -12,7 +12,7 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "../mstr.hpp"
 
 //global includes
 #include <string>
@@ -45,8 +45,27 @@ namespace mae
 		class e_fl_joint_c
 		{
 			public:
+				/**
+				 * Returns the string representation for this enum value.
+				 *
+				 * @param joint The element.
+				 * @return The string representation.
+				 */
 				static std::string str(e_fl_joint joint);
+
+				/**
+				 * Returns the integer value corresponding to this element.
+				 *
+				 * @param joint The element.
+				 * @return The integer ID.
+				 */
 				static int to_int(e_fl_joint joint);
+
+				/**
+				 * Returns a vector containing all possible enum values.
+				 *
+				 * @return A vector.
+				 */
 				static std::vector<e_fl_joint> vec();
 		};
 

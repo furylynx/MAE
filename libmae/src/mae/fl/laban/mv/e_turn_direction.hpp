@@ -39,8 +39,27 @@ namespace mae
 				class e_turn_direction_c
 				{
 					public:
+						/**
+						 * Returns the string representation for this enum value.
+						 *
+						 * @param turn The element.
+						 * @return The string representation.
+						 */
 						static std::string str(e_turn_direction turn);
+
+						/**
+						 * Returns a vector containing all possible enum values.
+						 *
+						 * @return A vector.
+						 */
 						static std::vector<e_turn_direction> vec();
+
+						/**
+						 * Parses the string and returns the corresponding element.
+						 *
+						 * @param str The string to be parsed.
+						 * @return The element.
+						 */
 						static e_turn_direction parse(std::string str);
 				};
 

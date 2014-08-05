@@ -57,10 +57,43 @@ namespace mae
 	class e_joint_c
 	{
 		public:
+			/**
+			 * Returns the string representation for this enum value.
+			 *
+			 * @param unit The element.
+			 * @return The string representation.
+			 */
 			static std::string str(e_joint joint);
+
+			/**
+			 * Returns the integer value corresponding to this element.
+			 *
+			 * @param joint The element.
+			 * @return The integer ID.
+			 */
 			static int to_int(e_joint joint);
+
+			/**
+			 * Returns a vector containing all possible enum values.
+			 *
+			 * @return A vector.
+			 */
 			static std::vector<e_joint> vec();
+
+			/**
+			 * Returns true if the joint ID represents a dummy joint.
+			 *
+			 * @param joint The element.
+			 * @return True if dummy element.
+			 */
 			static bool is_dummy(e_joint joint);
+
+			/**
+			 * Returns true if the joint ID represents a torso joint.
+			 *
+			 * @param joint The element.
+			 * @return True if torso element.
+			 */
 			static bool is_torso(e_joint joint);
 	};
 

@@ -35,12 +35,38 @@ namespace mae
 				class space_symbol: public i_symbol
 				{
 					public:
+						/**
+						 * Creates a new space symbol. It is not to be confused with the space measurement sign
+						 * which is a member of this symbol.
+						 *
+						 * @param space_measurement The space measurement sign.
+						 * @param dynamics (optional) The dynamics sign.
+						 */
 						space_symbol(std::shared_ptr<space_measurement> space_measurement, std::shared_ptr<i_dynamics_sign> dynamics = nullptr);
 						virtual ~space_symbol();
 
+						/**
+						 * Returns the dynamics sign if any. Returns null otherwise.
+						 *
+						 * @return A shared pointer to the dynamics sign.
+						 */
 						std::shared_ptr<i_dynamics_sign> get_dynamics();
+
+						/**
+						 * Returns the space measurement sign.
+						 *
+						 * @return The space measurement.
+						 */
 						std::shared_ptr<space_measurement> get_space_measurement();
 
+						/**
+						 * Returns the XML representation for this element.
+						 *
+						 * @param indent The applied indent.
+						 * @param namesp The prefixed XML namespace.
+						 *
+						 * @return The XML string.
+						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:

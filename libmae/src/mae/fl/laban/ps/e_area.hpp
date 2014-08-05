@@ -41,7 +41,26 @@ namespace mae
 				class e_area_c
 				{
 					public:
+						/**
+						 * Returns the string representation for this enum value.
+						 *
+						 * @param area The element.
+						 * @return The string representation.
+						 */
+
+						/**
+						 * Returns a vector containing all possible enum values.
+						 *
+						 * @return A vector.
+						 */
 						static std::string str(e_area area);
+
+						/**
+						 * Parses the string and returns the corresponding element.
+						 *
+						 * @param str The string to be parsed.
+						 * @return The element.
+						 */
 						static std::vector<e_area> vec();
 						static e_area parse(std::string str);
 				};

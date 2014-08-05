@@ -33,11 +33,29 @@ namespace mae
 				class area_part: public i_endpoint
 				{
 					public:
+						/**
+						 * Creates a new area pre-sign.
+						 *
+						 * @param area The addressed area.
+						 */
 						area_part(e_area area);
 						virtual ~area_part();
 
+						/**
+						 * Returns the addressed area.
+						 *
+						 * @return
+						 */
 						e_area get_area();
 
+						/**
+						 * Returns the XML representation for this element.
+						 *
+						 * @param indent The applied indent.
+						 * @param namesp The prefixed XML namespace.
+						 *
+						 * @return The XML string.
+						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
