@@ -38,8 +38,27 @@ namespace mae
 				class e_side_c
 				{
 					public:
-						static std::string str(e_side e_side_);
+						/**
+						 * Returns the string representation for this enum value.
+						 *
+						 * @param side The element.
+						 * @return The string representation.
+						 */
+						static std::string str(e_side side);
+
+						/**
+						 * Returns a vector containing all possible enum values.
+						 *
+						 * @return A vector.
+						 */
 						static std::vector<e_side> vec();
+
+						/**
+						 * Parses the string and returns the corresponding element.
+						 *
+						 * @param str The string to be parsed.
+						 * @return The element.
+						 */
 						static e_side parse(std::string vec);
 				};
 

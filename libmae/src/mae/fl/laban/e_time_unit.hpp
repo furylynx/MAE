@@ -38,8 +38,27 @@ namespace mae
 			class e_time_unit_c
 			{
 				public:
+					/**
+					 * Returns the string representation for this enum value.
+					 *
+					 * @param unit The element.
+					 * @return The string representation.
+					 */
 					static std::string str(e_time_unit unit);
+
+					/**
+					 * Returns a vector containing all possible enum values.
+					 *
+					 * @return A vector.
+					 */
 					static std::vector<e_time_unit> vec();
+
+					/**
+					 * Parses the string and returns the corresponding element.
+					 *
+					 * @param str The string to be parsed.
+					 * @return The element.
+					 */
 					static e_time_unit parse(std::string str);
 			};
 

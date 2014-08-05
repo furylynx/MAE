@@ -32,12 +32,43 @@ namespace mae
 				class pin: public i_degree_sign
 				{
 					public:
+						/**
+						 * Creates a pin. The horizontal direction must be a value between -1 and 360.
+						 *
+						 * @param level The level type.
+						 * @param horizontal The horizontal direction which must be a value between -1
+						 * 						and 360. -1 represents at place whereas a value between
+						 * 						0 and 360 represents a the degree relative to the
+						 * 						forward direction (e.g. 90 represents "right").
+						 */
 						pin(e_level level, int horizontal);
 						virtual ~pin();
 
+						/**
+						 * Returns the level.
+						 *
+						 * @return The level.
+						 */
 						e_level get_level();
+
+						/**
+						 * Returns the (horizontal) direction which is a value between -1 and 360.
+						 * -1 represents at place whereas a value between 0 and 360 represents a
+						 * the degree relative to the forward direction (e.g. 90 represents
+						 * "right").
+						 *
+						 * @return The direction.
+						 */
 						int get_horizontal();
 
+						/**
+						 * Returns the XML representation for this element.
+						 *
+						 * @param indent The applied indent.
+						 * @param namesp The prefixed XML namespace.
+						 *
+						 * @return The XML string.
+						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:

@@ -38,5 +38,27 @@ namespace mae
 		return (int) bone;
 	}
 
+	std::vector<e_bone> e_bone_c::vec()
+	{
+		std::vector<e_bone> result;
+		result.push_back(e_bone::INVALID    		);
+		result.push_back(e_bone::HEAD           	);
+		result.push_back(e_bone::LEFT_UPPER_ARM 	);
+		result.push_back(e_bone::LEFT_FOREARM    	);
+		result.push_back(e_bone::LEFT_WHOLE_ARM  	);
+		result.push_back(e_bone::RIGHT_UPPER_ARM 	);
+		result.push_back(e_bone::RIGHT_FOREARM  	);
+		result.push_back(e_bone::RIGHT_WHOLE_ARM	);
+		result.push_back(e_bone::LEFT_THIGH      	);
+		result.push_back(e_bone::LEFT_SHANK      	);
+		result.push_back(e_bone::LEFT_WHOLE_LEG 	);
+		result.push_back(e_bone::RIGHT_THIGH		);
+		result.push_back(e_bone::RIGHT_SHANK     	);
+		result.push_back(e_bone::RIGHT_WHOLE_LEG 	);
+
+		return result;
+	}
+
+
 
 } // namespace mae

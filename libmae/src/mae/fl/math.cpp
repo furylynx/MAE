@@ -518,48 +518,48 @@ namespace mae
 					|| (angle > (-M_PI - 0.01) && angle < (-M_PI + 0.01));
 		}
 
-		double math::calcAngle(cv::Vec3d a, cv::Vec3d b)
-		{
-
-			double halfAngle = math::calcAngleHalf(a, b);
-
-			if (halfAngle == 0 || halfAngle == M_PI || halfAngle == -M_PI)
-			{
-				return halfAngle;
-			}
-
-			//calc cross product
-			cv::Vec3d cross = a.cross(b);
-
-			int sign = (cross[2] > 0) - (cross[2] < 0);
-
-			if (sign == 0)
-			{
-				sign = (cross[1] > 0) - (cross[1] < 0);
-
-				if (sign == 0)
-				{
-					sign = (cross[0] > 0) - (cross[0] < 0);
-
-					if (sign == 0)
-					{
-						//todo throw exception ?
-						std::cerr << "This case should not occur" << std::endl;
-						std::cerr << "a=" << a << std::endl;
-						std::cerr << "b=" << b << std::endl;
-						std::cerr << "half angle=" << math::radToDeg(halfAngle) << "° " << std::endl;
-						return halfAngle;
-					}
-				}
-			}
-
-			return halfAngle * sign;
-		}
-
-		double math::calcAngleDeg(cv::Vec3d a, cv::Vec3d b)
-		{
-			return math::radToDeg(math::calcAngle(a, b));
-		}
+//		double math::calcAngle(cv::Vec3d a, cv::Vec3d b)
+//		{
+//
+//			double halfAngle = math::calcAngleHalf(a, b);
+//
+//			if (halfAngle == 0 || halfAngle == M_PI || halfAngle == -M_PI)
+//			{
+//				return halfAngle;
+//			}
+//
+//			//calc cross product
+//			cv::Vec3d cross = a.cross(b);
+//
+//			int sign = (cross[2] > 0) - (cross[2] < 0);
+//
+//			if (sign == 0)
+//			{
+//				sign = (cross[1] > 0) - (cross[1] < 0);
+//
+//				if (sign == 0)
+//				{
+//					sign = (cross[0] > 0) - (cross[0] < 0);
+//
+//					if (sign == 0)
+//					{
+//						//todo throw exception ?
+//						std::cerr << "This case should not occur" << std::endl;
+//						std::cerr << "a=" << a << std::endl;
+//						std::cerr << "b=" << b << std::endl;
+//						std::cerr << "half angle=" << math::radToDeg(halfAngle) << "° " << std::endl;
+//						return halfAngle;
+//					}
+//				}
+//			}
+//
+//			return halfAngle * sign;
+//		}
+//
+//		double math::calcAngleDeg(cv::Vec3d a, cv::Vec3d b)
+//		{
+//			return math::radToDeg(math::calcAngle(a, b));
+//		}
 
 		double math::calc_angle_plane(cv::Vec3d a, cv::Vec3d b, cv::Vec3d normal)
 		{

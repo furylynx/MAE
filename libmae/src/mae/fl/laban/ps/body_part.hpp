@@ -35,13 +35,37 @@ namespace mae
 				class body_part: public i_pre_sign
 				{
 					public:
+						/**
+						 * Creates a new body part pre-sign. It contains of a specific part and a side.
+						 * If the side has no meaning to the part (e.g. head) is should be set to NONE.
+						 *
+						 * @param side The side of the body.
+						 * @param part The body part.
+						 */
 						body_part(e_side side, std::shared_ptr<i_part> part);
 						virtual ~body_part();
 
-
+						/**
+						 * Returns the addressed side of the body.
+						 *
+						 * @return
+						 */
 						e_side get_side();
+
+						/**
+						 * Returns the addressed body part.
+						 * @return
+						 */
 						std::shared_ptr<i_part> get_part();
 
+						/**
+						 * Returns the XML representation for this element.
+						 *
+						 * @param indent The applied indent.
+						 * @param namesp The prefixed XML namespace.
+						 *
+						 * @return The XML string.
+						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:

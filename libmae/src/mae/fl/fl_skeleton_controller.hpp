@@ -36,19 +36,86 @@ namespace mae {
 		{
 
 			public:
+				/**
+				 * Createa a new skeleton controller which generates a fl_skeleton from the general skeleton.
+				 *
+				 * @param debug (optional) If true debug output will be printed to the terminal.
+				 */
 				fl_skeleton_controller(bool debug = false);
 				virtual ~fl_skeleton_controller();
 
+				/**
+				 * Generates the specified skeleton from the general skeleton.
+				 *
+				 * @param skeleton The general skeleton.
+				 * @return The specified skeleton.
+				 */
 				virtual std::shared_ptr<fl_skeleton> specified_skeleton(std::shared_ptr<general_skeleton> skeleton);
 
 
-				//only defined in FLSkeletonController
+				/**
+				 * Generates the angular skeleton from the general one.
+				 *
+				 * @param skeleton The general skeleton.
+				 * @param u The u direction of the basis.
+				 * @param r The r direction of the basis.
+				 * @param t The t direction of the basis.
+				 * @return The specified skeleton.
+				 */
 				virtual std::shared_ptr<fl_skeleton> calculate_angular_skeleton(std::shared_ptr<general_skeleton> skeleton, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
 
+				/**
+				 * Calculates first degree joints using a main direction.
+				 *
+				 * @param skeleton
+				 * @param adjacent_joint
+				 * @param outer_joint
+				 * @param u
+				 * @param r
+				 * @param t
+				 * @param md
+				 * @return
+				 */
 				static cv::Vec2d first_degree_md(std::shared_ptr<general_skeleton> skeleton, int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t, cv::Vec3d md);
+
+				/**
+				 * Calculates the first degree joint using the plane to which r is the normal.
+				 *
+				 * @param skeleton
+				 * @param adjacent_joint
+				 * @param outer_joint
+				 * @param u
+				 * @param r
+				 * @param t
+				 * @return
+				 */
 				static cv::Vec2d first_degree_r(std::shared_ptr<general_skeleton> skeleton, int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
 
+				/**
+				 * Calculates the first degree joint which the general method.
+				 *
+				 * @param skeleton
+				 * @param adjacent_joint
+				 * @param outer_joint
+				 * @param u
+				 * @param r
+				 * @param t
+				 * @return
+				 */
 				static cv::Vec2d first_degree(std::shared_ptr<general_skeleton> skeleton, int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
+
+				/**
+				 * Calculates the second degree joint.
+				 *
+				 * @param skeleton
+				 * @param adjacent_joint
+				 * @param outer_joint
+				 * @param extremity_joint
+				 * @param u
+				 * @param r
+				 * @param t
+				 * @return
+				 */
 				static cv::Vec2d second_degree(std::shared_ptr<general_skeleton> skeleton, int adjacent_joint, int outer_joint, int extremity_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
 
 			private:

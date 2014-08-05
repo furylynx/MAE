@@ -32,11 +32,29 @@ namespace mae
 				class cancellation_symbol : public i_symbol
 				{
 					public:
+						/**
+						 * Creates a cancellation symbol.
+						 *
+						 * @param cancel The cancellation type.
+						 */
 						cancellation_symbol(e_cancel cancel);
 						virtual ~cancellation_symbol();
 
+						/**
+						 * Returns the cancellation type.
+						 *
+						 * @return The cancellation type.
+						 */
 						e_cancel get_cancel();
 
+						/**
+						 * Returns the XML representation for this element.
+						 *
+						 * @param indent The applied indent.
+						 * @param namesp The prefixed XML namespace.
+						 *
+						 * @return The XML string.
+						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:

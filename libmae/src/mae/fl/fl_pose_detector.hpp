@@ -37,12 +37,31 @@ namespace mae
 		class fl_pose_detector: public mae::i_pose_detector<fl_skeleton>
 		{
 			public:
+				/**
+				 * Creates a new pose detector.
+				 *
+				 * @param debug (optional) If true debug output on the console is done.
+				 */
 				fl_pose_detector(bool debug = false);
 				virtual ~fl_pose_detector();
 
+				/**
+				 * Processes the skeleton in order to return the pose of each demanded body part.
+				 *
+				 * @param skeleton The skeleton.
+				 * @param body_parts The processed body parts.
+				 * @return The pose.
+				 */
 				virtual std::shared_ptr<mae::general_pose> pose(std::shared_ptr<fl_skeleton> skeleton,
 						std::vector<bone> body_parts);
 
+				/**
+				 * Returns a vector pose which means calculating the pose from the vectors not from angles.
+				 *
+				 * @param skeleton The skeleton.
+				 * @param body_parts The processed body parts.
+				 * @return The pose.
+				 */
 				virtual std::shared_ptr<mae::general_pose> vector_pose(std::shared_ptr<fl_skeleton> skeleton,
 														std::vector<bone> body_parts);
 

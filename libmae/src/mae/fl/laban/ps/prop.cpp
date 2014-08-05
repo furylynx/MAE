@@ -20,6 +20,12 @@ namespace mae
 				{
 					name_ = name;
 					description_ = description;
+
+					if (name.size() == 0)
+					{
+						throw std::invalid_argument(
+								"A name must be defined.");
+					}
 				}
 
 				prop::~prop()
@@ -59,7 +65,10 @@ namespace mae
 
 					sstr << indent_stream.str() << "\t" << "<" << ns << "prop>" << std::endl;
 					sstr << indent_stream.str() << "\t\t" << "<" << ns << "name>" << name_ << "</" << ns << "name>" << std::endl;
-					sstr << indent_stream.str() << "\t\t" << "<" << ns << "description>" << description_ << "</" << ns << "description>" << std::endl;
+					if (description_.size() > 0)
+					{
+						sstr << indent_stream.str() << "\t\t" << "<" << ns << "description>" << description_ << "</" << ns << "description>" << std::endl;
+					}
 					sstr << indent_stream.str() << "\t" << "</" << ns << "prop>" << std::endl;
 
 					sstr << indent_stream.str() << "</" << ns << "preSign>" << std::endl;

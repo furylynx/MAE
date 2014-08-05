@@ -30,10 +30,13 @@ namespace mae
 		class fl_skeleton
 		{
 			public:
+				/**
+				 * Generates a fl_skeleton.
+				 */
 				fl_skeleton();
+
 				virtual ~fl_skeleton();
 
-				//angular joint - not used currently
 				/**
 				 * Sets an angular joint.
 				 *

@@ -32,11 +32,29 @@ namespace mae
 				class dynamic_sign: public i_dynamics_sign
 				{
 					public:
+						/**
+						 * Creates a new dynamics sign.
+						 *
+						 * @param dynamic The dynamic type.
+						 */
 						dynamic_sign(e_dynamic dynamic);
 						virtual ~dynamic_sign();
 
+						/**
+						 * Returns the dynamic type.
+						 *
+						 * @return The type.
+						 */
 						e_dynamic get_dynamic();
 
+						/**
+						 * Returns the XML representation for this element.
+						 *
+						 * @param indent The applied indent.
+						 * @param namesp The prefixed XML namespace.
+						 *
+						 * @return The XML string.
+						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:

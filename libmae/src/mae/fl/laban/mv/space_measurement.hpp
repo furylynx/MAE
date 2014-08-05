@@ -34,13 +34,47 @@ namespace mae
 				class space_measurement: public i_degree_sign
 				{
 					public:
+						/**
+						 * Creates a space measurement sign. It is not to be confused with the space symbol which
+						 * is a symbol that represents a space measurement and therefore contains one.
+						 *
+						 * @param type The type of the space measurement.
+						 * @param degree The degree which is an integer between 1 and 6.
+						 * @param direction (optional) The space direction (similiar to the (horizontal) direction of a direction symbol).
+						 */
 						space_measurement(e_space type, unsigned int degree, e_space_direction direction = e_space_direction::NONE);
 						virtual ~space_measurement();
 
+						/**
+						 * Returns the type of the space measurement.
+						 *
+						 * @return The type.
+						 */
 						e_space get_type();
+
+						/**
+						 * Returns the degree of the space measurement which is an integer between 1 and 6.
+						 *
+						 * @return The degree.
+						 */
 						unsigned int get_degree();
+
+						/**
+						 * Returns the space direction which is a horizontal direction similar to the (horizontal) direction
+						 * of the direction symbols. Returns NONE if this element is not set.
+						 *
+						 * @return The space direction.
+						 */
 						e_space_direction get_direction();
 
+						/**
+						 * Returns the XML representation for this element.
+						 *
+						 * @param indent The applied indent.
+						 * @param namesp The prefixed XML namespace.
+						 *
+						 * @return The XML string.
+						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
