@@ -33,11 +33,28 @@ namespace mae
 				class joint_part: public i_endpoint
 				{
 					public:
+						/**
+						 * Creates a joint part used for a pre-sign.
+						 *
+						 * @param joint The addressed joint.
+						 */
 						joint_part(e_joint joint);
 						virtual ~joint_part();
 
+						/**
+						 * Returns the addressed joint.
+						 * @return
+						 */
 						e_joint get_joint();
 
+						/**
+						 * Returns the XML representation for this element.
+						 *
+						 * @param indent The applied indent.
+						 * @param namesp The prefixed XML namespace.
+						 *
+						 * @return The XML string.
+						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:

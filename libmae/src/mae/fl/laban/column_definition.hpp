@@ -30,7 +30,12 @@ namespace mae
 		class column_definition
 		{
 			public:
-
+				/**
+				 * Creates a new column definition.
+				 *
+				 * @param column_index The index of the column.
+				 * @param pre_sign The pre-sign.
+				 */
 				column_definition(int column_index, std::shared_ptr<ps::i_pre_sign> pre_sign);
 
 				virtual ~column_definition();
@@ -50,10 +55,12 @@ namespace mae
 				std::shared_ptr<ps::i_pre_sign> get_pre_sign();
 
 				/**
-				 * Prints the xml representation for this element to a string.
+				 * Returns the XML representation for this element.
 				 *
-				 * @param indent The number of tab indent.
-				 * @return The xml string.
+				 * @param indent The applied indent.
+				 * @param namesp The prefixed XML namespace.
+				 *
+				 * @return The XML string.
 				 */
 				virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 

@@ -33,11 +33,29 @@ namespace mae
 				class default_limb: public i_limb
 				{
 					public:
+						/**
+						 * Creates a default limb pre-sign which uses one of the defined limbs.
+						 *
+						 * @param limb The limb type.
+						 */
 						default_limb(e_limb limb);
 						virtual ~default_limb();
 
+						/**
+						 * Returns the limb type.
+						 *
+						 * @return
+						 */
 						e_limb get_limb();
 
+						/**
+						 * Returns the XML representation for this element.
+						 *
+						 * @param indent The applied indent.
+						 * @param namesp The prefixed XML namespace.
+						 *
+						 * @return The XML string.
+						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
