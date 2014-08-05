@@ -34,13 +34,44 @@ namespace mae
 			class room_direction: public i_movement
 			{
 				public:
+					/**
+					 * Creates a room direction sign.
+					 *
+					 * @param measure The measure in which this symbol is placed.
+					 * @param beat The beat where this symbol is placed.
+					 * @param direction The direction of the room.
+					 */
 					room_direction(unsigned int measure, double beat, std::shared_ptr<mv::pin> direction);
 					virtual ~room_direction();
 
+					/**
+					 * Returns the measure in which this symbol is placed.
+					 * @return
+					 */
 					unsigned int get_measure();
+
+					/**
+					 * Returns the beat in which this symbol is placed.
+					 *
+					 * @return
+					 */
 					double get_beat();
+
+					/**
+					 * Returns the room direction.
+					 *
+					 * @return
+					 */
 					std::shared_ptr<mv::pin> get_direction();
 
+					/**
+					 * Returns the XML representation for this element.
+					 *
+					 * @param indent The applied indent.
+					 * @param namesp The prefixed XML namespace.
+					 *
+					 * @return The XML string.
+					 */
 					virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 				private:

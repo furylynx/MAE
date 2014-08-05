@@ -32,13 +32,38 @@ namespace mae
 				class prop : public i_pre_sign
 				{
 					public:
-						prop(std::string name, std::string description);
+						/**
+						 * Creates a prop pre-sign which can be used to freely define a pre-sign
+						 * using a name and an optional description.
+						 *
+						 * @param name The expressive name of the pre-sign.
+						 * @param description The optional description.
+						 */
+						prop(std::string name, std::string description = "");
 						virtual ~prop();
 
-
+						/**
+						 * Returns the name of the pre-sign.
+						 * @return
+						 */
 						std::string get_name();
+
+						/**
+						 * Returns the description of the pre-sign. Returns an empty
+						 * string if none set.
+						 *
+						 * @return
+						 */
 						std::string get_description();
 
+						/**
+						 * Returns the XML representation for this element.
+						 *
+						 * @param indent The applied indent.
+						 * @param namesp The prefixed XML namespace.
+						 *
+						 * @return The XML string.
+						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
 					private:
