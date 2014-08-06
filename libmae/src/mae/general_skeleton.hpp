@@ -33,8 +33,19 @@ namespace mae
 	class general_skeleton
 	{
 		public:
+			/**
+			 * Creates a general skeleton.
+			 *
+			 */
 			general_skeleton();
+
+			/**
+			 * Creates a general skeleton with a pre-defined hierarchy.
+			 *
+			 * @param hierarchy The hierarchy.
+			 */
 			general_skeleton(std::shared_ptr<hierarchy> hierarchy);
+
 			virtual ~general_skeleton();
 
 			/**

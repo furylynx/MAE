@@ -67,6 +67,15 @@ namespace mae
 				 * @return A vector.
 				 */
 				static std::vector<e_fl_joint> vec();
+
+				/**
+				 * Parses the string and returns the corresponding element.
+				 *
+				 * @param str The string to be parsed.
+				 * @return The element.
+				 */
+				static e_fl_joint parse(std::string str);
+
 		};
 
 	} // namespace fl

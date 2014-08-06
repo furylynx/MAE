@@ -61,5 +61,24 @@ namespace mae
 			return result;
 		}
 
+		e_fl_joint e_fl_joint_c::parse(std::string str)
+		{
+			std::string str_l = mstr::to_lower(str);
+
+			std::vector<e_fl_joint> v = e_fl_joint_c::vec();
+
+			for (unsigned int i = 0; i < v.size(); i++)
+			{
+				std::string t = e_fl_joint_c::str(v.at(i));
+				if (str_l == mstr::to_lower(t))
+				{
+					return v.at(i);
+				}
+			}
+
+			throw std::invalid_argument("Could not parse the given value since no match was found.");
+		}
+
+
 	} // namespace fl
 } // namespace mae

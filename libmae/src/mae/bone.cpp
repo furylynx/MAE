@@ -14,6 +14,11 @@ namespace mae
 
 	bone::bone(int id, std::string name, int from, int to)
 	{
+		if (id == RESERVED_TOP_DOWN || id == RESERVED_RIGHT_LEFT)
+		{
+			throw std::invalid_argument("Reserved values cannot be used as ID.");
+		}
+
 		this->id_ = id;
 		this->name_ = name;
 		this->from_ = from;
@@ -25,6 +30,11 @@ namespace mae
 
 	bone::bone(int id, std::string name, int from, int to, int middle_joint)
 	{
+		if (id == RESERVED_TOP_DOWN || id == RESERVED_RIGHT_LEFT)
+		{
+			throw std::invalid_argument("Reserved values cannot be used as ID.");
+		}
+
 		this->id_ = id;
 		this->name_ = name;
 		this->from_ = from;

@@ -97,6 +97,15 @@ namespace mae
 				 * @return A vector.
 				 */
 				static std::vector<e_fl_direction> vec();
+
+				/**
+				 * Parses the string and returns the corresponding element.
+				 *
+				 * @param str The string to be parsed.
+				 * @return The element.
+				 */
+				static e_fl_direction parse(std::string str);
+
 		};
 
 

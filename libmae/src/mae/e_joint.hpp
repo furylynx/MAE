@@ -12,7 +12,7 @@
 #include "indexer_fix.hpp"
 
 //custom includes
-//...
+#include "mstr.hpp"
 
 //global includes
 #include <string>
@@ -95,6 +95,15 @@ namespace mae
 			 * @return True if torso element.
 			 */
 			static bool is_torso(e_joint joint);
+
+			/**
+			 * Parses the string and returns the corresponding element.
+			 *
+			 * @param str The string to be parsed.
+			 * @return The element.
+			 */
+			static e_joint parse(std::string str);
+
 	};
 
 } // namespace mae

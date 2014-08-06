@@ -12,7 +12,7 @@ namespace mae
 	namespace fl
 	{
 
-		cv::Vec3d math::jointToVec(std::shared_ptr<general_joint> joint)
+		cv::Vec3d math::joint_to_vec(std::shared_ptr<general_joint> joint)
 		{
 			cv::Vec3d result;
 
@@ -22,12 +22,12 @@ namespace mae
 			return result;
 		}
 
-		std::shared_ptr<general_joint> math::vecToJoint(cv::Vec3d vec)
+		std::shared_ptr<general_joint> math::vec_to_joint(cv::Vec3d vec)
 		{
 			return std::shared_ptr<general_joint>(new general_joint(vec[0], vec[1], vec[2]));
 		}
 
-		cv::Vec2d math::jointToVec_fl(std::shared_ptr<mae::fl::fl_joint> joint)
+		cv::Vec2d math::joint_to_vec_fl(std::shared_ptr<mae::fl::fl_joint> joint)
 		{
 			cv::Vec2d result;
 
@@ -36,12 +36,12 @@ namespace mae
 			return result;
 		}
 
-		std::shared_ptr<mae::fl::fl_joint> math::vecTojoint_fl(cv::Vec2d vec)
+		std::shared_ptr<mae::fl::fl_joint> math::vec_to_joint_fl(cv::Vec2d vec)
 		{
 			return std::shared_ptr<mae::fl::fl_joint>(new mae::fl::fl_joint(vec[0], vec[1]));
 		}
 
-		std::vector<double> math::vecTostdVec(cv::Vec3d vec)
+		std::vector<double> math::vec_to_stdvec(cv::Vec3d vec)
 		{
 			std::vector<double> result;
 
@@ -53,7 +53,7 @@ namespace mae
 			return result;
 		}
 
-		std::vector<double> math::vecTostdVec(cv::Vec2d vec)
+		std::vector<double> math::vec_to_stdvec(cv::Vec2d vec)
 		{
 			std::vector<double> result;
 
@@ -65,7 +65,7 @@ namespace mae
 			return result;
 		}
 
-		cv::Vec3d math::stdVecToVec3d(std::vector<double> vec)
+		cv::Vec3d math::stdvec_to_vec3d(std::vector<double> vec)
 		{
 
 			if (vec.size() != 3)
@@ -85,7 +85,7 @@ namespace mae
 			}
 		}
 
-		cv::Vec2d math::stdVecToVec2d(std::vector<double> vec)
+		cv::Vec2d math::stdvec_to_vec2d(std::vector<double> vec)
 		{
 
 			if (vec.size() != 2)
@@ -117,7 +117,7 @@ namespace mae
 			return result.rowRange(0,3);
 		}
 
-		cv::Vec3d math::projectToBasis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r,
+		cv::Vec3d math::project_to_basis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r,
 				cv::Vec3d t)
 		{
 			//point to be projected
@@ -159,7 +159,7 @@ namespace mae
 			return result.rowRange(0, 3);
 		}
 
-		cv::Vec3d math::projectOrthogonal(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d plane_u,
+		cv::Vec3d math::project_orthogonal(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d plane_u,
 				cv::Vec3d plane_v)
 		{
 
@@ -212,7 +212,7 @@ namespace mae
 			return result.rowRange(0, 3);
 		}
 
-		cv::Vec3d math::rotateAroundAxis(cv::Vec3d point, cv::Vec3d axis, double beta)
+		cv::Vec3d math::rotate_around_axis(cv::Vec3d point, cv::Vec3d axis, double beta)
 		{
 
 			if (beta == 0)
@@ -233,7 +233,7 @@ namespace mae
 			x[1] = 0;
 			x[2] = 0;
 
-			if (math::areCollinear(axis, x))
+			if (math::are_collinear(axis, x))
 			{
 				x[0] = 0;
 				x[1] = 1;
@@ -283,7 +283,7 @@ namespace mae
 			cv::Vec4d q = math::quaternion(a, b);
 
 
-			double alpha = math::calcAngleHalf(a,b);
+			double alpha = math::calc_angle_half(a,b);
 			if (alpha < 0.01 && alpha > -0.01)
 			{
 				return cv::Vec3d(0,0,0);
@@ -321,11 +321,11 @@ namespace mae
 
 			//orthogonal vector which is the rotation axis
 			cv::Vec3d v;
-			if (math::areCollinear(a, b))
+			if (math::are_collinear(a, b))
 			{
-				if (math::areCollinear(a, e1))
+				if (math::are_collinear(a, e1))
 				{
-					if (math::areCollinear(a, e2))
+					if (math::are_collinear(a, e2))
 					{
 						v = cv::normalize(a.cross(e3));
 					}
@@ -475,7 +475,7 @@ namespace mae
 			b = cv::normalize(b);
 
 			cv::Vec3d v;
-			if (math::areCollinear(a, b))
+			if (math::are_collinear(a, b))
 			{
 				//handle singularity
 
@@ -483,9 +483,9 @@ namespace mae
 				cv::Vec3d e2(0,1,0);
 				cv::Vec3d e3(0,0,1);
 
-				if (math::areCollinear(a, e1))
+				if (math::are_collinear(a, e1))
 				{
-					if (math::areCollinear(a, e2))
+					if (math::are_collinear(a, e2))
 					{
 						v = a.cross(e3);
 					}
@@ -508,10 +508,10 @@ namespace mae
 			return cv::normalize(q);
 		}
 
-		bool math::areCollinear(cv::Vec3d a, cv::Vec3d b)
+		bool math::are_collinear(cv::Vec3d a, cv::Vec3d b)
 		{
 			// assumption: angle between both is 0 or 180 degree
-			double angle = math::calcAngleHalf(a, b);
+			double angle = math::calc_angle_half(a, b);
 
 			//fix round-off errors
 			return (angle > -0.01 && angle < 0.01) || (angle > (M_PI - 0.01) && angle < (M_PI + 0.01))
@@ -576,10 +576,10 @@ namespace mae
 
 		double math::calc_angle_plane_deg(cv::Vec3d a, cv::Vec3d b, cv::Vec3d normal)
 		{
-			return math::radToDeg(math::calc_angle_plane(a, b, normal));
+			return math::rad_to_deg(math::calc_angle_plane(a, b, normal));
 		}
 
-		double math::calcAngleHalf(cv::Vec3d a, cv::Vec3d b)
+		double math::calc_angle_half(cv::Vec3d a, cv::Vec3d b)
 		{
 			a = cv::normalize(a);
 			b = cv::normalize(b);
@@ -595,17 +595,17 @@ namespace mae
 			return std::acos(dot);
 		}
 
-		double math::calcAngleHalfDeg(cv::Vec3d a, cv::Vec3d b)
+		double math::calc_angle_half_deg(cv::Vec3d a, cv::Vec3d b)
 		{
-			return math::radToDeg(math::calcAngleHalf(a, b));
+			return math::rad_to_deg(math::calc_angle_half(a, b));
 		}
 
-		double math::radToDeg(double val)
+		double math::rad_to_deg(double val)
 		{
 			return val * 180 / M_PI;
 		}
 
-		double math::degToRad(double val)
+		double math::deg_to_rad(double val)
 		{
 			return val * M_PI / 180;
 		}

@@ -34,6 +34,7 @@ namespace mae
 			 * @param file
 			 */
 			ini_reader(std::string file);
+
 			virtual ~ini_reader();
 
 			/**
