@@ -27,7 +27,13 @@ namespace mae
 	class kp_detector: public i_kp_detector
 	{
 		public:
+			/**
+			 * Creates a new key pose detector.
+			 *
+			 * @param debug True if debug ouput shall be printed to the terminal.
+			 */
 			kp_detector(bool debug = false);
+
 			virtual ~kp_detector();
 
 			virtual std::shared_ptr<general_enriched_pose> estimate_frame(std::shared_ptr<general_pose> current_pose,

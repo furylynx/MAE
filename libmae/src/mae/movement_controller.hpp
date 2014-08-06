@@ -38,6 +38,12 @@ namespace mae{
 				movement_controller(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_sequence_recognizer<U> > isr, std::vector<bone> body_parts, bool debug = false);
 				virtual ~movement_controller();
 
+				/**
+				 * Processes the next frame.
+				 *
+				 * @param timestamp The timestamp for the skeleton.
+				 * @param skeleton The skeleton.
+				 */
 				virtual void next_frame(long timestamp, std::shared_ptr<T> skeleton);
 
 				virtual void register_sequence(std::shared_ptr<U> sequence);

@@ -66,6 +66,14 @@ namespace mae
 			 */
 			static std::vector<e_bone> vec();
 
+			/**
+			 * Parses the string and returns the corresponding element.
+			 *
+			 * @param str The string to be parsed.
+			 * @return The element.
+			 */
+			static e_bone parse(std::string str);
+
 	};
 
 } // namespace mae

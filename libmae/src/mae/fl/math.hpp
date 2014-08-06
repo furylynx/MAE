@@ -37,7 +37,7 @@ namespace mae
 				 * @param joint The joint.
 				 * @return The result.
 				 */
-				static cv::Vec3d jointToVec(std::shared_ptr<general_joint> joint);
+				static cv::Vec3d joint_to_vec(std::shared_ptr<general_joint> joint);
 
 				/**
 				 * Translates the 3D vector to a joint.
@@ -45,7 +45,7 @@ namespace mae
 				 * @param vec The vector.
 				 * @return The result.
 				 */
-				static std::shared_ptr<general_joint> vecToJoint(cv::Vec3d vec);
+				static std::shared_ptr<general_joint> vec_to_joint(cv::Vec3d vec);
 
 				/**
 				 * Translates the fl_joint to a 2D vector.
@@ -53,7 +53,7 @@ namespace mae
 				 * @param joint The joint.
 				 * @return The result.
 				 */
-				static cv::Vec2d jointToVec_fl(std::shared_ptr<mae::fl::fl_joint> joint);
+				static cv::Vec2d joint_to_vec_fl(std::shared_ptr<mae::fl::fl_joint> joint);
 
 				/**
 				 * Translates the 2D vector to a fl_joint.
@@ -61,14 +61,14 @@ namespace mae
 				 * @param vec The vector.
 				 * @return The result.
 				 */
-				static std::shared_ptr<mae::fl::fl_joint> vecTojoint_fl(cv::Vec2d vec);
+				static std::shared_ptr<mae::fl::fl_joint> vec_to_joint_fl(cv::Vec2d vec);
 
 				/**
 				 * Translates the 3D vector to a std::vector.
 				 * @param vec The vector.
 				 * @return The result.
 				 */
-				static std::vector<double> vecTostdVec(cv::Vec3d vec);
+				static std::vector<double> vec_to_stdvec(cv::Vec3d vec);
 
 				/**
 				 * Translates the 2D vector to a std::vector.
@@ -76,7 +76,7 @@ namespace mae
 				 * @param vec The vector.
 				 * @return The result.
 				 */
-				static std::vector<double> vecTostdVec(cv::Vec2d vec);
+				static std::vector<double> vec_to_stdvec(cv::Vec2d vec);
 
 				/**
 				 * Translates the std::vector to a 3D vector.
@@ -84,7 +84,7 @@ namespace mae
 				 * @param vec The vector.
 				 * @return The result.
 				 */
-				static cv::Vec3d stdVecToVec3d(std::vector<double> vec);
+				static cv::Vec3d stdvec_to_vec3d(std::vector<double> vec);
 
 				/**
 				 * Translates the std::vector to a 2D vector.
@@ -92,7 +92,7 @@ namespace mae
 				 * @param vec The vector.
 				 * @return The result.
 				 */
-				static cv::Vec2d stdVecToVec2d(std::vector<double> vec);
+				static cv::Vec2d stdvec_to_vec2d(std::vector<double> vec);
 
 				/**
 				 * Performs a matrix calculation.
@@ -112,7 +112,7 @@ namespace mae
 				 * @param t The new basis' t vector.
 				 * @return The result.
 				 */
-				static cv::Vec3d projectToBasis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r,
+				static cv::Vec3d project_to_basis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r,
 						cv::Vec3d t);
 
 				/**
@@ -125,7 +125,7 @@ namespace mae
 				 * @param plane_v The second direction vector of the plane which spans it.
 				 * @return The result.
 				 */
-				static cv::Vec3d projectOrthogonal(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d plane_u,
+				static cv::Vec3d project_orthogonal(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d plane_u,
 						cv::Vec3d plane_v);
 
 				/**
@@ -136,7 +136,7 @@ namespace mae
 				 * @param beta The angle.
 				 * @return The result.
 				 */
-				static cv::Vec3d rotateAroundAxis(cv::Vec3d point, cv::Vec3d axis, double beta);
+				static cv::Vec3d rotate_around_axis(cv::Vec3d point, cv::Vec3d axis, double beta);
 
 
 				/**
@@ -228,7 +228,7 @@ namespace mae
 				 * @param val The angle in radian.
 				 * @return The angle in degree.
 				 */
-				static double radToDeg(double val);
+				static double rad_to_deg(double val);
 
 				/**
 				 * Translates the angle in degree to radian.
@@ -236,7 +236,7 @@ namespace mae
 				 * @param val The angle in degree.
 				 * @return The angle in radian.
 				 */
-				static double degToRad(double val);
+				static double deg_to_rad(double val);
 
 				/**
 				 * Returns true if the vectors are approximately collinear.
@@ -245,7 +245,7 @@ namespace mae
 				 * @param b The vector a.
 				 * @return True if collinear.
 				 */
-				static bool areCollinear(cv::Vec3d a, cv::Vec3d b);
+				static bool are_collinear(cv::Vec3d a, cv::Vec3d b);
 
 //				/**
 //				 * Calculates the angle in radian between the two vectors.
@@ -292,7 +292,7 @@ namespace mae
 				 * @param b The vector a.
 				 * @return The result.
 				 */
-				static double calcAngleHalf(cv::Vec3d a, cv::Vec3d b);
+				static double calc_angle_half(cv::Vec3d a, cv::Vec3d b);
 
 				/**
 				 * Calculates the angle in degree between the two vectors (0 to 180 degree).
@@ -301,7 +301,7 @@ namespace mae
 				 * @param b The vector a.
 				 * @return The result.
 				 */
-				static double calcAngleHalfDeg(cv::Vec3d a, cv::Vec3d b);
+				static double calc_angle_half_deg(cv::Vec3d a, cv::Vec3d b);
 
 				/**
 				 * Returns x = a mod b, using the modulo operation for floating-point values. The result is positive only.

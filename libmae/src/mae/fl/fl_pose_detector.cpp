@@ -100,20 +100,20 @@ namespace mae
 						{
 							//calculate angle between two extremity bones
 							//set value should is 180 degrees
-							cv::Vec3d v = math::jointToVec(
+							cv::Vec3d v = math::joint_to_vec(
 									skeleton->get_orig_skeleton()->get_joint(
 											body_parts.at(bone_index).get_middle_joint()))
-									- math::jointToVec(
+									- math::joint_to_vec(
 											skeleton->get_orig_skeleton()->get_joint(
 													body_parts.at(bone_index).get_from()));
 
-							cv::Vec3d w = math::jointToVec(
+							cv::Vec3d w = math::joint_to_vec(
 									skeleton->get_orig_skeleton()->get_joint(body_parts.at(bone_index).get_to()))
-									- math::jointToVec(
+									- math::joint_to_vec(
 											skeleton->get_orig_skeleton()->get_joint(
 													body_parts.at(bone_index).get_middle_joint()));
 
-							double angle = 180 - math::calcAngleHalf(v,w);
+							double angle = 180 - math::calc_angle_half(v,w);
 
 							result->set_distance(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(dir), angle);
 						}
@@ -134,28 +134,28 @@ namespace mae
 						if (skeleton->get_hierarchy()->at(body_parts.at(bone_index).get_to())->get_parent()->get_id()
 								== body_parts.at(bone_index).get_from())
 						{
-							real_dir = math::jointToVec(
+							real_dir = math::joint_to_vec(
 									skeleton->get_offset_skeleton()->get_joint(body_parts.at(bone_index).get_to()));
 						}
 						else
 						{
 							//get bone vector in {u,r,t}
 							std::vector<std::vector<double> > coord = skeleton->get_coord_sys();
-							cv::Vec3d u = math::stdVecToVec3d(coord[0]);
-							cv::Vec3d r = math::stdVecToVec3d(coord[1]);
-							cv::Vec3d t = math::stdVecToVec3d(coord[2]);
+							cv::Vec3d u = math::stdvec_to_vec3d(coord[0]);
+							cv::Vec3d r = math::stdvec_to_vec3d(coord[1]);
+							cv::Vec3d t = math::stdvec_to_vec3d(coord[2]);
 
-							real_dir = math::projectToBasis(
-									math::jointToVec(
+							real_dir = math::project_to_basis(
+									math::joint_to_vec(
 											skeleton->get_orig_skeleton()->get_joint(
 													body_parts.at(bone_index).get_to())),
-									math::jointToVec(
+									math::joint_to_vec(
 											skeleton->get_orig_skeleton()->get_joint(
 													body_parts.at(bone_index).get_from())), u, r, t);
 						}
 
 						//angle between the vectors is the distance
-						double angle = math::calcAngleHalf(set_dir, real_dir);
+						double angle = math::calc_angle_half(set_dir, real_dir);
 
 						result->set_distance(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(dir), angle);
 					}

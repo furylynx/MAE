@@ -27,7 +27,20 @@ namespace mae
 	class mbool
 	{
 		public:
+			/**
+			 * Parses the string and returns the boolean value.
+			 *
+			 * @param str The string.
+			 * @return The value.
+			 */
 			static bool parse(std::string str);
+
+			/**
+			 * Returns the string representation for the boolean, i.e. "true" or "false".
+			 *
+			 * @param value The boolean value.
+			 * @return The string.
+			 */
 			static std::string str(bool value);
 	};
 
