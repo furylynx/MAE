@@ -395,7 +395,7 @@ namespace mae
 			}
 			else
 			{
-				//get azimuth phi by projecting the joint on the r-t-plane
+				//get azimuth phi by projecting the joint on the u-t-plane
 				cv::Vec3d vec_o_p = math::project_orthogonal(vec_o, vec_i, u, t);
 				cv::Vec3d fdvec_p = cv::normalize(vec_i - vec_o_p);
 
