@@ -94,7 +94,8 @@ namespace mae
 				}
 
 				//TODO dont just insert, but check the whole sequence for no further occurences before the end
-				//of the to be returned sequences
+				//of the to be returned sequences. The end is given by the position (measure, beat) of the last
+				//processed element (the decision element of the leaf node)
 
 				result.insert(result.end(), sequences_.begin(), sequences_.end());
 
