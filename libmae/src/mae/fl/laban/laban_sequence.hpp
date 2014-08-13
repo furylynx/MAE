@@ -232,7 +232,7 @@ namespace mae {
 				 * @param column The column (which is specifying a body part).
 				 * @return The movements vector.
 				 */
-				std::vector<std::shared_ptr<movement> > get_column_movements(int column);
+				std::vector<std::shared_ptr<i_movement> > get_column_movements(int column);
 
 
 				/**
@@ -257,8 +257,8 @@ namespace mae {
 				std::unordered_map<int, std::shared_ptr<column_definition> > column_definitions_map_;
 				std::vector<std::shared_ptr<column_definition> > column_definitions_vec_;
 
-				std::unordered_map<int, std::vector<std::shared_ptr<movement> > > movements_map_;
-				std::vector<std::shared_ptr<movement> > movements_vec_;
+				std::unordered_map<int, std::vector<std::shared_ptr<i_movement> > > movements_map_;
+				std::vector<std::shared_ptr<i_movement> > movements_vec_;
 
 				std::vector<std::shared_ptr<i_movement> > i_movements_vec_;
 		};

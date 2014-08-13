@@ -9,7 +9,7 @@
 #define I_DECISION_MAKER_HPP_
 
 //eclipse indexer fix
-#include "../indexer_fix.hpp"
+#include "../../indexer_fix.hpp"
 
 //custom includes
 #include "i_movement.hpp"
@@ -26,12 +26,13 @@ namespace mae
 		namespace laban
 		{
 
+			template <typename T>
 			class i_decision_maker
 			{
 				public:
 					virtual ~i_decision_maker(){}
 
-					virtual bool decide(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> b);
+					virtual bool decide(std::shared_ptr<T> a, std::shared_ptr<T> b);
 			};
 
 		} // namespace laban

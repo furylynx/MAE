@@ -39,7 +39,7 @@ namespace mae
 					 * @param body_parts The body parts that are taken into account.
 					 * @param decision_maker The decision maker to compare movements.
 					 */
-					decision_forest(std::vector<int> body_parts, std::shared_ptr<i_decision_maker> decision_maker);
+					decision_forest(std::vector<int> body_parts, std::shared_ptr<i_decision_maker<i_movement> > decision_maker);
 					virtual ~decision_forest();
 
 					/**
@@ -62,9 +62,9 @@ namespace mae
 				private:
 					std::vector<int> body_parts_;
 
-					std::shared_ptr<i_decision_maker> decision_maker_;
+					std::shared_ptr<i_decision_maker<i_movement> > decision_maker_;
 
-					std::unordered_map<int, std::vector<std::shared_ptr<decision_tree> > > trees_;
+					std::unordered_map<int, std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > > trees_;
 
 			};
 

@@ -196,7 +196,7 @@ namespace mae
 
 					movements_vec_.push_back(mov);
 
-					std::vector<std::shared_ptr<movement> > col;
+					std::vector<std::shared_ptr<i_movement> > col;
 					if (movements_map_.find(mov->get_column()) != movements_map_.end())
 					{
 						col = movements_map_.at(mov->get_column());
@@ -215,12 +215,16 @@ namespace mae
 //							}
 //							else
 
-							if (col.at(insert_pos)->get_measure() <= mov->get_measure()
-									&& col.at(insert_pos)->get_beat() <= mov->get_beat())
+							if (std::shared_ptr<movement> col_item = std::dynamic_pointer_cast<movement>(col.at(insert_pos)))
 							{
-								//insert at the position
 
-								break;
+								if (col_item->get_measure() <= mov->get_measure()
+										&& col_item->get_beat() <= mov->get_beat())
+								{
+									//insert at the position
+
+									break;
+								}
 							}
 						}
 						col.insert(col.begin() + insert_pos, mov);
@@ -238,7 +242,7 @@ namespace mae
 				i_movements_vec_.push_back(i_mov);
 			}
 
-			std::vector<std::shared_ptr<movement> > laban_sequence::get_column_movements(int column)
+			std::vector<std::shared_ptr<i_movement> > laban_sequence::get_column_movements(int column)
 			{
 				if (movements_map_.find(column) != movements_map_.end())
 				{
@@ -246,7 +250,7 @@ namespace mae
 				}
 				else
 				{
-					return std::vector<std::shared_ptr<movement> >();
+					return std::vector<std::shared_ptr<i_movement> >();
 				}
 			}
 
