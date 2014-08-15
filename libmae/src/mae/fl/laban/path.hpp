@@ -42,6 +42,7 @@ namespace mae
 					 * @param duration The duration of the symbol (in beats).
 					 */
 					path(e_path_type type, unsigned int measure, double beat, double duration);
+
 					virtual ~path();
 
 					/**
@@ -52,23 +53,31 @@ namespace mae
 					e_path_type get_type();
 
 					/**
+					 * Returns the column to which this symbol was added. Since a path symbol is placed
+					 * in its own column zero is returned.
+					 *
+					 * @return Zero.
+					 */
+					virtual int get_column();
+
+					/**
 					 * Returns the measure in which this symbol is placed.
 					 * @return
 					 */
-					unsigned int get_measure();
+					virtual unsigned int get_measure();
 
 					/**
 					 * Returns the beat where this symbol starts.
 					 * @return
 					 */
-					double get_beat();
+					virtual double get_beat();
 
 					/**
 					 * Returns the duration of the symbol in beats.
 					 *
 					 * @return
 					 */
-					double get_duration();
+					virtual double get_duration();
 
 					/**
 					 * Returns the XML representation for this element.

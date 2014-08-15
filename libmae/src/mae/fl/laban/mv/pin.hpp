@@ -62,6 +62,14 @@ namespace mae
 						int get_horizontal();
 
 						/**
+						 * Returns true if signs are equal.
+						 *
+						 * @param a The sign to be compared to.
+						 * @return True if equal.
+						 */
+						virtual bool equals(std::shared_ptr<i_degree_sign> a);
+
+						/**
 						 * Returns the XML representation for this element.
 						 *
 						 * @param indent The applied indent.

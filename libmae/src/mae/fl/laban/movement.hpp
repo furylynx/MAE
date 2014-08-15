@@ -55,27 +55,27 @@ namespace mae
 				 *
 				 * @return
 				 */
-				int get_column();
+				virtual int get_column();
 
 				/**
 				 * Returns the measure in which this symbols begins.
 				 * @return
 				 */
-				unsigned int get_measure();
+				virtual unsigned int get_measure();
 
 				/**
 				 * Returns the beat in which this symbol begins.
 				 *
 				 * @return
 				 */
-				double get_beat();
+				virtual double get_beat();
 
 				/**
 				 * Returns the duration of the symbol.
 				 *
 				 * @return
 				 */
-				double get_duration();
+				virtual double get_duration();
 
 				/**
 				 * Returns the pre sign if assigned. Returns null otherwise.
