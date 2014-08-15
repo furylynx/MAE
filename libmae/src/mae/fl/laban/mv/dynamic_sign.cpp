@@ -35,6 +35,19 @@ namespace mae
 					return dynamic_;
 				}
 
+				bool dynamic_sign::equals(std::shared_ptr<i_dynamics_sign> a)
+				{
+					if (std::shared_ptr<dynamic_sign> a_dyn = std::dynamic_pointer_cast<dynamic_sign>(a))
+					{
+						if (a_dyn->get_dynamic() == dynamic_)
+						{
+							return true;
+						}
+					}
+
+					return false;
+				}
+
 				std::string dynamic_sign::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;

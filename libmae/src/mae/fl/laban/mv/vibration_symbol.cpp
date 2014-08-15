@@ -16,7 +16,8 @@ namespace mae
 			namespace mv
 			{
 
-				vibration_symbol::vibration_symbol(std::shared_ptr<pin> displacement1, std::shared_ptr<pin> displacement2, std::shared_ptr<i_dynamics_sign> dynamics)
+				vibration_symbol::vibration_symbol(std::shared_ptr<pin> displacement1,
+						std::shared_ptr<pin> displacement2, std::shared_ptr<i_dynamics_sign> dynamics)
 				{
 					displacement1_ = displacement1;
 					displacement2_ = displacement2;
@@ -49,6 +50,27 @@ namespace mae
 					return displacement2_;
 				}
 
+				bool vibration_symbol::equals(std::shared_ptr<i_symbol> a)
+				{
+					if (std::shared_ptr<vibration_symbol> a_vib = std::dynamic_pointer_cast<vibration_symbol>(a))
+					{
+						//check dynamics sign
+						if ((dynamics_ != nullptr && dynamics_->equals(a_vib->get_dynamics()))
+								|| (dynamics_ == nullptr && a_vib->get_dynamics() == nullptr))
+						{
+							//check space measurement
+							if ((displacement1_->equals(a_vib->get_displacement1())
+									&& displacement2_->equals(a_vib->get_displacement2()))
+									|| (displacement1_->equals(a_vib->get_displacement2())
+											&& displacement2_->equals(a_vib->get_displacement1())))
+							{
+								return true;
+							}
+						}
+					}
+
+					return false;
+				}
 
 				std::string vibration_symbol::xml(unsigned int indent, std::string namesp)
 				{
@@ -60,7 +82,7 @@ namespace mae
 					}
 
 					std::string ns = namesp;
-					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					if (ns.size() > 0 && ns.at(ns.size() - 1) != ':')
 					{
 						ns.push_back(':');
 					}
@@ -72,16 +94,16 @@ namespace mae
 
 					if (dynamics_ != nullptr)
 					{
-						sstr << dynamics_->xml(indent+1, namesp);
+						sstr << dynamics_->xml(indent + 1, namesp);
 					}
 
 					//print displacements
 					sstr << indent_stream.str() << "\t" << "<" << ns << "displacement>" << std::endl;
-					sstr << displacement1_->xml(indent+1, namesp);
+					sstr << displacement1_->xml(indent + 1, namesp);
 					sstr << indent_stream.str() << "\t" << "</" << ns << "displacement>" << std::endl;
 
 					sstr << indent_stream.str() << "\t" << "<" << ns << "displacement>" << std::endl;
-					sstr << displacement2_->xml(indent+1, namesp);
+					sstr << displacement2_->xml(indent + 1, namesp);
 					sstr << indent_stream.str() << "\t" << "</" << ns << "displacement>" << std::endl;
 
 					sstr << indent_stream.str() << "</" << ns << "vibration>" << std::endl;
@@ -89,8 +111,6 @@ namespace mae
 					return sstr.str();
 
 				}
-
-
 
 			} // namespace mv
 		} // namespace laban

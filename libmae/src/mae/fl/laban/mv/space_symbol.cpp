@@ -42,6 +42,27 @@ namespace mae
 					return space_measurement_;
 				}
 
+				bool space_symbol::equals(std::shared_ptr<i_symbol> a)
+				{
+					if (std::shared_ptr<space_symbol> a_space = std::dynamic_pointer_cast<space_symbol>(a))
+					{
+						//check dynamics sign
+						if ((dynamics_ != nullptr && dynamics_->equals(a_space->get_dynamics()))
+								|| (dynamics_ == nullptr && a_space->get_dynamics() == nullptr))
+						{
+							//check space measurement
+							if ((space_measurement_ != nullptr && space_measurement_->equals(a_space->get_space_measurement()))
+									|| (space_measurement_ == nullptr && a_space->get_space_measurement() == nullptr))
+							{
+								return true;
+							}
+						}
+
+					}
+
+					return false;
+				}
+
 				std::string space_symbol::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;

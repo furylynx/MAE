@@ -44,9 +44,33 @@ namespace mae
 				{
 					return dynamics_;
 				}
+
 				std::shared_ptr<i_degree_sign> turn_symbol::get_degree()
 				{
 					return degree_;
+				}
+
+				bool turn_symbol::equals(std::shared_ptr<i_symbol> a)
+				{
+					if (std::shared_ptr<turn_symbol> a_turn = std::dynamic_pointer_cast<turn_symbol>(a))
+					{
+						if (a_turn->get_direction() == direction_)
+						{
+							//check dynamics sign
+							if ((dynamics_ != nullptr && dynamics_->equals(a_turn->get_dynamics()))
+									|| (dynamics_ == nullptr && a_turn->get_dynamics() == nullptr))
+							{
+								//check degree sign
+								if ((degree_ != nullptr && degree_->equals(a_turn->get_degree()))
+										|| (degree_ == nullptr && a_turn->get_degree() == nullptr))
+								{
+									return true;
+								}
+							}
+						}
+					}
+
+					return false;
 				}
 
 				std::string turn_symbol::xml(unsigned int indent, std::string namesp)

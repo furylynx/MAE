@@ -35,6 +35,19 @@ namespace mae
 					return accent_;
 				}
 
+				bool accent_sign::equals(std::shared_ptr<i_dynamics_sign> a)
+				{
+					if (std::shared_ptr<accent_sign> a_dyn = std::dynamic_pointer_cast<accent_sign>(a))
+					{
+						if (a_dyn->get_accent() == accent_)
+						{
+							return true;
+						}
+					}
+
+					return false;
+				}
+
 				std::string accent_sign::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;

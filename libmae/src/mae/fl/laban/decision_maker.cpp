@@ -21,7 +21,6 @@ namespace mae
 
 			decision_maker::~decision_maker()
 			{
-				// TODO Auto-generated destructor stub
 			}
 
 			bool decision_maker::decide(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> b)
