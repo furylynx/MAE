@@ -234,11 +234,16 @@ namespace mae
 					}
 				}
 
-				//TODO dont just insert, but check the whole sequence for no further occurences before the end
+				//dont just insert, but check the whole sequence for no further occurences before the end
 				//of the to be returned sequences. The end is given by the position (measure, beat) of the last
 				//processed element (the decision element of the leaf node)
-
-				result.insert(result.end(), values_.begin(), values_.end());
+				for (unsigned int i = 0; i < values_.size() ; i++)
+				{
+					if (decision_maker_->distance_okay(whole_sequence.at(whole_sequence.size() - 1 - (step)), whole_sequence.at(whole_sequence.size() - 1 - (step + 1)), values_.at(i)->get_sequence().front()))
+					{
+						result.push_back(values_.at(i));
+					}
+				}
 
 				return result;
 			}
