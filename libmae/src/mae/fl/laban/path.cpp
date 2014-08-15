@@ -36,6 +36,11 @@ namespace mae
 				return type_;
 			}
 
+			int path::get_column()
+			{
+				return 0;
+			}
+
 			unsigned int path::get_measure()
 			{
 				return measure_;

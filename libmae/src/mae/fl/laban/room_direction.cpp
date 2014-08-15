@@ -36,6 +36,11 @@ namespace mae
 			{
 			}
 
+			int room_direction::get_column()
+			{
+				return 0;
+			}
+
 			unsigned int room_direction::get_measure()
 			{
 				return measure_;
@@ -44,6 +49,11 @@ namespace mae
 			double room_direction::get_beat()
 			{
 				return beat_;
+			}
+
+			double room_direction::get_duration()
+			{
+				return 0;
 			}
 
 			std::shared_ptr<mv::pin> room_direction::get_direction()

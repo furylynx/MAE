@@ -47,6 +47,19 @@ namespace mae
 					return horizontal_;
 				}
 
+				bool pin::equals(std::shared_ptr<i_degree_sign> a)
+				{
+					if (std::shared_ptr<pin> a_pin = std::dynamic_pointer_cast<pin>(a))
+					{
+						if (a_pin->get_horizontal() == horizontal_ && a_pin->get_level() == level_)
+						{
+							return true;
+						}
+					}
+
+					return false;
+				}
+
 				std::string pin::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;

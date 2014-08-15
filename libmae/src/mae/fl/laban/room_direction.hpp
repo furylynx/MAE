@@ -45,17 +45,33 @@ namespace mae
 					virtual ~room_direction();
 
 					/**
+					 * Returns the column to which this symbol was added. Since a room direction sign is
+					 * placed in its own column zero is returned.
+					 *
+					 * @return
+					 */
+					virtual int get_column();
+
+					/**
 					 * Returns the measure in which this symbol is placed.
 					 * @return
 					 */
-					unsigned int get_measure();
+					virtual unsigned int get_measure();
 
 					/**
 					 * Returns the beat in which this symbol is placed.
 					 *
 					 * @return
 					 */
-					double get_beat();
+					virtual double get_beat();
+
+					/**
+					 * Returns the duration of the symbol. Since a room direction symbol
+					 * has no duration zero is returned.
+					 *
+					 * @return Zero.
+					 */
+					virtual double get_duration();
 
 					/**
 					 * Returns the room direction.

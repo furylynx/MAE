@@ -16,6 +16,7 @@
 
 //global includes
 #include <string>
+#include <memory>
 
 namespace mae
 {
@@ -30,6 +31,8 @@ namespace mae
 				{
 					public:
 						virtual ~i_degree_sign(){}
+
+						virtual bool equals(std::shared_ptr<i_degree_sign> a);
 
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") = 0;
 				};
