@@ -35,6 +35,19 @@ namespace mae
 					return cancel_;
 				}
 
+				bool cancellation_symbol::equals(std::shared_ptr<i_symbol> a)
+				{
+					if (std::shared_ptr<cancellation_symbol> a_c = std::dynamic_pointer_cast<cancellation_symbol>(a))
+					{
+						if (a_c->get_cancel() == cancel_)
+						{
+							return true;
+						}
+					}
+
+					return false;
+				}
+
 				std::string cancellation_symbol::xml(unsigned int indent, std::string namesp)
 				{
 					std::stringstream indent_stream;

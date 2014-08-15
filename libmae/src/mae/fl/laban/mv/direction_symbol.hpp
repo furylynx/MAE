@@ -103,6 +103,15 @@ namespace mae
 						e_contact_hook get_contact_hook();
 
 						/**
+						 * Returns true if signs are equal.
+						 *
+						 * @param a The sign to be compared to.
+						 * @return True if equal.
+						 */
+
+						virtual bool equals(std::shared_ptr<i_symbol> a);
+
+						/**
 						 * Returns the XML representation for this element.
 						 *
 						 * @param indent The applied indent.

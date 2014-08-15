@@ -31,6 +31,21 @@ namespace mae
 					public:
 						virtual ~i_dynamics_sign(){}
 
+						/**
+						 * Returns true if signs are equal.
+						 *
+						 * @param a The sign to be compared to.
+						 * @return True if equal.
+						 */
+						virtual bool equals(std::shared_ptr<i_dynamics_sign> a);
+
+						/**
+						 * Returns the xml string representation for the sign.
+						 *
+						 * @param indent The applied indent.
+						 * @param namesp The namespace if any.
+						 * @return The xml string.
+						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") = 0;
 				};
 

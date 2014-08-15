@@ -68,6 +68,14 @@ namespace mae
 						e_space_direction get_direction();
 
 						/**
+						 * Compares this element to the given one and returns true if the elements are equal.
+						 *
+						 * @param a The element to be compared to.
+						 * @return True if equal.
+						 */
+						virtual bool equals(std::shared_ptr<i_degree_sign> a);
+
+						/**
 						 * Returns the XML representation for this element.
 						 *
 						 * @param indent The applied indent.
