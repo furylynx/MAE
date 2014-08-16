@@ -317,6 +317,37 @@ namespace mae
 				return sstr.str();
 			}
 
+			unsigned int laban_sequence::default_beat_duration()
+			{
+				//
+				return 200;
+			}
+
+			unsigned int laban_sequence::default_beats_per_measure()
+			{
+				return 5;
+			}
+
+			e_time_unit laban_sequence::default_time_unit()
+			{
+				return e_time_unit::MILLISECOND;
+			}
+
+			std::vector<int> laban_sequence::default_columns()
+			{
+				std::vector<int> result;
+				result.push_back(-4);
+				result.push_back(-2);
+				//result.push_back(-3); // not reserved by Groeschner's XML schema
+				result.push_back(-1);
+				result.push_back(1);
+				result.push_back(2);
+				//result.push_back(3); // not reserved by Groeschner's XML schema
+				result.push_back(4);
+
+				return result;
+			}
+
 		} // namespace laban
 	} // namespace fl
 } // namespace mae

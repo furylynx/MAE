@@ -8,7 +8,6 @@
 //custom includes
 #include "laban_sequence_generator.hpp"
 
-
 namespace mae
 {
 	namespace fl
@@ -19,13 +18,18 @@ namespace mae
 			laban_sequence_generator::laban_sequence_generator(bool debug)
 			{
 				debug_ = debug;
+				beats_per_measure_ = laban_sequence::default_beats_per_measure();
+				beat_duration_ = laban_sequence::default_beat_duration();
+				time_unit_ = laban_sequence::default_time_unit();
 			}
 
-			laban_sequence_generator::laban_sequence_generator(
-					std::vector<std::shared_ptr<column_definition> > column_definitions, bool debug)
+			laban_sequence_generator::laban_sequence_generator(std::vector<std::shared_ptr<column_definition> > column_definitions, unsigned int beats_per_measure, unsigned int beat_duration, e_time_unit time_unit, bool debug)
 			{
 				column_definitions_ = column_definitions;
 				debug_ = debug;
+				beats_per_measure_ = beats_per_measure;
+				beat_duration_ = beat_duration;
+				time_unit_ = time_unit;
 			}
 
 			laban_sequence_generator::~laban_sequence_generator()
@@ -43,15 +47,7 @@ namespace mae
 				//TODO set framerate to framerate used by the engine
 				double framerate = 1.0 / 30.0;
 
-
 				//TODO handle glitches?!
-
-
-				//one beat is one frame
-				int beat_duration = 200;//1000 * framerate; // 200;
-
-				//number of beats per measure - one measure is one second
-				int beats = (int)(1000.0/beat_duration);
 
 				//number of measures in the staff
 				int measures = (int) (key_poses.size() * framerate + 1);
@@ -82,8 +78,8 @@ namespace mae
 				}
 
 				std::shared_ptr<laban_sequence> sequence = std::shared_ptr<laban_sequence>(
-						new laban_sequence("Streamed Sequence", "mae", measures, e_time_unit::MILLISECOND,
-								beat_duration, beats));
+						new laban_sequence("Streamed Sequence", "mae", measures, time_unit_,
+								beat_duration_, beats_per_measure_));
 
 				//set column definitions
 				sequence->set_column_definitions(column_definitions_);
@@ -103,9 +99,10 @@ namespace mae
 						if (prev_kp != nullptr && (*it)->is_in_motion(b.get_id()))
 						{
 							//get information for last pose (which is the last key pose)
-							int measure = (int) (curr_frame*framerate*1000.0/(beats*beat_duration));
-							double beat = (((curr_frame*framerate*1000.0) - (measure*beats*beat_duration))/beat_duration);
-							double duration = (prev_kp_frame - curr_frame)*framerate*1000.0/beat_duration;
+							int measure = (int) (curr_frame * framerate * 1000.0 / (beats_per_measure_ * beat_duration_));
+							double beat = (((curr_frame * framerate * 1000.0) - (measure * beats_per_measure_ * beat_duration_))
+									/ beat_duration_);
+							double duration = (prev_kp_frame - curr_frame) * framerate * 1000.0 / beat_duration_;
 
 							//find symbol from prev_pose!
 							mv::e_level vertical = mv::e_level_c::lvl(
@@ -117,7 +114,7 @@ namespace mae
 
 							//setup movement and add it to the sequence
 							std::shared_ptr<i_movement> mv = std::shared_ptr<i_movement>(
-									new movement(b.get_id(), measure+1, beat, duration, symbol));
+									new movement(b.get_id(), measure + 1, beat, duration, symbol));
 
 							sequence->add_movement(mv);
 
@@ -138,7 +135,6 @@ namespace mae
 
 				return sequence;
 			}
-
 
 		} // namespace laban
 	} // namespace fl

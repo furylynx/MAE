@@ -243,6 +243,12 @@ namespace mae {
 				virtual std::string xml();
 
 
+				//TODO doxygen
+				static unsigned int default_beat_duration();
+				static unsigned int default_beats_per_measure();
+				static e_time_unit default_time_unit();
+				static std::vector<int> default_columns();
+
 			private:
 				std::string version_;
 				std::vector<std::string> authors_;
