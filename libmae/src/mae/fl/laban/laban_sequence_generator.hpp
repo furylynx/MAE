@@ -20,10 +20,12 @@
 #include "mv/e_direction.hpp"
 
 #include "../e_fl_direction.hpp"
+#include "../fl_movement_controller.hpp"
 
 #include "../../general_enriched_pose.hpp"
 #include "../../bone.hpp"
 #include "../../i_sequence_generator.hpp"
+
 
 //global includes
 #include <memory>
@@ -55,9 +57,12 @@ namespace mae
 				 * Creates a new sequence generator with additional columns to the default ones.
 				 *
 				 * @param column_definitions Column definitions for additional columns.
+				 * @param beats_per_measure The number of beats per measure.
+				 * @param beat_duration The duration of a single beat given in the time unit.
+				 * @param time_unit The time unit to be used.
 				 * @param debug True if debug output is wanted.
 				 */
-				laban_sequence_generator(std::vector<std::shared_ptr<column_definition> > column_definitions, bool debug = false);
+				laban_sequence_generator(std::vector<std::shared_ptr<column_definition> > column_definitions, unsigned int beats_per_measure = laban_sequence::default_beats_per_measure(), unsigned int beat_duration = laban_sequence::default_beat_duration(), e_time_unit time_unit = laban_sequence::default_time_unit(), bool debug = false);
 				virtual ~laban_sequence_generator();
 
 				/**
@@ -73,6 +78,11 @@ namespace mae
 			private:
 				bool debug_;
 				std::vector<std::shared_ptr<column_definition> > column_definitions_;
+
+				unsigned int beats_per_measure_;
+				unsigned int beat_duration_;
+				e_time_unit time_unit_;
+
 
 
 		};

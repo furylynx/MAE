@@ -5,8 +5,8 @@
  *      Author: keks
  */
 
-#ifndef REWRITING_RULES_HPP_
-#define REWRITING_RULES_HPP_
+#ifndef REWRITING_FOREST_HPP_
+#define REWRITING_FOREST_HPP_
 
 //eclipse indexer fix
 #include "../../indexer_fix.hpp"
@@ -59,4 +59,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // REWRITING_RULES_HPP_
+#endif // REWRITING_FOREST_HPP_

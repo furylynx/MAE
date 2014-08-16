@@ -17,6 +17,24 @@ namespace mae
 			laban_sequence_recognizer::laban_sequence_recognizer(bool debug)
 			{
 				debug_ = debug;
+				beats_per_measure_ = laban_sequence::default_beats_per_measure();
+				beat_duration_ = laban_sequence::default_beat_duration();
+				time_unit_ = laban_sequence::default_time_unit();
+				reserved_columns_ = laban_sequence::default_columns();
+
+				decision_forest_ = std::shared_ptr<decision_forest>(new decision_forest(column_definitions_, reserved_columns_, beats_per_measure_, beat_duration_, time_unit_));
+			}
+
+			laban_sequence_recognizer::laban_sequence_recognizer(std::vector<std::shared_ptr<column_definition> > column_definitions, unsigned int beats_per_measure, unsigned int beat_duration, e_time_unit time_unit, bool debug)
+			{
+				debug_ = debug;
+				column_definitions_ = column_definitions;
+				beats_per_measure_ = beats_per_measure;
+				beat_duration_ = beat_duration;
+				time_unit_ = time_unit;
+				reserved_columns_ = laban_sequence::default_columns();
+
+				decision_forest_ = std::shared_ptr<decision_forest>(new decision_forest(column_definitions_, reserved_columns_, beats_per_measure_, beat_duration_, time_unit_));
 			}
 
 			laban_sequence_recognizer::~laban_sequence_recognizer()
@@ -27,6 +45,8 @@ namespace mae
 			void laban_sequence_recognizer::register_sequence(std::shared_ptr<laban_sequence> sequence)
 			{
 				registered_sequences_.push_back(sequence);
+
+				//TODO register to forest
 			}
 
 			void laban_sequence_recognizer::deregister_sequence(std::shared_ptr<laban_sequence> sequence)
@@ -36,6 +56,9 @@ namespace mae
 					if (sequence == *it)
 					{
 						registered_sequences_.erase(it);
+
+						//TODO remove from forest
+
 						break;
 					}
 				}
@@ -44,6 +67,8 @@ namespace mae
 			void laban_sequence_recognizer::clear_registered_sequences()
 			{
 				registered_sequences_.clear();
+
+				//TODO clear forests
 			}
 
 
@@ -54,13 +79,10 @@ namespace mae
 					std::cout << "laban_sequence_recognizer: recognize sequence" << std::endl;
 				}
 
-				std::vector<std::shared_ptr<laban_sequence> > result;
+				//TODO not all body parts but those that are given in the parameter
 
-				//TODO find matches
-
-				return result;
+				return decision_forest_->find_submatches(sequence);
 			}
-
 
 
 		} // namespace laban

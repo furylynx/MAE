@@ -14,11 +14,32 @@ namespace mae
 		namespace laban
 		{
 
-			decision_forest::decision_forest(std::vector<int> body_parts,
-					std::shared_ptr<i_decision_maker<i_movement> > decision_maker)
+			decision_forest::decision_forest(std::vector<std::shared_ptr<column_definition> > column_definitions, std::vector<int> reserved_columns, unsigned int beats_per_measure, unsigned int beat_duration, e_time_unit time_unit, std::shared_ptr<i_decision_maker<i_movement> > dec_maker)
 			{
-				body_parts_ = body_parts;
-				decision_maker_ = decision_maker;
+				column_definitions_ = column_definitions;
+				beats_per_measure_ = beats_per_measure;
+				beat_duration_ = beat_duration;
+				time_unit_ = time_unit;
+
+				for (int reserved : reserved_columns)
+				{
+					column_ids_.push_back(reserved);
+				}
+
+				for (unsigned int i = 0; i < column_definitions_.size(); i++)
+				{
+					column_ids_.push_back(column_definitions_.at(i)->get_column_index());
+				}
+
+				if (decision_maker != nullptr)
+				{
+					decision_maker_ = decision_maker;
+				}
+				else
+				{
+					decision_maker_ = std::shared_ptr<i_decision_maker<i_movement> >(new decision_maker(beats_per_measure_));
+				}
+
 			}
 
 			decision_forest::~decision_forest()
@@ -29,18 +50,19 @@ namespace mae
 			{
 				//TODO insert not only the sequence but all rewritten sequences
 
-				for (unsigned int i = 0; i < body_parts_.size(); i++)
-				{
-					int body_part = body_parts_.at(i);
 
-					std::shared_ptr<i_movement> decision_item = sequence->get_column_movements(body_part).back();
+				for (unsigned int i = 0; i < column_ids_.size(); i++)
+				{
+					int column = column_ids_.at(i);
+
+					std::shared_ptr<i_movement> decision_item = sequence->get_column_movements(column).back();
 
 					std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > tree_list;
 					bool listed = false;
 
-					if (trees_.find(body_part) != trees_.end())
+					if (trees_.find(column) != trees_.end())
 					{
-						tree_list = trees_.at(body_part);
+						tree_list = trees_.at(column);
 
 						for (unsigned int j = 0; j < tree_list.size(); j++)
 						{
@@ -50,7 +72,7 @@ namespace mae
 								tree_list.at(j)->add_sequence(
 										std::shared_ptr<decision_value<i_movement, laban_sequence> >(
 												new decision_value<i_movement, laban_sequence>(
-														sequence->get_column_movements(body_part), sequence)));
+														sequence->get_column_movements(column), sequence)));
 								listed = true;
 								break;
 							}
@@ -65,15 +87,15 @@ namespace mae
 						tree_list.back()->add_sequence(
 								std::shared_ptr<decision_value<i_movement, laban_sequence> >(
 										new decision_value<i_movement, laban_sequence>(
-												sequence->get_column_movements(body_part), sequence)));
+												sequence->get_column_movements(column), sequence)));
 
-						if (trees_.find(body_part) != trees_.end())
+						if (trees_.find(column) != trees_.end())
 						{
-							trees_[body_part] = tree_list;
+							trees_[column] = tree_list;
 						}
 						else
 						{
-							trees_.insert(std::make_pair(body_part, tree_list));
+							trees_.insert(std::make_pair(column, tree_list));
 						}
 					}
 
@@ -85,9 +107,9 @@ namespace mae
 			{
 				std::vector<std::shared_ptr<laban_sequence> > result;
 
-				for (unsigned int i = 0; i < body_parts_.size(); i++)
+				for (unsigned int i = 0; i < column_ids_.size(); i++)
 				{
-					int body_part = body_parts_.at(i);
+					int body_part = column_ids_.at(i);
 
 					std::shared_ptr<i_movement> decision_item = whole_sequence->get_column_movements(body_part).back();
 
