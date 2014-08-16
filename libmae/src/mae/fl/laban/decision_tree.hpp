@@ -56,9 +56,20 @@ namespace mae
 					 *
 					 * @param sequence The sequence to be registered.
 					 */
-					virtual void add_sequence(std::shared_ptr<decision_value<T, U> > decision_value);
+					virtual void add_sequence(std::shared_ptr<decision_value<T, U> > dec_val);
 
 					virtual std::vector<std::shared_ptr<decision_value<T, U>> > get_all_values();
+
+					/**
+					 * Removes all decision values where the value element is the given one. Equality is checked
+					 * by the pointer.
+					 *
+					 * @param value The value.
+					 * @return True if any removal.
+					 */
+					virtual bool remove_where(std::shared_ptr<U> value);
+
+					virtual bool remove_where(std::shared_ptr<decision_value<T,U> > dec_val);
 
 					/**
 					 * Searches the tree for all sequences that match the motion on the given body part.
@@ -121,21 +132,21 @@ namespace mae
 			}
 
 			template<typename T, typename U>
-			void decision_tree<T, U>::add_sequence(std::shared_ptr<decision_value<T, U> > decision_value)
+			void decision_tree<T, U>::add_sequence(std::shared_ptr<decision_value<T, U> > dec_val)
 			{
-				std::shared_ptr<T> back = decision_value->get_sequence().back();
+				std::shared_ptr<T> back = dec_val->get_sequence().back();
 
 				if (root_ == nullptr)
 				{
 					root_ = std::shared_ptr<decision_node<T, U> >(new decision_node<T, U>(decision_maker_, back));
 
-					root_->add_sequence(decision_value, 0);
+					root_->add_sequence(dec_val, 0);
 				}
 				else
 				{
 					if (root_->is_matching(back))
 					{
-						root_->add_sequence(decision_value, 0);
+						root_->add_sequence(dec_val, 0);
 					}
 					else
 					{
@@ -150,6 +161,19 @@ namespace mae
 			{
 				return root_->get_all_values();
 			}
+
+			template<typename T, typename U>
+			bool decision_tree<T, U>::remove_where(std::shared_ptr<U> value)
+			{
+
+			}
+
+			template<typename T, typename U>
+			bool decision_tree<T, U>::remove_where(std::shared_ptr<decision_value<T,U> > dec_val)
+			{
+
+			}
+
 
 			template<typename T, typename U>
 			std::vector<std::shared_ptr<decision_value<T, U> > > decision_tree<T, U>::find_submatches(

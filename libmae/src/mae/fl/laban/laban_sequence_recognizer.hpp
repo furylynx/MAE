@@ -41,8 +41,11 @@ namespace mae
 
 
 					virtual void register_sequence(std::shared_ptr<laban_sequence> sequence);
-					virtual void deregister_sequence(std::shared_ptr<laban_sequence> sequence);
+					virtual bool deregister_sequence(std::shared_ptr<laban_sequence> sequence);
+					virtual bool deregister_sequence(int list_index);
 					virtual void clear_registered_sequences();
+
+					virtual std::list<std::shared_ptr<laban_sequence> > get_registered_sequences();
 
 					virtual std::vector<std::shared_ptr<laban_sequence> > recognize_sequence(std::shared_ptr<laban_sequence> sequence, std::vector<bone> body_parts);
 

@@ -29,6 +29,7 @@ namespace mae
 					std::vector<std::shared_ptr<i_movement> > sequence)
 			{
 				std::vector<std::vector<std::shared_ptr<i_movement> > > result;
+				result.push_back(sequence);
 
 				//TODO handle replacements in here : use decision trees for this
 
