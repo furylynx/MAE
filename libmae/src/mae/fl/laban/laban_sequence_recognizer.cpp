@@ -41,27 +41,54 @@ namespace mae
 			{
 			}
 
-
 			void laban_sequence_recognizer::register_sequence(std::shared_ptr<laban_sequence> sequence)
 			{
 				registered_sequences_.push_back(sequence);
 
-				//TODO register to forest
+				decision_forest_->add_sequence(sequence);
 			}
 
-			void laban_sequence_recognizer::deregister_sequence(std::shared_ptr<laban_sequence> sequence)
+			bool laban_sequence_recognizer::deregister_sequence(std::shared_ptr<laban_sequence> sequence)
 			{
 				for (std::list<std::shared_ptr<laban_sequence> >::iterator it = registered_sequences_.begin(); it != registered_sequences_.end(); it++)
 				{
+					//compare by smart pointer
 					if (sequence == *it)
 					{
+						decision_forest_->remove_sequence(*it);
+
 						registered_sequences_.erase(it);
 
-						//TODO remove from forest
-
-						break;
+						return true;
 					}
 				}
+
+				return false;
+			}
+
+			bool laban_sequence_recognizer::deregister_sequence(int list_index)
+			{
+				if (list_index > registered_sequences_.size())
+				{
+					return false;
+				}
+
+				int index = 0;
+				for (std::list<std::shared_ptr<laban_sequence> >::iterator it = registered_sequences_.begin(); it != registered_sequences_.end(); it++)
+				{
+					if (index == list_index)
+					{
+						decision_forest_->remove_sequence(*it);
+
+						registered_sequences_.erase(it);
+
+						return true;
+					}
+
+					index ++;
+				}
+
+				return false;
 			}
 
 			void laban_sequence_recognizer::clear_registered_sequences()
@@ -71,6 +98,10 @@ namespace mae
 				//TODO clear forests
 			}
 
+			std::list<std::shared_ptr<laban_sequence> > laban_sequence_recognizer::get_registered_sequences()
+			{
+					return registered_sequences_;
+			}
 
 			std::vector<std::shared_ptr<laban_sequence> > laban_sequence_recognizer::recognize_sequence(std::shared_ptr<laban_sequence> sequence, std::vector<bone> body_parts)
 			{
@@ -79,9 +110,7 @@ namespace mae
 					std::cout << "laban_sequence_recognizer: recognize sequence" << std::endl;
 				}
 
-				//TODO not all body parts but those that are given in the parameter
-
-				return decision_forest_->find_submatches(sequence);
+				return decision_forest_->find_submatches(sequence, body_parts);
 			}
 
 

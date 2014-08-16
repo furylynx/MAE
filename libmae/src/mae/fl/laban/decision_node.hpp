@@ -55,6 +55,10 @@ namespace mae
 					 */
 					virtual void add_sequence(std::shared_ptr<decision_value<T,U> > decision_value, int step);
 
+					virtual bool remove_where(std::shared_ptr<U> value);
+
+					virtual bool remove_where(std::shared_ptr<decision_value<T,U> > dec_val);
+
 					virtual std::vector<std::shared_ptr<decision_value<T, U> > > get_all_values();
 
 					/**
@@ -101,6 +105,8 @@ namespace mae
 					 * @return True if leaf.
 					 */
 					virtual bool is_leaf();
+
+					virtual bool is_empty_leaf();
 
 					/**
 					 * Returns the string representation for this node.
@@ -199,6 +205,77 @@ namespace mae
 				}
 
 			}
+
+			template <typename T, typename U>
+			bool decision_node<T,U>::remove_where(std::shared_ptr<U> value)
+			{
+				bool result = false;
+
+				for (unsigned int i = children_.size(); i >= 0; i++)
+				{
+					bool child_rem = children_.at(i)->remove_where(value);
+
+					if (child_rem)
+					{
+						if (children_.at(i)->is_empty_leaf())
+						{
+							children_.erase(children_.begin()+i);
+						}
+
+						result = true;
+					}
+				}
+
+				//remove own sequences
+				std::vector<int> to_remove;
+
+				for (unsigned int i = values_.size(); i >= 0; i++)
+				{
+					if (values_.at(i)->get_value() == value)
+					{
+						result = true;
+						values_.erase(values_.begin()+i);
+					}
+				}
+
+				return result;
+			}
+
+			template <typename T, typename U>
+			bool decision_node<T,U>::remove_where(std::shared_ptr<decision_value<T,U> > dec_val)
+			{
+				bool result = false;
+
+				for (unsigned int i = children_.size(); i >= 0; i++)
+				{
+					bool child_rem = children_.at(i)->remove_where(dec_val);
+
+					if (child_rem)
+					{
+						if (children_.at(i)->is_empty_leaf())
+						{
+							children_.erase(children_.begin()+i);
+						}
+
+						result = true;
+					}
+				}
+
+				//remove own sequences
+				std::vector<int> to_remove;
+
+				for (unsigned int i = values_.size(); i >= 0; i++)
+				{
+					if (values_.at(i) == dec_val)
+					{
+						result = true;
+						values_.erase(values_.begin()+i);
+					}
+				}
+
+				return result;
+			}
+
 
 			template <typename T, typename U>
 			std::vector<std::shared_ptr<decision_value<T, U> > > decision_node<T,U>::get_all_values()
@@ -320,6 +397,12 @@ namespace mae
 			bool decision_node<T,U>::is_leaf()
 			{
 				return children_.size() == 0;
+			}
+
+			template <typename T, typename U>
+			bool bool decision_node<T,U>::is_empty_leaf()
+			{
+				return is_leaf() && values_.size() == 0;
 			}
 
 			template <typename T, typename U>
