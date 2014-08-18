@@ -38,7 +38,6 @@ namespace mae
 					/**
 					 * Creates a decision node which is a node of the decision tree for sequences.
 					 *
-					 * @param body_part The addressed body part (which also identifies the column of the sequences.
 					 * @param decision_maker The decision maker which is used to decide whether sequence elements are equal.
 					 * @param decision_item The item which is used to decide which sequence part this node matches.
 					 */
@@ -55,8 +54,20 @@ namespace mae
 					 */
 					virtual void add_sequence(std::shared_ptr<decision_value<T,U> > decision_value, int step);
 
+					/**
+					 * Removes all decision values that have the given value.
+					 *
+					 * @param value The value used to decide removals.
+					 * @return True if any removal was done.
+					 */
 					virtual bool remove_where(std::shared_ptr<U> value);
 
+					/**
+					 * Removes the given decision value from all child nodes. Uses a smart pointer comparison for equality.
+					 *
+					 * @param dec_val The decision value.
+					 * @return True if any removal was done.
+					 */
 					virtual bool remove_where(std::shared_ptr<decision_value<T,U> > dec_val);
 
 					virtual std::vector<std::shared_ptr<decision_value<T, U> > > get_all_values();
@@ -72,6 +83,13 @@ namespace mae
 					 */
 					virtual std::vector<std::shared_ptr<decision_value<T, U> > >  find_submatches(std::vector<std::shared_ptr<T> > whole_sequence, int step);
 
+					/**
+					 * Finds exact matches starting at the step index.
+					 *
+					 * @param sequence The sequence to be matched.
+					 * @param step The step index defining the start position for the match in this node.
+					 * @return The matches.
+					 */
 					virtual std::vector<std::shared_ptr<decision_value<T, U> > >  find_matches(std::vector<std::shared_ptr<T> > sequence, int step);
 
 
@@ -82,6 +100,12 @@ namespace mae
 					 */
 					virtual std::vector<std::shared_ptr<decision_node<T, U> > > get_children();
 
+					/**
+					 * Returns the child that matches the decision.
+					 *
+					 * @param decision_item The item to be matched.
+					 * @return The child that matches the item.
+					 */
 					virtual std::shared_ptr<decision_node<T, U> > get_matching_child(std::shared_ptr<T> decision_item);
 
 					/**
@@ -106,6 +130,11 @@ namespace mae
 					 */
 					virtual bool is_leaf();
 
+					/**
+					 * Returns true if this node is a leaf and no values are attached.
+					 *
+					 * @return True if empty leaf.
+					 */
 					virtual bool is_empty_leaf();
 
 					/**
@@ -211,7 +240,7 @@ namespace mae
 			{
 				bool result = false;
 
-				for (unsigned int i = children_.size(); i >= 0; i++)
+				for (unsigned int i = children_.size() - 1; i >= 0; i++)
 				{
 					bool child_rem = children_.at(i)->remove_where(value);
 
@@ -229,7 +258,7 @@ namespace mae
 				//remove own sequences
 				std::vector<int> to_remove;
 
-				for (unsigned int i = values_.size(); i >= 0; i++)
+				for (unsigned int i = values_.size() - 1; i >= 0; i++)
 				{
 					if (values_.at(i)->get_value() == value)
 					{
@@ -246,7 +275,7 @@ namespace mae
 			{
 				bool result = false;
 
-				for (unsigned int i = children_.size(); i >= 0; i++)
+				for (unsigned int i = children_.size() -1; i >= 0; i++)
 				{
 					bool child_rem = children_.at(i)->remove_where(dec_val);
 
@@ -264,7 +293,7 @@ namespace mae
 				//remove own sequences
 				std::vector<int> to_remove;
 
-				for (unsigned int i = values_.size(); i >= 0; i++)
+				for (unsigned int i = values_.size() - 1 ; i >= 0; i++)
 				{
 					if (values_.at(i) == dec_val)
 					{
@@ -275,7 +304,6 @@ namespace mae
 
 				return result;
 			}
-
 
 			template <typename T, typename U>
 			std::vector<std::shared_ptr<decision_value<T, U> > > decision_node<T,U>::get_all_values()
@@ -353,7 +381,6 @@ namespace mae
 					return std::vector<std::shared_ptr<decision_value<T, U> > >();
 				}
 			}
-
 
 			template <typename T, typename U>
 			std::shared_ptr<T> decision_node<T,U>::get_decision_item()

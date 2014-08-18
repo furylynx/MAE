@@ -58,6 +58,11 @@ namespace mae
 					 */
 					virtual void add_sequence(std::shared_ptr<decision_value<T, U> > dec_val);
 
+					/**
+					 * Returns all registered values of the tree.
+					 *
+					 * @return The values.
+					 */
 					virtual std::vector<std::shared_ptr<decision_value<T, U>> > get_all_values();
 
 					/**
@@ -65,24 +70,43 @@ namespace mae
 					 * by the pointer.
 					 *
 					 * @param value The value.
-					 * @return True if any removal.
+					 * @return True if any removal was done.
 					 */
 					virtual bool remove_where(std::shared_ptr<U> value);
 
+					/**
+					 * Removes all entries for the decision value in the tree.
+					 *
+					 * @param dec_val The decision item.
+					 * @return True if any removal was done.
+					 */
 					virtual bool remove_where(std::shared_ptr<decision_value<T,U> > dec_val);
 
 					/**
-					 * Searches the tree for all sequences that match the motion on the given body part.
+					 * Searches the tree for all subsequences that match the decisions. The decision maker is checked for
+					 * enough distance between a subsequence and the next element.
 					 *
 					 * @param whole_sequence The whole sequence which is meant to be looked up for matches with the registered sequences.
+					 * @param start_pos The start position.
 					 * @return All matches.
 					 */
 					virtual std::vector<std::shared_ptr<decision_value<T, U>> > find_submatches(
 							std::vector<std::shared_ptr<T> > whole_sequence, int start_pos = 0);
 
+					/**
+					 * Finds exact matches of the given sequence starting at the given position.
+					 *
+					 * @param sequence The sequence.
+					 * @param start_pos The start position.
+					 * @return All matches.
+					 */
 					virtual std::vector<std::shared_ptr<decision_value<T, U>> > find_matches(std::vector<std::shared_ptr<T> > sequence,
 							int start_pos = 0);
 
+					/**
+					 * Returns the string representation for this tree.
+					 * @return The string.
+					 */
 					virtual std::string str();
 
 
@@ -165,15 +189,14 @@ namespace mae
 			template<typename T, typename U>
 			bool decision_tree<T, U>::remove_where(std::shared_ptr<U> value)
 			{
-
+				root_->remove_where(value);
 			}
 
 			template<typename T, typename U>
 			bool decision_tree<T, U>::remove_where(std::shared_ptr<decision_value<T,U> > dec_val)
 			{
-
+				root_->remove_where(dec_val);
 			}
-
 
 			template<typename T, typename U>
 			std::vector<std::shared_ptr<decision_value<T, U> > > decision_tree<T, U>::find_submatches(
