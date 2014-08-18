@@ -34,6 +34,7 @@ namespace mae
 				time_unit_ = time_unit;
 				reserved_columns_ = laban_sequence::default_columns();
 
+				//TODO rewriting rules...
 				decision_forest_ = std::shared_ptr<decision_forest>(new decision_forest(column_definitions_, reserved_columns_, beats_per_measure_, beat_duration_, time_unit_));
 			}
 

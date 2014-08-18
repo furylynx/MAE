@@ -16,6 +16,7 @@
 
 #include "i_decision_maker.hpp"
 #include "i_movement.hpp"
+#include "movement.hpp"
 
 //global includes
 #include <memory>
@@ -36,7 +37,7 @@ namespace mae
 			class rewriting_forest
 			{
 				public:
-					rewriting_forest();
+					rewriting_forest(unsigned int beats_per_measure = laban_sequence::default_beats_per_measure(), unsigned int beat_duration = laban_sequence::default_beat_duration(), e_time_unit time_unit = laban_sequence::default_time_unit());
 					virtual ~rewriting_forest();
 
 					virtual std::vector<std::vector<std::shared_ptr<i_movement> > > replacements(std::vector<std::shared_ptr<i_movement> > sequence);
@@ -51,8 +52,14 @@ namespace mae
 					virtual void write_file(std::string file);
 
 				private:
+					unsigned int beats_per_measure_;
+					unsigned int beat_duration_;
+					e_time_unit time_unit_;
+
 					std::shared_ptr<i_decision_maker<i_movement> > decision_maker_;
 					std::vector<std::shared_ptr<decision_tree<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > > trees_;
+
+					std::vector<std::shared_ptr<i_movement> > construct_replaced(std::vector<std::shared_ptr<i_movement> > sequence, std::vector<std::shared_ptr<i_movement> > replacement, int start_pos, unsigned int end_pos);
 			};
 
 		} // namespace laban
