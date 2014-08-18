@@ -14,7 +14,8 @@ namespace mae
 		namespace laban
 		{
 
-			rewriting_forest::rewriting_forest(unsigned int beats_per_measure, unsigned int beat_duration, e_time_unit time_unit)
+			rewriting_forest::rewriting_forest(unsigned int beats_per_measure, unsigned int beat_duration,
+					e_time_unit time_unit)
 			{
 				beats_per_measure_ = beats_per_measure;
 				beat_duration_ = beat_duration;
@@ -50,15 +51,22 @@ namespace mae
 						if (decision_maker_->decide(result.at(index).back(),
 								trees_.at(k)->get_root()->get_decision_item()))
 						{
-							std::vector<std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > > replacement_values = trees_.at(k)->find_submatches(sequence, index);
+							std::vector<
+									std::shared_ptr<
+											decision_value<i_movement,
+													std::vector<std::vector<std::shared_ptr<i_movement> > > > > > replacement_values =
+									trees_.at(k)->find_submatches(sequence, index);
 
 							for (unsigned int l = 0; l < replacement_values.size(); l++)
 							{
 								for (unsigned int m = 0; m < replacement_values.at(l)->get_value()->size(); m++)
 								{
-									result.push_back(construct_replaced(result.at(i), replacement_values.at(l)->get_value()->at(m), index, replacement_values.at(l)->get_sequence().size()));
+									result.push_back(
+											construct_replaced(result.at(i),
+													replacement_values.at(l)->get_value()->at(m), index,
+													replacement_values.at(l)->get_sequence().size()));
 
-									indices.push_back(index+replacement_values.at(l)->get_value()->at(m).size());
+									indices.push_back(index + replacement_values.at(l)->get_value()->at(m).size());
 								}
 							}
 						}
@@ -74,13 +82,23 @@ namespace mae
 				//this does replace the first match; any other match must be applied on all previous possible sequences
 				//... big mess but must be done
 
-
 				return result;
 			}
 
-			std::vector<std::shared_ptr<i_movement> > rewriting_forest::construct_replaced(std::vector<std::shared_ptr<i_movement> > sequence, std::vector<std::shared_ptr<i_movement> > replacement, int start_pos, unsigned int end_pos)
+			std::vector<std::shared_ptr<i_movement> > rewriting_forest::construct_replaced(
+					std::vector<std::shared_ptr<i_movement> > sequence,
+					std::vector<std::shared_ptr<i_movement> > replacement, int start_pos, unsigned int end_pos)
 			{
-				//TODO check invalid values
+				if (start_pos >= sequence.size() || end_pos >= sequence.size())
+				{
+					throw std::invalid_argument("start and end pos must be within the sequence.");
+				}
+
+				if (replacement.size() == 0)
+				{
+					//no changes to be applied
+					return sequence;
+				}
 
 				std::vector<std::shared_ptr<i_movement> > result;
 
@@ -90,10 +108,14 @@ namespace mae
 				}
 
 				//make continuous movement
-				double beats_replaced = (sequence.at(end_pos)->get_measure()-sequence.at(start_pos)->get_measure())*beats_per_measure_ + (sequence.at(end_pos)->get_measure() - sequence.at(start_pos)->get_measure());
+				double beats_replaced = (sequence.at(end_pos)->get_measure() - sequence.at(start_pos)->get_measure())
+						* beats_per_measure_
+						+ (sequence.at(end_pos)->get_measure() - sequence.at(start_pos)->get_measure())
+						+ sequence.at(end_pos)->get_duration();
+				double start_beat = sequence.at(start_pos)->get_measure() * beats_per_measure_
+						+ sequence.at(start_pos)->get_beat();
 
-
-				for (unsigned int i = 0 ; i < replacement.size(); i++)
+				for (unsigned int i = 0; i < replacement.size(); i++)
 				{
 					std::shared_ptr<i_movement> rep = replacement.at(i);
 
@@ -102,29 +124,29 @@ namespace mae
 					int column = sequence.at(start_pos)->get_column();
 
 					//TODO continous movement
-					unsigned int measure;
-					double beat;
-					double duration;
+					unsigned int measure = (int) (((beats_replaced / replacement.size()) * i + start_beat)
+							/ beats_per_measure_);
+					double beat = ((beats_replaced / replacement.size()) * i + start_beat) / beats_per_measure_
+							- measure;
+					double duration = beats_replaced / replacement.size();
 
 					if (std::shared_ptr<movement> rep_mov = std::dynamic_pointer_cast<movement>(rep))
 					{
 
 						std::shared_ptr<mv::i_symbol> symbol = rep_mov->get_symbol();
 						bool hold = rep_mov->get_hold();
-						movement = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration,
-								symbol, hold));
+						movement = std::shared_ptr<i_movement>(
+								new movement(column, measure, beat, duration, symbol, hold));
 					}
 					else
 					{
 						//TODO handle other cases
 					}
 
-
-
 					result.push_back(i_mov);
 				}
 
-				for (unsigned int i = end_pos; i < sequence.size(); i++)
+				for (unsigned int i = end_pos + 1; i < sequence.size(); i++)
 				{
 					result.push_back(sequence.at(i));
 				}
@@ -132,7 +154,8 @@ namespace mae
 				return result;
 			}
 
-			void rewriting_forest::add_rule(std::vector<std::shared_ptr<i_movement> > sequence, std::vector<std::vector<std::shared_ptr<i_movement> > > replacements)
+			void rewriting_forest::add_rule(std::vector<std::shared_ptr<i_movement> > sequence,
+					std::vector<std::vector<std::shared_ptr<i_movement> > > replacements)
 			{
 				//TODO add rule to correct decision tree
 			}
