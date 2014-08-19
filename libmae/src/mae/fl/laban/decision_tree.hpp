@@ -55,8 +55,9 @@ namespace mae
 					 * Adds a sequences to the tree. This may introduce new nodes to the tree.
 					 *
 					 * @param sequence The sequence to be registered.
+					 * @param reverse_order True if sequence shall be inserted in reverse order.
 					 */
-					virtual void add_sequence(std::shared_ptr<decision_value<T, U> > dec_val);
+					virtual void add_sequence(std::shared_ptr<decision_value<T, U> > dec_val, bool reverse_order = false);
 
 					/**
 					 * Returns all registered values of the tree.
@@ -84,24 +85,28 @@ namespace mae
 
 					/**
 					 * Searches the tree for all subsequences that match the decisions. The decision maker is checked for
-					 * enough distance between a subsequence and the next element.
+					 * enough distance between a subsequence and the next element. The order of the sequence must be of
+					 * the same order as the added sequences.
 					 *
 					 * @param whole_sequence The whole sequence which is meant to be looked up for matches with the registered sequences.
 					 * @param start_pos The start position.
+					 * @param end_pos The last position to be matched. -1 for last element of whole sequence.
 					 * @return All matches.
 					 */
 					virtual std::vector<std::shared_ptr<decision_value<T, U>> > find_submatches(
-							std::vector<std::shared_ptr<T> > whole_sequence, int start_pos = 0);
+							std::vector<std::shared_ptr<T> > whole_sequence, int start_pos = 0, int end_pos = -1);
 
 					/**
-					 * Finds exact matches of the given sequence starting at the given position.
+					 * Finds exact matches of the given sequence starting at the given position. The order of the
+					 * sequence must be of the same order as the added sequences.
 					 *
 					 * @param sequence The sequence.
 					 * @param start_pos The start position.
+					 * @param end_pos The last position to be matched. -1 for last element of whole sequence.
 					 * @return All matches.
 					 */
 					virtual std::vector<std::shared_ptr<decision_value<T, U>> > find_matches(std::vector<std::shared_ptr<T> > sequence,
-							int start_pos = 0);
+							int start_pos = 0, int end_pos = -1);
 
 					/**
 					 * Returns the string representation for this tree.
@@ -156,21 +161,30 @@ namespace mae
 			}
 
 			template<typename T, typename U>
-			void decision_tree<T, U>::add_sequence(std::shared_ptr<decision_value<T, U> > dec_val)
+			void decision_tree<T, U>::add_sequence(std::shared_ptr<decision_value<T, U> > dec_val, bool reverse_order)
 			{
-				std::shared_ptr<T> back = dec_val->get_sequence().back();
+				std::shared_ptr<T> first_item;
 
-				if (root_ == nullptr)
+				if (reverse_order)
 				{
-					root_ = std::shared_ptr<decision_node<T, U> >(new decision_node<T, U>(decision_maker_, back));
-
-					root_->add_sequence(dec_val, 0);
+					first_item = dec_val->get_sequence().back();
 				}
 				else
 				{
-					if (root_->is_matching(back))
+					first_item = dec_val->get_sequence().front();
+				}
+
+				if (root_ == nullptr)
+				{
+					root_ = std::shared_ptr<decision_node<T, U> >(new decision_node<T, U>(decision_maker_, first_item));
+
+					root_->add_sequence(dec_val, 0, reverse_order);
+				}
+				else
+				{
+					if (root_->is_matching(first_item))
 					{
-						root_->add_sequence(dec_val, 0);
+						root_->add_sequence(dec_val, 0, reverse_order);
 					}
 					else
 					{
@@ -189,18 +203,18 @@ namespace mae
 			template<typename T, typename U>
 			bool decision_tree<T, U>::remove_where(std::shared_ptr<U> value)
 			{
-				root_->remove_where(value);
+				return root_->remove_where(value);
 			}
 
 			template<typename T, typename U>
 			bool decision_tree<T, U>::remove_where(std::shared_ptr<decision_value<T,U> > dec_val)
 			{
-				root_->remove_where(dec_val);
+				return root_->remove_where(dec_val);
 			}
 
 			template<typename T, typename U>
 			std::vector<std::shared_ptr<decision_value<T, U> > > decision_tree<T, U>::find_submatches(
-					std::vector<std::shared_ptr<T> > whole_sequence, int start_pos)
+					std::vector<std::shared_ptr<T> > whole_sequence, int start_pos, int end_pos)
 			{
 				if (root_ == nullptr || !root_->is_matching(whole_sequence.back()))
 				{
@@ -208,13 +222,13 @@ namespace mae
 				}
 				else
 				{
-					return root_->find_submatches(whole_sequence, start_pos);
+					return root_->find_submatches(whole_sequence, start_pos, end_pos);
 				}
 			}
 
 			template<typename T, typename U>
 			std::vector<std::shared_ptr<decision_value<T, U> > > decision_tree<T, U>::find_matches(
-					std::vector<std::shared_ptr<T> > sequence, int start_pos)
+					std::vector<std::shared_ptr<T> > sequence, int start_pos, int end_pos)
 			{
 				if (root_ == nullptr || !root_->is_matching(sequence.back()))
 				{
@@ -222,7 +236,7 @@ namespace mae
 				}
 				else
 				{
-					return root_->find_matches(sequence, start_pos);
+					return root_->find_matches(sequence, start_pos, end_pos);
 				}
 			}
 

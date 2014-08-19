@@ -17,6 +17,9 @@
 #include "i_decision_maker.hpp"
 #include "i_movement.hpp"
 #include "movement.hpp"
+#include "e_time_unit.hpp"
+#include "laban_sequence.hpp"
+#include "rewriting_decision_maker.hpp"
 
 //global includes
 #include <memory>
@@ -42,14 +45,14 @@ namespace mae
 
 					virtual std::vector<std::vector<std::shared_ptr<i_movement> > > replacements(std::vector<std::shared_ptr<i_movement> > sequence);
 
-					virtual void add_rule(std::vector<std::shared_ptr<i_movement> > sequence, std::vector<std::vector<std::shared_ptr<i_movement> > > replacements);
+					virtual void add_rule(std::vector<std::shared_ptr<i_movement> > sequence, std::shared_ptr<std::vector<std::vector<std::shared_ptr<i_movement> > > > replacements);
 
 
-					virtual void read_rules_str(std::string xml);
-					virtual void read_rules_file(std::string file);
-
-					virtual std::string str();
-					virtual void write_file(std::string file);
+//					virtual void read_rules_str(std::string xml);
+//					virtual void read_rules_file(std::string file);
+//
+//					virtual std::string str();
+//					virtual void write_file(std::string file);
 
 				private:
 					unsigned int beats_per_measure_;
@@ -59,7 +62,7 @@ namespace mae
 					std::shared_ptr<i_decision_maker<i_movement> > decision_maker_;
 					std::vector<std::shared_ptr<decision_tree<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > > trees_;
 
-					std::vector<std::shared_ptr<i_movement> > construct_replaced(std::vector<std::shared_ptr<i_movement> > sequence, std::vector<std::shared_ptr<i_movement> > replacement, int start_pos, unsigned int end_pos);
+					std::vector<std::shared_ptr<i_movement> > construct_replaced(std::vector<std::shared_ptr<i_movement> > sequence, std::vector<std::shared_ptr<i_movement> > replacement, unsigned int start_pos, unsigned int end_pos);
 			};
 
 		} // namespace laban

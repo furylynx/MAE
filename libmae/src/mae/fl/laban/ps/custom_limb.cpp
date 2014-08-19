@@ -29,7 +29,6 @@ namespace mae
 
 				custom_limb::~custom_limb()
 				{
-					// TODO Auto-generated destructor stub
 				}
 
 				std::shared_ptr<i_endpoint> custom_limb::get_fixed_end()

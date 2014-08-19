@@ -1,10 +1,9 @@
 /*
  * decision_forest.hpp
  *
- *  Created on: 12.08.2014
- *      Author: keks
+ * Created on: 12.08.2014
+ * Author: keks
  */
-
 #ifndef DECISION_FOREST_HPP_
 #define DECISION_FOREST_HPP_
 
@@ -13,16 +12,20 @@
 
 //custom includes
 #include "decision_tree.hpp"
-
 #include "laban_sequence.hpp"
 #include "i_decision_maker.hpp"
 #include "decision_maker.hpp"
+#include "rewriting_forest.hpp"
+
+#include "../../bone.hpp"
 
 //global includes
 #include <memory>
 #include <stdexcept>
 #include <vector>
 #include <unordered_map>
+#include <list>
+
 
 namespace mae
 {
@@ -30,7 +33,6 @@ namespace mae
 	{
 		namespace laban
 		{
-
 			class decision_forest
 			{
 				public:
@@ -45,8 +47,15 @@ namespace mae
 					 * @param dec_maker The decision maker to compare movements.
 					 * @param rw The rewriting forest. If not set not rewriting rules are applied.
 					 */
-					decision_forest(std::vector<std::shared_ptr<column_definition> > column_definitions = std::vector<std::shared_ptr<column_definition> >(), std::vector<int> reserved_columns = laban_sequence::default_columns(), unsigned int beats_per_measure = laban_sequence::default_beats_per_measure(), unsigned int beat_duration = laban_sequence::default_beat_duration(), e_time_unit time_unit = laban_sequence::default_time_unit(), std::shared_ptr<i_decision_maker<i_movement> > dec_maker = nullptr, std::shared_ptr<rewriting_forest> rw = nullptr);
-
+					decision_forest(
+							std::vector<std::shared_ptr<column_definition> > column_definitions = std::vector<
+									std::shared_ptr<column_definition> >(), std::vector<int> reserved_columns =
+									laban_sequence::default_columns(), unsigned int beats_per_measure =
+									laban_sequence::default_beats_per_measure(), unsigned int beat_duration =
+									laban_sequence::default_beat_duration(), e_time_unit time_unit =
+									laban_sequence::default_time_unit(),
+							std::shared_ptr<i_decision_maker<i_movement> > dec_maker = nullptr,
+							std::shared_ptr<rewriting_forest> rw = nullptr);
 					virtual ~decision_forest();
 
 					/**
@@ -74,6 +83,8 @@ namespace mae
 					 */
 					virtual bool remove_sequence(int list_index);
 
+					virtual void clear();
+
 					/**
 					 * Returns all registered sequences.
 					 *
@@ -88,11 +99,12 @@ namespace mae
 					 * @param body_parts All the body parts that are meant to be taken into account.
 					 * @return All matching sequences.
 					 */
-					virtual std::vector<std::shared_ptr<laban_sequence> > find_submatches(std::shared_ptr<laban_sequence> whole_sequence, std::vector<bone> body_parts);
-
+					virtual std::vector<std::shared_ptr<laban_sequence> > find_submatches(
+							std::shared_ptr<laban_sequence> whole_sequence, std::vector<bone> body_parts);
 				private:
 					std::vector<std::shared_ptr<column_definition> > column_definitions_;
 					std::vector<int> column_ids_;
+
 					unsigned int beats_per_measure_;
 					unsigned int beat_duration_;
 					e_time_unit time_unit_;
@@ -109,9 +121,7 @@ namespace mae
 					 */
 					bool remove_sequence_p(std::shared_ptr<laban_sequence> sequence);
 			};
-
 		} // namespace laban
 	} // namespace fl
 } // namespace mae
-
 #endif // DECISION_FOREST_HPP_

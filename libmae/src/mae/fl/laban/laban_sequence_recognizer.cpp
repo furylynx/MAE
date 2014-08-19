@@ -96,7 +96,7 @@ namespace mae
 			{
 				registered_sequences_.clear();
 
-				//TODO clear forests
+				decision_forest_->clear();
 			}
 
 			std::list<std::shared_ptr<laban_sequence> > laban_sequence_recognizer::get_registered_sequences()

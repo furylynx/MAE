@@ -19,7 +19,6 @@ namespace mae
 
 		bvh_controller::~bvh_controller()
 		{
-			// TODO Auto-generated destructor stub
 		}
 
 		std::string bvh_controller::bvh_str(std::vector<std::shared_ptr<general_skeleton> > data, double framerate)
