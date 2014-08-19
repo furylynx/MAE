@@ -17,7 +17,6 @@ namespace mae
 
 	ini_reader::~ini_reader()
 	{
-		// TODO Auto-generated destructor stub
 	}
 
 	std::string ini_reader::get_value(std::string domain, std::string key)

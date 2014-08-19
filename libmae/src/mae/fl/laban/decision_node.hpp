@@ -52,7 +52,7 @@ namespace mae
 					 * @param sequence The sequence to be registered. Regards only the given body part.
 					 * @param step The step which is used to identify a specific sequence element.
 					 */
-					virtual void add_sequence(std::shared_ptr<decision_value<T,U> > decision_value, int step);
+					virtual void add_sequence(std::shared_ptr<decision_value<T,U> > decision_value, int step, bool reverse_order = false);
 
 					/**
 					 * Removes all decision values that have the given value.
@@ -70,27 +70,36 @@ namespace mae
 					 */
 					virtual bool remove_where(std::shared_ptr<decision_value<T,U> > dec_val);
 
+					/**
+					 * Returns all registered values of the node and its children.
+					 *
+					 * @return All values.
+					 */
 					virtual std::vector<std::shared_ptr<decision_value<T, U> > > get_all_values();
 
 					/**
 					 * Finds matches of subsequences in the whole sequence. This means that the
 					 * whole sequences is looked up for having some of the registered sequences
-					 * in it.
+					 * in it. The order of the sequence must be of the same order as the added
+					 * sequences.
 					 *
 					 * @param whole_sequence The whole sequence to be identified.
 					 * @param step The step which is used to identify a specific sequence element.
-					 * @return
+					 * @param end_pos The last position to be matched. -1 for last element of whole sequence.
+					 * @return The submatches.
 					 */
-					virtual std::vector<std::shared_ptr<decision_value<T, U> > >  find_submatches(std::vector<std::shared_ptr<T> > whole_sequence, int step);
+					virtual std::vector<std::shared_ptr<decision_value<T, U> > >  find_submatches(std::vector<std::shared_ptr<T> > whole_sequence, int step, int end_pos = -1);
 
 					/**
-					 * Finds exact matches starting at the step index.
+					 * Finds exact matches starting at the step index. The order of the sequence
+					 * must be of the same order as the added sequences.
 					 *
 					 * @param sequence The sequence to be matched.
 					 * @param step The step index defining the start position for the match in this node.
+					 * @param end_pos The last position to be matched. -1 for last element of whole sequence.
 					 * @return The matches.
 					 */
-					virtual std::vector<std::shared_ptr<decision_value<T, U> > >  find_matches(std::vector<std::shared_ptr<T> > sequence, int step);
+					virtual std::vector<std::shared_ptr<decision_value<T, U> > >  find_matches(std::vector<std::shared_ptr<T> > sequence, int step, int end_pos = -1);
 
 
 					/**
@@ -205,7 +214,7 @@ namespace mae
 			}
 
 			template <typename T, typename U>
-			void decision_node<T,U>::add_sequence(std::shared_ptr<decision_value<T,U> > decision_value, int step)
+			void decision_node<T,U>::add_sequence(std::shared_ptr<decision_value<T,U> > decision_value, int step, bool reverse_order)
 			{
 				std::vector<std::shared_ptr<T> > sequence = decision_value->get_sequence();
 
@@ -217,7 +226,14 @@ namespace mae
 				}
 				else
 				{
-					std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(sequence.at(sequence.size()  - 1 - (step + 1)));
+					//next index for normal or reverse order
+					int next_index = step+1;
+					if (reverse_order)
+					{
+						next_index = sequence.size()  - 1 - (step + 1);
+					}
+
+					std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(sequence.at(next_index));
 					if (matching_child != nullptr)
 					{
 						matching_child->add_sequence(decision_value, step + 1);
@@ -228,11 +244,10 @@ namespace mae
 						children_.push_back(
 								std::shared_ptr<decision_node<T,U> >(
 										new decision_node(decision_maker_,
-												sequence.at(sequence.size() - 1 - (step + 1)))));
+												sequence.at(next_index))));
 						children_.back()->add_sequence(decision_value, step + 1);
 					}
 				}
-
 			}
 
 			template <typename T, typename U>
@@ -321,20 +336,25 @@ namespace mae
 
 			template <typename T, typename U>
 			std::vector<std::shared_ptr<decision_value<T, U> > > decision_node<T,U>::find_submatches(
-					std::vector<std::shared_ptr<T> > whole_sequence, int step)
+					std::vector<std::shared_ptr<T> > whole_sequence, int step, int end_pos)
 			{
+				if (end_pos < 0)
+				{
+					end_pos = whole_sequence.size() - 1;
+				}
+
 				//all treasures that are given by submatches for the whole sequence
 				std::vector<std::shared_ptr<decision_value<T, U> > > result;
 
 				if (!is_leaf())
 				{
-					if (step != whole_sequence.size() -1)
+					if (step != end_pos)
 					{
 						std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(whole_sequence.at(whole_sequence.size() - 1 - (step + 1)));
 
 						if (matching_child != nullptr)
 						{
-							result = matching_child->find_submatches(whole_sequence, step + 1);
+							result = matching_child->find_submatches(whole_sequence, step + 1, end_pos);
 						}
 					}
 				}
@@ -354,8 +374,13 @@ namespace mae
 			}
 
 			template <typename T, typename U>
-			std::vector<std::shared_ptr<decision_value<T, U> > >  decision_node<T,U>::find_matches(std::vector<std::shared_ptr<T> > sequence, int step)
+			std::vector<std::shared_ptr<decision_value<T, U> > >  decision_node<T,U>::find_matches(std::vector<std::shared_ptr<T> > sequence, int step, int end_pos)
 			{
+				if (end_pos < 0)
+				{
+					end_pos = sequence.size() - 1;
+				}
+
 				if (step == sequence.size() - 1)
 				{
 					return values_;
@@ -366,13 +391,13 @@ namespace mae
 
 					if (!is_leaf())
 					{
-						if (step != sequence.size() -1)
+						if (step != end_pos)
 						{
 							std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(sequence.at(sequence.size() - 1 - (step + 1)));
 
 							if (matching_child != nullptr)
 							{
-								return matching_child->find_matches(sequence, step + 1);
+								return matching_child->find_matches(sequence, step + 1, end_pos);
 							}
 						}
 					}
@@ -427,7 +452,7 @@ namespace mae
 			}
 
 			template <typename T, typename U>
-			bool bool decision_node<T,U>::is_empty_leaf()
+			bool decision_node<T,U>::is_empty_leaf()
 			{
 				return is_leaf() && values_.size() == 0;
 			}

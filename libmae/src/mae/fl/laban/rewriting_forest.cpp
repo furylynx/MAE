@@ -21,9 +21,8 @@ namespace mae
 				beat_duration_ = beat_duration;
 				time_unit_ = time_unit;
 
-				// TODO generate trees etc...
-				// TODO decision maker
-
+				// decision maker
+				decision_maker_ = std::shared_ptr<i_decision_maker<i_movement> >(new rewriting_decision_maker());
 			}
 
 			rewriting_forest::~rewriting_forest()
@@ -33,6 +32,11 @@ namespace mae
 			std::vector<std::vector<std::shared_ptr<i_movement> > > rewriting_forest::replacements(
 					std::vector<std::shared_ptr<i_movement> > sequence)
 			{
+				//check the whole sequence for continous movements (no break, same length) : index pos
+				//check decision forest for matches for the continous subsequence
+				//replace subsequences of continous subsequence from index pos to size of the match
+				//this does replace the first match; any other match must be applied on all previous possible sequences
+
 				//TODO good value
 				double deviation = 0.5;
 
@@ -44,7 +48,7 @@ namespace mae
 
 				for (unsigned int i = 0; i < result.size(); i++)
 				{
-					int end_index_cont = -1;
+					unsigned int end_index_cont = 0;
 					for (unsigned int index = indices.at(i); index < result.at(i).size(); index++)
 					{
 						//check for continous sequence
@@ -53,10 +57,13 @@ namespace mae
 							end_index_cont = index;
 							for (unsigned int k = 1; k < result.at(i).size(); k++)
 							{
-								double last_beat_dur = result.at(i).at(index+k-1)->get_measure()* beats_per_measure_ + result.at(i).at(index+k-1)->get_beat() + result.at(i).at(index+k-1)->get_duration();
-								double curr_beat = result.at(i).at(index+k)->get_measure()* beats_per_measure_ + result.at(i).at(index+k)->get_beat();
+								double last_beat_dur = result.at(i).at(index + k - 1)->get_measure()
+										* beats_per_measure_ + result.at(i).at(index + k - 1)->get_beat()
+										+ result.at(i).at(index + k - 1)->get_duration();
+								double curr_beat = result.at(i).at(index + k)->get_measure() * beats_per_measure_
+										+ result.at(i).at(index + k)->get_beat();
 
-								if (std::abs(last_beat_dur-curr_beat) < deviation)
+								if (std::abs(last_beat_dur - curr_beat) < deviation)
 								{
 									end_index_cont = index + k;
 								}
@@ -69,22 +76,22 @@ namespace mae
 
 						if (index <= end_index_cont)
 						{
-							//no continous sequence, increment index therefore
+							//no continous sequence, therefore increment index
 							continue;
 						}
 
 						//find decision tree with same start pos
 						for (unsigned int k = 0; k < trees_.size(); k++)
 						{
-							if (decision_maker_->decide(result.at(index).back(),
+							if (decision_maker_->decide(result.at(i).at(index),
 									trees_.at(k)->get_root()->get_decision_item()))
 							{
-								//TODO use end_index_cont for submatches
+								//use end_index_cont for submatches
 								std::vector<
 										std::shared_ptr<
 												decision_value<i_movement,
 														std::vector<std::vector<std::shared_ptr<i_movement> > > > > > replacement_values =
-										trees_.at(k)->find_submatches(sequence, index);
+										trees_.at(k)->find_submatches(sequence, index, end_index_cont);
 
 								for (unsigned int l = 0; l < replacement_values.size(); l++)
 								{
@@ -98,26 +105,20 @@ namespace mae
 										indices.push_back(index + replacement_values.at(l)->get_value()->at(m).size());
 									}
 								}
+
+								break;
 							}
 						}
 					}
 
 				}
 
-				//TODO handle replacements in here : use decision trees for this
-
-				//check the whole sequence for continous movements (no break, same length) : index pos
-				//check decision forest for matches for the continous subsequence
-				//replace subsequences of continous subsequence from index pos to size of the match
-				//this does replace the first match; any other match must be applied on all previous possible sequences
-				//... big mess but must be done
-
 				return result;
 			}
 
 			std::vector<std::shared_ptr<i_movement> > rewriting_forest::construct_replaced(
 					std::vector<std::shared_ptr<i_movement> > sequence,
-					std::vector<std::shared_ptr<i_movement> > replacement, int start_pos, unsigned int end_pos)
+					std::vector<std::shared_ptr<i_movement> > replacement, unsigned int start_pos, unsigned int end_pos)
 			{
 				if (start_pos >= sequence.size() || end_pos >= sequence.size())
 				{
@@ -153,7 +154,7 @@ namespace mae
 
 					int column = sequence.at(start_pos)->get_column();
 
-					//TODO continous movement
+					//continous movement
 					unsigned int measure = (int) (((beats_replaced / replacement.size()) * i + start_beat)
 							/ beats_per_measure_);
 					double beat = ((beats_replaced / replacement.size()) * i + start_beat) / beats_per_measure_
@@ -165,7 +166,7 @@ namespace mae
 
 						std::shared_ptr<mv::i_symbol> symbol = rep_mov->get_symbol();
 						bool hold = rep_mov->get_hold();
-						movement = std::shared_ptr<i_movement>(
+						i_mov = std::shared_ptr<i_movement>(
 								new movement(column, measure, beat, duration, symbol, hold));
 					}
 					else
@@ -185,9 +186,36 @@ namespace mae
 			}
 
 			void rewriting_forest::add_rule(std::vector<std::shared_ptr<i_movement> > sequence,
-					std::vector<std::vector<std::shared_ptr<i_movement> > > replacements)
+					std::shared_ptr<std::vector<std::vector<std::shared_ptr<i_movement> > > > replacements)
 			{
-				//TODO add rule to correct decision tree
+
+				for (unsigned int k = 0; k < trees_.size(); k++)
+				{
+					if (decision_maker_->decide(sequence.front(), trees_.at(k)->get_root()->get_decision_item()))
+					{
+						//add in normal order to tree
+						trees_.at(k)->add_sequence(
+								std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > >(
+										new decision_value<i_movement,
+												std::vector<std::vector<std::shared_ptr<i_movement> > > >(sequence,
+												replacements)), false);
+
+						return;
+					}
+				}
+
+				//create a new tree
+				trees_.push_back(
+						std::shared_ptr<decision_tree<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > >(
+								new decision_tree<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > >(
+										decision_maker_)));
+
+				//add in normal order to tree
+				trees_.back()->add_sequence(
+						std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > >(
+								new decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > >(
+										sequence, replacements)), false);
+
 			}
 
 		} // namespace laban

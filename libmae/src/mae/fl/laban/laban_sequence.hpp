@@ -243,10 +243,33 @@ namespace mae {
 				virtual std::string xml();
 
 
-				//TODO doxygen
+				/**
+				 * Returns the default duration of a single beat.
+				 *
+				 * @return The default duration.
+				 */
 				static unsigned int default_beat_duration();
+
+				/**
+				 * Returns the default number of beats per measure.
+				 *
+				 * @return The default beats per measure.
+				 */
 				static unsigned int default_beats_per_measure();
+
+				/**
+				 * Returns the default time unit.
+				 *
+				 * @return The default unit.
+				 */
 				static e_time_unit default_time_unit();
+
+				/**
+				 * Returns the default columns which are columns that don't need to be specified
+				 * by column definitions.
+				 *
+				 * @return The default columns.
+				 */
 				static std::vector<int> default_columns();
 
 			private:

@@ -16,6 +16,7 @@
 
 //global includes
 #include <string>
+#include <memory>
 
 namespace mae
 {

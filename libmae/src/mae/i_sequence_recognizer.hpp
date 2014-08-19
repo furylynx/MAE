@@ -27,7 +27,8 @@ namespace mae
 			virtual ~i_sequence_recognizer(){}
 
 			virtual void register_sequence(std::shared_ptr<U> sequence) = 0;
-			virtual void deregister_sequence(std::shared_ptr<U> sequence) = 0;
+			virtual bool deregister_sequence(std::shared_ptr<U> sequence) = 0;
+			virtual bool deregister_sequence(int list_index) = 0;
 			virtual void clear_registered_sequences() = 0;
 
 			virtual std::vector<std::shared_ptr<U> > recognize_sequence(std::shared_ptr<U> sequence, std::vector<bone> body_parts) = 0;

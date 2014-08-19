@@ -30,7 +30,6 @@ namespace mae
 
 				space_measurement::~space_measurement()
 				{
-					// TODO Auto-generated destructor stub
 				}
 
 				e_space space_measurement::get_type()

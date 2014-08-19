@@ -543,7 +543,6 @@ namespace mae
 //
 //					if (sign == 0)
 //					{
-//						//todo throw exception ?
 //						std::cerr << "This case should not occur" << std::endl;
 //						std::cerr << "a=" << a << std::endl;
 //						std::cerr << "b=" << b << std::endl;
