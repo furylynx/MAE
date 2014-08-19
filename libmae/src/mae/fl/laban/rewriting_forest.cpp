@@ -33,6 +33,9 @@ namespace mae
 			std::vector<std::vector<std::shared_ptr<i_movement> > > rewriting_forest::replacements(
 					std::vector<std::shared_ptr<i_movement> > sequence)
 			{
+				//TODO good value
+				double deviation = 0.5;
+
 				std::vector<int> indices;
 
 				std::vector<std::vector<std::shared_ptr<i_movement> > > result;
@@ -41,32 +44,59 @@ namespace mae
 
 				for (unsigned int i = 0; i < result.size(); i++)
 				{
-					int index = indices.at(i);
-
-					//TODO check for continous sequence
-
-					//find decision tree with same start pos
-					for (unsigned int k = 0; k < trees_.size(); k++)
+					int end_index_cont = -1;
+					for (unsigned int index = indices.at(i); index < result.at(i).size(); index++)
 					{
-						if (decision_maker_->decide(result.at(index).back(),
-								trees_.at(k)->get_root()->get_decision_item()))
+						//check for continous sequence
+						if (end_index_cont < index)
 						{
-							std::vector<
-									std::shared_ptr<
-											decision_value<i_movement,
-													std::vector<std::vector<std::shared_ptr<i_movement> > > > > > replacement_values =
-									trees_.at(k)->find_submatches(sequence, index);
-
-							for (unsigned int l = 0; l < replacement_values.size(); l++)
+							end_index_cont = index;
+							for (unsigned int k = 1; k < result.at(i).size(); k++)
 							{
-								for (unsigned int m = 0; m < replacement_values.at(l)->get_value()->size(); m++)
-								{
-									result.push_back(
-											construct_replaced(result.at(i),
-													replacement_values.at(l)->get_value()->at(m), index,
-													replacement_values.at(l)->get_sequence().size()));
+								double last_beat_dur = result.at(i).at(index+k-1)->get_measure()* beats_per_measure_ + result.at(i).at(index+k-1)->get_beat() + result.at(i).at(index+k-1)->get_duration();
+								double curr_beat = result.at(i).at(index+k)->get_measure()* beats_per_measure_ + result.at(i).at(index+k)->get_beat();
 
-									indices.push_back(index + replacement_values.at(l)->get_value()->at(m).size());
+								if (std::abs(last_beat_dur-curr_beat) < deviation)
+								{
+									end_index_cont = index + k;
+								}
+								else
+								{
+									break;
+								}
+							}
+						}
+
+						if (index <= end_index_cont)
+						{
+							//no continous sequence, increment index therefore
+							continue;
+						}
+
+						//find decision tree with same start pos
+						for (unsigned int k = 0; k < trees_.size(); k++)
+						{
+							if (decision_maker_->decide(result.at(index).back(),
+									trees_.at(k)->get_root()->get_decision_item()))
+							{
+								//TODO use end_index_cont for submatches
+								std::vector<
+										std::shared_ptr<
+												decision_value<i_movement,
+														std::vector<std::vector<std::shared_ptr<i_movement> > > > > > replacement_values =
+										trees_.at(k)->find_submatches(sequence, index);
+
+								for (unsigned int l = 0; l < replacement_values.size(); l++)
+								{
+									for (unsigned int m = 0; m < replacement_values.at(l)->get_value()->size(); m++)
+									{
+										result.push_back(
+												construct_replaced(result.at(i),
+														replacement_values.at(l)->get_value()->at(m), index,
+														replacement_values.at(l)->get_sequence().size()));
+
+										indices.push_back(index + replacement_values.at(l)->get_value()->at(m).size());
+									}
 								}
 							}
 						}
