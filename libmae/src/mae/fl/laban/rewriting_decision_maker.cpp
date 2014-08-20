@@ -22,7 +22,7 @@ namespace mae
 			{
 			}
 
-			bool rewriting_decision_maker::decide(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> b)
+			bool rewriting_decision_maker::decide(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> a_predecessor, std::shared_ptr<i_movement> b, std::shared_ptr<i_movement> b_predecessor)
 			{
 				//check type equal
 				std::shared_ptr<movement> a_mov;

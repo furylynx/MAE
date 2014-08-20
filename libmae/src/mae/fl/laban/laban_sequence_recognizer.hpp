@@ -48,7 +48,7 @@ namespace mae
 
 					virtual bool deregister_sequence(std::shared_ptr<laban_sequence> sequence);
 
-					virtual bool deregister_sequence(int list_index);
+					virtual bool deregister_sequence(unsigned int list_index);
 
 					virtual void clear_registered_sequences();
 
@@ -66,7 +66,6 @@ namespace mae
 					unsigned int beat_duration_;
 					e_time_unit time_unit_;
 
-					std::list<std::shared_ptr<laban_sequence> > registered_sequences_;
 					std::shared_ptr<decision_forest> decision_forest_;
 			};
 		} // namespace laban

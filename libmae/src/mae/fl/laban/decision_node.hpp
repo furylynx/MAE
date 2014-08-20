@@ -80,15 +80,17 @@ namespace mae
 					/**
 					 * Finds matches of subsequences in the whole sequence. This means that the
 					 * whole sequences is looked up for having some of the registered sequences
-					 * in it. The order of the sequence must be of the same order as the added
-					 * sequences.
+					 * in it.
 					 *
 					 * @param whole_sequence The whole sequence to be identified.
 					 * @param step The step which is used to identify a specific sequence element.
-					 * @param end_pos The last position to be matched. -1 for last element of whole sequence.
+					 * @param end_pos The last step to be matched (no matter what the search order is, this
+					 * 			values must be greater or equal the step value). -1 for last element of whole
+					 * 			sequence.
+					 * @param reverse_order The order in which the submatches are searched.
 					 * @return The submatches.
 					 */
-					virtual std::vector<std::shared_ptr<decision_value<T, U> > >  find_submatches(std::vector<std::shared_ptr<T> > whole_sequence, int step, int end_pos = -1);
+					virtual std::vector<std::shared_ptr<decision_value<T, U> > >  find_submatches(std::vector<std::shared_ptr<T> > whole_sequence, int step, int end_pos = -1, bool reverse_order = false);
 
 					/**
 					 * Finds exact matches starting at the step index. The order of the sequence
@@ -100,7 +102,6 @@ namespace mae
 					 * @return The matches.
 					 */
 					virtual std::vector<std::shared_ptr<decision_value<T, U> > >  find_matches(std::vector<std::shared_ptr<T> > sequence, int step, int end_pos = -1);
-
 
 					/**
 					 * Returns all children.
@@ -115,7 +116,7 @@ namespace mae
 					 * @param decision_item The item to be matched.
 					 * @return The child that matches the item.
 					 */
-					virtual std::shared_ptr<decision_node<T, U> > get_matching_child(std::shared_ptr<T> decision_item);
+					virtual std::shared_ptr<decision_node<T, U> > get_matching_child(std::shared_ptr<T> decision_item, std::shared_ptr<T> decision_item_predecessor);
 
 					/**
 					 * Returns the attached sequences which are those that begin with the assigned movement.
@@ -130,7 +131,7 @@ namespace mae
 					 */
 					virtual std::shared_ptr<T> get_decision_item();
 
-					virtual bool is_matching(std::shared_ptr<T> decision_item);
+					virtual bool is_matching(std::shared_ptr<T> decision_item, std::shared_ptr<T> decision_item_predecessor, std::shared_ptr<T> decision_item_parent);
 
 					/**
 					 * Returns true if this node is a leaf.
@@ -227,13 +228,15 @@ namespace mae
 				else
 				{
 					//next index for normal or reverse order
-					int next_index = step+1;
+					unsigned int current_index = step;
+					unsigned int next_index = step+1;
 					if (reverse_order)
 					{
+						current_index = sequence.size()  - 1 - step;
 						next_index = sequence.size()  - 1 - (step + 1);
 					}
 
-					std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(sequence.at(next_index));
+					std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(sequence.at(next_index), sequence.at(current_index));
 					if (matching_child != nullptr)
 					{
 						matching_child->add_sequence(decision_value, step + 1);
@@ -336,7 +339,7 @@ namespace mae
 
 			template <typename T, typename U>
 			std::vector<std::shared_ptr<decision_value<T, U> > > decision_node<T,U>::find_submatches(
-					std::vector<std::shared_ptr<T> > whole_sequence, int step, int end_pos)
+					std::vector<std::shared_ptr<T> > whole_sequence, int step, int end_pos, bool reverse_order)
 			{
 				if (end_pos < 0)
 				{
@@ -346,15 +349,24 @@ namespace mae
 				//all treasures that are given by submatches for the whole sequence
 				std::vector<std::shared_ptr<decision_value<T, U> > > result;
 
+				unsigned int current_step = step;
+				unsigned int next_step = step + 1;
+
+				if (reverse_order)
+				{
+					current_step = whole_sequence.size() - 1 - step;
+					next_step = whole_sequence.size() - 1 - (step + 1);
+				}
+
 				if (!is_leaf())
 				{
 					if (step != end_pos)
 					{
-						std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(whole_sequence.at(whole_sequence.size() - 1 - (step + 1)));
+						std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(whole_sequence.at(next_step), whole_sequence.at(current_step));
 
 						if (matching_child != nullptr)
 						{
-							result = matching_child->find_submatches(whole_sequence, step + 1, end_pos);
+							result = matching_child->find_submatches(whole_sequence, step + 1, end_pos, reverse_order);
 						}
 					}
 				}
@@ -393,7 +405,7 @@ namespace mae
 					{
 						if (step != end_pos)
 						{
-							std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(sequence.at(sequence.size() - 1 - (step + 1)));
+							std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(sequence.at(step + 1), sequence.at(step));
 
 							if (matching_child != nullptr)
 							{
@@ -420,11 +432,11 @@ namespace mae
 			}
 
 			template <typename T, typename U>
-			std::shared_ptr<decision_node<T, U> > decision_node<T,U>::get_matching_child(std::shared_ptr<T> decision_item)
+			std::shared_ptr<decision_node<T, U> > decision_node<T,U>::get_matching_child(std::shared_ptr<T> decision_item, std::shared_ptr<T> decision_item_predecessor)
 			{
 				for (unsigned int i = 0; i < children_.size(); i++)
 				{
-					if (children_.at(i)->is_matching(decision_item))
+					if (children_.at(i)->is_matching(decision_item, decision_item_predecessor, decision_item_))
 					{
 						return children_.at(i);
 					}
@@ -440,9 +452,9 @@ namespace mae
 			}
 
 			template <typename T, typename U>
-			bool decision_node<T,U>::is_matching(std::shared_ptr<T> decision_item)
+			bool decision_node<T,U>::is_matching(std::shared_ptr<T> decision_item, std::shared_ptr<T> decision_item_predecessor, std::shared_ptr<T> decision_item_parent)
 			{
-				return decision_maker_->decide(decision_item_, decision_item);
+				return decision_maker_->decide(decision_item_, decision_item_parent, decision_item, decision_item_predecessor);
 			}
 
 			template <typename T, typename U>

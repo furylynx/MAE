@@ -35,7 +35,7 @@ namespace mae
 					decision_maker(int beats_per_measure);
 					virtual ~decision_maker();
 
-					virtual bool decide(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> b);
+					virtual bool decide(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> a_predecessor, std::shared_ptr<i_movement> b, std::shared_ptr<i_movement> b_predecessor);
 
 					virtual bool distance_okay(std::shared_ptr<i_movement> dist_from, std::shared_ptr<i_movement> dist_to, std::shared_ptr<i_movement> check);
 

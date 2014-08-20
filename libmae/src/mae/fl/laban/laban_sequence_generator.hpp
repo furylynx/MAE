@@ -72,7 +72,7 @@ namespace mae
 				 * @param body_parts The addressed body parts.
 				 * @return A Labanotation sequence.
 				 */
-				virtual std::shared_ptr<laban_sequence> generate_sequence(
+				virtual std::shared_ptr<laban_sequence> generate_sequence(double framerate,
 						std::list<std::shared_ptr<general_enriched_pose> > key_poses, std::vector<bone> body_parts);
 
 			private:

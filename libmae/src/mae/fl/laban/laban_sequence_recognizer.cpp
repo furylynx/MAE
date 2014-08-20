@@ -44,64 +44,27 @@ namespace mae
 
 			void laban_sequence_recognizer::register_sequence(std::shared_ptr<laban_sequence> sequence)
 			{
-				registered_sequences_.push_back(sequence);
-
 				decision_forest_->add_sequence(sequence);
 			}
 
 			bool laban_sequence_recognizer::deregister_sequence(std::shared_ptr<laban_sequence> sequence)
 			{
-				for (std::list<std::shared_ptr<laban_sequence> >::iterator it = registered_sequences_.begin(); it != registered_sequences_.end(); it++)
-				{
-					//compare by smart pointer
-					if (sequence == *it)
-					{
-						decision_forest_->remove_sequence(*it);
-
-						registered_sequences_.erase(it);
-
-						return true;
-					}
-				}
-
-				return false;
+				return decision_forest_->remove_sequence(sequence);
 			}
 
-			bool laban_sequence_recognizer::deregister_sequence(int list_index)
+			bool laban_sequence_recognizer::deregister_sequence(unsigned int list_index)
 			{
-				if (list_index > registered_sequences_.size())
-				{
-					return false;
-				}
-
-				int index = 0;
-				for (std::list<std::shared_ptr<laban_sequence> >::iterator it = registered_sequences_.begin(); it != registered_sequences_.end(); it++)
-				{
-					if (index == list_index)
-					{
-						decision_forest_->remove_sequence(*it);
-
-						registered_sequences_.erase(it);
-
-						return true;
-					}
-
-					index ++;
-				}
-
-				return false;
+				return decision_forest_->remove_sequence(list_index);
 			}
 
 			void laban_sequence_recognizer::clear_registered_sequences()
 			{
-				registered_sequences_.clear();
-
 				decision_forest_->clear();
 			}
 
 			std::list<std::shared_ptr<laban_sequence> > laban_sequence_recognizer::get_registered_sequences()
 			{
-					return registered_sequences_;
+				return decision_forest_->get_sequences();
 			}
 
 			std::vector<std::shared_ptr<laban_sequence> > laban_sequence_recognizer::recognize_sequence(std::shared_ptr<laban_sequence> sequence, std::vector<bone> body_parts)

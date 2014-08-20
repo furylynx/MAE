@@ -33,13 +33,16 @@ namespace mae
 					virtual ~i_decision_maker(){}
 
 					/**
-					 * Checks whether the two elements match in order to provide the decision result.
+					 * Checks whether the two elements match in order to provide the decision result. Their
+					 * predecessors are provided in order to make more complex decisions.
 					 *
 					 * @param a The first element.
+					 * @param a_predecessor The predecessor of a
 					 * @param b The second element.
+					 * @param b_predecessor The predecessor of b
 					 * @return True if elements match.
 					 */
-					virtual bool decide(std::shared_ptr<T> a, std::shared_ptr<T> b);
+					virtual bool decide(std::shared_ptr<T> a, std::shared_ptr<T> a_predecessor, std::shared_ptr<T> b, std::shared_ptr<T> b_predecessor);
 
 					/**
 					 * Checks the distance between the first to parameters and then examines whether the third parameter is okay.

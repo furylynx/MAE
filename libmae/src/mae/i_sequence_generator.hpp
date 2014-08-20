@@ -28,7 +28,7 @@ namespace mae {
 			public:
 				virtual ~i_sequence_generator(){}
 
-				virtual std::shared_ptr<U> generate_sequence(std::list<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<bone> bodyParts) = 0;
+				virtual std::shared_ptr<U> generate_sequence(double framerate, std::list<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<bone> bodyParts) = 0;
 		};
 
 } // namespace mae

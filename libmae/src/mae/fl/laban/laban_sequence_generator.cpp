@@ -36,16 +36,13 @@ namespace mae
 			{
 			}
 
-			std::shared_ptr<laban_sequence> laban_sequence_generator::generate_sequence(
+			std::shared_ptr<laban_sequence> laban_sequence_generator::generate_sequence(double framerate,
 					std::list<std::shared_ptr<general_enriched_pose> > key_poses, std::vector<bone> body_parts)
 			{
 				if (debug_)
 				{
 					std::cout << "laban_sequence_generator: generate sequence" << std::endl;
 				}
-
-				//TODO set framerate to framerate used by the engine
-				double framerate = 1.0 / 30.0;
 
 				//TODO handle glitches?!
 
