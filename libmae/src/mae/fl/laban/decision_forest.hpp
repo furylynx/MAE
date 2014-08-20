@@ -81,7 +81,7 @@ namespace mae
 					 * @param list_index The index of the sequence in the list.
 					 * @return True if successful.
 					 */
-					virtual bool remove_sequence(int list_index);
+					virtual bool remove_sequence(unsigned int list_index);
 
 					virtual void clear();
 

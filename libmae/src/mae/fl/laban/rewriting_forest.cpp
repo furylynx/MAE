@@ -83,8 +83,8 @@ namespace mae
 						//find decision tree with same start pos
 						for (unsigned int k = 0; k < trees_.size(); k++)
 						{
-							if (decision_maker_->decide(result.at(i).at(index),
-									trees_.at(k)->get_root()->get_decision_item()))
+							if (decision_maker_->decide(result.at(i).at(index), nullptr,
+									trees_.at(k)->get_root()->get_decision_item(), nullptr))
 							{
 								//use end_index_cont for submatches
 								std::vector<
@@ -191,7 +191,7 @@ namespace mae
 
 				for (unsigned int k = 0; k < trees_.size(); k++)
 				{
-					if (decision_maker_->decide(sequence.front(), trees_.at(k)->get_root()->get_decision_item()))
+					if (decision_maker_->decide(sequence.front(), nullptr, trees_.at(k)->get_root()->get_decision_item(), nullptr))
 					{
 						//add in normal order to tree
 						trees_.at(k)->add_sequence(

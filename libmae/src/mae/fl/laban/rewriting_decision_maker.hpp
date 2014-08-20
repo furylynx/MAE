@@ -43,7 +43,7 @@ namespace mae
 					 * @param b The second element.
 					 * @return True if elements match.
 					 */
-					virtual bool decide(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> b);
+					virtual bool decide(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> a_predecessor, std::shared_ptr<i_movement> b, std::shared_ptr<i_movement> b_predecessor);
 
 					/**
 					 * Checks the distance between the first to parameters and then examines whether the third parameter is okay.

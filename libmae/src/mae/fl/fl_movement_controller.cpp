@@ -13,11 +13,11 @@ namespace mae
 	namespace fl
 	{
 
-		fl_movement_controller::fl_movement_controller(unsigned int pose_buffer_size, bool debug)
+		fl_movement_controller::fl_movement_controller(unsigned int pose_buffer_size, double framerate, bool debug)
 				: movement_controller(std::shared_ptr<fl_pose_detector>(new fl_pose_detector(debug)),
 						std::shared_ptr<laban::laban_sequence_generator>(new laban::laban_sequence_generator(debug)),
 						std::shared_ptr<laban::laban_sequence_recognizer>(new laban::laban_sequence_recognizer(debug)),
-						bone::default_bones(), debug)
+						bone::default_bones(), framerate, debug)
 		{
 			this->skel_ctrl = std::shared_ptr<fl_skeleton_controller>(new fl_skeleton_controller(debug));
 
@@ -27,11 +27,11 @@ namespace mae
 			}
 		}
 
-		fl_movement_controller::fl_movement_controller(std::vector<bone> body_parts, std::vector<std::shared_ptr<laban::column_definition> > column_definitions, unsigned int pose_buffer_size, unsigned int beats_per_measure, unsigned int beat_duration, laban::e_time_unit time_unit, bool debug)
+		fl_movement_controller::fl_movement_controller(std::vector<bone> body_parts, std::vector<std::shared_ptr<laban::column_definition> > column_definitions, unsigned int pose_buffer_size, unsigned int beats_per_measure, unsigned int beat_duration, laban::e_time_unit time_unit, double framerate, bool debug)
 				: movement_controller(std::shared_ptr<fl_pose_detector>(new fl_pose_detector(debug)),
 						std::shared_ptr<laban::laban_sequence_generator>(new laban::laban_sequence_generator(column_definitions, beats_per_measure, beat_duration, time_unit, debug)),
 						std::shared_ptr<laban::laban_sequence_recognizer>(new laban::laban_sequence_recognizer(column_definitions, beats_per_measure, beat_duration, time_unit, debug)),
-						body_parts, debug)
+						body_parts, framerate, debug)
 		{
 			this->skel_ctrl = std::shared_ptr<fl_skeleton_controller>(new fl_skeleton_controller(debug));
 

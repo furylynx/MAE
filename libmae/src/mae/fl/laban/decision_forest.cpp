@@ -79,8 +79,8 @@ namespace mae
 							tree_list = trees_.at(column);
 							for (unsigned int j = 0; j < tree_list.size(); j++)
 							{
-								if (decision_maker_->decide(decision_item,
-										tree_list.at(j)->get_root()->get_decision_item()))
+								if (decision_maker_->decide(decision_item, nullptr,
+										tree_list.at(j)->get_root()->get_decision_item(), nullptr))
 								{
 									//add in reverse order to tree
 									tree_list.at(j)->add_sequence(
@@ -133,7 +133,7 @@ namespace mae
 				return false;
 			}
 
-			bool decision_forest::remove_sequence(int list_index)
+			bool decision_forest::remove_sequence(unsigned int list_index)
 			{
 				if (list_index > sequences_.size())
 				{
@@ -197,10 +197,11 @@ namespace mae
 					std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > tmp_seqs;
 					for (unsigned int j = 0; j < tree_list.size(); j++)
 					{
-						if (decision_maker_->decide(decision_item, tree_list.at(j)->get_root()->get_decision_item()))
+						if (decision_maker_->decide(decision_item, nullptr, tree_list.at(j)->get_root()->get_decision_item(), nullptr))
 						{
+							//find submatches in reverse order
 							tmp_seqs = tree_list.at(j)->find_submatches(
-									whole_sequence->get_column_movements(body_part));
+									whole_sequence->get_column_movements(body_part), 0, -1, true);
 						}
 					}
 					if (i == 0)

@@ -85,16 +85,16 @@ namespace mae
 
 					/**
 					 * Searches the tree for all subsequences that match the decisions. The decision maker is checked for
-					 * enough distance between a subsequence and the next element. The order of the sequence must be of
-					 * the same order as the added sequences.
+					 * enough distance between a subsequence and the next element.
 					 *
 					 * @param whole_sequence The whole sequence which is meant to be looked up for matches with the registered sequences.
 					 * @param start_pos The start position.
 					 * @param end_pos The last position to be matched. -1 for last element of whole sequence.
+					 * @param reverse_order The order in which the submatches are searched.
 					 * @return All matches.
 					 */
 					virtual std::vector<std::shared_ptr<decision_value<T, U>> > find_submatches(
-							std::vector<std::shared_ptr<T> > whole_sequence, int start_pos = 0, int end_pos = -1);
+							std::vector<std::shared_ptr<T> > whole_sequence, int start_pos = 0, int end_pos = -1, bool reverse_order = false);
 
 					/**
 					 * Finds exact matches of the given sequence starting at the given position. The order of the
@@ -182,7 +182,7 @@ namespace mae
 				}
 				else
 				{
-					if (root_->is_matching(first_item))
+					if (root_->is_matching(first_item, nullptr, nullptr))
 					{
 						root_->add_sequence(dec_val, 0, reverse_order);
 					}
@@ -214,15 +214,15 @@ namespace mae
 
 			template<typename T, typename U>
 			std::vector<std::shared_ptr<decision_value<T, U> > > decision_tree<T, U>::find_submatches(
-					std::vector<std::shared_ptr<T> > whole_sequence, int start_pos, int end_pos)
+					std::vector<std::shared_ptr<T> > whole_sequence, int start_pos, int end_pos, bool reverse_order)
 			{
-				if (root_ == nullptr || !root_->is_matching(whole_sequence.back()))
+				if (root_ == nullptr || !root_->is_matching(whole_sequence.back(), nullptr, nullptr))
 				{
 					return std::vector<std::shared_ptr<decision_value<T, U> > >();
 				}
 				else
 				{
-					return root_->find_submatches(whole_sequence, start_pos, end_pos);
+					return root_->find_submatches(whole_sequence, start_pos, end_pos, reverse_order);
 				}
 			}
 
@@ -230,7 +230,7 @@ namespace mae
 			std::vector<std::shared_ptr<decision_value<T, U> > > decision_tree<T, U>::find_matches(
 					std::vector<std::shared_ptr<T> > sequence, int start_pos, int end_pos)
 			{
-				if (root_ == nullptr || !root_->is_matching(sequence.back()))
+				if (root_ == nullptr || !root_->is_matching(sequence.back(), nullptr, nullptr))
 				{
 					return std::vector<std::shared_ptr<decision_value<T, U> > >();
 				}
