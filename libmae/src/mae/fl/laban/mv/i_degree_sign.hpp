@@ -32,7 +32,7 @@ namespace mae
 					public:
 						virtual ~i_degree_sign(){}
 
-						virtual bool equals(std::shared_ptr<i_degree_sign> a);
+						virtual bool equals(std::shared_ptr<i_degree_sign> a) = 0;
 
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") = 0;
 				};

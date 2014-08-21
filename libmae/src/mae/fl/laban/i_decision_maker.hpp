@@ -42,7 +42,7 @@ namespace mae
 					 * @param b_predecessor The predecessor of b
 					 * @return True if elements match.
 					 */
-					virtual bool decide(std::shared_ptr<T> a, std::shared_ptr<T> a_predecessor, std::shared_ptr<T> b, std::shared_ptr<T> b_predecessor);
+					virtual bool decide(std::shared_ptr<T> a, std::shared_ptr<T> a_predecessor, std::shared_ptr<T> b, std::shared_ptr<T> b_predecessor) = 0;
 
 					/**
 					 * Checks the distance between the first to parameters and then examines whether the third parameter is okay.
@@ -52,7 +52,7 @@ namespace mae
 					 * @param check The element to be checked to have enough distance.
 					 * @return True if distance is okay.
 					 */
-					virtual bool distance_okay(std::shared_ptr<T> dist_from, std::shared_ptr<T> dist_to, std::shared_ptr<T> check);
+					virtual bool distance_okay(std::shared_ptr<T> dist_from, std::shared_ptr<T> dist_to, std::shared_ptr<T> check) = 0;
 			};
 
 		} // namespace laban
