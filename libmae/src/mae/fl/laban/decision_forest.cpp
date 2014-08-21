@@ -139,7 +139,7 @@ namespace mae
 				{
 					return false;
 				}
-				int index = 0;
+				unsigned int index = 0;
 				for (std::list<std::shared_ptr<laban_sequence> >::iterator it = sequences_.begin();
 						it != sequences_.end(); it++)
 				{

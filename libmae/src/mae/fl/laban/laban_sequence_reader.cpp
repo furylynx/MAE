@@ -14,8 +14,34 @@ namespace mae
 	{
 		namespace laban
 		{
+			laban_sequence_reader::laban_sequence_reader()
+			{
+			}
 
-			std::shared_ptr<laban_sequence> laban_sequence_reader::read_sequence(std::string xml_string)
+			laban_sequence_reader::~laban_sequence_reader()
+			{
+			}
+
+			std::shared_ptr<laban_sequence> laban_sequence_reader::read_sequence_file(std::string file_name)
+			{
+				std::ifstream in_file(file_name);
+				std::stringstream sstr;
+
+				if (in_file.is_open())
+				{
+					std::string line;
+					while (std::getline(in_file, line))
+					{
+						sstr << line << std::endl;
+					}
+					in_file.close();
+					return read_sequence_str(sstr.str());
+				}
+
+				return nullptr;
+			}
+
+			std::shared_ptr<laban_sequence> laban_sequence_reader::read_sequence_str(std::string xml_string)
 			{
 				std::shared_ptr<laban_sequence> result;
 
@@ -28,69 +54,31 @@ namespace mae
 				xmlpp::Document* doc = parser.get_document();
 				xmlpp::Node* root_node = doc->get_root_node();
 
+				//setup namespace prefix
+				std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map = std::shared_ptr<xmlpp::Node::PrefixNsMap>(new xmlpp::Node::PrefixNsMap());
+				if (root_node->get_namespace_prefix().size() > 0)
+				{
+					namespace_map->insert(std::make_pair(root_node->get_namespace_prefix(), root_node->get_namespace_uri()));
+				}
+
+				std::string nsp = root_node->get_namespace_prefix();
+
 				//---------------
 				// main elements
 				//---------------
-				xmlpp::NodeSet title_node_set = root_node->find("/score/title");
-				std::string title = "unknown";
 
-				if (title_node_set.size() > 0)
-				{
-					title = dynamic_cast<xmlpp::ContentNode*>(title_node_set.at(0))->get_content();
-				}
+				std::string title = get_node_content(root_node, namespace_map, "title", nsp, "unknown");
 
-				xmlpp::NodeSet authors_node_set = root_node->find("/score/author");
-				std::vector<std::string> authors;
-
-				if (authors_node_set.size() == 0)
-				{
-					authors.push_back("anonymous");
-				}
-				else
-				{
-					for (unsigned int i = 0; i < authors_node_set.size(); i++)
-					{
-						authors.push_back(dynamic_cast<xmlpp::ContentNode*>(authors_node_set.at(i))->get_content());
-					}
-				}
+				std::vector<std::string> authors = get_node_contents(root_node, namespace_map, "author", nsp, "anonymous");
 
 				//staff elements
-				xmlpp::NodeSet measures_node_set = root_node->find("/score/staff/measures");
-				unsigned int measures = 0;
+				unsigned int measures = static_cast<unsigned int>(std::stoul(get_node_content(root_node, namespace_map, "staff/measures", nsp, "0")));
 
-				if (measures_node_set.size() > 0)
-				{
-					measures = static_cast<unsigned int>(std::stoi(
-							dynamic_cast<xmlpp::ContentNode*>(measures_node_set.at(0))->get_content().c_str()));
-				}
+				e_time_unit time_unit = e_time_unit_c::parse(get_node_content(root_node, namespace_map, "staff/timing/timeUnit", nsp, "NONE"));
 
-				xmlpp::NodeSet time_unit_node_set = root_node->find("/score/staff/timing/timeUnit");
-				e_time_unit time_unit = e_time_unit::NONE;
+				unsigned int beat_duration = static_cast<unsigned int>(std::stoul(get_node_content(root_node, namespace_map, "staff/timing/measure/beatDuration", nsp, "0")));
 
-				if (time_unit_node_set.size() > 0)
-				{
-					std::string time_unit_str =
-							dynamic_cast<xmlpp::ContentNode*>(time_unit_node_set.at(0))->get_content();
-					time_unit = e_time_unit_c::parse(time_unit_str);
-				}
-
-				xmlpp::NodeSet beat_duration_node_set = root_node->find("/score/staff/timing/measure/beatDuration");
-				unsigned int beat_duration = 0;
-
-				if (beat_duration_node_set.size() > 0)
-				{
-					beat_duration = static_cast<unsigned int>(std::stoi(
-							dynamic_cast<xmlpp::ContentNode*>(beat_duration_node_set.at(0))->get_content()));
-				}
-
-				xmlpp::NodeSet beats_node_set = root_node->find("/score/staff/timing/measure/beats");
-				unsigned int beats = 0;
-
-				if (beats_node_set.size() > 0)
-				{
-					beats = static_cast<unsigned int>(std::stoi(
-							dynamic_cast<xmlpp::ContentNode*>(beats_node_set.at(0))->get_content()));
-				}
+				unsigned int beats = static_cast<unsigned int>(std::stoul(get_node_content(root_node, namespace_map, "staff/timing/measure/beats", nsp, "0")));
 
 				//create the sequence and add additional information as well as columns and movements
 				result = std::shared_ptr<laban_sequence>(
@@ -98,16 +86,22 @@ namespace mae
 
 				//additional elements
 
-				//decription
-				xmlpp::NodeSet description_node_set = root_node->find("/score/description");
-
-				if (description_node_set.size() > 0)
+				//other authors
+				for (unsigned int i = 1; i < authors.size(); i++)
 				{
-					result->set_description(
-							dynamic_cast<xmlpp::ContentNode*>(description_node_set.at(0))->get_content());
+					result->add_author(authors.at(i));
+				}
+
+				//decription
+				std::string description = get_node_content(root_node, namespace_map, "description", nsp, "");
+
+				if (description.size() > 0)
+				{
+					result->set_description(description);
 				}
 
 				//column definitions
+				//TODO continue from here
 				xmlpp::NodeSet coldefs_node_set = root_node->find("/score/columns/columnDefinition");
 
 				for (unsigned int i = 0; i < coldefs_node_set.size(); i++)
@@ -124,6 +118,85 @@ namespace mae
 				}
 
 				//done
+				return result;
+			}
+
+			std::string laban_sequence_reader::get_xpath(std::string element, std::string nsp)
+			{
+				std::stringstream sstr;
+
+				std::vector<std::string> split = mstr::split(element, '/');
+
+				for (unsigned int i = 0; i < split.size() ; i++)
+				{
+					if (i > 0)
+					{
+						sstr << "/";
+					}
+
+					if (nsp.size() > 0)
+					{
+						sstr << nsp << ":";
+					}
+
+					sstr << split.at(i);
+				}
+
+				std::cout << sstr.str() << std::endl;
+
+				return sstr.str();
+			}
+
+			std::string laban_sequence_reader::get_node_content(xmlpp::Node* parent_node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string element, std::string nsp, std::string default_return)
+			{
+				xmlpp::NodeSet node_set = parent_node->find(get_xpath(element, nsp), *namespace_map);
+
+				std::string result = default_return;
+
+				if (node_set.size() > 0)
+				{
+					xmlpp::Element* node = dynamic_cast<xmlpp::Element*>(node_set.at(0));
+
+					if (node->has_child_text())
+					{
+						result = node->get_child_text()->get_content();
+					}
+					else
+					{
+						result = "";
+					}
+				}
+
+				return result;
+			}
+
+			std::vector<std::string> laban_sequence_reader::get_node_contents(xmlpp::Node* parent_node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string element, std::string nsp, std::string default_return)
+			{
+				xmlpp::NodeSet node_set = parent_node->find(get_xpath(element, nsp), *namespace_map);
+
+				std::vector<std::string> result;
+
+				if (node_set.size() > 0)
+				{
+					for (unsigned int i = 0; i < node_set.size(); i++)
+					{
+						xmlpp::Element* node = dynamic_cast<xmlpp::Element*>(node_set.at(i));
+
+						if (node->has_child_text())
+						{
+							result.push_back(node->get_child_text()->get_content());
+						}
+						else
+						{
+							result.push_back("");
+						}
+					}
+				}
+				else
+				{
+					result.push_back(default_return);
+				}
+
 				return result;
 			}
 
