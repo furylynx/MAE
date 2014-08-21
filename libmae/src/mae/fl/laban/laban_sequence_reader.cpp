@@ -116,6 +116,8 @@ namespace mae
 					result->add_movement(read_movement(movs_node_set.at(i), namespace_map, nsp));
 				}
 
+				//TODO other i_movements like path, bow, or room dir
+
 				//done
 				return result;
 			}
@@ -140,8 +142,6 @@ namespace mae
 
 					sstr << split.at(i);
 				}
-
-				std::cout << sstr.str() << std::endl;
 
 				return sstr.str();
 			}

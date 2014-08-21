@@ -7,6 +7,8 @@
 //============================================================================
 
 #include <iostream>
+#include <fstream>
+
 #include <mae/fl/math.hpp>
 #include <mae/hierarchy.hpp>
 #include <mae/hierarchy_element.hpp>
@@ -46,8 +48,16 @@ void test_sequence()
 
 	std::shared_ptr<mae::fl::laban::laban_sequence> sequence = sr.read_sequence_file("/home/keks/new_file.laban");
 
-	std::cout << ":laban sequence:" << std::endl;
-	std::cout << sequence->xml() << std::endl;
+	std::ofstream outfile("/home/keks/new_file_rewritten.laban");
+	outfile << sequence->xml();
+	outfile.close();
+
+}
+
+void test_recognition()
+{
+
+	//TODO generate decision tree and check whether the recognition work at this point
 
 }
 
