@@ -28,17 +28,26 @@
 									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/"/>
 									<listOptionValue builtIn="false" value="/usr/include/opencv2/core/"/>
 									<listOptionValue builtIn="false" value="/usr/include/opencv2/"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/src/}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/include/c++/4.8/"/>
-									<listOptionValue builtIn="false" value="/usr/include/ni/"/>
 									<listOptionValue builtIn="false" value="/usr/include/"/>
-									<listOptionValue builtIn="false" value="/usr/include/nite/"/>
 									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/c++/4.8/bits"/>
 									<listOptionValue builtIn="false" value="/usr/local/include"/>
 									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/c++/4.8"/>
 									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/"/>
+									<listOptionValue builtIn="false" value="/usr/include/libxml2"/>
+									<listOptionValue builtIn="false" value="/usr/include/glibmm-2.4"/>
+									<listOptionValue builtIn="false" value="/usr/lib/x86_64-linux-gnu/glibmm-2.4/include"/>
+									<listOptionValue builtIn="false" value="/usr/include/sigc++-2.0"/>
+									<listOptionValue builtIn="false" value="/usr/lib/x86_64-linux-gnu/sigc++-2.0/include"/>
+									<listOptionValue builtIn="false" value="/usr/include/glib-2.0"/>
+									<listOptionValue builtIn="false" value="/usr/lib/x86_64-linux-gnu/glib-2.0/include"/>
+									<listOptionValue builtIn="false" value="/usr/include/libxml++-2.6"/>
+									<listOptionValue builtIn="false" value="/usr/lib/libxml++-2.6/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/src/}&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/include/ni/"/>
+									<listOptionValue builtIn="false" value="/usr/include/nite/"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.dialect.std.1166104425" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.dialect.std.1166104425" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1628248079" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.2081355616" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">

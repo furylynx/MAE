@@ -11,7 +11,9 @@
 #include <mae/hierarchy.hpp>
 #include <mae/hierarchy_element.hpp>
 
+#include <memory>
 #include <mae/fl/laban/laban_sequence_reader.hpp>
+#include <mae/fl/laban/laban_sequence.hpp>
 
 void test_hierarchy()
  {
@@ -40,7 +42,12 @@ void test_hierarchy()
 void test_sequence()
 {
 
-	//mae::fl::laban::laban_sequence_reader::read_sequence()
+	mae::fl::laban::laban_sequence_reader sr = mae::fl::laban::laban_sequence_reader();
+
+	std::shared_ptr<mae::fl::laban::laban_sequence> sequence = sr.read_sequence_file("/home/keks/new_file.laban");
+
+	std::cout << ":laban sequence:" << std::endl;
+	std::cout << sequence->xml() << std::endl;
 
 }
 
@@ -56,7 +63,8 @@ int main() {
 
 	std::cout << "result: " << result << std::endl;
 
-	test_hierarchy();
+	//test_hierarchy();
+	test_sequence();
 
 	std::cout << "done" << std::endl;
 	return 0;
