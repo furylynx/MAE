@@ -115,7 +115,7 @@ namespace mae
 					 * @param node The XML node whose content contains the subelements of the column definition.
 					 * @return A shared pointer to the column definition.
 					 */
-					std::shared_ptr<column_definition> read_column_definition(xmlpp::Node* node);
+					std::shared_ptr<column_definition> read_column_definition(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					/**
 					 * Reads the XML node and generates a pre sign.
@@ -125,7 +125,7 @@ namespace mae
 					 * @param node The XML node.
 					 * @return A shared pointer to the pre sign.
 					 */
-					std::shared_ptr<ps::i_pre_sign> read_pre_sign(xmlpp::Node* node);
+					std::shared_ptr<ps::i_pre_sign> read_pre_sign(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					/**
 					 * Reads the XML node and generates an end point sign.
@@ -135,7 +135,7 @@ namespace mae
 					 * @param node The XML node.
 					 * @return A shared pointer to the endpoint.
 					 */
-					std::shared_ptr<ps::i_endpoint> read_end_point(xmlpp::Node* node);
+					std::shared_ptr<ps::i_endpoint> read_end_point(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					/**
 					 * Reads the XML node and generates a limb sign.
@@ -145,7 +145,7 @@ namespace mae
 					 * @param node The XML node.
 					 * @return A shared pointer to the limb.
 					 */
-					std::shared_ptr<ps::i_limb> read_limb(xmlpp::Node* node);
+					std::shared_ptr<ps::i_limb> read_limb(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					/**
 					 * Reads the XML node and generates a surface sign.
@@ -155,7 +155,7 @@ namespace mae
 					 * @param node The XML node.
 					 * @return A shared pointer to the surface.
 					 */
-					std::shared_ptr<ps::surface_part> read_surface(xmlpp::Node* node);
+					std::shared_ptr<ps::surface_part> read_surface(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					/**
 					 * Reads the XML node and generates a movement element from it.
@@ -165,7 +165,7 @@ namespace mae
 					 * @param node The XML node.
 					 * @return A shared pointer to the movement.
 					 */
-					std::shared_ptr<i_movement> read_movement(xmlpp::Node* node);
+					std::shared_ptr<i_movement> read_movement(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					/**
 					 * Reads the XML node and generates a pin sign.
@@ -175,7 +175,7 @@ namespace mae
 					 * @param node The XML node.
 					 * @return A shared pointer to the pin.
 					 */
-					std::shared_ptr<mv::pin> read_pin(xmlpp::Node* node);
+					std::shared_ptr<mv::pin> read_pin(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					/**
 					 * Reads the XML node and generates a space measurement element.
@@ -188,7 +188,7 @@ namespace mae
 					 * @param node The xml node which is the parent of the space measurement.
 					 * @return A shared pointer to the space measurement.
 					 */
-					std::shared_ptr<mv::space_measurement> read_space_measurement(xmlpp::Node* node);
+					std::shared_ptr<mv::space_measurement> read_space_measurement(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					/**
 					 * Reads the XML node and generates a dynamics sign.
@@ -198,7 +198,7 @@ namespace mae
 					 * @param node The XML node.
 					 * @return A shared pointer to the dynamics sign.
 					 */
-					std::shared_ptr<mv::i_dynamics_sign> read_dynamics(xmlpp::Node* node);
+					std::shared_ptr<mv::i_dynamics_sign> read_dynamics(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					/**
 					 * Reads the XML node and generates a direction symbol.
@@ -208,7 +208,7 @@ namespace mae
 					 * @param node The XML node.
 					 * @return  A shared pointer to the direction symbol.
 					 */
-					std::shared_ptr<mv::direction_symbol> read_direction(xmlpp::Node* node);
+					std::shared_ptr<mv::direction_symbol> read_direction(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					/**
 					 * Reads the XML node and generates a space symbol. A space symbols contains
@@ -219,7 +219,7 @@ namespace mae
 					 * @param node The XML node.
 					 * @return A shared pointer to the space symbol.
 					 */
-					std::shared_ptr<mv::space_symbol> read_space(xmlpp::Node* node);
+					std::shared_ptr<mv::space_symbol> read_space(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					/**
 					 *	Reads the XML node and generates a turn symbol.
@@ -229,7 +229,7 @@ namespace mae
 					 * @param node The XML node.
 					 * @return A shared pointer to the turn symbol.
 					 */
-					std::shared_ptr<mv::turn_symbol> read_turn(xmlpp::Node* node);
+					std::shared_ptr<mv::turn_symbol> read_turn(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					/**
 					 * Reads the XML node and generates a vibration symbol.
@@ -239,7 +239,7 @@ namespace mae
 					 * @param node The XML node.
 					 * @return A shared pointer to the vibration symbol.
 					 */
-					std::shared_ptr<mv::vibration_symbol> read_vibration(xmlpp::Node* node);
+					std::shared_ptr<mv::vibration_symbol> read_vibration(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					/**
 					 * Reads the XML node and generates a cancellation symbol.
@@ -249,7 +249,7 @@ namespace mae
 					 * @param node The XML node.
 					 * @return A shared pointer to the cancellation symbol.
 					 */
-					std::shared_ptr<mv::cancellation_symbol> read_cancellation(xmlpp::Node* node);
+					std::shared_ptr<mv::cancellation_symbol> read_cancellation(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 			};
 

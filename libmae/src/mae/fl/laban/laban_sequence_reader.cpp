@@ -101,20 +101,19 @@ namespace mae
 				}
 
 				//column definitions
-				//TODO continue from here
-				xmlpp::NodeSet coldefs_node_set = root_node->find("/score/columns/columnDefinition");
+				xmlpp::NodeSet coldefs_node_set = root_node->find(get_xpath("staff/columns/columnDefinition", nsp), *namespace_map);
 
 				for (unsigned int i = 0; i < coldefs_node_set.size(); i++)
 				{
-					result->add_column_definition(read_column_definition(coldefs_node_set.at(i)));
+					result->add_column_definition(read_column_definition(coldefs_node_set.at(i), namespace_map, nsp));
 				}
 
 				//movements
-				xmlpp::NodeSet movs_node_set = root_node->find("/score/movements/movement");
+				xmlpp::NodeSet movs_node_set = root_node->find(get_xpath("staff/movements/movement", nsp), *namespace_map);
 
-				for (unsigned int i = 0; i < coldefs_node_set.size(); i++)
+				for (unsigned int i = 0; i < movs_node_set.size(); i++)
 				{
-					result->add_column_definition(read_column_definition(coldefs_node_set.at(i)));
+					result->add_movement(read_movement(movs_node_set.at(i), namespace_map, nsp));
 				}
 
 				//done
@@ -200,46 +199,31 @@ namespace mae
 				return result;
 			}
 
-			std::shared_ptr<column_definition> laban_sequence_reader::read_column_definition(xmlpp::Node* node)
+			std::shared_ptr<column_definition> laban_sequence_reader::read_column_definition(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 				std::shared_ptr<column_definition> result = nullptr;
 
 				//staff elements
-				xmlpp::NodeSet index_node_set = node->find("/index");
-				unsigned int index = 0;
+				unsigned int index = static_cast<unsigned int>(std::stoul(get_node_content(node, namespace_map, "index", nsp, "0")));
 
-				if (index_node_set.size() > 0)
-				{
-					index = static_cast<unsigned int>(std::stoi(
-							dynamic_cast<xmlpp::ContentNode*>(index_node_set.at(0))->get_content()));
-				}
-
-				std::shared_ptr<ps::i_pre_sign> pre_sign = laban_sequence_reader::read_pre_sign(node);
+				std::shared_ptr<ps::i_pre_sign> pre_sign = laban_sequence_reader::read_pre_sign(node, namespace_map, nsp);
 
 				result = std::shared_ptr<column_definition>(new column_definition(index, pre_sign));
 
 				return result;
 			}
 
-			std::shared_ptr<ps::i_pre_sign> laban_sequence_reader::read_pre_sign(xmlpp::Node* node)
+			std::shared_ptr<ps::i_pre_sign> laban_sequence_reader::read_pre_sign(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 				std::shared_ptr<ps::i_pre_sign> result = nullptr;
 
-				xmlpp::NodeSet body_part_node_set = node->find("/preSign/bodyPart");
+				xmlpp::NodeSet body_part_node_set = node->find(get_xpath("preSign/bodyPart", nsp), *namespace_map);
 				if (body_part_node_set.size() > 0)
 				{
 					//side
-					xmlpp::NodeSet side_node_set = node->find("/preSign/bodyPart/side");
-					ps::e_side side = ps::e_side::NONE;
+					ps::e_side side = ps::e_side_c::parse(get_node_content(node, namespace_map, "preSign/bodyPart/side", nsp, "NONE"));
 
-					if (side_node_set.size() > 0)
-					{
-						side = ps::e_side_c::parse(
-								dynamic_cast<xmlpp::ContentNode*>(side_node_set.at(0))->get_content());
-					}
-
-					std::shared_ptr<ps::i_endpoint> endpoint = laban_sequence_reader::read_end_point(
-							body_part_node_set.at(0));
+					std::shared_ptr<ps::i_endpoint> endpoint = read_end_point(body_part_node_set.at(0), namespace_map, nsp);
 
 					if (endpoint != nullptr)
 					{
@@ -247,7 +231,7 @@ namespace mae
 					}
 					else
 					{
-						std::shared_ptr<ps::i_limb> limb = laban_sequence_reader::read_limb(body_part_node_set.at(0));
+						std::shared_ptr<ps::i_limb> limb = laban_sequence_reader::read_limb(body_part_node_set.at(0), namespace_map, nsp);
 
 						if (limb != nullptr)
 						{
@@ -256,7 +240,7 @@ namespace mae
 						else
 						{
 							std::shared_ptr<ps::surface_part> surface = laban_sequence_reader::read_surface(
-									body_part_node_set.at(0));
+									body_part_node_set.at(0), namespace_map, nsp);
 
 							if (surface != nullptr)
 							{
@@ -272,27 +256,15 @@ namespace mae
 				}
 				else
 				{
-					xmlpp::NodeSet prop_node_set = node->find("/preSign/prop");
+					xmlpp::NodeSet prop_node_set = node->find(get_xpath("preSign/prop", nsp), *namespace_map);
 
 					if (prop_node_set.size() > 0)
 					{
 						//side
-						xmlpp::NodeSet name_node_set = node->find("/preSign/prop/name");
-						std::string name = "";
-
-						if (name_node_set.size() > 0)
-						{
-							name = dynamic_cast<xmlpp::ContentNode*>(name_node_set.at(0))->get_content();
-						}
+						std::string name = get_node_content(node, namespace_map, "preSign/prop/name", nsp, "");
 
 						//description (optional)
-						xmlpp::NodeSet description_node_set = node->find("/preSign/prop/description");
-						std::string description = "";
-
-						if (description_node_set.size() > 0)
-						{
-							description = dynamic_cast<xmlpp::ContentNode*>(description_node_set.at(0))->get_content();
-						}
+						std::string description = get_node_content(node, namespace_map, "preSign/prop/description", nsp, "");;
 
 						result = std::shared_ptr<ps::i_pre_sign>(new ps::prop(name, description));
 					}
@@ -301,49 +273,40 @@ namespace mae
 				return result;
 			}
 
-			std::shared_ptr<ps::i_endpoint> laban_sequence_reader::read_end_point(xmlpp::Node* node)
+			std::shared_ptr<ps::i_endpoint> laban_sequence_reader::read_end_point(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 				std::shared_ptr<ps::i_endpoint> result = nullptr;
 
 				//area pre-sign
-				xmlpp::NodeSet area_node_set = node->find("/part");
+				xmlpp::NodeSet area_node_set = node->find(get_xpath("part", nsp), *namespace_map);
 
 				if (area_node_set.size() > 0)
 				{
-					ps::e_area area = ps::e_area_c::parse(
-							dynamic_cast<xmlpp::ContentNode*>(area_node_set.at(0))->get_content());
+					ps::e_area area = ps::e_area_c::parse(get_node_content(node, namespace_map, "part", nsp, "NONE"));
 
 					result = std::shared_ptr<ps::i_endpoint>(new ps::area_part(area));
 				}
 				else
 				{
 					//joint pre-sign
-					xmlpp::NodeSet joint_node_set = node->find("/joint/joint");
+					xmlpp::NodeSet joint_node_set = node->find(get_xpath("joint/joint", nsp), *namespace_map);
 
 					if (joint_node_set.size() > 0)
 					{
-						ps::e_joint joint = ps::e_joint_c::parse(
-								dynamic_cast<xmlpp::ContentNode*>(joint_node_set.at(0))->get_content());
+						ps::e_joint joint = ps::e_joint_c::parse(get_node_content(node, namespace_map, "joint/joint", nsp, "NONE"));
 
 						result = std::shared_ptr<ps::i_endpoint>(new ps::joint_part(joint));
 					}
 					else
 					{
 						//digit pre-sign
-						xmlpp::NodeSet digit_node_set = node->find("/digit/digit");
+						xmlpp::NodeSet digit_node_set = node->find(get_xpath("digit/digit", nsp), *namespace_map);
 
 						if (digit_node_set.size() > 0)
 						{
-							ps::e_digit digit = ps::e_digit_c::parse(
-									dynamic_cast<xmlpp::ContentNode*>(digit_node_set.at(0))->get_content());
+							ps::e_digit digit = ps::e_digit_c::parse(get_node_content(node, namespace_map, "digit/digit", nsp, "NONE"));
 
-							xmlpp::NodeSet digit_joint_node_set = node->find("/digit/joint");
-							unsigned int knuckle = 0;
-							if (digit_joint_node_set.size() > 0)
-							{
-								knuckle = static_cast<unsigned int>(std::stoi(
-										dynamic_cast<xmlpp::ContentNode*>(digit_joint_node_set.at(0))->get_content()));
-							}
+							unsigned int knuckle = static_cast<unsigned int>(std::stoul(get_node_content(node, namespace_map, "digit/joint", nsp, "0")));
 
 							result = std::shared_ptr<ps::i_endpoint>(new ps::digit_part(digit, knuckle));
 						}
@@ -353,44 +316,43 @@ namespace mae
 				return result;
 			}
 
-			std::shared_ptr<ps::i_limb> laban_sequence_reader::read_limb(xmlpp::Node* node)
+			std::shared_ptr<ps::i_limb> laban_sequence_reader::read_limb(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 				std::shared_ptr<ps::i_limb> result = nullptr;
 
 				//default limb pre-sign
-				xmlpp::NodeSet default_limb_node_set = node->find("/limb/default/limb");
+				xmlpp::NodeSet default_limb_node_set = node->find(get_xpath("limb/default/limb", nsp), *namespace_map);
 
 				if (default_limb_node_set.size() > 0)
 				{
-					ps::e_limb limb = ps::e_limb_c::parse(
-							dynamic_cast<xmlpp::ContentNode*>(default_limb_node_set.at(0))->get_content());
+					ps::e_limb limb = ps::e_limb_c::parse(get_node_content(node, namespace_map, "limb/default/limb", nsp, "NONE"));
 
 					result = std::shared_ptr<ps::i_limb>(new ps::default_limb(limb));
 				}
 				else
 				{
-					xmlpp::NodeSet custom_limb_node_set = node->find("/limb/custom");
+					xmlpp::NodeSet custom_limb_node_set = node->find(get_xpath("limb/custom", nsp), *namespace_map);
 
 					if (custom_limb_node_set.size() > 0)
 					{
-						xmlpp::NodeSet fixed_end_node_set = node->find("/limb/custom/fixedEnd");
+						xmlpp::NodeSet fixed_end_node_set = node->find(get_xpath("limb/custom/fixedEnd", nsp), *namespace_map);
 
 						if (fixed_end_node_set.size() > 0)
 						{
 
 							std::shared_ptr<ps::i_endpoint> fixed_end = laban_sequence_reader::read_end_point(
-									fixed_end_node_set.at(0));
+									fixed_end_node_set.at(0), namespace_map, nsp);
 
 							if (fixed_end != nullptr)
 							{
 
-								xmlpp::NodeSet extremity_end_node_set = node->find("/limb/custom/extremity");
+								xmlpp::NodeSet extremity_end_node_set = node->find(get_xpath("limb/custom/extremity", nsp), *namespace_map);
 
 								std::shared_ptr<ps::i_endpoint> extremity_end = nullptr;
 
 								if (extremity_end_node_set.size() > 0)
 								{
-									extremity_end = laban_sequence_reader::read_end_point(extremity_end_node_set.at(0));
+									extremity_end = laban_sequence_reader::read_end_point(extremity_end_node_set.at(0), namespace_map, nsp);
 								}
 
 								result = std::shared_ptr<ps::i_limb>(new ps::custom_limb(fixed_end, extremity_end));
@@ -402,22 +364,21 @@ namespace mae
 				return result;
 			}
 
-			std::shared_ptr<ps::surface_part> laban_sequence_reader::read_surface(xmlpp::Node* node)
+			std::shared_ptr<ps::surface_part> laban_sequence_reader::read_surface(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 				std::shared_ptr<ps::surface_part> result = nullptr;
 
-				xmlpp::NodeSet surface_node_set = node->find("/surface");
+				xmlpp::NodeSet surface_node_set = node->find(get_xpath("surface", nsp), *namespace_map);
 
 				if (surface_node_set.size() > 0)
 				{
-					std::shared_ptr<ps::i_limb> limb = laban_sequence_reader::read_limb(surface_node_set.at(0));
+					std::shared_ptr<ps::i_limb> limb = laban_sequence_reader::read_limb(surface_node_set.at(0), namespace_map, nsp);
 
-					xmlpp::NodeSet limb_side_node_set = node->find("/surface/side");
+					xmlpp::NodeSet limb_side_node_set = node->find(get_xpath("surface/side", nsp), *namespace_map);
 
 					if (limb != nullptr && limb_side_node_set.size() > 0)
 					{
-						ps::e_limb_side limb_side = ps::e_limb_side_c::parse(
-								dynamic_cast<xmlpp::ContentNode*>(limb_side_node_set.at(0))->get_content());
+						ps::e_limb_side limb_side = ps::e_limb_side_c::parse(get_node_content(node, namespace_map, "surface/side", nsp, "NONE"));
 
 						result = std::shared_ptr<ps::surface_part>(new ps::surface_part(limb_side, limb));
 					}
@@ -426,207 +387,152 @@ namespace mae
 				return result;
 			}
 
-			std::shared_ptr<i_movement> laban_sequence_reader::read_movement(xmlpp::Node* node)
+			std::shared_ptr<i_movement> laban_sequence_reader::read_movement(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 				std::shared_ptr<i_movement> result = nullptr;
 
-				xmlpp::NodeSet column_node_set = node->find("/column");
+				int column = std::stoi(get_node_content(node, namespace_map, "column", nsp, "0"));
 
-				if (column_node_set.size() > 0)
+				unsigned int measure = static_cast<unsigned int>(std::stoul(get_node_content(node, namespace_map, "measure", nsp, "0")));
+
+				double beat = std::stod(get_node_content(node, namespace_map, "beat", nsp, "0"));
+
+				double duration = std::stod(get_node_content(node, namespace_map, "duration", nsp, "0"));
+
+
+				xmlpp::NodeSet pre_sign_node_set = node->find(get_xpath("preSign", nsp), *namespace_map);
+				std::shared_ptr<ps::i_pre_sign> pre_sign = nullptr;
+
+				if (pre_sign_node_set.size() > 0)
 				{
-					int column = std::stoi(dynamic_cast<xmlpp::ContentNode*>(column_node_set.at(0))->get_content());
+					pre_sign = laban_sequence_reader::read_pre_sign(node, namespace_map, nsp);
+				}
 
-					xmlpp::NodeSet measure_node_set = node->find("/measure");
+				bool hold = mbool::parse(get_node_content(node, namespace_map, "hold", nsp, "false"));
 
-					if (measure_node_set.size() > 0)
+
+				xmlpp::NodeSet direction_node_set = node->find(get_xpath("direction", nsp), *namespace_map);
+
+				if (direction_node_set.size() > 0)
+				{
+					std::shared_ptr<mv::direction_symbol> direction = laban_sequence_reader::read_direction(direction_node_set.at(0), namespace_map, nsp);
+
+					if (direction != nullptr)
 					{
-						unsigned int measure = static_cast<unsigned int>(std::stoi(dynamic_cast<xmlpp::ContentNode*>(measure_node_set.at(0))->get_content()));
+						result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, direction, hold, pre_sign));
+					}
+				}
+				else
+				{
+					xmlpp::NodeSet space_node_set = node->find(get_xpath("space", nsp), *namespace_map);
 
-						xmlpp::NodeSet beat_node_set = node->find("/beat");
+					if (space_node_set.size() > 0)
+					{
+						std::shared_ptr<mv::space_symbol> space = laban_sequence_reader::read_space(space_node_set.at(0), namespace_map, nsp);
 
-						if (beat_node_set.size() > 0)
+						if (space != nullptr)
 						{
-							double beat = std::stod(dynamic_cast<xmlpp::ContentNode*>(beat_node_set.at(0))->get_content());
+							result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, space, hold, pre_sign));
+						}
+					}
+					else
+					{
+						xmlpp::NodeSet turn_node_set = node->find(get_xpath("turn", nsp), *namespace_map);
 
-							xmlpp::NodeSet duration_node_set = node->find("/duration");
+						if (turn_node_set.size() > 0)
+						{
+							std::shared_ptr<mv::turn_symbol> turn = laban_sequence_reader::read_turn(turn_node_set.at(0), namespace_map, nsp);
 
-							if (duration_node_set.size() > 0)
+							if (turn != nullptr)
 							{
-								double duration = std::stod(dynamic_cast<xmlpp::ContentNode*>(duration_node_set.at(0))->get_content());
+								result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, turn, hold, pre_sign));
+							}
+						}
+						else
+						{
+							xmlpp::NodeSet vibration_node_set = node->find(get_xpath("vibration", nsp), *namespace_map);
 
-								xmlpp::NodeSet pre_sign_node_set = node->find("/preSign");
-								std::shared_ptr<ps::i_pre_sign> pre_sign = nullptr;
+							if (vibration_node_set.size() > 0)
+							{
+								std::shared_ptr<mv::vibration_symbol> vibration = laban_sequence_reader::read_vibration(vibration_node_set.at(0), namespace_map, nsp);
 
-								if (pre_sign_node_set.size() > 0)
+								if (vibration != nullptr)
 								{
-									pre_sign = laban_sequence_reader::read_pre_sign(node);
+									result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, vibration, hold, pre_sign));
 								}
+							}
+							else
+							{
+								xmlpp::NodeSet cancel_node_set = node->find(get_xpath("cancel", nsp), *namespace_map);
 
-								xmlpp::NodeSet hold_node_set = node->find("/hold");
-								bool hold = false;
-
-								if (hold_node_set.size() > 0)
+								if (cancel_node_set.size() > 0)
 								{
-									hold = mbool::parse(dynamic_cast<xmlpp::ContentNode*>(hold_node_set.at(0))->get_content());
-								}
+									std::shared_ptr<mv::cancellation_symbol> cancel = laban_sequence_reader::read_cancellation(cancel_node_set.at(0), namespace_map, nsp);
 
-								xmlpp::NodeSet direction_node_set = node->find("/direction");
-
-								if (direction_node_set.size() > 0)
-								{
-									std::shared_ptr<mv::direction_symbol> direction = laban_sequence_reader::read_direction(direction_node_set.at(0));
-
-									if (direction != nullptr)
+									if (cancel != nullptr)
 									{
-										result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, direction, hold, pre_sign));
+										result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, cancel, hold, pre_sign));
 									}
 								}
 								else
 								{
-									xmlpp::NodeSet space_node_set = node->find("/space");
-
-									if (space_node_set.size() > 0)
-									{
-										std::shared_ptr<mv::space_symbol> space = laban_sequence_reader::read_space(space_node_set.at(0));
-
-										if (space != nullptr)
-										{
-											result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, space, hold, pre_sign));
-										}
-									}
-									else
-									{
-										xmlpp::NodeSet turn_node_set = node->find("/turn");
-
-										if (turn_node_set.size() > 0)
-										{
-											std::shared_ptr<mv::turn_symbol> turn = laban_sequence_reader::read_turn(turn_node_set.at(0));
-
-											if (turn != nullptr)
-											{
-												result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, turn, hold, pre_sign));
-											}
-										}
-										else
-										{
-											xmlpp::NodeSet vibration_node_set = node->find("/vibration");
-
-											if (vibration_node_set.size() > 0)
-											{
-												std::shared_ptr<mv::vibration_symbol> vibration = laban_sequence_reader::read_vibration(vibration_node_set.at(0));
-
-												if (vibration != nullptr)
-												{
-													result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, vibration, hold, pre_sign));
-												}
-											}
-											else
-											{
-												xmlpp::NodeSet cancel_node_set = node->find("/cancel");
-
-												if (cancel_node_set.size() > 0)
-												{
-													std::shared_ptr<mv::cancellation_symbol> cancel = laban_sequence_reader::read_cancellation(cancel_node_set.at(0));
-
-													if (cancel != nullptr)
-													{
-														result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, cancel, hold, pre_sign));
-													}
-												}
-												else
-												{
-													throw std::invalid_argument("Movement symbol unknown.");
-												}
-											}
-										}
-									}
+									throw std::invalid_argument("Movement symbol unknown.");
 								}
 							}
 						}
 					}
 				}
 
-
 				return result;
 			}
 
-			std::shared_ptr<mv::pin> laban_sequence_reader::read_pin(xmlpp::Node* node)
+			std::shared_ptr<mv::pin> laban_sequence_reader::read_pin(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 				std::shared_ptr<mv::pin> result = nullptr;
 
-				xmlpp::NodeSet vertical_node_set = node->find("/vertical");
+				mv::e_level vertical = mv::e_level_c::parse(get_node_content(node, namespace_map, "vertical", nsp, "NONE"));
 
-				if (vertical_node_set.size() > 0)
-				{
-					mv::e_level vertical = mv::e_level_c::parse(
-							dynamic_cast<xmlpp::ContentNode*>(vertical_node_set.at(0))->get_content());
+				int horizontal = std::stoi(get_node_content(node, namespace_map, "horizontal", nsp, "0"));
 
-					xmlpp::NodeSet horizontal_node_set = node->find("/horizontal");
-
-					if (horizontal_node_set.size() > 0)
-					{
-						int horizontal = std::stoi(dynamic_cast<xmlpp::ContentNode*>(horizontal_node_set.at(0))->get_content());
-
-						result = std::shared_ptr<mv::pin>(new mv::pin(vertical, horizontal));
-					}
-				}
+				result = std::shared_ptr<mv::pin>(new mv::pin(vertical, horizontal));
 
 				return result;
 			}
 
-			std::shared_ptr<mv::space_measurement> laban_sequence_reader::read_space_measurement(xmlpp::Node* node)
+			std::shared_ptr<mv::space_measurement> laban_sequence_reader::read_space_measurement(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 				std::shared_ptr<mv::space_measurement> result = nullptr;
 
-				xmlpp::NodeSet type_node_set = node->find("/spaceMeasurement/type");
+				mv::e_space vertical = mv::e_space_c::parse(get_node_content(node, namespace_map, "spaceMeasurement/type", nsp, "NONE"));
 
-				if (type_node_set.size() > 0)
-				{
-					mv::e_space vertical = mv::e_space_c::parse(
-							dynamic_cast<xmlpp::ContentNode*>(type_node_set.at(0))->get_content());
+				unsigned int degree = static_cast<unsigned int>(std::stoul(get_node_content(node, namespace_map, "spaceMeasurement/degree", nsp, "0")));
 
-					xmlpp::NodeSet degree_node_set = node->find("/spaceMeasurement/degree");
+				mv::e_space_direction direction = mv::e_space_direction_c::parse(get_node_content(node, namespace_map, "spaceMeasurement/direction", nsp, "NONE"));
 
-					if (degree_node_set.size() > 0)
-					{
-						unsigned int degree = static_cast<unsigned int>(std::stoi(dynamic_cast<xmlpp::ContentNode*>(degree_node_set.at(0))->get_content()));
-
-						xmlpp::NodeSet direction_node_set = node->find("/spaceMeasurement/direction");
-						mv::e_space_direction direction = mv::e_space_direction::NONE;
-
-						if (direction_node_set.size() > 0)
-						{
-							direction = mv::e_space_direction_c::parse(
-									dynamic_cast<xmlpp::ContentNode*>(direction_node_set.at(0))->get_content());
-						}
-
-						result = std::shared_ptr<mv::space_measurement>(new mv::space_measurement(vertical, degree, direction));
-					}
-				}
+				result = std::shared_ptr<mv::space_measurement>(new mv::space_measurement(vertical, degree, direction));
 
 				return result;
 
 			}
 
-			std::shared_ptr<mv::i_dynamics_sign> laban_sequence_reader::read_dynamics(xmlpp::Node* node)
+			std::shared_ptr<mv::i_dynamics_sign> laban_sequence_reader::read_dynamics(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 				std::shared_ptr<mv::i_dynamics_sign> result = nullptr;
 
-				xmlpp::NodeSet accent_node_set = node->find("/dynamics/accent");
+				xmlpp::NodeSet accent_node_set = node->find(get_xpath("dynamics/accent", nsp), *namespace_map);
 
 				if (accent_node_set.size() > 0)
 				{
-					unsigned int accent = static_cast<unsigned int>(std::stoi(dynamic_cast<xmlpp::ContentNode*>(accent_node_set.at(0))->get_content()));
-
+					unsigned int accent = static_cast<unsigned int>(std::stoul(get_node_content(node, namespace_map, "dynamics/accent", nsp, "0")));
 					result = std::shared_ptr<mv::i_dynamics_sign>(new mv::accent_sign(accent));
 				}
 				else
 				{
-					xmlpp::NodeSet dynamic_node_set = node->find("/dynamics/dynamic");
+					xmlpp::NodeSet dynamic_node_set = node->find(get_xpath("dynamics/dynamic", nsp), *namespace_map);
 
 					if (dynamic_node_set.size() > 0)
 					{
-						mv::e_dynamic dynamic = mv::e_dynamic_c::parse(dynamic_cast<xmlpp::ContentNode*>(dynamic_node_set.at(0))->get_content());
+						mv::e_dynamic dynamic = mv::e_dynamic_c::parse(get_node_content(node, namespace_map, "dynamics/dynamic", nsp, "NONE"));
 
 						result = std::shared_ptr<mv::i_dynamics_sign>(new mv::dynamic_sign(dynamic));
 					}
@@ -635,97 +541,78 @@ namespace mae
 				return result;
 			}
 
-			std::shared_ptr<mv::direction_symbol> laban_sequence_reader::read_direction(xmlpp::Node* node)
+			std::shared_ptr<mv::direction_symbol> laban_sequence_reader::read_direction(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 				std::shared_ptr<mv::direction_symbol> result = nullptr;
 
-				xmlpp::NodeSet vertical_node_set = node->find("/vertical");
+				mv::e_level vertical = mv::e_level_c::parse(get_node_content(node, namespace_map, "vertical", nsp, "NONE"));
 
-				if (vertical_node_set.size() > 0)
+				mv::e_direction horizontal = mv::e_direction_c::parse(get_node_content(node, namespace_map, "horizontal", nsp, "NONE"));
+
+				//modification pin
+				xmlpp::NodeSet modification_pin_node_set = node->find(get_xpath("modificationPin", nsp), *namespace_map);
+				std::shared_ptr<mv::pin> modification_pin = nullptr;
+
+				if (modification_pin_node_set.size() > 0)
 				{
-					mv::e_level vertical = mv::e_level_c::parse(dynamic_cast<xmlpp::ContentNode*>(vertical_node_set.at(0))->get_content());
+					modification_pin = laban_sequence_reader::read_pin(modification_pin_node_set.at(0), namespace_map, nsp);
+				}
 
+				//modification pin
+				xmlpp::NodeSet relationship_pin_node_set = node->find(get_xpath("relationshipPin", nsp), *namespace_map);
+				std::shared_ptr<mv::pin> relationship_pin = nullptr;
 
-					xmlpp::NodeSet horizontal_node_set = node->find("/horizontal");
-
-					if (horizontal_node_set.size() > 0)
-					{
-						mv::e_direction horizontal = mv::e_direction_c::parse(dynamic_cast<xmlpp::ContentNode*>(horizontal_node_set.at(0))->get_content());
-
-						//modification pin
-						xmlpp::NodeSet modification_pin_node_set = node->find("/modificationPin");
-						std::shared_ptr<mv::pin> modification_pin = nullptr;
-
-						if (modification_pin_node_set.size() > 0)
-						{
-							modification_pin = laban_sequence_reader::read_pin(modification_pin_node_set.at(0));
-						}
-
-						//modification pin
-						xmlpp::NodeSet relationship_pin_node_set = node->find("/relationshipPin");
-						std::shared_ptr<mv::pin> relationship_pin = nullptr;
-
-						if (relationship_pin_node_set.size() > 0)
-						{
-							relationship_pin = laban_sequence_reader::read_pin(relationship_pin_node_set.at(0));
-						}
-
-
-						//spaceMeasurement
-						xmlpp::NodeSet space_measurement_node_set = node->find("/spaceMeasurement");
-						std::shared_ptr<mv::space_measurement> space_measurement = nullptr;
-
-						if (space_measurement_node_set.size() > 0)
-						{
-							space_measurement = laban_sequence_reader::read_space_measurement(node);
-						}
-
-						//dynamics
-						xmlpp::NodeSet dynamics_node_set = node->find("/dynamics");
-						std::shared_ptr<mv::i_dynamics_sign> dynamics = nullptr;
-
-						if (dynamics_node_set.size() > 0)
-						{
-							dynamics = laban_sequence_reader::read_dynamics(node);
-						}
-
-						//dynamics
-						xmlpp::NodeSet contact_hook_node_set = node->find("/contactHook");
-						mv::e_contact_hook contact_hook = mv::e_contact_hook::NONE;
-
-						if (contact_hook_node_set.size() > 0)
-						{
-							contact_hook = mv::e_contact_hook_c::parse(dynamic_cast<xmlpp::ContentNode*>(contact_hook_node_set.at(0))->get_content());
-						}
-
-
-						result = std::shared_ptr<mv::direction_symbol>(new mv::direction_symbol(vertical, horizontal, modification_pin, relationship_pin, dynamics, space_measurement, contact_hook));
-					}
+				if (relationship_pin_node_set.size() > 0)
+				{
+					relationship_pin = laban_sequence_reader::read_pin(relationship_pin_node_set.at(0), namespace_map, nsp);
 				}
 
 
-				return result;
-			}
-
-			std::shared_ptr<mv::space_symbol> laban_sequence_reader::read_space(xmlpp::Node* node)
-			{
-				std::shared_ptr<mv::space_symbol> result = nullptr;
-
-				//dynamics
-				xmlpp::NodeSet space_measurement_node_set = node->find("/spaceMeasurement");
+				//spaceMeasurement
+				xmlpp::NodeSet space_measurement_node_set = node->find(get_xpath("spaceMeasurement", nsp), *namespace_map);
 				std::shared_ptr<mv::space_measurement> space_measurement = nullptr;
 
 				if (space_measurement_node_set.size() > 0)
 				{
-					space_measurement = laban_sequence_reader::read_space_measurement(node);
+					space_measurement = laban_sequence_reader::read_space_measurement(node, namespace_map, nsp);
+				}
+
+				//dynamics
+				xmlpp::NodeSet dynamics_node_set = node->find(get_xpath("dynamics", nsp), *namespace_map);
+				std::shared_ptr<mv::i_dynamics_sign> dynamics = nullptr;
+
+				if (dynamics_node_set.size() > 0)
+				{
+					dynamics = laban_sequence_reader::read_dynamics(node, namespace_map, nsp);
+				}
+
+				//dynamics
+				mv::e_contact_hook contact_hook = mv::e_contact_hook_c::parse(get_node_content(node, namespace_map, "contactHook", nsp, "NONE"));
+
+				result = std::shared_ptr<mv::direction_symbol>(new mv::direction_symbol(vertical, horizontal, modification_pin, relationship_pin, dynamics, space_measurement, contact_hook));
+
+				return result;
+			}
+
+			std::shared_ptr<mv::space_symbol> laban_sequence_reader::read_space(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
+			{
+				std::shared_ptr<mv::space_symbol> result = nullptr;
+
+				//dynamics
+				xmlpp::NodeSet space_measurement_node_set = node->find(get_xpath("spaceMeasurement", nsp), *namespace_map);
+				std::shared_ptr<mv::space_measurement> space_measurement = nullptr;
+
+				if (space_measurement_node_set.size() > 0)
+				{
+					space_measurement = laban_sequence_reader::read_space_measurement(node, namespace_map, nsp);
 
 					//dynamics
-					xmlpp::NodeSet dynamics_node_set = node->find("/dynamics");
+					xmlpp::NodeSet dynamics_node_set = node->find(get_xpath("dynamics", nsp), *namespace_map);
 					std::shared_ptr<mv::i_dynamics_sign> dynamics = nullptr;
 
 					if (dynamics_node_set.size() > 0)
 					{
-						dynamics = laban_sequence_reader::read_dynamics(node);
+						dynamics = laban_sequence_reader::read_dynamics(node, namespace_map, nsp);
 					}
 
 					result = std::shared_ptr<mv::space_symbol>(new mv::space_symbol(space_measurement, dynamics));
@@ -734,65 +621,64 @@ namespace mae
 				return result;
 			}
 
-			std::shared_ptr<mv::turn_symbol> laban_sequence_reader::read_turn(xmlpp::Node* node)
+			std::shared_ptr<mv::turn_symbol> laban_sequence_reader::read_turn(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 				std::shared_ptr<mv::turn_symbol> result = nullptr;
 
 				//dynamics
-				xmlpp::NodeSet direction_node_set = node->find("/direction");
+				mv::e_turn_direction direction = mv::e_turn_direction_c::parse(get_node_content(node, namespace_map, "direction", nsp, "NONE"));
 
-				if (direction_node_set.size() > 0)
+				//dynamics
+				xmlpp::NodeSet dynamics_node_set = node->find(get_xpath("dynamics", nsp), *namespace_map);
+				std::shared_ptr<mv::i_dynamics_sign> dynamics = nullptr;
+
+				if (dynamics_node_set.size() > 0)
 				{
-					mv::e_turn_direction direction = mv::e_turn_direction_c::parse(dynamic_cast<xmlpp::ContentNode*>(direction_node_set.at(0))->get_content());
-
-					//dynamics
-					xmlpp::NodeSet dynamics_node_set = node->find("/dynamics");
-					std::shared_ptr<mv::i_dynamics_sign> dynamics = nullptr;
-
-					if (dynamics_node_set.size() > 0)
-					{
-						dynamics = laban_sequence_reader::read_dynamics(node);
-					}
-
-					//degree
-					xmlpp::NodeSet degree_node_set = node->find("/degree");
-					std::shared_ptr<mv::i_degree_sign> degree = nullptr;
-
-					if (dynamics_node_set.size() > 0)
-					{
-						degree = laban_sequence_reader::read_space_measurement(degree_node_set.at(0));
-
-						if (degree == nullptr)
-						{
-							degree = laban_sequence_reader::read_pin(degree_node_set.at(0));
-						}
-					}
-
-					result = std::shared_ptr<mv::turn_symbol>(new mv::turn_symbol(direction, dynamics, degree));
+					dynamics = laban_sequence_reader::read_dynamics(node, namespace_map, nsp);
 				}
+
+				//degree
+				xmlpp::NodeSet degree_node_set = node->find(get_xpath("degree", nsp), *namespace_map);
+				std::shared_ptr<mv::i_degree_sign> degree = nullptr;
+
+				if (dynamics_node_set.size() > 0)
+				{
+					xmlpp::NodeSet space_degree_node_set = node->find(get_xpath("spaceMeasurement", nsp), *namespace_map);
+
+					if (space_degree_node_set.size() > 0)
+					{
+						degree = laban_sequence_reader::read_space_measurement(degree_node_set.at(0), namespace_map, nsp);
+					}
+					else
+					{
+						degree = laban_sequence_reader::read_pin(degree_node_set.at(0), namespace_map, nsp);
+					}
+				}
+
+				result = std::shared_ptr<mv::turn_symbol>(new mv::turn_symbol(direction, dynamics, degree));
 
 				return result;
 			}
 
-			std::shared_ptr<mv::vibration_symbol> laban_sequence_reader::read_vibration(xmlpp::Node* node)
+			std::shared_ptr<mv::vibration_symbol> laban_sequence_reader::read_vibration(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 				std::shared_ptr<mv::vibration_symbol> result = nullptr;
 
 				//dynamics
-				xmlpp::NodeSet displacement_node_set = node->find("/displacement");
+				xmlpp::NodeSet displacement_node_set = node->find(get_xpath("displacement", nsp), *namespace_map);
 
 				if (displacement_node_set.size() > 1)
 				{
-					std::shared_ptr<mv::pin> displacement1 = laban_sequence_reader::read_pin(displacement_node_set.at(0));
-					std::shared_ptr<mv::pin> displacement2 = laban_sequence_reader::read_pin(displacement_node_set.at(1));
+					std::shared_ptr<mv::pin> displacement1 = laban_sequence_reader::read_pin(displacement_node_set.at(0), namespace_map, nsp);
+					std::shared_ptr<mv::pin> displacement2 = laban_sequence_reader::read_pin(displacement_node_set.at(1), namespace_map, nsp);
 
 					//dynamics
-					xmlpp::NodeSet dynamics_node_set = node->find("/dynamics");
+					xmlpp::NodeSet dynamics_node_set = node->find(get_xpath("dynamics", nsp), *namespace_map);
 					std::shared_ptr<mv::i_dynamics_sign> dynamics = nullptr;
 
 					if (dynamics_node_set.size() > 0)
 					{
-						dynamics = laban_sequence_reader::read_dynamics(node);
+						dynamics = laban_sequence_reader::read_dynamics(node, namespace_map, nsp);
 					}
 
 					result = std::shared_ptr<mv::vibration_symbol>(new mv::vibration_symbol(displacement1, displacement2, dynamics));
@@ -801,19 +687,14 @@ namespace mae
 				return result;
 			}
 
-			std::shared_ptr<mv::cancellation_symbol> laban_sequence_reader::read_cancellation(xmlpp::Node* node)
+			std::shared_ptr<mv::cancellation_symbol> laban_sequence_reader::read_cancellation(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 				std::shared_ptr<mv::cancellation_symbol> result = nullptr;
 
 				//cancel
-				xmlpp::NodeSet cancel_node_set = node->find("/cancel");
+				mv::e_cancel cancel = mv::e_cancel_c::parse(get_node_content(node, namespace_map, "cancel", nsp, "NONE"));
 
-				if (cancel_node_set.size() > 0)
-				{
-					mv::e_cancel cancel = mv::e_cancel_c::parse(dynamic_cast<xmlpp::ContentNode*>(cancel_node_set.at(0))->get_content());
-
-					result = std::shared_ptr<mv::cancellation_symbol>(new mv::cancellation_symbol(cancel));
-				}
+				result = std::shared_ptr<mv::cancellation_symbol>(new mv::cancellation_symbol(cancel));
 
 				return result;
 			}
