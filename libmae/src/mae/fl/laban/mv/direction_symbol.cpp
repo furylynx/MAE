@@ -69,6 +69,11 @@ namespace mae
 					return space_measurement_;
 				}
 
+				e_contact_hook direction_symbol::get_contact_hook()
+				{
+					return contact_hook_;
+				}
+
 				bool direction_symbol::equals(std::shared_ptr<i_symbol> a)
 				{
 					if (std::shared_ptr<direction_symbol> a_dir = std::dynamic_pointer_cast<direction_symbol>(a))

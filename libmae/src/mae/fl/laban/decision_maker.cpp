@@ -29,8 +29,10 @@ namespace mae
 				double pos_deviation_max = 0.5;
 				double dur_deviation_max = 0.5;
 
+				//don't check position of predecessors are unknown or one of the elements is a starting pose
+
 				double pos_deviation = 0;
-				if (a_predecessor != nullptr && b_predecessor != nullptr)
+				if (a_predecessor != nullptr && b_predecessor != nullptr && a->get_measure() != 0 && b->get_measure() != 0)
 				{
 					//check position approx. equal if predecessors defined
 					double pos_a = (a_predecessor->get_measure() - a->get_measure()) * beats_per_measure_ + (a_predecessor->get_beat() - a->get_beat());
@@ -38,7 +40,12 @@ namespace mae
 					pos_deviation = std::abs(pos_a - pos_b);
 				}
 
-				double dur_deviation = std::abs(a->get_duration() - b->get_duration());
+				//don't check duration if one of the elements is a starting pose
+				double dur_deviation = 0;
+				if (a->get_measure() != 0 && b->get_measure() != 0)
+				{
+					dur_deviation = std::abs(a->get_duration() - b->get_duration());
+				}
 
 				if (pos_deviation > pos_deviation_max || dur_deviation > dur_deviation_max)
 				{
