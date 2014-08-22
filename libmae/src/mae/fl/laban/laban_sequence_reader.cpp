@@ -699,6 +699,104 @@ namespace mae
 				return result;
 			}
 
+			std::shared_ptr<i_movement> laban_sequence_reader::read_path(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
+			{
+				e_path_type type = e_path_type_c::parse(get_node_content(node, namespace_map, "type", nsp, "NONE"));;
+
+				unsigned int measure = static_cast<unsigned int>(std::stoul(get_node_content(node, namespace_map, "measure", nsp, "0")));
+
+				double beat = std::stod(get_node_content(node, namespace_map, "beat", nsp, "0"));
+
+				double duration = std::stod(get_node_content(node, namespace_map, "duration", nsp, "0"));
+
+				std::shared_ptr<i_movement> result = std::shared_ptr<i_movement>(new path(type, measure, beat, duration));
+
+				return result;
+			}
+
+			std::shared_ptr<i_movement> laban_sequence_reader::read_room_direction(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
+			{
+
+				unsigned int measure = static_cast<unsigned int>(std::stoul(get_node_content(node, namespace_map, "measure", nsp, "0")));
+
+				double beat = std::stod(get_node_content(node, namespace_map, "beat", nsp, "0"));
+
+				xmlpp::NodeSet direction_node_set = node->find(get_xpath("direction", nsp), *namespace_map);
+				std::shared_ptr<mv::pin> direction;
+
+				if (direction_node_set.size() > 1)
+				{
+					direction = read_pin(direction_node_set.at(0), namespace_map, nsp);
+				}
+
+				std::shared_ptr<i_movement> result = std::shared_ptr<i_movement>(new room_direction(measure, beat, direction));
+
+				return result;
+			}
+
+			std::shared_ptr<i_movement> laban_sequence_reader::read_relationship_bow(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
+			{
+				e_relationship_type type = e_relationship_type_c::parse(get_node_content(node, namespace_map, "type", nsp, "NONE"));
+
+				bool grasping = mbool::parse(get_node_content(node, namespace_map, "grasping", nsp, "false"));
+
+				bool passing = mbool::parse(get_node_content(node, namespace_map, "passing", nsp, "false"));
+
+				bool hold = mbool::parse(get_node_content(node, namespace_map, "hold", nsp, "false"));
+
+				unsigned int measure = static_cast<unsigned int>(std::stoul(get_node_content(node, namespace_map, "measure", nsp, "0")));
+
+				double beat = std::stod(get_node_content(node, namespace_map, "beat", nsp, "0"));
+
+				xmlpp::NodeSet left_relationship_endpoint_node_set = node->find(get_xpath("endPoints/left", nsp), *namespace_map);
+				std::shared_ptr<mv::relationship_endpoint> left;
+
+				if (left_relationship_endpoint_node_set.size() > 1)
+				{
+					left = read_relationship_endpoint(left_relationship_endpoint_node_set.at(0), namespace_map, nsp );
+				}
+
+				xmlpp::NodeSet right_relationship_endpoint_node_set = node->find(get_xpath("endPoints/right", nsp), *namespace_map);
+				std::shared_ptr<mv::relationship_endpoint> right;
+
+				if (right_relationship_endpoint_node_set.size() > 1)
+				{
+					right = read_relationship_endpoint(right_relationship_endpoint_node_set.at(0), namespace_map, nsp );
+				}
+
+				std::shared_ptr<i_movement> result = std::shared_ptr<i_movement>(new relationship_bow(type, grasping, passing, hold, measure, beat, left, right));
+
+				return result;
+			}
+
+			std::shared_ptr<mv::relationship_endpoint> laban_sequence_reader::read_relationship_endpoint(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
+			{
+
+				int column = std::stoi(get_node_content(node, namespace_map, "column", nsp, "0"));
+
+				xmlpp::NodeSet pre_sign_node_set = node->find(get_xpath("preSign", nsp), *namespace_map);
+				std::shared_ptr<ps::i_pre_sign> pre_sign;
+
+				if (pre_sign_node_set.size() > 1)
+				{
+					pre_sign = read_pre_sign(node, namespace_map, nsp);
+				}
+
+				xmlpp::NodeSet dynamics_node_set = node->find(get_xpath("dynamics", nsp), *namespace_map);
+				std::shared_ptr<mv::i_dynamics_sign> dynamics;
+
+				if (dynamics_node_set.size() > 1)
+				{
+					dynamics = read_dynamics(node, namespace_map, nsp);
+				}
+
+				bool active = mbool::parse(get_node_content(node, namespace_map, "active", nsp, "false"));
+
+				std::shared_ptr<mv::relationship_endpoint> result = std::shared_ptr<mv::relationship_endpoint>(new mv::relationship_endpoint(column, active, pre_sign, dynamics));
+
+				return result;
+			}
+
 		} // namespace laban
 	} // namespace fl
 } // namespace mae
