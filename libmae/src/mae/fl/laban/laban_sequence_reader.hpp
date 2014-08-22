@@ -17,6 +17,11 @@
 
 #include "laban_sequence.hpp"
 
+#include "movement.hpp"
+#include "path.hpp"
+#include "relationship_bow.hpp"
+#include "room_direction.hpp"
+
 #include "ps/i_pre_sign.hpp"
 #include "ps/body_part.hpp"
 #include "ps/area_part.hpp"
@@ -46,6 +51,7 @@
 #include "mv/e_direction.hpp"
 #include "mv/e_level.hpp"
 #include "mv/e_dynamic.hpp"
+#include "mv/relationship_endpoint.hpp"
 
 
 //global includes
@@ -250,6 +256,14 @@ namespace mae
 					 * @return A shared pointer to the cancellation symbol.
 					 */
 					std::shared_ptr<mv::cancellation_symbol> read_cancellation(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
+
+					std::shared_ptr<i_movement> read_path(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
+
+					std::shared_ptr<i_movement> read_room_direction(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
+
+					std::shared_ptr<i_movement> read_relationship_bow(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
+
+					std::shared_ptr<mv::relationship_endpoint> read_relationship_endpoint(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 			};
 
