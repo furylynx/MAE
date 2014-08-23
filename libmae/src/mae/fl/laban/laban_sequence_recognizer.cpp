@@ -67,6 +67,25 @@ namespace mae
 				return decision_forest_->get_sequences();
 			}
 
+			int laban_sequence_recognizer::get_sequence_length(std::shared_ptr<laban_sequence> sequence)
+			{
+				//return sequence length in milliseconds
+				int time = 1;
+
+				if (sequence->get_time_unit() == e_time_unit::SECOND)
+				{
+					time = 1000;
+				}
+				else if (sequence->get_time_unit() == e_time_unit::MINUTE)
+				{
+					time = 60000;
+				}
+
+				int length = std::ceil(sequence->get_measures()*sequence->get_beats()*sequence->get_beat_duration()*time);
+
+				return length;
+			}
+
 			std::vector<std::shared_ptr<laban_sequence> > laban_sequence_recognizer::recognize_sequence(std::shared_ptr<laban_sequence> sequence, std::vector<bone> body_parts)
 			{
 				if (debug_)
