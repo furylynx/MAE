@@ -34,8 +34,8 @@ namespace mae{
 		class movement_controller {
 			public:
 
-				movement_controller(std::shared_ptr<i_movement_detector<T,U> > imd, std::shared_ptr<i_sequence_recognizer<U> > isr,  std::vector<bone> body_parts, double framerate = 1.0/30.0, bool debug = false);
-				movement_controller(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_sequence_recognizer<U> > isr, std::vector<bone> body_parts, double framerate = 1.0/30.0, bool debug = false);
+				movement_controller(std::shared_ptr<i_movement_detector<T,U> > imd, std::shared_ptr<i_sequence_recognizer<U> > isr,  std::vector<bone> body_parts, int pose_buffer_size = 0, double framerate = 1.0/30.0, bool debug = false);
+				movement_controller(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_sequence_recognizer<U> > isr, std::vector<bone> body_parts, int pose_buffer_size = 0, double framerate = 1.0/30.0, bool debug = false);
 				virtual ~movement_controller();
 
 				/**
@@ -69,6 +69,7 @@ namespace mae{
 			private:
 				bool debug_;
 				double framerate_;
+				int buffer_size_;
 				std::vector<bone> body_parts_;
 
 				std::shared_ptr<i_movement_detector<T,U> > imd_;
@@ -92,22 +93,34 @@ namespace mae{
 namespace mae{
 
 		template <typename T, typename U>
-		movement_controller<T, U>::movement_controller(std::shared_ptr<i_movement_detector<T,U> > imd, std::shared_ptr<i_sequence_recognizer<U> > isr, std::vector<bone> body_parts, double framerate, bool debug)
+		movement_controller<T, U>::movement_controller(std::shared_ptr<i_movement_detector<T,U> > imd, std::shared_ptr<i_sequence_recognizer<U> > isr, std::vector<bone> body_parts, int pose_buffer_size, double framerate, bool debug)
 		{
 			this->debug_ = debug;
 			this->framerate_ = framerate;
 			this->body_parts_ = body_parts;
+			buffer_size_ = pose_buffer_size;
+
+			if (buffer_size_ > 1)
+			{
+				imd_->set_buffer(buffer_size_);
+			}
 
 			this->imd_ = imd;
 			this->isr_ = isr;
 		}
 
 		template <typename T, typename U>
-		movement_controller<T, U>::movement_controller(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_sequence_recognizer<U> > isr, std::vector<bone> body_parts, double framerate, bool debug)
+		movement_controller<T, U>::movement_controller(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_sequence_recognizer<U> > isr, std::vector<bone> body_parts, int pose_buffer_size, double framerate, bool debug)
 		{
 			this->debug_ = debug;
 			this->framerate_ = framerate;
 			this->body_parts_ = body_parts;
+			buffer_size_ = pose_buffer_size;
+
+			if (buffer_size_ > 1)
+			{
+				imd_->set_buffer(buffer_size_);
+			}
 
 			std::shared_ptr<kp_movement_detector<T,U> > imd_n(new kp_movement_detector<T,U>(ipd, isg, debug));
 			this->imd_ = imd_n;
@@ -161,6 +174,13 @@ namespace mae{
 			if (isr_ != nullptr)
 			{
 				isr_->register_sequence(sequence);
+
+				//update buffer size if sequence length is longer than current buffer size
+				int tmp_buffer_size = std::ceil(isr_->get_sequence_length(sequence)*framerate_/1000);
+				if (imd_ != nullptr && buffer_size_ < tmp_buffer_size)
+				{
+					imd_->set_buffer(tmp_buffer_size);
+				}
 			}
 			else
 			{

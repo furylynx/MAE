@@ -54,6 +54,14 @@ namespace mae
 
 					virtual std::list<std::shared_ptr<laban_sequence> > get_registered_sequences();
 
+					/**
+					 * Returns the length of the sequence in milliseconds.
+					 *
+					 * @param sequence The sequence.
+					 * @return The length of the sequence.
+					 */
+					virtual int get_sequence_length(std::shared_ptr<laban_sequence> sequence);
+
 					virtual std::vector<std::shared_ptr<laban_sequence> > recognize_sequence(
 							std::shared_ptr<laban_sequence> sequence, std::vector<bone> body_parts);
 				private:
