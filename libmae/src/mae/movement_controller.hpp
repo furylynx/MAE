@@ -50,6 +50,9 @@ namespace mae{
 				virtual void deregister_sequence(std::shared_ptr<U> sequence);
 				virtual void clear_registered_sequences();
 
+				//buffer size
+				virtual void  set_no_buffer_size_update(bool updates);
+
 				//listeners
 				virtual void add_listener(std::shared_ptr<i_pose_listener> pose_listener);
 				virtual void remove_listener(std::shared_ptr<i_pose_listener> pose_listener);
@@ -70,6 +73,7 @@ namespace mae{
 				bool debug_;
 				double framerate_;
 				int buffer_size_;
+				bool no_buffer_size_update_;
 				std::vector<bone> body_parts_;
 
 				std::shared_ptr<i_movement_detector<T,U> > imd_;
@@ -99,6 +103,7 @@ namespace mae{
 			this->framerate_ = framerate;
 			this->body_parts_ = body_parts;
 			buffer_size_ = pose_buffer_size;
+			no_buffer_size_update_ = false;
 
 			if (buffer_size_ > 1)
 			{
@@ -116,6 +121,7 @@ namespace mae{
 			this->framerate_ = framerate;
 			this->body_parts_ = body_parts;
 			buffer_size_ = pose_buffer_size;
+			no_buffer_size_update_ = false;
 
 			if (buffer_size_ > 1)
 			{
@@ -177,9 +183,10 @@ namespace mae{
 
 				//update buffer size if sequence length is longer than current buffer size
 				int tmp_buffer_size = std::ceil(isr_->get_sequence_length(sequence)*framerate_/1000);
-				if (imd_ != nullptr && buffer_size_ < tmp_buffer_size)
+				if (imd_ != nullptr && buffer_size_ < tmp_buffer_size && !no_buffer_size_update_)
 				{
-					imd_->set_buffer(tmp_buffer_size);
+					buffer_size_ = tmp_buffer_size;
+					imd_->set_buffer(buffer_size_);
 				}
 			}
 			else
@@ -212,6 +219,12 @@ namespace mae{
 			{
 				throw std::invalid_argument("No sequence recognizer defined in the movement controller.");
 			}
+		}
+
+		template <typename T, typename U>
+		void movement_controller<T, U>::set_no_buffer_size_update(bool updates)
+		{
+			no_buffer_size_update_ = updates;
 		}
 
 		template <typename T, typename U>
