@@ -7,7 +7,6 @@
 
 #include "laban_sequence.hpp"
 
-
 namespace mae
 {
 	namespace fl
@@ -15,12 +14,14 @@ namespace mae
 		namespace laban
 		{
 
-			laban_sequence::laban_sequence() : laban_sequence("Untitled", "Anonymous", 0, e_time_unit::MILLISECOND, 0, 0)
+			laban_sequence::laban_sequence()
+					: laban_sequence("Untitled", "Anonymous", 0, e_time_unit::MILLISECOND, 0, 0)
 			{
 
 			}
 
-			laban_sequence::laban_sequence(std::string title, std::string author, unsigned int measures, e_time_unit time_unit, unsigned int beat_duration, unsigned int beats)
+			laban_sequence::laban_sequence(std::string title, std::string author, unsigned int measures,
+					e_time_unit time_unit, unsigned int beat_duration, unsigned int beats)
 			{
 				version_ = "0.5";
 				authors_.push_back(author);
@@ -203,7 +204,7 @@ namespace mae
 
 						//insert new movement at the correct position in order to have ascending time in the vector
 						unsigned int insert_pos = 0;
-						for (insert_pos = 0; insert_pos < col.size(); insert_pos++)
+						for (unsigned int i = 0; i < col.size(); i++)
 						{
 //							if (i == col.size())
 //							{
@@ -215,16 +216,18 @@ namespace mae
 //							}
 //							else
 
-							if (std::shared_ptr<movement> col_item = std::dynamic_pointer_cast<movement>(col.at(insert_pos)))
+							std::shared_ptr<i_movement> col_item = col.at(insert_pos);
+
+							if (col_item->get_measure() >= mov->get_measure()
+									&& col_item->get_beat() >= mov->get_beat())
 							{
+								//insert at the position
 
-								if (col_item->get_measure() <= mov->get_measure()
-										&& col_item->get_beat() <= mov->get_beat())
-								{
-									//insert at the position
-
-									break;
-								}
+								break;
+							}
+							else
+							{
+								insert_pos++;
 							}
 						}
 						col.insert(col.begin() + insert_pos, mov);
@@ -264,9 +267,10 @@ namespace mae
 				//print xml header
 				sstr << "<?xml version=\"1.0\"?>" << std::endl;
 
-
 				//print score tag
-				sstr << "<laban:score xmlns:laban=\"http://www.example.org/labanotation\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/labanotation labanotation.xsd \">" << std::endl;
+				sstr
+						<< "<laban:score xmlns:laban=\"http://www.example.org/labanotation\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/labanotation labanotation.xsd \">"
+						<< std::endl;
 
 				//print header
 				sstr << "\t" << "<laban:version>" << version_ << "</laban:version>" << std::endl;
@@ -284,7 +288,8 @@ namespace mae
 				//print staff header
 				sstr << "\t\t" << "<laban:measures>" << measures_ << "</laban:measures>" << std::endl;
 				sstr << "\t\t" << "<laban:timing>" << std::endl;
-				sstr << "\t\t\t" << "<laban:timeUnit>" << e_time_unit_c::str(time_unit_) << "</laban:timeUnit>" << std::endl;
+				sstr << "\t\t\t" << "<laban:timeUnit>" << e_time_unit_c::str(time_unit_) << "</laban:timeUnit>"
+						<< std::endl;
 				sstr << "\t\t\t" << "<laban:measure>" << std::endl;
 				sstr << "\t\t\t\t" << "<laban:index>" << 0 << "</laban:index>" << std::endl;
 				sstr << "\t\t\t\t" << "<laban:beatDuration>" << beat_duration_ << "</laban:beatDuration>" << std::endl;

@@ -216,13 +216,25 @@ namespace mae
 			std::vector<std::shared_ptr<decision_value<T, U> > > decision_tree<T, U>::find_submatches(
 					std::vector<std::shared_ptr<T> > whole_sequence, int start_pos, int end_pos, bool reverse_order)
 			{
-				if (root_ == nullptr || !root_->is_matching(whole_sequence.back(), nullptr, nullptr))
+				if (root_ == nullptr || whole_sequence.size() == 0)
 				{
+					//TODO remove
+					std::cout << "Either the root node is not set or the sequence is empty." << std::endl;
 					return std::vector<std::shared_ptr<decision_value<T, U> > >();
 				}
 				else
 				{
-					return root_->find_submatches(whole_sequence, start_pos, end_pos, reverse_order);
+					if ((!reverse_order && !root_->is_matching(whole_sequence.front(), nullptr, nullptr)) || (reverse_order && !root_->is_matching(whole_sequence.back(), nullptr, nullptr)))
+					{
+						//TODO remove
+						std::cout << "Root node does not match" << std::endl;
+
+						return std::vector<std::shared_ptr<decision_value<T, U> > >();
+					}
+					else
+					{
+						return root_->find_submatches(whole_sequence, start_pos, end_pos, reverse_order);
+					}
 				}
 			}
 

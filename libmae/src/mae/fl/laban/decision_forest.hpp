@@ -113,6 +113,7 @@ namespace mae
 					std::shared_ptr<rewriting_forest> rewriting_forest_;
 
 					std::unordered_map<int, std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > > trees_;
+					std::unordered_map<int, std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > > empty_sequences_;
 					std::list<std::shared_ptr<laban_sequence> > sequences_;
 
 					/**

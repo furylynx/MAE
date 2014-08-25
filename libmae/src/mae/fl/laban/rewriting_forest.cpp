@@ -55,7 +55,7 @@ namespace mae
 						if (end_index_cont < index)
 						{
 							end_index_cont = index;
-							for (unsigned int k = 1; k < result.at(i).size(); k++)
+							for (unsigned int k = 1; index + k < result.at(i).size(); k++)
 							{
 								double last_beat_dur = result.at(i).at(index + k - 1)->get_measure()
 										* beats_per_measure_ + result.at(i).at(index + k - 1)->get_beat()

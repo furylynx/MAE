@@ -19,7 +19,8 @@
 #include "room_direction.hpp"
 
 //global includes
-
+#include <iostream>
+#include <string>
 
 
 namespace mae

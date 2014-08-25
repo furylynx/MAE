@@ -47,6 +47,9 @@ namespace mae
 					dur_deviation = std::abs(a->get_duration() - b->get_duration());
 				}
 
+				//TODO remove
+				std::cout << "deviation: pos=" << pos_deviation << " and duration=" << dur_deviation << std::endl;
+
 				if (pos_deviation > pos_deviation_max || dur_deviation > dur_deviation_max)
 				{
 					return false;
@@ -63,9 +66,18 @@ namespace mae
 				if ((a_mov = std::dynamic_pointer_cast<movement>(a))
 						&& (b_mov = std::dynamic_pointer_cast<movement>(b)))
 				{
+
+					std::cout << "movement:" << std::endl;
+					std::cout << "a: " << a_mov->get_symbol()->xml();
+					std::cout << "b: " << b_mov->get_symbol()->xml();
+
 					if (a_mov->get_symbol()->equals(b_mov->get_symbol()))
 					{
 						return true;
+					}
+					else
+					{
+						return false;
 					}
 				}
 				else if ((a_rd = std::dynamic_pointer_cast<room_direction>(a))
@@ -75,6 +87,10 @@ namespace mae
 					{
 						return true;
 					}
+					else
+					{
+						return false;
+					}
 				}
 				else if ((a_p = std::dynamic_pointer_cast<path>(a)) && (b_p = std::dynamic_pointer_cast<path>(b)))
 				{
@@ -82,7 +98,13 @@ namespace mae
 					{
 						return true;
 					}
+					else
+					{
+						return false;
+					}
 				}
+
+				std::cout << "no cast was working..." << std::endl;
 
 				return false;
 			}
