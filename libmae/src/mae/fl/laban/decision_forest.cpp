@@ -69,50 +69,81 @@ namespace mae
 
 					for (unsigned int k = 0; k < all_subsequences.size(); k++)
 					{
-						std::vector<std::shared_ptr< i_movement> > subsequence = all_subsequences.at(k);
-						bool listed = false;
-						std::shared_ptr<i_movement> decision_item = subsequence.back();
+						std::vector<std::shared_ptr<i_movement> > subsequence = all_subsequences.at(k);
 
-						if (trees_.find(column) != trees_.end())
+						if (subsequence.size() == 0)
 						{
-							//search for a matching tree (which means that the root's decision element compares equal to the last element of the subsequence
-							tree_list = trees_.at(column);
-							for (unsigned int j = 0; j < tree_list.size(); j++)
-							{
-								if (decision_maker_->decide(decision_item, nullptr,
-										tree_list.at(j)->get_root()->get_decision_item(), nullptr))
-								{
-									//add in reverse order to tree
-									tree_list.at(j)->add_sequence(
-											std::shared_ptr<decision_value<i_movement, laban_sequence> >(
-													new decision_value<i_movement, laban_sequence>(subsequence,
-															sequence)), true);
-									listed = true;
-									break;
-								}
-							}
-						}
-						if (!listed)
-						{
-							//create a new tree
-							tree_list.push_back(
-									std::shared_ptr<decision_tree<i_movement, laban_sequence> >(
-											new decision_tree<i_movement, laban_sequence>(decision_maker_)));
+							//TODO remove
+							std::cout << "subsequence is empty" << std::endl;
 
-							//add in reverse order to tree
-							tree_list.back()->add_sequence(
-									std::shared_ptr<decision_value<i_movement, laban_sequence> >(
-											new decision_value<i_movement, laban_sequence>(subsequence, sequence)),
-									true);
-
-							//update the list of trees for the column
-							if (trees_.find(column) != trees_.end())
+							//handle empty subsequence
+							if (empty_sequences_.find(column) != empty_sequences_.end())
 							{
-								trees_[column] = tree_list;
+								std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > empty_decisions =
+										empty_sequences_.at(column);
+								empty_decisions.push_back(
+										std::shared_ptr<decision_value<i_movement, laban_sequence> >(
+												new decision_value<i_movement, laban_sequence>(subsequence, sequence)));
+								empty_sequences_[column] = empty_decisions;
 							}
 							else
 							{
-								trees_.insert(std::make_pair(column, tree_list));
+								std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > empty_decisions;
+								empty_decisions.push_back(
+										std::shared_ptr<decision_value<i_movement, laban_sequence> >(
+												new decision_value<i_movement, laban_sequence>(subsequence, sequence)));
+								empty_sequences_.insert(std::make_pair(column, empty_decisions));
+							}
+
+						}
+						else
+						{
+
+							bool listed = false;
+							std::shared_ptr<i_movement> decision_item = subsequence.back();
+
+							if (trees_.find(column) != trees_.end())
+							{
+								//search for a matching tree (which means that the root's decision element compares equal to the last element of the subsequence
+								tree_list = trees_.at(column);
+								for (unsigned int j = 0; j < tree_list.size(); j++)
+								{
+									if (decision_maker_->decide(decision_item, nullptr,
+											tree_list.at(j)->get_root()->get_decision_item(), nullptr))
+									{
+										//add in reverse order to tree
+										tree_list.at(j)->add_sequence(
+												std::shared_ptr<decision_value<i_movement, laban_sequence> >(
+														new decision_value<i_movement, laban_sequence>(subsequence,
+																sequence)), true);
+										listed = true;
+										std::cout << "listed" << std::endl;
+										break;
+									}
+								}
+							}
+							if (!listed)
+							{
+								//create a new tree
+								tree_list.push_back(
+										std::shared_ptr<decision_tree<i_movement, laban_sequence> >(
+												new decision_tree<i_movement, laban_sequence>(decision_maker_)));
+
+								//add in reverse order to tree
+								tree_list.back()->add_sequence(
+										std::shared_ptr<decision_value<i_movement, laban_sequence> >(
+												new decision_value<i_movement, laban_sequence>(subsequence, sequence)),
+										true);
+
+								//update the list of trees for the column
+								if (trees_.find(column) != trees_.end())
+								{
+									trees_[column] = tree_list;
+								}
+								else
+								{
+									trees_.insert(std::make_pair(column, tree_list));
+								}
 							}
 						}
 					}
@@ -190,21 +221,45 @@ namespace mae
 				std::vector<std::shared_ptr<laban_sequence> > result;
 				for (unsigned int i = 0; i < body_parts.size(); i++)
 				{
+
 					int body_part = body_parts.at(i).get_id();
-					std::shared_ptr<i_movement> decision_item = whole_sequence->get_column_movements(body_part).back();
-					std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > tree_list = trees_.at(
+					std::vector<std::shared_ptr<i_movement> > column_sequence = whole_sequence->get_column_movements(
 							body_part);
+
 					std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > tmp_seqs;
-					for (unsigned int j = 0; j < tree_list.size(); j++)
+
+					if (column_sequence.size() == 0)
 					{
-						if (decision_maker_->decide(decision_item, nullptr, tree_list.at(j)->get_root()->get_decision_item(), nullptr))
+						//TODO remove
+						std::cout << "column sequence is empty" << std::endl;
+
+						if (empty_sequences_.find(body_part) != empty_sequences_.end())
 						{
-							//find submatches in reverse order
-							tmp_seqs = tree_list.at(j)->find_submatches(
-									whole_sequence->get_column_movements(body_part), 0, -1, true);
+							tmp_seqs = empty_sequences_.at(body_part);
 						}
 					}
-					if (i == 0)
+					else
+					{
+						std::shared_ptr<i_movement> decision_item = column_sequence.back();
+						std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > tree_list = trees_.at(
+								body_part);
+
+						for (unsigned int j = 0; j < tree_list.size(); j++)
+						{
+							if (decision_maker_->decide(decision_item, nullptr,
+									tree_list.at(j)->get_root()->get_decision_item(), nullptr))
+							{
+								std::cout << "find match on column " << body_part << std::endl;
+								//find submatches in reverse order
+								tmp_seqs = tree_list.at(j)->find_submatches(column_sequence, 0, -1, true);
+							}
+						}
+					}
+
+					//TODO remove
+					std::cout << "matches for column " << body_part << ": " << tmp_seqs.size() << std::endl;
+
+					if (result.size() == 0)
 					{
 						for (unsigned int j = 0; j < tmp_seqs.size(); j++)
 						{
@@ -228,6 +283,7 @@ namespace mae
 						}
 						result = tmp_result;
 					}
+
 				}
 				return result;
 			}
