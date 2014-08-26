@@ -52,6 +52,14 @@ namespace mae
 					virtual std::shared_ptr<decision_node<T, U> > get_root();
 
 					/**
+					 * Returns true if the sequence is empty (meaning the not root is assigned
+					 * or the whole tree contains no elements).
+					 *
+					 * @return True if empty.
+					 */
+					virtual bool is_empty();
+
+					/**
 					 * Adds a sequences to the tree. This may introduce new nodes to the tree.
 					 *
 					 * @param sequence The sequence to be registered.
@@ -64,7 +72,7 @@ namespace mae
 					 *
 					 * @return The values.
 					 */
-					virtual std::vector<std::shared_ptr<decision_value<T, U>> > get_all_values();
+					virtual std::vector<std::shared_ptr<decision_value<T, U> > > get_all_values();
 
 					/**
 					 * Removes all decision values where the value element is the given one. Equality is checked
@@ -93,7 +101,7 @@ namespace mae
 					 * @param reverse_order The order in which the submatches are searched.
 					 * @return All matches.
 					 */
-					virtual std::vector<std::shared_ptr<decision_value<T, U>> > find_submatches(
+					virtual std::vector<std::shared_ptr<decision_value<T, U> > > find_submatches(
 							std::vector<std::shared_ptr<T> > whole_sequence, int start_pos = 0, int end_pos = -1, bool reverse_order = false);
 
 					/**
@@ -105,7 +113,7 @@ namespace mae
 					 * @param end_pos The last position to be matched. -1 for last element of whole sequence.
 					 * @return All matches.
 					 */
-					virtual std::vector<std::shared_ptr<decision_value<T, U>> > find_matches(std::vector<std::shared_ptr<T> > sequence,
+					virtual std::vector<std::shared_ptr<decision_value<T, U> > > find_matches(std::vector<std::shared_ptr<T> > sequence,
 							int start_pos = 0, int end_pos = -1);
 
 					/**
@@ -161,6 +169,17 @@ namespace mae
 			}
 
 			template<typename T, typename U>
+			bool decision_tree<T, U>::is_empty()
+			{
+				if (root_ == nullptr || get_all_values().size() == 0)
+				{
+					return true;
+				}
+
+				return false;
+			}
+
+			template<typename T, typename U>
 			void decision_tree<T, U>::add_sequence(std::shared_ptr<decision_value<T, U> > dec_val, bool reverse_order)
 			{
 				std::shared_ptr<T> first_item;
@@ -195,7 +214,7 @@ namespace mae
 			}
 
 			template<typename T, typename U>
-			std::vector<std::shared_ptr<decision_value<T, U>> > decision_tree<T, U>::get_all_values()
+			std::vector<std::shared_ptr<decision_value<T, U> > > decision_tree<T, U>::get_all_values()
 			{
 				return root_->get_all_values();
 			}
@@ -203,13 +222,27 @@ namespace mae
 			template<typename T, typename U>
 			bool decision_tree<T, U>::remove_where(std::shared_ptr<U> value)
 			{
-				return root_->remove_where(value);
+				bool result = root_->remove_where(value);
+
+				if (root_->is_empty_leaf())
+				{
+					root_ = nullptr;
+				}
+
+				return result;
 			}
 
 			template<typename T, typename U>
 			bool decision_tree<T, U>::remove_where(std::shared_ptr<decision_value<T,U> > dec_val)
 			{
-				return root_->remove_where(dec_val);
+				bool result = root_->remove_where(dec_val);
+
+				if (root_->is_empty_leaf())
+				{
+					root_ = nullptr;
+				}
+
+				return result;
 			}
 
 			template<typename T, typename U>
