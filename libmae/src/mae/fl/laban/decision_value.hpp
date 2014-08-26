@@ -31,10 +31,35 @@ namespace mae
 			class decision_value
 			{
 				public:
+					/**
+					 * Creates a new decision value for a sequence. It contains the sequence and the associated value.
+					 *
+					 * @param sequence The sequence.
+					 * @param value The value.
+					 */
 					decision_value(std::vector<std::shared_ptr<T> > sequence, std::shared_ptr<U> value);
+
+					/**
+					 * Creates a new decision value for a sequence. It contains the sequence, which in this case is
+					 * assumed to be empty, and the associated value.
+					 *
+					 * @param value The value.
+					 */
+					decision_value(std::shared_ptr<U> value);
 					virtual ~decision_value();
 
+					/**
+					 * Returns the sequence.
+					 *
+					 * @return The sequence.
+					 */
 					virtual std::vector<std::shared_ptr<T> > get_sequence();
+
+					/**
+					 * Returns the value.
+					 *
+					 * @return The value.
+					 */
 					virtual std::shared_ptr<U> get_value();
 
 				private:
@@ -68,6 +93,13 @@ namespace mae
 			decision_value<T,U>::decision_value(std::vector<std::shared_ptr<T> > sequence, std::shared_ptr<U> value)
 			{
 				sequence_ = sequence;
+				value_ = value;
+			}
+
+			template <typename T, typename U>
+			decision_value<T,U>::decision_value(std::shared_ptr<U> value)
+			{
+				sequence_ = std::vector<std::shared_ptr<T> >();
 				value_ = value;
 			}
 
