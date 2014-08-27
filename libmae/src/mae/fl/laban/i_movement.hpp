@@ -60,6 +60,14 @@ namespace mae
 					 */
 					virtual double get_duration() = 0;
 
+					/**
+					 * Returns the XML representation for this element.
+					 *
+					 * @param indent The applied indent.
+					 * @param namesp The prefixed XML namespace.
+					 *
+					 * @return The XML string.
+					 */
 					virtual std::string xml(unsigned int indent = 0, std::string namesp = "") = 0;
 
 					/**

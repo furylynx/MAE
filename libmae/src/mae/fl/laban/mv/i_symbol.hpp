@@ -34,8 +34,22 @@ namespace mae
 					public:
 						virtual ~i_symbol(){}
 
+						/**
+						 * Returns true if signs are equal.
+						 *
+						 * @param a The sign to be compared to.
+						 * @return True if equal.
+						 */
 						virtual bool equals(std::shared_ptr<i_symbol> a) = 0;
 
+						/**
+						 * Returns the XML representation for this element.
+						 *
+						 * @param indent The applied indent.
+						 * @param namesp The prefixed XML namespace.
+						 *
+						 * @return The XML string.
+						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") = 0;
 
 						/**
