@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.example.org/labanotationrewriting"
+	elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:labanrw="http://www.example.org/labanotationrewriting">
+
+	<!-- example for a choice element
+			<xsd:choice maxOccurs="1" minOccurs="1">
+				<xsd:element name="bodyPart" type="laban:bodyPart"></xsd:element>
+				<xsd:element name="prop" type="laban:prop"></xsd:element>
+			</xsd:choice>
+	-->
+	
+	<xsd:simpleType name="vertical">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="low" />
+			<xsd:enumeration value="high" />
+			<xsd:enumeration value="middle" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="horizontal">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="place" />
+			<xsd:enumeration value="forward" />
+			<xsd:enumeration value="backward" />
+			<xsd:enumeration value="left" />
+			<xsd:enumeration value="right" />
+			<xsd:enumeration value="left-forward" />
+			<xsd:enumeration value="left-backward" />
+			<xsd:enumeration value="right-forward" />
+			<xsd:enumeration value="right-backward" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	
+	<!-- TODO choice for other types -->
+	<xsd:complexType name="element">
+		<xsd:sequence>
+			<xsd:element name="vertical" type="laban:vertical"  maxOccurs="1" minOccurs="1" />
+			<xsd:element name="horizontal" type="laban:horizontal"  maxOccurs="1" minOccurs="1" />
+			<xsd:element name="hold" type="xsd:boolean" maxOccurs="1" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="sequence">
+		<xsd:sequence>
+			<xsd:element name="element" type="labanrw:element" maxOccurs="unbound" minOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="rule">
+		<xsd:sequence>
+			<xsd:element name="sequence" type="labanrw:sequence" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="replacement" type="labanrw:sequence" maxOccurs="1" minOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="rules">
+		<xsd:sequence>
+			<xsd:element name="rule" type="labanrw:rule" maxOccurs="unbound" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- THE ROOT ELEMENT -->
+	<xsd:element name="rewritingrules" type="labanrw:rewritingrules" maxOccurs="1" minOccurs="1" />
+	<xsd:complexType name="rule">
+		<xsd:sequence>
+		<xsd:element name="version" type="xsd:string" maxOccurs="1" minOccurs="1" />
+		<xsd:element name="title" type="xsd:string" maxOccurs="1" minOccurs="0" />
+		<xsd:element name="author" type="xsd:string" maxOccurs="unbound" minOccurs="0" />
+		<xsd:element name="descruption" type="xsd:string" maxOccurs="1" minOccurs="0" />
+		<xsd:element name="rules" type="labanrw:rules" maxOccurs="1" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

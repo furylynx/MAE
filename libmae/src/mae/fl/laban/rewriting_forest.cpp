@@ -25,6 +25,21 @@ namespace mae
 				decision_maker_ = std::shared_ptr<i_decision_maker<i_movement> >(new rewriting_decision_maker());
 			}
 
+			rewriting_forest::rewriting_forest(std::vector<std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > > rules, unsigned int beats_per_measure, unsigned int beat_duration, e_time_unit time_unit)
+			{
+				beats_per_measure_ = beats_per_measure;
+				beat_duration_ = beat_duration;
+				time_unit_ = time_unit;
+
+				// decision maker
+				decision_maker_ = std::shared_ptr<i_decision_maker<i_movement> >(new rewriting_decision_maker());
+
+				for (unsigned int i = 0; i < rules.size(); i++)
+				{
+					add_rule(rules.at(i));
+				}
+			}
+
 			rewriting_forest::~rewriting_forest()
 			{
 			}
@@ -189,16 +204,21 @@ namespace mae
 					std::shared_ptr<std::vector<std::vector<std::shared_ptr<i_movement> > > > replacements)
 			{
 
+				add_rule(std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > >(
+						new decision_value<i_movement,
+								std::vector<std::vector<std::shared_ptr<i_movement> > > >(sequence,
+								replacements)));
+
+			}
+
+			void rewriting_forest::add_rule(std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > rule)
+			{
 				for (unsigned int k = 0; k < trees_.size(); k++)
 				{
-					if (decision_maker_->decide(sequence.front(), nullptr, trees_.at(k)->get_root()->get_decision_item(), nullptr))
+					if (decision_maker_->decide(rule->get_sequence().front(), nullptr, trees_.at(k)->get_root()->get_decision_item(), nullptr))
 					{
 						//add in normal order to tree
-						trees_.at(k)->add_sequence(
-								std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > >(
-										new decision_value<i_movement,
-												std::vector<std::vector<std::shared_ptr<i_movement> > > >(sequence,
-												replacements)), false);
+						trees_.at(k)->add_sequence(rule, false);
 
 						return;
 					}
@@ -211,10 +231,7 @@ namespace mae
 										decision_maker_)));
 
 				//add in normal order to tree
-				trees_.back()->add_sequence(
-						std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > >(
-								new decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > >(
-										sequence, replacements)), false);
+				trees_.back()->add_sequence(rule, false);
 
 			}
 
