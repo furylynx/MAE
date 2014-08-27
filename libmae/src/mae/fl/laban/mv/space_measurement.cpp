@@ -98,6 +98,15 @@ namespace mae
 
 				}
 
+				std::string space_measurement::str() const
+				{
+					std::stringstream sstr;
+
+					sstr << "(" << e_space_c::str(type_) << "+" << degree_ << ")";
+
+					return sstr.str();
+				}
+
 			} // namespace mv
 		} // namespace laban
 	} // namespace fl

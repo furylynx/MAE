@@ -90,6 +90,14 @@ namespace mae
 
 			}
 
+			std::string path::str() const
+			{
+				std::stringstream sstr;
+
+				sstr << "(" << e_path_type_c::str(type_) << ")";
+
+				return sstr.str();
+			}
 
 		} // namespace laban
 	} // namespace fl

@@ -94,6 +94,14 @@ namespace mae
 
 			}
 
+			std::string room_direction::str() const
+			{
+				std::stringstream sstr;
+
+				sstr << "(ROOM_DIRECTION)";
+
+				return sstr.str();
+			}
 
 		} // namespace laban
 	} // namespace fl

@@ -96,6 +96,10 @@ namespace mae
 				return decision_forest_->find_submatches(sequence, body_parts);
 			}
 
+			std::string laban_sequence_recognizer::str() const
+			{
+				return decision_forest_->str();
+			}
 
 		} // namespace laban
 	} // namespace fl

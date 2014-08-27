@@ -315,6 +315,39 @@ namespace mae
 				}
 				return result;
 			}
+
+			std::string decision_forest::str()
+			{
+				std::stringstream sstr;
+
+				sstr << "--DECISION FOREST--" << std::endl;
+
+				for (unsigned int i = 0; i < column_ids_.size(); i++)
+				{
+					int column = column_ids_.at(i);
+
+					sstr << "::column " << i << std::endl << std::endl;
+
+					if (trees_.find(column) != trees_.end())
+					{
+						std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > col_trees = trees_.at(column);
+
+						for (unsigned int j = 0; j < col_trees.size(); j++)
+						{
+							sstr << col_trees.at(j)->str() << std::endl;
+						}
+					}
+					else
+					{
+						sstr << "no trees for this column!" << std::endl << std::endl;
+					}
+				}
+
+				sstr << "--/DECISION FOREST/--" << std::endl;
+
+				return sstr.str();
+			}
+
 		} // namespace laban
 	} // namespace fl
 } // namespace mae

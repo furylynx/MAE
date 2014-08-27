@@ -65,6 +65,26 @@ namespace mae
 						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
+						/**
+						 * Returns the string representation for this element.
+						 *
+						 * @return The string.
+						 */
+						virtual std::string str() const;
+
+						friend std::ostream& operator<<(std::ostream& os, const cancellation_symbol& obj)
+						{
+							os << obj.str();
+							return os;
+						}
+
+						friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<cancellation_symbol>& obj)
+						{
+							os << obj->str();
+							return os;
+						}
+
+
 					private:
 						e_cancel cancel_;
 				};

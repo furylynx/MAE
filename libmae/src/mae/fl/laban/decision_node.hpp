@@ -502,21 +502,17 @@ namespace mae
 					sstr << "\t";
 				}
 
-				sstr << "decision node : ";
+				sstr << "decision node : " << decision_item_ << std::endl;
 
-//				if (sequences_.size() > 0)
-//				{
-//					sstr << " sequences : ";
-//
-//					for (unsigned int i = 0; i < sequences_.size(); i++)
-//					{
-//						sstr << sequences_.at(i)->get_title() << " | ";
-//					}
-//				}
+				for (unsigned int j = 0; j < values_.size(); j++)
+				{
+					for (unsigned int i = 0; i < indent; i++)
+					{
+						sstr << "\t";
+					}
 
-				//TODO add decision item -> str method in i_movement...
-
-				sstr << std::endl;
+					sstr << ">> sequence: " << values_.at(j)->get_value() << std::endl;
+				}
 
 				for (unsigned int i = 0; i < children_.size(); i++)
 				{

@@ -51,12 +51,8 @@ namespace mae
 
 					virtual void add_rule(std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > rule);
 
+					virtual std::string str();
 
-//					virtual void read_rules_str(std::string xml);
-//					virtual void read_rules_file(std::string file);
-//
-//					virtual std::string str();
-//					virtual void write_file(std::string file);
 
 				private:
 					unsigned int beats_per_measure_;

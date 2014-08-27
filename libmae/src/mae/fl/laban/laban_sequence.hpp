@@ -62,7 +62,7 @@ namespace mae {
 				 *
 				 * @return
 				 */
-				std::string get_version();
+				std::string get_version() const;
 
 				/**
 				 * Specifies the authors of the sequence. At least one author should be defined.
@@ -83,7 +83,7 @@ namespace mae {
 				 *
 				 * @return The authors.
 				 */
-				std::vector<std::string> get_authors();
+				std::vector<std::string> get_authors() const;
 
 				/**
 				 * Sets the title of this sequence.
@@ -97,7 +97,7 @@ namespace mae {
 				 *
 				 * @return The title.
 				 */
-				std::string get_title();
+				std::string get_title() const;
 
 				/**
 				 * Specifies the description for this sequence.
@@ -111,7 +111,7 @@ namespace mae {
 				 *
 				 * @return The description.
 				 */
-				std::string get_description();
+				std::string get_description() const;
 
 				/**
 				 * Sets the amount of measures of the sequence (i.e. the length). A measure consists per definition of
@@ -127,7 +127,7 @@ namespace mae {
 				 *
 				 * @return The amount of measures.
 				 */
-				unsigned int get_measures();
+				unsigned int get_measures() const;
 
 				/**
 				 * Specifies the time unit used for the beat count.
@@ -140,7 +140,7 @@ namespace mae {
 				 * Returns the time unit used for the beat count.
 				 * @return The time unit.
 				 */
-				e_time_unit get_time_unit();
+				e_time_unit get_time_unit() const;
 
 				/**
 				 * Specifies the duration of a beat. The time unit (ms, s, m) is defined by the time unit variable
@@ -156,7 +156,7 @@ namespace mae {
 				 *
 				 * @return The beat duration.
 				 */
-				unsigned int get_beat_duration();
+				unsigned int get_beat_duration() const;
 
 				/**
 				 * Specifies the number of beats a measure contains (i.e. the length of a measure).
@@ -170,7 +170,7 @@ namespace mae {
 				 *
 				 * @return The number of beats.
 				 */
-				unsigned int get_beats();
+				unsigned int get_beats() const;
 
 				/**
 				 * Specifies all column definitions. A column definition defines the content of a column (the pre sign).
@@ -192,7 +192,7 @@ namespace mae {
 				 *
 				 * @return The column definitions.
 				 */
-				std::vector<std::shared_ptr<column_definition> > get_column_definitions();
+				std::vector<std::shared_ptr<column_definition> > get_column_definitions() const;
 
 				/**
 				 * Returns the column definition for the column with the given index.
@@ -214,7 +214,7 @@ namespace mae {
 				 *
 				 * @return The movements vector.
 				 */
-				std::vector<std::shared_ptr<i_movement> > get_movements();
+				std::vector<std::shared_ptr<i_movement> > get_movements() const;
 
 				/**
 				 * Add an i_movement to the sequence.
@@ -232,7 +232,7 @@ namespace mae {
 				 * @param column The column (which is specifying a body part).
 				 * @return The movements vector.
 				 */
-				std::vector<std::shared_ptr<i_movement> > get_column_movements(int column);
+				std::vector<std::shared_ptr<i_movement> > get_column_movements(int column) const;
 
 
 				/**
@@ -240,7 +240,27 @@ namespace mae {
 				 *
 				 * @return The xml string.
 				 */
-				virtual std::string xml();
+				virtual std::string xml() const;
+
+				/**
+				 * Returns the string representation for the sequence.
+				 *
+				 * @return The string.
+				 */
+				virtual std::string str() const;
+
+
+				friend std::ostream& operator<<(std::ostream& os, const laban_sequence& obj)
+				{
+					os << obj.str();
+					return os;
+				}
+
+				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<laban_sequence>& obj)
+				{
+					os << obj->str();
+					return os;
+				}
 
 
 				/**
@@ -271,6 +291,9 @@ namespace mae {
 				 * @return The default columns.
 				 */
 				static std::vector<int> default_columns();
+
+
+
 
 			private:
 				std::string version_;

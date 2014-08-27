@@ -235,6 +235,23 @@ namespace mae
 
 			}
 
+			std::string rewriting_forest::str()
+			{
+				std::stringstream sstr;
+
+				sstr << "--REWRITING FOREST--" << std::endl;
+
+				for (unsigned int j = 0; j < trees_.size(); j++)
+				{
+					sstr << trees_.at(j)->str() << std::endl;
+				}
+
+				sstr << "--/REWRITING FOREST/--" << std::endl;
+
+				return sstr.str();
+			}
+
+
 		} // namespace laban
 	} // namespace fl
 } // namespace mae
