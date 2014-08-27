@@ -39,7 +39,7 @@ namespace mae
 
 			}
 
-			std::string laban_sequence::get_version()
+			std::string laban_sequence::get_version() const
 			{
 				return version_;
 			}
@@ -54,7 +54,7 @@ namespace mae
 				authors_.push_back(author);
 			}
 
-			std::vector<std::string> laban_sequence::get_authors()
+			std::vector<std::string> laban_sequence::get_authors() const
 			{
 				return authors_;
 			}
@@ -64,7 +64,7 @@ namespace mae
 				title_ = title;
 			}
 
-			std::string laban_sequence::get_title()
+			std::string laban_sequence::get_title() const
 			{
 				return title_;
 			}
@@ -74,7 +74,7 @@ namespace mae
 				description_ = description;
 			}
 
-			std::string laban_sequence::get_description()
+			std::string laban_sequence::get_description() const
 			{
 				return description_;
 			}
@@ -84,7 +84,7 @@ namespace mae
 				measures_ = measures;
 			}
 
-			unsigned int laban_sequence::get_measures()
+			unsigned int laban_sequence::get_measures() const
 			{
 				return measures_;
 			}
@@ -94,7 +94,7 @@ namespace mae
 				time_unit_ = tu;
 			}
 
-			e_time_unit laban_sequence::get_time_unit()
+			e_time_unit laban_sequence::get_time_unit() const
 			{
 				return time_unit_;
 			}
@@ -104,7 +104,7 @@ namespace mae
 				beat_duration_ = beat_duration;
 			}
 
-			unsigned int laban_sequence::get_beat_duration()
+			unsigned int laban_sequence::get_beat_duration() const
 			{
 				return beat_duration_;
 			}
@@ -114,7 +114,7 @@ namespace mae
 				beats_ = beats;
 			}
 
-			unsigned int laban_sequence::get_beats()
+			unsigned int laban_sequence::get_beats() const
 			{
 				return beats_;
 			}
@@ -145,7 +145,7 @@ namespace mae
 				}
 			}
 
-			std::vector<std::shared_ptr<column_definition> > laban_sequence::get_column_definitions()
+			std::vector<std::shared_ptr<column_definition> > laban_sequence::get_column_definitions() const
 			{
 				return column_definitions_vec_;
 			}
@@ -174,7 +174,7 @@ namespace mae
 				}
 			}
 
-			std::vector<std::shared_ptr<i_movement> > laban_sequence::get_movements()
+			std::vector<std::shared_ptr<i_movement> > laban_sequence::get_movements() const
 			{
 				return i_movements_vec_;
 			}
@@ -245,7 +245,7 @@ namespace mae
 				i_movements_vec_.push_back(i_mov);
 			}
 
-			std::vector<std::shared_ptr<i_movement> > laban_sequence::get_column_movements(int column)
+			std::vector<std::shared_ptr<i_movement> > laban_sequence::get_column_movements(int column) const
 			{
 				if (movements_map_.find(column) != movements_map_.end())
 				{
@@ -257,7 +257,7 @@ namespace mae
 				}
 			}
 
-			std::string laban_sequence::xml()
+			std::string laban_sequence::xml() const
 			{
 				std::stringstream sstr;
 
@@ -320,6 +320,11 @@ namespace mae
 				sstr << "</laban:score>" << std::endl;
 
 				return sstr.str();
+			}
+
+			std::string laban_sequence::str() const
+			{
+				return title_;
 			}
 
 			unsigned int laban_sequence::default_beat_duration()

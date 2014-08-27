@@ -171,6 +171,15 @@ namespace mae
 					return sstr.str();
 				}
 
+				std::string direction_symbol::str() const
+				{
+					std::stringstream sstr;
+
+					sstr << "(" << e_direction_c::str(horizontal_) << "+" << e_level_c::str(vertical_) << ")";
+
+					return sstr.str();
+				}
+
 			} // namespace mv
 		} // namespace laban
 	} // namespace fl

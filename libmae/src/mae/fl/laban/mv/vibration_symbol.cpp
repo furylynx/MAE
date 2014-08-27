@@ -112,6 +112,15 @@ namespace mae
 
 				}
 
+				std::string vibration_symbol::str() const
+				{
+					std::stringstream sstr;
+
+					sstr << "(VIBRATION)";
+
+					return sstr.str();
+				}
+
 			} // namespace mv
 		} // namespace laban
 	} // namespace fl

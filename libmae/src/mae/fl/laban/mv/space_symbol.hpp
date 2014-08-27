@@ -77,6 +77,26 @@ namespace mae
 						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
+						/**
+						 * Returns the string representation for this element.
+						 *
+						 * @return The string.
+						 */
+						virtual std::string str() const;
+
+						friend std::ostream& operator<<(std::ostream& os, const space_symbol& obj)
+						{
+							os << obj.str();
+							return os;
+						}
+
+						friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<space_symbol>& obj)
+						{
+							os << obj->str();
+							return os;
+						}
+
+
 					private:
 						std::shared_ptr<i_dynamics_sign> dynamics_;
 						std::shared_ptr<space_measurement> space_measurement_;

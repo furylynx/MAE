@@ -64,6 +64,8 @@ namespace mae
 
 					virtual std::vector<std::shared_ptr<laban_sequence> > recognize_sequence(
 							std::shared_ptr<laban_sequence> sequence, std::vector<bone> body_parts);
+
+					virtual std::string str() const;
 				private:
 					bool debug_;
 

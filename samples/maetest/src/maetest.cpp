@@ -79,6 +79,9 @@ void test_recognition()
 
 
 	recog.register_sequence(sequence_one);
+
+	std::cout << recog.str() << std::endl;
+
 	std::cout << "registered the sequences. Trying to recognize now..." << std::endl;
 	std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > recognized_sequences = recog.recognize_sequence(sequence_one, bones);
 

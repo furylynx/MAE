@@ -111,6 +111,15 @@ namespace mae
 
 				}
 
+				std::string turn_symbol::str() const
+				{
+					std::stringstream sstr;
+
+					sstr << "(" << e_turn_direction_c::str(direction_) << ")";
+
+					return sstr.str();
+				}
+
 			} // namespace mv
 		} // namespace laban
 	} // namespace fl

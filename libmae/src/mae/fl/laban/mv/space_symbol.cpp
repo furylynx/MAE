@@ -95,6 +95,11 @@ namespace mae
 					return sstr.str();
 				}
 
+				std::string space_symbol::str() const
+				{
+					return space_measurement_->str();
+				}
+
 			} // namespace mv
 		} // namespace laban
 	} // namespace fl

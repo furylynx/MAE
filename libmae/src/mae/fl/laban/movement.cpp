@@ -125,6 +125,15 @@ namespace mae
 				return sstr.str();
 			}
 
+			std::string movement::str() const
+			{
+				std::stringstream sstr;
+
+				sstr << "movement: [c" << column_ << ",m" << measure_ << ",b" << beat_ << ",d" << duration_ << ",h" << hold_ << "] " << symbol_ ;
+
+				return sstr.str();
+			}
+
 		} // namespace laban
 	} // namespace fl
 } // namespace mae

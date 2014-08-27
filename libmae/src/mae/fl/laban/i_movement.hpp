@@ -16,6 +16,8 @@
 
 //global includes
 #include <string>
+#include <memory>
+#include <iostream>
 
 namespace mae
 {
@@ -59,6 +61,26 @@ namespace mae
 					virtual double get_duration() = 0;
 
 					virtual std::string xml(unsigned int indent = 0, std::string namesp = "") = 0;
+
+					/**
+					 * Returns the string representation for this element.
+					 *
+					 * @return The string.
+					 */
+					virtual std::string str() const = 0;
+
+					friend std::ostream& operator<<(std::ostream& os, const i_movement& obj)
+					{
+						os << obj.str();
+						return os;
+					}
+
+					friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<i_movement>& obj)
+					{
+						os << obj->str();
+						return os;
+					}
+
 			};
 
 		} // namespace laban

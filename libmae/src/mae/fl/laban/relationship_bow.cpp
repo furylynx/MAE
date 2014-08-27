@@ -153,6 +153,14 @@ namespace mae
 				return sstr.str();
 			}
 
+			std::string relationship_bow::str() const
+			{
+				std::stringstream sstr;
+
+				sstr << "(RELATIONSHIP_BOW)";
+
+				return sstr.str();
+			}
 
 		} // namespace laban
 	} // namespace fl

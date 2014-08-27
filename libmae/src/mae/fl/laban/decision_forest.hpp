@@ -104,6 +104,9 @@ namespace mae
 					 */
 					virtual std::vector<std::shared_ptr<laban_sequence> > find_submatches(
 							std::shared_ptr<laban_sequence> whole_sequence, std::vector<bone> body_parts);
+
+					virtual std::string str();
+
 				private:
 					std::vector<std::shared_ptr<column_definition> > column_definitions_;
 					std::vector<int> column_ids_;

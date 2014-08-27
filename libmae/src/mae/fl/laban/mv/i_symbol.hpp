@@ -17,6 +17,8 @@
 //global includes
 #include <memory>
 #include <string>
+#include <iostream>
+#include <memory>
 
 namespace mae
 {
@@ -35,6 +37,25 @@ namespace mae
 						virtual bool equals(std::shared_ptr<i_symbol> a) = 0;
 
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") = 0;
+
+						/**
+						 * Returns the string representation for this element.
+						 *
+						 * @return The string.
+						 */
+						virtual std::string str() const = 0;
+
+						friend std::ostream& operator<<(std::ostream& os, const i_symbol& obj)
+						{
+							os << obj.str();
+							return os;
+						}
+
+						friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<i_symbol>& obj)
+						{
+							os << obj->str();
+							return os;
+						}
 				};
 
 			} // namespace mv

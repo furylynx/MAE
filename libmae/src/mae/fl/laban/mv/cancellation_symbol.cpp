@@ -76,6 +76,14 @@ namespace mae
 
 				}
 
+				std::string cancellation_symbol::str() const
+				{
+					std::stringstream sstr;
+
+					sstr << "(" << e_cancel_c::str(cancel_) << ")";
+
+					return sstr.str();
+				}
 
 			} // namespace mv
 		} // namespace laban

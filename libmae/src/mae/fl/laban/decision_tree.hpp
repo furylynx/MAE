@@ -288,7 +288,15 @@ namespace mae
 			template<typename T, typename U>
 			std::string decision_tree<T, U>::str()
 			{
-				return root_->str();
+				std::stringstream sstr;
+
+				sstr << "--TREE--" << std::endl;
+
+				sstr << root_->str();
+
+				sstr << "--/TREE/--" << std::endl;
+
+				return sstr.str();
 			}
 
 		} // namespace laban
