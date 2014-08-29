@@ -45,14 +45,14 @@ namespace mae
 				 *
 				 * @return
 				 */
-				int get_column_index();
+				int get_column_index() const;
 
 				/**
 				 * Returns the pre-sign.
 				 *
 				 * @return
 				 */
-				std::shared_ptr<ps::i_pre_sign> get_pre_sign();
+				std::shared_ptr<ps::i_pre_sign> get_pre_sign() const;
 
 				/**
 				 * Returns the XML representation for this element.
@@ -62,7 +62,15 @@ namespace mae
 				 *
 				 * @return The XML string.
 				 */
-				virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
+				virtual std::string xml(unsigned int indent = 0, std::string namesp = "") const;
+
+				/**
+				 * Returns true if signs are equal.
+				 *
+				 * @param a The sign to be compared to.
+				 * @return True if equal.
+				 */
+				virtual bool equals(std::shared_ptr<column_definition> a) const;
 
 			private:
 				int column_index_;

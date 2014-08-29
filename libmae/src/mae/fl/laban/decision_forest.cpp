@@ -53,7 +53,12 @@ namespace mae
 
 			void decision_forest::add_sequence(std::shared_ptr<laban_sequence> sequence)
 			{
-				//TODO check column definitions
+
+				std::shared_ptr<laban_sequence> recreated_sequence = sequence;
+				if (sequence->get_beat_duration() != beat_duration_ || sequence)
+				{
+					recreated_sequence = recreate_sequence(sequence);
+				}
 
 				//add to list for later removal by index
 				sequences_.push_back(sequence);
@@ -65,7 +70,7 @@ namespace mae
 
 					//insert not only the sequence but all rewritten sequences
 					std::vector<std::vector<std::shared_ptr<i_movement> > > all_subsequences =
-							rewriting_forest_->replacements(sequence->get_column_movements(column));
+							rewriting_forest_->replacements(recreated_sequence->get_column_movements(column));
 
 					for (unsigned int k = 0; k < all_subsequences.size(); k++)
 					{
@@ -74,28 +79,6 @@ namespace mae
 						if (subsequence.size() == 0)
 						{
 							//subsequence is empty, therefore jump to next column (empty sequences will be handled by the find_submatch method.
-
-							//TODO remove
-							std::cout << "subsequence is empty" << std::endl;
-
-//							//handle empty subsequence
-//							if (empty_sequences_.find(column) != empty_sequences_.end())
-//							{
-//								std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > empty_decisions =
-//										empty_sequences_.at(column);
-//								empty_decisions.push_back(
-//										std::shared_ptr<decision_value<i_movement, laban_sequence> >(
-//												new decision_value<i_movement, laban_sequence>(subsequence, sequence)));
-//								empty_sequences_[column] = empty_decisions;
-//							}
-//							else
-//							{
-//								std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > empty_decisions;
-//								empty_decisions.push_back(
-//										std::shared_ptr<decision_value<i_movement, laban_sequence> >(
-//												new decision_value<i_movement, laban_sequence>(subsequence, sequence)));
-//								empty_sequences_.insert(std::make_pair(column, empty_decisions));
-//							}
 
 						}
 						else
@@ -150,6 +133,100 @@ namespace mae
 						}
 					}
 				}
+			}
+
+			std::shared_ptr<laban_sequence> decision_forest::recreate_sequence(std::shared_ptr<laban_sequence> sequence)
+			{
+				std::shared_ptr<laban_sequence> result;
+
+				//check column definitions
+				std::vector<std::shared_ptr<column_definition> > col_defs = sequence->get_column_definitions();
+
+				//mapping for forest's definitions to the given sequence's definitions
+				std::unordered_map<int, int> column_mapping;
+				column_mapping.reserve(col_defs.size());
+
+				for (unsigned int i = 0; i < col_defs.size(); i++)
+				{
+					bool listed = false;
+
+					//check whether same column definition is defined in the forest
+					for (unsigned int j = 0; j < column_definitions_.size(); j++)
+					{
+						//check equals
+						if (col_defs.at(i)->get_pre_sign()->equals(column_definitions_.at(j)->get_pre_sign()))
+						{
+							listed = true;
+							column_mapping.insert(std::make_pair(col_defs.at(i)->get_column_index(), column_definitions_.at(j)->get_column_index()));
+						}
+					}
+
+					if (!listed)
+					{
+						throw std::invalid_argument("Column definition used by the sequence about to be registered does not match any of the given definitions.");
+					}
+				}
+
+				//create new laban_sequence
+
+				int time_factor = 1;
+				if (sequence->get_time_unit() == e_time_unit::SECOND)
+				{
+					time_factor = 1000;
+				}
+				else if (sequence->get_time_unit() == e_time_unit::MINUTE)
+				{
+					time_factor = 60000;
+				}
+
+				int new_time_factor = 1;
+
+				if (time_unit_ == e_time_unit::SECOND)
+				{
+					new_time_factor = 1000;
+				}
+				else if (time_unit_ == e_time_unit::MINUTE)
+				{
+					new_time_factor = 60000;
+				}
+
+				//total duration in ms
+				double total_duration = sequence->get_measures()*sequence->get_beats()*sequence->get_beat_duration()*time_factor;
+				double new_measures = total_duration / (beats_per_measure_*beat_duration_*new_time_factor);
+
+				result = std::shared_ptr<laban_sequence>(new laban_sequence(sequence->get_title(), sequence->get_authors().at(0), new_measures, time_unit_, beat_duration_, beats_per_measure_));
+
+
+				//insert updated column definitions
+				for (unsigned int i = 0; i < col_defs.size(); i++)
+				{
+					result->add_column_definition(std::shared_ptr<column_definition>(new column_definition(column_mapping.at(col_defs.at(i)->get_column_index()), col_defs.at(i)->get_pre_sign())));
+				}
+
+				//recreate sequence with new values
+				std::vector<std::shared_ptr<i_movement> > movements = sequence->get_movements();
+				for (unsigned int i = 0; i < movements.size(); i++)
+				{
+					std::shared_ptr<i_movement> mov = movements.at(i);
+
+					//adjust beat, measure etc
+					int new_column = column_mapping.at(mov->get_column());
+
+					//exact position in ms
+					double exact_pos = (mov->get_measure()*sequence->get_beats() + mov->get_beat())*sequence->get_beat_duration()*time_factor;
+					//duration in ms
+					double duration = mov->get_duration()*sequence->get_beat_duration()*time_factor;
+
+					double new_measure_length = beats_per_measure_*beat_duration_*new_time_factor;
+					int new_measure = (int)( exact_pos / new_measure_length );
+					double new_beat = ( exact_pos / new_measure_length - new_measure ) * beats_per_measure_;
+					double new_duration = duration/(beat_duration_*new_time_factor);
+
+					//insert new movement
+					result->add_movement(mov->recreate(column_mapping, new_measure, new_beat, new_duration));
+				}
+
+				return result;
 			}
 
 			bool decision_forest::remove_sequence(std::shared_ptr<laban_sequence> sequence)

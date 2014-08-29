@@ -39,7 +39,7 @@ namespace mae
 						 * @param fixed_end The fixed end of the limb.
 						 * @param extremity (optional) The extremity end of the limb.
 						 */
-						custom_limb(std::shared_ptr<i_endpoint> fixed_end, std::shared_ptr<i_endpoint> extremity = nullptr);
+						custom_limb(std::shared_ptr<i_endpoint> extremity, std::shared_ptr<i_endpoint> fixed_end = nullptr);
 						virtual ~custom_limb();
 
 						/**
@@ -47,14 +47,14 @@ namespace mae
 						 *
 						 * @return
 						 */
-						std::shared_ptr<i_endpoint> get_fixed_end();
+						std::shared_ptr<i_endpoint> get_fixed_end() const;
 
 						/**
 						 * Returns the extremity end of the limb if set. Returns null otherwise.
 						 *
 						 * @return
 						 */
-						std::shared_ptr<i_endpoint> get_extremity();
+						std::shared_ptr<i_endpoint> get_extremity() const;
 
 						/**
 						 * Returns the XML representation for this element.
@@ -64,7 +64,23 @@ namespace mae
 						 *
 						 * @return The XML string.
 						 */
-						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") const;
+
+						/**
+						 * Returns true if elements are equal.
+						 *
+						 * @param a The element to be compared to.
+						 * @return True if equal.
+						 */
+						virtual bool equals(std::shared_ptr<i_part> a) const;
+
+						/**
+						 * Returns true if elements are equal.
+						 *
+						 * @param a The element to be compared to.
+						 * @return True if equal.
+						 */
+						virtual bool equals(std::shared_ptr<i_limb> a) const;
 
 					private:
 						std::shared_ptr<i_endpoint> fixed_end_;

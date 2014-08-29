@@ -206,20 +206,10 @@ namespace mae
 						unsigned int insert_pos = 0;
 						for (unsigned int i = 0; i < col.size(); i++)
 						{
-//							if (i == col.size())
-//							{
-//								//insert at the end of the vector
-//								col.push_back(mov);
-//
-//								//must break because
-//								break;
-//							}
-//							else
-
 							std::shared_ptr<i_movement> col_item = col.at(insert_pos);
 
-							if (col_item->get_measure() >= mov->get_measure()
-									&& col_item->get_beat() >= mov->get_beat())
+							if (col_item->get_measure() > mov->get_measure() || (col_item->get_measure() == mov->get_measure()
+									&& col_item->get_beat() >= mov->get_beat()))
 							{
 								//insert at the position
 

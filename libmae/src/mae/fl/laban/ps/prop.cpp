@@ -34,17 +34,17 @@ namespace mae
 
 				}
 
-				std::string prop::get_name()
+				std::string prop::get_name() const
 				{
 					return name_;
 				}
 
-				std::string prop::get_description()
+				std::string prop::get_description() const
 				{
 					return description_;
 				}
 
-				std::string prop::xml(unsigned int indent, std::string namesp)
+				std::string prop::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 
@@ -75,6 +75,16 @@ namespace mae
 					sstr << indent_stream.str() << "</" << ns << "preSign>" << std::endl;
 
 					return sstr.str();
+				}
+
+				bool prop::equals(std::shared_ptr<i_pre_sign> a) const
+				{
+					if (std::shared_ptr<prop> a_casted = std::dynamic_pointer_cast<prop>(a))
+					{
+						return (name_ == a_casted->get_name() && description_ == a_casted->get_description());
+					}
+
+					return false;
 				}
 
 			} // namespace ps

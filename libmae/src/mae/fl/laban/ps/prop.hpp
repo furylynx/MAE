@@ -46,7 +46,7 @@ namespace mae
 						 * Returns the name of the pre-sign.
 						 * @return
 						 */
-						std::string get_name();
+						std::string get_name() const;
 
 						/**
 						 * Returns the description of the pre-sign. Returns an empty
@@ -54,7 +54,7 @@ namespace mae
 						 *
 						 * @return
 						 */
-						std::string get_description();
+						std::string get_description() const;
 
 						/**
 						 * Returns the XML representation for this element.
@@ -64,7 +64,16 @@ namespace mae
 						 *
 						 * @return The XML string.
 						 */
-						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") const;
+
+						/**
+						 * Returns true if elements are equal.
+						 *
+						 * @param a The element to be compared to.
+						 * @return True if equal.
+						 */
+						virtual bool equals(std::shared_ptr<i_pre_sign> a) const;
+
 
 					private:
 						std::string name_;

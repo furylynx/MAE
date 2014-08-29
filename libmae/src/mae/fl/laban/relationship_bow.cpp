@@ -153,6 +153,15 @@ namespace mae
 				return sstr.str();
 			}
 
+			std::shared_ptr<i_movement> relationship_bow::recreate(std::unordered_map<int, int> column_mapping, unsigned int measure, double beat, double duration) const
+			{
+				std::shared_ptr<i_movement> result;
+
+				result = std::shared_ptr<i_movement>(new relationship_bow(type_, grasping_, passing_, hold_, measure, beat, left_endpoint_->recreate(column_mapping), right_endpoint_->recreate(column_mapping)));
+
+				return result;
+			}
+
 			std::string relationship_bow::str() const
 			{
 				std::stringstream sstr;

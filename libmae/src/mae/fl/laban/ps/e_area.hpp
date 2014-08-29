@@ -47,13 +47,14 @@ namespace mae
 						 * @param area The element.
 						 * @return The string representation.
 						 */
+						static std::string str(e_area area);
 
 						/**
 						 * Returns a vector containing all possible enum values.
 						 *
 						 * @return A vector.
 						 */
-						static std::string str(e_area area);
+						static std::vector<e_area> vec();
 
 						/**
 						 * Parses the string and returns the corresponding element.
@@ -61,7 +62,6 @@ namespace mae
 						 * @param str The string to be parsed.
 						 * @return The element.
 						 */
-						static std::vector<e_area> vec();
 						static e_area parse(std::string str);
 				};
 

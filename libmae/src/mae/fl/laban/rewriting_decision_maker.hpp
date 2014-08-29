@@ -18,6 +18,7 @@
 #include "movement.hpp"
 #include "path.hpp"
 #include "room_direction.hpp"
+#include "relationship_bow.hpp"
 
 //global includes
 //...
