@@ -56,6 +56,12 @@ namespace mae
 						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
+						/**
+						 * Recreates the element using the column mapping for the new columns.
+						 *
+						 * @param column_mapping
+						 * @return The new endpoint.
+						 */
 						virtual std::shared_ptr<relationship_endpoint> recreate(std::unordered_map<int, int> column_mapping) const;
 
 						/**

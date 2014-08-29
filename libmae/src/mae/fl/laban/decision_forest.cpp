@@ -210,7 +210,6 @@ namespace mae
 					std::shared_ptr<i_movement> mov = movements.at(i);
 
 					//adjust beat, measure etc
-					int new_column = column_mapping.at(mov->get_column());
 
 					//exact position in ms
 					double exact_pos = (mov->get_measure()*sequence->get_beats() + mov->get_beat())*sequence->get_beat_duration()*time_factor;
