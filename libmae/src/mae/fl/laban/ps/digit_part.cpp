@@ -48,16 +48,17 @@ namespace mae
 				{
 				}
 
-				e_digit digit_part::get_digit()
+				e_digit digit_part::get_digit() const
 				{
 					return digit_;
 				}
-				unsigned int digit_part::get_knuckle()
+
+				unsigned int digit_part::get_knuckle() const
 				{
 					return knuckle_;
 				}
 
-				std::string digit_part::xml(unsigned int indent, std::string namesp)
+				std::string digit_part::xml(unsigned int indent, std::string namesp)  const
 				{
 					std::stringstream indent_stream;
 
@@ -88,6 +89,35 @@ namespace mae
 					sstr << indent_stream.str() << "</" << ns << "digit>" << std::endl;
 
 					return sstr.str();
+				}
+
+				std::shared_ptr<i_endpoint> digit_part::get_fixed_end() const
+				{
+					std::shared_ptr<i_endpoint> result;
+
+					//TODO
+
+					return result;
+				}
+
+				bool digit_part::equals(std::shared_ptr<i_endpoint> a) const
+				{
+					if (std::shared_ptr<digit_part> a_casted = std::dynamic_pointer_cast<digit_part>(a))
+					{
+						return (digit_ == a_casted->get_digit() && knuckle_ == a_casted->get_knuckle());
+					}
+
+					return false;
+				}
+
+				bool digit_part::equals(std::shared_ptr<i_part> a) const
+				{
+					if (std::shared_ptr<i_endpoint> a_casted = std::dynamic_pointer_cast<i_endpoint>(a))
+					{
+						return equals(a_casted);
+					}
+
+					return false;
 				}
 
 			} // namespace ps

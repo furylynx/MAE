@@ -50,13 +50,13 @@ namespace mae
 						 *
 						 * @return
 						 */
-						e_side get_side();
+						e_side get_side() const;
 
 						/**
 						 * Returns the addressed body part.
 						 * @return
 						 */
-						std::shared_ptr<i_part> get_part();
+						std::shared_ptr<i_part> get_part() const;
 
 						/**
 						 * Returns the XML representation for this element.
@@ -66,7 +66,15 @@ namespace mae
 						 *
 						 * @return The XML string.
 						 */
-						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") const;
+
+						/**
+						 * Returns true if elements are equal.
+						 *
+						 * @param a The element to be compared to.
+						 * @return True if equal.
+						 */
+						virtual bool equals(std::shared_ptr<i_pre_sign> a) const;
 
 					private:
 						e_side side_;

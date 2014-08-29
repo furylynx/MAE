@@ -68,24 +68,35 @@ void test_recognition()
 	mae::fl::laban::laban_sequence_recognizer recog = mae::fl::laban::laban_sequence_recognizer();
 
 	mae::fl::laban::laban_sequence_reader sr = mae::fl::laban::laban_sequence_reader();
-	std::shared_ptr<mae::fl::laban::laban_sequence> sequence_one = sr.read_sequence_file("/home/keks/new_file.laban");
-//	std::shared_ptr<mae::fl::laban::laban_sequence> sequence_two = sr.read_sequence_file("/home/keks/sequence2.laban");
-//	std::shared_ptr<mae::fl::laban::laban_sequence> sequence_three = sr.read_sequence_file("/home/keks/sequence3.laban");
+	std::shared_ptr<mae::fl::laban::laban_sequence> sequence_one = sr.read_sequence_file("/home/keks/sequence1.laban");
+	std::shared_ptr<mae::fl::laban::laban_sequence> sequence_two = sr.read_sequence_file("/home/keks/sequence2.laban");
+	std::shared_ptr<mae::fl::laban::laban_sequence> sequence_three = sr.read_sequence_file("/home/keks/sequence3.laban");
 //	std::shared_ptr<mae::fl::laban::laban_sequence> sequence_four = sr.read_sequence_file("/home/keks/sequence4.laban");
 
+	std::cout << "registering sequences...";
+	recog.register_sequence(sequence_one);
+	recog.register_sequence(sequence_two);
+	recog.register_sequence(sequence_three);
+	std::cout << "done" << std::endl;
+
+	//print decision forest to terminal
+	std::cout << recog.str() << std::endl;
+
+	//bones regarded
 	std::vector<mae::bone> bones;
 	bones.push_back(mae::bone(mae::e_bone_c::to_int(mae::e_bone::LEFT_WHOLE_ARM), "left arm", mae::e_joint_c::to_int(mae::e_joint::LEFT_SHOULDER), mae::e_joint_c::to_int(mae::e_joint::LEFT_HAND)));
 	bones.push_back(mae::bone(mae::e_bone_c::to_int(mae::e_bone::RIGHT_WHOLE_ARM), "right arm", mae::e_joint_c::to_int(mae::e_joint::RIGHT_SHOULDER), mae::e_joint_c::to_int(mae::e_joint::RIGHT_HAND)));
 
 
-	recog.register_sequence(sequence_one);
-
-	std::cout << recog.str() << std::endl;
-
 	std::cout << "registered the sequences. Trying to recognize now..." << std::endl;
 	std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > recognized_sequences = recog.recognize_sequence(sequence_one, bones);
 
-	std::cout << "recognized " << (int)recognized_sequences.size() << " sequences! " << std::endl;
+	std::cout << "recognized " << (int)recognized_sequences.size() << " sequences: " << std::endl;
+	for (unsigned int i = 0; i < recognized_sequences.size() ; i++)
+	{
+		std::cout << "\t" << recognized_sequences.at(i)->get_title() << std::endl;
+	}
+
 }
 
 int main() {

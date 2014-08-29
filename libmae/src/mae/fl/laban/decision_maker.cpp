@@ -23,7 +23,8 @@ namespace mae
 			{
 			}
 
-			bool decision_maker::decide(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> a_predecessor, std::shared_ptr<i_movement> b, std::shared_ptr<i_movement> b_predecessor)
+			bool decision_maker::decide(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> a_predecessor,
+					std::shared_ptr<i_movement> b, std::shared_ptr<i_movement> b_predecessor)
 			{
 				//TODO : define good values for deviation; currently 1/2 beat
 				double pos_deviation_max = 0.5;
@@ -32,11 +33,14 @@ namespace mae
 				//don't check position of predecessors are unknown or one of the elements is a starting pose
 
 				double pos_deviation = 0;
-				if (a_predecessor != nullptr && b_predecessor != nullptr && a->get_measure() != 0 && b->get_measure() != 0)
+				if (a_predecessor != nullptr && b_predecessor != nullptr && a->get_measure() != 0
+						&& b->get_measure() != 0)
 				{
 					//check position approx. equal if predecessors defined
-					double pos_a = (a_predecessor->get_measure() - a->get_measure()) * beats_per_measure_ + (a_predecessor->get_beat() - a->get_beat());
-					double pos_b = (b_predecessor->get_measure() - b->get_measure()) * beats_per_measure_ + (b_predecessor->get_beat() - b->get_beat());
+					double pos_a = (a_predecessor->get_measure() - a->get_measure()) * beats_per_measure_
+							+ (a_predecessor->get_beat() - a->get_beat());
+					double pos_b = (b_predecessor->get_measure() - b->get_measure()) * beats_per_measure_
+							+ (b_predecessor->get_beat() - b->get_beat());
 					pos_deviation = std::abs(pos_a - pos_b);
 				}
 
@@ -59,12 +63,17 @@ namespace mae
 				std::shared_ptr<room_direction> b_rd;
 				std::shared_ptr<path> a_p;
 				std::shared_ptr<path> b_p;
+				std::shared_ptr<relationship_bow> a_rb;
+				std::shared_ptr<relationship_bow> b_rb;
 
 				if ((a_mov = std::dynamic_pointer_cast<movement>(a))
 						&& (b_mov = std::dynamic_pointer_cast<movement>(b)))
 				{
 
-					if (a_mov->get_symbol()->equals(b_mov->get_symbol()))
+					if (a_mov->get_symbol()->equals(b_mov->get_symbol()) && a_mov->get_hold() == b_mov->get_hold()
+							&& ((a_mov->get_pre_sign() == nullptr && b_mov->get_pre_sign() == nullptr)
+									|| (a_mov->get_pre_sign() != nullptr
+											&& a_mov->get_pre_sign()->equals(b_mov->get_pre_sign()))))
 					{
 						return true;
 					}
@@ -96,8 +105,21 @@ namespace mae
 						return false;
 					}
 				}
-
-				//TODO relationship bow
+				else if ((a_rb = std::dynamic_pointer_cast<relationship_bow>(a))
+						&& (b_rb = std::dynamic_pointer_cast<relationship_bow>(b)))
+				{
+					if (a_rb->get_type() == b_rb->get_type() && a_rb->get_grasping() == b_rb->get_grasping()
+							&& a_rb->get_passing() == b_rb->get_passing() && a_rb->get_hold() == b_rb->get_hold()
+							&& a_rb->get_left_endpoint()->equals(b_rb->get_left_endpoint())
+							&& a_rb->get_right_endpoint()->equals(b_rb->get_right_endpoint()))
+					{
+						return true;
+					}
+					else
+					{
+						return false;
+					}
+				}
 
 				return false;
 			}

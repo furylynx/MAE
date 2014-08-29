@@ -25,12 +25,12 @@ namespace mae
 				{
 				}
 
-				e_area area_part::get_area()
+				e_area area_part::get_area() const
 				{
 					return area_;
 				}
 
-				std::string area_part::xml(unsigned int indent, std::string namesp)
+				std::string area_part::xml(unsigned int indent, std::string namesp)  const
 				{
 					std::stringstream indent_stream;
 
@@ -52,6 +52,37 @@ namespace mae
 
 					return sstr.str();
 				}
+
+				std::shared_ptr<i_endpoint> area_part::get_fixed_end() const
+				{
+					std::shared_ptr<i_endpoint> result;
+
+					//TODO
+
+					return result;
+				}
+
+				bool area_part::equals(std::shared_ptr<i_endpoint> a) const
+				{
+					if (std::shared_ptr<area_part> a_casted = std::dynamic_pointer_cast<area_part>(a))
+					{
+						return (area_ == a_casted->get_area());
+					}
+
+					return false;
+				}
+
+				bool area_part::equals(std::shared_ptr<i_part> a) const
+				{
+					if (std::shared_ptr<i_endpoint> a_casted = std::dynamic_pointer_cast<i_endpoint>(a))
+					{
+						return equals(a_casted);
+					}
+
+					return false;
+				}
+
+
 
 			} // namespace ps
 		} // namespace laban

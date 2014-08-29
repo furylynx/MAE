@@ -125,6 +125,22 @@ namespace mae
 				return sstr.str();
 			}
 
+			std::shared_ptr<i_movement> movement::recreate(std::unordered_map<int, int> column_mapping, unsigned int measure, double beat, double duration) const
+			{
+				std::shared_ptr<i_movement> result;
+
+				int column = column_;
+
+				if (column_mapping.find(column_) != column_mapping.end())
+				{
+					column = column_mapping.at(column_);
+				}
+
+				result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, symbol_, hold_, pre_sign_));
+
+				return result;
+			}
+
 			std::string movement::str() const
 			{
 				std::stringstream sstr;

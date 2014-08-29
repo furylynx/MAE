@@ -40,17 +40,17 @@ namespace mae
 
 			}
 
-			int column_definition::get_column_index()
+			int column_definition::get_column_index() const
 			{
 				return column_index_;
 			}
 
-			std::shared_ptr<ps::i_pre_sign> column_definition::get_pre_sign()
+			std::shared_ptr<ps::i_pre_sign> column_definition::get_pre_sign() const
 			{
 				return pre_sign_;
 			}
 
-			std::string column_definition::xml(unsigned int indent, std::string namesp)
+			std::string column_definition::xml(unsigned int indent, std::string namesp) const
 			{
 				std::stringstream indent_stream;
 
@@ -78,6 +78,11 @@ namespace mae
 				sstr << indent_stream.str() << "</" << ns << "columnDefinition>" << std::endl;
 
 				return sstr.str();
+			}
+
+			bool column_definition::equals(std::shared_ptr<column_definition> a) const
+			{
+				return (column_index_ == a->get_column_index() && pre_sign_->equals(a->get_pre_sign()));
 			}
 
 		} // namespace laban

@@ -61,7 +61,6 @@ namespace mae
 				return direction_;
 			}
 
-
 			std::string room_direction::xml(unsigned int indent, std::string namesp)
 			{
 				std::stringstream indent_stream;
@@ -92,6 +91,15 @@ namespace mae
 
 				return sstr.str();
 
+			}
+
+			std::shared_ptr<i_movement> room_direction::recreate(std::unordered_map<int, int> column_mapping, unsigned int measure, double beat, double duration) const
+			{
+				std::shared_ptr<i_movement> result;
+
+				result = std::shared_ptr<i_movement>(new room_direction(measure, beat, direction_));
+
+				return result;
 			}
 
 			std::string room_direction::str() const

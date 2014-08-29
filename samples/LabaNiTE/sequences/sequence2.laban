@@ -2,7 +2,7 @@
 <laban:score xmlns:laban="http://www.example.org/labanotation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/labanotation labanotation.xsd ">
    <laban:version>0.5</laban:version>
    <laban:author>keks</laban:author>
-   <laban:title>MyPrivateScore</laban:title>
+   <laban:title>sequence2</laban:title>
    <laban:description></laban:description>
    <laban:staff>
       <laban:measures>2</laban:measures>
@@ -61,9 +61,9 @@
          </laban:movement>
          <laban:movement>
             <laban:column>4</laban:column>
-            <laban:measure>1</laban:measure>
+            <laban:measure>2</laban:measure>
             <laban:beat>0.01</laban:beat>
-            <laban:duration>1.0</laban:duration>
+            <laban:duration>0.96</laban:duration>
             <laban:hold>false</laban:hold>
             <laban:direction>
                <laban:vertical>middle</laban:vertical>
@@ -72,8 +72,8 @@
          </laban:movement>
          <laban:movement>
             <laban:column>4</laban:column>
-            <laban:measure>1</laban:measure>
-            <laban:beat>1.04</laban:beat>
+            <laban:measure>2</laban:measure>
+            <laban:beat>1.0</laban:beat>
             <laban:duration>1.0</laban:duration>
             <laban:hold>false</laban:hold>
             <laban:direction>
@@ -90,6 +90,28 @@
             <laban:direction>
                <laban:vertical>low</laban:vertical>
                <laban:horizontal>left-forward</laban:horizontal>
+            </laban:direction>
+         </laban:movement>
+         <laban:movement>
+            <laban:column>4</laban:column>
+            <laban:measure>1</laban:measure>
+            <laban:beat>1.06</laban:beat>
+            <laban:duration>0.91</laban:duration>
+            <laban:hold>false</laban:hold>
+            <laban:direction>
+               <laban:vertical>high</laban:vertical>
+               <laban:horizontal>place</laban:horizontal>
+            </laban:direction>
+         </laban:movement>
+         <laban:movement>
+            <laban:column>4</laban:column>
+            <laban:measure>1</laban:measure>
+            <laban:beat>0.04</laban:beat>
+            <laban:duration>1.0</laban:duration>
+            <laban:hold>false</laban:hold>
+            <laban:direction>
+               <laban:vertical>low</laban:vertical>
+               <laban:horizontal>place</laban:horizontal>
             </laban:direction>
          </laban:movement>
       </laban:movements>

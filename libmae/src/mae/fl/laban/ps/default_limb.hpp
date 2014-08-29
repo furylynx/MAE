@@ -19,6 +19,7 @@
 #include <string>
 #include <sstream>
 #include <stdexcept>
+#include <memory>
 
 
 namespace mae
@@ -46,7 +47,7 @@ namespace mae
 						 *
 						 * @return
 						 */
-						e_limb get_limb();
+						e_limb get_limb() const;
 
 						/**
 						 * Returns the XML representation for this element.
@@ -56,7 +57,23 @@ namespace mae
 						 *
 						 * @return The XML string.
 						 */
-						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") const;
+
+						/**
+						 * Returns true if elements are equal.
+						 *
+						 * @param a The element to be compared to.
+						 * @return True if equal.
+						 */
+						virtual bool equals(std::shared_ptr<i_part> a) const;
+
+						/**
+						 * Returns true if elements are equal.
+						 *
+						 * @param a The element to be compared to.
+						 * @return True if equal.
+						 */
+						virtual bool equals(std::shared_ptr<i_limb> a) const;
 
 					private:
 						e_limb limb_;

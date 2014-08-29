@@ -25,12 +25,12 @@ namespace mae
 				{
 				}
 
-				e_joint joint_part::get_joint()
+				e_joint joint_part::get_joint() const
 				{
 					return joint_;
 				}
 
-				std::string joint_part::xml(unsigned int indent, std::string namesp)
+				std::string joint_part::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 
@@ -56,6 +56,35 @@ namespace mae
 					sstr << indent_stream.str() << "</" << ns << "joint>" << std::endl;
 
 					return sstr.str();
+				}
+
+				bool joint_part::equals(std::shared_ptr<i_endpoint> a) const
+				{
+					if (std::shared_ptr<joint_part> a_casted = std::dynamic_pointer_cast<joint_part>(a))
+					{
+						return (joint_ == a_casted->get_joint());
+					}
+
+					return false;
+				}
+
+				bool joint_part::equals(std::shared_ptr<i_part> a) const
+				{
+					if (std::shared_ptr<i_endpoint> a_casted = std::dynamic_pointer_cast<i_endpoint>(a))
+					{
+						return equals(a_casted);
+					}
+
+					return false;
+				}
+
+				std::shared_ptr<i_endpoint> joint_part::get_fixed_end() const
+				{
+					std::shared_ptr<i_endpoint> result;
+
+					//TODO
+
+					return result;
 				}
 
 			} // namespace ps

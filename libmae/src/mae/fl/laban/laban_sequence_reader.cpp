@@ -335,27 +335,27 @@ namespace mae
 
 					if (custom_limb_node_set.size() > 0)
 					{
-						xmlpp::NodeSet fixed_end_node_set = node->find(get_xpath("limb/custom/fixedEnd", nsp), *namespace_map);
+						xmlpp::NodeSet extremity_end_node_set = node->find(get_xpath("limb/custom/extremity", nsp), *namespace_map);
 
-						if (fixed_end_node_set.size() > 0)
+						if (extremity_end_node_set.size() > 0)
 						{
 
-							std::shared_ptr<ps::i_endpoint> fixed_end = laban_sequence_reader::read_end_point(
-									fixed_end_node_set.at(0), namespace_map, nsp);
+							std::shared_ptr<ps::i_endpoint> extremity_end = laban_sequence_reader::read_end_point(
+									extremity_end_node_set.at(0), namespace_map, nsp);
 
-							if (fixed_end != nullptr)
+							if (extremity_end != nullptr)
 							{
 
-								xmlpp::NodeSet extremity_end_node_set = node->find(get_xpath("limb/custom/extremity", nsp), *namespace_map);
+								xmlpp::NodeSet fixed_end_node_set  = node->find(get_xpath("limb/custom/fixedEnd", nsp), *namespace_map);
 
-								std::shared_ptr<ps::i_endpoint> extremity_end = nullptr;
+								std::shared_ptr<ps::i_endpoint> fixed_end = nullptr;
 
-								if (extremity_end_node_set.size() > 0)
+								if (fixed_end_node_set.size() > 0)
 								{
-									extremity_end = laban_sequence_reader::read_end_point(extremity_end_node_set.at(0), namespace_map, nsp);
+									fixed_end = laban_sequence_reader::read_end_point(fixed_end_node_set.at(0), namespace_map, nsp);
 								}
 
-								result = std::shared_ptr<ps::i_limb>(new ps::custom_limb(fixed_end, extremity_end));
+								result = std::shared_ptr<ps::i_limb>(new ps::custom_limb(extremity_end, fixed_end));
 							}
 						}
 					}

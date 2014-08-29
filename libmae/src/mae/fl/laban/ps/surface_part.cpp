@@ -26,17 +26,17 @@ namespace mae
 				{
 				}
 
-				e_limb_side surface_part::get_limb_side()
+				e_limb_side surface_part::get_limb_side() const
 				{
 					return lside_;
 				}
 
-				std::shared_ptr<i_limb> surface_part::get_limb()
+				std::shared_ptr<i_limb> surface_part::get_limb() const
 				{
 					return limb_;
 				}
 
-				std::string surface_part::xml(unsigned int indent, std::string namesp)
+				std::string surface_part::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 
@@ -66,6 +66,16 @@ namespace mae
 
 					return sstr.str();
 
+				}
+
+				bool surface_part::equals(std::shared_ptr<i_part> a) const
+				{
+					if (std::shared_ptr<surface_part> a_casted = std::dynamic_pointer_cast<surface_part>(a))
+					{
+						return (lside_ == a_casted->get_limb_side() && limb_->equals(a_casted->get_limb()));
+					}
+
+					return false;
 				}
 
 			} // namespace ps

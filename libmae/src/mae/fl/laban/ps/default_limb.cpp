@@ -30,12 +30,12 @@ namespace mae
 				{
 				}
 
-				e_limb default_limb::get_limb()
+				e_limb default_limb::get_limb() const
 				{
 					return limb_;
 				}
 
-				std::string default_limb::xml(unsigned int indent, std::string namesp)
+				std::string default_limb::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 
@@ -67,6 +67,26 @@ namespace mae
 					sstr << indent_stream.str() << "</" << ns << "limb>" << std::endl;
 
 					return sstr.str();
+				}
+
+				bool default_limb::equals(std::shared_ptr<i_limb> a) const
+				{
+					if (std::shared_ptr<default_limb> a_casted = std::dynamic_pointer_cast<default_limb>(a))
+					{
+						return (limb_ == a_casted->get_limb());
+					}
+
+					return false;
+				}
+
+				bool default_limb::equals(std::shared_ptr<i_part> a) const
+				{
+					if (std::shared_ptr<i_limb> a_casted = std::dynamic_pointer_cast<i_limb>(a))
+					{
+						return equals(a_casted);
+					}
+
+					return false;
 				}
 
 			} // namespace ps

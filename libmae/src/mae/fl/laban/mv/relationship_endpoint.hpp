@@ -20,6 +20,7 @@
 #include <stdexcept>
 #include <string>
 #include <sstream>
+#include <unordered_map>
 
 namespace mae
 {
@@ -34,13 +35,16 @@ namespace mae
 				{
 					public:
 						//TODO doxygen
-						relationship_endpoint(unsigned int column, bool active, std::shared_ptr<ps::i_pre_sign> pre_sign = nullptr, std::shared_ptr<i_dynamics_sign> dynamics = nullptr);
+						relationship_endpoint(int column, bool active, std::shared_ptr<ps::i_pre_sign> pre_sign = nullptr, std::shared_ptr<i_dynamics_sign> dynamics = nullptr);
 						virtual ~relationship_endpoint();
 
-						unsigned int get_column();
-						std::shared_ptr<ps::i_pre_sign> get_pre_sign();
-						std::shared_ptr<i_dynamics_sign> get_dynamics();
-						bool get_active();
+						int get_column() const;
+
+						std::shared_ptr<ps::i_pre_sign> get_pre_sign() const;
+
+						std::shared_ptr<i_dynamics_sign> get_dynamics() const;
+
+						bool get_active() const;
 
 						/**
 						 * Returns the XML representation for this element.
@@ -52,8 +56,18 @@ namespace mae
 						 */
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
 
+						virtual std::shared_ptr<relationship_endpoint> recreate(std::unordered_map<int, int> column_mapping) const;
+
+						/**
+						 * Returns true if elements are equal.
+						 *
+						 * @param a The element to be compared to.
+						 * @return True if equal.
+						 */
+						virtual bool equals(std::shared_ptr<relationship_endpoint> a) const;
+
 					private:
-						unsigned int column_;
+						int column_;
 						std::shared_ptr<ps::i_pre_sign> pre_sign_;
 						std::shared_ptr<i_dynamics_sign> dynamics_;
 						bool active_;

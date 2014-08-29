@@ -26,16 +26,17 @@ namespace mae
 				{
 				}
 
-				e_side body_part::get_side()
+				e_side body_part::get_side() const
 				{
 					return side_;
 				}
-				std::shared_ptr<i_part> body_part::get_part()
+
+				std::shared_ptr<i_part> body_part::get_part() const
 				{
 					return part_;
 				}
 
-				std::string body_part::xml(unsigned int indent, std::string namesp)
+				std::string body_part::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 
@@ -68,6 +69,16 @@ namespace mae
 					sstr << indent_stream.str() << "</" << ns << "preSign>" << std::endl;
 
 					return sstr.str();
+				}
+
+				bool body_part::equals(std::shared_ptr<i_pre_sign> a) const
+				{
+					if (std::shared_ptr<body_part> a_casted = std::dynamic_pointer_cast<body_part>(a))
+					{
+						return (side_ == a_casted->get_side() && part_->equals(a_casted->get_part()));
+					}
+
+					return false;
 				}
 
 			} // namespace ps

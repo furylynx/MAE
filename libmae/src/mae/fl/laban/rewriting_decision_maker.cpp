@@ -31,13 +31,23 @@ namespace mae
 				std::shared_ptr<room_direction> b_rd;
 				std::shared_ptr<path> a_p;
 				std::shared_ptr<path> b_p;
+				std::shared_ptr<relationship_bow> a_rb;
+				std::shared_ptr<relationship_bow> b_rb;
 
 				if ((a_mov = std::dynamic_pointer_cast<movement>(a))
 						&& (b_mov = std::dynamic_pointer_cast<movement>(b)))
 				{
-					if (a_mov->get_symbol()->equals(b_mov->get_symbol()))
+
+					if (a_mov->get_symbol()->equals(b_mov->get_symbol()) && a_mov->get_hold() == b_mov->get_hold()
+							&& ((a_mov->get_pre_sign() == nullptr && b_mov->get_pre_sign() == nullptr)
+									|| (a_mov->get_pre_sign() != nullptr
+											&& a_mov->get_pre_sign()->equals(b_mov->get_pre_sign()))))
 					{
 						return true;
+					}
+					else
+					{
+						return false;
 					}
 				}
 				else if ((a_rd = std::dynamic_pointer_cast<room_direction>(a))
@@ -47,6 +57,10 @@ namespace mae
 					{
 						return true;
 					}
+					else
+					{
+						return false;
+					}
 				}
 				else if ((a_p = std::dynamic_pointer_cast<path>(a)) && (b_p = std::dynamic_pointer_cast<path>(b)))
 				{
@@ -54,10 +68,28 @@ namespace mae
 					{
 						return true;
 					}
+					else
+					{
+						return false;
+					}
+				}
+				else if ((a_rb = std::dynamic_pointer_cast<relationship_bow>(a))
+						&& (b_rb = std::dynamic_pointer_cast<relationship_bow>(b)))
+				{
+					if (a_rb->get_type() == b_rb->get_type() && a_rb->get_grasping() == b_rb->get_grasping()
+							&& a_rb->get_passing() == b_rb->get_passing() && a_rb->get_hold() == b_rb->get_hold()
+							&& a_rb->get_left_endpoint()->equals(b_rb->get_left_endpoint())
+							&& a_rb->get_right_endpoint()->equals(b_rb->get_right_endpoint()))
+					{
+						return true;
+					}
+					else
+					{
+						return false;
+					}
 				}
 
 				return false;
-
 			}
 
 			bool rewriting_decision_maker::distance_okay(std::shared_ptr<i_movement> dist_from, std::shared_ptr<i_movement> dist_to, std::shared_ptr<i_movement> check)

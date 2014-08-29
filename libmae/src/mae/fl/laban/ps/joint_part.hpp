@@ -19,6 +19,7 @@
 #include <string>
 #include <sstream>
 #include <stdexcept>
+#include <memory>
 
 
 namespace mae
@@ -45,7 +46,7 @@ namespace mae
 						 * Returns the addressed joint.
 						 * @return
 						 */
-						e_joint get_joint();
+						e_joint get_joint() const;
 
 						/**
 						 * Returns the XML representation for this element.
@@ -55,7 +56,30 @@ namespace mae
 						 *
 						 * @return The XML string.
 						 */
-						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "")  const;
+
+						/**
+						 * Returns the predecessor of the current endpoint (which is the default fixed endpoint). If the endpoint is the beginning of the extremity null is returned.
+						 *
+						 * @return The successor element.
+						 */
+						virtual std::shared_ptr<i_endpoint> get_fixed_end() const;
+
+						/**
+						 * Returns true if elements are equal.
+						 *
+						 * @param a The element to be compared to.
+						 * @return True if equal.
+						 */
+						virtual bool equals(std::shared_ptr<i_part> a) const;
+
+						/**
+						 * Returns true if elements are equal.
+						 *
+						 * @param a The element to be compared to.
+						 * @return True if equal.
+						 */
+						virtual bool equals(std::shared_ptr<i_endpoint> a) const;
 
 					private:
 						e_joint joint_;
