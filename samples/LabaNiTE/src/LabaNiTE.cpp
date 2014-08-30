@@ -23,6 +23,7 @@
 
 //fl : mae includes
 #include <mae/fl/fl_movement_controller.hpp>
+#include <mae/fl/laban/laban_sequence_reader.hpp>
 #include <mae/fl/bvh_controller.hpp>
 #include <mae/general_skeleton.hpp>
 
@@ -41,7 +42,7 @@ int main()
 	bool bvh_export = true;
 	unsigned int bvh_frames = 300; //30fps openni => 10 sec
 
-	bool print_sequence = true;
+	bool print_sequence = false;
 	unsigned int sequence_frames = 300;//30fps openni => 10 sec
 	std::string sequence_name = "mae_seq.laban";
 
@@ -49,6 +50,8 @@ int main()
 	bool show_demo = false;
 
 	bool read_stored_data = true;
+
+	bool try_recognition = true;
 
 
 
@@ -59,7 +62,6 @@ int main()
 
 	//movement controller
 	mae::fl::fl_movement_controller move = mae::fl::fl_movement_controller(sequence_frames+50);
-
 
 
 	if (show_demo)
@@ -74,6 +76,11 @@ int main()
 	{
 		std::shared_ptr<sequence_printer> nseq = std::shared_ptr<sequence_printer>(new sequence_printer(sequence_frames, sequence_name));
 		move.add_listener(nseq);
+	}
+
+	if (try_recognition)
+	{
+		move.register_sequence(mae::fl::laban::laban_sequence_reader().read_sequence_file(sequence_name));
 	}
 
 

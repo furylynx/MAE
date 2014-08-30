@@ -66,6 +66,7 @@ void test_recognition()
 
 	//TODO generate decision tree and check whether the recognition work at this point
 	mae::fl::laban::laban_sequence_recognizer recog = mae::fl::laban::laban_sequence_recognizer();
+	mae::fl::laban::decision_forest dummy_df = mae::fl::laban::decision_forest();
 
 	mae::fl::laban::laban_sequence_reader sr = mae::fl::laban::laban_sequence_reader();
 	std::shared_ptr<mae::fl::laban::laban_sequence> sequence_one = sr.read_sequence_file("/home/keks/sequence1.laban");
@@ -89,7 +90,7 @@ void test_recognition()
 
 
 	std::cout << "registered the sequences. Trying to recognize now..." << std::endl;
-	std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > recognized_sequences = recog.recognize_sequence(sequence_one, bones);
+	std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > recognized_sequences = recog.recognize_sequence(dummy_df.recreate_sequence(sequence_one), bones);
 
 	std::cout << "recognized " << (int)recognized_sequences.size() << " sequences: " << std::endl;
 	for (unsigned int i = 0; i < recognized_sequences.size() ; i++)

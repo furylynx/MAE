@@ -20,6 +20,7 @@
 
 #include "i_sequence_listener.hpp"
 #include "i_pose_listener.hpp"
+#include "i_recognition_listener.hpp"
 
 
 //global includes
@@ -60,9 +61,14 @@ namespace mae{
 				virtual void add_listener(std::shared_ptr<i_sequence_listener<U> > sequence_listener);
 				virtual void remove_listener(std::shared_ptr<i_sequence_listener<U> >  sequence_listener);
 
+				virtual void add_listener(std::shared_ptr<i_recognition_listener<U> > recognition_listener);
+				virtual void remove_listener(std::shared_ptr<i_recognition_listener<U> >  recognition_listener);
+
 				virtual void clear_listeners();
 
 				virtual void notify_sequence_listeners(long timestamp, std::shared_ptr<U> sequence);
+
+				virtual void notify_recognition_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences);
 
 				//todo event listener stuff
 
@@ -81,6 +87,7 @@ namespace mae{
 
 				//listeners
 				std::list<std::shared_ptr<i_sequence_listener<U> > > sequence_listeners_;
+				std::list<std::shared_ptr<i_recognition_listener<U> > > recognition_listeners_;
 
 		};
 
@@ -153,9 +160,12 @@ namespace mae{
 
 				if (isr_ != nullptr)
 				{
-					isr_->recognize_sequence(sequence, body_parts_);
+					std::vector<std::shared_ptr<U> > recognized = isr_->recognize_sequence(sequence, body_parts_);
 
-					//TODO notify on recognized sequence
+					if (recognized.size() > 0)
+					{
+						notify_recognition_listeners(timestamp, recognized);
+					}
 				}
 				else
 				{
@@ -259,6 +269,25 @@ namespace mae{
 		}
 
 		template <typename T, typename U>
+		void movement_controller<T, U>::add_listener(std::shared_ptr<i_recognition_listener<U> > recognition_listener)
+		{
+			recognition_listeners_.push_back(recognition_listener);
+		}
+
+		template <typename T, typename U>
+		void movement_controller<T, U>::remove_listener(std::shared_ptr<i_recognition_listener<U> >  recognition_listener)
+		{
+			for (typename std::list<std::shared_ptr<i_recognition_listener<U>>>::iterator it = recognition_listeners_.begin(); it != recognition_listeners_.end(); it++)
+			{
+				if (recognition_listener == *it)
+				{
+					recognition_listeners_.erase(it);
+					break;
+				}
+			}
+		}
+
+		template <typename T, typename U>
 		void movement_controller<T, U>::clear_listeners()
 		{
 			sequence_listeners_.clear();
@@ -277,6 +306,20 @@ namespace mae{
 			for (typename std::list<std::shared_ptr<i_sequence_listener<U> > >::iterator it = sequence_listeners_.begin(); it != sequence_listeners_.end(); it++)
 			{
 				(*it)->on_sequence(timestamp, sequence);
+			}
+		}
+
+		template <typename T, typename U>
+		void movement_controller<T, U>::notify_recognition_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences)
+		{
+			if (debug_ && recognition_listeners_.size() > 0)
+			{
+				std::cout << "movement_controller: notify (recognition) listeners" << std::endl;
+			}
+
+			for (typename std::list<std::shared_ptr<i_recognition_listener<U> > >::iterator it = recognition_listeners_.begin(); it != recognition_listeners_.end(); it++)
+			{
+				(*it)->on_recognition(timestamp, sequences);
 			}
 		}
 

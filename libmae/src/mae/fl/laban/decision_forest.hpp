@@ -89,6 +89,15 @@ namespace mae
 					virtual void clear();
 
 					/**
+					 * Recreates the sequence with adjusted beat duration, beats per measure and time unit. Additionally
+					 * the column definitions are adjusted.
+					 *
+					 * @param sequence The sequence to be recreated.
+					 * @return The new, adjusted sequence.
+					 */
+					std::shared_ptr<laban_sequence> recreate_sequence(std::shared_ptr<laban_sequence> sequence);
+
+					/**
 					 * Returns all registered sequences.
 					 *
 					 * @return All sequences.
@@ -127,14 +136,7 @@ namespace mae
 					 */
 					bool remove_sequence_p(std::shared_ptr<laban_sequence> sequence);
 
-					/**
-					 * Recreates the sequence with adjusted beat duration, beats per measure and time unit. Additionally
-					 * the column definitions are adjusted.
-					 *
-					 * @param sequence The sequence to be recreated.
-					 * @return The new, adjusted sequence.
-					 */
-					std::shared_ptr<laban_sequence> recreate_sequence(std::shared_ptr<laban_sequence> sequence);
+
 
 			};
 		} // namespace laban
