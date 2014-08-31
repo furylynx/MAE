@@ -33,17 +33,63 @@ namespace mae
 			{
 				public:
 					//TODO doxygen
+					/**
+					 * Creates a new relationship bow.
+					 *
+					 * @param type The realationship type.
+					 * @param grasping True if grasping.
+					 * @param passing True if passing.
+					 * @param hold True if hold.
+					 * @param measure The measure in which the bow lies.
+					 * @param beat The beat pos where the bow lies.
+					 * @param left_endpoint The bow's left endpoint.
+					 * @param right_endpoint The bow's right endpoint.
+					 */
 					relationship_bow(e_relationship_type type, bool grasping, bool passing, bool hold, unsigned int measure, double beat, std::shared_ptr<mv::relationship_endpoint> left_endpoint, std::shared_ptr<mv::relationship_endpoint> right_endpoint);
 					virtual ~relationship_bow();
 
 
-					e_relationship_type get_type();
-					bool get_grasping();
-					bool get_passing();
-					bool get_hold();
+					/**
+					 * Returns the relationship type.
+					 *
+					 * @return The type.
+ 					 */
+					e_relationship_type get_type() const;
 
-					std::shared_ptr<mv::relationship_endpoint> get_left_endpoint();
-					std::shared_ptr<mv::relationship_endpoint> get_right_endpoint();
+					/**
+					 * Returns the grasping flag.
+					 *
+					 * @return True if grasping. False otherwise.
+					 */
+					bool get_grasping() const;
+
+					/**
+					 * Returns the passing flag.
+					 *
+					 * @return True if passing. False otherwise.
+					 */
+					bool get_passing() const;
+
+					/**
+					 * Returns the hold flag.
+					 *
+					 * @return True if hold. False otherwise.
+					 */
+					bool get_hold() const;
+
+					/**
+					 * Returns the right endpoint.
+					 *
+					 * @return The right entpoint.
+					 */
+					std::shared_ptr<mv::relationship_endpoint> get_left_endpoint() const;
+
+					/**
+					 * Returns the left endpoint.
+					 *
+					 * @return The left entpoint.
+					 */
+					std::shared_ptr<mv::relationship_endpoint> get_right_endpoint() const;
 
 					/**
 					 * Returns the column this movement is attached to. Room direction
@@ -52,27 +98,27 @@ namespace mae
 					 *
 					 * @return The column id.
 					 */
-					virtual int get_column();
+					virtual int get_column() const;
 
 					/**
 					 * Returns the measure in which this symbols begins.
 					 * @return
 					 */
-					virtual unsigned int get_measure();
+					virtual unsigned int get_measure() const;
 
 					/**
 					 * Returns the beat in which this symbol begins.
 					 *
 					 * @return
 					 */
-					virtual double get_beat();
+					virtual double get_beat() const;
 
 					/**
 					 * Returns the duration of the symbol. Room direction symbols do not have a duration and will return 0.
 					 *
 					 * @return
 					 */
-					virtual double get_duration();
+					virtual double get_duration() const;
 
 
 					/**

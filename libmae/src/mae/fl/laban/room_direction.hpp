@@ -50,20 +50,20 @@ namespace mae
 					 *
 					 * @return
 					 */
-					virtual int get_column();
+					virtual int get_column() const;
 
 					/**
 					 * Returns the measure in which this symbol is placed.
 					 * @return
 					 */
-					virtual unsigned int get_measure();
+					virtual unsigned int get_measure() const;
 
 					/**
 					 * Returns the beat in which this symbol is placed.
 					 *
 					 * @return
 					 */
-					virtual double get_beat();
+					virtual double get_beat() const;
 
 					/**
 					 * Returns the duration of the symbol. Since a room direction symbol
@@ -71,14 +71,14 @@ namespace mae
 					 *
 					 * @return Zero.
 					 */
-					virtual double get_duration();
+					virtual double get_duration() const;
 
 					/**
 					 * Returns the room direction.
 					 *
 					 * @return
 					 */
-					std::shared_ptr<mv::pin> get_direction();
+					std::shared_ptr<mv::pin> get_direction() const;
 
 					/**
 					 * Returns the XML representation for this element.

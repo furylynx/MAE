@@ -46,53 +46,53 @@ namespace mae
 			{
 			}
 
-			e_relationship_type relationship_bow::get_type()
+			e_relationship_type relationship_bow::get_type() const
 			{
 				return type_;
 			}
 
-			bool relationship_bow::get_grasping()
+			bool relationship_bow::get_grasping() const
 			{
 				return grasping_;
 			}
 
-			bool relationship_bow::get_passing()
+			bool relationship_bow::get_passing() const
 			{
 				return passing_;
 			}
 
-			bool relationship_bow::get_hold()
+			bool relationship_bow::get_hold() const
 			{
 				return hold_;
 			}
 
-			std::shared_ptr<mv::relationship_endpoint> relationship_bow::get_left_endpoint()
+			std::shared_ptr<mv::relationship_endpoint> relationship_bow::get_left_endpoint() const
 			{
 				return left_endpoint_;
 			}
 
-			std::shared_ptr<mv::relationship_endpoint> relationship_bow::get_right_endpoint()
+			std::shared_ptr<mv::relationship_endpoint> relationship_bow::get_right_endpoint() const
 			{
 				return right_endpoint_;
 			}
 
 
-			int relationship_bow::get_column()
+			int relationship_bow::get_column() const
 			{
 				return 0;
 			}
 
-			unsigned int relationship_bow::get_measure()
+			unsigned int relationship_bow::get_measure() const
 			{
 				return measure_;
 			}
 
-			double relationship_bow::get_beat()
+			double relationship_bow::get_beat() const
 			{
 				return beat_;
 			}
 
-			double relationship_bow::get_duration()
+			double relationship_bow::get_duration() const
 			{
 				return 0;
 			}

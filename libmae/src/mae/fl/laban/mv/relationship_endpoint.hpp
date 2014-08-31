@@ -54,7 +54,7 @@ namespace mae
 						 *
 						 * @return The XML string.
 						 */
-						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") const;
 
 						/**
 						 * Recreates the element using the column mapping for the new columns.

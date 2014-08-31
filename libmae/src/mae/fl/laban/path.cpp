@@ -31,27 +31,27 @@ namespace mae
 			{
 			}
 
-			e_path_type path::get_type()
+			e_path_type path::get_type() const
 			{
 				return type_;
 			}
 
-			int path::get_column()
+			int path::get_column() const
 			{
 				return 0;
 			}
 
-			unsigned int path::get_measure()
+			unsigned int path::get_measure() const
 			{
 				return measure_;
 			}
 
-			double path::get_beat()
+			double path::get_beat() const
 			{
 				return beat_;
 			}
 
-			double path::get_duration()
+			double path::get_duration() const
 			{
 				return duration_;
 			}

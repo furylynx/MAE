@@ -45,37 +45,37 @@ namespace mae
 			{
 			}
 
-			int movement::get_column()
+			int movement::get_column() const
 			{
 				return column_;
 			}
 
-			unsigned int movement::get_measure()
+			unsigned int movement::get_measure() const
 			{
 				return measure_;
 			}
 
-			double movement::get_beat()
+			double movement::get_beat() const
 			{
 				return beat_;
 			}
 
-			double movement::get_duration()
+			double movement::get_duration() const
 			{
 				return duration_;
 			}
 
-			std::shared_ptr<ps::i_pre_sign> movement::get_pre_sign()
+			std::shared_ptr<ps::i_pre_sign> movement::get_pre_sign() const
 			{
 				return pre_sign_;
 			}
 
-			bool movement::get_hold()
+			bool movement::get_hold() const
 			{
 				return hold_;
 			}
 
-			std::shared_ptr<mv::i_symbol> movement::get_symbol()
+			std::shared_ptr<mv::i_symbol> movement::get_symbol() const
 			{
 				return symbol_;
 			}

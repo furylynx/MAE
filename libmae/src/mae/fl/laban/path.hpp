@@ -50,7 +50,7 @@ namespace mae
 					 *
 					 * @return
 					 */
-					e_path_type get_type();
+					e_path_type get_type() const;
 
 					/**
 					 * Returns the column to which this symbol was added. Since a path symbol is placed
@@ -58,26 +58,26 @@ namespace mae
 					 *
 					 * @return Zero.
 					 */
-					virtual int get_column();
+					virtual int get_column() const;
 
 					/**
 					 * Returns the measure in which this symbol is placed.
 					 * @return
 					 */
-					virtual unsigned int get_measure();
+					virtual unsigned int get_measure() const;
 
 					/**
 					 * Returns the beat where this symbol starts.
 					 * @return
 					 */
-					virtual double get_beat();
+					virtual double get_beat() const;
 
 					/**
 					 * Returns the duration of the symbol in beats.
 					 *
 					 * @return
 					 */
-					virtual double get_duration();
+					virtual double get_duration() const;
 
 					/**
 					 * Returns the XML representation for this element.

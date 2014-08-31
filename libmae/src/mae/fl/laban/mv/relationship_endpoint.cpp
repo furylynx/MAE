@@ -48,7 +48,7 @@ namespace mae
 					return active_;
 				}
 
-				std::string relationship_endpoint::xml(unsigned int indent, std::string namesp)
+				std::string relationship_endpoint::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 
