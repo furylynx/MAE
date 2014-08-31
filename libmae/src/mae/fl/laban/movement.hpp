@@ -55,48 +55,48 @@ namespace mae
 				 *
 				 * @return
 				 */
-				virtual int get_column();
+				virtual int get_column() const;
 
 				/**
 				 * Returns the measure in which this symbols begins.
 				 * @return
 				 */
-				virtual unsigned int get_measure();
+				virtual unsigned int get_measure() const;
 
 				/**
 				 * Returns the beat in which this symbol begins.
 				 *
 				 * @return
 				 */
-				virtual double get_beat();
+				virtual double get_beat() const;
 
 				/**
 				 * Returns the duration of the symbol.
 				 *
 				 * @return
 				 */
-				virtual double get_duration();
+				virtual double get_duration() const;
 
 				/**
 				 * Returns the pre sign if assigned. Returns null otherwise.
 				 *
 				 * @return
 				 */
-				std::shared_ptr<ps::i_pre_sign> get_pre_sign();
+				std::shared_ptr<ps::i_pre_sign> get_pre_sign() const;
 
 				/**
 				 * Returns true if a hold sign is attached.
 				 *
 				 * @return
 				 */
-				bool get_hold();
+				bool get_hold() const;
 
 				/**
 				 * Returns the movement symbol.
 				 *
 				 * @return
 				 */
-				std::shared_ptr<mv::i_symbol> get_symbol();
+				std::shared_ptr<mv::i_symbol> get_symbol() const;
 
 				/**
 				 * Returns the XML representation for this element.

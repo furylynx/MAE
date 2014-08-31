@@ -36,27 +36,27 @@ namespace mae
 			{
 			}
 
-			int room_direction::get_column()
+			int room_direction::get_column() const
 			{
 				return 0;
 			}
 
-			unsigned int room_direction::get_measure()
+			unsigned int room_direction::get_measure() const
 			{
 				return measure_;
 			}
 
-			double room_direction::get_beat()
+			double room_direction::get_beat() const
 			{
 				return beat_;
 			}
 
-			double room_direction::get_duration()
+			double room_direction::get_duration() const
 			{
 				return 0;
 			}
 
-			std::shared_ptr<mv::pin> room_direction::get_direction()
+			std::shared_ptr<mv::pin> room_direction::get_direction() const
 			{
 				return direction_;
 			}

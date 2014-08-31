@@ -39,27 +39,27 @@ namespace mae
 					 *
 					 * @return The column id.
 					 */
-					virtual int get_column() = 0;
+					virtual int get_column() const = 0;
 
 					/**
 					 * Returns the measure in which this symbols begins.
 					 * @return
 					 */
-					virtual unsigned int get_measure() = 0;
+					virtual unsigned int get_measure() const = 0;
 
 					/**
 					 * Returns the beat in which this symbol begins.
 					 *
 					 * @return
 					 */
-					virtual double get_beat() = 0;
+					virtual double get_beat() const = 0;
 
 					/**
 					 * Returns the duration of the symbol. Room direction symbols do not have a duration and will return 0.
 					 *
 					 * @return
 					 */
-					virtual double get_duration() = 0;
+					virtual double get_duration() const = 0;
 
 					/**
 					 * Returns the XML representation for this element.
