@@ -24,6 +24,7 @@
 #include <functional>
 #include <cctype>
 #include <locale>
+#include <iostream>
 
 
 namespace mae

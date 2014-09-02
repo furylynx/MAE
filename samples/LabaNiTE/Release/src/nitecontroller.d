@@ -4,6 +4,7 @@ src/nitecontroller.d: ../src/nitecontroller.cpp ../src/nitecontroller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/general_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy_element.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/e_bone.hpp \
@@ -34,6 +35,8 @@ src/nitecontroller.d: ../src/nitecontroller.cpp ../src/nitecontroller.hpp \
 /sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/mstr.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy_element.hpp:
 
