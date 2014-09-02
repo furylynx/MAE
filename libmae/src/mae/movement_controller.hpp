@@ -112,13 +112,13 @@ namespace mae{
 			buffer_size_ = pose_buffer_size;
 			no_buffer_size_update_ = false;
 
-			if (buffer_size_ > 1)
+			this->imd_ = imd;
+			this->isr_ = isr;
+
+			if (buffer_size_ > 1 && imd_ != nullptr)
 			{
 				imd_->set_buffer(buffer_size_);
 			}
-
-			this->imd_ = imd;
-			this->isr_ = isr;
 		}
 
 		template <typename T, typename U>
@@ -130,14 +130,15 @@ namespace mae{
 			buffer_size_ = pose_buffer_size;
 			no_buffer_size_update_ = false;
 
-			if (buffer_size_ > 1)
+			std::shared_ptr<kp_movement_detector<T,U> > imd_n(new kp_movement_detector<T,U>(ipd, isg, debug));
+			this->imd_ = imd_n;
+			this->isr_ = isr;
+
+			if (buffer_size_ > 1 && imd_ != nullptr)
 			{
 				imd_->set_buffer(buffer_size_);
 			}
 
-			std::shared_ptr<kp_movement_detector<T,U> > imd_n(new kp_movement_detector<T,U>(ipd, isg, debug));
-			this->imd_ = imd_n;
-			this->isr_ = isr;
 		}
 
 		template <typename T, typename U>
