@@ -20,11 +20,14 @@
 
 #include <mae/general_pose.hpp>
 #include <mae/i_pose_listener.hpp>
+#include <mae/i_recognition_listener.hpp>
+#include <mae/fl/laban/laban_sequence.hpp>
 //#include <model/general_skeleton.hpp>
 
 
 #include <memory>
 #include <sstream>
+#include <vector>
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
