@@ -5,6 +5,7 @@
  * Author: keks
  */
 #include "decision_forest.hpp"
+
 namespace mae
 {
 	namespace fl

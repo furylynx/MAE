@@ -8,8 +8,6 @@
 #ifndef NITE_DISPLAY_HPP_
 #define NITE_DISPLAY_HPP_
 
-//eclipse indexer fix
-
 
 //custom includes
 #include "sdl_controller.hpp"

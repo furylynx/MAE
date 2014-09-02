@@ -20,7 +20,6 @@
 #include <mae/i_recognition_listener.hpp>
 #include <mae/fl/laban/laban_sequence.hpp>
 
-
 namespace lni
 {
 

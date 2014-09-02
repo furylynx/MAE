@@ -22,7 +22,6 @@
 #include "i_pose_listener.hpp"
 #include "i_recognition_listener.hpp"
 
-
 //global includes
 #include <vector>
 #include <iostream>
