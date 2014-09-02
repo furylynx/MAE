@@ -340,8 +340,6 @@ namespace mae
 			std::vector<std::shared_ptr<decision_value<T, U> > > decision_node<T, U>::find_submatches(
 					std::vector<std::shared_ptr<T> > whole_sequence, int step, int end_pos, bool reverse_order)
 			{
-				std::cout << "step=" << step << std::endl;
-
 				if (end_pos < 0)
 				{
 					end_pos = whole_sequence.size() - 1;
@@ -369,11 +367,6 @@ namespace mae
 					{
 						result = matching_child->find_submatches(whole_sequence, step + 1, end_pos, reverse_order);
 					}
-					else
-					{
-						//TODO remove
-						std::cout << "no matching child found" << std::endl;
-					}
 				}
 
 				//dont just insert, but check the whole sequence for no further occurences before the end
@@ -381,12 +374,6 @@ namespace mae
 				//processed element (the decision element of the leaf node)
 				for (unsigned int i = 0; i < values_.size(); i++)
 				{
-					std::cout << "values_.at(i)->get_sequence().size() = " << values_.at(i)->get_sequence().size()
-							<< std::endl;
-					std::cout << "current_step=" << current_step << std::endl;
-					std::cout << "next_step=" << next_step << std::endl;
-					std::cout << "end_pos=" << end_pos << std::endl;
-					std::cout << "step=" << step << std::endl;
 					if (step >= end_pos - 1
 							|| decision_maker_->distance_okay(whole_sequence.at(current_step),
 									whole_sequence.at(next_step), values_.at(i)->get_sequence().front()))
@@ -394,7 +381,6 @@ namespace mae
 						result.push_back(values_.at(i));
 					}
 				}
-				std::cout << "done adding" << std::endl;
 
 				return result;
 			}
@@ -452,9 +438,6 @@ namespace mae
 			std::shared_ptr<decision_node<T, U> > decision_node<T, U>::get_matching_child(
 					std::shared_ptr<T> decision_item, std::shared_ptr<T> decision_item_predecessor)
 			{
-				//TODO remove
-				std::cout << "get_matching_child" << children_.size() << std::endl;
-
 				for (unsigned int i = 0; i < children_.size(); i++)
 				{
 					if (children_.at(i)->is_matching(decision_item, decision_item_predecessor, decision_item_))

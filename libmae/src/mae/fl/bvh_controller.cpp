@@ -335,7 +335,7 @@ namespace mae
 			int element_count = 0;
 
 			std::pair<std::string::size_type, std::string::size_type> pos_root = mstr::find_line(tmp, "root");
-			std::string el_root = mstr::trim(std::string(bvh_str, pos_root.first + 4, pos_root.second));
+			std::string el_root = mstr::trim(std::string(bvh_str, pos_root.first + 4, pos_root.second - 4));
 
 			//get root element for hierarchy
 			element_count++;
@@ -357,6 +357,7 @@ namespace mae
 			std::string::size_type read_pos = pos_root.first + pos_root.second;
 			int el_parent = hy_root->get_id();
 			hierarchy_element* h_parent = hy_root.get();
+			offset_skel->set_joint(9, std::shared_ptr<general_joint>(new general_joint(0,0,0)));
 
 			while (read_depth > 0)
 			{
@@ -389,12 +390,13 @@ namespace mae
 				}
 				else
 				{
-					std::string el_joint = mstr::trim(std::string(bvh_str, pos_joint.first + 5, pos_joint.second));
+					std::string el_joint = mstr::trim(std::string(bvh_str, pos_joint.first + 5, pos_joint.second - 5));
 
 					element_count++;
 
 					//update read pos
 					read_pos = pos_joint.first + pos_joint.second;
+
 					std::shared_ptr<general_joint> el_gj = parse_offset(tmp, (unsigned int) read_pos,
 							offset_skel->get_joint(el_parent));
 
@@ -485,7 +487,7 @@ namespace mae
 
 			std::pair<std::string::size_type, std::string::size_type> pos_frames = mstr::find_line(tmp, "frames:",
 					pos_motion);
-			int frames = std::stoi(std::string(tmp, pos_frames.first + 7, pos_frames.second));
+			int frames = std::stoi(std::string(tmp, pos_frames.first + 7, pos_frames.second-7));
 
 			std::string::size_type pos_motion_data = pos_frames.first + pos_frames.second + 1;
 
@@ -494,7 +496,7 @@ namespace mae
 					"frame time:", pos_motion_data);
 
 			//frames
-			frame_time = std::stod(std::string(tmp, pos_frame_time.first + 12, pos_frame_time.second));
+			frame_time = std::stod(std::string(tmp, pos_frame_time.first + 12, pos_frame_time.second - 12));
 			pos_motion_data = pos_frame_time.first + pos_frame_time.second + 1;
 
 			std::istringstream tmp_sstr(std::string(tmp, pos_motion_data));
@@ -505,6 +507,7 @@ namespace mae
 				std::getline(tmp_sstr, line);
 
 				std::shared_ptr<general_skeleton> next_skel = std::shared_ptr<general_skeleton>(new general_skeleton());
+				next_skel->set_joint(hy_root->get_id(), std::shared_ptr<general_joint>(new general_joint(0,0,0)));
 
 				std::vector<double> motion = mstr::double_list(line);
 

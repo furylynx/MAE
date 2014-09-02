@@ -327,9 +327,6 @@ namespace mae
 						//column sequence for the body part is empty
 						//search for other sequences that have this empty column too
 
-						//TODO remove
-						std::cout << "column sequence is empty" << std::endl;
-
 						for (std::list<std::shared_ptr<laban_sequence> >::iterator it = sequences_.begin(); it != sequences_.end(); it++)
 						{
 							if ((*it)->get_column_movements(body_part).size() == 0)
@@ -343,28 +340,29 @@ namespace mae
 					{
 						//column sequence is not empty therefore search the tree which has a match with the last item of the sequence
 						std::shared_ptr<i_movement> decision_item = column_sequence.back();
-						std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > tree_list = trees_.at(
-								body_part);
+						std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > tree_list;
+
+						if (trees_.find(body_part) != trees_.end())
+						{
+							tree_list = trees_.at(body_part);
+						}
 
 						for (unsigned int j = 0; j < tree_list.size(); j++)
 						{
 							if (decision_maker_->decide(decision_item, nullptr,
 									tree_list.at(j)->get_root()->get_decision_item(), nullptr))
 							{
-								//TODO remove
-								std::cout << "find match on column " << body_part << std::endl;
-
 								//find submatches in reverse order
 								tmp_seqs = tree_list.at(j)->find_submatches(column_sequence, 0, -1, true);
 							}
 						}
 					}
 
-					//TODO remove
-					std::cout << "matches for column " << body_part << ": " << tmp_seqs.size() << std::endl;
 
 					if (result.size() == 0)
 					{
+						//first time for insertion therefore
+
 						for (unsigned int j = 0; j < tmp_seqs.size(); j++)
 						{
 							result.push_back(tmp_seqs.at(j)->get_value());
@@ -386,6 +384,13 @@ namespace mae
 							}
 						}
 						result = tmp_result;
+					}
+
+					if (result.size() == 0)
+					{
+						//no match found therefore no further processing is necessary
+
+						return result;
 					}
 
 				}
