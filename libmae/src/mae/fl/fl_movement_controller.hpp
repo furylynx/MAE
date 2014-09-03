@@ -34,7 +34,8 @@
 namespace mae {
 	namespace fl {
 
-		class fl_movement_controller : public movement_controller<fl_skeleton, laban::laban_sequence>{
+		class fl_movement_controller : public movement_controller<fl_skeleton, laban::laban_sequence>
+		{
 			public:
 				/**
 				 * Creates a new controller for movements analysis based on Labanotation and fl_skeletons.
