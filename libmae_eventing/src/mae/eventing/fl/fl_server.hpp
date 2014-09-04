@@ -32,10 +32,6 @@ namespace mae
 					fl_server(uint16_t port = server<mae::fl::laban::laban_sequence>::get_default_port(), std::string password = "");
 					virtual ~fl_server();
 
-
-				private:
-
-
 			};
 
 		} // namespace fl

@@ -27,7 +27,7 @@ namespace mae
 		class i_sequence_serializer
 		{
 			public:
-				i_sequence_serializer();
+				virtual ~i_sequence_serializer(){}
 
 				/**
 				 * Serializes the sequence so that it can be printed to a string.
@@ -36,6 +36,14 @@ namespace mae
 				 * @return The string containing the serialized sequence.
 				 */
 				virtual std::string serialize(std::shared_ptr<U> sequence) = 0;
+
+				/**
+				 * Deserializes the sequence so that it can be registered to the engine.
+				 *
+				 * @param sequence The serialized sequence string.
+				 * @return The sequence object.
+				 */
+				virtual std::shared_ptr<U> deserialize(std::string sequence) = 0;
 		};
 
 	} // namespace eventing
