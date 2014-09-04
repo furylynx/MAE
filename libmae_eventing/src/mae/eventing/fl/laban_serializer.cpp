@@ -27,6 +27,13 @@ namespace mae
 				return sequence->xml();
 			}
 
+			std::shared_ptr<mae::fl::laban::laban_sequence> laban_serializer::deserialize(std::string sequence)
+			{
+				//TODO do stuff in here
+
+				return nullptr;
+			}
+
 		} // namespace fl
 	} // namespace eventing
 } // namespace mae
