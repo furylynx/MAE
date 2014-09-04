@@ -38,6 +38,14 @@ namespace mae
 					 */
 					virtual std::string serialize(std::shared_ptr<mae::fl::laban::laban_sequence> sequence);
 
+					/**
+					 * Deserializes the sequence so that it can be registered to the engine.
+					 *
+					 * @param sequence The serialized sequence string.
+					 * @return The sequence object.
+					 */
+					virtual std::shared_ptr<mae::fl::laban::laban_sequence> deserialize(std::string sequence);
+
 			};
 
 		} // namespace fl
