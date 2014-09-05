@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema targetNamespace="http://www.example.org/maeeventing"
 	elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns:mae="http://www.example.org/maeeventing">
+	xmlns:mae="http://www.example.org/maeeventing"
+	>
 
-	<!-- TODO register socket 
-	
-	notification type : short (only score's name or ID) or normal (XML)
-	
-	
-	
-	
-	-->
+	<!-- THE ROOT ELEMENT -->
+	<xsd:element name="message" type="maee:message" maxOccurs="1" minOccurs="1" />
+	<xsd:complexType name="message">
+		<xsd:sequence>
+		<xsd:element name="type" type="maee:messagetype" maxOccurs="1" minOccurs="1" />
+			<xsd:simpleType name="messagetype">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="short" />
+					<xsd:enumeration value="normal" />
+				</xsd:restriction>
+			</xsd:simpleType>
+		<xsd:element name="password" type="xsd:string" maxOccurs="1" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>

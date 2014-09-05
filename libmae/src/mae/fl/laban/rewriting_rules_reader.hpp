@@ -19,6 +19,7 @@
 #include "mv/direction_symbol.hpp"
 
 #include "../../mbool.hpp"
+#include "../../mxml.hpp"
 
 
 //global includes
@@ -63,19 +64,6 @@ namespace mae
 
 
 				private:
-					/**
-					 * Returns the correct xpath.
-					 *
-					 * @param element The element to be prefixed.
-					 * @param nsp The namespace
-					 * @return The xpath.
-					 */
-					std::string get_xpath(std::string element, std::string nsp = "");
-
-					std::string get_node_content(xmlpp::Node* parent_node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string element, std::string nsp, std::string default_return);
-
-					std::vector<std::string> get_node_contents(xmlpp::Node* parent_node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string element, std::string nsp, std::string default_return);
-
 					std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > read_rule(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
 
 					std::vector<std::shared_ptr<i_movement> > read_rule_sequence(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);

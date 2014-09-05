@@ -98,8 +98,8 @@ namespace mae
 				 * @param spec The specification for the reader.
 				 * @return The skeleton data.
 				 */
-				virtual std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> read_bvh_str(std::string bvh_str, std::shared_ptr<bvh_spec> spec = std::shared_ptr<bvh_spec>());
-				virtual std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> read_bvh_file(std::string filename, std::shared_ptr<bvh_spec> spec = std::shared_ptr<bvh_spec>());
+				virtual std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> read_bvh_str(std::string bvh_str, std::shared_ptr<bvh_spec> spec);
+				virtual std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> read_bvh_file(std::string filename, std::shared_ptr<bvh_spec> spec);
 
 			private:
 				/**

@@ -63,7 +63,7 @@
 	
 	<!-- THE ROOT ELEMENT -->
 	<xsd:element name="rewritingrules" type="labanrw:rewritingrules" maxOccurs="1" minOccurs="1" />
-	<xsd:complexType name="rule">
+	<xsd:complexType name="rewritingrules">
 		<xsd:sequence>
 		<xsd:element name="version" type="xsd:string" maxOccurs="1" minOccurs="1" />
 		<xsd:element name="title" type="xsd:string" maxOccurs="1" minOccurs="0" />

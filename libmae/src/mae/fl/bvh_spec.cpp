@@ -12,11 +12,16 @@ namespace mae
 	namespace fl
 	{
 
-		bvh_spec::bvh_spec(std::unordered_map<std::string, int> string_id_map,
+		bvh_spec::bvh_spec(std::string left_anchor, std::string right_anchor, std::string top_anchor, std::string bottom_anchor, std::unordered_map<std::string, int> string_id_map,
 				std::unordered_map<std::string, bool> string_torso_map)
 		{
-			this->string_id_map_ = string_id_map;
-			this->string_torso_map_ = string_torso_map;
+			left_anchor_ = left_anchor;
+			right_anchor_ = right_anchor;
+			top_anchor_ = top_anchor;
+			bottom_anchor_ = bottom_anchor;
+
+			string_id_map_ = string_id_map;
+			string_torso_map_ = string_torso_map;
 		}
 
 		bvh_spec::~bvh_spec()
@@ -31,6 +36,26 @@ namespace mae
 		std::unordered_map<std::string, bool> bvh_spec::get_torso_map() const
 		{
 			return string_torso_map_;
+		}
+
+		std::string bvh_spec::get_left_anchor()
+		{
+			return left_anchor_;
+		}
+
+		std::string bvh_spec::get_right_anchor()
+		{
+			return right_anchor_;
+		}
+
+		std::string bvh_spec::get_top_anchor()
+		{
+			return top_anchor_;
+		}
+
+		std::string bvh_spec::get_bottom_anchor()
+		{
+			return bottom_anchor_;
 		}
 
 		std::shared_ptr<bvh_spec> bvh_spec::default_spec()
@@ -50,7 +75,20 @@ namespace mae
 			string_id_map.insert(std::make_pair("end site#4", e_joint_c::to_int(e_joint::END_RF)));
 			string_id_map.insert(std::make_pair("end site#5", e_joint_c::to_int(e_joint::END_H)));
 
-			return std::shared_ptr<bvh_spec>(new bvh_spec(string_id_map, std::unordered_map<std::string, bool>()));
+			std::unordered_map<std::string, bool> string_torso_map;
+			string_torso_map.insert(std::make_pair(mstr::to_lower(e_joint_c::str(e_joint::TORSO)), true));
+			string_torso_map.insert(std::make_pair(mstr::to_lower(e_joint_c::str(e_joint::LEFT_SHOULDER)), true));
+			string_torso_map.insert(std::make_pair(mstr::to_lower(e_joint_c::str(e_joint::RIGHT_SHOULDER)), true));
+			string_torso_map.insert(std::make_pair(mstr::to_lower(e_joint_c::str(e_joint::LEFT_HIP)), true));
+			string_torso_map.insert(std::make_pair(mstr::to_lower(e_joint_c::str(e_joint::RIGHT_HIP)), true));
+			string_torso_map.insert(std::make_pair(mstr::to_lower(e_joint_c::str(e_joint::NECK)), true));
+
+			std::string left_anchor = mstr::to_lower(e_joint_c::str(e_joint::LEFT_SHOULDER));
+			std::string right_anchor = mstr::to_lower(e_joint_c::str(e_joint::RIGHT_SHOULDER));
+			std::string top_anchor = mstr::to_lower(e_joint_c::str(e_joint::NECK));
+			std::string bottom_anchor = mstr::to_lower(e_joint_c::str(e_joint::TORSO));
+
+			return std::shared_ptr<bvh_spec>(new bvh_spec(left_anchor, right_anchor, top_anchor, bottom_anchor, string_id_map, string_torso_map));
 		}
 
 	} // namespace fl

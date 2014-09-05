@@ -22,7 +22,19 @@
 #include <mae/e_joint.hpp>
 #include <mae/fl/laban/laban_sequence_recognizer.hpp>
 
+#include <mae/fl/bvh_controller.hpp>
 
+
+void test_bvh()
+{
+
+	mae::fl::bvh_controller bvh_c;
+	std::vector<std::shared_ptr<mae::general_skeleton> > skels = bvh_c.read_bvh_file("/home/keks/whole_sequence.bvh", mae::fl::bvh_spec::default_spec()).first;
+	//skels.at(40)->ply_file("/home/keks/whole_f40.ply");
+	//std::cout << skels.at(0)->get_hierarchy()->str() << std::endl;
+	bvh_c.print_bvh_file(skels, "/home/keks/whole_sequence_rewritten.bvh");
+
+}
 
 void test_hierarchy()
  {
@@ -100,6 +112,11 @@ void test_recognition()
 
 }
 
+void test_sockets()
+{
+	//TODO test sockets
+}
+
 int main() {
 
 	// prints Hello
@@ -114,7 +131,9 @@ int main() {
 
 	//test_hierarchy();
 	//test_sequence();
-	test_recognition();
+	//test_recognition();
+	//test_bvh();
+	test_sockets();
 
 	std::cout << "done" << std::endl;
 	return 0;
