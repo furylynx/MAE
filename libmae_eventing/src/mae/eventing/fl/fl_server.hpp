@@ -26,7 +26,7 @@ namespace mae
 		namespace fl
 		{
 
-			class fl_server: public server<mae::fl::laban::laban_sequence>, public i_sequence_serializer<mae::fl::laban::laban_sequence>
+			class fl_server: public server<mae::fl::laban::laban_sequence>
 			{
 				public:
 					fl_server(uint16_t port = server<mae::fl::laban::laban_sequence>::get_default_port(), std::string password = "");
