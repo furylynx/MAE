@@ -24,6 +24,8 @@
 
 #include <mae/fl/bvh_controller.hpp>
 
+#include <mae/eventing/fl/fl_server.hpp>
+
 
 void test_bvh()
 {
@@ -115,6 +117,11 @@ void test_recognition()
 void test_sockets()
 {
 	//TODO test sockets
+	mae::eventing::fl::fl_server server();
+
+	while(true)
+		;//do nothing
+
 }
 
 int main() {
