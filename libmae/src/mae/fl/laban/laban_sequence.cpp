@@ -121,8 +121,7 @@ namespace mae
 
 			void laban_sequence::set_column_definitions(std::vector<std::shared_ptr<column_definition> > col_defs)
 			{
-				column_definitions_map_.clear();
-				column_definitions_vec_.clear();
+				clear_column_definitions();
 
 				for (unsigned int i = 0; i < col_defs.size(); i++)
 				{
@@ -162,11 +161,21 @@ namespace mae
 				}
 			}
 
+			void laban_sequence::clear_column_definitions()
+			{
+				if (i_movements_vec_.size() > 0)
+				{
+					throw std::runtime_error("laban_sequence: Cannot clear the column definitions because there are already movements registered. Clear movements first.");
+				}
+
+				column_definitions_map_.clear();
+				column_definitions_vec_.clear();
+			}
+
+
 			void laban_sequence::set_movements(std::vector<std::shared_ptr<i_movement> > movements)
 			{
-				i_movements_vec_.clear();
-				movements_vec_.clear();
-				movements_map_.clear();
+				clear_movements();
 
 				for (unsigned int i = 0; i < movements.size(); i++)
 				{
@@ -196,6 +205,12 @@ namespace mae
 					}
 
 					movements_vec_.push_back(mov);
+
+					if (last_movement_ == nullptr || (last_movement_->get_measure() < mov->get_measure() || (last_movement_->get_measure() == mov->get_measure()
+							&& last_movement_->get_beat() < mov->get_beat())))
+					{
+						last_movement_ = i_mov;
+					}
 
 					std::vector<std::shared_ptr<i_movement> > col;
 					if (movements_map_.find(mov->get_column()) != movements_map_.end())
@@ -247,67 +262,98 @@ namespace mae
 				}
 			}
 
-			std::string laban_sequence::xml() const
+			std::shared_ptr<i_movement> laban_sequence::get_last_movement() const
 			{
+				return last_movement_;
+			}
+
+			void laban_sequence::clear_movements()
+			{
+				i_movements_vec_.clear();
+				movements_vec_.clear();
+				movements_map_.clear();
+				last_movement_ = nullptr;
+			}
+
+			std::string laban_sequence::xml(bool no_header, unsigned int indent, std::string namesp) const
+			{
+				std::stringstream sstr_indent;
+
+				for (unsigned int i = 0; i < indent; i++)
+				{
+					sstr_indent << "\t";
+				}
+				std::string str_indent = sstr_indent.str();
+
+				std::string namesp_r = namesp;
+				if (namesp.size() > 0)
+				{
+					namesp_r.append(":");
+				}
+
+
+
 				std::stringstream sstr;
 
 				//set fixed decimals and precision
 				sstr << std::fixed << std::setprecision(2);
 
 				//print xml header
-				sstr << "<?xml version=\"1.0\"?>" << std::endl;
+				if (!no_header)
+				{
+					sstr << str_indent << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" << std::endl;
+				}
 
 				//print score tag
-				sstr
-						<< "<laban:score xmlns:laban=\"http://www.example.org/labanotation\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/labanotation labanotation.xsd \">"
+				sstr << str_indent << "<" << namesp_r << "score xmlns:laban=\"http://www.example.org/labanotation\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/labanotation labanotation.xsd \">"
 						<< std::endl;
 
 				//print header
-				sstr << "\t" << "<laban:version>" << version_ << "</laban:version>" << std::endl;
+				sstr << str_indent << "\t" << "<" << namesp_r << "version>" << version_ << "</" << namesp_r << "version>" << std::endl;
 
 				for (unsigned int i = 0; i < authors_.size(); i++)
 				{
-					sstr << "\t" << "<laban:author>" << authors_.at(i) << "</laban:author>" << std::endl;
+					sstr << str_indent << "\t" << "<" << namesp_r << "author>" << authors_.at(i) << "</" << namesp_r << "author>" << std::endl;
 				}
-				sstr << "\t" << "<laban:title>" << title_ << "</laban:title>" << std::endl;
-				sstr << "\t" << "<laban:description>" << description_ << "</laban:description>" << std::endl;
+				sstr << str_indent << "\t" << "<" << namesp_r << "title>" << title_ << "</" << namesp_r << "title>" << std::endl;
+				sstr << str_indent << "\t" << "<" << namesp_r << "description>" << description_ << "</" << namesp_r << "description>" << std::endl;
 
 				//print staff
-				sstr << "\t" << "<laban:staff>" << std::endl;
+				sstr << str_indent << "\t" << "<" << namesp_r << "staff>" << std::endl;
 
 				//print staff header
-				sstr << "\t\t" << "<laban:measures>" << measures_ << "</laban:measures>" << std::endl;
-				sstr << "\t\t" << "<laban:timing>" << std::endl;
-				sstr << "\t\t\t" << "<laban:timeUnit>" << e_time_unit_c::str(time_unit_) << "</laban:timeUnit>"
+				sstr << str_indent << "\t\t" << "<" << namesp_r << "measures>" << measures_ << "</" << namesp_r << "measures>" << std::endl;
+				sstr << str_indent << "\t\t" << "<" << namesp_r << "timing>" << std::endl;
+				sstr << str_indent << "\t\t\t" << "<" << namesp_r << "timeUnit>" << e_time_unit_c::str(time_unit_) << "</" << namesp_r << "timeUnit>"
 						<< std::endl;
-				sstr << "\t\t\t" << "<laban:measure>" << std::endl;
-				sstr << "\t\t\t\t" << "<laban:index>" << 0 << "</laban:index>" << std::endl;
-				sstr << "\t\t\t\t" << "<laban:beatDuration>" << beat_duration_ << "</laban:beatDuration>" << std::endl;
-				sstr << "\t\t\t\t" << "<laban:beats>" << beats_ << "</laban:beats>" << std::endl;
-				sstr << "\t\t\t" << "</laban:measure>" << std::endl;
-				sstr << "\t\t" << "</laban:timing>" << std::endl;
+				sstr << str_indent << "\t\t\t" << "<" << namesp_r << "measure>" << std::endl;
+				sstr << str_indent << "\t\t\t\t" << "<" << namesp_r << "index>" << 0 << "</" << namesp_r << "index>" << std::endl;
+				sstr << str_indent << "\t\t\t\t" << "<" << namesp_r << "beatDuration>" << beat_duration_ << "</" << namesp_r << "beatDuration>" << std::endl;
+				sstr << str_indent << "\t\t\t\t" << "<" << namesp_r << "beats>" << beats_ << "</" << namesp_r << "beats>" << std::endl;
+				sstr << str_indent << "\t\t\t" << "</" << namesp_r << "measure>" << std::endl;
+				sstr << str_indent << "\t\t" << "</" << namesp_r << "timing>" << std::endl;
 
 				//print columns
-				sstr << "\t\t" << "<laban:columns>" << std::endl;
+				sstr << str_indent << "\t\t" << "<" << namesp_r << "columns>" << std::endl;
 				for (unsigned int i = 0; i < column_definitions_vec_.size(); i++)
 				{
-					sstr << column_definitions_vec_.at(i)->xml(3, "laban");
+					sstr << column_definitions_vec_.at(i)->xml(indent + 3, namesp);
 				}
-				sstr << "\t\t" << "</laban:columns>" << std::endl;
+				sstr << str_indent << "\t\t" << "</" << namesp_r << "columns>" << std::endl;
 
 				//print movements
-				sstr << "\t\t" << "<laban:movements>" << std::endl;
+				sstr << str_indent << "\t\t" << "<" << namesp_r << "movements>" << std::endl;
 				for (unsigned int i = 0; i < i_movements_vec_.size(); i++)
 				{
-					sstr << i_movements_vec_.at(i)->xml(3, "laban");
+					sstr << i_movements_vec_.at(i)->xml(indent + 3, namesp);
 				}
-				sstr << "\t\t" << "</laban:movements>" << std::endl;
+				sstr << str_indent << "\t\t" << "</" << namesp_r << "movements>" << std::endl;
 
 				//close staff
-				sstr << "\t" << "</laban:staff>" << std::endl;
+				sstr << str_indent << "\t" << "</" << namesp_r << "staff>" << std::endl;
 
 				//close score tag
-				sstr << "</laban:score>" << std::endl;
+				sstr << str_indent << "</" << namesp_r << "score>" << std::endl;
 
 				return sstr.str();
 			}
