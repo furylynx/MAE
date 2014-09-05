@@ -7,7 +7,6 @@
 
 #include "bvh_controller.hpp"
 
-
 namespace mae
 {
 	namespace fl
@@ -261,8 +260,8 @@ namespace mae
 						//rotation
 						cv::Vec3d angles = math::rotation_angles_zxy(old_vec, new_vec);
 						sstr << std::setprecision(2) << math::rad_to_deg(angles[0]) << " " << std::setprecision(2)
-								<< math::rad_to_deg(angles[1]) << " " << std::setprecision(2) << math::rad_to_deg(angles[2])
-								<< " ";
+								<< math::rad_to_deg(angles[1]) << " " << std::setprecision(2)
+								<< math::rad_to_deg(angles[2]) << " ";
 
 						//update rotation matrix
 						rotations.insert(
@@ -304,16 +303,14 @@ namespace mae
 			return print_bvh_file(result, filename);
 		}
 
-		std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> bvh_controller::read_bvh_str(std::string bvh_str,
-				std::shared_ptr<bvh_spec> spec)
+		std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> bvh_controller::read_bvh_str(
+				std::string bvh_str, std::shared_ptr<bvh_spec> spec)
 		{
 			std::unordered_map<std::string, int> joint_str;
 			std::unordered_map<std::string, bool> joint_torso;
-			if (spec)
-			{
-				joint_str = spec->get_id_map();
-				joint_torso = spec->get_torso_map();
-			}
+
+			joint_str = spec->get_id_map();
+			joint_torso = spec->get_torso_map();
 
 			//frame time
 			double frame_time = 0.33333;
@@ -340,7 +337,8 @@ namespace mae
 
 			//get root element for hierarchy
 			element_count++;
-			std::shared_ptr<hierarchy_element> hy_root = generate_hierarchy_element(spec, element_count, el_root, false);
+			std::shared_ptr<hierarchy_element> hy_root = generate_hierarchy_element(spec, element_count, el_root,
+					false);
 
 			//parse root offset
 			offset_skel->set_joint(hy_root->get_id(),
@@ -358,7 +356,6 @@ namespace mae
 			std::string::size_type read_pos = pos_root.first + pos_root.second;
 			int el_parent = hy_root->get_id();
 			hierarchy_element* h_parent = hy_root.get();
-			offset_skel->set_joint(9, std::shared_ptr<general_joint>(new general_joint(0,0,0)));
 
 			while (read_depth > 0)
 			{
@@ -406,8 +403,8 @@ namespace mae
 					{
 						el_dummy = true;
 					}
-					std::shared_ptr<hierarchy_element> hy_element = generate_hierarchy_element(spec, element_count, el_joint,
-							el_dummy);
+					std::shared_ptr<hierarchy_element> hy_element = generate_hierarchy_element(spec, element_count,
+							el_joint, el_dummy);
 					h_parent->push_back(hy_element);
 
 					//parse offset
@@ -457,8 +454,8 @@ namespace mae
 						read_pos = tmp.find("}", read_pos);
 						if (read_pos == std::string::npos)
 						{
-							std::cout << "no closing bracket found for end effector. el_joint: "
-									<< hy_end->get_name() << std::endl;
+							std::cout << "no closing bracket found for end effector. el_joint: " << hy_end->get_name()
+									<< std::endl;
 							//no closing bracket found, therefore syntax error
 							return std::make_pair(skeletons, frame_time);
 						}
@@ -466,14 +463,62 @@ namespace mae
 					}
 					read_depth++;
 				}
-
 			}
 			std::shared_ptr<hierarchy> hy = std::shared_ptr<hierarchy>(new hierarchy(hy_root));
+			offset_skel->set_hierarchy(hy);
+
+			//get anchors and define right-left and top-down direction for the skeleton
+			bool left_anchor_undef = true;
+			int left_anchor_id = -1;
+			bool right_anchor_undef = true;
+			int right_anchor_id = -1;
+			bool top_anchor_undef = true;
+			int top_anchor_id = -1;
+			bool down_anchor_undef = true;
+			int down_anchor_id = -1;
+			std::vector<std::shared_ptr<hierarchy_element> > hy_els = hy->get_element_sequence();
+			for (unsigned int i = 0; i < hy_els.size(); i++)
+			{
+				if (left_anchor_undef && mstr::to_lower(hy_els.at(i)->get_name()) == spec->get_left_anchor())
+				{
+					left_anchor_id = hy_els.at(i)->get_id();
+					left_anchor_undef = false;
+				}
+				else if (right_anchor_undef && mstr::to_lower(hy_els.at(i)->get_name()) == spec->get_right_anchor())
+				{
+					right_anchor_id = hy_els.at(i)->get_id();
+					right_anchor_undef = false;
+				}
+				else if (top_anchor_undef && mstr::to_lower(hy_els.at(i)->get_name()) == spec->get_top_anchor())
+				{
+					top_anchor_id = hy_els.at(i)->get_id();
+					top_anchor_undef = false;
+				}
+				else if (down_anchor_undef && mstr::to_lower(hy_els.at(i)->get_name()) == spec->get_bottom_anchor())
+				{
+					down_anchor_id = hy_els.at(i)->get_id();
+					down_anchor_undef = false;
+				}
+
+				if (!left_anchor_undef && !right_anchor_undef && !top_anchor_undef && !down_anchor_undef)
+				{
+					break;
+				}
+			}
+
+			if (left_anchor_undef || right_anchor_undef || top_anchor_undef || down_anchor_undef)
+			{
+				std::invalid_argument("At least one anchor could not be found!");
+			}
+
+			offset_skel->set_right_left(
+					std::shared_ptr<bone>(
+							new bone(bone::RESERVED_RIGHT_LEFT, "RIGHT_LEFT", right_anchor_id, left_anchor_id)));
+			offset_skel->set_top_down(
+					std::shared_ptr<bone>(
+							new bone(bone::RESERVED_TOP_DOWN, "TOP_DOWN", top_anchor_id, down_anchor_id)));
 
 			//offset skeleton is not stored. It's just for calculating the other ones
-			//skeletons.push_back(offset_skel);
-
-			//return std::make_pair(skeletons, frame_time);
 
 			//------------------------------
 			// read motion data
@@ -488,7 +533,7 @@ namespace mae
 
 			std::pair<std::string::size_type, std::string::size_type> pos_frames = mstr::find_line(tmp, "frames:",
 					pos_motion);
-			int frames = std::stoi(std::string(tmp, pos_frames.first + 7, pos_frames.second-7));
+			int frames = std::stoi(std::string(tmp, pos_frames.first + 7, pos_frames.second - 7));
 
 			std::string::size_type pos_motion_data = pos_frames.first + pos_frames.second + 1;
 
@@ -507,8 +552,14 @@ namespace mae
 				std::string line;
 				std::getline(tmp_sstr, line);
 
-				std::shared_ptr<general_skeleton> next_skel = std::shared_ptr<general_skeleton>(new general_skeleton());
-				next_skel->set_joint(hy_root->get_id(), std::shared_ptr<general_joint>(new general_joint(0,0,0)));
+				std::shared_ptr<general_skeleton> next_skel = std::shared_ptr<general_skeleton>(
+						new general_skeleton(hy));
+				next_skel->set_right_left(offset_skel->get_right_left());
+				next_skel->set_top_down(offset_skel->get_top_down());
+
+				//set origin joint for it is used as a reference
+				//next_skel->set_joint(hy_root->get_id(), std::shared_ptr<general_joint>(new general_joint(0, 0, 0)));
+
 
 				std::vector<double> motion = mstr::double_list(line);
 
@@ -603,6 +654,13 @@ namespace mae
 								rot_mats_tmp_vec.end(); iterator != end; ++iterator)
 						{
 							motion_rot_mat *= *iterator;
+						}
+
+						//TODO remove
+						if (frame_count == 1 && (i == 1 || i == 2 || i == 3))
+						{
+							std::cout << i << " " << rot_zeta << " " << rot_xi << " " << rot_ypsilon << std::endl;
+							std::cout << ">> channels " << channels.at(3) << " " << channels.at(4) << " " << channels.at(5) << std::endl;
 						}
 
 						if (i != 0)
@@ -705,7 +763,7 @@ namespace mae
 		{
 			std::pair<std::string::size_type, std::string::size_type> pos_channel = mstr::find_line(value, "channels",
 					pos);
-			std::vector<std::string> str_channels = mstr::split(value, pos_channel.first + 8, pos_channel.second);
+			std::vector<std::string> str_channels = mstr::split(value, pos_channel.first + 8, pos_channel.second - 8);
 
 			str_channels.erase(str_channels.begin());
 
@@ -754,10 +812,14 @@ namespace mae
 			std::pair<std::string::size_type, std::string::size_type> pos_offset = mstr::find_line(value, "offset",
 					pos);
 
-			std::vector<double> offset = mstr::double_list(value, pos_offset.first + 6, pos_offset.second);
+			std::vector<double> offset = mstr::double_list(value, pos_offset.first + 6, pos_offset.second - 6);
 
 			if (offset.size() != 3)
 			{
+				//TODO remove
+				std::cout << "PARSE OFFSET: More than 3 values!" << std::endl;
+
+				throw std::invalid_argument("bvh_controller: More than 3 values to parse for offset.");
 				//syntax error
 				return std::shared_ptr<general_joint>(new general_joint());
 			}
@@ -767,8 +829,8 @@ namespace mae
 			return math::vec_to_joint(el_position);
 		}
 
-		std::shared_ptr<hierarchy_element> bvh_controller::generate_hierarchy_element(std::shared_ptr<bvh_spec> spec, int element_count,
-				std::string element_name, bool is_dummy)
+		std::shared_ptr<hierarchy_element> bvh_controller::generate_hierarchy_element(std::shared_ptr<bvh_spec> spec,
+				int element_count, std::string element_name, bool is_dummy)
 		{
 			std::unordered_map<std::string, int> joint_str;
 			std::unordered_map<std::string, bool> joint_torso;
@@ -820,7 +882,6 @@ namespace mae
 
 			return std::shared_ptr<hierarchy_element>(
 					new hierarchy_element(element_id, mstr::replace(element_name, "#_", "#"), element_torso, is_dummy));
-
 
 		}
 

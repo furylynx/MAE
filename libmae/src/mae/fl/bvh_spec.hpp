@@ -36,10 +36,19 @@ namespace mae
 				 * the torso map is empty a suffix sharp '#' after the joint name is used to
 				 * denote torso joints.
 				 *
+				 * The four anchor names are the names of the joints used for the left-right
+				 * top-down direction.
+				 *
+				 * All strings should be present in lowercase!
+				 *
+				 * @param left_anchor
+				 * @param right_anchor
+				 * @param top_anchor
+				 * @param bottom_anchor
 				 * @param string_id_map
 				 * @param string_torso_map
 				 */
-				bvh_spec(std::unordered_map<std::string, int> string_id_map, std::unordered_map<std::string, bool> string_torso_map);
+				bvh_spec(std::string left_anchor, std::string right_anchor, std::string top_anchor, std::string bottom_anchor, std::unordered_map<std::string, int> string_id_map, std::unordered_map<std::string, bool> string_torso_map);
 				virtual ~bvh_spec();
 
 				/**
@@ -57,6 +66,34 @@ namespace mae
 				virtual std::unordered_map<std::string, bool> get_torso_map() const;
 
 				/**
+				 * Returns the anchor's joint name.
+				 *
+				 * @return The name.
+				 */
+				virtual std::string get_left_anchor();
+
+				/**
+				 * Returns the anchor's joint name.
+				 *
+				 * @return The name.
+				 */
+				virtual std::string get_right_anchor();
+
+				/**
+				 * Returns the anchor's joint name.
+				 *
+				 * @return The name.
+				 */
+				virtual std::string get_top_anchor();
+
+				/**
+				 * Returns the anchor's joint name.
+				 *
+				 * @return The name.
+				 */
+				virtual std::string get_bottom_anchor();
+
+				/**
 				 * Creates a default specification that fits the default hierarchy definition.
 				 *
 				 * @return The default specification.
@@ -66,6 +103,11 @@ namespace mae
 			private:
 				std::unordered_map<std::string, int> string_id_map_;
 				std::unordered_map<std::string, bool> string_torso_map_;
+
+				std::string left_anchor_;
+				std::string right_anchor_;
+				std::string top_anchor_;
+				std::string bottom_anchor_;
 
 		};
 

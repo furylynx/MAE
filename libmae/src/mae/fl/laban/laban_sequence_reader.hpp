@@ -14,6 +14,7 @@
 //custom includes
 #include "../../mbool.hpp"
 #include "../../mstr.hpp"
+#include "../../mxml.hpp"
 
 #include "laban_sequence.hpp"
 
@@ -54,6 +55,7 @@
 #include "mv/relationship_endpoint.hpp"
 
 
+
 //global includes
 #include <memory>
 #include <string>
@@ -61,6 +63,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
+
 
 #include <libxml++/libxml++.h>
 
@@ -99,19 +102,6 @@ namespace mae
 					virtual std::shared_ptr<laban_sequence> read_sequence_str(std::string xml_string);
 
 				private:
-
-					/**
-					 * Returns the correct xpath.
-					 *
-					 * @param element The element to be prefixed.
-					 * @param nsp The namespace
-					 * @return The xpath.
-					 */
-					std::string get_xpath(std::string element, std::string nsp = "");
-
-					std::string get_node_content(xmlpp::Node* parent_node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string element, std::string nsp, std::string default_return);
-
-					std::vector<std::string> get_node_contents(xmlpp::Node* parent_node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string element, std::string nsp, std::string default_return);
 
 					/**
 					 * Reads the XML node and generates a column definition from it.

@@ -169,6 +169,7 @@ namespace mae
 		}
 
 		sstr << name;
+		sstr << " (" << id << ")";
 
 		if (dummy)
 		{

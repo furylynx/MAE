@@ -77,12 +77,11 @@ namespace mae
 	void general_skeleton::set_hierarchy(std::shared_ptr<hierarchy> hierarchy)
 	{
 		this->hierarchy_ = hierarchy;
-		set_top_down(std::shared_ptr<bone>());
-		set_right_left(std::shared_ptr<bone>());
 	}
 
 	void general_skeleton::set_top_down(std::shared_ptr<bone> top_down)
 	{
+
 		//check bone
 		if (top_down)
 		{
@@ -93,9 +92,10 @@ namespace mae
 			}
 			else
 			{
-				if (!hierarchy_->at(top_down->get_from())->is_torso_joint()
-						|| !hierarchy_->at(top_down->get_to())->is_torso_joint())
+				if (!hierarchy_->at(top_down->get_from()) || !hierarchy_->at(top_down->get_from())->is_torso_joint()
+						|| !hierarchy_->at(top_down->get_to()) || !hierarchy_->at(top_down->get_to())->is_torso_joint())
 				{
+					std::cout << "no torso" << std::endl;
 					throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
 				}
 			}
@@ -121,10 +121,10 @@ namespace mae
 			}
 			else
 			{
-				if (!hierarchy_->at(top_down->get_from())->is_torso_joint()
-						|| !hierarchy_->at(top_down->get_to())->is_torso_joint())
+				if (!(hierarchy_->at(right_left->get_from())) || !(hierarchy_->at(right_left->get_from())->is_torso_joint())
+						|| !(hierarchy_->at(right_left->get_to())) || !(hierarchy_->at(right_left->get_to())->is_torso_joint()))
 				{
-					throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
+					throw std::invalid_argument("At least one of the right_left joints is not defined as a torso joint.");
 				}
 			}
 		}
@@ -142,13 +142,23 @@ namespace mae
 		std::stringstream sstr;
 		sstr << "general skeleton:" << std::endl;
 
-		if (hierarchy_)
+		if (hierarchy_ != nullptr)
 		{
 			std::vector<std::shared_ptr<hierarchy_element> > elements = hierarchy_->get_element_sequence();
 
 			for (unsigned int i = 0; i < elements.size(); i++)
 			{
-				sstr << elements.at(i)->get_name() << " " << get_joint(elements.at(i)->get_id()) << std::endl;
+				std::string joint_str;
+				if (hashmap_joints.find(elements.at(i)->get_id()) == hashmap_joints.end())
+				{
+					joint_str = "N/A";
+				}
+				else
+				{
+					joint_str = get_joint(elements.at(i)->get_id())->str();
+				}
+
+				sstr << elements.at(i)->get_name() << " " << joint_str << std::endl;
 			}
 		}
 		else
