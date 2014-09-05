@@ -22,16 +22,29 @@ namespace mae
 			{
 			}
 
-			std::string laban_serializer::serialize(std::shared_ptr<mae::fl::laban::laban_sequence> sequence)
+			std::string laban_serializer::serialize(std::shared_ptr<mae::fl::laban::laban_sequence> sequence, bool short_type, bool no_header, unsigned int indent, std::string namesp)
 			{
-				return sequence->xml();
+				//no namespace
+				if (short_type)
+				{
+					return sequence->xml(no_header, indent, "laban");
+				}
+				else
+				{
+					std::stringstream sstr;
+					for (unsigned int i = 0; i < indent; i++)
+					{
+						sstr << "\t";
+					}
+					sstr << sequence->get_title();
+
+					return sstr.str();
+				}
 			}
 
 			std::shared_ptr<mae::fl::laban::laban_sequence> laban_serializer::deserialize(std::string sequence)
 			{
-				//TODO do stuff in here
-
-				return nullptr;
+				return laban_reader_.read_sequence_str(sequence);
 			}
 
 		} // namespace fl

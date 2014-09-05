@@ -17,6 +17,7 @@
 //global includes
 #include <mae/i_recognition_listener.hpp>
 #include <mae/fl/laban/laban_sequence.hpp>
+#include <mae/mxml.hpp>
 
 #include <vector>
 #include <string>
@@ -28,6 +29,8 @@
 
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
+
+#include <libxml++/libxml++.h>
 
 
 namespace mae
@@ -42,13 +45,6 @@ namespace mae
 				virtual ~server();
 
 				virtual void notify_clients(long timestamp, std::vector<std::shared_ptr<U> > sequences);
-
-				//TODO other methods
-
-				//TODO restrict server to be only local, etc?!
-
-				//TODO broadcast, for servers
-
 
 				/**
 				 * Returns the default port used by the server if no other is specified.
@@ -73,6 +69,7 @@ namespace mae
 
 				std::vector<std::shared_ptr<boost::asio::ip::tcp::socket> > connections_;
 				std::unordered_map<std::shared_ptr<boost::asio::ip::tcp::socket>, std::shared_ptr<std::string> > msgs_;
+				std::unordered_map<std::shared_ptr<boost::asio::ip::tcp::socket>, bool> msg_types_;
 
 
 				//private methods
@@ -159,11 +156,6 @@ namespace mae
 		{
 			if (!error)
 			{
-				//TODO check password?, dont push back here but after initial dialog is complete?
-				connections_.push_back(connection);
-
-				//TODO do stuff n stuff - read initial message etc
-				//TODO timeout ?!
 				begin_read(connection, 0, 30);
 
 				//TODO remove
@@ -192,8 +184,11 @@ namespace mae
 			{
 				std::cerr << "An error has occured during the write." << std::endl;
 			}
-
-			//TODO more?!
+			else
+			{
+				//TODO remove
+				std::cout << "Sequence written to client!" << std::endl;
+			}
 		}
 
 		template <typename U>
@@ -218,7 +213,7 @@ namespace mae
 		template <typename U>
 		void server<U>::on_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::shared_ptr<char> buffer, int state, const boost::system::error_code& error, const std::size_t bytes_transferred)
 		{
-			//TODO handle the transferred bytes
+			//handle the transferred bytes
 			if (error)
 			{
 				std::cerr << "An error occured while reading!" << std::endl;
@@ -231,8 +226,31 @@ namespace mae
 				std::shared_ptr<std::string> tmp_str = msgs_.at(connection);
 				tmp_str->append(std::string(*buffer, bytes_transferred));
 
-				//TODO check for a complete message
-				bool message_complete = true;
+				//check for a complete message (message ends with "</pfx:message>" where pfx can be any prefix)
+				bool message_complete = false;
+
+				std::size_t msg_pos = tmp_str->rfind("message>");
+				while (msg_pos != std::string::npos && msg_pos != 0)
+				{
+					for (unsigned int i = msg_pos - 1; i >= 1; i--)
+					{
+						if (tmp_str->at(i) == '\\' && tmp_str->at(i-1) == '<')
+						{
+							message_complete = true;
+							break;
+						}
+						else
+						{
+							if (!std::isalnum(tmp_str->at(i)))
+							{
+								message_complete = false;
+								break;
+							}
+						}
+					}
+
+					message_complete = true;
+				}
 
 				if (message_complete)
 				{
@@ -284,13 +302,42 @@ namespace mae
 		{
 			bool accepted = false;
 
-			//TODO parse the initial message and decide what to do
+			//parse the initial message and decide what to do
+			std::stringstream sstr;
+			sstr << message;
+
+			xmlpp::DomParser parser;
+			parser.parse_stream(sstr);
+
+			xmlpp::Document* doc = parser.get_document();
+			xmlpp::Node* root_node = doc->get_root_node();
+
+			//setup namespace prefix
+			std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map = std::shared_ptr<xmlpp::Node::PrefixNsMap>(new xmlpp::Node::PrefixNsMap());
+			if (root_node->get_namespace_prefix().size() > 0)
+			{
+				namespace_map->insert(std::make_pair(root_node->get_namespace_prefix(), root_node->get_namespace_uri()));
+			}
+
+			std::string nsp = root_node->get_namespace_prefix();
+
+			//---------------
+			// main elements
+			//---------------
+			std::string type_str = mae::mxml::get_node_content(root_node, namespace_map, "type", nsp, "short");
+			bool type_short = (type_str == "short");
+			std::string password = mae::mxml::get_node_content(root_node, namespace_map, "password", nsp, "");
+
+			if (password == password_)
+			{
+				accepted = true;
+			}
 
 			if (accepted)
 			{
 				connections_.push_back(connection);
+				msg_types_.insert(std::make_pair(connection, type_short));
 
-				//TODO more?
 				begin_read(connection, 1, 0);
 			}
 		}
@@ -301,7 +348,32 @@ namespace mae
 			//TODO parse the initial message and decide what to do
 			bool accepted = false;
 
-			//TODO parse the initial message and decide what to do
+			std::stringstream sstr;
+			sstr << message;
+
+			xmlpp::DomParser parser;
+			parser.parse_stream(sstr);
+
+			xmlpp::Document* doc = parser.get_document();
+			xmlpp::Node* root_node = doc->get_root_node();
+
+			//setup namespace prefix
+			std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map = std::shared_ptr<xmlpp::Node::PrefixNsMap>(new xmlpp::Node::PrefixNsMap());
+			if (root_node->get_namespace_prefix().size() > 0)
+			{
+				namespace_map->insert(std::make_pair(root_node->get_namespace_prefix(), root_node->get_namespace_uri()));
+			}
+
+			std::string nsp = root_node->get_namespace_prefix();
+
+			//---------------
+			// main elements
+			//---------------
+			std::string sequence = mae::mxml::get_node_content(root_node, namespace_map, "sequence", nsp, "");
+
+			//TODO parse sequence and stuff
+
+			//TODO register sequence to movement controller
 
 			if (accepted)
 			{
@@ -317,24 +389,34 @@ namespace mae
 			{
 				std::string msg = "";
 
-				//TODO generate message to be sent
-				//serializer_->serialize(sequences.at(i));
+				// generate message to be sent
+				std::stringstream sstr;
 
-    	    	begin_write(connections_.at(i), "");
+				//print header
+				sstr << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" << std::endl;
+
+				sstr << "<maee:message>" << std::endl;
+
+				for (unsigned int i = 0; i < sequences.size(); i++)
+				{
+					sstr << "\t<maee:sequence>" << std::endl;
+
+					serializer_->serialize(sequences.at(i), true, 2);
+
+					sstr << "\t</maee:sequence>" << std::endl;
+				}
+
+				sstr << "</maee:message>";
+
+    	    	begin_write(connections_.at(i), sstr.str());
 			}
-
-			//TODO more? e.g. check whether message was sent successfully?!
 		}
-
-
 
 		template <typename U>
 		void server<U>::on_recognition(long timestamp, std::vector<std::shared_ptr<U> > sequences)
 		{
 			notify_clients(timestamp, sequences);
 		}
-
-
 
 		//**********************
 		// STATIC METHODS

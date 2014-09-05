@@ -35,7 +35,7 @@ namespace mae
 				 * @param sequence The sequence.
 				 * @return The string containing the serialized sequence.
 				 */
-				virtual std::string serialize(std::shared_ptr<U> sequence) = 0;
+				virtual std::string serialize(std::shared_ptr<U> sequence, bool short_type, bool no_header = false, unsigned int indent = 0, std::string namesp = "") = 0;
 
 				/**
 				 * Deserializes the sequence so that it can be registered to the engine.

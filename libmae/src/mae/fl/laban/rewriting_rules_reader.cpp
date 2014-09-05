@@ -70,88 +70,11 @@ namespace mae
 				// main elements
 				//---------------
 
-				xmlpp::NodeSet movs_node_set = root_node->find(get_xpath("rules/rule", nsp), *namespace_map);
+				xmlpp::NodeSet movs_node_set = root_node->find(mxml::get_xpath("rules/rule", nsp), *namespace_map);
 
 				for (unsigned int i = 0; i < movs_node_set.size(); i++)
 				{
 					result.push_back(read_rule(movs_node_set.at(i), namespace_map, nsp));
-				}
-
-				return result;
-			}
-
-			std::string rewriting_rules_reader::get_xpath(std::string element, std::string nsp)
-			{
-				std::stringstream sstr;
-
-				std::vector<std::string> split = mstr::split(element, '/');
-
-				for (unsigned int i = 0; i < split.size() ; i++)
-				{
-					if (i > 0)
-					{
-						sstr << "/";
-					}
-
-					if (nsp.size() > 0)
-					{
-						sstr << nsp << ":";
-					}
-
-					sstr << split.at(i);
-				}
-
-				return sstr.str();
-			}
-
-			std::string rewriting_rules_reader::get_node_content(xmlpp::Node* parent_node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string element, std::string nsp, std::string default_return)
-			{
-				xmlpp::NodeSet node_set = parent_node->find(get_xpath(element, nsp), *namespace_map);
-
-				std::string result = default_return;
-
-				if (node_set.size() > 0)
-				{
-					xmlpp::Element* node = dynamic_cast<xmlpp::Element*>(node_set.at(0));
-
-					if (node->has_child_text())
-					{
-						result = node->get_child_text()->get_content();
-					}
-					else
-					{
-						result = "";
-					}
-				}
-
-				return result;
-			}
-
-			std::vector<std::string> rewriting_rules_reader::get_node_contents(xmlpp::Node* parent_node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string element, std::string nsp, std::string default_return)
-			{
-				xmlpp::NodeSet node_set = parent_node->find(get_xpath(element, nsp), *namespace_map);
-
-				std::vector<std::string> result;
-
-				if (node_set.size() > 0)
-				{
-					for (unsigned int i = 0; i < node_set.size(); i++)
-					{
-						xmlpp::Element* node = dynamic_cast<xmlpp::Element*>(node_set.at(i));
-
-						if (node->has_child_text())
-						{
-							result.push_back(node->get_child_text()->get_content());
-						}
-						else
-						{
-							result.push_back("");
-						}
-					}
-				}
-				else
-				{
-					result.push_back(default_return);
 				}
 
 				return result;
@@ -163,7 +86,7 @@ namespace mae
 
 
 				//read sequence
-				xmlpp::NodeSet seq_node_set = node->find(get_xpath("sequence", nsp), *namespace_map);
+				xmlpp::NodeSet seq_node_set = node->find(mxml::get_xpath("sequence", nsp), *namespace_map);
 				std::vector<std::shared_ptr<i_movement> > sequence;
 
 				if (seq_node_set.size() > 0)
@@ -176,7 +99,7 @@ namespace mae
 				}
 
 				//read replacement
-				xmlpp::NodeSet rep_node_set = node->find(get_xpath("replacement", nsp), *namespace_map);
+				xmlpp::NodeSet rep_node_set = node->find(mxml::get_xpath("replacement", nsp), *namespace_map);
 				std::vector<std::shared_ptr<i_movement> > replacement;
 
 				if (rep_node_set.size() > 0)
@@ -202,7 +125,7 @@ namespace mae
 			{
 				std::vector<std::shared_ptr<i_movement> > result;
 
-				xmlpp::NodeSet seq_node_set = node->find(get_xpath("element", nsp), *namespace_map);
+				xmlpp::NodeSet seq_node_set = node->find(mxml::get_xpath("element", nsp), *namespace_map);
 				std::vector<std::shared_ptr<i_movement> > sequence;
 
 				for (unsigned int i = 0; i < seq_node_set.size(); i++)
@@ -222,9 +145,9 @@ namespace mae
 			{
 				std::shared_ptr<i_movement> result;
 
-				mv::e_level vertical = mv::e_level_c::parse( get_node_content(node, namespace_map, "vertical", nsp, "NONE"));
-				mv::e_direction horizontal = mv::e_direction_c::parse( get_node_content(node, namespace_map, "horizontal", nsp, "NONE"));
-				bool hold = mbool::parse(get_node_content(node, namespace_map, "hold", nsp, "false"));
+				mv::e_level vertical = mv::e_level_c::parse(mxml::get_node_content(node, namespace_map, "vertical", nsp, "NONE"));
+				mv::e_direction horizontal = mv::e_direction_c::parse(mxml::get_node_content(node, namespace_map, "horizontal", nsp, "NONE"));
+				bool hold = mbool::parse(mxml::get_node_content(node, namespace_map, "hold", nsp, "false"));
 
 				std::shared_ptr<mv::i_symbol> dir_sym = std::shared_ptr<mv::i_symbol>(new mv::direction_symbol(vertical, horizontal));
 

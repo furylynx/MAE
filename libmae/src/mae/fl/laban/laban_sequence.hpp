@@ -62,56 +62,56 @@ namespace mae {
 				 *
 				 * @return
 				 */
-				std::string get_version() const;
+				virtual std::string get_version() const;
 
 				/**
 				 * Specifies the authors of the sequence. At least one author should be defined.
 				 *
 				 * @param authors
 				 */
-				void set_authors(std::vector<std::string> authors);
+				virtual void set_authors(std::vector<std::string> authors);
 
 				/**
 				 * Adds an author.
 				 *
 				 * @param author The author
 				 */
-				void add_author(std::string author);
+				virtual void add_author(std::string author);
 
 				/**
 				 * Returns the listed authors.
 				 *
 				 * @return The authors.
 				 */
-				std::vector<std::string> get_authors() const;
+				virtual std::vector<std::string> get_authors() const;
 
 				/**
 				 * Sets the title of this sequence.
 				 *
 				 * @param title The title.
 				 */
-				void set_title(std::string title);
+				virtual void set_title(std::string title);
 
 				/**
 				 * Returns the title of the sequence.
 				 *
 				 * @return The title.
 				 */
-				std::string get_title() const;
+				virtual std::string get_title() const;
 
 				/**
 				 * Specifies the description for this sequence.
 				 *
 				 * @param description The description.
 				 */
-				void set_description(std::string description);
+				virtual void set_description(std::string description);
 
 				/**
 				 * Returns the description of this sequence.
 				 *
 				 * @return The description.
 				 */
-				std::string get_description() const;
+				virtual std::string get_description() const;
 
 				/**
 				 * Sets the amount of measures of the sequence (i.e. the length). A measure consists per definition of
@@ -119,7 +119,7 @@ namespace mae {
 				 *
 				 * @param measures The amount of measures.
 				 */
-				void set_measures(unsigned int measures);
+				virtual void set_measures(unsigned int measures);
 
 				/**
 				 * Returns the amount of measures of the sequence (i.e. the length). A measure consists per definition
@@ -127,20 +127,20 @@ namespace mae {
 				 *
 				 * @return The amount of measures.
 				 */
-				unsigned int get_measures() const;
+				virtual unsigned int get_measures() const;
 
 				/**
 				 * Specifies the time unit used for the beat count.
 				 *
 				 * @param time_unit The time unit.
 				 */
-				void set_time_unit(e_time_unit time_unit);
+				virtual void set_time_unit(e_time_unit time_unit);
 
 				/**
 				 * Returns the time unit used for the beat count.
 				 * @return The time unit.
 				 */
-				e_time_unit get_time_unit() const;
+				virtual e_time_unit get_time_unit() const;
 
 				/**
 				 * Specifies the duration of a beat. The time unit (ms, s, m) is defined by the time unit variable
@@ -148,7 +148,7 @@ namespace mae {
 				 *
 				 * @param beat_duration The duration of a beat.
 				 */
-				void set_beat_duration(unsigned int beat_duration);
+				virtual void set_beat_duration(unsigned int beat_duration);
 
 				/**
 				 * Returns the duration of a beat. The time unit (ms, s, m) is defined by the time unit variable
@@ -156,28 +156,28 @@ namespace mae {
 				 *
 				 * @return The beat duration.
 				 */
-				unsigned int get_beat_duration() const;
+				virtual unsigned int get_beat_duration() const;
 
 				/**
 				 * Specifies the number of beats a measure contains (i.e. the length of a measure).
 				 *
 				 * @param beats The number of beats.
 				 */
-				void set_beats(unsigned int beats);
+				virtual void set_beats(unsigned int beats);
 
 				/**
 				 * Returns the number of beats a measure contains (i.e. the length of a measure).
 				 *
 				 * @return The number of beats.
 				 */
-				unsigned int get_beats() const;
+				virtual unsigned int get_beats() const;
 
 				/**
 				 * Specifies all column definitions. A column definition defines the content of a column (the pre sign).
 				 *
 				 * @param column_definitions The column definition.
 				 */
-				void set_column_definitions(std::vector<std::shared_ptr<column_definition> > col_defs);
+				virtual void set_column_definitions(std::vector<std::shared_ptr<column_definition> > col_defs);
 
 				/**
 				 * Adds a new column definition to the definitions. A column definition defines the
@@ -185,14 +185,14 @@ namespace mae {
 				 *
 				 * @param definition The definition.
 				 */
-				void add_column_definition(std::shared_ptr<column_definition> col_def);
+				virtual void add_column_definition(std::shared_ptr<column_definition> col_def);
 
 				/**
 				 * Returns the column definitions.
 				 *
 				 * @return The column definitions.
 				 */
-				std::vector<std::shared_ptr<column_definition> > get_column_definitions() const;
+				virtual std::vector<std::shared_ptr<column_definition> > get_column_definitions() const;
 
 				/**
 				 * Returns the column definition for the column with the given index.
@@ -200,21 +200,26 @@ namespace mae {
 				 * @param column_index The column index.
 				 * @return The definition.
 				 */
-				std::shared_ptr<column_definition> get_column_definition(int column_index);
+				virtual std::shared_ptr<column_definition> get_column_definition(int column_index);
+
+				/**
+				 * Clears all column definitions.
+				 */
+				virtual void clear_column_definitions();
 
 				/**
 				 * Sets the movements by specifying the movements vector.
 				 *
 				 * @param movements The movements vector.
 				 */
-				void set_movements(std::vector<std::shared_ptr<i_movement> > movements);
+				virtual void set_movements(std::vector<std::shared_ptr<i_movement> > movements);
 
 				/**
 				 * Returns all registered movements. The vector is not ordered.
 				 *
 				 * @return The movements vector.
 				 */
-				std::vector<std::shared_ptr<i_movement> > get_movements() const;
+				virtual std::vector<std::shared_ptr<i_movement> > get_movements() const;
 
 				/**
 				 * Add an i_movement to the sequence.
@@ -224,7 +229,7 @@ namespace mae {
 				 *
 				 * @param movement The movement.
 				 */
-				void add_movement(std::shared_ptr<i_movement> i_mov);
+				virtual void add_movement(std::shared_ptr<i_movement> i_mov);
 
 				/**
 				 * Returns a vector containing all listed movements for a column. The vector is sorted by ascending time.
@@ -232,15 +237,26 @@ namespace mae {
 				 * @param column The column (which is specifying a body part).
 				 * @return The movements vector.
 				 */
-				std::vector<std::shared_ptr<i_movement> > get_column_movements(int column) const;
+				virtual std::vector<std::shared_ptr<i_movement> > get_column_movements(int column) const;
 
+				/**
+				 * Returns the element with the last position among all movements on all columns (despite those without a column (=0)).
+				 *
+				 * @return The last element.
+				 */
+				virtual std::shared_ptr<i_movement> get_last_movement() const;
+
+				/**
+				 * Clears all movements from this sequence.
+				 */
+				virtual void clear_movements();
 
 				/**
 				 * Returns the xml representation for the sequence.
 				 *
 				 * @return The xml string.
 				 */
-				virtual std::string xml() const;
+				virtual std::string xml(bool no_header = false, unsigned int  indent = 0, std::string namesp = "laban") const;
 
 				/**
 				 * Returns the string representation for the sequence.
@@ -313,6 +329,8 @@ namespace mae {
 				std::vector<std::shared_ptr<i_movement> > movements_vec_;
 
 				std::vector<std::shared_ptr<i_movement> > i_movements_vec_;
+
+				std::shared_ptr<i_movement> last_movement_;
 		};
 
 		} // namespace laban
