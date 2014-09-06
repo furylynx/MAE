@@ -78,7 +78,7 @@ void test_sequence()
 void test_recognition()
 {
 
-	//TODO generate decision tree and check whether the recognition work at this point
+	//generate decision tree and check whether the recognition work at this point
 	mae::fl::laban::laban_sequence_recognizer recog = mae::fl::laban::laban_sequence_recognizer();
 	mae::fl::laban::decision_forest dummy_df = mae::fl::laban::decision_forest();
 
