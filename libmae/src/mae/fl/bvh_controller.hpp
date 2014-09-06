@@ -92,13 +92,23 @@ namespace mae
 
 				/**
 				 * Reads the BVH string which is a string containing the content of a potential bvh file.
-				 * Uses a specification to define the IDs of the joints.
+				 * Uses a specification to define the IDs of the joints as well as the right-left and
+				 * top-down directions..
 				 *
 				 * @param bvh_str The BVH string.
 				 * @param spec The specification for the reader.
 				 * @return The skeleton data.
 				 */
 				virtual std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> read_bvh_str(std::string bvh_str, std::shared_ptr<bvh_spec> spec);
+
+				/**
+				 * Reads the BVH file. Uses a specification to define the IDs of the joints as well as the
+				 * right-left and top-down directions.
+				 *
+				 * @param filename The BVH file name
+				 * @param spec The specification for the reader.
+				 * @return The skeleton data.
+				 */
 				virtual std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> read_bvh_file(std::string filename, std::shared_ptr<bvh_spec> spec);
 
 			private:
