@@ -116,8 +116,10 @@ void test_recognition()
 
 void test_sockets()
 {
+	std::cout << "starting the server..." << std::endl;
+
 	//TODO test sockets
-	mae::eventing::fl::fl_server server();
+	std::shared_ptr<mae::eventing::fl::fl_server> server(new mae::eventing::fl::fl_server());
 
 	while(true)
 		;//do nothing
