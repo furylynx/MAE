@@ -19,6 +19,7 @@
 #include <mae/fl/laban/laban_sequence.hpp>
 #include <mae/mxml.hpp>
 
+#include <iostream>
 #include <vector>
 #include <string>
 #include <memory>
@@ -123,11 +124,15 @@ namespace mae
 		template <typename U>
 		server<U>::server(std::shared_ptr<i_sequence_serializer<U> > serializer, uint16_t port, std::string password)
 		{
+			std::cout << "server invoked." << std::endl;
+
 			port_ = port;
 			password_ = password;
 
 			io_ = std::shared_ptr<boost::asio::io_service>(new boost::asio::io_service());
 			acceptor_ = std::shared_ptr<boost::asio::ip::tcp::acceptor>(new boost::asio::ip::tcp::acceptor(*io_, boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), port_)));
+
+			initialize();
 		}
 
 		template <typename U>
@@ -143,6 +148,8 @@ namespace mae
 		template <typename U>
 		void server<U>::initialize()
 		{
+			std::cout << "initializing the socket server..." << std::endl;
+
 			//create new socket to accept a connection
 			std::shared_ptr<boost::asio::ip::tcp::socket> nsocket(new boost::asio::ip::tcp::socket(*io_) );
 			acceptor_->async_accept(*nsocket, boost::bind(&server::accept, this, nsocket, boost::asio::placeholders::error));
@@ -293,7 +300,9 @@ namespace mae
 		template <typename U>
 		void server<U>::server_run()
 		{
+			std::cout << "running io..." << std::endl;
 			io_->run();
+			std::cout << "stopped running io!" << std::endl;
 		}
 
 
