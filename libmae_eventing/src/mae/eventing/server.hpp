@@ -230,6 +230,8 @@ namespace mae
 			}
 			else
 			{
+				std::cout << "read some: '" << *buffer << "'" << std::endl;
+
 				std::shared_ptr<std::string> tmp_str = msgs_.at(connection);
 				tmp_str->append(std::string(*buffer, bytes_transferred));
 
@@ -266,6 +268,7 @@ namespace mae
 				}
 				else
 				{
+					std::cout << "read some more." << std::endl;
 					unsigned long int max_length = 1024;
 					std::shared_ptr<char> nbuffer = std::shared_ptr<char>(new char[max_length]);
 					connection->async_read_some(boost::asio::buffer(nbuffer.get(), max_length), boost::bind(&server::on_read, this, connection, nbuffer, state, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
@@ -279,7 +282,7 @@ namespace mae
 		{
 			if (error)
 			{
-				std::cerr << "The message could not be read, cause an error occurred." << std::endl;
+				std::cerr << "The whole message could not be read since an error occurred." << std::endl;
 			}
 			else
 			{
