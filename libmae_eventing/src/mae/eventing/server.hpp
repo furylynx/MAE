@@ -214,6 +214,7 @@ namespace mae
 			//initialize new buffer
 			unsigned long int max_length = 1024;
 			std::shared_ptr<char> nbuffer = std::shared_ptr<char>(new char[max_length]);
+//			boost::asio::async_read(*connection, boost::asio::buffer(nbuffer.get(), max_length), boost::bind(&server::on_read, this, connection, nbuffer, state, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
 			connection->async_read_some(boost::asio::buffer(nbuffer.get(), max_length), boost::bind(&server::on_read, this, connection, nbuffer, state, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
 		}
 
@@ -230,17 +231,20 @@ namespace mae
 			}
 			else
 			{
-				std::cout << "read some: '" << *buffer << "'" << std::endl;
+				std::cout << "read some: '" << buffer.get() << "' | bytes transferred " << bytes_transferred << std::endl;
+
 
 				std::shared_ptr<std::string> tmp_str = msgs_.at(connection);
-				tmp_str->append(std::string(*buffer, bytes_transferred));
+				tmp_str->append(std::string(buffer.get(), bytes_transferred));
 
 				//check for a complete message (message ends with "</pfx:message>" where pfx can be any prefix)
 				bool message_complete = false;
 
+				std::cout << "try find end of message..." << std::endl;
 				std::size_t msg_pos = tmp_str->rfind("message>");
-				while (msg_pos != std::string::npos && msg_pos != 0)
+				if (msg_pos != std::string::npos && msg_pos != 0)
 				{
+
 					for (unsigned int i = msg_pos - 1; i >= 1; i--)
 					{
 						if (tmp_str->at(i) == '\\' && tmp_str->at(i-1) == '<')
@@ -248,21 +252,20 @@ namespace mae
 							message_complete = true;
 							break;
 						}
-						else
+						else if ((i == msg_pos -1 && tmp_str->at(i) != ':') || (i != msg_pos - 1 && !std::isalnum(tmp_str->at(i))))
 						{
-							if (!std::isalnum(tmp_str->at(i)))
-							{
-								message_complete = false;
-								break;
-							}
+							message_complete = false;
+							break;
 						}
 					}
-
-					message_complete = true;
 				}
+
+				std::cout << "search ended." << std::endl;
 
 				if (message_complete)
 				{
+					std::cout << "message is complete!" << std::endl;
+
 					std::string result = *(msgs_.at(connection));
 					on_read_complete(connection, result, state, error);
 				}
@@ -271,6 +274,8 @@ namespace mae
 					std::cout << "read some more." << std::endl;
 					unsigned long int max_length = 1024;
 					std::shared_ptr<char> nbuffer = std::shared_ptr<char>(new char[max_length]);
+
+//					boost::asio::async_read(*connection, boost::asio::buffer(nbuffer.get(), max_length), boost::bind(&server::on_read, this, connection, nbuffer, state, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
 					connection->async_read_some(boost::asio::buffer(nbuffer.get(), max_length), boost::bind(&server::on_read, this, connection, nbuffer, state, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
 				}
 			}
