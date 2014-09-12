@@ -152,6 +152,8 @@ namespace mae
 		template <typename U>
 		void client<U>::begin_write(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message, int state)
 		{
+			std::cout << "try to send message: " << std::endl;
+			std::cout << message << std::endl;
 			connection->async_send(boost::asio::buffer(message.c_str(), message.size()), boost::bind(&client::on_write, this, connection, state, boost::asio::placeholders::error));
 		}
 
