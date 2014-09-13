@@ -247,7 +247,7 @@ namespace mae
 
 					for (unsigned int i = msg_pos - 1; i >= 1; i--)
 					{
-						if (tmp_str->at(i) == '\\' && tmp_str->at(i-1) == '<')
+						if (tmp_str->at(i) == '/' && tmp_str->at(i-1) == '<')
 						{
 							message_complete = true;
 							break;
@@ -317,6 +317,9 @@ namespace mae
 		template <typename U>
 		void server<U>::handle_initial_message(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message)
 		{
+			//TODO remove
+			std::cout << "handle initial message" << std::endl;
+
 			bool accepted = false;
 
 			//parse the initial message and decide what to do
@@ -352,6 +355,8 @@ namespace mae
 
 			if (accepted)
 			{
+				std::cout << "accepted, short=" << type_short << std::endl;
+
 				connections_.push_back(connection);
 				msg_types_.insert(std::make_pair(connection, type_short));
 
@@ -362,9 +367,6 @@ namespace mae
 		template <typename U>
 		void server<U>::handle_further_message(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message)
 		{
-			//TODO parse the initial message and decide what to do
-			bool accepted = false;
-
 			std::stringstream sstr;
 			sstr << message;
 
@@ -386,15 +388,16 @@ namespace mae
 			//---------------
 			// main elements
 			//---------------
-			std::string sequence = mae::mxml::get_node_content(root_node, namespace_map, "sequence", nsp, "");
+			std::string sequence_str = mae::mxml::get_node_content(root_node, namespace_map, "sequence", nsp, "");
 
-			//TODO parse sequence and stuff
+			std::shared_ptr<U> sequence = serializer_->deserialize(sequence_str);
 
-			//TODO register sequence to movement controller
-
-			if (accepted)
+			if (sequence != nullptr)
 			{
-				//notify
+				//TODO remove
+				std::cout << "received a sequence!" << std::endl;
+
+				//TODO register sequence to movement controller
 			}
 		}
 

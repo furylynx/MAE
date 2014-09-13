@@ -128,8 +128,8 @@ namespace mae
 
 			//send initiation message
 			std::stringstream sstr;
-			sstr << "<message>" << std::endl;
-			sstr << "<type>";
+			sstr << "<maee:message>" << std::endl;
+			sstr << "<maee:type>";
 			if (short_sequences_)
 			{
 				sstr << "short";
@@ -138,8 +138,8 @@ namespace mae
 			{
 				sstr << "normal";
 			}
-			sstr << "</type>" << std::endl;
-			sstr << "</message>" << std::endl;
+			sstr << "</maee:type>" << std::endl;
+			sstr << "</maee:message>" << std::endl;
 
 			std::string registration_message = sstr.str();
 
