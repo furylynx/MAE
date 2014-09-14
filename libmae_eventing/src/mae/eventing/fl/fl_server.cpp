@@ -13,17 +13,16 @@ namespace mae
 	{
 		namespace fl
 		{
-			fl_server::fl_server(uint16_t port, std::string password)
+			fl_server::fl_server(mae::fl::fl_movement_controller* mov_controller, uint16_t port, std::string password)
 					: server(
 							std::shared_ptr<i_sequence_serializer<mae::fl::laban::laban_sequence> >(
-									new laban_serializer()), port, password)
+									new laban_serializer()), mov_controller, port, password)
 			{
 				std::cout << "fl server invoked." << std::endl;
 			}
 
 			fl_server::~fl_server()
 			{
-
 			}
 
 		} // namespace fl
