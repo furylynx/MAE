@@ -18,6 +18,8 @@
 
 //global includes
 #include <mae/fl/laban/laban_sequence.hpp>
+#include <mae/fl/fl_skeleton.hpp>
+#include <mae/fl/fl_movement_controller.hpp>
 
 namespace mae
 {
@@ -26,10 +28,10 @@ namespace mae
 		namespace fl
 		{
 
-			class fl_server: public server<mae::fl::laban::laban_sequence>
+			class fl_server: public server<mae::fl::fl_skeleton, mae::fl::laban::laban_sequence>
 			{
 				public:
-					fl_server(uint16_t port = server<mae::fl::laban::laban_sequence>::get_default_port(), std::string password = "");
+					fl_server(mae::fl::fl_movement_controller* mov_controller, uint16_t port = server_base::get_default_port(), std::string password = "");
 					virtual ~fl_server();
 
 			};

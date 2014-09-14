@@ -13,11 +13,15 @@
 
 //custom includes
 #include "i_sequence_serializer.hpp"
+#include "i_registration_manager.hpp"
+#include "server_base.hpp"
+
 
 //global includes
 #include <mae/i_recognition_listener.hpp>
 #include <mae/fl/laban/laban_sequence.hpp>
 #include <mae/mxml.hpp>
+#include <mae/movement_controller.hpp>
 
 #include <iostream>
 #include <vector>
@@ -27,6 +31,7 @@
 #include <cinttypes>
 #include <thread>
 #include <unordered_map>
+#include <list>
 
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
@@ -38,21 +43,21 @@ namespace mae
 {
 	namespace eventing
 	{
-		template <typename U>
-		class server : public i_recognition_listener<U>
+		template <typename T, typename U>
+		class server : public server_base, public i_recognition_listener<U>
 		{
 			public:
-				server(std::shared_ptr<i_sequence_serializer<U> > serializer, uint16_t port = server::get_default_port(), std::string password = "");
+				server(std::shared_ptr<i_sequence_serializer<U> > serializer, movement_controller<T,U>* mov_controller = nullptr, uint16_t port = server_base::get_default_port(), std::string password = "");
 				virtual ~server();
 
 				virtual void notify_clients(long timestamp, std::vector<std::shared_ptr<U> > sequences);
 
-				/**
-				 * Returns the default port used by the server if no other is specified.
-				 *
-				 * @return The default port.
-				 */
-				static uint16_t get_default_port();
+
+				virtual std::list<std::shared_ptr<i_registration_manager<U> > > get_registration_managers();
+
+				virtual void add_registration_manager(std::shared_ptr<i_registration_manager<U> > manager);
+
+				virtual void remove_registration_manager(std::shared_ptr<i_registration_manager<U> > manager);
 
 
 			private:
@@ -72,6 +77,10 @@ namespace mae
 				std::unordered_map<std::shared_ptr<boost::asio::ip::tcp::socket>, std::shared_ptr<std::string> > msgs_;
 				std::unordered_map<std::shared_ptr<boost::asio::ip::tcp::socket>, bool> msg_types_;
 
+				std::list<std::shared_ptr<i_registration_manager<U> > > registration_managers_;
+
+				movement_controller<T,U>* movement_controller_;
+
 
 				//private methods
 				virtual void initialize();
@@ -90,10 +99,11 @@ namespace mae
 
 				virtual void server_run();
 
-
 				virtual void handle_initial_message(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message);
 
 				virtual void handle_further_message(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message);
+
+				virtual void notify_registered_sequence(std::shared_ptr<U> sequence);
 
 				/**
 				 * Is invoked each time sequences were recognized.
@@ -121,13 +131,15 @@ namespace mae
 	namespace eventing
 	{
 
-		template <typename U>
-		server<U>::server(std::shared_ptr<i_sequence_serializer<U> > serializer, uint16_t port, std::string password)
+		template <typename T, typename U>
+		server<T, U>::server(std::shared_ptr<i_sequence_serializer<U> > serializer, movement_controller<T,U>* mov_controller, uint16_t port, std::string password)
 		{
 			std::cout << "server invoked." << std::endl;
 
 			port_ = port;
 			password_ = password;
+			serializer_ = serializer;
+			movement_controller_ = mov_controller;
 
 			io_ = std::shared_ptr<boost::asio::io_service>(new boost::asio::io_service());
 			acceptor_ = std::shared_ptr<boost::asio::ip::tcp::acceptor>(new boost::asio::ip::tcp::acceptor(*io_, boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), port_)));
@@ -135,8 +147,8 @@ namespace mae
 			initialize();
 		}
 
-		template <typename U>
-		server<U>::~server()
+		template <typename T, typename U>
+		server<T, U>::~server()
 		{
 			//stop io and reset
 			io_->stop();
@@ -145,8 +157,8 @@ namespace mae
 
 
 
-		template <typename U>
-		void server<U>::initialize()
+		template <typename T, typename U>
+		void server<T, U>::initialize()
 		{
 			std::cout << "initializing the socket server..." << std::endl;
 
@@ -158,8 +170,8 @@ namespace mae
 			thread_ = std::shared_ptr<std::thread>(new std::thread(&server::server_run, this));
 		}
 
-		template <typename U>
-		void server<U>::accept(std::shared_ptr<boost::asio::ip::tcp::socket> connection, const boost::system::error_code& error)
+		template <typename T, typename U>
+		void server<T, U>::accept(std::shared_ptr<boost::asio::ip::tcp::socket> connection, const boost::system::error_code& error)
 		{
 			if (!error)
 			{
@@ -178,14 +190,14 @@ namespace mae
 			acceptor_->async_accept(*nsocket, boost::bind(&server::accept, this, nsocket, boost::asio::placeholders::error));
 		}
 
-		template <typename U>
-		void server<U>::begin_write(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message)
+		template <typename T, typename U>
+		void server<T, U>::begin_write(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message)
 		{
 			connection->async_send(boost::asio::buffer(message.c_str(), message.size()), boost::bind(&server::on_write, this, connection, boost::asio::placeholders::error));
 		}
 
-		template <typename U>
-		void server<U>::on_write(std::shared_ptr<boost::asio::ip::tcp::socket> connection, const boost::system::error_code& error)
+		template <typename T, typename U>
+		void server<T, U>::on_write(std::shared_ptr<boost::asio::ip::tcp::socket> connection, const boost::system::error_code& error)
 		{
 			if (error)
 			{
@@ -198,8 +210,8 @@ namespace mae
 			}
 		}
 
-		template <typename U>
-		void server<U>::begin_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, int state, long timeout)
+		template <typename T, typename U>
+		void server<T, U>::begin_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, int state, long timeout)
 		{
 			//reset previously buffered messages
 			if (msgs_.find(connection) != msgs_.end())
@@ -218,8 +230,8 @@ namespace mae
 			connection->async_read_some(boost::asio::buffer(nbuffer.get(), max_length), boost::bind(&server::on_read, this, connection, nbuffer, state, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
 		}
 
-		template <typename U>
-		void server<U>::on_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::shared_ptr<char> buffer, int state, const boost::system::error_code& error, const std::size_t bytes_transferred)
+		template <typename T, typename U>
+		void server<T, U>::on_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::shared_ptr<char> buffer, int state, const boost::system::error_code& error, const std::size_t bytes_transferred)
 		{
 			//handle the transferred bytes
 			if (error)
@@ -282,8 +294,8 @@ namespace mae
 
 		}
 
-		template <typename U>
-		void server<U>::on_read_complete(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message, int state, const boost::system::error_code& error)
+		template <typename T, typename U>
+		void server<T, U>::on_read_complete(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message, int state, const boost::system::error_code& error)
 		{
 			if (error)
 			{
@@ -305,17 +317,41 @@ namespace mae
 			}
 		}
 
-		template <typename U>
-		void server<U>::server_run()
+		template <typename T, typename U>
+		void server<T, U>::server_run()
 		{
 			std::cout << "running io..." << std::endl;
 			io_->run();
 			std::cout << "stopped running io!" << std::endl;
 		}
 
+		template <typename T, typename U>
+		std::list<std::shared_ptr<i_registration_manager<U> > > server<T, U>::get_registration_managers()
+		{
+			return registration_managers_;
+		}
 
-		template <typename U>
-		void server<U>::handle_initial_message(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message)
+		template <typename T, typename U>
+		void server<T, U>::add_registration_manager(std::shared_ptr<i_registration_manager<U> > manager)
+		{
+			registration_managers_.push_back(manager);
+		}
+
+		template <typename T, typename U>
+		void server<T, U>::remove_registration_manager(std::shared_ptr<i_registration_manager<U> > manager)
+		{
+			for (typename std::list<std::shared_ptr<i_registration_manager<U> > >::iterator it = registration_managers_.begin(); it != registration_managers_.end(); it++)
+			{
+				if (manager == *it)
+				{
+					registration_managers_.erase(it);
+					break;
+				}
+			}
+		}
+
+		template <typename T, typename U>
+		void server<T, U>::handle_initial_message(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message)
 		{
 			//TODO remove
 			std::cout << "handle initial message" << std::endl;
@@ -364,8 +400,8 @@ namespace mae
 			}
 		}
 
-		template <typename U>
-		void server<U>::handle_further_message(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message)
+		template <typename T, typename U>
+		void server<T, U>::handle_further_message(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message)
 		{
 			std::stringstream sstr;
 			sstr << message;
@@ -401,8 +437,8 @@ namespace mae
 			}
 		}
 
-		template <typename U>
-		void server<U>::notify_clients(long timestamp, std::vector<std::shared_ptr<U> > sequences)
+		template <typename T, typename U>
+		void server<T, U>::notify_clients(long timestamp, std::vector<std::shared_ptr<U> > sequences)
 		{
 			//iterate all registered clients and notify them
 			for (unsigned int i = 0; i < connections_.size(); i++)
@@ -432,20 +468,27 @@ namespace mae
 			}
 		}
 
-		template <typename U>
-		void server<U>::on_recognition(long timestamp, std::vector<std::shared_ptr<U> > sequences)
+		template <typename T, typename U>
+		void server<T, U>::notify_registered_sequence(std::shared_ptr<U> sequence)
 		{
-			notify_clients(timestamp, sequences);
+			bool result = true;
+
+			for (typename std::list<std::shared_ptr<i_registration_manager<U> > >::iterator it = registration_managers_.begin(); it != registration_managers_.end(); it++)
+			{
+				result &= (*it)->on_sequence_registered(sequence);
+			}
+
+			if (result)
+			{
+				//TODO notify movement_controller
+			}
+
 		}
 
-		//**********************
-		// STATIC METHODS
-		//**********************
-
-		template <typename U>
-		uint16_t server<U>::get_default_port()
+		template <typename T, typename U>
+		void server<T, U>::on_recognition(long timestamp, std::vector<std::shared_ptr<U> > sequences)
 		{
-			return 49337;
+			notify_clients(timestamp, sequences);
 		}
 
 	} // namespace eventing

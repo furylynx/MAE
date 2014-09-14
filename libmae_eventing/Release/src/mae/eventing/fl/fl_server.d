@@ -180,9 +180,70 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/e_dynamic.hpp \
  ../src/mae/eventing/fl/../server.hpp \
  ../src/mae/eventing/fl/../i_sequence_serializer.hpp \
+ ../src/mae/eventing/fl/../i_registration_manager.hpp \
+ ../src/mae/eventing/fl/../server_base.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/i_recognition_listener.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/indexer_fix.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/mxml.hpp
+ /sda7/data/workspace-git/MAE/libmae/src/mae/mxml.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/movement_controller.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/kp_movement_detector.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/i_movement_detector.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/i_pose_listener.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/general_pose.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/e_bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/mstr.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/i_pose_detector.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_generator.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/general_enriched_pose.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/kp_detector.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/i_kp_detector.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_recognizer.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_listener.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/i_recognition_listener.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_skeleton.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_skeleton.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../hierarchy.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../e_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../hierarchy_element.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_movement_controller.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_skeleton.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_pose_detector.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_pose_detector.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/math.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/e_fl_direction.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_skeleton_controller.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/e_fl_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../mstr.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_skeleton_controller.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_skeleton.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../e_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_generator.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../e_fl_direction.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../fl_movement_controller.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../general_enriched_pose.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../i_sequence_generator.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_recognizer.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/decision_forest.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/decision_tree.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/decision_node.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/decision_value.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/i_decision_maker.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/decision_maker.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/rewriting_forest.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/rewriting_decision_maker.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../i_sequence_recognizer.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../movement_controller.hpp
 
 ../src/mae/eventing/fl/fl_server.hpp:
 
@@ -572,8 +633,130 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 
 ../src/mae/eventing/fl/../i_sequence_serializer.hpp:
 
+../src/mae/eventing/fl/../i_registration_manager.hpp:
+
+../src/mae/eventing/fl/../server_base.hpp:
+
 /sda7/data/workspace-git/MAE/libmae/src/mae/i_recognition_listener.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/indexer_fix.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/mxml.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/movement_controller.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/kp_movement_detector.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/i_movement_detector.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/i_pose_listener.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/general_pose.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/e_bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/mstr.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/i_pose_detector.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_generator.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/general_enriched_pose.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/kp_detector.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/i_kp_detector.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_recognizer.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_listener.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/i_recognition_listener.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_skeleton.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_skeleton.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../hierarchy.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../e_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../hierarchy_element.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_movement_controller.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_skeleton.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_pose_detector.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_pose_detector.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/math.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/e_fl_direction.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_skeleton_controller.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/e_fl_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../mstr.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_skeleton_controller.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_skeleton.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../e_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_generator.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../e_fl_direction.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../fl_movement_controller.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../general_enriched_pose.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../i_sequence_generator.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_recognizer.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/decision_forest.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/decision_tree.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/decision_node.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/decision_value.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/i_decision_maker.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/decision_maker.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/rewriting_forest.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/rewriting_decision_maker.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../i_sequence_recognizer.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../movement_controller.hpp:

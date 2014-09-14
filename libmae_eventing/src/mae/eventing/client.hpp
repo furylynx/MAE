@@ -41,7 +41,7 @@ namespace mae
 		class client
 		{
 			public:
-				client(std::shared_ptr<i_sequence_serializer<U> > serializer, std::string uri, uint16_t port = server<U>::get_default_port(), std::string password = "", bool short_sequences = false);
+				client(std::shared_ptr<i_sequence_serializer<U> > serializer, std::string uri, uint16_t port = server_base::get_default_port(), std::string password = "", bool short_sequences = false);
 				virtual ~client();
 
 				virtual void register_sequence(std::shared_ptr<U> sequence);
@@ -208,28 +208,30 @@ namespace mae
 				//check for a complete message (message ends with "</pfx:message>" where pfx can be any prefix)
 				bool message_complete = false;
 
+				//TODO remove
+				std::cout << "try find end of message..." << std::endl;
+
 				std::size_t msg_pos = buffer_.rfind("message>");
-				while (msg_pos != std::string::npos && msg_pos != 0)
+				if (msg_pos != std::string::npos && msg_pos != 0)
 				{
+
 					for (unsigned int i = msg_pos - 1; i >= 1; i--)
 					{
-						if (buffer_.at(i) == '\\' && buffer_.at(i-1) == '<')
+						if (buffer_.at(i) == '/' && buffer_.at(i-1) == '<')
 						{
 							message_complete = true;
 							break;
 						}
-						else
+						else if ((i == msg_pos -1 && buffer_.at(i) != ':') || (i != msg_pos - 1 && !std::isalnum(buffer_.at(i))))
 						{
-							if (!std::isalnum(buffer_.at(i)))
-							{
-								message_complete = false;
-								break;
-							}
+							message_complete = false;
+							break;
 						}
 					}
-
-					message_complete = true;
 				}
+
+				//TODO remove
+				std::cout << "message end found." << std::endl;
 
 				if (message_complete)
 				{
