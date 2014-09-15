@@ -14,7 +14,7 @@
 //custom includes
 #include "i_sequence_serializer.hpp"
 #include "i_registration_manager.hpp"
-#include "server_base.hpp"
+#include "cs_base.hpp"
 
 
 //global includes
@@ -44,10 +44,10 @@ namespace mae
 	namespace eventing
 	{
 		template <typename T, typename U>
-		class server : public server_base, public i_recognition_listener<U>
+		class server : public cs_base, public i_recognition_listener<U>
 		{
 			public:
-				server(std::shared_ptr<i_sequence_serializer<U> > serializer, movement_controller<T,U>* mov_controller = nullptr, uint16_t port = server_base::get_default_port(), std::string password = "");
+				server(std::shared_ptr<i_sequence_serializer<U> > serializer, movement_controller<T,U>* mov_controller = nullptr, uint16_t port = cs_base::get_default_port(), std::string password = "");
 				virtual ~server();
 
 				virtual void notify_clients(long timestamp, std::vector<std::shared_ptr<U> > sequences);
@@ -56,7 +56,7 @@ namespace mae
 
 				virtual void add_registration_manager(std::shared_ptr<i_registration_manager<U> > manager);
 
-				virtual void remove_registration_manager(std::shared_ptr<i_registration_manager<U> > manager);
+				virtual bool remove_registration_manager(std::shared_ptr<i_registration_manager<U> > manager);
 
 
 			private:
@@ -154,8 +154,6 @@ namespace mae
 			io_->reset();
 		}
 
-
-
 		template <typename T, typename U>
 		void server<T, U>::initialize()
 		{
@@ -248,32 +246,7 @@ namespace mae
 				std::shared_ptr<std::string> tmp_str = msgs_.at(connection);
 				tmp_str->append(std::string(buffer.get(), bytes_transferred));
 
-				//check for a complete message (message ends with "</pfx:message>" where pfx can be any prefix)
-				bool message_complete = false;
-
-				std::cout << "try find end of message..." << std::endl;
-				std::size_t msg_pos = tmp_str->rfind("message>");
-				if (msg_pos != std::string::npos && msg_pos != 0)
-				{
-
-					for (unsigned int i = msg_pos - 1; i >= 1; i--)
-					{
-						if (tmp_str->at(i) == '/' && tmp_str->at(i-1) == '<')
-						{
-							message_complete = true;
-							break;
-						}
-						else if ((i == msg_pos -1 && tmp_str->at(i) != ':') || (i != msg_pos - 1 && !std::isalnum(tmp_str->at(i))))
-						{
-							message_complete = false;
-							break;
-						}
-					}
-				}
-
-				std::cout << "search ended." << std::endl;
-
-				if (message_complete)
+				if (is_message_complete(*tmp_str))
 				{
 					std::cout << "message is complete!" << std::endl;
 
@@ -337,16 +310,18 @@ namespace mae
 		}
 
 		template <typename T, typename U>
-		void server<T, U>::remove_registration_manager(std::shared_ptr<i_registration_manager<U> > manager)
+		bool server<T, U>::remove_registration_manager(std::shared_ptr<i_registration_manager<U> > manager)
 		{
 			for (typename std::list<std::shared_ptr<i_registration_manager<U> > >::iterator it = registration_managers_.begin(); it != registration_managers_.end(); it++)
 			{
 				if (manager == *it)
 				{
 					registration_managers_.erase(it);
-					break;
+					return true;
 				}
 			}
+
+			return false;
 		}
 
 		template <typename T, typename U>
@@ -450,17 +425,15 @@ namespace mae
 				//print header
 				sstr << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" << std::endl;
 
-				sstr << "<maee:message>" << std::endl;
+				sstr << "<maee:message xmlns:maee=\"http://www.example.org/maeeventing\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/maeeventing maeeventing.xsd\">" << std::endl;
+				sstr << "\t<maee:sequences>" << std::endl;
 
 				for (unsigned int i = 0; i < sequences.size(); i++)
 				{
-					sstr << "\t<maee:sequence>" << std::endl;
-
-					serializer_->serialize(sequences.at(i), true, 2);
-
-					sstr << "\t</maee:sequence>" << std::endl;
+					serializer_->serialize(sequences.at(i), msg_types_.at(connections_.at(i)), true, 2);
 				}
 
+				sstr << "\t</maee:sequences>" << std::endl;
 				sstr << "</maee:message>";
 
     	    	begin_write(connections_.at(i), sstr.str());

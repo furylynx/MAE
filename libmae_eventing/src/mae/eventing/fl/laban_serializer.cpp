@@ -25,9 +25,9 @@ namespace mae
 			std::string laban_serializer::serialize(std::shared_ptr<mae::fl::laban::laban_sequence> sequence, bool short_type, bool no_header, unsigned int indent, std::string namesp)
 			{
 				//no namespace
-				if (short_type)
+				if (!short_type)
 				{
-					return sequence->xml(no_header, indent, "laban");
+					return sequence->xml(no_header, indent, namesp);
 				}
 				else
 				{
@@ -36,7 +36,7 @@ namespace mae
 					{
 						sstr << "\t";
 					}
-					sstr << sequence->get_title();
+					sstr << "<title>" << sequence->get_title() << "</title>";
 
 					return sstr.str();
 				}

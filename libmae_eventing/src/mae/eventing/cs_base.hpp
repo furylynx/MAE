@@ -15,23 +15,26 @@
 //...
 
 //global includes
-//...
+#include <string>
+#include <iostream>
+
 
 namespace mae
 {
 	namespace eventing
 	{
 
-		class server_base
+		class cs_base
 		{
 			public:
 				/**
 				 * Creates a server base from which the server inherits.
 				 */
-				server_base();
+				cs_base();
 
-				virtual ~server_base();
+				virtual ~cs_base();
 
+				virtual bool is_message_complete(const std::string& message) const;
 
 				/**
 				 * Returns the default port used by the server if no other is specified.

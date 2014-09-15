@@ -28,7 +28,7 @@ namespace mae
 			class fl_client: public client<mae::fl::laban::laban_sequence>
 			{
 				public:
-					fl_client(std::string uri, uint16_t port = server_base::get_default_port(), std::string password = "", bool short_sequences = false);
+					fl_client(std::string uri, uint16_t port = cs_base::get_default_port(), std::string password = "", bool short_sequences = false);
 					virtual ~fl_client();
 			};
 

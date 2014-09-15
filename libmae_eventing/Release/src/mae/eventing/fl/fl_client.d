@@ -180,29 +180,10 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/e_dynamic.hpp \
  ../src/mae/eventing/fl/../client.hpp \
  ../src/mae/eventing/fl/../i_sequence_serializer.hpp \
- ../src/mae/eventing/fl/../server.hpp \
- ../src/mae/eventing/fl/../i_registration_manager.hpp \
- ../src/mae/eventing/fl/../server_base.hpp \
+ ../src/mae/eventing/fl/../cs_base.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/i_recognition_listener.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/indexer_fix.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/mxml.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/movement_controller.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/kp_movement_detector.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/i_movement_detector.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/i_pose_listener.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/general_pose.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/bone.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/e_bone.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/mstr.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/i_pose_detector.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_generator.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/general_enriched_pose.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/kp_detector.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/i_kp_detector.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_recognizer.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_listener.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/i_recognition_listener.hpp
+ /sda7/data/workspace-git/MAE/libmae/src/mae/mxml.hpp
 
 ../src/mae/eventing/fl/fl_client.hpp:
 
@@ -592,48 +573,10 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
 
 ../src/mae/eventing/fl/../i_sequence_serializer.hpp:
 
-../src/mae/eventing/fl/../server.hpp:
-
-../src/mae/eventing/fl/../i_registration_manager.hpp:
-
-../src/mae/eventing/fl/../server_base.hpp:
+../src/mae/eventing/fl/../cs_base.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/i_recognition_listener.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/indexer_fix.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/mxml.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/movement_controller.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/kp_movement_detector.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/i_movement_detector.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/i_pose_listener.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/general_pose.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/bone.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/e_bone.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/mstr.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/i_pose_detector.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_generator.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/general_enriched_pose.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/kp_detector.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/i_kp_detector.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_recognizer.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_listener.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/i_recognition_listener.hpp:

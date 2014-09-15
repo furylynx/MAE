@@ -13,7 +13,7 @@
 
 //custom includes
 #include "i_sequence_serializer.hpp"
-#include "server.hpp"
+#include "cs_base.hpp"
 
 //global includes
 #include <mae/i_recognition_listener.hpp>
@@ -27,6 +27,7 @@
 #include <cinttypes>
 #include <thread>
 #include <unordered_map>
+#include <list>
 
 #include <boost/asio.hpp>
 #include <boost/bind.hpp>
@@ -38,15 +39,19 @@ namespace mae
 	namespace eventing
 	{
 		template <typename U>
-		class client
+		class client : public cs_base
 		{
 			public:
-				client(std::shared_ptr<i_sequence_serializer<U> > serializer, std::string uri, uint16_t port = server_base::get_default_port(), std::string password = "", bool short_sequences = false);
+				client(std::shared_ptr<i_sequence_serializer<U> > serializer, std::string uri, uint16_t port = cs_base::get_default_port(), std::string password = "", bool short_sequences = false);
 				virtual ~client();
 
 				virtual void register_sequence(std::shared_ptr<U> sequence);
 
-				virtual void add_listener(std::shared_ptr<U> recognition_listener);
+				virtual void add_listener(std::shared_ptr<i_recognition_listener<U> > recognition_listener);
+
+				virtual bool remove_listener(std::shared_ptr<i_recognition_listener<U> > recognition_listener);
+
+				virtual std::list<std::shared_ptr<i_recognition_listener<U> > > get_listeners();
 
 			private:
 				std::string uri_;
@@ -56,7 +61,7 @@ namespace mae
 				bool short_sequences_;
 				std::shared_ptr<i_sequence_serializer<U> > serializer_;
 
-				std::vector<std::shared_ptr<U> > recognition_listeners_;
+				std::list<std::shared_ptr<i_recognition_listener<U> > > recognition_listeners_;
 
 				std::shared_ptr<std::thread> thread_;
 				std::string buffer_;
@@ -82,6 +87,10 @@ namespace mae
 				virtual void on_read_complete(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message, const boost::system::error_code& error);
 
 				virtual void client_run();
+
+				virtual void notify_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences);
+
+				virtual void notify_listeners(long timestamp, std::vector<std::string> sequences_titles);
 
 		};
 
@@ -128,8 +137,9 @@ namespace mae
 
 			//send initiation message
 			std::stringstream sstr;
-			sstr << "<maee:message>" << std::endl;
-			sstr << "<maee:type>";
+			sstr << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" << std::endl;
+			sstr << "<maee:message xmlns:maee=\"http://www.example.org/maeeventing\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/maeeventing maeeventing.xsd\">" << std::endl;
+			sstr << "\t<maee:type>";
 			if (short_sequences_)
 			{
 				sstr << "short";
@@ -173,7 +183,7 @@ namespace mae
 				}
 				else
 				{
-					//TODO do nothing?
+					//do nothing?
 				}
 			}
 		}
@@ -203,37 +213,10 @@ namespace mae
 			}
 			else
 			{
+				//append read content to buffer
 				buffer_.append(std::string(*buffer, bytes_transferred));
 
-				//check for a complete message (message ends with "</pfx:message>" where pfx can be any prefix)
-				bool message_complete = false;
-
-				//TODO remove
-				std::cout << "try find end of message..." << std::endl;
-
-				std::size_t msg_pos = buffer_.rfind("message>");
-				if (msg_pos != std::string::npos && msg_pos != 0)
-				{
-
-					for (unsigned int i = msg_pos - 1; i >= 1; i--)
-					{
-						if (buffer_.at(i) == '/' && buffer_.at(i-1) == '<')
-						{
-							message_complete = true;
-							break;
-						}
-						else if ((i == msg_pos -1 && buffer_.at(i) != ':') || (i != msg_pos - 1 && !std::isalnum(buffer_.at(i))))
-						{
-							message_complete = false;
-							break;
-						}
-					}
-				}
-
-				//TODO remove
-				std::cout << "message end found." << std::endl;
-
-				if (message_complete)
+				if (is_message_complete(buffer_))
 				{
 					on_read_complete(connection, buffer_, error);
 				}
@@ -244,7 +227,6 @@ namespace mae
 					connection->async_read_some(boost::asio::buffer(nbuffer.get(), max_length), boost::bind(&client::on_read, this, connection, nbuffer, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
 				}
 			}
-
 		}
 
 		template <typename U>
@@ -259,7 +241,61 @@ namespace mae
 				//TODO remove
 				std::cout << "read message from client: " << message << std::endl;
 
-				//TODO handle received message
+				//parse received message
+
+				std::stringstream sstr;
+				sstr << message;
+
+				xmlpp::DomParser parser;
+				parser.parse_stream(sstr);
+
+				xmlpp::Document* doc = parser.get_document();
+				xmlpp::Node* root_node = doc->get_root_node();
+
+				//setup namespace prefix
+				std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map = std::shared_ptr<xmlpp::Node::PrefixNsMap>(new xmlpp::Node::PrefixNsMap());
+				if (root_node->get_namespace_prefix().size() > 0)
+				{
+					namespace_map->insert(std::make_pair(root_node->get_namespace_prefix(), root_node->get_namespace_uri()));
+				}
+
+				std::string nsp = root_node->get_namespace_prefix();
+
+				//---------------
+				// main elements
+				//---------------
+
+				long timestamp = std::stol(mae::mxml::get_node_content(root_node, namespace_map, "timestamp", nsp, "0"));
+
+
+
+				if (!short_sequences_)
+				{
+					std::vector<std::shared_ptr<U> > sequences;
+					std::vector<std::string> sequences_str = mae::mxml::get_node_contents(root_node, namespace_map, "sequences/score", nsp, "");
+
+					for (unsigned int i = 0; i < sequences_str.size(); i++)
+					{
+						std::shared_ptr<U> sequence = serializer_->deserialize(sequences_str.at(i));
+						if (sequence != nullptr)
+						{
+							sequences.push_back(sequence);
+						}
+					}
+
+					//notify listeners
+					notify_listeners(timestamp, sequences);
+				}
+				else
+				{
+					std::vector<std::string> sequences_str = mae::mxml::get_node_contents(root_node, namespace_map, "sequences/title", nsp, "");
+
+					//notify listeners
+					notify_listeners(timestamp, sequences_str);
+				}
+
+				//continue to read
+				begin_read(socket_, 0);
 			}
 		}
 
@@ -272,13 +308,63 @@ namespace mae
 		template <typename U>
 		void client<U>::register_sequence(std::shared_ptr<U> sequence)
 		{
-			//TODO send message to server
+			//send initiation message
+			std::stringstream sstr;
+			sstr << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" << std::endl;
+			sstr << "<maee:message xmlns:maee=\"http://www.example.org/maeeventing\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/maeeventing maeeventing.xsd\">" << std::endl;
+			sstr << "\t<maee:sequence>";
+			sstr << serializer_->serialize(sequence, short_sequences_, true, 2);
+			sstr << "\t</maee:sequence>" << std::endl;
+			sstr << "</maee:message>" << std::endl;
+
+			std::string registration_message = sstr.str();
+
+			begin_write(socket_, registration_message, 1);
 		}
 
 		template <typename U>
-		void client<U>::add_listener(std::shared_ptr<U> recognition_listener)
+		void client<U>::add_listener(std::shared_ptr<i_recognition_listener<U> > recognition_listener)
 		{
 			recognition_listeners_.push_back(recognition_listener);
+		}
+
+		template <typename U>
+		bool client<U>::remove_listener(std::shared_ptr<i_recognition_listener<U> > recognition_listener)
+		{
+			for (typename std::list<std::shared_ptr<i_recognition_listener<U> > >::iterator it = recognition_listeners_.begin(); it != recognition_listeners_.end(); it++)
+			{
+				if (recognition_listener == *it)
+				{
+					recognition_listeners_.erase(it);
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		template <typename U>
+		std::list<std::shared_ptr<i_recognition_listener<U> > > client<U>::get_listeners()
+		{
+			return recognition_listeners_;
+		}
+
+		template <typename U>
+		void client<U>::notify_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences)
+		{
+			for (typename std::list<std::shared_ptr<i_recognition_listener<U> > >::iterator it = recognition_listeners_.begin(); it != recognition_listeners_.end(); it++)
+			{
+				(*it)->on_recognition(timestamp, sequences);
+			}
+		}
+
+		template <typename U>
+		void client<U>::notify_listeners(long timestamp, std::vector<std::string> sequences_titles)
+		{
+			for (typename std::list<std::shared_ptr<i_recognition_listener<U> > >::iterator it = recognition_listeners_.begin(); it != recognition_listeners_.end(); it++)
+			{
+				(*it)->on_recognition(timestamp, sequences_titles);
+			}
 		}
 
 	} // namespace eventing
