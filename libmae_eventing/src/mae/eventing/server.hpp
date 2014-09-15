@@ -52,7 +52,6 @@ namespace mae
 
 				virtual void notify_clients(long timestamp, std::vector<std::shared_ptr<U> > sequences);
 
-
 				virtual std::list<std::shared_ptr<i_registration_manager<U> > > get_registration_managers();
 
 				virtual void add_registration_manager(std::shared_ptr<i_registration_manager<U> > manager);
@@ -478,9 +477,10 @@ namespace mae
 				result &= (*it)->on_sequence_registered(sequence);
 			}
 
-			if (result)
+			if (result && movement_controller_ != nullptr)
 			{
-				//TODO notify movement_controller
+				//register sequence to movement_controller
+				movement_controller_->register_sequence(sequence);
 			}
 
 		}
