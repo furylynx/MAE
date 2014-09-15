@@ -7,11 +7,13 @@
 	<!-- THE ROOT ELEMENT -->
 	<xsd:element name="message" type="maee:message" maxOccurs="1" minOccurs="1" />
 	<xsd:complexType name="message">
-	<xsd:choice>
+	<xsd:sequence>
+		<xsd:element name="timestamp" type="xsd:long" maxOccurs="1" minOccurs="1" />
+		<xsd:choice>
 			<xsd:complexType name="sequences">
 				<xsd:sequence>
 					<!-- Contains complete sequences -->
-					<xsd:element name="score" type="laban:score" maxOccurs="1" minOccurs="0" />
+					<xsd:element name="score" type="laban:score" maxOccurs="unbound" minOccurs="0" />
 				</xsd:sequence>
 			</xsd:complexType>
 			<xsd:complexType name="sequences">
@@ -20,4 +22,5 @@
 					<xsd:element name="title" type="xsd:string" maxOccurs="unbound" minOccurs="0" />
 				</xsd:sequence>
 			</xsd:complexType>
-	</xsd:choice>
+		</xsd:choice>
+	</xsd:sequence>
