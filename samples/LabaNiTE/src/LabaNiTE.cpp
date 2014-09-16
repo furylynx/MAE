@@ -45,14 +45,14 @@ int main()
 
 	bool print_sequence = false;
 	unsigned int sequence_frames = 300; //30fps openni => 10 sec
-	std::string sequence_name = "mae_seq2.laban";
+	std::string sequence_name = "mae_seq3.laban";
 
 	//trigger for demo screen
 	bool show_demo = false;
 
-	bool read_stored_data = true;
+	bool read_stored_data = false;
 
-	bool try_recognition = true;
+	bool try_recognition = false;
 
 	//bvh controller
 	mae::fl::bvh_controller bvh_ctrl = mae::fl::bvh_controller();

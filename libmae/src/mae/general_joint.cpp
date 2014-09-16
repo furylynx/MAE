@@ -12,70 +12,92 @@ namespace mae
 
 	general_joint::~general_joint()
 	{
-		this->valid = false;
+		this->valid_ = false;
 	}
 
 	general_joint::general_joint()
 	{
-		this->x = 0;
-		this->y = 0;
-		this->z = 0;
+		x_ = 0;
+		y_ = 0;
+		z_ = 0;
 
-		this->valid = false;
+		confidence_ = 0;
+		valid_ = false;
 	}
 
 	general_joint::general_joint(double x, double y, double z)
 	{
-		this->x = x;
-		this->y = y;
-		this->z = z;
+		x_ = x;
+		y_ = y;
+		z_ = z;
 
-		this->valid = true;
+		confidence_ = 1;
+		valid_ = true;
+	}
+
+	general_joint::general_joint(double x, double y, double z, double confidence)
+	{
+		x_ = x;
+		y_ = y;
+		z_ = z;
+
+		confidence_ = confidence;
+		valid_ = true;
 	}
 
 	void general_joint::set_x(double x)
 	{
-		this->x = x;
+		this->x_ = x;
 	}
 
 	double general_joint::get_x() const
 	{
-		return x;
+		return x_;
 	}
 
 	void general_joint::set_y(double y)
 	{
-		this->y = y;
+		this->y_ = y;
 	}
 
 	double general_joint::get_y() const
 	{
-		return y;
+		return y_;
 	}
 
 	void general_joint::set_z(double z)
 	{
-		this->z = z;
+		this->z_ = z;
 	}
 
 	double general_joint::get_z() const
 	{
-		return z;
+		return z_;
 	}
 
 	void general_joint::set_valid(bool isValid)
 	{
-		this->valid = isValid;
+		this->valid_ = isValid;
 	}
 
 	bool general_joint::is_valid() const
 	{
-		return valid;
+		return valid_;
+	}
+
+	void general_joint::set_confidence(double confidence)
+	{
+		confidence_ = confidence;
+	}
+
+	double general_joint::get_confidence()
+	{
+		return confidence_;
 	}
 
 	bool general_joint::equals(general_joint joint) const
 	{
-		return x == joint.get_x() && y == joint.get_y() && z == joint.get_z() && valid == joint.is_valid();
+		return x_ == joint.get_x() && y_ == joint.get_y() && z_ == joint.get_z() && valid_ == joint.is_valid() && confidence_ == joint.get_confidence();
 	}
 
 	bool general_joint::equals(std::shared_ptr<general_joint> joint) const

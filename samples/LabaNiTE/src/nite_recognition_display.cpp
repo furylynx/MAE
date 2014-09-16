@@ -32,4 +32,10 @@ namespace lni
 		//TODO print to window if existing?!
 	}
 
+	void nite_recognition_display::on_recognition(long timestamp, std::vector<std::string> title)
+	{
+		//do nothing
+	}
+
+
 } // namespace lni

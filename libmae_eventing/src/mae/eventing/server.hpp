@@ -112,6 +112,13 @@ namespace mae
 				 */
 				virtual void on_recognition(long timestamp, std::vector<std::shared_ptr<U> > sequences);
 
+				/**
+				 * Is invoked each time sequences were recognized and only titles of the sequences are present.
+				 *
+				 * @param timestamp The associated timestamp.
+				 * @param sequences The recognized sequences.
+				 */
+				virtual void on_recognition(long timestamp, std::vector<std::string> title);
 		};
 
 	} // namespace eventing
@@ -462,6 +469,12 @@ namespace mae
 		void server<T, U>::on_recognition(long timestamp, std::vector<std::shared_ptr<U> > sequences)
 		{
 			notify_clients(timestamp, sequences);
+		}
+
+		template <typename T, typename U>
+		void server<T, U>::on_recognition(long timestamp, std::vector<std::string> title)
+		{
+			//do nothing
 		}
 
 	} // namespace eventing

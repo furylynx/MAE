@@ -37,6 +37,13 @@ namespace lni
 			 */
 			virtual void on_recognition(long timestamp, std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > sequences);
 
+			/**
+			 * Is invoked each time sequences were recognized and only titles of the sequences are present.
+			 *
+			 * @param timestamp The associated timestamp.
+			 * @param sequences The recognized sequences.
+			 */
+			virtual void on_recognition(long timestamp, std::vector<std::string> title);
 	};
 
 } // namespace lni

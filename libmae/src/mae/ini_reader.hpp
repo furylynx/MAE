@@ -46,6 +46,28 @@ namespace mae
 			 */
 			virtual std::string get_value(std::string domain, std::string key);
 
+			/**
+			 * Returns the value assigned to the key in the given domain. Suppresses the exception.
+			 *
+			 * @param domain The domain. "" if no domain
+			 * @param key The key for the element.
+			 * @return The value.
+			 * @param result The pointer where to write the result.
+			 * @return True if successful.
+			 */
+			virtual bool get_value_nex(std::string domain, std::string key, std::string* result);
+
+			/**
+			 * Returns the value assigned to the key in the given domain. Suppresses the exception.
+			 *
+			 * @param domain The domain. "" if no domain
+			 * @param key The key for the element.
+			 * @return The value.
+			 * @param result The pointer where to write the result.
+			 * @param out_error_msg The pointer where to write the error message.
+			 * @return True if successful.
+			 */
+			virtual bool get_value_nex(std::string domain, std::string key, std::string* result, std::string* out_error_msg);
 
 		private:
 			std::unordered_map<std::string, std::unordered_map<std::string, std::string> > map_;

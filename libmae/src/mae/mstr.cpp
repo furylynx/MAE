@@ -29,6 +29,21 @@ namespace mae
 		return mstr::trim_left(mstr::trim_right(value));
 	}
 
+	void mstr::trim_quotes(std::string* value)
+	{
+		*value = mstr::trim(*value);
+
+		if (value->at(0) == '"')
+		{
+			value->erase(value->begin());
+		}
+
+		if (value->at(value->size()-1) == '"')
+		{
+			value->erase(value->begin()+(value->size()-1));
+		}
+	}
+
 	std::string mstr::replace(const std::string& haystack, const std::string& needle, const std::string& replacement)
 	{
 		std::string result = std::string(haystack);
