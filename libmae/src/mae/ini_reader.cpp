@@ -40,6 +40,35 @@ namespace mae
 		}
 	}
 
+	bool ini_reader::get_value_nex(std::string domain, std::string key, std::string* result)
+	{
+		std::string error_msg;
+
+		return get_value_nex(domain, key, result, &error_msg);
+	}
+
+	bool ini_reader::get_value_nex(std::string domain, std::string key, std::string* result, std::string* out_error_msg)
+	{
+		std::string tmp = "";
+
+		try
+		{
+			tmp = get_value(domain, key);
+		} catch (std::exception& e)
+		{
+			(*out_error_msg) = e.what();
+			return false;
+		} catch (...)
+		{
+			(*out_error_msg) = "Unknown error.";
+			return false;
+		}
+
+		*result = tmp;
+
+		return true;
+	}
+
 	void ini_reader::read_file(std::string file)
 	{
 		try
@@ -57,46 +86,64 @@ namespace mae
 					sstr << line << std::endl;
 
 					line = mstr::trim(line);
-					if (line.at(0) == '[')
-					{
-						std::string::size_type domain_endpos = line.find("]");
-						domain = std::string(line, 1, domain_endpos - 1);
-					}
-					else
-					{
-						std::string::size_type sem_pos = line.find(";");
-						std::string::size_type eq_pos = line.find("=");
 
-						if (eq_pos > sem_pos)
+					if (line.size() > 0)
+					{
+						if (line.at(0) == '[')
 						{
-							std::string key = std::string(line, 0, eq_pos);
-							std::string value;
+							std::string::size_type domain_endpos = line.find("]");
+							domain = std::string(line, 1, domain_endpos - 1);
+						}
+						else
+						{
+							std::string::size_type sem_pos = line.find(";");
+							std::string::size_type eq_pos = line.find("=");
 
-							if (sem_pos == std::string::npos)
+							if (eq_pos < sem_pos && eq_pos != std::string::npos)
 							{
-								value = std::string(line, eq_pos + 1, line.size() - eq_pos - 1);
-							}
-							else
-							{
-								value = std::string(line, eq_pos + 1, sem_pos - eq_pos - 1);
-							}
+								std::string key = std::string(line, 0, eq_pos);
+								key = mstr::trim(key);
 
-							std::unordered_map<std::string, std::string> domain_map;
-							if (map_.find(domain) != map_.end())
-							{
-								domain_map = map_.at(domain);
-							}
-							domain_map.insert(std::make_pair(key, value));
+								std::string value;
 
-							map_.insert(std::make_pair(domain, domain_map));
+								if (sem_pos == std::string::npos)
+								{
+									value = std::string(line, eq_pos + 1, line.size() - eq_pos - 1);
+								}
+								else
+								{
+									value = std::string(line, eq_pos + 1, sem_pos - eq_pos - 1);
+								}
+
+								mstr::trim_quotes(&value);
+
+								std::unordered_map<std::string, std::string> domain_map;
+								if (map_.find(domain) != map_.end())
+								{
+									domain_map = map_.at(domain);
+								}
+
+								if (domain_map.find(key) == domain_map.end())
+								{
+									domain_map.insert(std::make_pair(key, value));
+								}
+								else
+								{
+									std::cerr << "muliply defined key [" << domain << "]" << key << std::endl;
+								}
+
+								map_[domain] = domain_map;
+							}
 						}
 					}
 				}
 				in_file.close();
 
 			}
-		}
-		catch (...)
+		} catch (std::exception& e)
+		{
+			std::cerr << "exception (" << e.what() << ") on reading the ini file." << std::endl;
+		} catch (...)
 		{
 			std::cerr << "exception on reading the ini file." << std::endl;
 		}

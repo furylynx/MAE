@@ -42,6 +42,16 @@ namespace mae
 			general_joint(double x, double y, double z);
 
 			/**
+			 * Creates a general joint with values set.
+			 *
+			 * @param x The x-coordinate.
+			 * @param y The y-coordinate.
+			 * @param z The z-coordinate.
+			 * @param confidence The confidence (ranging from zero to one, where one is the most confident)
+			 */
+			general_joint(double x, double y, double z, double confidence);
+
+			/**
 			 * Sets the x-coordinate.
 			 *
 			 * @param x The x-coordinate.
@@ -97,6 +107,22 @@ namespace mae
 			virtual bool is_valid() const;
 
 			/**
+			 * Sets the confidence which is a value between zero and one.
+			 * One stands for the most confidence while zero stands for uncertain.
+			 *
+			 * @param confidence The confidence to be applied.
+			 */
+			virtual void set_confidence(double confidence);
+
+			/**
+			 * Returns the confidence which is a value between zero and one.
+			 * One stands for the most confidence while zero stands for uncertain.
+			 *
+			 * @return The confidence.
+			 */
+			virtual double get_confidence();
+
+			/**
 			 * Returns true if this joint equals the given joint.
 			 *
 			 * @param joint A joint.
@@ -132,11 +158,13 @@ namespace mae
 			}
 
 		private:
-			double x;
-			double y;
-			double z;
+			double x_;
+			double y_;
+			double z_;
 
-			bool valid;
+			double confidence_;
+
+			bool valid_;
 
 	};
 
