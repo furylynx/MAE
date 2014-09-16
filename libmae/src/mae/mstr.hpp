@@ -60,6 +60,13 @@ namespace mae
 			static std::string trim(const std::string& value);
 
 			/**
+			 * Performs a trim and removes the leading and trailing quotation mark if present.
+			 *
+			 * @param value The pointer to the string.
+			 */
+			static void trim_quotes(std::string* value);
+
+			/**
 			 * Replaces all occurences in the haystack with the given replacement.
 			 *
 			 * @param haystack The haystack.

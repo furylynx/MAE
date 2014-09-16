@@ -9,14 +9,19 @@
 
 namespace mae
 {
-	namespace eventing
+	namespace nite
 	{
+		bool nite_controller::initialized_ = false;
+		std::vector<XnSkeletonJoint> nite_controller::joint_ids_;
+		std::vector<int> nite_controller::joint_ids_mae_;
 
 		nite_controller::nite_controller(std::string config_path, int max_users, bool debug)
 		{
 			config_path_ = config_path;
 			max_users_ = max_users;
 			debug_ = debug;
+
+			b_needpose_ = FALSE;
 
 			initialize();
 		}
@@ -241,8 +246,18 @@ namespace mae
 				std::stringstream sstr;
 				sstr << what << " failed: " << xnGetStatusString(nRetVal) << std::endl;
 
+				if (debug_)
+				{
+					std::cerr << sstr.str() << std::endl;
+				}
+
 				throw std::invalid_argument(sstr.str());
 			}
+		}
+
+		bool nite_controller::was_keyboard_hit()
+		{
+			return xnOSWasKeyboardHit();
 		}
 
 		std::vector<std::shared_ptr<mae::general_skeleton> > nite_controller::wait_for_update(unsigned int each_n_frames)
@@ -281,10 +296,12 @@ namespace mae
 						XnSkeletonJointTransformation xn_joint;
 						user_generator_.GetSkeletonCap().GetSkeletonJoint(a_users[i], joint_ids_.at(j), xn_joint);
 
+						double confidence = xn_joint.position.fConfidence;
+
 						//create general joint from the NiTE joint
 						std::shared_ptr<mae::general_joint> mae_joint = std::shared_ptr<mae::general_joint>(
 								new mae::general_joint(xn_joint.position.position.X, xn_joint.position.position.Y,
-										xn_joint.position.position.Z));
+										xn_joint.position.position.Z, confidence));
 
 						//add general_joint to the skeleton
 						mae_skeleton->set_joint(joint_ids_mae_.at(j), mae_joint);

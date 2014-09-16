@@ -60,6 +60,7 @@
 								<option id="gnu.cpp.link.option.libs.1648676527" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="XnCore"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="OpenNI"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.720022637" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/Release}&quot;"/>
@@ -121,7 +122,7 @@
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.309547954" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.other.other.641575925" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -Wno-reorder -Wno-pragmas" valueType="string"/>
-								<option id="gnu.cpp.compiler.option.other.pic.1100902030" superClass="gnu.cpp.compiler.option.other.pic" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.other.pic.1100902030" name="Position Independent Code (-fPIC)" superClass="gnu.cpp.compiler.option.other.pic" value="true" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1213526262" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.so.release.466232690" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.so.release">
@@ -135,6 +136,7 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.so.release.360610906" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.so.release">
 								<option defaultValue="true" id="gnu.cpp.link.so.release.option.shared.1391676375" name="Shared (-shared)" superClass="gnu.cpp.link.so.release.option.shared" valueType="boolean"/>
 								<option id="gnu.cpp.link.option.libs.297168042" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="OpenNI"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="XnCore"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae"/>
 								</option>

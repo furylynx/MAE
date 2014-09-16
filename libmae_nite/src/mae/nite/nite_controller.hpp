@@ -25,9 +25,9 @@
 #include <XnOS.h>
 #include <XnOpenNI.h>
 #include <XnCodecIDs.h>
-#include <XnCppWrapper.h>
 #include <XnStatus.h>
 #include <Linux-x86/XnPlatformLinux-x86.h>
+#include <XnCppWrapper.h>
 
 
 
@@ -36,7 +36,7 @@
 
 namespace mae
 {
-	namespace eventing
+	namespace nite
 	{
 
 		class nite_controller
@@ -44,6 +44,8 @@ namespace mae
 			public:
 				nite_controller(std::string config_path, int max_users = 15, bool debug = false);
 				virtual ~nite_controller();
+
+				virtual bool was_keyboard_hit();
 
 				virtual std::vector<std::shared_ptr<mae::general_skeleton> > wait_for_update(unsigned int each_n_frames = 1);
 
