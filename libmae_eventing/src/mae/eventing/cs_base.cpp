@@ -22,9 +22,6 @@ namespace mae
 
 		bool cs_base::is_message_complete(const std::string& message) const
 		{
-			//TODO remove
-			std::cout << "try find end of message..." << std::endl;
-
 			//check for a complete message (message ends with "</pfx:message>" where pfx can be any prefix)
 			bool result = false;
 
@@ -46,9 +43,6 @@ namespace mae
 					}
 				}
 			}
-
-			//TODO remove
-			std::cout << "message end found." << std::endl;
 
 			return result;
 		}

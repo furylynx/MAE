@@ -257,6 +257,11 @@ namespace mae
 
 		bool nite_controller::was_keyboard_hit()
 		{
+			return nite_controller::xn_was_keyboard_hit();
+		}
+
+		bool nite_controller::xn_was_keyboard_hit()
+		{
 			return xnOSWasKeyboardHit();
 		}
 

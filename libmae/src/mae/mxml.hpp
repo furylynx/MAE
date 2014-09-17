@@ -61,6 +61,16 @@ namespace mae
 			 */
 			static std::vector<std::string> get_node_contents(xmlpp::Node* parent_node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string element, std::string nsp, std::string default_return);
 
+			/**
+			 * Returns the contents of all found nodes if any. Returns an empty vector otherwise.
+			 *
+			 * @param parent_node The parent node from which the lookup will start.
+			 * @param namespace_map The namespace map containing all namespaces.
+			 * @param element The elements name to be looked for.
+			 * @param nsp The namespace of the element.
+			 * @return The node's contents or an empty vector.
+			 */
+			static std::vector<std::string> get_node_contents(xmlpp::Node* parent_node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string element, std::string nsp);
 	};
 
 } // namespace mae

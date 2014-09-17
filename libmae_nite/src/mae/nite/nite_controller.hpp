@@ -45,9 +45,13 @@ namespace mae
 				nite_controller(std::string config_path, int max_users = 15, bool debug = false);
 				virtual ~nite_controller();
 
-				virtual bool was_keyboard_hit();
+
 
 				virtual std::vector<std::shared_ptr<mae::general_skeleton> > wait_for_update(unsigned int each_n_frames = 1);
+
+				virtual bool was_keyboard_hit();
+
+				static bool xn_was_keyboard_hit();
 
 			protected:
 				virtual void initialize();

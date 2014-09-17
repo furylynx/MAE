@@ -305,8 +305,15 @@ namespace mae
 				}
 
 				//print score tag
-				sstr << str_indent << "<" << namesp_r << "score xmlns:laban=\"http://www.example.org/labanotation\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/labanotation labanotation.xsd \">"
+				if (!no_header)
+				{
+					sstr << str_indent << "<" << namesp_r << "score " << xml_namespace_header(namesp) << ">"
 						<< std::endl;
+				}
+				else
+				{
+					sstr << str_indent << "<" << namesp_r << "score>" << std::endl;
+				}
 
 				//print header
 				sstr << str_indent << "\t" << "<" << namesp_r << "version>" << version_ << "</" << namesp_r << "version>" << std::endl;
@@ -356,6 +363,31 @@ namespace mae
 				sstr << str_indent << "</" << namesp_r << "score>" << std::endl;
 
 				return sstr.str();
+			}
+
+			std::string laban_sequence::xml_namespace_header(std::string namesp) const
+			{
+				std::stringstream sstr;
+
+				sstr << "xmlns";
+				if (namesp.size() > 0)
+				{
+					sstr << ":" << namesp ;
+				}
+
+				sstr <<  "=\"http://www.example.org/labanotation\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"" << xml_schema_location() << "\"";
+
+				return sstr.str();
+			}
+
+			std::string laban_sequence::xml_schema_location() const
+			{
+				return "http://www.example.org/labanotation labanotation.xsd";
+			}
+
+			std::string laban_sequence::xml_namespace_uri() const
+			{
+				return "http://www.example.org/labanotation";
 			}
 
 			std::string laban_sequence::str() const

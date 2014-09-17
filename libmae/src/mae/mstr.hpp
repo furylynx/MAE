@@ -77,6 +77,28 @@ namespace mae
 			static std::string replace(const std::string& haystack, const std::string& needle, const std::string& replacement);
 
 			/**
+			 * Replaces all occurrences in the haystack with the given replacement. Escapes all occurrences of the replacement with '\'.
+			 *
+			 * @param haystack The haystack.
+			 * @param needle The needle.
+			 * @param replacement The replacement.
+			 * @return The result.
+			 * @return The result.
+			 */
+			static std::string replace_esc(const std::string& haystack, const std::string& needle, const std::string& replacement);
+
+			/**
+			 * Replaces all non-escaped occurrences in the haystack with the given replacement. Unscapes all occurrences of the replacement.
+			 *
+			 * @param haystack The haystack.
+			 * @param needle The needle.
+			 * @param replacement The replacement.
+			 * @return The result.
+			 * @return The result.
+			 */
+			static std::string replace_unesc(const std::string& haystack, const std::string& needle, const std::string& replacement);
+
+			/**
 			 * Transforms the string to lower case.
 			 *
 			 * @param value The string.

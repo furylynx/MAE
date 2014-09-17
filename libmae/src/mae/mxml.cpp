@@ -87,4 +87,30 @@ namespace mae
 		return result;
 	}
 
+	std::vector<std::string> mxml::get_node_contents(xmlpp::Node* parent_node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string element, std::string nsp)
+	{
+		xmlpp::NodeSet node_set = parent_node->find(get_xpath(element, nsp), *namespace_map);
+
+		std::vector<std::string> result;
+
+		if (node_set.size() > 0)
+		{
+			for (unsigned int i = 0; i < node_set.size(); i++)
+			{
+				xmlpp::Element* node = dynamic_cast<xmlpp::Element*>(node_set.at(i));
+
+				if (node->has_child_text())
+				{
+					result.push_back(node->get_child_text()->get_content());
+				}
+				else
+				{
+					result.push_back("");
+				}
+			}
+		}
+
+		return result;
+	}
+
 } // namespace mae

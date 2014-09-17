@@ -259,6 +259,28 @@ namespace mae {
 				virtual std::string xml(bool no_header = false, unsigned int  indent = 0, std::string namesp = "laban") const;
 
 				/**
+				 * Returns the XML namespace header declaration.
+				 *
+				 * @param namesp The namespace to be applied.
+				 * @return The namespace header.
+				 */
+				virtual std::string xml_namespace_header(std::string namesp = "laban") const;
+
+				/**
+				 * Returns the schema location for the XML namespace header.
+				 *
+				 * @return The schema location string.
+				 */
+				virtual std::string xml_schema_location() const;
+
+				/**
+				 * Returns the XML namespace URI.
+				 *
+				 * @return The string.
+				 */
+				virtual std::string xml_namespace_uri() const;
+
+				/**
 				 * Returns the string representation for the sequence.
 				 *
 				 * @return The string.

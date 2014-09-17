@@ -13,14 +13,28 @@ namespace mae
 	std::string mstr::trim_left(const std::string& value)
 	{
 		std::string result = value;
-		result.erase(result.begin(), std::find_if(result.begin(), result.end(), std::not1(std::ptr_fun<int, int>(std::isspace))));
+//		result.erase(result.begin(), std::find_if(result.begin(), result.end(), std::not1(std::ptr_fun<int, int>(std::isspace))));
+
+		std::size_t startpos = result.find_first_not_of(" \t\n");
+		if( std::string::npos != startpos )
+		{
+			result = result.substr(startpos);
+		}
+
 		return result;
 	}
 
 	std::string mstr::trim_right(const std::string& value)
 	{
 		std::string result = value;
-		result.erase(std::find_if(result.rbegin(), result.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), result.end());
+		//result.erase(std::find_if(result.rbegin(), result.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), result.end());
+
+		std::size_t endpos = result.find_last_not_of(" \t\n");
+		if( std::string::npos != endpos )
+		{
+			result = result.substr(0, endpos + 1);
+		}
+
 		return result;
 	}
 
@@ -64,6 +78,53 @@ namespace mae
 
 			//move to the end of the replacement
 			start_pos += replacement.length();
+
+			start_pos = result.find(needle, start_pos);
+		}
+
+		return result;
+	}
+
+	std::string mstr::replace_esc(const std::string& haystack, const std::string& needle, const std::string& replacement)
+	{
+		std::stringstream sstr_rep;
+		sstr_rep << "\\" << replacement;
+
+		std::string result = replace(haystack, replacement, sstr_rep.str());
+		result = replace(result, needle, replacement);
+
+		return result;
+	}
+
+	std::string mstr::replace_unesc(const std::string& haystack, const std::string& needle, const std::string& replacement)
+	{
+		std::string result = std::string(haystack);
+
+		//the needle is empty therefore the string will be returned unmodified
+		if (needle.empty())
+		{
+			return result;
+		}
+
+		std::string::size_type start_pos = result.find(needle);
+
+		//iterate through the string
+		while (start_pos != std::string::npos)
+		{
+			if (start_pos == 0 || result.at(start_pos-1) != '\\')
+			{
+				//replace the occurrence
+				result.replace(start_pos, needle.length(), replacement);
+
+				//move to the end of the replacement
+				start_pos += replacement.length();
+			}
+			else
+			{
+				//unescape the occurrence
+				result.erase(result.begin()+(start_pos - 1));
+				start_pos += needle.length() - 1;
+			}
 
 			start_pos = result.find(needle, start_pos);
 		}
