@@ -8,6 +8,8 @@
 
 #include <iostream>
 
+#include <mae/indexer_fix.hpp>
+
 #include <mae/nite/nite.hpp>
 #include <mae/eventing/eventing.hpp>
 #include <mae/mae.hpp>
@@ -15,12 +17,14 @@
 
 int main()
 {
-	std::cout << "LabaNiTE started." << std::endl; // prints Hello
+	std::cout << "LabaNiTE-Server started." << std::endl;
+
+
+	//-----------------------
+	//load configuration
+	//-----------------------
 
 	std::string sequences_dir = "sequences/";
-
-
-	//load configuration
 	std::string config_path = "SamplesConfig.xml";
 	std::string max_users_str = "15";
 	int max_users = 15;
@@ -35,11 +39,15 @@ int main()
 	ini_reader.get_value_nex("mae", "sequences_dir", &sequences_dir);
 
 	ini_reader.get_value_nex("nite", "config_path", &config_path);
-	ini_reader.get_value_nex("nite", "max_users", &max_users_str);
-	max_users = std::stoul(max_users_str);
+	if (ini_reader.get_value_nex("nite", "max_users", &max_users_str))
+	{
+		max_users = std::stoul(max_users_str);
+	}
 
-	ini_reader.get_value_nex("socket", "port", &port_str);
-	port = std::stoul(port_str);
+	if (ini_reader.get_value_nex("socket", "port", &port_str))
+	{
+		port = std::stoul(port_str);
+	}
 	ini_reader.get_value_nex("socket", "password", &password);
 
 	std::cout << "done." << std::endl;
@@ -48,8 +56,26 @@ int main()
 	std::cout << "max users " << max_users << std::endl;
 
 
-	//set up the driver
 
+	//-----------------------
+	//set up the controller
+	//-----------------------
+
+	std::vector<mae::bone> body_parts;
+	body_parts.push_back(mae::bone::create_bone(mae::e_bone::RIGHT_WHOLE_ARM));
+
+	std::vector<std::shared_ptr<mae::fl::laban::column_definition> > column_definitions;
+
+	mae::fl::fl_movement_controller movement_controller(body_parts, column_definitions);
+
+	//TODO read all sequences in the directory and register them to the controller
+	mae::fl::laban::laban_sequence_reader s_reader = mae::fl::laban::laban_sequence_reader();
+	std::string file = "sequences/r_arm_raise.laban";
+	movement_controller.register_sequence(s_reader.read_sequence_file(file));
+
+	//-----------------------
+	//set up the driver
+	//-----------------------
 
 	std::cout << "Setting up the OpenNI/NiTE driver...";
 
@@ -58,28 +84,44 @@ int main()
 	std::cout << "done." << std::endl;
 
 
-	while (!nitec.was_keyboard_hit())
-	{
-		std::vector<std::shared_ptr<mae::general_skeleton> > skeletons = nitec.wait_for_update(15);
-
-		if (skeletons.size() > 0 && skeletons.at(0) != nullptr)
-		{
-			std::cout << skeletons.at(0)->get_joint(mae::e_joint_c::to_int(mae::e_joint::RIGHT_HAND))->get_confidence() << std::endl;
-		}
-
-	}
-
-	//set up the controller
-
-	//TODO read all sequences in the directory
-
 	//set up the server
 
-//	std::cout << "Setting up the server...";
+	std::cout << "Setting up the server...";
+
+	std::shared_ptr<mae::eventing::fl::fl_server> server = std::shared_ptr<mae::eventing::fl::fl_server>(new mae::eventing::fl::fl_server(&movement_controller, port, password));
+	movement_controller.add_listener(server);
+
+	std::cout << "done." << std::endl;
+
+
+	//-----------------------
+	//process frames configuration
+	//-----------------------
+	std::cout << "started processing..." << std::endl;
+	while (!nitec.was_keyboard_hit())
+	{
+		std::vector<std::shared_ptr<mae::general_skeleton> > skeletons = nitec.wait_for_update();
+		if (skeletons.size() > 0 && skeletons.at(0) != nullptr)
+		{
+			movement_controller.next_frame(0, skeletons.at(0));
+		}
+	}
+
+//	long counter = 0;
+//	while (true)
+//	{
+//		if (mae::nite::nite_controller::xn_was_keyboard_hit())
+//		{
+//			std::cout << "send message to clients..." << std::endl;
+//			std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > sequences;
+//			sequences.push_back(std::shared_ptr<mae::fl::laban::laban_sequence>(new mae::fl::laban::laban_sequence("test_title", "server", 2, mae::fl::laban::e_time_unit::MILLISECOND, 200, 5)));
 //
-//	mae::eventing::fl::fl_server server = mae::eventing::fl::fl_server();
+//			server.notify_clients(counter, sequences);
 //
-//	std::cout << "done." << std::endl;
+//			while(true);
+//		}
+//		counter++;
+//	}
 
 
 	return 0;

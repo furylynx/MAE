@@ -102,5 +102,19 @@ namespace mae
 		}
 	}
 
+	bone bone::create_bone(e_bone the_bone)
+	{
+		std::vector<bone> def_bones = bone::default_bones();
+
+		for (unsigned int i = 0; i < def_bones.size(); i++)
+		{
+			if (def_bones.at(i).get_id() == e_bone_c::to_int(the_bone))
+			{
+				return def_bones.at(i);
+			}
+		}
+
+		throw std::invalid_argument("The bone was not found in default bones. Therefore, it could not be created.");
+	}
 
 } // namespace mae

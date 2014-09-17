@@ -111,6 +111,8 @@ namespace mae
 			 */
 			static std::vector<bone> default_bones();
 
+			static bone create_bone(e_bone the_bone);
+
 			/**
 			 * The reserved value for the top-down bone. This bone is used for the general skeleton.
 			 */

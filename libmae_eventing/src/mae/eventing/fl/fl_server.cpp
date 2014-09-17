@@ -18,7 +18,6 @@ namespace mae
 							std::shared_ptr<i_sequence_serializer<mae::fl::laban::laban_sequence> >(
 									new laban_serializer()), mov_controller, port, password)
 			{
-				std::cout << "fl server invoked." << std::endl;
 			}
 
 			fl_server::~fl_server()

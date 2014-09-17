@@ -11,16 +11,17 @@
 //global includes
 #include <iostream>
 
-
-#include <mae/eventing/fl/fl_client.hpp>
+#include <mae/indexer_fix.hpp>
+#include <mae/eventing/eventing.hpp>
 
 
 int main()
 {
-	std::cout << "Hello" << std::endl; // prints Hello
+	std::cout << "LabaNiTE-Client started." << std::endl;
 
-	mae::eventing::fl::fl_client client("localhost");
-
+	std::cout << "Setting up the client...";
+	mae::eventing::fl::fl_client client("localhost", mae::eventing::cs_base::get_default_port(), "BarneyGumble");
+	std::cout << "done." << std::endl;
 
 	//run while thread performs actions
 	while(true)
