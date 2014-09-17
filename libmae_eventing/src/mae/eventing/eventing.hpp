@@ -9,6 +9,7 @@
 #define EVENTING_HPP_
 
 //custom includes
+#include "cs_base.hpp"
 #include "client.hpp"
 #include "server.hpp"
 

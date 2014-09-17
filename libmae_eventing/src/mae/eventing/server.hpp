@@ -58,6 +58,46 @@ namespace mae
 
 				virtual bool remove_registration_manager(std::shared_ptr<i_registration_manager<U> > manager);
 
+				virtual void register_sequence(std::shared_ptr<U> sequence);
+
+			protected:
+
+				/**
+				 * Handles the initial message received from a newly connected client.
+				 * If password is fine, the client is accepted and the accept_client method is invoked.
+				 *
+				 * @param client The newly connected client.
+				 * @param message The received message.
+				 * @param server_password The password for the server.
+				 */
+				virtual void handle_initial_message(std::shared_ptr<boost::asio::ip::tcp::socket> client, std::string message, std::string server_password);
+
+				/**
+				 * Handles any further message received from the client. This message is the sequence registration message and if the sequence is parsed
+				 * the register_sequence method is invoked.
+				 *
+				 * @param client The client.
+				 * @param message The received message.
+				 */
+				virtual void handle_further_message(std::shared_ptr<boost::asio::ip::tcp::socket> client, std::string message);
+
+				/**
+				 * Creates a recognition message which informs the client on recognized sequences. This method is invoked for each client.
+				 *
+				 * @param timestamp The timestamp of the recognition event.
+				 * @param sequences The recognized sequences.
+				 * @param short_message True if the message is intended to be short.
+				 * @return The message string.
+				 */
+				virtual std::string create_recognition_message(long timestamp, std::vector<std::shared_ptr<U> > sequences, bool short_message);
+
+				/**
+				 * Accepts a client and registers the requested message format.
+				 *
+				 * @param connection The client.
+				 * @param short_message The message format. True for short messages.
+				 */
+				virtual void accept_client(std::shared_ptr<boost::asio::ip::tcp::socket> connection, bool short_message);
 
 			private:
 				uint16_t port_;
@@ -98,10 +138,6 @@ namespace mae
 
 				virtual void server_run();
 
-				virtual void handle_initial_message(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message);
-
-				virtual void handle_further_message(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message);
-
 				virtual void notify_registered_sequence(std::shared_ptr<U> sequence);
 
 				/**
@@ -140,12 +176,15 @@ namespace mae
 		template <typename T, typename U>
 		server<T, U>::server(std::shared_ptr<i_sequence_serializer<U> > serializer, movement_controller<T,U>* mov_controller, uint16_t port, std::string password)
 		{
-			std::cout << "server invoked." << std::endl;
-
 			port_ = port;
 			password_ = password;
 			serializer_ = serializer;
 			movement_controller_ = mov_controller;
+
+			if (serializer_ == nullptr)
+			{
+				throw std::invalid_argument("Serializer must not be null!");
+			}
 
 			io_ = std::shared_ptr<boost::asio::io_service>(new boost::asio::io_service());
 			acceptor_ = std::shared_ptr<boost::asio::ip::tcp::acceptor>(new boost::asio::ip::tcp::acceptor(*io_, boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), port_)));
@@ -164,8 +203,6 @@ namespace mae
 		template <typename T, typename U>
 		void server<T, U>::initialize()
 		{
-			std::cout << "initializing the socket server..." << std::endl;
-
 			//create new socket to accept a connection
 			std::shared_ptr<boost::asio::ip::tcp::socket> nsocket(new boost::asio::ip::tcp::socket(*io_) );
 			acceptor_->async_accept(*nsocket, boost::bind(&server::accept, this, nsocket, boost::asio::placeholders::error));
@@ -180,9 +217,6 @@ namespace mae
 			if (!error)
 			{
 				begin_read(connection, 0, 30);
-
-				//TODO remove
-				std::cout << "Accepted another socket." << std::endl;
 			}
 			else
 			{
@@ -230,7 +264,6 @@ namespace mae
 			//initialize new buffer
 			unsigned long int max_length = 1024;
 			std::shared_ptr<char> nbuffer = std::shared_ptr<char>(new char[max_length]);
-//			boost::asio::async_read(*connection, boost::asio::buffer(nbuffer.get(), max_length), boost::bind(&server::on_read, this, connection, nbuffer, state, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
 			connection->async_read_some(boost::asio::buffer(nbuffer.get(), max_length), boost::bind(&server::on_read, this, connection, nbuffer, state, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
 		}
 
@@ -247,26 +280,19 @@ namespace mae
 			}
 			else
 			{
-				std::cout << "read some: '" << buffer.get() << "' | bytes transferred " << bytes_transferred << std::endl;
-
-
 				std::shared_ptr<std::string> tmp_str = msgs_.at(connection);
 				tmp_str->append(std::string(buffer.get(), bytes_transferred));
 
 				if (is_message_complete(*tmp_str))
 				{
-					std::cout << "message is complete!" << std::endl;
-
 					std::string result = *(msgs_.at(connection));
 					on_read_complete(connection, result, state, error);
 				}
 				else
 				{
-					std::cout << "read some more." << std::endl;
 					unsigned long int max_length = 1024;
 					std::shared_ptr<char> nbuffer = std::shared_ptr<char>(new char[max_length]);
 
-//					boost::asio::async_read(*connection, boost::asio::buffer(nbuffer.get(), max_length), boost::bind(&server::on_read, this, connection, nbuffer, state, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
 					connection->async_read_some(boost::asio::buffer(nbuffer.get(), max_length), boost::bind(&server::on_read, this, connection, nbuffer, state, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
 				}
 			}
@@ -282,16 +308,21 @@ namespace mae
 			}
 			else
 			{
-				//TODO remove
-				std::cout << "read message from client: " << message << std::endl;
-
 				if (state == 0)
 				{
-					handle_initial_message(connection, message);
+					handle_initial_message(connection, message, password_);
+
+					if (msg_types_.find(connection) == msg_types_.end())
+					{
+						//client was not accepted, therefore the connection is closed
+						boost::system::error_code code(boost::asio::error::no_permission);
+						connection->close(code);
+					}
 				}
 				else
 				{
 					handle_further_message(connection, message);
+					begin_read(connection, state, 0);
 				}
 			}
 		}
@@ -299,9 +330,7 @@ namespace mae
 		template <typename T, typename U>
 		void server<T, U>::server_run()
 		{
-			std::cout << "running io..." << std::endl;
 			io_->run();
-			std::cout << "stopped running io!" << std::endl;
 		}
 
 		template <typename T, typename U>
@@ -332,11 +361,8 @@ namespace mae
 		}
 
 		template <typename T, typename U>
-		void server<T, U>::handle_initial_message(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message)
+		void server<T, U>::handle_initial_message(std::shared_ptr<boost::asio::ip::tcp::socket> client, std::string message, std::string server_password)
 		{
-			//TODO remove
-			std::cout << "handle initial message" << std::endl;
-
 			bool accepted = false;
 
 			//parse the initial message and decide what to do
@@ -365,19 +391,14 @@ namespace mae
 			bool type_short = (type_str == "short");
 			std::string password = mae::mxml::get_node_content(root_node, namespace_map, "password", nsp, "");
 
-			if (password == password_)
+			if (password == server_password)
 			{
 				accepted = true;
 			}
 
 			if (accepted)
 			{
-				std::cout << "accepted, short=" << type_short << std::endl;
-
-				connections_.push_back(connection);
-				msg_types_.insert(std::make_pair(connection, type_short));
-
-				begin_read(connection, 1, 0);
+				accept_client(client, type_short);
 			}
 		}
 
@@ -407,6 +428,9 @@ namespace mae
 			//---------------
 			std::string sequence_str = mae::mxml::get_node_content(root_node, namespace_map, "sequence", nsp, "");
 
+			//trimming and unescaping
+			sequence_str = mstr::trim(mstr::replace_unesc(mstr::replace_unesc(sequence_str, "&lt;", "<"), "&gt;", ">"));
+
 			std::shared_ptr<U> sequence = serializer_->deserialize(sequence_str);
 
 			if (sequence != nullptr)
@@ -414,8 +438,58 @@ namespace mae
 				//TODO remove
 				std::cout << "received a sequence!" << std::endl;
 
-				//TODO register sequence to movement controller
+				register_sequence(sequence);
 			}
+		}
+
+		template <typename T, typename U>
+		void server<T, U>::accept_client(std::shared_ptr<boost::asio::ip::tcp::socket> connection, bool short_message)
+		{
+			connections_.push_back(connection);
+			msg_types_.insert(std::make_pair(connection, short_message));
+
+			begin_read(connection, 1, 0);
+		}
+
+		template <typename T, typename U>
+		void server<T, U>::register_sequence(std::shared_ptr<U> sequence)
+		{
+			if (movement_controller_ != nullptr)
+			{
+				movement_controller_->register_sequence(sequence);
+			}
+		}
+
+		template <typename T, typename U>
+		std::string server<T, U>::create_recognition_message(long timestamp, std::vector<std::shared_ptr<U> > sequences, bool short_message)
+		{
+			std::stringstream sstr;
+
+			//print header
+			sstr << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" << std::endl;
+
+			sstr << "<maee:message xmlns:maee=\"http://www.example.org/maeeventing\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/maeeventing maeeventing.xsd \">" << std::endl;
+			sstr << "\t<maee:timestamp>" << timestamp << "</maee:timestamp>" << std::endl;
+
+			for (unsigned int i = 0; i < sequences.size(); i++)
+			{
+				if (!short_message)
+				{
+					sstr << "\t<maee:sequence>" << std::endl;
+					sstr << mstr::replace_esc(mstr::replace_esc(serializer_->serialize(sequences.at(i), short_message, false, 2), "<", "&lt;"), ">","&gt;");
+					sstr << "\t</maee:sequence>" << std::endl;
+				}
+				else
+				{
+					sstr << "\t<maee:title>" << std::endl;
+					sstr << mstr::replace_esc(mstr::replace_esc(serializer_->serialize(sequences.at(i), short_message, true, 2), "<", "&lt;"), ">","&gt;");
+					sstr << "\t</maee:title>" << std::endl;
+				}
+			}
+
+			sstr << "</maee:message>" << std::endl;
+
+			return sstr.str();
 		}
 
 		template <typename T, typename U>
@@ -427,24 +501,11 @@ namespace mae
 				std::string msg = "";
 
 				// generate message to be sent
-				std::stringstream sstr;
+				std::string message = create_recognition_message(timestamp, sequences, msg_types_.at(connections_.at(i)));
 
-				//print header
-				sstr << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" << std::endl;
-
-				sstr << "<maee:message xmlns:maee=\"http://www.example.org/maeeventing\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/maeeventing maeeventing.xsd\">" << std::endl;
-				sstr << "\t<maee:sequences>" << std::endl;
-
-				for (unsigned int i = 0; i < sequences.size(); i++)
-				{
-					serializer_->serialize(sequences.at(i), msg_types_.at(connections_.at(i)), true, 2);
-				}
-
-				sstr << "\t</maee:sequences>" << std::endl;
-				sstr << "</maee:message>";
-
-    	    	begin_write(connections_.at(i), sstr.str());
+    	    	begin_write(connections_.at(i), message);
 			}
+
 		}
 
 		template <typename T, typename U>

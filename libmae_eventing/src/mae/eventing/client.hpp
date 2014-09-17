@@ -53,6 +53,40 @@ namespace mae
 
 				virtual std::list<std::shared_ptr<i_recognition_listener<U> > > get_listeners();
 
+				virtual void notify_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences);
+
+				virtual void notify_listeners(long timestamp, std::vector<std::string> sequences_titles);
+
+			protected:
+
+				/**
+				 * Handles the message which contains information on recognized sequences.
+				 * Is invoked whenever a message was completely read from the stream.
+				 * From this method the specific notify_listeners-method is invoked.
+				 *
+				 * @param message The message to be parsed
+				 */
+				virtual void handle_recognition_message(std::string message, bool short_type);
+
+				/**
+				 * Generates the initial message which is sent to the server in order to establish a
+				 * connection.
+				 *
+				 * @param short_type The message type to be received. True for short.
+				 * @return The message string.
+				 */
+				virtual std::string create_initial_message(bool short_type, std::string client_password);
+
+				/**
+				 * Generates the registration message which is sent to the server in order to register another
+				 * sequence to the movement controller. This message contains always the whole sequence
+				 * representation in order to be constructed at the server.
+				 *
+				 * @param sequence The sequence.
+				 * @return The message string.
+				 */
+				virtual std::string create_registration_message(std::shared_ptr<U> sequence);
+
 			private:
 				std::string uri_;
 				uint16_t port_;
@@ -73,7 +107,6 @@ namespace mae
 
 
 				//methods
-
 				virtual void initialize();
 
 				virtual void begin_write(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message, int state);
@@ -87,10 +120,6 @@ namespace mae
 				virtual void on_read_complete(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message, const boost::system::error_code& error);
 
 				virtual void client_run();
-
-				virtual void notify_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences);
-
-				virtual void notify_listeners(long timestamp, std::vector<std::string> sequences_titles);
 
 		};
 
@@ -136,22 +165,7 @@ namespace mae
 			boost::asio::connect(*socket_, resolver_->resolve(query));
 
 			//send initiation message
-			std::stringstream sstr;
-			sstr << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" << std::endl;
-			sstr << "<maee:message xmlns:maee=\"http://www.example.org/maeeventing\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/maeeventing maeeventing.xsd\">" << std::endl;
-			sstr << "\t<maee:type>";
-			if (short_sequences_)
-			{
-				sstr << "short";
-			}
-			else
-			{
-				sstr << "normal";
-			}
-			sstr << "</maee:type>" << std::endl;
-			sstr << "</maee:message>" << std::endl;
-
-			std::string registration_message = sstr.str();
+			std::string registration_message = create_initial_message(short_sequences_, password_);
 
 			begin_write(socket_, registration_message, 0);
 
@@ -162,8 +176,6 @@ namespace mae
 		template <typename U>
 		void client<U>::begin_write(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message, int state)
 		{
-			std::cout << "try to send message: " << std::endl;
-			std::cout << message << std::endl;
 			connection->async_send(boost::asio::buffer(message.c_str(), message.size()), boost::bind(&client::on_write, this, connection, state, boost::asio::placeholders::error));
 		}
 
@@ -214,7 +226,7 @@ namespace mae
 			else
 			{
 				//append read content to buffer
-				buffer_.append(std::string(*buffer, bytes_transferred));
+				buffer_.append(std::string(buffer.get(), bytes_transferred));
 
 				if (is_message_complete(buffer_))
 				{
@@ -238,65 +250,117 @@ namespace mae
 			}
 			else
 			{
-				//TODO remove
-				std::cout << "read message from client: " << message << std::endl;
-
-				//parse received message
-
-				std::stringstream sstr;
-				sstr << message;
-
-				xmlpp::DomParser parser;
-				parser.parse_stream(sstr);
-
-				xmlpp::Document* doc = parser.get_document();
-				xmlpp::Node* root_node = doc->get_root_node();
-
-				//setup namespace prefix
-				std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map = std::shared_ptr<xmlpp::Node::PrefixNsMap>(new xmlpp::Node::PrefixNsMap());
-				if (root_node->get_namespace_prefix().size() > 0)
-				{
-					namespace_map->insert(std::make_pair(root_node->get_namespace_prefix(), root_node->get_namespace_uri()));
-				}
-
-				std::string nsp = root_node->get_namespace_prefix();
-
-				//---------------
-				// main elements
-				//---------------
-
-				long timestamp = std::stol(mae::mxml::get_node_content(root_node, namespace_map, "timestamp", nsp, "0"));
-
-
-
-				if (!short_sequences_)
-				{
-					std::vector<std::shared_ptr<U> > sequences;
-					std::vector<std::string> sequences_str = mae::mxml::get_node_contents(root_node, namespace_map, "sequences/score", nsp, "");
-
-					for (unsigned int i = 0; i < sequences_str.size(); i++)
-					{
-						std::shared_ptr<U> sequence = serializer_->deserialize(sequences_str.at(i));
-						if (sequence != nullptr)
-						{
-							sequences.push_back(sequence);
-						}
-					}
-
-					//notify listeners
-					notify_listeners(timestamp, sequences);
-				}
-				else
-				{
-					std::vector<std::string> sequences_str = mae::mxml::get_node_contents(root_node, namespace_map, "sequences/title", nsp, "");
-
-					//notify listeners
-					notify_listeners(timestamp, sequences_str);
-				}
+				handle_recognition_message(message, short_sequences_);
 
 				//continue to read
 				begin_read(socket_, 0);
 			}
+		}
+
+		template <typename U>
+		void client<U>::handle_recognition_message(std::string message, bool short_type)
+		{
+			//parse received message
+
+			std::stringstream sstr;
+			sstr << message;
+
+			xmlpp::DomParser parser;
+			parser.parse_stream(sstr);
+
+			xmlpp::Document* doc = parser.get_document();
+			xmlpp::Node* root_node = doc->get_root_node();
+
+			//setup namespace prefix
+			std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map = std::shared_ptr<xmlpp::Node::PrefixNsMap>(new xmlpp::Node::PrefixNsMap());
+			if (root_node->get_namespace_prefix().size() > 0)
+			{
+				namespace_map->insert(std::make_pair(root_node->get_namespace_prefix(), root_node->get_namespace_uri()));
+			}
+
+			std::string nsp = root_node->get_namespace_prefix();
+
+			//---------------
+			// main elements
+			//---------------
+
+			long timestamp = std::stol(mae::mxml::get_node_content(root_node, namespace_map, "timestamp", nsp, "0"));
+
+
+			if (!short_type)
+			{
+				std::vector<std::shared_ptr<U> > sequences;
+				std::vector<std::string> sequences_str = mae::mxml::get_node_contents(root_node, namespace_map, "sequence", nsp, "");
+
+				for (unsigned int i = 0; i < sequences_str.size(); i++)
+				{
+					std::string sequence_str = mstr::trim(mstr::replace_unesc(mstr::replace_unesc(sequences_str.at(i), "&lt;", "<"), "&gt;", ">"));
+
+					std::shared_ptr<U> sequence = serializer_->deserialize(sequence_str);
+					if (sequence != nullptr)
+					{
+						sequences.push_back(sequence);
+
+						//TODO remove
+						std::cout << "RECEIVED SEQUENCE >>>> \"" << serializer_->serialize(sequence, false) << "\"" << std::endl;
+					}
+				}
+
+				//notify listeners
+				notify_listeners(timestamp, sequences);
+			}
+			else
+			{
+				std::vector<std::string> sequences_str = mae::mxml::get_node_contents(root_node, namespace_map, "sequences/title", nsp, "");
+
+				std::vector<std::string> titles;
+				for (unsigned int i = 0; i < sequences_str.size(); i++)
+				{
+					std::string title = mstr::trim(mstr::replace_unesc(mstr::replace_unesc(sequences_str.at(i), "&lt;", "<"), "&gt;", ">"));
+
+					titles.push_back(title);
+				}
+
+
+				//notify listeners
+				notify_listeners(timestamp, titles);
+			}
+		}
+
+		template <typename U>
+		std::string client<U>::create_initial_message(bool short_type, std::string client_password)
+		{
+			std::stringstream sstr;
+			sstr << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" << std::endl;
+			sstr << "<maee:message xmlns:maee=\"http://www.example.org/maeeventing\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/maeeventing maeeventing.xsd\">" << std::endl;
+			sstr << "\t<maee:type>";
+			if (short_type)
+			{
+				sstr << "short";
+			}
+			else
+			{
+				sstr << "normal";
+			}
+			sstr << "</maee:type>" << std::endl;
+			sstr << "\t<maee:password>" << client_password<< "</maee:password>" << std::endl;
+			sstr << "</maee:message>" << std::endl;
+
+			return sstr.str();
+		}
+
+		template <typename U>
+		std::string client<U>::create_registration_message(std::shared_ptr<U> sequence)
+		{
+			std::stringstream sstr;
+			sstr << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" << std::endl;
+			sstr << "<maee:message xmlns:maee=\"http://www.example.org/maeeventing\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/maeeventing maeeventing.xsd\">" << std::endl;
+			sstr << "\t<maee:sequence>";
+			sstr << mstr::replace_esc(mstr::replace_esc(serializer_->serialize(sequence, short_sequences_, false, 2), "<", "&lt;"), ">","&gt;");
+			sstr << "\t</maee:sequence>" << std::endl;
+			sstr << "</maee:message>" << std::endl;
+
+			return sstr.str();
 		}
 
 		template <typename U>
@@ -309,15 +373,7 @@ namespace mae
 		void client<U>::register_sequence(std::shared_ptr<U> sequence)
 		{
 			//send initiation message
-			std::stringstream sstr;
-			sstr << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" << std::endl;
-			sstr << "<maee:message xmlns:maee=\"http://www.example.org/maeeventing\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.example.org/maeeventing maeeventing.xsd\">" << std::endl;
-			sstr << "\t<maee:sequence>";
-			sstr << serializer_->serialize(sequence, short_sequences_, true, 2);
-			sstr << "\t</maee:sequence>" << std::endl;
-			sstr << "</maee:message>" << std::endl;
-
-			std::string registration_message = sstr.str();
+			std::string registration_message = create_registration_message(sequence);
 
 			begin_write(socket_, registration_message, 1);
 		}

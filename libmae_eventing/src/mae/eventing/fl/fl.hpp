@@ -5,12 +5,12 @@
  *      Author: keks
  */
 
-#ifndef FL_HPP_
-#define FL_HPP_
+#ifndef EVENTING_FL_HPP_
+#define EVENTING_FL_HPP_
 
 //custom includes
 #include "fl_client.hpp"
 #include "fl_server.hpp"
 
 
-#endif // FL_HPP_
+#endif // EVENTING_FL_HPP_
