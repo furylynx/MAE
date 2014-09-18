@@ -134,6 +134,7 @@
 									<listOptionValue builtIn="false" value="/usr/include/nite/"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/src}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_nite/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_demo/src}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.1067851217" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1357225456" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -151,6 +152,7 @@
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_nite"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_system"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_filesystem"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_demo"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.874066695" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/Release}&quot;"/>
