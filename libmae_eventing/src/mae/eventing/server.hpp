@@ -495,6 +495,8 @@ namespace mae
 		template <typename T, typename U>
 		void server<T, U>::notify_clients(long timestamp, std::vector<std::shared_ptr<U> > sequences)
 		{
+			std::cout << "\t\t ### sequence recognized - notifying clients" << std::endl;
+
 			//iterate all registered clients and notify them
 			for (unsigned int i = 0; i < connections_.size(); i++)
 			{

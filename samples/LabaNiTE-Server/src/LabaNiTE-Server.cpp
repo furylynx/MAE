@@ -15,6 +15,9 @@
 #include <mae/mae.hpp>
 
 
+#include <boost/filesystem.hpp>
+
+
 int main()
 {
 	std::cout << "LabaNiTE-Server started." << std::endl;
@@ -68,10 +71,55 @@ int main()
 
 	mae::fl::fl_movement_controller movement_controller(body_parts, column_definitions);
 
-	//TODO read all sequences in the directory and register them to the controller
+	//read all sequences in the directory and register them to the controller
 	mae::fl::laban::laban_sequence_reader s_reader = mae::fl::laban::laban_sequence_reader();
-	std::string file = "sequences/r_arm_raise.laban";
-	movement_controller.register_sequence(s_reader.read_sequence_file(file));
+
+	if (boost::filesystem::is_directory(boost::filesystem::path(sequences_dir)))
+	{
+		boost::filesystem::path pp = boost::filesystem::path(sequences_dir);
+
+		std::cout << "registering files..." << std::endl;
+
+		for (boost::filesystem::directory_iterator it = boost::filesystem::directory_iterator(pp); it != boost::filesystem::directory_iterator(); it++)
+		{
+			boost::filesystem::directory_entry entry = *it;
+			if (boost::filesystem::is_regular_file(entry.status()))
+			{
+				std::string file_path = entry.path().string();
+				std::string file_name = entry.path().filename().string();
+
+				if (file_name.rfind(".laban") == file_name.length()-6)
+				{
+					try
+					{
+						std::shared_ptr<mae::fl::laban::laban_sequence> sequence = s_reader.read_sequence_file(file_path);
+						if (sequence != nullptr)
+						{
+							std::cout << "registering \"" << sequence->get_title() << "\" from file '" << file_name << "'" << std::endl;
+							movement_controller.register_sequence(sequence);
+						}
+						else
+						{
+							std::cout << "!! Could not parse file '" << file_name << "'" << std::endl;
+						}
+					}
+					catch(std::exception& e)
+					{
+						std::cout << "!! Could not parse file '" << file_name << "'" << std::endl;
+					}
+					catch(...)
+					{
+						std::cout << "!! Could not parse file '" << file_name << "'" << std::endl;
+					}
+				}
+			}
+		}
+	}
+	else
+	{
+		std::cout << "Directory '" << sequences_dir <<  "' does not exist! Quit program." << std::endl;
+		return 0;
+	}
 
 	//-----------------------
 	//set up the driver
