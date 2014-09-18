@@ -150,6 +150,7 @@
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_eventing"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_nite"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_system"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_filesystem"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.874066695" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/Release}&quot;"/>
