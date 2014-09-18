@@ -51,6 +51,8 @@ namespace mae
 				 */
 				virtual SDL_Window* get();
 
+				virtual void repaint();
+
 			protected:
 
 				virtual void handle_event(SDL_Event& e);
@@ -60,9 +62,6 @@ namespace mae
 
 				std::string title_;
 				SDL_Window* window_;
-
-
-				virtual void repaint();
 
 
 				//****************

@@ -95,6 +95,11 @@ namespace mae
 			return window_;
 		}
 
+		void sdl_window::handle_event(SDL_Event& e)
+		{
+			//TODO handle event
+		}
+
 		void sdl_window::paint(SDL_Surface* graphics)
 		{
 			//TODO do painting in here...
