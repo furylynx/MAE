@@ -74,7 +74,7 @@ int main()
 
 	std::vector<std::shared_ptr<mae::fl::laban::column_definition> > column_definitions;
 
-	mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(/*body_parts, column_definitions*/);
+	mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts, column_definitions, 150);
 
 	//read all sequences in the directory and register them to the controller
 	mae::fl::laban::laban_sequence_reader s_reader = mae::fl::laban::laban_sequence_reader();

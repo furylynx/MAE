@@ -133,6 +133,11 @@ src/mae/eventing/fl/laban_serializer.d: \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../e_fl_direction.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../../mstr.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/e_direction.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/../../../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/../../../mstr.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/../../e_fl_direction.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/e_level.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/body_part.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_side.hpp \
@@ -470,6 +475,16 @@ src/mae/eventing/fl/laban_serializer.d: \
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../../indexer_fix.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../../mstr.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/e_direction.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/../../../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/../../../mstr.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/../../e_fl_direction.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/e_level.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/body_part.hpp:
 

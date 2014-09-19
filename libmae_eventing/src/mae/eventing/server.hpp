@@ -18,10 +18,7 @@
 
 
 //global includes
-#include <mae/i_recognition_listener.hpp>
-#include <mae/fl/laban/laban_sequence.hpp>
-#include <mae/mxml.hpp>
-#include <mae/movement_controller.hpp>
+#include <mae/mae.hpp>
 
 #include <iostream>
 #include <vector>
@@ -98,6 +95,13 @@ namespace mae
 				 * @param short_message The message format. True for short messages.
 				 */
 				virtual void accept_client(std::shared_ptr<boost::asio::ip::tcp::socket> connection, bool short_message);
+
+				/**
+				 * Removes the client from the connection list and closes the connection to the client.
+				 *
+				 * @param connection The client.
+				 */
+				virtual void remove_client(std::shared_ptr<boost::asio::ip::tcp::socket> connection);
 
 			private:
 				uint16_t port_;
@@ -239,7 +243,13 @@ namespace mae
 		{
 			if (error)
 			{
-				std::cerr << "An error has occured during the write." << std::endl;
+				if (error == boost::asio::error::broken_pipe)
+				{
+					remove_client(connection);
+					return;
+				}
+
+				std::cerr << "An error has occurred during the write: " << error.message() << std::endl;
 			}
 			else
 			{
@@ -273,10 +283,8 @@ namespace mae
 			//handle the transferred bytes
 			if (error)
 			{
-				std::cerr << "An error occured while reading!" << std::endl;
-
 				//notify on read complete but an error (and thus most likely an incomplete message)
-				on_read_complete(connection, "", state, error);
+				on_read_complete(connection, *msgs_.at(connection), state, error);
 			}
 			else
 			{
@@ -304,7 +312,19 @@ namespace mae
 		{
 			if (error)
 			{
-				std::cerr << "The whole message could not be read since an error occurred." << std::endl;
+				if (error == boost::asio::error::eof)
+				{
+					remove_client(connection);
+					return;
+				}
+
+				if (error == boost::asio::error::timed_out)
+				{
+					begin_read(connection, state, 0);
+					return;
+				}
+
+				std::cerr << "The whole message could not be read since an error occurred: " << error.message() << std::endl;
 			}
 			else
 			{
@@ -429,7 +449,7 @@ namespace mae
 			std::string sequence_str = mae::mxml::get_node_content(root_node, namespace_map, "sequence", nsp, "");
 
 			//trimming and unescaping
-			sequence_str = mstr::trim(mstr::replace_unesc(mstr::replace_unesc(sequence_str, "&lt;", "<"), "&gt;", ">"));
+			sequence_str = mae::mstr::trim(mae::mstr::replace_unesc(mae::mstr::replace_unesc(sequence_str, "&lt;", "<"), "&gt;", ">"));
 
 			std::shared_ptr<U> sequence = serializer_->deserialize(sequence_str);
 
@@ -445,10 +465,26 @@ namespace mae
 		template <typename T, typename U>
 		void server<T, U>::accept_client(std::shared_ptr<boost::asio::ip::tcp::socket> connection, bool short_message)
 		{
-			connections_.push_back(connection);
 			msg_types_.insert(std::make_pair(connection, short_message));
+			connections_.push_back(connection);
 
 			begin_read(connection, 1, 0);
+		}
+
+		template <typename T, typename U>
+		void server<T, U>::remove_client(std::shared_ptr<boost::asio::ip::tcp::socket> connection)
+		{
+			connection->close();
+
+			for (std::vector<std::shared_ptr<boost::asio::ip::tcp::socket> >::iterator it = connections_.begin(); it != connections_.end(); it++)
+			{
+				if (connection == *it)
+				{
+					connections_.erase(it);
+				}
+			}
+
+			msg_types_.erase(connection);
 		}
 
 		template <typename T, typename U>
@@ -476,13 +512,13 @@ namespace mae
 				if (!short_message)
 				{
 					sstr << "\t<maee:sequence>" << std::endl;
-					sstr << mstr::replace_esc(mstr::replace_esc(serializer_->serialize(sequences.at(i), short_message, false, 2), "<", "&lt;"), ">","&gt;");
+					sstr << mae::mstr::replace_esc(mae::mstr::replace_esc(serializer_->serialize(sequences.at(i), short_message, false, 2), "<", "&lt;"), ">","&gt;");
 					sstr << "\t</maee:sequence>" << std::endl;
 				}
 				else
 				{
 					sstr << "\t<maee:title>" << std::endl;
-					sstr << mstr::replace_esc(mstr::replace_esc(serializer_->serialize(sequences.at(i), short_message, true, 2), "<", "&lt;"), ">","&gt;");
+					sstr << mae::mstr::replace_esc(mae::mstr::replace_esc(serializer_->serialize(sequences.at(i), short_message, true, 2), "<", "&lt;"), ">","&gt;");
 					sstr << "\t</maee:title>" << std::endl;
 				}
 			}
