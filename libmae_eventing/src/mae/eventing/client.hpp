@@ -16,9 +16,7 @@
 #include "cs_base.hpp"
 
 //global includes
-#include <mae/i_recognition_listener.hpp>
-#include <mae/fl/laban/laban_sequence.hpp>
-#include <mae/mxml.hpp>
+#include <mae/mae.hpp>
 
 #include <vector>
 #include <string>
@@ -87,6 +85,13 @@ namespace mae
 				 */
 				virtual std::string create_registration_message(std::shared_ptr<U> sequence);
 
+				/**
+				 * Closes the connection to the server.
+				 *
+				 * @param connection The connection.
+				 */
+				virtual void remove_connection(std::shared_ptr<boost::asio::ip::tcp::socket> connection);
+
 			private:
 				std::string uri_;
 				uint16_t port_;
@@ -118,6 +123,8 @@ namespace mae
 				virtual void on_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::shared_ptr<char> buffer, const boost::system::error_code& error, const std::size_t bytes_transferred);
 
 				virtual void on_read_complete(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message, const boost::system::error_code& error);
+
+
 
 				virtual void client_run();
 
@@ -218,10 +225,8 @@ namespace mae
 			//handle the transferred bytes
 			if (error)
 			{
-				std::cerr << "An error occured while reading!" << std::endl;
-
 				//notify on read complete but an error (and thus most likely an incomplete message)
-				on_read_complete(connection, "", error);
+				on_read_complete(connection, buffer_, error);
 			}
 			else
 			{
@@ -246,7 +251,14 @@ namespace mae
 		{
 			if (error)
 			{
-				std::cerr << "The message could not be read, cause an error occurred." << std::endl;
+				if (error == boost::asio::error::eof)
+				{
+					remove_connection(connection);
+					return;
+				}
+				std::cerr << "The message could not be read, because an error occurred: " << error.message() << std::endl;
+
+				begin_read(socket_, 0);
 			}
 			else
 			{
@@ -364,6 +376,12 @@ namespace mae
 		}
 
 		template <typename U>
+		void client<U>::remove_connection(std::shared_ptr<boost::asio::ip::tcp::socket> connection)
+		{
+			connection->close();
+		}
+
+		template <typename U>
 		void client<U>::client_run()
 		{
 			io_.run();
@@ -375,7 +393,14 @@ namespace mae
 			//send initiation message
 			std::string registration_message = create_registration_message(sequence);
 
-			begin_write(socket_, registration_message, 1);
+			if (socket_->is_open())
+			{
+				begin_write(socket_, registration_message, 1);
+			}
+			else
+			{
+				throw std::runtime_error("Connection to server is closed. Cannot register any sequences.");
+			}
 		}
 
 		template <typename U>
