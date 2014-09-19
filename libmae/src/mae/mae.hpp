@@ -17,6 +17,7 @@
 #include "ini_reader.hpp"
 #include "mstr.hpp"
 #include "mxml.hpp"
+#include "mos.hpp"
 
 #include "fl/fl.hpp"
 

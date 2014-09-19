@@ -22,18 +22,30 @@ namespace mae
 		{
 			title_ = title;
 
-			if (windows_.size() == 0)
+			try
 			{
-				windows_.push_back(this);
+				if (windows_.size() == 0)
+				{
+					windows_.push_back(this);
 
-				thread_ = std::thread(sdl_run);
+					thread_ = std::thread(sdl_run);
 
-				//wait until SDL is initialized
-				while(!initialized_);
+					//wait until SDL is initialized
+					while(!initialized_);
+				}
+
+				window_ = SDL_CreateWindow(title.c_str(), x_pos, y_pos, width,
+						height, flags);
+			}
+			catch(...)
+			{
+				remove_window(this);
+				initialized_ = false;
+
+				throw std::runtime_error("Could not initialize the window.");
 			}
 
-			window_ = SDL_CreateWindow(title.c_str(), x_pos, y_pos, width,
-					height, flags);
+			repaint();
 		}
 
 		sdl_window::~sdl_window()
@@ -93,6 +105,11 @@ namespace mae
 		SDL_Window* sdl_window::get()
 		{
 			return window_;
+		}
+
+		SDL_Surface* sdl_window::get_surface()
+		{
+			return SDL_GetWindowSurface(window_);
 		}
 
 		void sdl_window::handle_event(SDL_Event& e)

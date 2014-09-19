@@ -44,6 +44,8 @@ namespace mae
 
 				void set_size(int width, int height);
 
+				virtual void repaint();
+
 				/**
 				 * Returns the pointer to the SDL_WINDOW which remains valid until this object gets destroyed.
 				 *
@@ -51,7 +53,11 @@ namespace mae
 				 */
 				virtual SDL_Window* get();
 
-				virtual void repaint();
+				/**
+				 * Returns the pointer to the window's surface.
+				 * @return
+				 */
+				virtual SDL_Surface* get_surface();
 
 			protected:
 
