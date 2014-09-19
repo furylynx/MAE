@@ -171,7 +171,7 @@ namespace mae
 					{
 						//draw by column
 						int column = columns.at(i);
-						int draw_x_pos = (int)(get_width()*((double)(column)/(max_index*2)));
+						int draw_x_pos = (int)((get_width()-100)*(0.5 + (double)(column)/(max_index*2))+20);
 
 						std::vector<std::shared_ptr<mae::fl::laban::i_movement> > movements =
 								current_sequence_->get_column_movements(column);
