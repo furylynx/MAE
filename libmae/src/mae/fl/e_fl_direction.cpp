@@ -61,6 +61,46 @@ namespace mae
 			return (int) direction;
 		}
 
+		e_fl_direction e_fl_direction_c::dir(laban::mv::e_direction direction, laban::mv::e_level level, bool left)
+		{
+			if 		(direction == laban::mv::e_direction::NONE || level == laban::mv::e_level::NONE) { return e_fl_direction::INVALID    ;}
+			else if (direction == laban::mv::e_direction::PLACE && level == laban::mv::e_level::HIGH) { return e_fl_direction::P_H        ;}
+			else if (direction == laban::mv::e_direction::PLACE && level == laban::mv::e_level::MIDDLE ) { return e_fl_direction::P_M        ;}
+			else if (direction == laban::mv::e_direction::PLACE && level == laban::mv::e_level::LOW ) { return e_fl_direction::P_L        ;}
+			else if (direction == laban::mv::e_direction::LEFT && level == laban::mv::e_level::HIGH) { return e_fl_direction::L_H        ;}
+			else if (direction == laban::mv::e_direction::LEFT && level == laban::mv::e_level::MIDDLE ) { return e_fl_direction::L_M        ;}
+			else if (direction == laban::mv::e_direction::LEFT && level == laban::mv::e_level::LOW ) { return e_fl_direction::L_L        ;}
+			else if (direction == laban::mv::e_direction::LEFT_FORWARD && level == laban::mv::e_level::HIGH) { return e_fl_direction::D_F_L_H    ;}
+			else if (direction == laban::mv::e_direction::LEFT_FORWARD && level == laban::mv::e_level::MIDDLE ) { return e_fl_direction::D_F_L_M    ;}
+			else if (direction == laban::mv::e_direction::LEFT_FORWARD && level == laban::mv::e_level::LOW ) { return e_fl_direction::D_F_L_L    ;}
+			else if (direction == laban::mv::e_direction::FORWARD && level == laban::mv::e_level::HIGH	 && left ) { return e_fl_direction::F_L_H      ;}
+			else if (direction == laban::mv::e_direction::FORWARD && level == laban::mv::e_level::MIDDLE && left ) { return e_fl_direction::F_L_M      ;}
+			else if (direction == laban::mv::e_direction::FORWARD && level == laban::mv::e_level::LOW 	 && left ) { return e_fl_direction::F_L_L      ;}
+			else if (direction == laban::mv::e_direction::FORWARD && level == laban::mv::e_level::HIGH	 && !left) { return e_fl_direction::F_R_H      ;}
+			else if (direction == laban::mv::e_direction::FORWARD && level == laban::mv::e_level::MIDDLE && !left) { return e_fl_direction::F_R_M      ;}
+			else if (direction == laban::mv::e_direction::FORWARD && level == laban::mv::e_level::LOW 	 && !left) { return e_fl_direction::F_R_L      ;}
+			else if (direction == laban::mv::e_direction::RIGHT_FORWARD && level == laban::mv::e_level::HIGH) { return e_fl_direction::D_F_R_H    ;}
+			else if (direction == laban::mv::e_direction::RIGHT_FORWARD && level == laban::mv::e_level::MIDDLE ) { return e_fl_direction::D_F_R_M    ;}
+			else if (direction == laban::mv::e_direction::RIGHT_FORWARD && level == laban::mv::e_level::LOW ) { return e_fl_direction::D_F_R_L    ;}
+			else if (direction == laban::mv::e_direction::RIGHT && level == laban::mv::e_level::HIGH) { return e_fl_direction::R_H        ;}
+			else if (direction == laban::mv::e_direction::RIGHT && level == laban::mv::e_level::MIDDLE ) { return e_fl_direction::R_M        ;}
+			else if (direction == laban::mv::e_direction::RIGHT && level == laban::mv::e_level::LOW ) { return e_fl_direction::R_L        ;}
+			else if (direction == laban::mv::e_direction::RIGHT_BACKWARD && level == laban::mv::e_level::HIGH) { return e_fl_direction::D_B_R_H    ;}
+			else if (direction == laban::mv::e_direction::RIGHT_BACKWARD && level == laban::mv::e_level::MIDDLE ) { return e_fl_direction::D_B_R_M    ;}
+			else if (direction == laban::mv::e_direction::RIGHT_BACKWARD && level == laban::mv::e_level::LOW ) { return e_fl_direction::D_B_R_L    ;}
+			else if (direction == laban::mv::e_direction::BACKWARD && level == laban::mv::e_level::HIGH	   && !left ) { return e_fl_direction::B_R_H      ;}
+			else if (direction == laban::mv::e_direction::BACKWARD && level == laban::mv::e_level::MIDDLE  && !left ) { return e_fl_direction::B_R_M      ;}
+			else if (direction == laban::mv::e_direction::BACKWARD && level == laban::mv::e_level::LOW 	   && !left ) { return e_fl_direction::B_R_L      ;}
+			else if (direction == laban::mv::e_direction::BACKWARD && level == laban::mv::e_level::HIGH	   && left) { return e_fl_direction::B_L_H      ;}
+			else if (direction == laban::mv::e_direction::BACKWARD && level == laban::mv::e_level::MIDDLE  && left) { return e_fl_direction::B_L_M      ;}
+			else if (direction == laban::mv::e_direction::BACKWARD && level == laban::mv::e_level::LOW 	   && left) { return e_fl_direction::B_L_L      ;}
+			else if (direction == laban::mv::e_direction::LEFT_BACKWARD && level == laban::mv::e_level::HIGH) { return e_fl_direction::D_B_L_H    ;}
+			else if (direction == laban::mv::e_direction::LEFT_BACKWARD && level == laban::mv::e_level::MIDDLE ) { return e_fl_direction::D_B_L_M    ;}
+			else if (direction == laban::mv::e_direction::LEFT_BACKWARD && level == laban::mv::e_level::LOW ) { return e_fl_direction::D_B_L_L    ;}
+
+			throw std::invalid_argument("Enum value not listed in the dir() method");
+		}
+
 		std::vector<e_fl_direction> e_fl_direction_c::vec()
 		{
 			std::vector<e_fl_direction> result;

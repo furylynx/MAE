@@ -24,6 +24,8 @@ namespace mae
 {
 	namespace fl
 	{
+		enum class e_fl_direction;
+
 		namespace laban
 		{
 			namespace mv

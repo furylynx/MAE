@@ -14,6 +14,9 @@
 //custom includes
 #include "../mstr.hpp"
 
+#include "laban/mv/e_direction.hpp"
+#include "laban/mv/e_level.hpp"
+
 //global includes
 #include <string>
 #include <vector>
@@ -23,6 +26,15 @@ namespace mae
 {
 	namespace fl
 	{
+
+		namespace laban
+		{
+			namespace mv
+			{
+				enum class e_direction;
+				enum class e_level;
+			}
+		}
 
 		enum class e_fl_direction
 		{
@@ -90,6 +102,16 @@ namespace mae
 				 * @return The integer ID.
 				 */
 				static int to_int(e_fl_direction direction);
+
+				/**
+				 * Returns the corresponding direction value.
+				 *
+				 * @param direction The laban direction enum value.
+				 * @param level The laban level enum value.
+				 * @param left Refers to the side of the body part. True for left side, false for right side.
+				 * @return The direction.
+				 */
+				static e_fl_direction dir(laban::mv::e_direction direction, laban::mv::e_level level, bool left = true);
 
 				/**
 				 * Returns a vector containing all possible enum values.

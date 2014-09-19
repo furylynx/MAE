@@ -12,6 +12,7 @@
 
 #include <mae/nite/nite.hpp>
 #include <mae/eventing/eventing.hpp>
+#include <mae/demo/demo.hpp>
 #include <mae/mae.hpp>
 
 
@@ -32,6 +33,8 @@ int main()
 	std::string max_users_str = "15";
 	int max_users = 15;
 
+	std::string resources_dir = "resources";
+
 	std::string port_str = "1300";
 	uint16_t port = mae::eventing::cs_base::get_default_port();
 	std::string password = "";
@@ -46,6 +49,8 @@ int main()
 	{
 		max_users = std::stoul(max_users_str);
 	}
+
+	ini_reader.get_value_nex("demo", "resources_dir", &resources_dir);
 
 	if (ini_reader.get_value_nex("socket", "port", &port_str))
 	{
@@ -69,7 +74,7 @@ int main()
 
 	std::vector<std::shared_ptr<mae::fl::laban::column_definition> > column_definitions;
 
-	mae::fl::fl_movement_controller movement_controller(body_parts, column_definitions);
+	mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(/*body_parts, column_definitions*/);
 
 	//read all sequences in the directory and register them to the controller
 	mae::fl::laban::laban_sequence_reader s_reader = mae::fl::laban::laban_sequence_reader();
@@ -120,6 +125,11 @@ int main()
 		std::cout << "Directory '" << sequences_dir <<  "' does not exist! Quit program." << std::endl;
 		return 0;
 	}
+
+	//add sequence window for demo purposes
+	std::shared_ptr<mae::demo::fl::sequence_window> swin = std::shared_ptr<mae::demo::fl::sequence_window>(new mae::demo::fl::sequence_window("LabaNiTE-Server", resources_dir));
+	movement_controller.add_listener(swin);
+
 
 	//-----------------------
 	//set up the driver
