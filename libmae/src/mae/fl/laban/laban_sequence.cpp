@@ -172,6 +172,32 @@ namespace mae
 				column_definitions_vec_.clear();
 			}
 
+			std::vector<int> laban_sequence::get_columns()
+			{
+				std::vector<int> result;
+
+				result.push_back(-4);
+				result.push_back(-2);
+				result.push_back(-1);
+				result.push_back(1);
+				result.push_back(2);
+				result.push_back(4);
+
+				//insert all defined columns too regarding the order of the vector
+				for(unsigned int i = 0; i < column_definitions_vec_.size(); i++)
+				{
+					for(std::vector<int>::iterator it = result.begin(); it != result.end(); it++)
+					{
+						if (*it > column_definitions_vec_.at(i)->get_column_index())
+						{
+							result.insert(it, column_definitions_vec_.at(i)->get_column_index());
+						}
+					}
+				}
+
+				return result;
+
+			}
 
 			void laban_sequence::set_movements(std::vector<std::shared_ptr<i_movement> > movements)
 			{

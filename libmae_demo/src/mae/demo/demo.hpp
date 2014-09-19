@@ -11,5 +11,7 @@
 //custom includes
 #include "sdl_window.hpp"
 
+#include "fl/fl.hpp"
+
 
 #endif // DEMO_HPP_

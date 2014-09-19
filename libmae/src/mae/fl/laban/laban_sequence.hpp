@@ -208,6 +208,13 @@ namespace mae {
 				virtual void clear_column_definitions();
 
 				/**
+				 * Returns all columns Id_s that are present in the sequence. This includes the default columns.
+				 *
+				 * @return The column Id_s.
+				 */
+				virtual std::vector<int> get_columns();
+
+				/**
 				 * Sets the movements by specifying the movements vector.
 				 *
 				 * @param movements The movements vector.

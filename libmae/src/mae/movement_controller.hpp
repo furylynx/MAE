@@ -192,9 +192,12 @@ namespace mae{
 				isr_->register_sequence(sequence);
 
 				//update buffer size if sequence length is longer than current buffer size
-				int tmp_buffer_size = std::ceil(isr_->get_sequence_length(sequence)*framerate_/1000);
+				int tmp_buffer_size = std::ceil(isr_->get_sequence_length(sequence)/(framerate_ * 1000.0));
+
 				if (imd_ != nullptr && buffer_size_ < tmp_buffer_size && !no_buffer_size_update_)
 				{
+					std::cout << "actually setting the new buffer size: " << tmp_buffer_size << std::endl;
+
 					buffer_size_ = tmp_buffer_size;
 					imd_->set_buffer(buffer_size_);
 				}
