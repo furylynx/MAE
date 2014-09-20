@@ -15,7 +15,7 @@ namespace mae
 		std::vector<XnSkeletonJoint> nite_controller::joint_ids_;
 		std::vector<int> nite_controller::joint_ids_mae_;
 
-		nite_controller::nite_controller(std::string config_path, int max_users, bool debug)
+		nite_controller::nite_controller(std::string config_path, unsigned int  max_users, bool debug)
 		{
 			config_path_ = config_path;
 			max_users_ = max_users;

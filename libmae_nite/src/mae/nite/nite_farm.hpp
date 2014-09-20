@@ -18,6 +18,10 @@
 #include <memory>
 #include <vector>
 #include <string>
+#include <thread>
+#include <mutex>
+
+#include <mae/mae.hpp>
 
 namespace mae
 {
@@ -32,14 +36,14 @@ namespace mae
 				 *
 				 * @param controllers The controllers.
 				 */
-				nite_farm(std::vector<std::shared_ptr<nite_controller> > controllers);
+				nite_farm(std::vector<std::shared_ptr<nite_controller> > controllers, unsigned int  max_users = 15, bool debug = false);
 
 				/**
 				 * Creates a farm for nite controllers.
 				 *
 				 * @param configs The configurations for the controllers.
 				 */
-				nite_farm(std::vector<std::string> configs);
+				nite_farm(std::vector<std::string> configs, unsigned int  max_users = 15, bool debug = false);
 				virtual ~nite_farm();
 
 				/**
@@ -80,7 +84,17 @@ namespace mae
 
 
 			private:
+				unsigned int max_users_;
+				bool debug_;
+
 				std::vector<std::shared_ptr<nite_controller> > controllers_;
+				std::vector<std::thread> threads_;
+				std::vector<std::mutex> mutexes_;
+				std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > skeleton_data_;
+				bool running_;
+
+				std::shared_ptr<mae::skeleton_merger> merger_;
+
 
 				/**
 				 * Initializes the nite_controllers.
@@ -88,6 +102,11 @@ namespace mae
 				 * @param configs The configurations for each camera.
 				 */
 				virtual void initialize_controllers(std::vector<std::string> configs);
+
+				/**
+				 * Runs the thread for the given nite_controller.
+				 */
+				virtual void nite_run(std::shared_ptr<nite_controller> controller, unsigned int id);
 		};
 
 	} // namespace nite
