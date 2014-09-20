@@ -42,8 +42,18 @@ namespace mae
 				nite_farm(std::vector<std::string> configs);
 				virtual ~nite_farm();
 
+				/**
+				 * Adds a new controller to the farm, which is generated from the configuration.
+				 *
+				 * @param config The string configuration for the controller.
+				 */
 				virtual void add_controller(std::string config);
 
+				/**
+				 * Adds a controller to the farm.
+				 *
+				 * @param controller The controller.
+				 */
 				virtual void add_controller(std::shared_ptr<nite_controller> controller);
 
 				/**

@@ -17,18 +17,24 @@ namespace mae
 			decision_maker::decision_maker(int beats_per_measure)
 			{
 				beats_per_measure_ = beats_per_measure;
+				tolerance_ = 0.5;
 			}
 
 			decision_maker::~decision_maker()
 			{
 			}
 
+			void decision_maker::set_recognition_tolerance(double tolerance)
+			{
+				tolerance_ = tolerance;
+			}
+
 			bool decision_maker::decide(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> a_predecessor,
 					std::shared_ptr<i_movement> b, std::shared_ptr<i_movement> b_predecessor)
 			{
 				//TODO : define good values for deviation; currently 1/2 beat
-				double pos_deviation_max = 0.5;
-				double dur_deviation_max = 0.5;
+				double pos_deviation_max = tolerance_;//0.5
+				double dur_deviation_max = tolerance_;//0.5
 
 				//don't check position of predecessors are unknown or one of the elements is a starting pose
 

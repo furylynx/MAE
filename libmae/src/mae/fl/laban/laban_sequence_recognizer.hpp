@@ -44,14 +44,47 @@ namespace mae
 
 					virtual ~laban_sequence_recognizer();
 
+					/**
+					 * Sets the tolerance for the recognition. The tolerance is a value which represents the
+					 * number of beats of the labanotation which are tolerated in deviation.
+					 *
+					 * @param tolerance The tolerance to be accepted.
+					 */
+					virtual void set_recognition_tolerance(double tolerance);
+
+					/**
+					 * Registers a sequence to the recognizer.
+					 *
+					 * @param sequence The sequence.
+					 */
 					virtual void register_sequence(std::shared_ptr<laban_sequence> sequence);
 
+					/**
+					 * Removes the sequence from the recognizer.
+					 *
+					 * @param sequence The sequence.
+					 * @return True if the sequence was removed.
+					 */
 					virtual bool deregister_sequence(std::shared_ptr<laban_sequence> sequence);
 
+					/**
+					 * Removes the sequence at the index position of the list.
+					 *
+					 * @param list_index The index.
+					 * @return True if the sequence was removed.
+					 */
 					virtual bool deregister_sequence(unsigned int list_index);
 
+					/**
+					 * Removes all registered sequences.
+					 */
 					virtual void clear_registered_sequences();
 
+					/**
+					 * Returns all registered sequences.
+					 *
+					 * @return All sequences.
+					 */
 					virtual std::list<std::shared_ptr<laban_sequence> > get_registered_sequences();
 
 					/**
@@ -62,9 +95,21 @@ namespace mae
 					 */
 					virtual int get_sequence_length(std::shared_ptr<laban_sequence> sequence);
 
+					/**
+					 * Recognized subsequences in the sequence for the given body parts.
+					 *
+					 * @param sequence The sequences to be looked at.
+					 * @param body_parts The body parts.
+					 * @return All matches.
+					 */
 					virtual std::vector<std::shared_ptr<laban_sequence> > recognize_sequence(
 							std::shared_ptr<laban_sequence> sequence, std::vector<bone> body_parts);
 
+					/**
+					 * Returns the string representation for the underlying decision forest.
+					 *
+					 * @return The string.
+					 */
 					virtual std::string str() const;
 				private:
 					bool debug_;

@@ -22,6 +22,11 @@ namespace mae
 			{
 			}
 
+			void rewriting_decision_maker::set_recognition_tolerance(double tolerance)
+			{
+				//do nothing
+			}
+
 			bool rewriting_decision_maker::decide(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> a_predecessor, std::shared_ptr<i_movement> b, std::shared_ptr<i_movement> b_predecessor)
 			{
 				//check type equal
