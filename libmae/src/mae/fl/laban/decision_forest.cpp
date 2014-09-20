@@ -52,6 +52,11 @@ namespace mae
 			{
 			}
 
+			void decision_forest::set_recognition_tolerance(double tolerance)
+			{
+				decision_maker_->set_recognition_tolerance(tolerance);
+			}
+
 			void decision_forest::add_sequence(std::shared_ptr<laban_sequence> sequence)
 			{
 

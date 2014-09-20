@@ -38,6 +38,14 @@ namespace mae
 					virtual ~rewriting_decision_maker();
 
 					/**
+					 * Sets the tolerance for the recognition. The tolerance is a value which represents the
+					 * number of beats of the labanotation which are tolerated in deviation.
+					 *
+					 * @param tolerance The tolerance to be accepted.
+					 */
+					virtual void set_recognition_tolerance(double tolerance);
+
+					/**
 					 * Checks whether the two elements match in order to provide the decision result.
 					 *
 					 * @param a The first element.

@@ -59,6 +59,14 @@ namespace mae
 					virtual ~decision_forest();
 
 					/**
+					 * Sets the tolerance for the recognition. The tolerance is a value which represents the
+					 * number of beats of the labanotation which are tolerated in deviation.
+					 *
+					 * @param tolerance The tolerance to be accepted.
+					 */
+					virtual void set_recognition_tolerance(double tolerance);
+
+					/**
 					 * Adds a sequence to the forest. It will stored in different decision trees for each body part.
 					 * Since body part IDs are used to identify the columns, the column definition for all sequences
 					 * should be the same.
@@ -114,6 +122,11 @@ namespace mae
 					virtual std::vector<std::shared_ptr<laban_sequence> > find_submatches(
 							std::shared_ptr<laban_sequence> whole_sequence, std::vector<bone> body_parts);
 
+					/**
+					 * Returns the string representation for the decision forest.
+					 *
+					 * @return The string.
+					 */
 					virtual std::string str();
 
 				private:
