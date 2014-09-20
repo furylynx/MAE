@@ -33,6 +33,14 @@ namespace mae
 					virtual ~i_decision_maker(){}
 
 					/**
+					 * Sets the tolerance for the recognition. The tolerance is a value which represents the
+					 * number of beats of the labanotation which are tolerated in deviation.
+					 *
+					 * @param tolerance The tolerance to be accepted.
+					 */
+					virtual void set_recognition_tolerance(double tolerance) = 0;
+
+					/**
 					 * Checks whether the two elements match in order to provide the decision result. Their
 					 * predecessors are provided in order to make more complex decisions.
 					 *

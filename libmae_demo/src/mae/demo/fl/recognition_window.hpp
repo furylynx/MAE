@@ -1,12 +1,12 @@
 /*
- * sequence_window.hpp
+ * recognition_window.hpp
  *
- *  Created on: 19.09.2014
+ *  Created on: 20.09.2014
  *      Author: keks
  */
 
-#ifndef SEQUENCE_WINDOW_HPP_
-#define SEQUENCE_WINDOW_HPP_
+#ifndef RECOGNITION_WINDOW_HPP_
+#define RECOGNITION_WINDOW_HPP_
 
 //eclipse indexer fix
 #include "../../indexer_fix.hpp"
@@ -32,11 +32,12 @@ namespace mae
 		namespace fl
 		{
 
-			class sequence_window : public sdl_window, public mae::i_sequence_listener<mae::fl::laban::laban_sequence>
+			class recognition_window: public sdl_window, public mae::i_recognition_listener<
+					mae::fl::laban::laban_sequence>
 			{
 				public:
 					/**
-					 * Creates a new SDL window for generated laban_sequences with the given parameters.
+					 * Creates a new SDL window for recognized laban_sequences with the given parameters.
 					 *
 					 * @param title The window title.
 					 * @param resources_dir The resource directory which contains images for the dir+lvl symbols.
@@ -46,9 +47,10 @@ namespace mae
 					 * @param y_pos The window's y position.
 					 * @param flags The window flags.
 					 */
-					sequence_window(std::string title, std::string resources_dir, int width = 1024, int height = 576, int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags = SDL_WINDOW_SHOWN);
-					virtual ~sequence_window();
-
+					recognition_window(std::string title, std::string resources_dir, int width = 1024, int height = 576,
+							int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags =
+									SDL_WINDOW_SHOWN);
+					virtual ~recognition_window();
 				protected:
 					/**
 					 * Handles the given event.
@@ -63,7 +65,6 @@ namespace mae
 					 * @param graphics The graphics element.
 					 */
 					virtual void handle_event(SDL_Event& e);
-
 
 				private:
 					std::shared_ptr<laban_visualizer> visualizer_;
@@ -84,16 +85,24 @@ namespace mae
 					virtual void cleanup();
 
 					/**
-					 * Is invoked each time a sequence was generated (which occurs on every frame).
+					 * Is invoked each time sequences were recognized and the sequences are present.
 					 *
 					 * @param timestamp The associated timestamp.
-					 * @param sequence The generated sequence.
+					 * @param sequences The recognized sequences.
 					 */
-					virtual void on_sequence(long timestamp, std::shared_ptr<mae::fl::laban::laban_sequence> sequence);
+					virtual void on_recognition(long timestamp, std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > sequences);
+
+					/**
+					 * Is invoked each time sequences were recognized and only titles of the sequences are present.
+					 *
+					 * @param timestamp The associated timestamp.
+					 * @param sequences The recognized sequences.
+					 */
+					virtual void on_recognition(long timestamp, std::vector<std::string> title);
 			};
 
 		} // namespace fl
 	} // namespace demo
 } // namespace mae
 
-#endif // SEQUENCE_WINDOW_HPP_
+#endif // RECOGNITION_WINDOW_HPP_

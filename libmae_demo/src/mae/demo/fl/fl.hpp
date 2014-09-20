@@ -8,11 +8,9 @@
 #ifndef DEMO_FL_HPP_
 #define DEMO_FL_HPP_
 
-
 //custom includes
+#include "recognition_window.hpp"
 #include "sequence_window.hpp"
-
-
-
+#include "laban_visualizer.hpp"
 
 #endif // DEMO_FL_HPP_

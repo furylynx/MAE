@@ -72,8 +72,18 @@ namespace mae {
 				 */
 				virtual void next_frame(long timestamp, std::shared_ptr<general_skeleton> skeleton);
 
+				/**
+				 * Sets the tolerance for the recognition. The tolerance is a value which represents the
+				 * number of beats of the labanotation which are tolerated in deviation.
+				 *
+				 * @param tolerance The tolerance to be accepted.
+				 */
+				virtual void set_recognition_tolerance(double tolerance);
+
 			private:
 				std::shared_ptr<fl_skeleton_controller> skel_ctrl;
+
+				std::shared_ptr<laban::laban_sequence_recognizer> isr_;
 
 		};
 

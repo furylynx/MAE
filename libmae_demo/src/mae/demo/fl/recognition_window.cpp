@@ -1,11 +1,11 @@
 /*
- * sequence_window.cpp
+ * recognition_window.cpp
  *
- *  Created on: 19.09.2014
+ *  Created on: 20.09.2014
  *      Author: keks
  */
 
-#include "sequence_window.hpp"
+#include "recognition_window.hpp"
 
 namespace mae
 {
@@ -14,7 +14,8 @@ namespace mae
 		namespace fl
 		{
 
-			sequence_window::sequence_window(std::string title, std::string resources_dir, int width, int height,
+
+			recognition_window::recognition_window(std::string title, std::string resources_dir, int width, int height,
 					int x_pos, int y_pos, Uint32 flags)
 					: sdl_window(title, width, height, x_pos, y_pos, flags)
 			{
@@ -31,12 +32,12 @@ namespace mae
 				initialize();
 			}
 
-			sequence_window::~sequence_window()
+			recognition_window::~recognition_window()
 			{
 				cleanup();
 			}
 
-			void sequence_window::initialize()
+			void recognition_window::initialize()
 			{
 				std::stringstream bg_sstr;
 				bg_sstr << resources_dir_;
@@ -72,7 +73,7 @@ namespace mae
 				repaint();
 			}
 
-			void sequence_window::cleanup()
+			void recognition_window::cleanup()
 			{
 				if (background_ != nullptr)
 				{
@@ -81,7 +82,7 @@ namespace mae
 				}
 			}
 
-			void sequence_window::paint(SDL_Surface* graphics)
+			void recognition_window::paint(SDL_Surface* graphics)
 			{
 				//Apply the background image to the graphics
 				SDL_Rect bg_os;
@@ -101,17 +102,27 @@ namespace mae
 				}
 			}
 
-			void sequence_window::handle_event(SDL_Event& e)
+			void recognition_window::handle_event(SDL_Event& e)
 			{
 				//TODO handle event
 
 			}
 
-			void sequence_window::on_sequence(long timestamp, std::shared_ptr<mae::fl::laban::laban_sequence> sequence)
+			void recognition_window::on_recognition(long timestamp, std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > sequences)
 			{
-				current_sequence_ = sequence;
+				if (sequences.size() > 0)
+				{
+					current_sequence_ = sequences.front();
+				}
+
 				repaint();
 			}
+
+			void recognition_window::on_recognition(long timestamp, std::vector<std::string> title)
+			{
+				//do nothing
+			}
+
 
 		} // namespace fl
 	} // namespace demo
