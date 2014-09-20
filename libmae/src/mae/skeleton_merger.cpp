@@ -42,10 +42,10 @@ namespace mae
 		return result;
 	}
 
-	std::vector<std::shared_ptr<general_skeleton> > skeleton_merger::merge_find_mapping(std::vector<std::shared_ptr<general_skeleton> > skeletons, int num_users)
+	std::vector<std::shared_ptr<general_skeleton> > skeleton_merger::merge_find_mapping(std::vector<std::vector<std::shared_ptr<general_skeleton> > > skeletons)
 	{
 		std::vector<std::vector<std::shared_ptr<general_skeleton> > > mapped_skels;
-		mapped_skels.reserve(num_users);
+		mapped_skels.reserve(skeletons.size());
 
 		//TODO find mapping
 		//TODO use correlation to find mappings
