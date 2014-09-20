@@ -302,11 +302,12 @@ namespace mae
 						user_generator_.GetSkeletonCap().GetSkeletonJoint(a_users[i], joint_ids_.at(j), xn_joint);
 
 						double confidence = xn_joint.position.fConfidence;
+						double rotation = 0;//TODO get rotation
 
 						//create general joint from the NiTE joint
 						std::shared_ptr<mae::general_joint> mae_joint = std::shared_ptr<mae::general_joint>(
 								new mae::general_joint(xn_joint.position.position.X, xn_joint.position.position.Y,
-										xn_joint.position.position.Z, confidence));
+										xn_joint.position.position.Z, rotation, confidence));
 
 						//add general_joint to the skeleton
 						mae_skeleton->set_joint(joint_ids_mae_.at(j), mae_joint);

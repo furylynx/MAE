@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/mae/nite/nite_controller.cpp 
+../src/mae/nite/nite_controller.cpp \
+../src/mae/nite/nite_farm.cpp 
 
 OBJS += \
-./src/mae/nite/nite_controller.o 
+./src/mae/nite/nite_controller.o \
+./src/mae/nite/nite_farm.o 
 
 CPP_DEPS += \
-./src/mae/nite/nite_controller.d 
+./src/mae/nite/nite_controller.d \
+./src/mae/nite/nite_farm.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
