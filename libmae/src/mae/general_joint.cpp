@@ -21,26 +21,18 @@ namespace mae
 		y_ = 0;
 		z_ = 0;
 
+		rotation_ = 0;
 		confidence_ = 0;
 		valid_ = false;
 	}
 
-	general_joint::general_joint(double x, double y, double z)
+	general_joint::general_joint(double x, double y, double z, double rotation ,double confidence)
 	{
 		x_ = x;
 		y_ = y;
 		z_ = z;
 
-		confidence_ = 1;
-		valid_ = true;
-	}
-
-	general_joint::general_joint(double x, double y, double z, double confidence)
-	{
-		x_ = x;
-		y_ = y;
-		z_ = z;
-
+		rotation_ = rotation;
 		confidence_ = confidence;
 		valid_ = true;
 	}
@@ -93,6 +85,16 @@ namespace mae
 	double general_joint::get_confidence()
 	{
 		return confidence_;
+	}
+
+	void general_joint::set_rotation(double rotation)
+	{
+		rotation_ = rotation;
+	}
+
+	double general_joint::get_rotation()
+	{
+		return rotation_;
 	}
 
 	bool general_joint::equals(general_joint joint) const

@@ -28,7 +28,7 @@ namespace mae
 			virtual ~general_joint();
 
 			/**
-			 * Creates a general joint.
+			 * Creates an initially invalid general joint.
 			 */
 			general_joint();
 
@@ -38,18 +38,10 @@ namespace mae
 			 * @param x The x-coordinate.
 			 * @param y The y-coordinate.
 			 * @param z The z-coordinate.
-			 */
-			general_joint(double x, double y, double z);
-
-			/**
-			 * Creates a general joint with values set.
-			 *
-			 * @param x The x-coordinate.
-			 * @param y The y-coordinate.
-			 * @param z The z-coordinate.
+			 * @param confidence The rotation of the bone of which this joint is the end point (ranging from 0 to 360 degree).
 			 * @param confidence The confidence (ranging from zero to one, where one is the most confident)
 			 */
-			general_joint(double x, double y, double z, double confidence);
+			general_joint(double x, double y, double z, double rotation = 0, double confidence = 1);
 
 			/**
 			 * Sets the x-coordinate.
@@ -123,6 +115,24 @@ namespace mae
 			virtual double get_confidence();
 
 			/**
+			 * Sets the rotation of the bone of which this joint is the end point.
+			 * The rotation is in the interval ranges from zero (not rotated) to 360
+			 * degrees (one full rotation).
+			 *
+			 * @param rotation The rotation to be applied.
+			 */
+			virtual void set_rotation(double rotation);
+
+			/**
+			 * Returns the rotation of the bone of which this joint is the end
+			 * point. The rotation is in the interval ranges from zero (not rotated) to 360
+			 * degrees (one full rotation).
+			 *
+			 * @return The rotation value.
+			 */
+			virtual double get_rotation();
+
+			/**
 			 * Returns true if this joint equals the given joint.
 			 *
 			 * @param joint A joint.
@@ -163,6 +173,8 @@ namespace mae
 			double z_;
 
 			double confidence_;
+
+			double rotation_;
 
 			bool valid_;
 
