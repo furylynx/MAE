@@ -14,6 +14,7 @@
 #include "hierarchy.hpp"
 #include "hierarchy_element.hpp"
 #include "movement_controller.hpp"
+#include "skeleton_merger.hpp"
 #include "ini_reader.hpp"
 #include "mstr.hpp"
 #include "mxml.hpp"
