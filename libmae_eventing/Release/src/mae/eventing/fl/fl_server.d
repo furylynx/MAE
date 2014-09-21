@@ -208,6 +208,9 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_recognizer.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/i_sequence_listener.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/i_recognition_listener.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/skeleton_merger.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/general_skeleton.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/general_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/ini_reader.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/mxml.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/mos.hpp \
@@ -215,11 +218,6 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/bvh_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_skeleton.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../indexer_fix.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../hierarchy.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../hierarchy_element.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/math.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp \
@@ -236,6 +234,7 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_skeleton_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/e_fl_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_skeleton_controller.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_skeleton.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_generator.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../e_fl_direction.hpp \
@@ -724,6 +723,12 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/i_recognition_listener.hpp:
 
+/sda7/data/workspace-git/MAE/libmae/src/mae/skeleton_merger.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/general_skeleton.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/general_joint.hpp:
+
 /sda7/data/workspace-git/MAE/libmae/src/mae/ini_reader.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/mxml.hpp:
@@ -737,16 +742,6 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../indexer_fix.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_skeleton.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../indexer_fix.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../hierarchy.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../hierarchy_element.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../bone.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../mstr.hpp:
 
@@ -779,6 +774,8 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/e_fl_joint.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_skeleton_controller.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../indexer_fix.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_skeleton.hpp:
 
