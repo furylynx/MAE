@@ -64,14 +64,14 @@ namespace mae
 				skeleton_data_.push_back(std::vector<std::shared_ptr<general_skeleton> >());
 
 				//never used but index of vector remains consistent
-				mutexes_.push_back(std::mutex());
+				mutexes_.push_back(std::shared_ptr<std::mutex>(new std::mutex()));
 			}
 			else
 			{
 				unsigned int thread_id = controllers_.size();
 				controllers_.push_back(controller);
 				skeleton_data_.push_back(std::vector<std::shared_ptr<general_skeleton> >());
-				mutexes_.push_back(std::mutex());
+				mutexes_.push_back(std::shared_ptr<std::mutex>(new std::mutex()));
 				threads_.push_back(std::thread(&nite_farm::nite_run, this, controller, thread_id));
 			}
 		}
@@ -88,14 +88,14 @@ namespace mae
 
 			for (unsigned int i = 0; i < mutexes_.size(); i++)
 			{
-				mutexes_.at(i).lock();
+				mutexes_.at(i)->lock();
 			}
 
 			std::vector<std::shared_ptr<mae::general_skeleton> > result = merger_->merge_find_mapping(skeleton_data_);
 
 			for (unsigned int i = 0; i < mutexes_.size(); i++)
 			{
-				mutexes_.at(i).unlock();
+				mutexes_.at(i)->unlock();
 			}
 
 			return result;
@@ -116,11 +116,11 @@ namespace mae
 			while (running_)
 			{
 				std::vector<std::shared_ptr<mae::general_skeleton> > data = controller->wait_for_update();
-				mutexes_.at(id).lock();
+				mutexes_.at(id)->lock();
 
 				skeleton_data_.at(id) = data;
 
-				mutexes_.at(id).unlock();
+				mutexes_.at(id)->unlock();
 			}
 		}
 

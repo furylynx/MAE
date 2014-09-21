@@ -71,6 +71,7 @@ int main()
 
 	std::vector<mae::bone> body_parts;
 	body_parts.push_back(mae::bone::create_bone(mae::e_bone::RIGHT_WHOLE_ARM));
+	body_parts.push_back(mae::bone::create_bone(mae::e_bone::LEFT_WHOLE_ARM));
 
 	std::vector<std::shared_ptr<mae::fl::laban::column_definition> > column_definitions;
 

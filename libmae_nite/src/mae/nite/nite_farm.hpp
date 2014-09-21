@@ -89,19 +89,12 @@ namespace mae
 
 				std::vector<std::shared_ptr<nite_controller> > controllers_;
 				std::vector<std::thread> threads_;
-				std::vector<std::mutex> mutexes_;
+				std::vector<std::shared_ptr<std::mutex> > mutexes_;
 				std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > skeleton_data_;
 				bool running_;
 
 				std::shared_ptr<mae::skeleton_merger> merger_;
 
-
-				/**
-				 * Initializes the nite_controllers.
-				 *
-				 * @param configs The configurations for each camera.
-				 */
-				virtual void initialize_controllers(std::vector<std::string> configs);
 
 				/**
 				 * Runs the thread for the given nite_controller.
