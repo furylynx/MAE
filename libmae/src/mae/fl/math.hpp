@@ -158,7 +158,7 @@ namespace mae
 				static cv::Vec3d rotation_angles_yzx(cv::Vec3d a, cv::Vec3d b);
 
 				/**
-				 * Rotates in xxy order.
+				 * Rotates in zxy order.
 				 *
 				 * @param a The vector to be rotated.
 				 * @param zeta The angle for Rz.

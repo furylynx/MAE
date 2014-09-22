@@ -27,6 +27,12 @@ namespace mae
 			public:
 				virtual ~i_registration_manager(){}
 
+				/**
+				 * Handles a newly registered sequence which was sent to the server.
+				 *
+				 * @param sequence The received sequence.
+				 * @return True if the sequence is intended to be added to the movement controller. False otherwise.
+				 */
 				virtual bool on_sequence_registered(std::shared_ptr<U> sequence) = 0;
 		};
 

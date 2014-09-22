@@ -72,6 +72,11 @@ namespace mae
 		private:
 			std::unordered_map<std::string, std::unordered_map<std::string, std::string> > map_;
 
+			/**
+			 * Parses the file in order to get the [domain]key-value pairs.
+			 *
+			 * @param file The file.
+			 */
 			void read_file(std::string file);
 
 	};

@@ -34,7 +34,31 @@ namespace mae{
 		class movement_controller {
 			public:
 
+				/**
+				 * Creates a new movement controller with controllers for the steps of the processing chain.
+				 *
+				 * @param imd The movement detector to detect sequences.
+				 * @param isr The sequence recognizer to recognize sequences.
+				 * @param body_parts The addressed body parts.
+				 * @param pose_buffer_size The initial pose buffer size.
+				 * @param framerate The framerate of the skeleton stream.
+				 * @param debug True for debug output on the terminal.
+				 */
 				movement_controller(std::shared_ptr<i_movement_detector<T,U> > imd, std::shared_ptr<i_sequence_recognizer<U> > isr,  std::vector<bone> body_parts, int pose_buffer_size = 0, double framerate = 1.0/30.0, bool debug = false);
+
+				/**
+				 * Creates a new movement controller with controllers for the steps of the processing chain.
+				 * The movement detector is built from the pose detector and the sequence generator. A key
+				 * pose approach is used to do this.
+				 *
+				 * @param ipd The pose detector to detect poses from the stream.
+				 * @param isg The sequence generator to generate sequences out of pose sequences.
+				 * @param isr The sequence recognizer to recognize sequences.
+				 * @param body_parts The addressed body parts.
+				 * @param pose_buffer_size The initial pose buffer size.
+				 * @param framerate The framerate of the skeleton stream.
+				 * @param debug True for debug output on the terminal.
+				 */
 				movement_controller(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_sequence_recognizer<U> > isr, std::vector<bone> body_parts, int pose_buffer_size = 0, double framerate = 1.0/30.0, bool debug = false);
 				virtual ~movement_controller();
 
@@ -46,32 +70,105 @@ namespace mae{
 				 */
 				virtual void next_frame(long timestamp, std::shared_ptr<T> skeleton);
 
+				/**
+				 * Registers a sequence to the controller in order to be recognized from the stream.
+				 *
+				 * @param sequence The sequence.
+				 */
 				virtual void register_sequence(std::shared_ptr<U> sequence);
+
+				/**
+				 * Removes the registered sequence from the controller.
+				 *
+				 * @param sequence The sequence.
+				 */
 				virtual void deregister_sequence(std::shared_ptr<U> sequence);
+
+				/**
+				 * Removes all registered sequences from the controller.
+				 */
 				virtual void clear_registered_sequences();
 
-				//buffer size
+				/**
+				 * Disables or enables buffer size updates on newly registered sequences.
+				 *
+				 * @param updates True for automatic updates of the buffer size.
+				 */
 				virtual void  set_no_buffer_size_update(bool updates);
 
-				//listeners
+				/**
+				 * Adds a pose listener to the movement controller. The pose listener is invoked whenever a
+				 * pose was quantized (which is on every frame).
+				 *
+				 * @param pose_listener The listener
+				 */
 				virtual void add_listener(std::shared_ptr<i_pose_listener> pose_listener);
+
+				/**
+				 * Removes the pose listener from the controller.
+				 *
+				 * @param pose_listener The listener.
+				 */
 				virtual void remove_listener(std::shared_ptr<i_pose_listener> pose_listener);
 
+				/**
+				 * Adds a sequence listener to the movement controller. The sequence listener is invoked whenever a
+				 * sequence was generated (which is on every frame).
+				 *
+				 * @param sequence_listener The listener
+				 */
 				virtual void add_listener(std::shared_ptr<i_sequence_listener<U> > sequence_listener);
+
+				/**
+				 * Removes the sequence listener from the controller.
+				 *
+				 * @param sequence_listener The listener
+				 */
 				virtual void remove_listener(std::shared_ptr<i_sequence_listener<U> >  sequence_listener);
 
+				/**
+				 * Adds a recognition listener to the controller. The recognition listener is invoked whenever a
+				 * sequence was recognized.
+				 *
+				 * @param recognition_listener The listener.
+				 */
 				virtual void add_listener(std::shared_ptr<i_recognition_listener<U> > recognition_listener);
+
+				/**
+				 * Removes the recognition listener from the controller.
+				 *
+				 * @param sequence_listener The listener
+				 */
 				virtual void remove_listener(std::shared_ptr<i_recognition_listener<U> >  recognition_listener);
 
+				/**
+				 * Removes all listeners from the controller.
+				 */
 				virtual void clear_listeners();
 
+				/**
+				 * Notifies the sequence listeners on a newly generated sequence.
+				 *
+				 * @param timestamp The timestamp.
+				 * @param sequence The sequence.
+				 */
 				virtual void notify_sequence_listeners(long timestamp, std::shared_ptr<U> sequence);
 
+				/**
+				 * Notifies the recognition listeners on recognized sequences.
+				 *
+				 * @param timestamp The timestamp.
+				 * @param sequences The recognized sequences.
+				 */
 				virtual void notify_recognition_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences);
 
-				//todo event listener stuff
-
 			protected:
+
+				/**
+				 * Returns the movement detector which is registered to this controller.
+				 *
+				 * @return The movement detector.
+				 */
 				virtual std::shared_ptr<i_movement_detector<T,U> > get_movement_detector();
 
 			private:
