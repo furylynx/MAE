@@ -34,7 +34,13 @@ namespace mae
 			class decision_maker: public i_decision_maker<i_movement>
 			{
 				public:
-					decision_maker(int beats_per_measure);
+					/**
+					 * Creates a new decision maker.
+					 *
+					 * @param beats_per_measure The number of beats per measure for the present sequence of which movements are compared.
+					 * @param tolerance The tolerance to be applied. It is given in beats and defines how many beats are accepted in deviance.
+					 */
+					decision_maker(int beats_per_measure, double tolerance = 0.5);
 					virtual ~decision_maker();
 
 					/**

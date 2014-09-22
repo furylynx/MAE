@@ -14,10 +14,10 @@ namespace mae
 		namespace laban
 		{
 
-			decision_maker::decision_maker(int beats_per_measure)
+			decision_maker::decision_maker(int beats_per_measure, double tolerance)
 			{
 				beats_per_measure_ = beats_per_measure;
-				tolerance_ = 0.5;
+				tolerance_ = tolerance;
 			}
 
 			decision_maker::~decision_maker()

@@ -32,7 +32,6 @@ namespace mae
 			class relationship_bow : public i_movement
 			{
 				public:
-					//TODO doxygen
 					/**
 					 * Creates a new relationship bow.
 					 *
