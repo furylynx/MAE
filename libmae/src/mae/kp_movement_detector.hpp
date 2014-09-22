@@ -32,19 +32,77 @@ namespace mae
 	class kp_movement_detector: public i_movement_detector<T, U>
 	{
 		public:
+			/**
+			 * Creates a new key pose movement detector. The detection relies on the key pose detector
+			 * (kp_detector) of this package. The key pose movement detector invokes the pose and key
+			 * pose detectors as well as the sequence generator given to this detector.
+			 *
+			 * @param ipd The pose detector to be used.
+			 * @param isg The sequence generator to be used.
+			 * @param debug True if debug information is intended to be provided on the terminal.
+			 */
 			kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
 					std::shared_ptr<i_sequence_generator<U> > isg, bool debug = false);
+
+			/**
+			 * Creates a new key pose movement detector. The detection relies on the key pose detector
+			 * which is passed to this detector. The key pose movement detector invokes the pose and key
+			 * pose detectors as well as the sequence generator given to this detector.
+			 *
+			 * @param ipd The pose detector to be used.
+			 * @param isg The sequence generator to be used.
+			 * @param ikpd The key pose detector to be used.
+			 * @param debug True if debug information is intended to be provided on the terminal.
+			 */
 			kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
 					std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_kp_detector> ikpd, bool debug = false);
 			virtual ~kp_movement_detector();
 
+			/**
+			 * Detects movement in the streamed skeleton sequence for the given body parts. Therefore, a buffer is used
+			 * and the whole movement sequence for the buffer is returned. Invokes the pose and key pose detectors as well as the
+			 * sequence generator given to this detector.
+			 *
+			 * @param timestamp The timestamp of the current frame as provided by the user. It is not save to rely on this value.
+			 * @param framerate The framerate to be applied. The framerate does not change.
+			 * @param skeleton The skeleton data.
+			 * @param body_parts The addressed body parts.
+			 * @return The detected movement sequence.
+			 */
 			virtual std::shared_ptr<U> detect_movement(long timestamp, double framerate, std::shared_ptr<T> skeleton, std::vector<bone> body_parts);
+
+			/**
+			 * Updates the buffer size.
+			 *
+			 * @param size The size.
+			 */
 			virtual void set_buffer(int size);
 
+			/**
+			 * Adds a pose listener to the detector. The listeners are invoked whenever a pose is fully detected (each frame).
+			 *
+			 * @param listener The listener to be added.
+			 */
 			virtual void add_listener(std::shared_ptr<i_pose_listener> listener);
+
+			/**
+			 * Removes the listener from the detector.
+			 *
+			 * @param listener The listener to be removed.
+			 */
 			virtual void remove_listener(std::shared_ptr<i_pose_listener> listener);
+
+			/**
+			 * Clears all listeners, which means removing them from the detector.
+			 */
 			virtual void clear_listeners();
 
+			/**
+			 * Notifies all listeners on the detection of a new pose.
+			 *
+			 * @param timestamp
+			 * @param pose
+			 */
 			virtual void notify_listeners(long timestamp, std::shared_ptr<general_pose> pose);
 
 		private:

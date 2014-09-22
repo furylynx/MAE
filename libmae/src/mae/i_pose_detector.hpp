@@ -25,6 +25,13 @@ namespace mae {
 			public:
 				virtual ~i_pose_detector(){}
 
+				/**
+				 * Processes the skeleton in order to return the pose for each body part.
+				 *
+				 * @param skeleton The skeleton.
+				 * @param body_parts The processed body parts.
+				 * @return The pose.
+				 */
 				virtual std::shared_ptr<general_pose> pose(std::shared_ptr<T> skeleton, std::vector<bone> body_parts) = 0;
 		};
 

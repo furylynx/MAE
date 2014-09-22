@@ -28,6 +28,13 @@ namespace mae {
 			public:
 				virtual ~i_sequence_generator(){}
 
+				/**
+				 * Generates a sequence from the enriched poses.
+				 *
+				 * @param keyPoses The enriched poses beginning with the lastly performed pose.
+				 * @param body_parts The addressed body parts.
+				 * @return The sequence.
+				 */
 				virtual std::shared_ptr<U> generate_sequence(double framerate, std::list<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<bone> bodyParts) = 0;
 		};
 
