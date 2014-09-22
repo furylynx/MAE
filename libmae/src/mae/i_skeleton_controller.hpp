@@ -23,6 +23,12 @@ namespace mae {
 			public:
 				virtual ~i_skeleton_controller(){ }
 
+				/**
+				 * Generates the specified skeleton from the general skeleton.
+				 *
+				 * @param skeleton The general skeleton.
+				 * @return The specified skeleton.
+				 */
 				virtual std::shared_ptr<T> specified_skeleton(std::shared_ptr<general_skeleton> skeleton) = 0;
 
 		};

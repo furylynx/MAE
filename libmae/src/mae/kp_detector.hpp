@@ -30,12 +30,22 @@ namespace mae
 			/**
 			 * Creates a new key pose detector.
 			 *
-			 * @param debug True if debug ouput shall be printed to the terminal.
+			 * @param debug True if debug output shall be printed to the terminal.
 			 */
 			kp_detector(bool debug = false);
 
 			virtual ~kp_detector();
 
+			/**
+			 * Estimates the current frame and returns an enriched pose. Edits the given enriched poses,
+			 * (e.g., sets key pose to false) but does not append the new enriched pose to the vector.
+			 * Instead the new enriched pose is returned.
+			 *
+			 * @param currentPose The currently processed pose.
+			 * @param previousSequence The previous sequence which will be edited too.
+			 * @param bodyParts All body parts that shall be processed.
+			 * @return The enriched pose.
+			 */
 			virtual std::shared_ptr<general_enriched_pose> estimate_frame(std::shared_ptr<general_pose> current_pose,
 					std::list<std::shared_ptr<general_enriched_pose> > previous_sequence, std::vector<bone> body_parts);
 

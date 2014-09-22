@@ -34,6 +34,12 @@ namespace mae
 
 				virtual ~cs_base();
 
+				/**
+				 * Checks whether the sent message is complete. Returns true if that is the case. Returns false otherwise.
+				 *
+				 * @param message The message to be checked for completeness.
+				 * @return True if complete.
+				 */
 				virtual bool is_message_complete(const std::string& message) const;
 
 				/**
