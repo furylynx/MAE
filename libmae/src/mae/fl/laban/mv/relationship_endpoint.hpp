@@ -34,16 +34,43 @@ namespace mae
 				class relationship_endpoint
 				{
 					public:
-						//TODO doxygen
+						/**
+						 * Creates a new relationship end point.
+						 *
+						 * @param column The column to which this point is attached.
+						 * @param active True for active.
+						 * @param pre_sign The pre sign for this end point.
+						 * @param dynamics The dynamics sign.
+						 */
 						relationship_endpoint(int column, bool active, std::shared_ptr<ps::i_pre_sign> pre_sign = nullptr, std::shared_ptr<i_dynamics_sign> dynamics = nullptr);
 						virtual ~relationship_endpoint();
 
+						/**
+						 * Returns the column to which this end point is attached.
+						 *
+						 * @return The column.
+						 */
 						int get_column() const;
 
+						/**
+						 * Returns the pre sign for this symbol.
+						 *
+						 * @return The pre sign.
+						 */
 						std::shared_ptr<ps::i_pre_sign> get_pre_sign() const;
 
+						/**
+						 * Returns the dynamics sign for this symbol.
+						 *
+						 * @return The dynamics sign.
+						 */
 						std::shared_ptr<i_dynamics_sign> get_dynamics() const;
 
+						/**
+						 * Returns true if this end point is active. False otherwise.
+						 *
+						 * @return True for active.
+						 */
 						bool get_active() const;
 
 						/**

@@ -34,6 +34,10 @@ namespace mae
 			class rewriting_decision_maker: public i_decision_maker<i_movement>
 			{
 				public:
+					/**
+					 * Creates a new rewriting decision maker which is used to decide whether two movements are equal
+					 * for sequences that are meant to be replaced. Therefore the timing does not matter but only the symbols.
+					 */
 					rewriting_decision_maker();
 					virtual ~rewriting_decision_maker();
 
