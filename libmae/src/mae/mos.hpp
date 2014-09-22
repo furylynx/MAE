@@ -19,11 +19,14 @@
 
 namespace mae
 {
-
 	class mos
 	{
 		public:
-
+			/**
+			 * Returns the path separator char used on the current OS.
+			 *
+			 * @return The separator char.
+			 */
 			static char path_separator();
 	};
 

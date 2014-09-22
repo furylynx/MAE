@@ -25,13 +25,50 @@ namespace mae {
 			public:
 				virtual ~i_movement_detector(){ }
 
+				/**
+				 * Detects movement in the streamed skeleton sequence for the given body parts. Therefore, a buffer is required
+				 * and the whole movement sequence for the buffer is returned.
+				 *
+				 * @param timestamp The timestamp of the current frame as provided by the user. It is not save to rely on this value.
+				 * @param framerate The framerate to be applied. The framerate does not change.
+				 * @param skeleton The skeleton data.
+				 * @param body_parts The addressed body parts.
+				 * @return The detected movement sequence.
+				 */
 				virtual std::shared_ptr<U> detect_movement(long timestamp, double framerate, std::shared_ptr<T> skeleton, std::vector<bone> body_parts) = 0;
+
+				/**
+				 * Updates the buffer size used to store the skeleton data.
+				 *
+				 * @param size The buffer size.
+				 */
 				virtual void set_buffer(int size) = 0;
 
+				/**
+				 * Adds a pose listener to the detector. The listeners are invoked whenever a pose is fully detected (each frame).
+				 *
+				 * @param listener The listener to be added.
+				 */
 				virtual void add_listener(std::shared_ptr<i_pose_listener> listener) = 0;
+
+				/**
+				 * Removes the listener from the detector.
+				 *
+				 * @param listener The listener to be removed.
+				 */
 				virtual void remove_listener(std::shared_ptr<i_pose_listener> listener) = 0;
+
+				/**
+				 * Clears all listeners, which means removing them from the detector.
+				 */
 				virtual void clear_listeners() = 0;
 
+				/**
+				 * Notifies all listeners on the detection of a new pose.
+				 *
+				 * @param timestamp
+				 * @param pose
+				 */
 				virtual void notify_listeners(long timestamp, std::shared_ptr<general_pose> pose) = 0;
 		};
 

@@ -10,6 +10,7 @@
 
 //custom includes
 #include "bvh_controller.hpp"
+#include "bvh_spec.hpp"
 #include "fl_movement_controller.hpp"
 #include "math.hpp"
 #include "e_fl_joint.hpp"
