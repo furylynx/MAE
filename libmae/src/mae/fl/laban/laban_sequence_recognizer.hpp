@@ -35,8 +35,22 @@ namespace mae
 			class laban_sequence_recognizer: public i_sequence_recognizer<laban_sequence>
 			{
 				public:
+					/**
+					 * Creates a new recognizer for laban sequences.
+					 *
+					 * @param debug True for debug output on the terminal.
+					 */
 					laban_sequence_recognizer(bool debug = false);
 
+					/**
+					 * Creates a new recognizer for laban sequences.
+					 *
+					 * @param column_definitions The column definitions as used by the laban sequence generator.
+					 * @param beats_per_measure The number of beats per measure as used by the laban sequence generator.
+					 * @param beat_duration The beat duration as used by the laban sequence generator.
+					 * @param time_unit The time unit as used by the laban sequence generator.
+					 * @param debug True for debug output on the terminal.
+					 */
 					laban_sequence_recognizer(std::vector<std::shared_ptr<column_definition> > column_definitions,
 							unsigned int beats_per_measure = laban_sequence::default_beats_per_measure(),
 							unsigned int beat_duration = laban_sequence::default_beat_duration(),
