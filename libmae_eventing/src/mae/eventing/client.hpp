@@ -40,19 +40,61 @@ namespace mae
 		class client : public cs_base
 		{
 			public:
+				/**
+				 * Creates a new client that connects to the server.
+				 *
+				 * @param serializer The serializer used to parse and serialze sequences.
+				 * @param uri The server's address (IP).
+				 * @param port The port on which the server operates.
+				 * @param password The password for the server.
+				 * @param short_sequences True for short sequences (e.g. only titles).
+				 */
 				client(std::shared_ptr<i_sequence_serializer<U> > serializer, std::string uri, uint16_t port = cs_base::get_default_port(), std::string password = "", bool short_sequences = false);
 				virtual ~client();
 
+				/**
+				 * Registers another sequence to the server side.
+				 *
+				 * @param sequence The sequence to be registered.
+				 */
 				virtual void register_sequence(std::shared_ptr<U> sequence);
 
+				/**
+				 * Adds a listener to the client which is invoked whenever a recognition event is distributed.
+				 *
+				 * @param recognition_listener The listener.
+				 */
 				virtual void add_listener(std::shared_ptr<i_recognition_listener<U> > recognition_listener);
 
+				/**
+				 * Removes the listener from the client.
+				 *
+				 * @param recognition_listener The listener.
+				 * @return True on success.
+				 */
 				virtual bool remove_listener(std::shared_ptr<i_recognition_listener<U> > recognition_listener);
 
+				/**
+				 * Returns all registered listeners.
+				 *
+				 * @return The listeners.
+				 */
 				virtual std::list<std::shared_ptr<i_recognition_listener<U> > > get_listeners();
 
+				/**
+				 * Notifies the listeners on a recognized sequence.
+				 *
+				 * @param timestamp The timestamp.
+				 * @param sequences The sequences.
+				 */
 				virtual void notify_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences);
 
+				/**
+				 * Notifies the listeners on a recognized sequence. Only the sequence titles are provided.
+				 *
+				 * @param timestamp The timestamp.
+				 * @param sequences_titles The sequence titles.
+				 */
 				virtual void notify_listeners(long timestamp, std::vector<std::string> sequences_titles);
 
 			protected:
@@ -111,21 +153,61 @@ namespace mae
 				std::shared_ptr<boost::asio::ip::tcp::resolver> resolver_;
 
 
-				//methods
+				/**
+				 * Initializes the client.
+				 *
+				 */
 				virtual void initialize();
 
+				/**
+				 * Begins to write the message to the server.
+				 *
+				 * @param connection The server.
+				 * @param message The message.
+				 * @param state The state.
+				 */
 				virtual void begin_write(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message, int state);
 
+				/**
+				 * Async callback for a write event.
+				 *
+				 * @param connection The server.
+				 * @param state The state.
+				 * @param error The error.
+				 */
 				virtual void on_write(std::shared_ptr<boost::asio::ip::tcp::socket> connection, int state, const boost::system::error_code& error);
 
+				/**
+				 * Begins to read a message from the server.
+				 *
+				 * @param connection The server.
+				 * @param timeout The timeout.
+				 */
 				virtual void begin_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, long timeout = 0);
 
+				/**
+				 * Async callback for read events. Checks whether the message is complete or another read is necessary.
+				 *
+				 * @param connection The server.
+				 * @param buffer The read buffer.
+				 * @param error The error.
+				 * @param bytes_transferred The number of transferred bytes.
+				 */
 				virtual void on_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::shared_ptr<char> buffer, const boost::system::error_code& error, const std::size_t bytes_transferred);
 
+				/**
+				 * Is invoked whenever a message is completely read.
+				 *
+				 * @param connection The server.
+				 * @param message The message.
+				 * @param error The error.
+				 */
 				virtual void on_read_complete(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message, const boost::system::error_code& error);
 
 
-
+				/**
+				 * Thread routine for the client's io.
+				 */
 				virtual void client_run();
 
 		};

@@ -46,7 +46,7 @@ namespace mae
 				virtual ~fl_pose_detector();
 
 				/**
-				 * Processes the skeleton in order to return the pose of each demanded body part.
+				 * Processes the skeleton in order to return the pose for each body part.
 				 *
 				 * @param skeleton The skeleton.
 				 * @param body_parts The processed body parts.

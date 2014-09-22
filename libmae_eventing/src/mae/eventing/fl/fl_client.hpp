@@ -28,6 +28,14 @@ namespace mae
 			class fl_client: public client<mae::fl::laban::laban_sequence>
 			{
 				public:
+					/**
+					 * Creates a new client which works with laban sequences.
+					 *
+					 * @param uri The uri of the server to connect to (IP address)
+					 * @param port The port to be connected to.
+					 * @param password The server password.
+					 * @param short_sequences True if sequences shall be of short format (only sequence titles).
+					 */
 					fl_client(std::string uri, uint16_t port = cs_base::get_default_port(), std::string password = "", bool short_sequences = false);
 					virtual ~fl_client();
 			};
