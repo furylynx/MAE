@@ -38,7 +38,7 @@ namespace mae
 			 * @param x The x-coordinate.
 			 * @param y The y-coordinate.
 			 * @param z The z-coordinate.
-			 * @param confidence The rotation of the bone of which this joint is the end point (ranging from 0 to 360 degree).
+			 * @param rotation The rotation of the bone of which this joint is the end point (ranging from 0 to 360 degree).
 			 * @param confidence The confidence (ranging from zero to one, where one is the most confident)
 			 */
 			general_joint(double x, double y, double z, double rotation = 0, double confidence = 1);

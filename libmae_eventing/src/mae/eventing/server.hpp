@@ -44,17 +44,53 @@ namespace mae
 		class server : public cs_base, public i_recognition_listener<U>
 		{
 			public:
+				/**
+				 * Creates a new server based on boost sockets.
+				 *
+				 * @param serializer The serializer which is used to parse received sequences and serialize outgoing ones.
+				 * @param mov_controller The movement controller to which sequences are registered if any received from a client.
+				 * @param port The port to be worked on.
+				 * @param password The server password.
+				 */
 				server(std::shared_ptr<i_sequence_serializer<U> > serializer, movement_controller<T,U>* mov_controller = nullptr, uint16_t port = cs_base::get_default_port(), std::string password = "");
 				virtual ~server();
 
+				/**
+				 * Notifies all connected clients on recognized sequences.
+				 *
+				 * @param timestamp The timestamp.
+				 * @param sequences The recognized sequences.
+				 */
 				virtual void notify_clients(long timestamp, std::vector<std::shared_ptr<U> > sequences);
 
+				/**
+				 * Returns all registered registration managers.
+				 *
+				 * @return The managers.
+				 */
 				virtual std::list<std::shared_ptr<i_registration_manager<U> > > get_registration_managers();
 
+				/**
+				 * Adds another registration manager to the server. The registered managers handle received sequences
+				 * that are intended to be added to a movement controller.
+				 *
+				 * @param manager The manager.
+				 */
 				virtual void add_registration_manager(std::shared_ptr<i_registration_manager<U> > manager);
 
+				/**
+				 * Removes a registration manager from the controller.
+				 *
+				 * @param manager The manager.
+				 * @return True if successful.
+				 */
 				virtual bool remove_registration_manager(std::shared_ptr<i_registration_manager<U> > manager);
 
+				/**
+				 * Registers a sequence to the connected controller if any.
+				 *
+				 * @param sequence The sequence to be registered.
+				 */
 				virtual void register_sequence(std::shared_ptr<U> sequence);
 
 			protected:
@@ -125,23 +161,75 @@ namespace mae
 				movement_controller<T,U>* movement_controller_;
 
 
-				//private methods
+				/**
+				 * Initializes the server.
+				 */
 				virtual void initialize();
 
+				/**
+				 * Accepts a new client and begins the read the initial message.
+				 *
+				 * @param connection The client.
+				 * @param error The error.
+				 */
 				virtual void accept(std::shared_ptr<boost::asio::ip::tcp::socket> connection, const boost::system::error_code& error);
 
+				/**
+				 * Begins to write a message to the client.
+				 *
+				 * @param connection The client.
+				 * @param message The message.
+				 */
 				virtual void begin_write(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message);
 
+				/**
+				 * Async callback for a completely sent message.
+				 *
+				 * @param connection The client.
+				 * @param error The error.
+				 */
 				virtual void on_write(std::shared_ptr<boost::asio::ip::tcp::socket> connection, const boost::system::error_code& error);
 
+				/**
+				 * Begins reading a message from the client.
+				 *
+				 * @param connection The connection.
+				 * @param state The state.
+				 * @param timeout The timeout value.
+				 */
 				virtual void begin_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, int state, long timeout = 0);
 
+				/**
+				 * Async callback for a read event. Checks whether the message is complete or reading must be continued.
+				 *
+				 * @param connection The client.
+				 * @param buffer The read buffer.
+				 * @param state The state
+				 * @param error The error.
+				 * @param bytes_transferred The number of transferred bytes.
+				 */
 				virtual void on_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::shared_ptr<char> buffer, int state, const boost::system::error_code& error, const std::size_t bytes_transferred);
 
+				/**
+				 * Is invoked whenever a message was read completely. Performs further steps based on the state and the parsed messages.
+				 *
+				 * @param connection The client.
+				 * @param message The message.
+				 * @param state The state.
+				 * @param error The error.
+				 */
 				virtual void on_read_complete(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message, int state, const boost::system::error_code& error);
 
+				/**
+				 * Thread routine for the server's io.
+				 */
 				virtual void server_run();
 
+				/**
+				 * Notifies the movement controller on a newly registered sequence. Checks the registration managers before.
+				 *
+				 * @param sequence The sequence.
+				 */
 				virtual void notify_registered_sequence(std::shared_ptr<U> sequence);
 
 				/**
