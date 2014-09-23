@@ -68,7 +68,7 @@
 		<xsd:element name="version" type="xsd:string" maxOccurs="1" minOccurs="1" />
 		<xsd:element name="title" type="xsd:string" maxOccurs="1" minOccurs="0" />
 		<xsd:element name="author" type="xsd:string" maxOccurs="unbound" minOccurs="0" />
-		<xsd:element name="descruption" type="xsd:string" maxOccurs="1" minOccurs="0" />
+		<xsd:element name="description" type="xsd:string" maxOccurs="1" minOccurs="0" />
 		<xsd:element name="rules" type="labanrw:rules" maxOccurs="1" minOccurs="0" />
 		</xsd:sequence>
 	</xsd:complexType>
