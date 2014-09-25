@@ -33,6 +33,13 @@ int main()
 	std::string max_users_str = "15";
 	int max_users = 15;
 
+	std::string sequence_window_str = "false";
+	bool sequence_window = false;
+	std::string pose_window_str = "false";
+	bool pose_window = false;
+	std::string recognition_window_str = "false";
+	bool recognition_window = false;
+
 	std::string resources_dir = "resources";
 
 	std::string port_str = "1300";
@@ -48,6 +55,19 @@ int main()
 	if (ini_reader.get_value_nex("nite", "max_users", &max_users_str))
 	{
 		max_users = std::stoul(max_users_str);
+	}
+
+	if (ini_reader.get_value_nex("demo", "sequence_window", &sequence_window_str))
+	{
+		sequence_window = mae::mbool::parse(sequence_window_str);
+	}
+	if (ini_reader.get_value_nex("demo", "pose_window", &pose_window_str))
+	{
+		pose_window = mae::mbool::parse(pose_window_str);
+	}
+	if (ini_reader.get_value_nex("demo", "recognition_window", &recognition_window_str))
+	{
+		recognition_window = mae::mbool::parse(recognition_window_str);
 	}
 
 	ini_reader.get_value_nex("demo", "resources_dir", &resources_dir);
@@ -128,9 +148,22 @@ int main()
 	}
 
 	//add sequence window for demo purposes
-	std::shared_ptr<mae::demo::fl::sequence_window> swin = std::shared_ptr<mae::demo::fl::sequence_window>(new mae::demo::fl::sequence_window("LabaNiTE-Server", resources_dir));
-	movement_controller.add_listener(swin);
+	if (sequence_window)
+	{
+		std::shared_ptr<mae::demo::fl::sequence_window> swin = std::shared_ptr<mae::demo::fl::sequence_window>(new mae::demo::fl::sequence_window("LabaNiTE-Server", resources_dir));
+		movement_controller.add_listener(swin);
+	}
 
+	if (pose_window)
+	{
+		//TODO draw pose window
+	}
+
+	if (recognition_window)
+	{
+		std::shared_ptr<mae::demo::fl::recognition_window> rwin = std::shared_ptr<mae::demo::fl::recognition_window>(new mae::demo::fl::recognition_window("LabaNiTE-Server", resources_dir));
+		movement_controller.add_listener(rwin);
+	}
 
 	//-----------------------
 	//set up the driver
