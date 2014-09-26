@@ -14,6 +14,7 @@
 #include <mae/demo/demo.hpp>
 #include <mae/mae.hpp>
 
+
 int main()
 {
 	std::cout << "LabaNiTE-Recorder started." << std::endl;
