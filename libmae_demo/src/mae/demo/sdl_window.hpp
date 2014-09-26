@@ -21,6 +21,7 @@
 #include <thread>
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 
 namespace mae
 {
@@ -130,12 +131,15 @@ namespace mae
 				std::string title_;
 				SDL_Window* window_;
 
+
+
 				//****************
 				// static
 				//****************
 				static std::vector<sdl_window*> windows_;
 				static std::thread thread_;
 				static bool initialized_;
+				static bool exception_;
 
 				/**
 				 * Clears the window.

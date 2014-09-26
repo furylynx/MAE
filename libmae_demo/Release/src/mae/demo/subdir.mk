@@ -4,15 +4,12 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/mae/demo/sdl_controller.cpp \
 ../src/mae/demo/sdl_window.cpp 
 
 OBJS += \
-./src/mae/demo/sdl_controller.o \
 ./src/mae/demo/sdl_window.o 
 
 CPP_DEPS += \
-./src/mae/demo/sdl_controller.d \
 ./src/mae/demo/sdl_window.d 
 
 

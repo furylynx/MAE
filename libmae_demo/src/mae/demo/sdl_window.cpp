@@ -15,12 +15,14 @@ namespace mae
 		std::vector<sdl_window*> sdl_window::windows_;
 		std::thread sdl_window::thread_;
 		bool sdl_window::initialized_ = false;
+		bool sdl_window::exception_ = false;
 
 		//methods
 
 		sdl_window::sdl_window(std::string title, int width, int height, int x_pos, int y_pos, Uint32 flags)
 		{
 			title_ = title;
+			exception_ = false;
 
 			try
 			{
@@ -31,13 +33,17 @@ namespace mae
 					thread_ = std::thread(sdl_run);
 
 					//wait until SDL is initialized
-					while(!initialized_);
+					while (!initialized_)
+					{
+						if (exception_)
+						{
+							throw std::runtime_error("Could not initialize SDL and SDL_ttf.");
+						}
+					}
 				}
 
-				window_ = SDL_CreateWindow(title.c_str(), x_pos, y_pos, width,
-						height, flags);
-			}
-			catch(...)
+				window_ = SDL_CreateWindow(title.c_str(), x_pos, y_pos, width, height, flags);
+			} catch (...)
 			{
 				remove_window(this);
 				initialized_ = false;
@@ -94,7 +100,7 @@ namespace mae
 
 			SDL_GetWindowSize(window_, &width, &height);
 
-			return width;
+			return height;
 		}
 
 		void sdl_window::set_size(int width, int height)
@@ -133,7 +139,6 @@ namespace mae
 			SDL_UpdateWindowSurface(window_);
 		}
 
-
 		void sdl_window::remove_window(sdl_window* window)
 		{
 			for (std::vector<sdl_window*>::iterator it = windows_.begin(); it != windows_.end(); it++)
@@ -149,9 +154,22 @@ namespace mae
 		{
 			if (!SDL_WasInit(SDL_INIT_VIDEO))
 			{
-				if (SDL_Init(SDL_INIT_VIDEO) == -1)
+				if (SDL_Init(SDL_INIT_VIDEO) != 0)
 				{
-					throw std::invalid_argument("Could not initialize SDL");
+					exception_ = true;
+					//throw std::runtime_error("Could not initialize SDL.");
+					return;
+				}
+			}
+
+			if (!TTF_WasInit())
+			{
+				if (TTF_Init() != 0)
+				{
+					SDL_Quit();
+					exception_ = true;
+					//throw std::runtime_error("Could not initialize SDL_ttf.");
+					return;
 				}
 			}
 
@@ -164,7 +182,7 @@ namespace mae
 				while (SDL_PollEvent(&event))
 				{
 					//notify windows
-					for (unsigned int i= 0; i < windows_.size(); i++)
+					for (unsigned int i = 0; i < windows_.size(); i++)
 					{
 						windows_.at(i)->handle_event(event);
 					}
@@ -173,6 +191,7 @@ namespace mae
 				SDL_Delay(50);
 			}
 
+			TTF_Quit();
 			SDL_Quit();
 			initialized_ = false;
 		}
