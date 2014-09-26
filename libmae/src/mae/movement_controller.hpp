@@ -97,6 +97,13 @@ namespace mae{
 				virtual void  set_no_buffer_size_update(bool updates);
 
 				/**
+				 * Returns the currently generated sequence from the skeleton stream.
+				 *
+				 * @return The sequence.
+				 */
+				virtual std::shared_ptr<U> get_current_sequence();
+
+				/**
 				 * Adds a pose listener to the movement controller. The pose listener is invoked whenever a
 				 * pose was quantized (which is on every frame).
 				 *
@@ -178,6 +185,8 @@ namespace mae{
 				bool no_buffer_size_update_;
 				std::vector<bone> body_parts_;
 
+				std::shared_ptr<U> current_sequence_;
+
 				std::shared_ptr<i_movement_detector<T,U> > imd_;
 				std::shared_ptr<i_sequence_recognizer<U> > isr_;
 
@@ -253,6 +262,7 @@ namespace mae{
 			if (imd_)
 			{
 				std::shared_ptr<U> sequence = imd_->detect_movement(timestamp, framerate_, skeleton, body_parts_);
+				current_sequence_ = sequence;
 				notify_sequence_listeners(timestamp, sequence);
 
 				if (isr_ != nullptr)
@@ -335,6 +345,12 @@ namespace mae{
 		void movement_controller<T, U>::set_no_buffer_size_update(bool updates)
 		{
 			no_buffer_size_update_ = updates;
+		}
+
+		template <typename T, typename U>
+		std::shared_ptr<U> movement_controller<T, U>::get_current_sequence()
+		{
+			return current_sequence_;
 		}
 
 		template <typename T, typename U>
