@@ -102,6 +102,11 @@ namespace mae
 				return true;
 			}
 
+			bool rewriting_decision_maker::position_okay(double dist_to_last, double set_value)
+			{
+				return true;
+			}
+
 		} // namespace laban
 	} // namespace fl
 } // namespace mae

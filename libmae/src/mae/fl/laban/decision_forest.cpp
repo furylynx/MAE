@@ -163,13 +163,16 @@ namespace mae
 						if (col_defs.at(i)->get_pre_sign()->equals(column_definitions_.at(j)->get_pre_sign()))
 						{
 							listed = true;
-							column_mapping.insert(std::make_pair(col_defs.at(i)->get_column_index(), column_definitions_.at(j)->get_column_index()));
+							column_mapping.insert(
+									std::make_pair(col_defs.at(i)->get_column_index(),
+											column_definitions_.at(j)->get_column_index()));
 						}
 					}
 
 					if (!listed)
 					{
-						throw std::invalid_argument("Column definition used by the sequence about to be registered does not match any of the given definitions.");
+						throw std::invalid_argument(
+								"Column definition used by the sequence about to be registered does not match any of the given definitions.");
 					}
 				}
 
@@ -197,16 +200,21 @@ namespace mae
 				}
 
 				//total duration in ms
-				double total_duration = sequence->get_measures()*sequence->get_beats()*sequence->get_beat_duration()*time_factor;
-				double new_measures = total_duration / (beats_per_measure_*beat_duration_*new_time_factor);
+				double total_duration = sequence->get_measures() * sequence->get_beats() * sequence->get_beat_duration()
+						* time_factor;
+				double new_measures = total_duration / (beats_per_measure_ * beat_duration_ * new_time_factor);
 
-				result = std::shared_ptr<laban_sequence>(new laban_sequence(sequence->get_title(), sequence->get_authors().at(0), new_measures, time_unit_, beat_duration_, beats_per_measure_));
-
+				result = std::shared_ptr<laban_sequence>(
+						new laban_sequence(sequence->get_title(), sequence->get_authors().at(0), new_measures,
+								time_unit_, beat_duration_, beats_per_measure_));
 
 				//insert updated column definitions
 				for (unsigned int i = 0; i < col_defs.size(); i++)
 				{
-					result->add_column_definition(std::shared_ptr<column_definition>(new column_definition(column_mapping.at(col_defs.at(i)->get_column_index()), col_defs.at(i)->get_pre_sign())));
+					result->add_column_definition(
+							std::shared_ptr<column_definition>(
+									new column_definition(column_mapping.at(col_defs.at(i)->get_column_index()),
+											col_defs.at(i)->get_pre_sign())));
 				}
 
 				//recreate sequence with new values
@@ -218,14 +226,15 @@ namespace mae
 					//adjust beat, measure etc
 
 					//exact position in ms
-					double exact_pos = (mov->get_measure()*sequence->get_beats() + mov->get_beat())*sequence->get_beat_duration()*time_factor;
+					double exact_pos = (mov->get_measure() * sequence->get_beats() + mov->get_beat())
+							* sequence->get_beat_duration() * time_factor;
 					//duration in ms
-					double duration = mov->get_duration()*sequence->get_beat_duration()*time_factor;
+					double duration = mov->get_duration() * sequence->get_beat_duration() * time_factor;
 
-					double new_measure_length = beats_per_measure_*beat_duration_*new_time_factor;
-					int new_measure = (int)( exact_pos / new_measure_length );
-					double new_beat = ( exact_pos / new_measure_length - new_measure ) * beats_per_measure_;
-					double new_duration = duration/(beat_duration_*new_time_factor);
+					double new_measure_length = beats_per_measure_ * beat_duration_ * new_time_factor;
+					int new_measure = (int) (exact_pos / new_measure_length);
+					double new_beat = (exact_pos / new_measure_length - new_measure) * beats_per_measure_;
+					double new_duration = duration / (beat_duration_ * new_time_factor);
 
 					//insert new movement
 					result->add_movement(mov->recreate(column_mapping, new_measure, new_beat, new_duration));
@@ -280,13 +289,13 @@ namespace mae
 						std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > trees_vec = trees_.at(
 								column_id);
 
-						for (unsigned int j = trees_vec.size() - 1 ; j >= 0; j++)
+						for (unsigned int j = trees_vec.size() - 1; j >= 0; j++)
 						{
 							trees_vec.at(j)->remove_where(sequence);
 
 							if (trees_vec.at(j)->is_empty())
 							{
-								trees_vec.erase(trees_vec.begin()+j);
+								trees_vec.erase(trees_vec.begin() + j);
 							}
 						}
 
@@ -321,33 +330,38 @@ namespace mae
 				std::vector<std::shared_ptr<laban_sequence> > result;
 				for (unsigned int i = 0; i < body_parts.size(); i++)
 				{
-
+					//process all body parts
 					int body_part = body_parts.at(i).get_id();
 					std::vector<std::shared_ptr<i_movement> > column_sequence = whole_sequence->get_column_movements(
 							body_part);
 
 					std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > tmp_seqs;
 
-					if (column_sequence.size() == 0)
+					//search for sequences that have this empty column, too
+					for (std::list<std::shared_ptr<laban_sequence> >::iterator it = sequences_.begin();
+							it != sequences_.end(); it++)
 					{
-						//column sequence for the body part is empty
-						//search for other sequences that have this empty column too
-
-						for (std::list<std::shared_ptr<laban_sequence> >::iterator it = sequences_.begin(); it != sequences_.end(); it++)
+						if ((*it)->get_column_movements(body_part).size() == 0)
 						{
-							if ((*it)->get_column_movements(body_part).size() == 0)
-							{
-								tmp_seqs.push_back(std::shared_ptr<decision_value<i_movement, laban_sequence> >(new decision_value<i_movement, laban_sequence>(
-										(*it)->get_column_movements(body_part), *it)));
-							}
+							tmp_seqs.push_back(
+									std::shared_ptr<decision_value<i_movement, laban_sequence> >(
+											new decision_value<i_movement, laban_sequence>(
+													(*it)->get_column_movements(body_part), *it)));
 						}
 					}
-					else
+
+					if (column_sequence.size() != 0)
 					{
 						//column sequence is not empty therefore search the tree which has a match with the last item of the sequence
 						std::shared_ptr<i_movement> decision_item = column_sequence.back();
 						std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > tree_list;
 
+						double dist_to_last = (whole_sequence->get_last_movement()->get_measure() * beats_per_measure_
+								+ whole_sequence->get_last_movement()->get_beat() + whole_sequence->get_last_movement()->get_duration())
+								- (decision_item->get_measure() * beats_per_measure_ + decision_item->get_beat()
+										+ decision_item->get_duration());
+
+						//process all trees
 						if (trees_.find(body_part) != trees_.end())
 						{
 							tree_list = trees_.at(body_part);
@@ -355,20 +369,40 @@ namespace mae
 
 						for (unsigned int j = 0; j < tree_list.size(); j++)
 						{
+							//find matching tree(s)
 							if (decision_maker_->decide(decision_item, nullptr,
 									tree_list.at(j)->get_root()->get_decision_item(), nullptr))
 							{
-								//find submatches in reverse order
-								tmp_seqs = tree_list.at(j)->find_submatches(column_sequence, 0, -1, true);
+								//find submatches in reverse order and
+
+								std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > sub_seqs =
+										tree_list.at(j)->find_submatches(column_sequence, 0, -1, true);
+
+								for (unsigned int k = 0; k < sub_seqs.size(); k++)
+								{
+									//get set distance for the submatch
+									std::shared_ptr<laban_sequence> sub_seq_val = sub_seqs.at(k)->get_value();
+									std::shared_ptr<i_movement> sub_seq_el = sub_seqs.at(k)->get_sequence().back();
+									double set_dist = (sub_seq_val->get_last_movement()->get_measure()
+											* beats_per_measure_ + sub_seq_val->get_last_movement()->get_beat()
+											+ sub_seq_val->get_last_movement()->get_duration())
+											- (sub_seq_el->get_measure() * beats_per_measure_ + sub_seq_el->get_beat()
+													+ sub_seq_el->get_duration());
+
+									if (decision_maker_->position_okay(dist_to_last, set_dist))
+									{
+										//append to tmp_seqs
+										tmp_seqs.push_back(sub_seqs.at(k));
+									}
+								}
 							}
 						}
 					}
 
-
+					//create cut set with previous sequences if not the first body part processed
 					if (result.size() == 0)
 					{
-						//first time for insertion therefore
-
+						//first time for insertion therefore insert all
 						for (unsigned int j = 0; j < tmp_seqs.size(); j++)
 						{
 							result.push_back(tmp_seqs.at(j)->get_value());
@@ -376,6 +410,7 @@ namespace mae
 					}
 					else
 					{
+						//build cut set
 						std::vector<std::shared_ptr<laban_sequence> > tmp_result;
 						tmp_result.reserve(result.size());
 						for (unsigned int j = 0; j < tmp_seqs.size(); j++)
@@ -394,7 +429,7 @@ namespace mae
 
 					if (result.size() == 0)
 					{
-						//no match found therefore no further processing is necessary
+						//no match found therefore no further processing is done
 
 						return result;
 					}
@@ -417,7 +452,8 @@ namespace mae
 
 					if (trees_.find(column) != trees_.end())
 					{
-						std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > col_trees = trees_.at(column);
+						std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > col_trees = trees_.at(
+								column);
 
 						for (unsigned int j = 0; j < col_trees.size(); j++)
 						{

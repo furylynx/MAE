@@ -32,9 +32,8 @@ namespace mae
 			bool decision_maker::decide(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> a_predecessor,
 					std::shared_ptr<i_movement> b, std::shared_ptr<i_movement> b_predecessor)
 			{
-				//TODO : define good values for deviation; currently 1/2 beat
-				double pos_deviation_max = tolerance_;//0.5
-				double dur_deviation_max = tolerance_;//0.5
+				double pos_deviation_max = tolerance_;
+				double dur_deviation_max = tolerance_;
 
 				//don't check position of predecessors are unknown or one of the elements is a starting pose
 
@@ -147,6 +146,11 @@ namespace mae
 				}
 
 				return false;
+			}
+
+			bool decision_maker::position_okay(double dist_to_last, double set_value)
+			{
+				return (std::abs(set_value - dist_to_last) < tolerance_);
 			}
 
 		} // namespace laban
