@@ -19,26 +19,29 @@
 #include <memory>
 
 
-namespace mae {
-	namespace fl {
+namespace mae
+{
+	namespace fl
+	{
 
-		class fl_joint {
+		class angular_joint
+		{
 			public:
 				/**
-				 * Creates a new joint.
-				 *
+				 * Creates a new invalid joint.
 				 */
-				fl_joint();
+				angular_joint();
 
 				/**
 				 * Creates a new joint with the values set.
 				 *
 				 * @param phi The elevation phi.
 				 * @param theta The azimuth theta.
+				 * @param confidence The confidence (a value between zero and one, where one is the most confident).
 				 */
-				fl_joint(double phi, double theta);
+				angular_joint(double phi, double theta, double confidence = 1.0);
 
-				virtual ~fl_joint();
+				virtual ~angular_joint();
 
 				/**
 				 * Sets the value for phi.
@@ -81,7 +84,19 @@ namespace mae {
 				 */
 				virtual bool is_valid() const;
 
-				friend std::ostream& operator<<(std::ostream& os, const fl_joint& obj)
+				/**
+				 * Sets the confidence for this joint which is a value between zero and one, where one is the most confident.
+				 *
+				 * @param confidence The confidence.
+				 */
+				virtual void set_confidence(double confidence);
+
+				/**
+				 * Returns the confidence for this joint which is a value between zero and one, where one is the most confident.
+				 */
+				virtual double get_confidence() const;
+
+				friend std::ostream& operator<<(std::ostream& os, const angular_joint& obj)
 				{
 					if (!obj.is_valid())
 					{
@@ -95,7 +110,7 @@ namespace mae {
 					return os;
 				}
 
-				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<fl_joint>& obj)
+				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<angular_joint>& obj)
 				{
 					os << *obj;
 					return os;
@@ -104,6 +119,8 @@ namespace mae {
 			private:
 				double theta_;
 				double phi_;
+
+				double confidence_;
 
 				bool valid_;
 		};
