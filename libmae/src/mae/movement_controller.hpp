@@ -229,6 +229,11 @@ namespace mae{
 		template <typename T, typename U>
 		movement_controller<T, U>::movement_controller(std::shared_ptr<i_pose_detector<T> > ipd, std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_sequence_recognizer<U> > isr, std::vector<bone> body_parts, int pose_buffer_size, double framerate, bool debug)
 		{
+			if (debug)
+			{
+				std::cout << "movement controller created." << std::endl;
+			}
+
 			this->debug_ = debug;
 			this->framerate_ = framerate;
 			this->body_parts_ = body_parts;

@@ -15,6 +15,11 @@ namespace mae
 
 		fl_pose_detector::fl_pose_detector(bool debug)
 		{
+			if (debug)
+			{
+				std::cout << "pose detector created." << std::endl;
+			}
+
 			debug_ = debug;
 
 			//initialize directions on circle

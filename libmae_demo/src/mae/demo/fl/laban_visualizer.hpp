@@ -12,7 +12,7 @@
 #include "../../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "res/laban_res.hpp"
 
 //global includes
 #include <memory>
