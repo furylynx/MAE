@@ -106,11 +106,15 @@ namespace mae
 					}
 
 					//load direction png image
-					std::stringstream d_sstr;
-					d_sstr << resources_dir_;
-					d_sstr << "laban_direction" << mae::fl::e_fl_direction_c::to_int(fl_dirs.at(i)) << ".png";
+//					std::stringstream d_sstr;
+//					d_sstr << resources_dir_;
+//					d_sstr << "laban_direction" << mae::fl::e_fl_direction_c::to_int(fl_dirs.at(i)) << ".png";
 
-					SDL_Surface* png_sur = IMG_Load(d_sstr.str().c_str());
+					//SDL_Surface* png_sur = IMG_Load(d_sstr.str().c_str());
+
+					unsigned char* dir = laban_direction[i];
+
+					SDL_Surface* png_sur = IMG_LoadTyped_RW(SDL_RWFromMem(&dir, sizeof(dir)), 1, "PNG");
 
 					if (png_sur == nullptr)
 					{
