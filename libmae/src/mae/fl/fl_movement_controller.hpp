@@ -85,6 +85,8 @@ namespace mae {
 
 				std::shared_ptr<laban::laban_sequence_recognizer> isr_;
 
+				bool debug_;
+
 		};
 
 	} // namespace fl

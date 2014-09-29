@@ -27,6 +27,11 @@ namespace mae
 					std::vector<std::shared_ptr<column_definition> > column_definitions, unsigned int beats_per_measure,
 					unsigned int beat_duration, e_time_unit time_unit, bool debug)
 			{
+				if (debug)
+				{
+					std::cout << "laban sequence generator created." << std::endl;
+				}
+
 				column_definitions_ = column_definitions;
 				debug_ = debug;
 				beats_per_measure_ = beats_per_measure;

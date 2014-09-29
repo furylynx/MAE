@@ -100,17 +100,22 @@ namespace mae
 				std::vector<mae::fl::e_fl_direction> fl_dirs = mae::fl::e_fl_direction_c::vec();
 				for (unsigned int i = 0; i < fl_dirs.size(); i++)
 				{
+					std::cout << i << std::endl;
+
 					if (fl_dirs.at(i) == mae::fl::e_fl_direction::INVALID)
 					{
 						continue;
 					}
 
 					//load direction png image
-					std::stringstream d_sstr;
-					d_sstr << resources_dir_;
-					d_sstr << "laban_direction" << mae::fl::e_fl_direction_c::to_int(fl_dirs.at(i)) << ".png";
+//					std::stringstream d_sstr;
+//					d_sstr << resources_dir_;
+//					d_sstr << "laban_direction" << mae::fl::e_fl_direction_c::to_int(fl_dirs.at(i)) << ".png";
 
-					SDL_Surface* png_sur = IMG_Load(d_sstr.str().c_str());
+//					SDL_Surface* png_sur = IMG_Load(d_sstr.str().c_str());
+
+					mae_res res = res::laban_res.at(i-1);
+					SDL_Surface* png_sur = IMG_LoadTyped_RW(SDL_RWFromConstMem(res.data, res.size), 1, "PNG");
 
 					if (png_sur == nullptr)
 					{
