@@ -16,6 +16,7 @@
 #include "hierarchy.hpp"
 #include "hierarchy_element.hpp"
 #include "bone.hpp"
+#include "vec3d.hpp"
 
 //global includes
 #include <unordered_map>
@@ -111,6 +112,20 @@ namespace mae
 			virtual std::shared_ptr<bone> get_right_left() const;
 
 			/**
+			 * Sets the weight vector for this skeleton.
+			 *
+			 * @param weight The weight vector.
+			 */
+			virtual void set_weight(std::shared_ptr<mae::vec3d> weight);
+
+			/**
+			 * Returns the weight vector for this skeleton. If none is set, a null pointer will be returned.
+			 *
+			 * @return The weight or null.
+			 */
+			virtual std::shared_ptr<mae::vec3d> get_weight() const;
+
+			/**
 			 * Converts this object to a string.
 			 *
 			 * @return This object as a string.
@@ -165,6 +180,8 @@ namespace mae
 
 			std::shared_ptr<bone> top_down;
 			std::shared_ptr<bone> right_left;
+
+			std::shared_ptr<vec3d> weight_;
 	};
 
 } // namespace mae

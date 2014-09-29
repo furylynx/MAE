@@ -64,14 +64,14 @@ namespace mae
 			 * @param body_part The id of the body part (e.g. for the left forearm).
 			 * @return The direction code.
 			 */
-			virtual int get_direction(int body_part);
+			virtual int get_direction(int body_part) const;
 
 			/**
 			 * Returns the hashmap that contains all body part to direction assignments.
 			 *
 			 * @return
 			 */
-			virtual std::unordered_map<int, int> get_directions();
+			virtual std::unordered_map<int, int> get_directions() const;
 
 			/**
 			 * Sets the distance of a body part to a certain direction. These distances can be used
@@ -96,25 +96,43 @@ namespace mae
 			 * @param direction The direction code.
 			 * @return The distance.
 			 */
-			virtual double get_distance(int body_part, int direction);
+			virtual double get_distance(int body_part, int direction) const;
 
 			/**
 			 * Returns the hashmap that contains all distance information for the body parts and directions.
 			 *
 			 * @return
 			 */
-			virtual std::unordered_map<int, std::unordered_map<int, double> > get_distances();
+			virtual std::unordered_map<int, std::unordered_map<int, double> > get_distances() const;
+
+			/**
+			 * Sets the rotation of the body part in the specific pose.
+			 *
+			 * @param body_part The body part.
+			 * @param rotation The rotation.
+			 */
+			virtual void set_rotation(int body_part, double rotation);
+
+			/**
+			 * Returns the rotation of the body part in the specific pose.
+			 *
+			 * @param body_part The body part.
+			 * @return The rotation.
+			 */
+			virtual double get_rotation(int body_part) const;
 
 			/**
 			 * Returns all body parts that have a direction assigned to it.
 			 *
 			 * @return All used body parts in this pose.
 			 */
-			virtual std::list<int> get_body_parts();
+			virtual std::list<int> get_body_parts() const;
 
 		private:
 			std::unordered_map<int, int> hashmap_direction_;
 			std::unordered_map<int, std::unordered_map<int, double> > hashmap_distance_;
+
+			std::unordered_map<int, double> hashmap_rotation_;
 
 			std::list<int> body_parts_;
 

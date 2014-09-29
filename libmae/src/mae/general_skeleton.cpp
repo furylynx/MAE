@@ -137,6 +137,16 @@ namespace mae
 		return this->right_left;
 	}
 
+	void general_skeleton::set_weight(std::shared_ptr<mae::vec3d> weight)
+	{
+		weight_ = weight;
+	}
+
+	std::shared_ptr<mae::vec3d> general_skeleton::get_weight() const
+	{
+		return weight_;
+	}
+
 	std::string general_skeleton::str() const
 	{
 		std::stringstream sstr;
