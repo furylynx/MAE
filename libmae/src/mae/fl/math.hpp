@@ -13,7 +13,8 @@
 
 //custom includes
 #include "../general_joint.hpp"
-#include "fl_joint.hpp"
+#include "angular_joint.hpp"
+#include "../vec3d.hpp"
 
 //global includes
 #include <opencv2/core/core.hpp>
@@ -53,7 +54,7 @@ namespace mae
 				 * @param joint The joint.
 				 * @return The result.
 				 */
-				static cv::Vec2d joint_to_vec_fl(std::shared_ptr<mae::fl::fl_joint> joint);
+				static cv::Vec2d joint_to_vec_fl(std::shared_ptr<mae::fl::angular_joint> joint);
 
 				/**
 				 * Translates the 2D vector to a fl_joint.
@@ -61,7 +62,7 @@ namespace mae
 				 * @param vec The vector.
 				 * @return The result.
 				 */
-				static std::shared_ptr<mae::fl::fl_joint> vec_to_joint_fl(cv::Vec2d vec);
+				static std::shared_ptr<mae::fl::angular_joint> vec_to_joint_fl(cv::Vec2d vec);
 
 				/**
 				 * Translates the 3D vector to a std::vector.
@@ -93,6 +94,22 @@ namespace mae
 				 * @return The result.
 				 */
 				static cv::Vec2d stdvec_to_vec2d(std::vector<double> vec);
+
+				/**
+				 * Translates the vec3d of mae to a 3D vector of cv.
+				 *
+				 * @param vec The vector.
+				 * @return The result.
+				 */
+				static cv::Vec3d maevec_to_vec3d(std::shared_ptr<vec3d> vec);
+
+				/**
+				 * Translates the 3D vector of cv to a vec3d of mae.
+				 *
+				 * @param vec The vector.
+				 * @return The result.
+				 */
+				static std::shared_ptr<vec3d> vec3d_to_maevec(cv::Vec3d vec);
 
 				/**
 				 * Performs a matrix calculation.
@@ -137,7 +154,6 @@ namespace mae
 				 * @return The result.
 				 */
 				static cv::Vec3d rotate_around_axis(cv::Vec3d point, cv::Vec3d axis, double beta);
-
 
 				/**
 				 * Returns the angles for the rotation matrices Rz, Rx, Ry which transform the point a to the point b. The rotation matrices are applied in z-x-y order which means that RzRxRy*a = b.

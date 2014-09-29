@@ -27,7 +27,7 @@ namespace mae
 			return std::shared_ptr<general_joint>(new general_joint(vec[0], vec[1], vec[2]));
 		}
 
-		cv::Vec2d math::joint_to_vec_fl(std::shared_ptr<mae::fl::fl_joint> joint)
+		cv::Vec2d math::joint_to_vec_fl(std::shared_ptr<mae::fl::angular_joint> joint)
 		{
 			cv::Vec2d result;
 
@@ -36,9 +36,9 @@ namespace mae
 			return result;
 		}
 
-		std::shared_ptr<mae::fl::fl_joint> math::vec_to_joint_fl(cv::Vec2d vec)
+		std::shared_ptr<mae::fl::angular_joint> math::vec_to_joint_fl(cv::Vec2d vec)
 		{
-			return std::shared_ptr<mae::fl::fl_joint>(new mae::fl::fl_joint(vec[0], vec[1]));
+			return std::shared_ptr<mae::fl::angular_joint>(new mae::fl::angular_joint(vec[0], vec[1]));
 		}
 
 		std::vector<double> math::vec_to_stdvec(cv::Vec3d vec)
@@ -103,6 +103,22 @@ namespace mae
 
 				return result;
 			}
+		}
+
+		cv::Vec3d math::maevec_to_vec3d(std::shared_ptr<vec3d> vec)
+		{
+			cv::Vec3d result;
+
+			result[0] = vec->get_x();
+			result[1] = vec->get_y();
+			result[2] = vec->get_z();
+
+			return result;
+		}
+
+		std::shared_ptr<vec3d> math::vec3d_to_maevec(cv::Vec3d vec)
+		{
+			return std::shared_ptr<vec3d>(new vec3d(vec[0], vec[1], vec[2]));
 		}
 
 		cv::Vec3d math::matrix_mul(cv::Mat m, cv::Vec3d vec)

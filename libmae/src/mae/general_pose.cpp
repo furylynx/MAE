@@ -46,7 +46,7 @@ namespace mae
 
 		}
 
-		int general_pose::get_direction(int body_part)
+		int general_pose::get_direction(int body_part) const
 		{
 
 			if (hashmap_direction_.find(body_part) == hashmap_direction_.end())
@@ -60,7 +60,7 @@ namespace mae
 
 		}
 
-		std::unordered_map<int, int> general_pose::get_directions()
+		std::unordered_map<int, int> general_pose::get_directions() const
 		{
 			return hashmap_direction_;
 		}
@@ -97,7 +97,7 @@ namespace mae
 
 		}
 
-		double general_pose::get_distance(int body_part, int direction)
+		double general_pose::get_distance(int body_part, int direction) const
 		{
 
 			if (hashmap_distance_.find(body_part) == hashmap_distance_.end())
@@ -114,17 +114,34 @@ namespace mae
 				}
 				else
 				{
-					return hm_dist_val[direction];
+					return hm_dist_val.at(direction);
 				}
 			}
 		}
 
-		std::unordered_map<int, std::unordered_map<int, double> > general_pose::get_distances()
+		std::unordered_map<int, std::unordered_map<int, double> > general_pose::get_distances() const
 		{
 			return hashmap_distance_;
 		}
 
-		std::list<int> general_pose::get_body_parts()
+		void general_pose::set_rotation(int body_part, double rotation)
+		{
+			hashmap_rotation_[body_part] = rotation;
+		}
+
+		double general_pose::get_rotation(int body_part) const
+		{
+			if (hashmap_rotation_.find(body_part) == hashmap_rotation_.end())
+			{
+				throw std::invalid_argument("Body part not listed in the pose's map.");
+			}
+			else
+			{
+				return hashmap_rotation_.at(body_part);
+			}
+		}
+
+		std::list<int> general_pose::get_body_parts() const
 		{
 			return body_parts_;
 		}

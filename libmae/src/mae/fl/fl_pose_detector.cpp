@@ -87,6 +87,8 @@ namespace mae
 			//calculated distances for all bones
 			for (unsigned int bone_index = 0; bone_index < body_parts.size(); bone_index++)
 			{
+				int bone_id = body_parts.at(bone_index).get_id();
+
 				for (e_fl_direction dir : e_fl_direction_c::vec())
 				{
 					if (dir == e_fl_direction::INVALID)
@@ -115,13 +117,13 @@ namespace mae
 
 							double angle = 180 - math::calc_angle_half(v,w);
 
-							result->set_distance(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(dir), angle);
+							result->set_distance(bone_id, e_fl_direction_c::to_int(dir), angle);
 						}
 						else
 						{
 							//no joint bone therefore place middle does not exist for this body part
 							//set distance to the maximum
-							result->set_distance(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(dir), 180);
+							result->set_distance(bone_id, e_fl_direction_c::to_int(dir), 180);
 						}
 					}
 					else
@@ -135,15 +137,15 @@ namespace mae
 								== body_parts.at(bone_index).get_from())
 						{
 							real_dir = math::joint_to_vec(
-									skeleton->get_offset_skeleton()->get_joint(body_parts.at(bone_index).get_to()));
+									skeleton->get_joint(body_parts.at(bone_index).get_to()));
 						}
 						else
 						{
 							//get bone vector in {u,r,t}
-							std::vector<std::vector<double> > coord = skeleton->get_coord_sys();
-							cv::Vec3d u = math::stdvec_to_vec3d(coord[0]);
-							cv::Vec3d r = math::stdvec_to_vec3d(coord[1]);
-							cv::Vec3d t = math::stdvec_to_vec3d(coord[2]);
+							std::vector<std::shared_ptr<vec3d> > coord = skeleton->get_coord_sys();
+							cv::Vec3d u = math::maevec_to_vec3d(coord.at(0));
+							cv::Vec3d r = math::maevec_to_vec3d(coord.at(1));
+							cv::Vec3d t = math::maevec_to_vec3d(coord.at(2));
 
 							real_dir = math::project_to_basis(
 									math::joint_to_vec(
@@ -157,15 +159,15 @@ namespace mae
 						//angle between the vectors is the distance
 						double angle = math::calc_angle_half(set_dir, real_dir);
 
-						result->set_distance(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(dir), angle);
+						result->set_distance(bone_id, e_fl_direction_c::to_int(dir), angle);
 					}
 				}
 
 				//handle place middle different than the other directions
-				if (result->get_distance(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(e_fl_direction::P_M)) < PM_ACCEPT_DIST)
+				if (result->get_distance(bone_id, e_fl_direction_c::to_int(e_fl_direction::P_M)) < PM_ACCEPT_DIST)
 				{
 					//favor place mid since the distance is less than the defined PM_ACCEPT_DIST distance
-					result->set_direction(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(e_fl_direction::P_M));
+					result->set_direction(bone_id, e_fl_direction_c::to_int(e_fl_direction::P_M));
 				}
 				else
 				{
@@ -179,16 +181,20 @@ namespace mae
 						}
 
 						if ((min_dist_dir == e_fl_direction::INVALID
-								&& result->get_distance(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(dir)) >= 0)
-								|| (result->get_distance(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(dir))
-										< result->get_distance(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(min_dist_dir))
-										&& result->get_distance(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(dir)) >= 0))
+								&& result->get_distance(bone_id, e_fl_direction_c::to_int(dir)) >= 0)
+								|| (result->get_distance(bone_id, e_fl_direction_c::to_int(dir))
+										< result->get_distance(bone_id, e_fl_direction_c::to_int(min_dist_dir))
+										&& result->get_distance(bone_id, e_fl_direction_c::to_int(dir)) >= 0))
 						{
 							min_dist_dir = dir;
 						}
 					}
-					result->set_direction(body_parts.at(bone_index).get_id(), e_fl_direction_c::to_int(min_dist_dir));
+					result->set_direction(bone_id, e_fl_direction_c::to_int(min_dist_dir));
 				}
+
+				//add rotation values to the pose
+				result->set_rotation(bone_id, skeleton->get_joint(body_parts.at(bone_index).get_to())->get_rotation());
+
 			}
 
 			return result;
