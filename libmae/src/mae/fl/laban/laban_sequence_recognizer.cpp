@@ -27,6 +27,11 @@ namespace mae
 
 			laban_sequence_recognizer::laban_sequence_recognizer(std::vector<std::shared_ptr<column_definition> > column_definitions, unsigned int beats_per_measure, unsigned int beat_duration, e_time_unit time_unit, bool debug)
 			{
+				if (debug)
+				{
+					std::cout << "create laban sequence recognizer...";
+				}
+
 				debug_ = debug;
 				column_definitions_ = column_definitions;
 				beats_per_measure_ = beats_per_measure;
@@ -36,6 +41,11 @@ namespace mae
 
 				//TODO rewriting rules...
 				decision_forest_ = std::shared_ptr<decision_forest>(new decision_forest(column_definitions_, reserved_columns_, beats_per_measure_, beat_duration_, time_unit_));
+
+				if (debug)
+				{
+					std::cout << "done." << std::endl;
+				}
 			}
 
 			laban_sequence_recognizer::~laban_sequence_recognizer()
