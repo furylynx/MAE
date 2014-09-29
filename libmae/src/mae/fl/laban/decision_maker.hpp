@@ -73,6 +73,15 @@ namespace mae
 					 */
 					virtual bool distance_okay(std::shared_ptr<i_movement> dist_from, std::shared_ptr<i_movement> dist_to, std::shared_ptr<i_movement> check);
 
+					/**
+					 * Checks the distances of the last element in this column to the last element of all columns.
+					 *
+					 * @param dist_to_last The distance to the last element of all columns.
+					 * @param set_value The set value for the distance.
+					 * @return True if accepted.
+					 */
+					virtual bool position_okay(double dist_to_last, double set_value);
+
 				private:
 					int beats_per_measure_;
 

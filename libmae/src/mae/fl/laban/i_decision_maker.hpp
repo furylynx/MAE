@@ -61,6 +61,15 @@ namespace mae
 					 * @return True if distance is okay.
 					 */
 					virtual bool distance_okay(std::shared_ptr<T> dist_from, std::shared_ptr<T> dist_to, std::shared_ptr<T> check) = 0;
+
+					/**
+					 * Checks the distances of the last element in this column to the last element of all columns.
+					 *
+					 * @param dist_to_last The distance to the last element of all columns.
+					 * @param set_value The set value for the distance.
+					 * @return True if accepted.
+					 */
+					virtual bool position_okay(double dist_to_last, double set_value) = 0;
 			};
 
 		} // namespace laban
