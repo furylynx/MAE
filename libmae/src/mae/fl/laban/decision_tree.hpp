@@ -251,17 +251,12 @@ namespace mae
 			{
 				if (root_ == nullptr || whole_sequence.size() == 0)
 				{
-					//TODO remove
-					std::cout << "Either the root node is not set or the sequence is empty." << std::endl;
 					return std::vector<std::shared_ptr<decision_value<T, U> > >();
 				}
 				else
 				{
 					if ((!reverse_order && !root_->is_matching(whole_sequence.front(), nullptr, nullptr)) || (reverse_order && !root_->is_matching(whole_sequence.back(), nullptr, nullptr)))
 					{
-						//TODO remove
-						std::cout << "Root node does not match" << std::endl;
-
 						return std::vector<std::shared_ptr<decision_value<T, U> > >();
 					}
 					else

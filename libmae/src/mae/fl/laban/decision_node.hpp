@@ -359,6 +359,7 @@ namespace mae
 
 				if (!is_leaf() && step != end_pos)
 				{
+					//TODO not only for one matching child but for all matching ones (several are possible)
 
 					std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(
 							whole_sequence.at(next_step), whole_sequence.at(current_step));

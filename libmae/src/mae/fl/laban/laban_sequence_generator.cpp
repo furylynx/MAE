@@ -23,7 +23,9 @@ namespace mae
 				time_unit_ = laban_sequence::default_time_unit();
 			}
 
-			laban_sequence_generator::laban_sequence_generator(std::vector<std::shared_ptr<column_definition> > column_definitions, unsigned int beats_per_measure, unsigned int beat_duration, e_time_unit time_unit, bool debug)
+			laban_sequence_generator::laban_sequence_generator(
+					std::vector<std::shared_ptr<column_definition> > column_definitions, unsigned int beats_per_measure,
+					unsigned int beat_duration, e_time_unit time_unit, bool debug)
 			{
 				column_definitions_ = column_definitions;
 				debug_ = debug;
@@ -75,8 +77,8 @@ namespace mae
 				}
 
 				std::shared_ptr<laban_sequence> sequence = std::shared_ptr<laban_sequence>(
-						new laban_sequence("Streamed Sequence", "mae", measures, time_unit_,
-								beat_duration_, beats_per_measure_));
+						new laban_sequence("Streamed Sequence", "mae", measures, time_unit_, beat_duration_,
+								beats_per_measure_));
 
 				//set column definitions
 				sequence->set_column_definitions(column_definitions_);
@@ -96,9 +98,10 @@ namespace mae
 						if (prev_kp != nullptr && (*it)->is_in_motion(b.get_id()))
 						{
 							//get information for last pose (which is the last key pose)
-							int measure = (int) (curr_frame * framerate * 1000.0 / (beats_per_measure_ * beat_duration_));
-							double beat = (((curr_frame * framerate * 1000.0) - (measure * beats_per_measure_ * beat_duration_))
-									/ beat_duration_);
+							int measure =
+									(int) (curr_frame * framerate * 1000.0 / (beats_per_measure_ * beat_duration_));
+							double beat = (((curr_frame * framerate * 1000.0)
+									- (measure * beats_per_measure_ * beat_duration_)) / beat_duration_);
 							double duration = (prev_kp_frame - curr_frame) * framerate * 1000.0 / beat_duration_;
 
 							//find symbol from prev_pose!
@@ -128,6 +131,21 @@ namespace mae
 
 						curr_frame--;
 					}
+
+					//add start pose to the movements (use direction of last pose in buffer)
+
+					mv::e_level vertical = mv::e_level_c::lvl((e_fl_direction) key_poses.back()->get_direction(b.get_id()));
+					mv::e_direction horizontal = mv::e_direction_c::dir(
+							(e_fl_direction) key_poses.back()->get_direction(b.get_id()));
+					std::shared_ptr<mv::i_symbol> symbol = std::shared_ptr<mv::i_symbol>(
+							new mv::direction_symbol(vertical, horizontal));
+
+					//setup movement and add it to the sequence
+					std::shared_ptr<i_movement> mv = std::shared_ptr<i_movement>(
+							new movement(b.get_id(), 0, 0, 0, symbol));
+
+					sequence->add_movement(mv);
+
 				}
 
 				return sequence;
