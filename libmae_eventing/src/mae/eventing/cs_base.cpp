@@ -22,29 +22,40 @@ namespace mae
 
 		bool cs_base::is_message_complete(const std::string& message) const
 		{
-			//check for a complete message (message ends with "</pfx:message>" where pfx can be any prefix)
-			bool result = false;
+			//check for a complete message (message ends with "</pfx:message>" where pfx can be the shortcut for any defined namespace)
+			bool found_nsp = false;
+			std::string::size_type pos = 0;
 
-			std::size_t msg_pos = message.rfind("message>");
-			if (msg_pos != std::string::npos && msg_pos != 0)
+			std::string message_closer = "</message>";
+			std::string nsp = "=\"http://www.example.org/maeeventing\"";
+
+			while (!found_nsp && pos < message.length())
 			{
+				pos = message.find("xmlns:", pos);
 
-				for (unsigned int i = msg_pos - 1; i >= 1; i--)
+				if (pos != std::string::npos)
 				{
-					if (message.at(i) == '/' && message.at(i-1) == '<')
+					for (std::string::size_type i = pos + 6; i < message.length(); i++)
 					{
-						result = true;
-						break;
-					}
-					else if ((i == msg_pos -1 && message.at(i) != ':') || (i != msg_pos - 1 && !std::isalnum(message.at(i))))
-					{
-						result = false;
-						break;
+						if (message.substr(i, nsp.length()) == nsp)
+						{
+							found_nsp = true;
+							std::stringstream sstr;
+							sstr << "</" << message.substr(pos + 6, i - pos + 6) << ":message>";
+							message_closer = sstr.str();
+							break;
+						}
+
+						if (!std::isalnum(message.at(i)))
+						{
+							pos = i;
+							break;
+						}
 					}
 				}
 			}
 
-			return result;
+			return (message.rfind(message_closer) != std::string::npos);
 		}
 
 		uint16_t cs_base::get_default_port()
