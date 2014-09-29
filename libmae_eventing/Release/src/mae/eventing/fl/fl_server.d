@@ -211,6 +211,7 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/skeleton_merger.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/general_skeleton.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/general_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/vec3d.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/ini_reader.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/mxml.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/mos.hpp \
@@ -221,7 +222,8 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/math.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/angular_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../vec3d.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/bvh_spec.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../e_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_movement_controller.hpp \
@@ -729,6 +731,8 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/general_joint.hpp:
 
+/sda7/data/workspace-git/MAE/libmae/src/mae/vec3d.hpp:
+
 /sda7/data/workspace-git/MAE/libmae/src/mae/ini_reader.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/mxml.hpp:
@@ -749,7 +753,9 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_joint.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/angular_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../vec3d.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/bvh_spec.hpp:
 
