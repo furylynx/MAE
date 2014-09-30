@@ -67,6 +67,13 @@ namespace mae
 					virtual void set_recognition_tolerance(double tolerance);
 
 					/**
+					 * Returns the underlying decision forest used to recognize sequences.
+					 *
+					 * @return The decision forest.
+					 */
+					virtual std::shared_ptr<decision_forest> get_decision_forest();
+
+					/**
 					 * Registers a sequence to the recognizer.
 					 *
 					 * @param sequence The sequence.

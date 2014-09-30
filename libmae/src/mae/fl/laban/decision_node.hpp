@@ -116,12 +116,12 @@ namespace mae
 					virtual std::vector<std::shared_ptr<decision_node<T, U> > > get_children();
 
 					/**
-					 * Returns the child that matches the decision.
+					 * Returns all children that match the decision.
 					 *
 					 * @param decision_item The item to be matched.
 					 * @return The child that matches the item.
 					 */
-					virtual std::shared_ptr<decision_node<T, U> > get_matching_child(std::shared_ptr<T> decision_item,
+					virtual std::vector<std::shared_ptr<decision_node<T, U> > > get_matching_children(std::shared_ptr<T> decision_item,
 							std::shared_ptr<T> decision_item_predecessor);
 
 					/**
@@ -359,14 +359,14 @@ namespace mae
 
 				if (!is_leaf() && step != end_pos)
 				{
-					//TODO not only for one matching child but for all matching ones (several are possible)
-
-					std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(
+					//recursively search all matching children for sequences
+					std::vector<std::shared_ptr<decision_node<T, U> > > matching_children = get_matching_children(
 							whole_sequence.at(next_step), whole_sequence.at(current_step));
 
-					if (matching_child != nullptr)
+					for (unsigned int i= 0; i < matching_children.size(); i++)
 					{
-						result = matching_child->find_submatches(whole_sequence, step + 1, end_pos, reverse_order);
+						std::vector<std::shared_ptr<decision_value<T, U> > > child_result = matching_children.at(i)->find_submatches(whole_sequence, step + 1, end_pos, reverse_order);
+						result.insert(result.end(), child_result.begin(), child_result.end());
 					}
 				}
 
@@ -436,18 +436,20 @@ namespace mae
 			}
 
 			template<typename T, typename U>
-			std::shared_ptr<decision_node<T, U> > decision_node<T, U>::get_matching_child(
+			std::vector<std::shared_ptr<decision_node<T, U> > > decision_node<T, U>::get_matching_children(
 					std::shared_ptr<T> decision_item, std::shared_ptr<T> decision_item_predecessor)
 			{
+				std::vector<std::shared_ptr<decision_node<T, U> > > result;
+
 				for (unsigned int i = 0; i < children_.size(); i++)
 				{
 					if (children_.at(i)->is_matching(decision_item, decision_item_predecessor, decision_item_))
 					{
-						return children_.at(i);
+						result.push_back( children_.at(i) );
 					}
 				}
 
-				return nullptr;
+				return result;
 			}
 
 			template<typename T, typename U>
