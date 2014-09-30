@@ -322,6 +322,16 @@ namespace mae
 				sequences_.clear();
 			}
 
+			void decision_forest::add_rewriting_rule(std::vector<std::shared_ptr<i_movement> > sequence, std::shared_ptr<std::vector<std::vector<std::shared_ptr<i_movement> > > > replacements)
+			{
+				rewriting_forest_->add_rule(sequence, replacements);
+			}
+
+			void decision_forest::add_rewriting_rule(std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > rule)
+			{
+				rewriting_forest_->add_rule(rule);
+			}
+
 			std::list<std::shared_ptr<laban_sequence> > decision_forest::get_sequences()
 			{
 				return sequences_;

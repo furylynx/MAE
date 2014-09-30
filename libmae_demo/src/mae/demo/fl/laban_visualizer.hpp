@@ -40,7 +40,7 @@ namespace mae
 					 * @param resources_dir The resources directory containing images for dir+lvl of laban.
 					 * @param format The pixel format to be applied.
 					 */
-					laban_visualizer(std::string resources_dir, SDL_PixelFormat* format);
+					laban_visualizer(SDL_PixelFormat* format);
 					virtual ~laban_visualizer();
 
 					/**
@@ -56,7 +56,6 @@ namespace mae
 				private:
 					std::vector<SDL_Surface*> directions_;
 					SDL_PixelFormat* format_;
-					std::string resources_dir_;
 
 					/**
 					 * Loads the media for the visualizer.
