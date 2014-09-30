@@ -14,22 +14,17 @@ namespace mae
 		namespace fl
 		{
 
-			recorder_window::recorder_window(std::string title, std::string resources_dir, std::string font_path,
+			recorder_window::recorder_window(std::string title, std::string font_path,
 					int width, int height, int x_pos, int y_pos, Uint32 flags) : sdl_window(title, width, height, x_pos, y_pos, flags)
 			{
-				if (resources_dir.at(resources_dir.size() - 1) != mae::mos::path_separator())
-				{
-					resources_dir.insert(resources_dir.end(), mae::mos::path_separator());
-				}
 
 				font_str_ = font_path;
-				resources_dir_ = resources_dir;
 				background_ = nullptr;
 				current_sequence_ = nullptr;
 				countdown_ = -1;
 
 				visualizer_ = std::shared_ptr<laban_visualizer>(
-						new laban_visualizer(resources_dir, get_surface()->format));
+						new laban_visualizer(get_surface()->format));
 
 				initialize();
 			}
@@ -41,12 +36,13 @@ namespace mae
 
 			void recorder_window::initialize()
 			{
-				std::stringstream bg_sstr;
-				bg_sstr << resources_dir_;
-				bg_sstr << "background0.png";
+//				//load background png image
+//				std::stringstream bg_sstr;
+//				bg_sstr << resources_dir_;
+//				bg_sstr << "background0.png";
+//				SDL_Surface* loaded_surface = IMG_Load(bg_sstr.str().c_str());
 
-				//load background png image
-				SDL_Surface* loaded_surface = IMG_Load(bg_sstr.str().c_str());
+				SDL_Surface* loaded_surface = IMG_LoadTyped_RW(SDL_RWFromConstMem(res::background0.data, res::background0.size), 0, "PNG");
 
 				if (loaded_surface != nullptr)
 				{
@@ -59,7 +55,7 @@ namespace mae
 					if (background_ == nullptr)
 					{
 						std::stringstream e_sstr;
-						e_sstr << "Unable to optimize image " << bg_sstr.str() << "! SDL Error: " << SDL_GetError()
+						e_sstr << "Unable to optimize image " << "! SDL Error: " << SDL_GetError()
 								<< std::endl;
 						throw std::runtime_error(e_sstr.str());
 					}
@@ -67,7 +63,7 @@ namespace mae
 				else
 				{
 					std::stringstream e_sstr;
-					e_sstr << "Unable to load image " << bg_sstr.str() << "! SDL Error: " << SDL_GetError()
+					e_sstr << "Unable to load image " << "! SDL Error: " << SDL_GetError()
 							<< std::endl;
 					throw std::runtime_error(e_sstr.str());
 				}

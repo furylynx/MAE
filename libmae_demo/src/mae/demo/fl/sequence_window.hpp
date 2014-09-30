@@ -16,6 +16,8 @@
 
 #include "../sdl_window.hpp"
 
+#include "res/laban_res.hpp"
+
 //global includes
 #include <string>
 #include <memory>
@@ -46,7 +48,7 @@ namespace mae
 					 * @param y_pos The window's y position.
 					 * @param flags The window flags.
 					 */
-					sequence_window(std::string title, std::string resources_dir, int width = 1024, int height = 576, int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags = SDL_WINDOW_SHOWN);
+					sequence_window(std::string title, int width = 1024, int height = 576, int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags = SDL_WINDOW_SHOWN);
 					virtual ~sequence_window();
 
 				protected:
@@ -68,7 +70,6 @@ namespace mae
 				private:
 					std::shared_ptr<laban_visualizer> visualizer_;
 
-					std::string resources_dir_;
 					std::shared_ptr<mae::fl::laban::laban_sequence> current_sequence_;
 
 					SDL_Surface* background_;
