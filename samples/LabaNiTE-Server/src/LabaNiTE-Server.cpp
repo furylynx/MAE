@@ -159,7 +159,7 @@ int main()
 		if (sequence_window)
 		{
 			std::shared_ptr<mae::demo::fl::sequence_window> swin = std::shared_ptr<mae::demo::fl::sequence_window>(
-					new mae::demo::fl::sequence_window("LabaNiTE-Server", resources_dir));
+					new mae::demo::fl::sequence_window("LabaNiTE-Server"));
 			movement_controller.add_listener(swin);
 		}
 
@@ -172,7 +172,7 @@ int main()
 		{
 			std::shared_ptr<mae::demo::fl::recognition_window> rwin =
 					std::shared_ptr<mae::demo::fl::recognition_window>(
-							new mae::demo::fl::recognition_window("LabaNiTE-Server", resources_dir));
+							new mae::demo::fl::recognition_window("LabaNiTE-Server"));
 			movement_controller.add_listener(rwin);
 		}
 
