@@ -47,6 +47,8 @@
 									<listOptionValue builtIn="false" value="/usr/include/ni/"/>
 									<listOptionValue builtIn="false" value="/usr/include/nite/"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_nite/src/}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_demo/src}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.1166104425" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1628248079" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -60,6 +62,8 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.1233869141" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
 								<option id="gnu.cpp.link.option.libs.2065483015" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_nite"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_demo"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_eventing"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_system"/>
 								</option>
@@ -110,16 +114,29 @@
 									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/"/>
 									<listOptionValue builtIn="false" value="/usr/include/opencv2/core/"/>
 									<listOptionValue builtIn="false" value="/usr/include/opencv2/"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/src/}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/include/c++/4.8/"/>
-									<listOptionValue builtIn="false" value="/usr/include/ni/"/>
 									<listOptionValue builtIn="false" value="/usr/include/"/>
-									<listOptionValue builtIn="false" value="/usr/include/nite/"/>
 									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/c++/4.8/bits"/>
 									<listOptionValue builtIn="false" value="/usr/local/include"/>
 									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/c++/4.8"/>
 									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/"/>
+									<listOptionValue builtIn="false" value="/usr/include/libxml2"/>
+									<listOptionValue builtIn="false" value="/usr/include/glibmm-2.4"/>
+									<listOptionValue builtIn="false" value="/usr/lib/x86_64-linux-gnu/glibmm-2.4/include"/>
+									<listOptionValue builtIn="false" value="/usr/include/sigc++-2.0"/>
+									<listOptionValue builtIn="false" value="/usr/lib/x86_64-linux-gnu/sigc++-2.0/include"/>
+									<listOptionValue builtIn="false" value="/usr/include/glib-2.0"/>
+									<listOptionValue builtIn="false" value="/usr/lib/x86_64-linux-gnu/glib-2.0/include"/>
+									<listOptionValue builtIn="false" value="/usr/include/libxml++-2.6"/>
+									<listOptionValue builtIn="false" value="/usr/lib/libxml++-2.6/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/src/}&quot;"/>
+									<listOptionValue builtIn="false" value="/usr/include/ni/"/>
+									<listOptionValue builtIn="false" value="/usr/include/nite/"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_nite/src/}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_demo/src}&quot;"/>
 								</option>
+								<option id="gnu.cpp.compiler.option.dialect.std.336102715" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.2059452086" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.1682333784" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release">
@@ -129,6 +146,13 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.1495764418" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.64292201" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
+								<option id="gnu.cpp.link.option.libs.1975638805" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_nite"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_demo"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_eventing"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_system"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.676758685" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -167,4 +191,5 @@
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>

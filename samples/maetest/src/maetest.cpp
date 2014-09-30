@@ -26,6 +26,8 @@
 
 #include <mae/eventing/fl/fl_server.hpp>
 
+#include <mae/nite/nite.hpp>
+
 
 void test_bvh()
 {
@@ -126,6 +128,19 @@ void test_sockets()
 
 }
 
+void test_farm()
+{
+	std::vector<mae::nite::device_info> infos = mae::nite::nite_farm::list_available_device_infos();
+
+	for (unsigned int i = 0; i < infos.size(); i++)
+	{
+		std::cout << infos.at(i).get_device_name() << " - serialno: " << infos.at(i).get_device_serial() << std::endl;
+	}
+
+	//TODO further tests
+
+}
+
 int main() {
 
 	// prints Hello
@@ -142,7 +157,8 @@ int main() {
 	//test_sequence();
 	//test_recognition();
 	//test_bvh();
-	test_sockets();
+//	test_sockets();
+	test_farm();
 
 	std::cout << "done" << std::endl;
 	return 0;
