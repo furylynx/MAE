@@ -15,6 +15,8 @@
 #include "../sdl_window.hpp"
 #include "laban_visualizer.hpp"
 
+#include "res/laban_res.hpp"
+
 //global includes
 #include <mae/mae.hpp>
 #include <SDL2/SDL_image.h>
@@ -42,7 +44,7 @@ namespace mae
 					 * @param y_pos The y pos.
 					 * @param flags The flags to be applied.
 					 */
-					recorder_window(std::string title, std::string resources_dir, std::string font_path, int width = 1024, int height = 576, int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags = SDL_WINDOW_SHOWN);
+					recorder_window(std::string title, std::string font_path, int width = 1024, int height = 576, int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags = SDL_WINDOW_SHOWN);
 					virtual ~recorder_window();
 
 					/**
@@ -76,7 +78,6 @@ namespace mae
 				private:
 					std::shared_ptr<laban_visualizer> visualizer_;
 
-					std::string resources_dir_;
 					std::shared_ptr<mae::fl::laban::laban_sequence> current_sequence_;
 
 					int countdown_;

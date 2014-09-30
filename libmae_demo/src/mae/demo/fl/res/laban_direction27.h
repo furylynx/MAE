@@ -1,4 +1,7 @@
-		/* GIMP RGBA C-Source image dump (laban_direction1.c) */
+#ifndef MAE_DEMO_LABAN_DIRECTION27_HPP_
+#define MAE_DEMO_LABAN_DIRECTION27_HPP_
+
+/* GIMP RGBA C-Source image dump (laban_direction1.c) */
 		#define MAE_LABAN_DIRECTION27 {  \
 		63 * 199 * 4 + 1,  \
   "\0\0\0\377\0\0\0\377\0\0\0\377\0\0\0\377\0\0\0\377\0\0\0\377\0\0\0\377\0"  \
@@ -1831,3 +1834,4 @@
   "\377\377\0\377\377\377\0\377\377\377\0\377\377\377\0\377\377\377\0\377\377"  \
   "\377\0",  \
 }
+#endif
