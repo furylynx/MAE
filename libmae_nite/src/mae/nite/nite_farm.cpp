@@ -111,6 +111,93 @@ namespace mae
 			return nite_controller::xn_was_keyboard_hit();
 		}
 
+		xn::NodeInfoList nite_farm::list_available_devices()
+		{
+			xn::Context context;
+			XnStatus status = context.Init();
+
+			if (status != XN_STATUS_OK)
+			{
+				//std::cerr << "Could not initialize the context." << std::endl;
+
+				throw std::runtime_error("Could not initialize the xn context.");
+			}
+
+
+			// find devices
+			xn::EnumerationErrors errors;
+			xn::NodeInfoList list;
+			status = context.EnumerateProductionTrees(XN_NODE_TYPE_DEVICE, NULL, list, &errors);
+
+			if (status != XN_STATUS_OK)
+			{
+				//std::cerr << "Could not get the production trees." << std::endl;
+
+				throw std::runtime_error("Could not get the production trees.");
+			}
+
+			context.Release();
+
+			return list;
+		}
+
+		std::vector<device_info> nite_farm::list_available_device_infos()
+		{
+			std::vector<device_info> result;
+
+			xn::NodeInfoList list = list_available_devices();
+
+			//std::cout << "The following devices were found: " << std::endl;
+
+			int i = 1;
+			for (xn::NodeInfoList::Iterator it = list.Begin(); it != list.End(); ++it, ++i)
+			{
+				xn::NodeInfo device_node_info = *it;
+				xn::Device device_node;
+
+				device_node_info.GetInstance(device_node);
+				XnBool device_exists = device_node.IsValid();
+
+				if (!device_exists)
+				{
+					continue;
+					//context.CreateProductionTree(device_node_info, device_node);
+					// this might fail.
+				}
+
+				if (device_node.IsValid() && device_node.IsCapabilitySupported(XN_CAPABILITY_DEVICE_IDENTIFICATION))
+				{
+					const XnUInt32 n_string_buffer_size = 200;
+
+					XnChar str_device_name[n_string_buffer_size];
+					XnChar str_serial_number[n_string_buffer_size];
+
+					XnUInt32 n_length = n_string_buffer_size;
+
+					device_node.GetIdentificationCap().GetDeviceName(str_device_name, n_length);
+
+					n_length = n_string_buffer_size;
+					device_node.GetIdentificationCap().GetSerialNumber(str_serial_number, n_length);
+
+					//std::cout << "[" << i << "] "<< str_device_name << " (" << str_serial_number << ")" << std::endl;
+
+					result.push_back(device_info(str_device_name, str_serial_number));
+				}
+				else
+				{
+					//std::cout << "[" << i << "] "<< device_node_info.GetCreationInfo() << std::endl;
+				}
+
+				// release the device if we created it
+				if (!device_exists && device_node.IsValid())
+				{
+					device_node.Release();
+				}
+			}
+
+			return result;
+		}
+
 		void nite_farm::nite_run(std::shared_ptr<nite_controller> controller, unsigned int id)
 		{
 			while (running_)

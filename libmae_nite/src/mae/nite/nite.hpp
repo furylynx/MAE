@@ -10,6 +10,7 @@
 
 //custom includes
 #include "nite_controller.hpp"
+#include "nite_farm.hpp"
 
 
 #endif // NITE_HPP_

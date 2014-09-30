@@ -117,8 +117,7 @@ int main()
 
 		//TODO font?!!
 		rwin = std::shared_ptr<mae::demo::fl::recorder_window>(
-				new mae::demo::fl::recorder_window("LabaNiTE-Recorder", resources_dir,
-						"/usr/share/fonts/truetype/freefont/FreeSerif.ttf"));
+				new mae::demo::fl::recorder_window("LabaNiTE-Recorder", "/usr/share/fonts/truetype/freefont/FreeSerif.ttf"));
 		movement_controller.add_listener(rwin);
 	}
 

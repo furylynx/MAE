@@ -13,6 +13,7 @@
 
 //custom includes
 #include "nite_controller.hpp"
+#include "device_info.hpp"
 
 //global includes
 #include <memory>
@@ -83,6 +84,13 @@ namespace mae
 				static bool xn_was_keyboard_hit();
 
 
+				/**
+				 * Lists all available OpenNI devices.
+				 *
+				 * @return The device info.
+				 */
+				static std::vector<device_info> list_available_device_infos();
+
 			private:
 				unsigned int max_users_;
 				bool debug_;
@@ -95,11 +103,26 @@ namespace mae
 
 				std::shared_ptr<mae::skeleton_merger> merger_;
 
-
 				/**
 				 * Runs the thread for the given nite_controller.
 				 */
 				virtual void nite_run(std::shared_ptr<nite_controller> controller, unsigned int id);
+
+
+				/**
+				 * Lists all available OpenNI devices.
+				 *
+				 * @return The node info list.
+				 */
+				static xn::NodeInfoList list_available_devices();
+
+				/**
+				 * Returns the device node for the device info.
+				 *
+				 * @param devi The device info.
+				 * @return The device node.
+				 */
+				static xn::NodeInfo get_node_info(device_info devi);
 		};
 
 	} // namespace nite
