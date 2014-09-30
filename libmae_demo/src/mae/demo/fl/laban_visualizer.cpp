@@ -7,6 +7,7 @@
 
 #include "laban_visualizer.hpp"
 
+
 namespace mae
 {
 	namespace demo
