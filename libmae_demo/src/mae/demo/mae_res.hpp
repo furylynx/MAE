@@ -24,11 +24,8 @@ namespace mae
 
 		struct mae_res
 		{
-				unsigned int size;
-//				unsigned int width;
-//				unsigned int height;
-//				unsigned int bytes_per_pixel; /* 2:RGB16, 3:RGB, 4:RGBA */
-				const void* data;
+				int size;
+				unsigned char* data;
 		};
 
 	} // namespace demo

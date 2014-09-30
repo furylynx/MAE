@@ -7,7 +7,6 @@
 
 #include "laban_visualizer.hpp"
 
-
 namespace mae
 {
 	namespace demo
@@ -15,9 +14,8 @@ namespace mae
 		namespace fl
 		{
 
-			laban_visualizer::laban_visualizer(std::string resources_dir, SDL_PixelFormat* format)
+			laban_visualizer::laban_visualizer(SDL_PixelFormat* format)
 			{
-				resources_dir_ = resources_dir;
 				format_ = format;
 
 				initialize();
@@ -58,13 +56,11 @@ namespace mae
 							{
 								int draw_y_pos = (int) ((window_height - 50)
 										* (1
-												- ((mov->get_measure() * sequence->get_beats()
-														+ mov->get_beat() + mov->get_duration())
-														/ (sequence->get_measures()
-																* sequence->get_beats()))));
+												- ((mov->get_measure() * sequence->get_beats() + mov->get_beat()
+														+ mov->get_duration())
+														/ (sequence->get_measures() * sequence->get_beats()))));
 								int draw_h = (int) ((window_height - 50)
-										* (mov->get_duration()
-												/ (sequence->get_measures() * sequence->get_beats())));
+										* (mov->get_duration() / (sequence->get_measures() * sequence->get_beats())));
 
 								unsigned int direction = mae::fl::e_fl_direction_c::to_int(
 										mae::fl::e_fl_direction_c::dir(symb->get_horizontal(), symb->get_vertical(),
@@ -101,22 +97,24 @@ namespace mae
 				std::vector<mae::fl::e_fl_direction> fl_dirs = mae::fl::e_fl_direction_c::vec();
 				for (unsigned int i = 0; i < fl_dirs.size(); i++)
 				{
-					std::cout << i << std::endl;
-
 					if (fl_dirs.at(i) == mae::fl::e_fl_direction::INVALID)
 					{
 						continue;
 					}
 
-					//load direction png image
+//					//load direction png image
 //					std::stringstream d_sstr;
 //					d_sstr << resources_dir_;
 //					d_sstr << "laban_direction" << mae::fl::e_fl_direction_c::to_int(fl_dirs.at(i)) << ".png";
-
 //					SDL_Surface* png_sur = IMG_Load(d_sstr.str().c_str());
 
-					mae_res res = res::laban_res.at(i-1);
-					SDL_Surface* png_sur = IMG_LoadTyped_RW(SDL_RWFromConstMem(res.data, res.size), 1, "PNG");
+					if (i >= res::laban_res_size)
+					{
+						//nothing to do...
+						break;
+					}
+
+					SDL_Surface* png_sur = IMG_LoadTyped_RW(SDL_RWFromConstMem(res::laban_res[i-1].data, res::laban_res[i-1].size), 0, "PNG");
 
 					if (png_sur == nullptr)
 					{
@@ -150,7 +148,7 @@ namespace mae
 				{
 					cleanup();
 					std::stringstream e_sstr;
-					e_sstr << "Could not load the resources from " << resources_dir_ << std::endl;
+					e_sstr << "Could not load the resources. " << std::endl;
 
 					throw std::runtime_error(e_sstr.str());
 				}
@@ -168,7 +166,6 @@ namespace mae
 
 				directions_.clear();
 			}
-
 
 		} // namespace fl
 	} // namespace demo

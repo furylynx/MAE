@@ -97,6 +97,21 @@ namespace mae
 					virtual void clear();
 
 					/**
+					 * Adds a rewriting rule to the forest.
+					 *
+					 * @param sequence The sequence.
+					 * @param replacements The replacement for the sequence.
+					 */
+					virtual void add_rewriting_rule(std::vector<std::shared_ptr<i_movement> > sequence, std::shared_ptr<std::vector<std::vector<std::shared_ptr<i_movement> > > > replacements);
+
+					/**
+					 * Adds a rewriting rule to the forest.
+					 *
+					 * @param rule The rule to be added.
+					 */
+					virtual void add_rewriting_rule(std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > rule);
+
+					/**
 					 * Recreates the sequence with adjusted beat duration, beats per measure and time unit. Additionally
 					 * the column definitions are adjusted.
 					 *

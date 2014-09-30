@@ -1,3 +1,6 @@
+#ifndef MAE_DEMO_LABAN_DIRECTION15_HPP_
+#define MAE_DEMO_LABAN_DIRECTION15_HPP_
+
 /* GIMP RGBA C-Source image dump (laban_direction15.c) */
 #define MAE_LABAN_DIRECTION15 {  \
 		63 * 199 * 4 + 1,  \
@@ -1831,3 +1834,4 @@
   "\0\0\0\377\0\0\0\377\0\0\0\377\0\0\0\377\0\0\0\377\0\0\0\377\0\0\0\377\0"  \
   "\0\0\377",  \
 }
+#endif
