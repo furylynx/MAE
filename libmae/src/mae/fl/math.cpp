@@ -175,6 +175,79 @@ namespace mae
 			return result.rowRange(0, 3);
 		}
 
+		cv::Vec3d math::project_to_basis(std::shared_ptr<vec3d> point, std::shared_ptr<basis> basis, std::shared_ptr<vec3d> position_vector)
+		{
+			if (position_vector == nullptr)
+			{
+				position_vector = basis->get_position_vector();
+			}
+
+			return project_to_basis(maevec_to_vec3d(point), maevec_to_vec3d(position_vector), maevec_to_vec3d(basis->get_u()), maevec_to_vec3d(basis->get_r()), maevec_to_vec3d(basis->get_t()));
+		}
+
+		std::shared_ptr<vec3d> math::project_to_basis_maevec(std::shared_ptr<vec3d> point, std::shared_ptr<basis> basis, std::shared_ptr<vec3d> position_vector)
+		{
+			return vec3d_to_maevec(project_to_basis(point, basis, position_vector));
+		}
+
+		cv::Vec3d math::project_back_to_default(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r,
+								cv::Vec3d t)
+		{
+			//point to be projected
+			cv::Mat p = cv::Mat(4, 1, CV_64F);
+			p.at<double>(0) = point[0];
+			p.at<double>(1) = point[1];
+			p.at<double>(2) = point[2];
+			p.at<double>(3) = 1;
+
+			//coordinate transform matrix
+			cv::Mat m = cv::Mat(4, 4, CV_64F);
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 0) = u[i];
+			}
+			m.at<double>(3, 0) = 0;
+
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 1) = r[i];
+			}
+			m.at<double>(3, 1) = 0;
+
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 2) = t[i];
+			}
+			m.at<double>(3, 2) = 0;
+
+			for (int i = 0; i < 3; i++)
+			{
+				m.at<double>(i, 3) = position_vector[i];
+			}
+			m.at<double>(3, 3) = 1;
+
+			//calc result
+			cv::Mat result = m * p;
+
+			return result.rowRange(0, 3);
+		}
+
+		cv::Vec3d math::project_back_to_default(std::shared_ptr<vec3d> point, std::shared_ptr<basis> basis, std::shared_ptr<vec3d> position_vector)
+		{
+			if (position_vector == nullptr)
+			{
+				position_vector = basis->get_position_vector();
+			}
+
+			return project_back_to_default(maevec_to_vec3d(point), maevec_to_vec3d(position_vector), maevec_to_vec3d(basis->get_u()), maevec_to_vec3d(basis->get_r()), maevec_to_vec3d(basis->get_t()));
+		}
+
+		std::shared_ptr<vec3d> math::project_back_to_default_maevec(std::shared_ptr<vec3d> point, std::shared_ptr<basis> basis, std::shared_ptr<vec3d> position_vector )
+		{
+			return vec3d_to_maevec(project_back_to_default(point, basis, position_vector));
+		}
+
+
 		cv::Vec3d math::project_orthogonal(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d plane_u,
 				cv::Vec3d plane_v)
 		{

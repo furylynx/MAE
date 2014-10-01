@@ -19,7 +19,8 @@
 
 namespace mae {
 		template <typename T>
-		class i_skeleton_controller {
+		class i_skeleton_controller
+		{
 			public:
 				virtual ~i_skeleton_controller(){ }
 

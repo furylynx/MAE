@@ -37,6 +37,11 @@ namespace mae
 		valid_ = true;
 	}
 
+	general_joint::general_joint(std::shared_ptr<vec3d> pos, double rotation, double confidence) : general_joint(pos->get_x(), pos->get_y(), pos->get_z(), rotation, confidence)
+	{
+
+	}
+
 	void general_joint::set_x(double x)
 	{
 		this->x_ = x;
@@ -95,6 +100,11 @@ namespace mae
 	double general_joint::get_rotation()
 	{
 		return rotation_;
+	}
+
+	std::shared_ptr<vec3d> general_joint::vec()
+	{
+		return std::shared_ptr<vec3d>(new vec3d(x_, y_, z_));
 	}
 
 	bool general_joint::equals(general_joint joint) const
