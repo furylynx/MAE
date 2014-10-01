@@ -235,11 +235,13 @@ namespace mae
 						next_index = sequence.size() - 1 - (step + 1);
 					}
 
-					std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(sequence.at(next_index),
+					std::vector<std::shared_ptr<decision_node<T, U> > > matching_children = get_matching_children(sequence.at(next_index),
 							sequence.at(current_index));
-					if (matching_child != nullptr)
+
+					if (matching_children.size() > 0)
 					{
-						matching_child->add_sequence(decision_value, step + 1, reverse_order);
+						//use the first possible match to insert
+						matching_children.at(0)->add_sequence(decision_value, step + 1, reverse_order);
 					}
 					else
 					{
@@ -401,25 +403,27 @@ namespace mae
 				}
 				else
 				{
-					//all treasures that are given by submatches for the whole sequence
-					std::vector<std::shared_ptr<U> > result;
+					//all treasures that are given by matches for the sequence
+					std::vector<std::shared_ptr<decision_value<T, U> > > result;
 
 					if (!is_leaf())
 					{
 						if (step != end_pos)
 						{
-							std::shared_ptr<decision_node<T, U> > matching_child = get_matching_child(
+							//recursively search all matching children for sequences
+							std::vector<std::shared_ptr<decision_node<T, U> > > matching_children = get_matching_children(
 									sequence.at(step + 1), sequence.at(step));
 
-							if (matching_child != nullptr)
+							for (unsigned int i= 0; i < matching_children.size(); i++)
 							{
-								return matching_child->find_matches(sequence, step + 1, end_pos);
+								std::vector<std::shared_ptr<decision_value<T, U> > > child_result = matching_children.at(i)->find_matches(sequence, step + 1, end_pos);
+								result.insert(result.end(), child_result.begin(), child_result.end());
 							}
 						}
 					}
 
 					//return empty vector
-					return std::vector<std::shared_ptr<decision_value<T, U> > >();
+					return result;
 				}
 			}
 

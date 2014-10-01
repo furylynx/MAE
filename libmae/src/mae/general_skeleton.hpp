@@ -17,6 +17,7 @@
 #include "hierarchy_element.hpp"
 #include "bone.hpp"
 #include "vec3d.hpp"
+#include "basis.hpp"
 
 //global includes
 #include <unordered_map>

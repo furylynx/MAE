@@ -19,7 +19,7 @@ namespace mae
 			debug_ = debug;
 			running_ = true;
 
-			merger_ = std::shared_ptr<mae::skeleton_merger>(new mae::skeleton_merger());
+			merger_ = std::shared_ptr<i_skeleton_merger<general_skeleton> >(new mae::fl::skeleton_merger());
 
 			for (unsigned int i = 0; i < controllers.size(); i++)
 			{
@@ -33,7 +33,7 @@ namespace mae
 			debug_ = debug;
 			running_ = true;
 
-			merger_ = std::shared_ptr<mae::skeleton_merger>(new mae::skeleton_merger());
+			merger_ = std::shared_ptr<i_skeleton_merger<general_skeleton> >(new mae::fl::skeleton_merger());
 
 			for (unsigned int i = 0; i < configs.size(); i++)
 			{
@@ -48,7 +48,7 @@ namespace mae
 			debug_ = debug;
 			running_ = true;
 
-			merger_ = std::shared_ptr<mae::skeleton_merger>(new mae::skeleton_merger());
+			merger_ = std::shared_ptr<i_skeleton_merger<general_skeleton> >(new mae::fl::skeleton_merger());
 
 			for (unsigned int i = 0; i < devices.size(); i++)
 			{
@@ -68,6 +68,16 @@ namespace mae
 			{
 				threads_.at(i).join();
 			}
+		}
+
+		void nite_farm::set_merger(std::shared_ptr<i_skeleton_merger<general_skeleton> > merger)
+		{
+			merger_ = merger;
+		}
+
+		std::shared_ptr<i_skeleton_merger<general_skeleton> > nite_farm::get_merger()
+		{
+			return merger_;
 		}
 
 		void nite_farm::add_controller(std::string config_path)

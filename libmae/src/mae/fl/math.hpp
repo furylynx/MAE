@@ -12,9 +12,10 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-#include "../general_joint.hpp"
 #include "angular_joint.hpp"
-#include "../vec3d.hpp"
+
+#include "../basis.hpp"
+#include "../general_joint.hpp"
 
 //global includes
 #include <opencv2/core/core.hpp>
@@ -121,7 +122,7 @@ namespace mae
 				static cv::Vec3d matrix_mul(cv::Mat m, cv::Vec3d vec);
 
 				/**
-				 * Projects the point the the new basis given in coordinates of the points current basis.
+				 * Projects the point to the new basis given in coordinates of the points current basis.
 				 * @param point The point to be translated.
 				 * @param position_vector The point of origin of the new basis.
 				 * @param u The new basis' u vector.
@@ -131,6 +132,60 @@ namespace mae
 				 */
 				static cv::Vec3d project_to_basis(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r,
 						cv::Vec3d t);
+
+				/**
+				 * Projects the point to the new basis given in coordinates of the points current basis.
+				 *
+				 * @param point The point to be translated.
+				 * @param basis The basis
+				 * @param position_vector The position vector. Null when using the one from the basis.
+				 * @return The result.
+				 */
+				static cv::Vec3d project_to_basis(std::shared_ptr<vec3d> point, std::shared_ptr<basis> basis, std::shared_ptr<vec3d> position_vector = nullptr);
+
+
+				/**
+				 * Projects the point to the new basis given in coordinates of the points current basis.
+				 *
+				 * @param point The point to be translated.
+				 * @param basis The basis
+				 * @param position_vector The position vector. Null when using the one from the basis.
+				 * @return The result.
+				 */
+				static std::shared_ptr<vec3d> project_to_basis_maevec(std::shared_ptr<vec3d> point, std::shared_ptr<basis> basis, std::shared_ptr<vec3d> position_vector = nullptr);
+
+				/**
+				 * Projects the point given by the basis to the default coordinate system.
+				 *
+				 * @param point The point to be translated.
+				 * @param position_vector The point of origin of the basis.
+				 * @param u The basis' u vector.
+				 * @param r The basis' r vector.
+				 * @param t The basis' t vector.
+				 * @return The result.
+				 */
+				static cv::Vec3d project_back_to_default(cv::Vec3d point, cv::Vec3d position_vector, cv::Vec3d u, cv::Vec3d r,
+						cv::Vec3d t);
+
+				/**
+				 * Projects the point given by the basis to the default coordinate system.
+				 *
+				 * @param point The point to be translated.
+				 * @param basis The basis
+				 * @param position_vector The position vector. Null when using the one from the basis.
+				 * @return The result.
+				 */
+				static cv::Vec3d project_back_to_default(std::shared_ptr<vec3d> point, std::shared_ptr<basis> basis, std::shared_ptr<vec3d> position_vector = nullptr);
+
+				/**
+				 * Projects the point given by the basis to the default coordinate system.
+				 *
+				 * @param point The point to be translated.
+				 * @param basis The basis
+				 * @param position_vector The position vector. Null when using the one from the basis.
+				 * @return The result.
+				 */
+				static std::shared_ptr<vec3d> project_back_to_default_maevec(std::shared_ptr<vec3d> point, std::shared_ptr<basis> basis, std::shared_ptr<vec3d> position_vector = nullptr);
 
 				/**
 				 * Performs an orthogonal projection to the plane spanned by plane_u and plane_v positioned

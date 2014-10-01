@@ -29,6 +29,56 @@ namespace mae
 				std::cout << "fl_skeleton_controller: specified skeleton" << std::endl;
 			}
 
+			//-----
+			//calculate the torso basis
+			//-----
+			std::shared_ptr<basis> torso_basis = create_torso_basis(skeleton);
+
+			//-----
+			//set up the result
+			//-----
+			std::shared_ptr<fl_skeleton> result = std::shared_ptr<mae::fl::fl_skeleton>(new fl_skeleton());
+
+			//set hierarchy
+			result->set_hierarchy(skeleton->get_hierarchy());
+
+			//----------
+			//calculate the offset skeleton
+			//----------
+
+			//get elements from the hierarchy
+			std::vector<std::shared_ptr<hierarchy_element>> elements =
+					skeleton->get_hierarchy()->get_element_sequence();
+
+			//origin of the coordinate system is the torso (is displayed in x,y,z coordinates)
+			result->set_joint(elements.at(0)->get_id(), skeleton->get_joint(elements.at(0)->get_id()));
+
+			for (unsigned int i = 1; i < elements.size(); i++)
+			{
+				//calculate offset of each joint (is displayed in u,r,t coordinates)
+				result->set_joint(elements.at(i)->get_id(),
+						math::vec_to_joint(
+								math::project_to_basis(skeleton->get_joint(elements.at(i)->get_id())->vec(),
+										torso_basis, skeleton->get_joint(elements.at(i)->get_parent()->get_id())->vec() )));
+
+				//set confidence and rotation
+				result->get_joint(elements.at(i)->get_id())->set_rotation(
+						skeleton->get_joint(elements.at(i)->get_id())->get_rotation());
+				result->get_joint(elements.at(i)->get_id())->set_confidence(
+						skeleton->get_joint(elements.at(i)->get_id())->get_confidence());
+			}
+
+			//set the original skeleton
+			result->set_orig_skeleton(skeleton);
+
+			//set coordinate system to skeleton
+			result->set_torso_basis(torso_basis);
+
+			return result;
+		}
+
+		std::shared_ptr<basis> fl_skeleton_controller::create_torso_basis(std::shared_ptr<general_skeleton> skeleton)
+		{
 			//get elements from the hierarchy
 			std::vector<std::shared_ptr<hierarchy_element>> elements =
 					skeleton->get_hierarchy()->get_element_sequence();
@@ -196,43 +246,11 @@ namespace mae
 				}
 			}
 
-			//-----
-			//calculate angular representation (if wanted)
-			//-----
-			std::shared_ptr<fl_skeleton> result = std::shared_ptr<mae::fl::fl_skeleton>(new fl_skeleton());
+			cv::Vec3d position_vector = math::joint_to_vec(skeleton->get_joint(elements.at(0)->get_id()));
 
-			//set hierarchy
-			result->set_hierarchy(skeleton->get_hierarchy());
-
-			//----------
-			//calculate the offset skeleton
-			//----------
-
-			//origin of the coordinate system is the torso (is displayed in x,y,z coordinates)
-			result->set_joint(elements.at(0)->get_id(), skeleton->get_joint(elements.at(0)->get_id()));
-
-			for (unsigned int i = 1; i < elements.size(); i++)
-			{
-				//calculate offset of each joint (is displayed in u,r,t coordinates)
-				result->set_joint(elements.at(i)->get_id(),
-						math::vec_to_joint(
-								math::project_to_basis(
-										math::joint_to_vec(skeleton->get_joint(elements.at(i)->get_id())),
-										math::joint_to_vec(skeleton->get_joint(elements.at(i)->get_parent()->get_id())),
-										u, r, t)));
-			}
-
-			//set the original skeleton
-			result->set_orig_skeleton(skeleton);
-
-			//set coordinate system to skeleton
-			std::shared_ptr<vec3d> vec_u = math::vec3d_to_maevec(u);
-			std::shared_ptr<vec3d> vec_r = math::vec3d_to_maevec(r);
-			std::shared_ptr<vec3d> vec_t = math::vec3d_to_maevec(t);
-
-			result->set_coord_sys(vec_u, vec_r, vec_t);
-
-			return result;
+			return std::shared_ptr<basis>(
+					new basis(math::vec3d_to_maevec(position_vector), math::vec3d_to_maevec(u),
+							math::vec3d_to_maevec(r), math::vec3d_to_maevec(t)));
 		}
 
 	} // namespace fl

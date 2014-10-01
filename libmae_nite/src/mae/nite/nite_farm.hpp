@@ -72,6 +72,21 @@ namespace mae
 				virtual ~nite_farm();
 
 				/**
+				 * Sets the skeleton merger used to merge skeletons from the stream. This
+				 * overwrites the default merger applied to the farm.
+				 *
+				 * @param merger The merger.
+				 */
+				virtual void set_merger(std::shared_ptr<i_skeleton_merger<general_skeleton> > merger);
+
+				/**
+				 * Returns the currently applied skeleton merger.
+				 *
+				 * @return The merger.
+				 */
+				virtual std::shared_ptr<i_skeleton_merger<general_skeleton> > get_merger();
+
+				/**
 				 * Adds a new controller to the farm, which is generated from the XML configuration.
 				 * The device is selected by the configuration file.
 				 *
@@ -144,7 +159,7 @@ namespace mae
 				std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > skeleton_data_;
 				bool running_;
 
-				std::shared_ptr<mae::skeleton_merger> merger_;
+				std::shared_ptr<i_skeleton_merger<general_skeleton> > merger_;
 
 				/**
 				 * Runs the thread for the given nite_controller.

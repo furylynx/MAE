@@ -19,13 +19,14 @@ src/mae/nite/nite_controller.d: ../src/mae/nite/nite_controller.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/general_skeleton.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/general_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/vec3d.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy_element.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/e_bone.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/vec3d.hpp
+ /sda7/data/workspace-git/MAE/libmae/src/mae/basis.hpp
 
 ../src/mae/nite/nite_controller.hpp:
 
@@ -93,6 +94,8 @@ src/mae/nite/nite_controller.d: ../src/mae/nite/nite_controller.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/general_joint.hpp:
 
+/sda7/data/workspace-git/MAE/libmae/src/mae/vec3d.hpp:
+
 /sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp:
@@ -105,4 +108,4 @@ src/mae/nite/nite_controller.d: ../src/mae/nite/nite_controller.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/e_bone.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/vec3d.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/basis.hpp:
