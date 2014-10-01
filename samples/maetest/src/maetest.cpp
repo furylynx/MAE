@@ -134,8 +134,10 @@ void test_farm()
 
 	for (unsigned int i = 0; i < infos.size(); i++)
 	{
-		std::cout << infos.at(i).get_device_name() << " - serialno: " << infos.at(i).get_device_serial() << std::endl;
+		std::cout << "'"<< infos.at(i).get_device_name() << "' - serialno: '" << infos.at(i).get_device_serial() << "' - vendor: '" << infos.at(i).get_vendor_name() << "'" << std::endl;
 	}
+
+	mae::nite::nite_farm::list_available_depth_infos();
 
 	//TODO further tests
 
