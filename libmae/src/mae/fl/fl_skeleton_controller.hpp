@@ -39,7 +39,7 @@ namespace mae
 
 			public:
 				/**
-				 * Createa a new skeleton controller which generates a fl_skeleton from the general skeleton.
+				 * Create a new skeleton controller which generates a fl_skeleton from the general skeleton.
 				 *
 				 * @param debug (optional) If true debug output will be printed to the terminal.
 				 */
@@ -53,6 +53,14 @@ namespace mae
 				 * @return The specified skeleton.
 				 */
 				virtual std::shared_ptr<fl_skeleton> specified_skeleton(std::shared_ptr<general_skeleton> skeleton);
+
+				/**
+				 * Creates the torso basis for the given general skeleton.
+				 *
+				 * @param skeleton The skeleton.
+				 * @return The torso basis.
+				 */
+				virtual std::shared_ptr<basis> create_torso_basis(std::shared_ptr<general_skeleton> skeleton);
 
 			private:
 				bool debug_;

@@ -16,6 +16,8 @@ namespace mae
 		{
 			debug_ = debug;
 
+			fl_ctrl_ = std::shared_ptr<fl_skeleton_controller>(new fl_skeleton_controller());
+
 			//initialize extremities
 
 			//use temp vector
@@ -86,106 +88,11 @@ namespace mae
 				std::cout << "fl_skeleton_controller: specified skeleton" << std::endl;
 			}
 
-			//get elements from the hierarchy
-			std::vector<std::shared_ptr<hierarchy_element>> elements =
-					skeleton->get_hierarchy()->get_element_sequence();
+			std::shared_ptr<basis> torso_basis = fl_ctrl_->create_torso_basis(skeleton);
 
-			// ---
-			// calculate the torso frame
-			// ---
-
-			// fill all joints of torso into matrix in order to
-			// reduce it to three vectors that are used for the coordinate system
-			int torso_specified_joints = 0;
-			std::vector<int> torso_parts;
-			for (unsigned int i = 0; i < elements.size(); i++)
-			{
-				if (elements.at(i)->is_torso_joint())
-				{
-					if (skeleton->get_joint(elements.at(i)->get_id())->is_valid())
-					{
-						torso_parts.push_back(elements.at(i)->get_id());
-					}
-
-					torso_specified_joints++;
-				}
-			}
-
-			//check for enough specified torso joints to generate the basis
-			if (torso_specified_joints < 3)
-			{
-				throw new std::invalid_argument(
-						"Cannot generate torso basis from the skeleton for there are not enough "
-								"torso joints specified in the hierarchy. Check your hierarchy and define "
-								"at least three torso joints.");
-			}
-
-			//check for enough valid torso joints to generate the basis
-			if (torso_parts.size() < 3)
-			{
-				throw new std::invalid_argument(
-						"Cannot generate torso basis from the skeleton for there are not enough "
-								"valid torso joints. Check the given skeleton for invalid joints (at "
-								"least three valid joints are required).");
-			}
-
-			// fill torso matrix in order to apply a pca to it
-			cv::Mat torso = cv::Mat::zeros(3, torso_parts.size(), CV_64F);
-
-			for (unsigned int i = 0; i < torso_parts.size(); i++)
-			{
-				torso.at<double>(0, i) = skeleton->get_joint(torso_parts.at(i))->get_x();
-				torso.at<double>(1, i) = skeleton->get_joint(torso_parts.at(i))->get_y();
-				torso.at<double>(2, i) = skeleton->get_joint(torso_parts.at(i))->get_z();
-			}
-
-			// apply PCA to get 2 principal components
-			cv::Mat torso_coord;
-			cv::PCA torso_pca = cv::PCA(torso, cv::Mat(), CV_PCA_DATA_AS_COL, 2);
-
-			// get first two components
-			cv::Vec3d u = torso_pca.eigenvectors.row(0).clone();
-			cv::Vec3d r = torso_pca.eigenvectors.row(1).clone();
-
-			// normalize in order to receive an orthonormal basis
-			u = cv::normalize(u);
-			r = cv::normalize(r);
-
-			//align vectors top-down/right-left
-			std::shared_ptr<bone> top_down = skeleton->get_top_down();
-			std::shared_ptr<bone> right_left = skeleton->get_right_left();
-
-			if (!top_down || !skeleton->get_joint(top_down->get_from())->is_valid()
-					|| !skeleton->get_joint(top_down->get_to())->is_valid())
-			{
-				throw std::invalid_argument("skeleton has either not top-down definition or the joints are invalid.");
-			}
-
-			if (!right_left || !skeleton->get_joint(right_left->get_from())->is_valid()
-					|| !skeleton->get_joint(right_left->get_to())->is_valid())
-			{
-				throw std::invalid_argument("skeleton has either not right-left definition or the joints are invalid.");
-			}
-
-			cv::Vec3d joint_top = math::joint_to_vec(skeleton->get_joint(top_down->get_from()));
-			cv::Vec3d joint_down = math::joint_to_vec(skeleton->get_joint(top_down->get_to()));
-
-			cv::Vec3d joint_right = math::joint_to_vec(skeleton->get_joint(right_left->get_from()));
-			cv::Vec3d joint_left = math::joint_to_vec(skeleton->get_joint(right_left->get_to()));
-
-			if (cv::norm(joint_top - (joint_down + u)) < cv::norm(joint_top - joint_down))
-			{
-				u = -u;
-			}
-
-			if (cv::norm(joint_left - (joint_right + r)) > cv::norm(joint_left - joint_right))
-			{
-				r = -r;
-			}
-
-			//get last component
-			cv::Vec3d t = u.cross(r);
-			t = cv::normalize(t);
+			cv::Vec3d u = math::maevec_to_vec3d(torso_basis->get_u());
+			cv::Vec3d r = math::maevec_to_vec3d(torso_basis->get_r());
+			cv::Vec3d t = math::maevec_to_vec3d(torso_basis->get_t());
 
 			//-----
 			//calculate angular representation (if wanted)
@@ -194,13 +101,12 @@ namespace mae
 
 			//set hierarchy
 			result->set_hierarchy(skeleton->get_hierarchy());
+			result->set_right_left(skeleton->get_right_left());
+			result->set_top_down(skeleton->get_top_down());
+			result->set_weight(skeleton->get_weight());
 
 			//set coordinate system to skeleton
-			std::shared_ptr<vec3d> vec_u = math::vec3d_to_maevec(u);
-			std::shared_ptr<vec3d> vec_r = math::vec3d_to_maevec(r);
-			std::shared_ptr<vec3d> vec_t = math::vec3d_to_maevec(t);
-
-			result->set_coord_sys(vec_u, vec_r, vec_t);
+			result->set_torso_basis(torso_basis);
 
 			return result;
 		}
@@ -232,15 +138,18 @@ namespace mae
 
 					angles = first_degree_r(skeleton, joint_i, joint_o, u, r, t);
 					result->set_joint(joint_fl_i, std::shared_ptr<angular_joint>(new angular_joint(angles[0], angles[1])));
+					result->get_joint(joint_fl_i)->set_confidence(skeleton->get_joint(joint_o)->get_confidence());
 
 					if (skeleton->get_joint(joint_e)->is_valid())
 					{
 						angles = second_degree(skeleton, joint_i, joint_o, joint_e, u, r, t);
 						result->set_joint(joint_fl_o, std::shared_ptr<angular_joint>(new angular_joint(angles[0], angles[1])));
+						result->get_joint(joint_fl_o)->set_confidence(skeleton->get_joint(joint_e)->get_confidence());
 
 						//whole extremity joint
 						angles = first_degree_r(skeleton, joint_i, joint_e, u, r, t);
 						result->set_joint(joint_fl_w, std::shared_ptr<angular_joint>(new angular_joint(angles[0], angles[1])));
+						result->get_joint(joint_fl_w)->set_confidence(skeleton->get_joint(joint_e)->get_confidence());
 					}
 				}
 			}
@@ -255,6 +164,7 @@ namespace mae
 			{
 				cv::Vec2d angles = first_degree(skeleton, joint_head_i, joint_head_o, r, t, u);
 				result->set_joint(joint_fl_head_i, std::shared_ptr<angular_joint>(new angular_joint(angles[0], angles[1])));
+				result->get_joint(joint_fl_head_i)->set_confidence(skeleton->get_joint(joint_head_o)->get_confidence());
 			}
 
 			return result;

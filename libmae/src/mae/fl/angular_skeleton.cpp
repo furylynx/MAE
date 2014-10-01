@@ -64,29 +64,14 @@ namespace mae
 			return hierarchy_;
 		}
 
-		void angular_skeleton::set_coord_sys(std::shared_ptr<vec3d> u, std::shared_ptr<vec3d> r, std::shared_ptr<vec3d> t)
+		void angular_skeleton::set_torso_basis(std::shared_ptr<basis> torso_basis)
 		{
-
-			if (u != nullptr && r != nullptr && t != nullptr)
-			{
-				u_ = u;
-				r_ = r;
-				t_ = t;
-			}
-			else
-			{
-				throw std::invalid_argument("At least one parameter is a null pointer.");
-			}
+			torso_basis_ = torso_basis;
 		}
 
-		std::vector<std::shared_ptr<vec3d> > angular_skeleton::get_coord_sys() const
+		std::shared_ptr<basis> angular_skeleton::get_torso_basis() const
 		{
-			std::vector<std::shared_ptr<vec3d> > coord_sys;
-			coord_sys.push_back(u_);
-			coord_sys.push_back(r_);
-			coord_sys.push_back(t_);
-
-			return coord_sys;
+			return torso_basis_;
 		}
 
 		void angular_skeleton::set_top_down(std::shared_ptr<bone> top_down)
@@ -139,6 +124,15 @@ namespace mae
 			return this->right_left;
 		}
 
+		void angular_skeleton::set_weight(std::shared_ptr<mae::vec3d> weight)
+		{
+			weight_ = weight;
+		}
+
+		std::shared_ptr<mae::vec3d> angular_skeleton::get_weight() const
+		{
+			return weight_;
+		}
 
 		std::string angular_skeleton::str() const
 		{

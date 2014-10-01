@@ -21,29 +21,14 @@ namespace mae
 		{
 		}
 
-		void fl_skeleton::set_coord_sys(std::shared_ptr<mae::vec3d> u, std::shared_ptr<mae::vec3d> r, std::shared_ptr<mae::vec3d> t)
+		void fl_skeleton::set_torso_basis(std::shared_ptr<basis> torso_basis)
 		{
-
-			if (u != nullptr && r != nullptr && t != nullptr)
-			{
-				u_ = u;
-				r_ = r;
-				t_ = t;
-			}
-			else
-			{
-				throw std::invalid_argument("At least one parameter is a null pointer.");
-			}
+			torso_basis_ = torso_basis;
 		}
 
-		std::vector<std::shared_ptr<mae::vec3d> > fl_skeleton::get_coord_sys() const
+		std::shared_ptr<basis> fl_skeleton::get_torso_basis() const
 		{
-			std::vector<std::shared_ptr<mae::vec3d> > coord_sys;
-			coord_sys.push_back(u_);
-			coord_sys.push_back(r_);
-			coord_sys.push_back(t_);
-
-			return coord_sys;
+			return torso_basis_;
 		}
 
 		void fl_skeleton::set_orig_skeleton(std::shared_ptr<general_skeleton> orig_skeleton)

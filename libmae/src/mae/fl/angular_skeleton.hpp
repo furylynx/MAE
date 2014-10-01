@@ -64,23 +64,28 @@ namespace mae
 				virtual void set_hierarchy(std::shared_ptr<hierarchy> hierarchy);
 
 				/**
-				 * Sets the torso basis. All three vectors must be 3d giving values by [x,y,z].
+				 * Sets the torso basis.
 				 *
-				 * @param u The top-down or weight direction.
-				 * @param r The right-left direction.
-				 * @param t The direction standing on u and r (pointing from torso to the front).
+				 * The directions are:
+				 * u The top-down or weight direction.
+				 * r The right-left direction.
+				 * t The direction standing on u and r (pointing from torso to the front).
+				 *
+				 * @param torso_basis The torso basis.
 				 */
-				virtual void set_coord_sys(std::shared_ptr<vec3d> u, std::shared_ptr<vec3d> r, std::shared_ptr<vec3d> t);
+				virtual void set_torso_basis(std::shared_ptr<basis> torso_basis);
 
 				/**
-				 * Returns the torso basis consisting of three vectors. The vector containing the
-				 * basis contains the three vectors in the [u,r,t] form. Each vector is a 3d vector.
-				 * Typically u is the top-down or weight direction, r is the right-left direction
-				 * and t points from the torso to the front.
+				 * Returns the torso basis.
+				 *
+				 * The directions are:
+				 * u The top-down or weight direction.
+				 * r The right-left direction.
+				 * t The direction standing on u and r (pointing from torso to the front).
 				 *
 				 * @return The torso basis.
 				 */
-				virtual std::vector<std::shared_ptr<vec3d> > get_coord_sys() const;
+				virtual std::shared_ptr<basis> get_torso_basis() const;
 
 
 				/**
@@ -117,6 +122,19 @@ namespace mae
 				 */
 				virtual std::shared_ptr<bone> get_right_left() const;
 
+				/**
+				 * Sets the weight vector for this skeleton.
+				 *
+				 * @param weight The weight vector.
+				 */
+				virtual void set_weight(std::shared_ptr<mae::vec3d> weight);
+
+				/**
+				 * Returns the weight vector for this skeleton. If none is set, a null pointer will be returned.
+				 *
+				 * @return The weight or null.
+				 */
+				virtual std::shared_ptr<mae::vec3d> get_weight() const;
 
 				/**
 				 * Converts this object to a string.
@@ -147,10 +165,10 @@ namespace mae
 				std::shared_ptr<bone> top_down;
 				std::shared_ptr<bone> right_left;
 
+				std::shared_ptr<vec3d> weight_;
+
 				//central coordinate system
-				std::shared_ptr<vec3d> u_;
-				std::shared_ptr<vec3d> r_;
-				std::shared_ptr<vec3d> t_;
+				std::shared_ptr<basis> torso_basis_;
 		};
 
 	} // namespace fl
