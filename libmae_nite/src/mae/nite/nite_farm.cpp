@@ -12,7 +12,8 @@ namespace mae
 	namespace nite
 	{
 
-		nite_farm::nite_farm(std::vector<std::shared_ptr<nite_controller> > controllers, unsigned int  max_users, bool debug)
+		nite_farm::nite_farm(std::vector<std::shared_ptr<nite_controller> > controllers, unsigned int max_users,
+				bool debug)
 		{
 			max_users_ = max_users;
 			debug_ = debug;
@@ -20,13 +21,13 @@ namespace mae
 
 			merger_ = std::shared_ptr<mae::skeleton_merger>(new mae::skeleton_merger());
 
-			for (unsigned int i=0 ; i < controllers.size(); i++)
+			for (unsigned int i = 0; i < controllers.size(); i++)
 			{
 				add_controller(controllers.at(i));
 			}
 		}
 
-		nite_farm::nite_farm(std::vector<std::string> configs, unsigned int  max_users, bool debug)
+		nite_farm::nite_farm(std::vector<std::string> configs, unsigned int max_users, bool debug)
 		{
 			max_users_ = max_users;
 			debug_ = debug;
@@ -34,25 +35,52 @@ namespace mae
 
 			merger_ = std::shared_ptr<mae::skeleton_merger>(new mae::skeleton_merger());
 
-			for(unsigned int i=0; i < configs.size(); i++)
+			for (unsigned int i = 0; i < configs.size(); i++)
 			{
 				add_controller(configs.at(i));
 			}
+		}
+
+		nite_farm::nite_farm(std::vector<std::shared_ptr<device_info> > devices, std::string config_path,
+				unsigned int max_users, bool debug)
+		{
+			max_users_ = max_users;
+			debug_ = debug;
+			running_ = true;
+
+			merger_ = std::shared_ptr<mae::skeleton_merger>(new mae::skeleton_merger());
+
+			for (unsigned int i = 0; i < devices.size(); i++)
+			{
+				add_controller(devices.at(i), config_path);
+			}
+		}
+
+		nite_farm::nite_farm(std::string config_path, unsigned int max_users, bool debug) : nite_farm(nite_farm::list_available_device_infos(), config_path, max_users, debug)
+		{
 		}
 
 		nite_farm::~nite_farm()
 		{
 			running_ = false;
 
-			for(unsigned int i = 0; i < threads_.size(); i++)
+			for (unsigned int i = 0; i < threads_.size(); i++)
 			{
 				threads_.at(i).join();
 			}
 		}
 
-		void nite_farm::add_controller(std::string config)
+		void nite_farm::add_controller(std::string config_path)
 		{
-			std::shared_ptr<nite_controller> nc = std::shared_ptr<nite_controller>(new nite_controller(config, max_users_, debug_));
+			std::shared_ptr<nite_controller> nc = std::shared_ptr<nite_controller>(
+					new nite_controller(config_path, max_users_, debug_));
+			add_controller(nc);
+		}
+
+		void nite_farm::add_controller(std::shared_ptr<device_info> devi_info,std::string config_path)
+		{
+			std::shared_ptr<nite_controller> nc = std::shared_ptr<nite_controller>(
+					new nite_controller(devi_info, config_path, max_users_, debug_));
 			add_controller(nc);
 		}
 
@@ -123,7 +151,6 @@ namespace mae
 				throw std::runtime_error("Could not initialize the xn context.");
 			}
 
-
 			// find devices
 			xn::EnumerationErrors errors;
 			xn::NodeInfoList list;
@@ -141,13 +168,29 @@ namespace mae
 			return list;
 		}
 
-		std::vector<device_info> nite_farm::list_available_device_infos()
+		std::vector<std::shared_ptr<device_info> > nite_farm::list_available_device_infos()
 		{
-			std::vector<device_info> result;
+			std::vector<std::shared_ptr<device_info> > result;
 
-			xn::NodeInfoList list = list_available_devices();
+			xn::Context context;
+			XnStatus status = context.Init();
 
-			//std::cout << "The following devices were found: " << std::endl;
+			if (status != XN_STATUS_OK)
+			{
+				context.Release();
+				throw std::runtime_error("Could not initialize the xn context.");
+			}
+
+			// find devices
+			xn::EnumerationErrors errors;
+			xn::NodeInfoList list;
+			status = context.EnumerateProductionTrees(XN_NODE_TYPE_DEVICE, NULL, list, &errors); //XN_NODE_TYPE_DEVICE
+
+			if (status != XN_STATUS_OK)
+			{
+				context.Release();
+				throw std::runtime_error("Could not get the production trees.");
+			}
 
 			int i = 1;
 			for (xn::NodeInfoList::Iterator it = list.Begin(); it != list.End(); ++it, ++i)
@@ -160,8 +203,7 @@ namespace mae
 
 				if (!device_exists)
 				{
-					continue;
-					//context.CreateProductionTree(device_node_info, device_node);
+					context.CreateProductionTree(device_node_info, device_node);
 					// this might fail.
 				}
 
@@ -171,17 +213,22 @@ namespace mae
 
 					XnChar str_device_name[n_string_buffer_size];
 					XnChar str_serial_number[n_string_buffer_size];
+					XnChar str_vendor_name[n_string_buffer_size];
 
 					XnUInt32 n_length = n_string_buffer_size;
 
 					device_node.GetIdentificationCap().GetDeviceName(str_device_name, n_length);
 
 					n_length = n_string_buffer_size;
+					device_node.GetIdentificationCap().GetVendorSpecificData(str_vendor_name, n_string_buffer_size);
+
+					n_length = n_string_buffer_size;
 					device_node.GetIdentificationCap().GetSerialNumber(str_serial_number, n_length);
 
-					//std::cout << "[" << i << "] "<< str_device_name << " (" << str_serial_number << ")" << std::endl;
-
-					result.push_back(device_info(str_device_name, str_serial_number));
+					result.push_back(
+							std::shared_ptr<device_info>(
+									new device_info(str_device_name, str_serial_number, str_vendor_name,
+											device_node_info.GetCreationInfo())));
 				}
 				else
 				{
@@ -195,7 +242,24 @@ namespace mae
 				}
 			}
 
+			context.Release();
+
 			return result;
+		}
+
+		std::shared_ptr<device_info> nite_farm::get_device_info(std::string serial_number)
+		{
+			std::vector<std::shared_ptr<device_info> > devices = list_available_device_infos();
+
+			for (unsigned int i = 0; i < devices.size(); i++)
+			{
+				if (devices.at(i)->get_device_serial() == serial_number)
+				{
+					return devices.at(i);
+				}
+			}
+
+			return nullptr;
 		}
 
 		void nite_farm::nite_run(std::shared_ptr<nite_controller> controller, unsigned int id)

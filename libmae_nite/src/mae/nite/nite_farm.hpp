@@ -33,26 +33,60 @@ namespace mae
 		{
 			public:
 				/**
-				 * Creates a farm for nite controllers.
+				 * Creates a farm for nite controllers from the controllers.
 				 *
 				 * @param controllers The controllers.
+				 * @param max_users The number if maximum users accepted.
+				 * @param debug True for debug output on terminal.
 				 */
-				nite_farm(std::vector<std::shared_ptr<nite_controller> > controllers, unsigned int  max_users = 15, bool debug = false);
+				nite_farm(std::vector<std::shared_ptr<nite_controller> > controllers, unsigned int max_users = 15,
+						bool debug = false);
 
 				/**
-				 * Creates a farm for nite controllers.
+				 * Creates a farm for nite controllers from the configration files.
 				 *
-				 * @param configs The configurations for the controllers.
+				 * @param configs The paths to the XML configurations for the controllers.
+				 * @param max_users The number if maximum users accepted.
+				 * @param debug True for debug output on terminal.
 				 */
-				nite_farm(std::vector<std::string> configs, unsigned int  max_users = 15, bool debug = false);
+				nite_farm(std::vector<std::string> configs, unsigned int max_users = 15, bool debug = false);
+
+				/**
+				 * Creates a farm for nite controllers from the devices info and the with the present configuration.
+				 *
+				 * @param devices The devices info.
+				 * @param config_path The path to the XML configuration file.
+				 * @param max_users The number if maximum users accepted.
+				 * @param debug True for debug output on terminal.
+				 */
+				nite_farm(std::vector<std::shared_ptr<device_info> > devices, std::string config_path, unsigned int max_users = 15, bool debug = false);
+
+				/**
+				 * Creates a farm for nite controllers from present configuration. Adds a controller for each available device.
+				 *
+				 * @param config_path The path to the XML configuration file.
+				 * @param max_users The number if maximum users accepted.
+				 * @param debug True for debug output on terminal.
+				 */
+				nite_farm(std::string config_path, unsigned int max_users = 15, bool debug = false);
 				virtual ~nite_farm();
 
 				/**
-				 * Adds a new controller to the farm, which is generated from the configuration.
+				 * Adds a new controller to the farm, which is generated from the XML configuration.
+				 * The device is selected by the configuration file.
 				 *
-				 * @param config The string configuration for the controller.
+				 * @param config_path The path to the XML configuration file.
 				 */
-				virtual void add_controller(std::string config);
+				virtual void add_controller(std::string config_path);
+
+				/**
+				 * Adds a new controller to the farm, which is generated from the configuration.
+				 * The device is selected by the device information.
+				 *
+				 * @param devi_info The device information
+				 * @param config_path The string configuration for the controller.
+				 */
+				virtual void add_controller(std::shared_ptr<device_info> devi_info,std::string config_path);
 
 				/**
 				 * Adds a controller to the farm.
@@ -67,7 +101,8 @@ namespace mae
 				 * @param each_n_frames Use a value greater than one to skip frames.
 				 * @return The merged skeletons.
 				 */
-				virtual std::vector<std::shared_ptr<mae::general_skeleton> > wait_for_update(unsigned int each_n_frames = 1);
+				virtual std::vector<std::shared_ptr<mae::general_skeleton> > wait_for_update(
+						unsigned int each_n_frames = 1);
 
 				/**
 				 * Returns true if the keyboard was hit since the start of the OpenNI controller.
@@ -83,13 +118,21 @@ namespace mae
 				 */
 				static bool xn_was_keyboard_hit();
 
-
 				/**
 				 * Lists all available OpenNI devices.
 				 *
 				 * @return The device info.
 				 */
-				static std::vector<device_info> list_available_device_infos();
+				static std::vector<std::shared_ptr<device_info> > list_available_device_infos();
+
+				/**
+				 * Returns the device info for the device with the serial number. Returns null
+				 * if no info for the device with the given serial number is present.
+				 *
+				 * @param serial_number The serial number.
+				 * @return The device info.
+				 */
+				static std::shared_ptr<device_info> get_device_info(std::string serial_number);
 
 			private:
 				unsigned int max_users_;
@@ -107,7 +150,6 @@ namespace mae
 				 * Runs the thread for the given nite_controller.
 				 */
 				virtual void nite_run(std::shared_ptr<nite_controller> controller, unsigned int id);
-
 
 				/**
 				 * Lists all available OpenNI devices.

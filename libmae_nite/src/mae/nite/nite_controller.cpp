@@ -15,11 +15,25 @@ namespace mae
 		std::vector<XnSkeletonJoint> nite_controller::joint_ids_;
 		std::vector<int> nite_controller::joint_ids_mae_;
 
-		nite_controller::nite_controller(std::string config_path, unsigned int  max_users, bool debug)
+		nite_controller::nite_controller(std::string config_path, unsigned int max_users, bool debug)
 		{
 			config_path_ = config_path;
 			max_users_ = max_users;
 			debug_ = debug;
+			devi_info_ = nullptr;
+
+			b_needpose_ = FALSE;
+
+			initialize();
+		}
+
+		nite_controller::nite_controller(std::shared_ptr<device_info> devi_info, std::string config_path,
+				unsigned int max_users, bool debug)
+		{
+			config_path_ = config_path;
+			max_users_ = max_users;
+			debug_ = debug;
+			devi_info_ = devi_info;
 
 			b_needpose_ = FALSE;
 
@@ -83,7 +97,7 @@ namespace mae
 				nite_controller::joint_ids_.push_back(XN_SKEL_RIGHT_FOOT);
 				nite_controller::joint_ids_mae_.push_back(mae::e_joint_c::to_int(mae::e_joint::RIGHT_FOOT));
 
-				nite_controller:://dummy joints
+				nite_controller::				//dummy joints
 				nite_controller::joint_ids_.push_back(XN_SKEL_TORSO);
 				nite_controller::joint_ids_mae_.push_back(mae::e_joint_c::to_int(mae::e_joint::TLS));
 
@@ -125,7 +139,7 @@ namespace mae
 
 			//check whether the config exists
 			const char *fn = NULL;
-			if (file_exists (config_path_.c_str()))
+			if (file_exists(config_path_.c_str()))
 			{
 				fn = config_path_.c_str();
 			}
@@ -142,8 +156,69 @@ namespace mae
 				std::cout << "Reading config from '" << fn << "'." << std::endl;
 			}
 
-			//initialize the module using the xml file
-			nretval = context_.InitFromXmlFile(fn, script_node_, &errors);
+			if (devi_info_ != nullptr)
+			{
+				//if device info is present initialize nite controller for device node and run xml then
+
+				xn::NodeInfoList list;
+				nretval = context_.EnumerateProductionTrees(XN_NODE_TYPE_DEVICE, NULL, list, &errors);
+				check_rc(nretval, "Cannot enumerate the production trees.");
+
+
+				xn::NodeInfoList::Iterator it = list.Begin();
+				for (it = list.Begin(); it != list.End(); it++)
+				{
+					xn::NodeInfo device_node_info = *it;
+
+					xn::Device device_node;
+					device_node_info.GetInstance(device_node);
+					XnBool exists = device_node.IsValid();
+					if (!exists)
+					{
+						context_.CreateProductionTree(device_node_info, device_node);
+						// this might fail.
+					}
+
+					if (device_node.IsValid() && device_node.IsCapabilitySupported(XN_CAPABILITY_DEVICE_IDENTIFICATION))
+					{
+
+						const XnUInt32 str_buffer_size = 200;
+						XnChar serial_number[str_buffer_size];
+						device_node.GetIdentificationCap().GetSerialNumber(serial_number, str_buffer_size);
+						std::string serial_number_str = serial_number;
+
+						if (serial_number_str == devi_info_->get_device_serial())
+						{
+							break;
+						}
+					}
+
+					if (!exists)
+					{
+						device_node.Release();
+					}
+				}
+
+				if (it == list.End())
+				{
+					throw std::invalid_argument("The device info is invalid. The device is not available.");
+				}
+
+				xn::NodeInfo deviceNode = *it;
+				xn::Device device;
+
+				nretval = context_.CreateProductionTree(deviceNode, device);
+
+				check_rc(nretval, "Cannot create the production tree.");
+
+				// now run the rest of the XML
+				nretval = context_.RunXmlScriptFromFile(fn, script_node_, &errors);
+			}
+			else
+			{
+				//initialize the module using only the xml file
+				nretval = context_.InitFromXmlFile(fn, script_node_, &errors);
+			}
 
 			//check whether the initialization was successful
 			if (nretval == XN_STATUS_NO_NODE_PRESENT)
@@ -184,12 +259,12 @@ namespace mae
 			nretval = user_generator_.RegisterUserCallbacks(scb_user_newuser, scb_user_lostuser, this, husercallbacks);
 			nite_controller::check_rc(nretval, "Register to user callbacks");
 
-			nretval = user_generator_.GetSkeletonCap().RegisterToCalibrationStart(scb_usercalibration_calibrationstart, this, hcalibrationstart);
+			nretval = user_generator_.GetSkeletonCap().RegisterToCalibrationStart(scb_usercalibration_calibrationstart,
+					this, hcalibrationstart);
 			nite_controller::check_rc(nretval, "Register to calibration start");
 
 			nretval = user_generator_.GetSkeletonCap().RegisterToCalibrationComplete(
-					scb_usercalibration_calibrationcomplete,
-					this, hcalibrationcomplete);
+					scb_usercalibration_calibrationcomplete, this, hcalibrationcomplete);
 			nite_controller::check_rc(nretval, "Register to calibration complete");
 
 			if (user_generator_.GetSkeletonCap().NeedPoseForCalibration())
@@ -217,7 +292,7 @@ namespace mae
 			{
 				std::cout << "Starting to run" << std::endl;
 
-				if (b_needpose_ && debug_)
+				if (b_needpose_)
 				{
 					std::cout << "Assume calibration pose" << std::endl;
 				}
@@ -265,7 +340,8 @@ namespace mae
 			return xnOSWasKeyboardHit();
 		}
 
-		std::vector<std::shared_ptr<mae::general_skeleton> > nite_controller::wait_for_update(unsigned int each_n_frames)
+		std::vector<std::shared_ptr<mae::general_skeleton> > nite_controller::wait_for_update(
+				unsigned int each_n_frames)
 		{
 			if (each_n_frames == 0)
 			{
@@ -292,7 +368,8 @@ namespace mae
 				if (user_generator_.GetSkeletonCap().IsTracking(a_users[i]) != FALSE)
 				{
 					//generate general_skeleton from NiTE joints
-					std::shared_ptr<mae::general_skeleton> mae_skeleton = std::shared_ptr<mae::general_skeleton>(new mae::general_skeleton());
+					std::shared_ptr<mae::general_skeleton> mae_skeleton = std::shared_ptr<mae::general_skeleton>(
+							new mae::general_skeleton());
 
 					//iterate through all known joints
 					for (unsigned int j = 0; j < joint_ids_.size() && j < joint_ids_mae_.size(); j++)
@@ -302,7 +379,7 @@ namespace mae
 						user_generator_.GetSkeletonCap().GetSkeletonJoint(a_users[i], joint_ids_.at(j), xn_joint);
 
 						double confidence = xn_joint.position.fConfidence;
-						double rotation = 0;//TODO get rotation
+						double rotation = 0;			//TODO get rotation
 
 						//create general joint from the NiTE joint
 						std::shared_ptr<mae::general_joint> mae_joint = std::shared_ptr<mae::general_joint>(

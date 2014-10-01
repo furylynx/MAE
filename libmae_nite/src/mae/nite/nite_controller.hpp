@@ -12,7 +12,7 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-//...
+#include "device_info.hpp"
 
 //global includes
 #include <string>
@@ -43,13 +43,23 @@ namespace mae
 		{
 			public:
 				/**
-				 * Creates a new controller for an OpenNI/NiTE camera.
+				 * Creates a new controller for an OpenNI/NiTE camera. The camera is selected by the configuration file.
 				 *
-				 * @param config_path The configuration for the camera.
+				 * @param config_path The path to the XML configuration for the camera.
 				 * @param max_users The maximal number of users.
 				 * @param debug The debug flag.
 				 */
 				nite_controller(std::string config_path, unsigned int max_users = 15, bool debug = false);
+
+				/**
+				 * Creates a new controller for an OpenNI/NiTE camera. The camera is selected by the device information.
+				 *
+				 * @param devi_info The device information.
+				 * @param config_path The path to the XML configuration for the camera.
+				 * @param max_users The maximal number of users.
+				 * @param debug The debug flag.
+				 */
+				nite_controller(std::shared_ptr<device_info> devi_info, std::string config_path, unsigned int max_users = 15, bool debug = false);
 				virtual ~nite_controller();
 
 
@@ -158,6 +168,7 @@ namespace mae
 				//configuration
 				std::string config_path_;
 				unsigned int max_users_;
+				std::shared_ptr<device_info> devi_info_;
 
 				//fl stuff
 				static bool initialized_;

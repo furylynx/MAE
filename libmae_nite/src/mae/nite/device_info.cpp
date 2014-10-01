@@ -12,10 +12,12 @@ namespace mae
 	namespace nite
 	{
 
-		device_info::device_info(std::string device_name, std::string device_serial)
+		device_info::device_info(std::string device_name, std::string device_serial, std::string vendor_name, std::string creation_info)
 		{
 			device_name_ = device_name;
 			device_serial_ = device_serial;
+			vendor_name_ = vendor_name;
+			creation_info_ = creation_info;
 		}
 
 		device_info::~device_info()
@@ -30,6 +32,16 @@ namespace mae
 		std::string device_info::get_device_serial()
 		{
 			return device_serial_;
+		}
+
+		std::string device_info::get_vendor_name()
+		{
+			return vendor_name_;
+		}
+
+		std::string device_info::get_creation_info()
+		{
+			return creation_info_;
 		}
 
 	} // namespace nite
