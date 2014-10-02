@@ -20,7 +20,6 @@ namespace mae
 
 		skeleton_merger::~skeleton_merger()
 		{
-			// TODO Auto-generated destructor stub
 		}
 
 		std::shared_ptr<general_skeleton> skeleton_merger::merge(
@@ -50,6 +49,11 @@ namespace mae
 				//no skeleton present, therefore return null
 				return nullptr;
 			}
+			else if (skeletons.size() == 1)
+			{
+				return skeletons.at(0);
+			}
+
 
 			//first skeleton serves as start point and information is drawn from it
 			std::shared_ptr<general_skeleton> first = skeletons.at(0);
@@ -168,6 +172,24 @@ namespace mae
 
 			//TODO find mapping
 			//TODO use correlation to find mappings
+
+
+			//currently only first skeleton from each stream
+			std::vector<std::shared_ptr<general_skeleton> > tmp;
+			for (unsigned int i = 0; i < skeletons.size(); i++)
+			{
+				for (unsigned int j = 0; j < skeletons.at(i).size(); j++)
+				{
+					if (skeletons.at(i).at(j) != nullptr)
+					{
+						tmp.push_back(skeletons.at(i).at(j));
+						break;
+					}
+				}
+			}
+
+			mapped_skels.push_back(tmp);
+
 
 			return merge(mapped_skels);
 		}

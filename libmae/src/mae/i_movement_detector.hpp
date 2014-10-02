@@ -45,6 +45,11 @@ namespace mae {
 				virtual void set_buffer(int size) = 0;
 
 				/**
+				 * Clears the buffer used to store the data.
+				 */
+				virtual void clear_buffer() = 0;
+
+				/**
 				 * Adds a pose listener to the detector. The listeners are invoked whenever a pose is fully detected (each frame).
 				 *
 				 * @param listener The listener to be added.
