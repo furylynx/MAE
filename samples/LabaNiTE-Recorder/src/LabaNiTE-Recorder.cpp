@@ -6,6 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
+#include <cstddef>
 #include <iostream>
 #include <fstream>
 
@@ -14,7 +15,6 @@
 #include <mae/nite/nite.hpp>
 #include <mae/demo/demo.hpp>
 #include <mae/mae.hpp>
-
 
 int main()
 {
@@ -38,6 +38,7 @@ int main()
 	std::string sequences_dir = "sequences/";
 
 	std::string sequence_path = "";
+	std::string bvh_path = "";
 
 	std::string config_path = "SamplesConfig.xml";
 
@@ -94,6 +95,15 @@ int main()
 	sstr << sequence_title << ".laban";
 	sequence_path = sstr.str();
 
+	std::stringstream bvhsstr;
+	bvhsstr << sequences_dir;
+	if (sequences_dir.at(sequences_dir.length() - 1) != mae::mos::path_separator())
+	{
+		bvhsstr << mae::mos::path_separator();
+	}
+	bvhsstr << sequence_title << ".bvh";
+	bvh_path = bvhsstr.str();
+
 	//-----------------------
 	//set up the controller
 	//-----------------------
@@ -117,13 +127,30 @@ int main()
 
 		//TODO font?!!
 		rwin = std::shared_ptr<mae::demo::fl::recorder_window>(
-				new mae::demo::fl::recorder_window("LabaNiTE-Recorder", "/usr/share/fonts/truetype/freefont/FreeSerif.ttf"));
+				new mae::demo::fl::recorder_window("LabaNiTE-Recorder",
+						"/usr/share/fonts/truetype/freefont/FreeSerif.ttf"));
 		movement_controller.add_listener(rwin);
+	}
+
+	std::vector<std::shared_ptr<mae::nite::device_info> > devices = mae::nite::nite_farm::list_available_device_infos();
+
+	std::cout << std::endl << "Currently available devices are:" << std::endl;
+
+	if (devices.size() == 0)
+	{
+		std::cout << "None available." << std::endl;
+	}
+	else
+	{
+		for (unsigned int i = 0; i < devices.size(); i++)
+		{
+			std::cout << devices.at(i)->str() << std::endl;
+		}
 	}
 
 	std::cout << "Setting up the OpenNI/NiTE driver...";
 
-	mae::nite::nite_controller nitec = mae::nite::nite_controller(config_path, max_users, true);
+	mae::nite::nite_farm nitec = mae::nite::nite_farm(config_path, max_users, true);
 
 	std::cout << "done" << std::endl;
 
@@ -136,9 +163,18 @@ int main()
 	int initial_lenght_counter = 30 * sequence_length;
 	int wait_counter = initial_wait_counter;
 	int length_counter = initial_lenght_counter;
+
+	std::vector<std::shared_ptr<mae::general_skeleton> > stored_merged_skeletons;
+	std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > stored_unmerged_skeletons;
+
 	while (!stop_record_on_key || !nitec.was_keyboard_hit())
 	{
-		std::vector<std::shared_ptr<mae::general_skeleton> > skeletons = nitec.wait_for_update();
+		std::pair<std::vector<std::shared_ptr<mae::general_skeleton> >,
+				std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > > skel_pair =
+				nitec.wait_for_update_both();
+		std::vector<std::shared_ptr<mae::general_skeleton> > skeletons = skel_pair.first;
+
+		//std::vector<std::shared_ptr<mae::general_skeleton> > skeletons = nitec.wait_for_update();
 		if (skeletons.size() > 0 && skeletons.at(0) != nullptr)
 		{
 			if (wait_counter > 0)
@@ -154,8 +190,18 @@ int main()
 			{
 				if (length_counter > 0)
 				{
-					length_counter --;
+					length_counter--;
 
+					for(unsigned int i = 0; i < skel_pair.second.size(); i ++)
+					{
+						if (stored_unmerged_skeletons.size() <= i)
+						{
+							stored_unmerged_skeletons.push_back(std::vector<std::shared_ptr<mae::general_skeleton> >());
+						}
+						stored_unmerged_skeletons.at(i).push_back(skel_pair.second.at(i).at(0));
+					}
+
+					stored_merged_skeletons.push_back(skeletons.at(0));
 					movement_controller.next_frame(0, skeletons.at(0));
 				}
 				else
@@ -169,6 +215,9 @@ int main()
 		{
 			wait_counter = initial_wait_counter;
 			length_counter = initial_lenght_counter;
+			stored_merged_skeletons.clear();
+			stored_unmerged_skeletons.clear();
+			movement_controller.clear_buffer();
 		}
 	}
 
@@ -192,6 +241,28 @@ int main()
 	else
 	{
 		std::cerr << "Cannot generate the sequence " << std::endl;
+	}
+
+	std::cout << "Print bvh to file (" << bvh_path << ")...";
+	mae::fl::bvh_controller bvh = mae::fl::bvh_controller();
+	bvh.print_bvh_file(stored_merged_skeletons, bvh_path);
+	std::cout << "done." << std::endl;
+
+	for(unsigned int i= 0; i < stored_unmerged_skeletons.size(); i++)
+	{
+		std::stringstream bvhx;
+		bvhx << sequences_dir;
+		if (sequences_dir.at(sequences_dir.length() - 1) != mae::mos::path_separator())
+		{
+			bvhx << mae::mos::path_separator();
+		}
+		bvhx << sequence_title << "_sensor" << i << ".bvh";
+		std::string bvh_path_unmerged = bvhx.str();
+
+
+		std::cout << "Print bvh to file (" << bvh_path_unmerged << ")...";
+		bvh.print_bvh_file(stored_unmerged_skeletons.at(i), bvh_path_unmerged);
+		std::cout << "done." << std::endl;
 	}
 
 	return 0;

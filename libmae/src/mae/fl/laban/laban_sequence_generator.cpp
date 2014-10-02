@@ -147,7 +147,7 @@ namespace mae
 
 					//setup movement and add it to the sequence
 					std::shared_ptr<i_movement> mv = std::shared_ptr<i_movement>(
-							new movement(b.get_id(), 0, 0, 0, symbol));
+							new movement(b.get_id(), 0.0, 0.0, 1.0, symbol));
 
 					sequence->add_movement(mv);
 

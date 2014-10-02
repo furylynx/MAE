@@ -97,6 +97,11 @@ namespace mae{
 				virtual void  set_no_buffer_size_update(bool updates);
 
 				/**
+				 * Clears the buffer of currently present movements.
+				 */
+				virtual void clear_buffer();
+
+				/**
 				 * Returns the currently generated sequence from the skeleton stream.
 				 *
 				 * @return The sequence.
@@ -350,6 +355,17 @@ namespace mae{
 		void movement_controller<T, U>::set_no_buffer_size_update(bool updates)
 		{
 			no_buffer_size_update_ = updates;
+		}
+
+		template <typename T, typename U>
+		void movement_controller<T, U>::clear_buffer()
+		{
+			current_sequence_ = nullptr;
+
+			if (imd_ != nullptr)
+			{
+				imd_->clear_buffer();
+			}
 		}
 
 		template <typename T, typename U>
