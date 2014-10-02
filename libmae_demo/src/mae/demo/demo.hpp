@@ -10,6 +10,8 @@
 
 //custom includes
 #include "sdl_window.hpp"
+#include "mae_res.hpp"
+#include "mae_res_img.hpp"
 
 #include "fl/fl.hpp"
 

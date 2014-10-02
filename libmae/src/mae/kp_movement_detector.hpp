@@ -79,6 +79,11 @@ namespace mae
 			virtual void set_buffer(int size);
 
 			/**
+			 * Clears the buffer used to store the data.
+			 */
+			virtual void clear_buffer();
+
+			/**
 			 * Adds a pose listener to the detector. The listeners are invoked whenever a pose is fully detected (each frame).
 			 *
 			 * @param listener The listener to be added.
@@ -195,6 +200,12 @@ namespace mae
 	void kp_movement_detector<T, U>::set_buffer(int size)
 	{
 		pose_buffer_size = size;
+	}
+
+	template<typename T, typename U>
+	void kp_movement_detector<T, U>::clear_buffer()
+	{
+		poses.clear();
 	}
 
 	template<typename T, typename U>

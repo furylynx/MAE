@@ -24,24 +24,33 @@ namespace mae
 		{
 		}
 
-		std::string device_info::get_device_name()
+		std::string device_info::get_device_name() const
 		{
 			return device_name_;
 		}
 
-		std::string device_info::get_device_serial()
+		std::string device_info::get_device_serial() const
 		{
 			return device_serial_;
 		}
 
-		std::string device_info::get_vendor_name()
+		std::string device_info::get_vendor_name() const
 		{
 			return vendor_name_;
 		}
 
-		std::string device_info::get_creation_info()
+		std::string device_info::get_creation_info() const
 		{
 			return creation_info_;
+		}
+
+		std::string device_info::str() const
+		{
+			std::stringstream sstr;
+
+			sstr << device_name_ << " (serial " << device_serial_ << ") by " << vendor_name_ << " - " << creation_info_ << std::endl;
+
+			return sstr.str();
 		}
 
 	} // namespace nite

@@ -15,7 +15,9 @@
 //...
 
 //global includes
-//...
+#include <memory>
+#include <string>
+#include <sstream>
 
 namespace mae
 {
@@ -46,7 +48,7 @@ namespace mae
 			 *
 			 * @return x
 			 */
-			virtual double get_x();
+			virtual double get_x() const;
 
 			/**
 			 * Sets the y value of this vector.
@@ -60,7 +62,7 @@ namespace mae
 			 *
 			 * @return y
 			 */
-			virtual double get_y();
+			virtual double get_y() const;
 
 			/**
 			 * Sets the z value of this vector.
@@ -74,7 +76,42 @@ namespace mae
 			 *
 			 * @return z
 			 */
-			virtual double get_z();
+			virtual double get_z() const;
+
+			/**
+			 * Returns the string representation for this object.
+			 *
+			 * @return The string.
+			 */
+			virtual std::string str() const;
+
+			/**
+			 * Prints the object to the stream.
+			 *
+			 * @param os
+			 * @param obj The object to be printed.
+			 * @return
+			 */
+			friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<vec3d>& obj)
+			{
+				os << obj->str();
+
+				return os;
+			}
+
+			/**
+			 * Prints the object to the stream.
+			 *
+			 * @param os
+			 * @param obj The object to be printed.
+			 * @return
+			 */
+			friend std::ostream& operator<<(std::ostream& os, const vec3d& obj)
+			{
+				os << obj.str();
+
+				return os;
+			}
 
 		private:
 			double x_;

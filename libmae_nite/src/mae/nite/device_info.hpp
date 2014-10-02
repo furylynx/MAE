@@ -16,6 +16,8 @@
 
 //global includes
 #include <string>
+#include <sstream>
+#include <memory>
 
 namespace mae
 {
@@ -41,21 +43,21 @@ namespace mae
 				 *
 				 * @return The device name.
 				 */
-				virtual std::string get_device_name();
+				virtual std::string get_device_name() const;
 
 				/**
 				 * Returns the device serial number.
 				 *
 				 * @return The serial number.
 				 */
-				virtual std::string get_device_serial();
+				virtual std::string get_device_serial() const;
 
 				/**
 				 * Returns the vendor name.
 				 *
 				 * @return The vendor name.
 				 */
-				virtual std::string get_vendor_name();
+				virtual std::string get_vendor_name() const;
 
 				/**
 				 * The creation info is a string holding information on the creation of the device node.
@@ -64,7 +66,42 @@ namespace mae
 				 *
 				 * @return The creation info.
 				 */
-				virtual std::string get_creation_info();
+				virtual std::string get_creation_info() const;
+
+				/**
+				 * Returns the string representation for this object.
+				 *
+				 * @return The string representation.
+				 */
+				virtual std::string str() const;
+
+				/**
+				 * Prints the object to the stream.
+				 *
+				 * @param os
+				 * @param obj The object to be printed.
+				 * @return
+				 */
+				friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<device_info>& obj)
+				{
+					os << obj->str();
+
+					return os;
+				}
+
+				/**
+				 * Prints the object to the stream.
+				 *
+				 * @param os
+				 * @param obj The object to be printed.
+				 * @return
+				 */
+				friend std::ostream& operator<<(std::ostream& os, const device_info& obj)
+				{
+					os << obj.str();
+
+					return os;
+				}
 
 			private:
 				std::string device_name_;

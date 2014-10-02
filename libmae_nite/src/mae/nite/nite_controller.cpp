@@ -160,6 +160,14 @@ namespace mae
 			{
 				//if device info is present initialize nite controller for device node and run xml then
 
+				XnStatus status = context_.Init();
+
+				if (status != XN_STATUS_OK)
+				{
+					context_.Release();
+					throw std::runtime_error("Could not initialize the xn context.");
+				}
+
 				xn::NodeInfoList list;
 				nretval = context_.EnumerateProductionTrees(XN_NODE_TYPE_DEVICE, NULL, list, &errors);
 				check_rc(nretval, "Cannot enumerate the production trees.");

@@ -28,7 +28,7 @@ namespace mae
 		x_ = x;
 	}
 
-	double vec3d::get_x()
+	double vec3d::get_x() const
 	{
 		return x_;
 	}
@@ -38,7 +38,7 @@ namespace mae
 		y_ = y;
 	}
 
-	double vec3d::get_y()
+	double vec3d::get_y() const
 	{
 		return y_;
 	}
@@ -48,9 +48,18 @@ namespace mae
 		z_ = z;
 	}
 
-	double vec3d::get_z()
+	double vec3d::get_z() const
 	{
 		return z_;
+	}
+
+	std::string vec3d::str() const
+	{
+		std::stringstream sstr;
+
+		sstr << "(" << x_ << ", " << y_ << ", " << z_ << ")";
+
+		return sstr.str();
 	}
 
 } // namespace mae

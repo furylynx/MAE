@@ -44,6 +44,11 @@ namespace mae
 		nite_farm::nite_farm(std::vector<std::shared_ptr<device_info> > devices, std::string config_path,
 				unsigned int max_users, bool debug)
 		{
+			if (debug)
+			{
+				std::cout << "create nite farm" << std::endl;
+			}
+
 			max_users_ = max_users;
 			debug_ = debug;
 			running_ = true;
@@ -56,7 +61,8 @@ namespace mae
 			}
 		}
 
-		nite_farm::nite_farm(std::string config_path, unsigned int max_users, bool debug) : nite_farm(nite_farm::list_available_device_infos(), config_path, max_users, debug)
+		nite_farm::nite_farm(std::string config_path, unsigned int max_users, bool debug)
+				: nite_farm(nite_farm::list_available_device_infos(), config_path, max_users, debug)
 		{
 		}
 
@@ -66,7 +72,7 @@ namespace mae
 
 			for (unsigned int i = 0; i < threads_.size(); i++)
 			{
-				threads_.at(i).join();
+				threads_.at(i)->join();
 			}
 		}
 
@@ -87,7 +93,7 @@ namespace mae
 			add_controller(nc);
 		}
 
-		void nite_farm::add_controller(std::shared_ptr<device_info> devi_info,std::string config_path)
+		void nite_farm::add_controller(std::shared_ptr<device_info> devi_info, std::string config_path)
 		{
 			std::shared_ptr<nite_controller> nc = std::shared_ptr<nite_controller>(
 					new nite_controller(devi_info, config_path, max_users_, debug_));
@@ -110,11 +116,19 @@ namespace mae
 				controllers_.push_back(controller);
 				skeleton_data_.push_back(std::vector<std::shared_ptr<general_skeleton> >());
 				mutexes_.push_back(std::shared_ptr<std::mutex>(new std::mutex()));
-				threads_.push_back(std::thread(&nite_farm::nite_run, this, controller, thread_id));
+				threads_.push_back(
+						std::shared_ptr<std::thread>(
+								new std::thread(&nite_farm::nite_run, this, controller, thread_id)));
 			}
 		}
 
 		std::vector<std::shared_ptr<mae::general_skeleton> > nite_farm::wait_for_update(unsigned int each_n_frames)
+		{
+			return merger_->merge_find_mapping(wait_for_update_unmerged(each_n_frames));
+		}
+
+		std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > nite_farm::wait_for_update_unmerged(
+				unsigned int each_n_frames)
 		{
 			if (controllers_.size() == 0)
 			{
@@ -129,7 +143,7 @@ namespace mae
 				mutexes_.at(i)->lock();
 			}
 
-			std::vector<std::shared_ptr<mae::general_skeleton> > result = merger_->merge_find_mapping(skeleton_data_);
+			std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > result = skeleton_data_;
 
 			for (unsigned int i = 0; i < mutexes_.size(); i++)
 			{
@@ -137,6 +151,16 @@ namespace mae
 			}
 
 			return result;
+		}
+
+		std::pair<std::vector<std::shared_ptr<mae::general_skeleton> >,
+				std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > > nite_farm::wait_for_update_both(
+				unsigned int each_n_frames)
+		{
+			std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > unmerged = wait_for_update_unmerged(
+					each_n_frames);
+			std::vector<std::shared_ptr<mae::general_skeleton> > merged = merger_->merge_find_mapping(unmerged);
+			return std::make_pair(merged, unmerged);
 		}
 
 		bool nite_farm::was_keyboard_hit()

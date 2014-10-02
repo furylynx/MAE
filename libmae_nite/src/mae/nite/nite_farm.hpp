@@ -120,6 +120,25 @@ namespace mae
 						unsigned int each_n_frames = 1);
 
 				/**
+				 * Waits for an update on all controllers and returns the present data.
+				 *
+				 * @param each_n_frames Use a value greater than one to skip frames.
+				 * @return The skeleton data.
+				 */
+				virtual std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > wait_for_update_unmerged(
+						unsigned int each_n_frames = 1);
+
+				/**
+				 * Waits for an update on all controllers and returns the present data. Returns the merged data as first argument and unmerged data as second.
+				 *
+				 * @param each_n_frames Use a value greater than one to skip frames.
+				 * @return The skeleton data.
+				 */
+				virtual std::pair<std::vector<std::shared_ptr<mae::general_skeleton> >,
+						std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > > wait_for_update_both(
+						unsigned int each_n_frames = 1);
+
+				/**
 				 * Returns true if the keyboard was hit since the start of the OpenNI controller.
 				 *
 				 * @return True if the keyboard was hit.
@@ -154,7 +173,7 @@ namespace mae
 				bool debug_;
 
 				std::vector<std::shared_ptr<nite_controller> > controllers_;
-				std::vector<std::thread> threads_;
+				std::vector<std::shared_ptr<std::thread> > threads_;
 				std::vector<std::shared_ptr<std::mutex> > mutexes_;
 				std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > skeleton_data_;
 				bool running_;

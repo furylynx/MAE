@@ -23,22 +23,22 @@ namespace mae
 	{
 	}
 
-	std::shared_ptr<vec3d> basis::get_u()
+	std::shared_ptr<vec3d> basis::get_u() const
 	{
 		return u_;
 	}
 
-	std::shared_ptr<vec3d> basis::get_r()
+	std::shared_ptr<vec3d> basis::get_r() const
 	{
 		return r_;
 	}
 
-	std::shared_ptr<vec3d> basis::get_t()
+	std::shared_ptr<vec3d> basis::get_t() const
 	{
 		return t_;
 	}
 
-	std::shared_ptr<vec3d> basis::get_position_vector()
+	std::shared_ptr<vec3d> basis::get_position_vector() const
 	{
 		return position_vector_;
 	}
@@ -62,5 +62,15 @@ namespace mae
 	{
 		position_vector_ = position_vector;
 	}
+
+	std::string basis::str() const
+	{
+		std::stringstream sstr;
+
+		sstr << "[" << u_->str() << "; " << r_->str() << "; " << t_->str() << "] - position vector " << position_vector_->str();
+
+		return sstr.str();
+	}
+
 
 } // namespace mae

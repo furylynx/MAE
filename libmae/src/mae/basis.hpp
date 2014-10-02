@@ -16,6 +16,8 @@
 
 //global includes
 #include <memory>
+#include <string>
+#include <sstream>
 
 namespace mae
 {
@@ -39,28 +41,28 @@ namespace mae
 			 *
 			 * @return The u.
 			 */
-			virtual std::shared_ptr<vec3d> get_u();
+			virtual std::shared_ptr<vec3d> get_u() const;
 
 			/**
 			 * Returns the second component of the basis.
 			 *
 			 * @return The r.
 			 */
-			virtual std::shared_ptr<vec3d> get_r();
+			virtual std::shared_ptr<vec3d> get_r() const;
 
 			/**
 			 * Returns the third component of the basis.
 			 *
 			 * @return The t.
 			 */
-			virtual std::shared_ptr<vec3d> get_t();
+			virtual std::shared_ptr<vec3d> get_t() const;
 
 			/**
 			 * Returns the position vector of the basis.
 			 *
 			 * @return The position_vector.
 			 */
-			virtual std::shared_ptr<vec3d> get_position_vector();
+			virtual std::shared_ptr<vec3d> get_position_vector() const;
 
 			/**
 			 * Sets the first component for the basis.
@@ -89,6 +91,41 @@ namespace mae
 			 * @param position_vector The t.
 			 */
 			virtual void set_position_vector(std::shared_ptr<vec3d> position_vector);
+
+			/**
+			 * Returns the string representation for this object.
+			 *
+			 * @return The string.
+			 */
+			virtual std::string str() const;
+
+			/**
+			 * Prints the object to the stream.
+			 *
+			 * @param os
+			 * @param obj The object to be printed.
+			 * @return
+			 */
+			friend std::ostream& operator<<(std::ostream& os, const std::shared_ptr<basis>& obj)
+			{
+				os << obj->str();
+
+				return os;
+			}
+
+			/**
+			 * Prints the object to the stream.
+			 *
+			 * @param os
+			 * @param obj The object to be printed.
+			 * @return
+			 */
+			friend std::ostream& operator<<(std::ostream& os, const basis& obj)
+			{
+				os << obj.str();
+
+				return os;
+			}
 
 		private:
 			std::shared_ptr<vec3d> position_vector_;
