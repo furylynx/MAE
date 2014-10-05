@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module cancellation_symbol-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="72" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="13" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="30" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="2.400" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.433" level="0" />
+<weighted_methods_per_class_unity value="8" level="0" />
+<weighted_methods_per_class_visibility value="3" level="0" />
+<depth_of_inheritance_tree value="1" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="5" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="32" />
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>cancellation_symbol(e_cancel)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="40" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.cpp" line="19" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>equals(shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="56" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.cpp" line="38" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_cancel()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="48" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.cpp" line="33" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>operator &lt;&lt;(ostream &amp;,const cancellation_symbol &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="75" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>operator &lt;&lt;(ostream &amp;,const shared_ptr &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="81" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>str()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="73" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.cpp" line="79" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>xml(int,string)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="66" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.cpp" line="51" />
+</extent>
+<lines_of_code value="19" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="9" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~cancellation_symbol()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="41" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.cpp" line="29" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>cancellation_symbol</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>e_cancel</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="40" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="89" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.cpp" line="19" />
+</extent>
+<name>i_symbol</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="32" />
+</extent>
+<name>ostream</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="75" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="81" />
+</extent>
+<name>shared_ptr</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="56" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="81" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.cpp" line="38" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="66" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.cpp" line="51" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

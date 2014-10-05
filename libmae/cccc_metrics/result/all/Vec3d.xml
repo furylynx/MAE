@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module Vec3d-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="0" />
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="********" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<weighted_methods_per_class_unity value="0" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="2" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+</module_detail>
+<procedural_detail>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>Vec3d</name>
+<client_module>
+<name>angular_skeleton_controller</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="60" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="60" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="60" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="74" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="74" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="74" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="74" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="87" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="87" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="87" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="100" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="100" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="100" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="114" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="114" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.hpp" line="114" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="115" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="115" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="115" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="174" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="174" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="174" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="174" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="241" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="241" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="241" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="284" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="284" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="284" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="326" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="326" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/angular_skeleton_controller.cpp" line="326" />
+</extent>
+<name>math</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="50" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="73" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="113" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="122" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="133" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="133" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="133" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="133" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="134" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="167" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="167" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="167" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="167" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="168" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="200" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="200" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="200" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="201" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="211" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="211" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="220" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="220" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="229" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="229" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="240" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="251" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="294" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="294" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="319" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="319" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="347" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="347" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="347" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="357" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="357" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="357" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="366" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="366" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="375" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.hpp" line="375" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="25" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="44" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="119" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="124" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="136" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="136" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="136" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="136" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="137" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="193" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="193" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="193" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="193" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="194" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="251" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="251" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="251" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="252" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="304" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="304" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="366" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="366" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="401" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="401" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="480" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="493" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="561" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="561" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="600" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="600" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="652" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="652" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="652" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="665" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="665" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="665" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="670" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="670" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="686" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/math.cpp" line="686" />
+</extent>
+</client_module>
+<supplier_module>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

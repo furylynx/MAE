@@ -1,0 +1,728 @@
+<HTML><HEAD><TITLE>
+Report on software metrics
+</TITLE>
+</HEAD>
+<BODY>
+<TABLE BORDER WIDTH=100%>
+<TR><TH COLSPAN=2>
+CCCC Software Metrics Report
+<BR> generated Mon Oct  6 15:26:45 2014
+
+</TR>
+<TR>
+<TH><H4><A HREF="#projsum">Project Summary</A></H4></TH>
+<TD>
+Summary table of high level measures summed over all files processed in the current run.
+</TR>
+<TR>
+<TH><H4><A HREF="#procsum">Procedural Metrics Summary</A></H4></TH>
+<TD>
+Table of procedural measures (i.e. lines of code, lines of comment, McCabe's cyclomatic complexity summed over each module.
+</TR>
+<TR>
+<TH><H4><A HREF="#oodesign">Object Oriented Design</A></H4></TH>
+<TD>
+Table of four of the 6 metrics proposed by Chidamber and Kemerer in their various papers on 'a metrics suite for object oriented design'.
+</TR>
+<TR>
+<TH><H4><A HREF="#structsum">Structural Metrics Summary</A></H4></TH>
+<TD>
+Structural metrics based on the relationships of each module with others.  Includes fan-out (i.e. number of other modules the current module uses), fan-in (number of other modules which use the current module), and the Information Flow measure suggested by Henry and Kafura, which combines these to give a measure of coupling for the module.
+</TR>
+<TR>
+<TH><H4><A HREF="#other">Other Extents</A></H4></TH>
+<TD>
+Lexical counts for parts of submitted source files which the analyser was unable to assign to a module. Each record in this table relates to either a part of the code which triggered a parse failure, or to the residual lexical counts relating to parts of a file not associated with a specific module.
+</TR>
+<TR>
+<TH><H4><A HREF="#infocccc">About CCCC</A></H4></TH>
+<TD>
+A description of the CCCC program.
+</TR>
+</TR></TABLE>
+<H1><A NAME="projsum">Project Summary</A></H1>
+This table shows measures over the project as a whole.
+<UL>
+<LI>NOM = Number of modules<BR>
+Number of non-trivial modules identified by the analyser.  Non-trivial modules include all classes, and any other module for which member functions are identified.
+<LI>LOC = Lines of Code<BR>
+Number of non-blank, non-comment lines of source code counted by the analyser.
+<LI>COM = Lines of Comments<BR>
+Number of lines of comment identified by the analyser
+<LI>MVG = McCabe's Cyclomatic Complexity<BR>
+A measure of the decision complexity of the functions which make up the program.The strict definition of this measure is that it is the number of linearly independent routes through a directed acyclic graph which maps the flow of control of a subprogram.  The analyser counts this by recording the number of distinct decision outcomes contained within each function, which yields a good approximation to the formally defined version of the measure.
+<LI>L_C = Lines of code per line of comment<BR>
+Indicates density of comments with respect to textual size of program
+<LI>M_C = Cyclomatic Complexity per line of comment<BR>
+Indicates density of comments with respect to logical complexity of program
+<LI>IF4 = Information Flow measure<BR>
+Measure of information flow between modules suggested by Henry and Kafura. The analyser makes an approximate count of this by counting inter-module couplings identified in the module interfaces.
+</UL>
+Two variants on the information flow measure IF4 are also presented, one (IF4v) calculated using only relationships in the visible part of the module interface, and the other (IF4c) calculated using only those relationships which imply that changes to the client must be recompiled of the supplier's definition changes.
+
+<TABLE BORDER WIDTH=100%>
+<TR>
+<TH BGCOLOR="AQUA" WIDTH=70%>Metric</TH><TH BGCOLOR="AQUA" WIDTH=10%>Tag</TH><TH BGCOLOR="AQUA" WIDTH=10%>Overall</TH><TH BGCOLOR="AQUA" WIDTH=10%>Per Module</TH></TR>
+<TR>
+<TD>Number of modules</TD><TD>NOM</TD><TD ALIGN=RIGHT>    19</TD><TD>&nbsp;</TD></TR>
+<TR>
+<TD WIDTH=700%>Lines of Code</TD><TD WIDTH=120%>LOC</TD><TD ALIGN=RIGHT>103980</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>5472.632</STRONG></TD></TR>
+<TR>
+<TD>McCabe's Cyclomatic Number</TD><TD>MVG</TD><TD ALIGN=RIGHT>    57</TD><TD ALIGN=RIGHT> 3.000</TD></TR>
+<TR>
+<TD>Lines of Comment</TD><TD>COM</TD><TD ALIGN=RIGHT>   489</TD><TD ALIGN=RIGHT>25.737</TD></TR>
+<TR>
+<TD>LOC/COM</TD><TD>L_C</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>212.638</STRONG></TD><TD>&nbsp;</TD></TR>
+<TR>
+<TD>MVG/COM</TD><TD>M_C</TD><TD ALIGN=RIGHT> 0.117</TD><TD>&nbsp;</TD></TR>
+<TR>
+<TD>Information Flow measure ( &nbsp;inclusive&nbsp;)</TD><TD>IF4</TD><TD ALIGN=RIGHT>   576</TD><TD ALIGN=RIGHT>  30.316</TD></TR>
+<TR>
+<TD>Information Flow measure ( &nbsp;visible&nbsp;)</TD><TD>IF4v</TD><TD ALIGN=RIGHT>   576</TD><TD ALIGN=RIGHT>  30.316</TD></TR>
+<TR>
+<TD>Information Flow measure ( &nbsp;concrete&nbsp;)</TD><TD>IF4c</TD><TD ALIGN=RIGHT>   225</TD><TD ALIGN=RIGHT>  11.842</TD></TR>
+<TR>
+<TD>Lines of Code rejected by parser</TD><TD>REJ</TD><TD ALIGN=RIGHT>103351</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<H1><A NAME="procsum">Procedural Metrics Summary</A></H1>
+For descriptions of each of these metrics see the information preceding the project summary table.
+
+The label cell for each row in this table provides a link to the functions table in the detailed report for the module in question
+<TABLE BORDER WIDTH=100%>
+<TR>
+<TH BGCOLOR="AQUA">Module Name</TH><TH BGCOLOR="AQUA" WIDTH=8%>LOC</TH><TH BGCOLOR="AQUA" WIDTH=8%>MVG</TH><TH BGCOLOR="AQUA" WIDTH=8%>COM</TH><TH BGCOLOR="AQUA" WIDTH=8%>L_C</TH><TH BGCOLOR="AQUA" WIDTH=8%>M_C</TH></TR>
+<TR>
+<TD><A HREF="SDL_Color.html#procdet">
+SDL_Color</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD><A HREF="SDL_Event.html#procdet">
+SDL_Event</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD><A HREF="SDL_PixelFormat.html#procdet">
+SDL_PixelFormat</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD><A HREF="SDL_Surface.html#procdet">
+SDL_Surface</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD><A HREF="SDL_Window.html#procdet">
+SDL_Window</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD><A HREF="TTF_Font.html#procdet">
+TTF_Font</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD><A HREF="Uint32.html#procdet">
+Uint32</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD><A HREF="bool.html#procdet">
+bool</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD><A HREF="i_recognition_listener.html#procdet">
+i_recognition_listener</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD><A HREF="i_sequence_listener.html#procdet">
+i_sequence_listener</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD><A HREF="laban_visualizer.html#procdet">
+laban_visualizer</A>
+</TD><TD ALIGN=RIGHT>   124</TD><TD ALIGN=RIGHT>    18</TD><TD ALIGN=RIGHT>    35</TD><TD ALIGN=RIGHT> 3.543</TD><TD ALIGN=RIGHT> 0.514</TD></TR>
+<TR>
+<TD><A HREF="recognition_window.html#procdet">
+recognition_window</A>
+</TD><TD ALIGN=RIGHT>    95</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>    48</TD><TD ALIGN=RIGHT> 1.979</TD><TD ALIGN=RIGHT> 0.125</TD></TR>
+<TR>
+<TD><A HREF="recorder_window.html#procdet">
+recorder_window</A>
+</TD><TD ALIGN=RIGHT>   150</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>    56</TD><TD ALIGN=RIGHT> 2.679</TD><TD ALIGN=RIGHT> 0.161</TD></TR>
+<TR>
+<TD><A HREF="sdl_window.html#procdet">
+sdl_window</A>
+</TD><TD ALIGN=RIGHT>   162</TD><TD ALIGN=RIGHT>    19</TD><TD ALIGN=RIGHT>    88</TD><TD ALIGN=RIGHT> 1.841</TD><TD ALIGN=RIGHT> 0.216</TD></TR>
+<TR>
+<TD><A HREF="sequence_window.html#procdet">
+sequence_window</A>
+</TD><TD ALIGN=RIGHT>    85</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>    41</TD><TD ALIGN=RIGHT> 2.073</TD><TD ALIGN=RIGHT> 0.122</TD></TR>
+<TR>
+<TD><A HREF="shared_ptr.html#procdet">
+shared_ptr</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD><A HREF="string.html#procdet">
+string</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD><A HREF="thread.html#procdet">
+thread</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD><A HREF="vector.html#procdet">
+vector</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TABLE>
+<H1><A NAME="oodesign">Object Oriented Design</A></H1>
+<UL>
+<LI>WMC = Weighted methods per class<BR>
+The sum of a weighting function over the functions of the module.  Two different weighting functions are applied: WMC1 uses the nominal weight of 1 for each function, and hence measures the number of functions, WMCv uses a weighting function which is 1 for functions accessible to other modules, 0 for private functions.
+<LI>DIT = Depth of inheritance tree<BR>
+The length of the longest path of inheritance ending at the current module.  The deeper the inheritance tree for a module, the harder it may be to predict its behaviour.  On the other hand, increasing depth gives the potential of greater reuse by the current module of behaviour defined for ancestor classes.
+<LI>NOC = Number of children<BR>
+The number of modules which inherit directly from the current module.  Moderate values of this measure indicate scope for reuse, however high values may indicate an inappropriate abstraction in the design.
+<LI>CBO = Coupling between objects<BR>
+The number of other modules which are coupled to the current module either as a client or a supplier. Excessive coupling indicates weakness of module encapsulation and may inhibit reuse.
+</UL>
+
+The label cell for each row in this table provides a link to the module summary table in the detailed report for the module in question
+<TABLE BORDER WIDTH=100%>
+<TR>
+<TH BGCOLOR="AQUA" WIDTH=50%>Module Name</TH><TH BGCOLOR="AQUA" WIDTH=10%>WMC1</TH><TH BGCOLOR="AQUA" WIDTH=10%>WMCv</TH><TH BGCOLOR="AQUA" WIDTH=10%>DIT</TH><TH BGCOLOR="AQUA" WIDTH=10%>NOC</TH><TH BGCOLOR="AQUA" WIDTH=10%>CBO</TH></TR>
+<TR>
+<TD><A HREF="SDL_Color.html#summary">
+SDL_Color</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     1</TD></TR>
+<TR>
+<TD><A HREF="SDL_Event.html#summary">
+SDL_Event</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     4</TD></TR>
+<TR>
+<TD><A HREF="SDL_PixelFormat.html#summary">
+SDL_PixelFormat</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     1</TD></TR>
+<TR>
+<TD><A HREF="SDL_Surface.html#summary">
+SDL_Surface</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     5</TD></TR>
+<TR>
+<TD><A HREF="SDL_Window.html#summary">
+SDL_Window</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     1</TD></TR>
+<TR>
+<TD><A HREF="TTF_Font.html#summary">
+TTF_Font</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     1</TD></TR>
+<TR>
+<TD><A HREF="Uint32.html#summary">
+Uint32</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     4</TD></TR>
+<TR>
+<TD><A HREF="bool.html#summary">
+bool</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     1</TD></TR>
+<TR>
+<TD><A HREF="i_recognition_listener.html#summary">
+i_recognition_listener</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     1</TD></TR>
+<TR>
+<TD><A HREF="i_sequence_listener.html#summary">
+i_sequence_listener</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     2</TD></TR>
+<TR>
+<TD><A HREF="laban_visualizer.html#summary">
+laban_visualizer</A>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     4</TD></TR>
+<TR>
+<TD><A HREF="recognition_window.html#summary">
+recognition_window</A>
+</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     8</TD></TR>
+<TR>
+<TD><A HREF="recorder_window.html#summary">
+recorder_window</A>
+</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     9</TD></TR>
+<TR>
+<TD><A HREF="sdl_window.html#summary">
+sdl_window</A>
+</TD><TD ALIGN=RIGHT>    17</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>    11</TD></TR>
+<TR>
+<TD><A HREF="sequence_window.html#summary">
+sequence_window</A>
+</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     7</TD></TR>
+<TR>
+<TD><A HREF="shared_ptr.html#summary">
+shared_ptr</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     4</TD></TR>
+<TR>
+<TD><A HREF="string.html#summary">
+string</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     4</TD></TR>
+<TR>
+<TD><A HREF="thread.html#summary">
+thread</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     1</TD></TR>
+<TR>
+<TD><A HREF="vector.html#summary">
+vector</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     3</TD></TR>
+</TABLE>
+<H1><A NAME="structsum">Structural Metrics Summary</A></H1>
+<UL>
+<LI>FI = Fan-in<BR>
+The number of other modules which pass information into the current module.
+<LI>FO = Fan-out<BR>
+The number of other modules into which the current module passes information
+<LI>IF4 = Information Flow measure<BR>
+A composite measure of structural complexity, calculated as the square of the product of the fan-in and fan-out of a single module.  Proposed by Henry and Kafura.
+</UL>
+Note that the fan-in and fan-out are calculated by examining the interface of each module.  As noted above, three variants of each each of these measures are presented: a count restricted to the part of the interface which is externally visible, a count which only includes relationships which imply the client module needs to be recompiled if the supplier's implementation changes, and an inclusive count
+
+The label cell for each row in this table provides a link to the relationships table in the detailed report for the module in question
+
+<TABLE BORDER WIDTH=100%>
+<TR>
+<TH BGCOLOR=AQUA ROWSPAN=2>Module Name</TH>
+<TH BGCOLOR=AQUA COLSPAN=3>Fan-out</TH>
+<TH BGCOLOR=AQUA COLSPAN=3>Fan-in</TH>
+<TH BGCOLOR=AQUA COLSPAN=3>IF4</TH>
+</TR>
+<TH BGCOLOR="AQUA" WIDTH=7%>vis</TH><TH BGCOLOR="AQUA" WIDTH=7%>con</TH><TH BGCOLOR="AQUA" WIDTH=7%>inc</TH><TH BGCOLOR="AQUA" WIDTH=7%>vis</TH><TH BGCOLOR="AQUA" WIDTH=7%>con</TH><TH BGCOLOR="AQUA" WIDTH=7%>incl</TH><TH BGCOLOR="AQUA" WIDTH=7%>vis</TH><TH BGCOLOR="AQUA" WIDTH=7%>con</TH><TH BGCOLOR="AQUA" WIDTH=7%>inc</TH></TR>
+<TR>
+<TD><A HREF="SDL_Color.html#structdet">
+SDL_Color</A>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="SDL_Event.html#structdet">
+SDL_Event</A>
+</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="SDL_PixelFormat.html#structdet">
+SDL_PixelFormat</A>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="SDL_Surface.html#structdet">
+SDL_Surface</A>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="SDL_Window.html#structdet">
+SDL_Window</A>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="TTF_Font.html#structdet">
+TTF_Font</A>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="Uint32.html#structdet">
+Uint32</A>
+</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="bool.html#structdet">
+bool</A>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="i_recognition_listener.html#structdet">
+i_recognition_listener</A>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="i_sequence_listener.html#structdet">
+i_sequence_listener</A>
+</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="laban_visualizer.html#structdet">
+laban_visualizer</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="recognition_window.html#structdet">
+recognition_window</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>     8</EM></TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="recorder_window.html#structdet">
+recorder_window</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>     9</EM></TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="sdl_window.html#structdet">
+sdl_window</A>
+</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>     8</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>   576</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>   225</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>   576</EM></TD></TR>
+<TR>
+<TD><A HREF="sequence_window.html#structdet">
+sequence_window</A>
+</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>     7</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="shared_ptr.html#structdet">
+shared_ptr</A>
+</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="string.html#structdet">
+string</A>
+</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="thread.html#structdet">
+thread</A>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR>
+<TD><A HREF="vector.html#structdet">
+vector</A>
+</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+</TABLE>
+<H1><A NAME="other">Other Extents</A></H1>
+<TABLE BORDER WIDTH=100%>
+<TR>
+<TH BGCOLOR="AQUA" WIDTH=25%>Location</TH><TH BGCOLOR="AQUA" WIDTH=45%>Text</TH><TH BGCOLOR="AQUA" WIDTH=10%>LOC</TH><TH BGCOLOR="AQUA" WIDTH=10%>COM</TH><TH BGCOLOR="AQUA" WIDTH=10%>MVG</TH></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/mae_res.hpp:         1">../src/mae/demo/mae_res.hpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/mae_res_img.hpp:         1">../src/mae/demo/mae_res_img.hpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/sdl_window.hpp:         1">../src/mae/demo/sdl_window.hpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>    11</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/sdl_window.cpp:         1">../src/mae/demo/sdl_window.cpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>    11</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/demo.hpp:         1">../src/mae/demo/demo.hpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/fl.hpp:         1">../src/mae/demo/fl/fl.hpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/sequence_window.hpp:         1">../src/mae/demo/fl/sequence_window.hpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/sequence_window.cpp:         1">../src/mae/demo/fl/sequence_window.cpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/laban_visualizer.hpp:         1">../src/mae/demo/fl/laban_visualizer.hpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/laban_visualizer.cpp:         1">../src/mae/demo/fl/laban_visualizer.cpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/recognition_window.hpp:         1">../src/mae/demo/fl/recognition_window.hpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/recognition_window.cpp:         1">../src/mae/demo/fl/recognition_window.cpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/recorder_window.hpp:         1">../src/mae/demo/fl/recorder_window.hpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/recorder_window.cpp:         1">../src/mae/demo/fl/recorder_window.cpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/laban_direction.hpp:         1">../src/mae/demo/fl/laban_direction.hpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>103133</TD><TD ALIGN=RIGHT>    87</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction1.h:         1">../src/mae/demo/fl/res/laban_direction1.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_res.hpp:        97">../src/mae/demo/fl/res/laban_res.hpp:97</A></CODE><BR>
+</TD>
+<TD>MAE_LABAN_DIRECTION1_SIZE , &nbsp; data_laban_dir_1 </TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_res.hpp:        98">../src/mae/demo/fl/res/laban_res.hpp:98</A></CODE><BR>
+</TD>
+<TD>MAE_LABAN_DIRECTION2_SIZE , &nbsp; data_laban_dir_2 </TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_res.hpp:        99">../src/mae/demo/fl/res/laban_res.hpp:99</A></CODE><BR>
+</TD>
+<TD>MAE_LABAN_DIRECTION3_SIZE , &nbsp; data_laban_dir_3 </TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction2.h:         1">../src/mae/demo/fl/res/laban_direction2.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction3.h:         1">../src/mae/demo/fl/res/laban_direction3.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction4.h:         1">../src/mae/demo/fl/res/laban_direction4.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction5.h:         1">../src/mae/demo/fl/res/laban_direction5.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction6.h:         1">../src/mae/demo/fl/res/laban_direction6.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction7.h:         1">../src/mae/demo/fl/res/laban_direction7.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction8.h:         1">../src/mae/demo/fl/res/laban_direction8.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction9.h:         1">../src/mae/demo/fl/res/laban_direction9.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction10.h:         1">../src/mae/demo/fl/res/laban_direction10.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction11.h:         1">../src/mae/demo/fl/res/laban_direction11.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction12.h:         1">../src/mae/demo/fl/res/laban_direction12.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction13.h:         1">../src/mae/demo/fl/res/laban_direction13.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction14.h:         1">../src/mae/demo/fl/res/laban_direction14.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction15.h:         1">../src/mae/demo/fl/res/laban_direction15.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction16.h:         1">../src/mae/demo/fl/res/laban_direction16.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction17.h:         1">../src/mae/demo/fl/res/laban_direction17.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction18.h:         1">../src/mae/demo/fl/res/laban_direction18.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction19.h:         1">../src/mae/demo/fl/res/laban_direction19.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction20.h:         1">../src/mae/demo/fl/res/laban_direction20.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction21.h:         1">../src/mae/demo/fl/res/laban_direction21.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction22.h:         1">../src/mae/demo/fl/res/laban_direction22.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction23.h:         1">../src/mae/demo/fl/res/laban_direction23.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction24.h:         1">../src/mae/demo/fl/res/laban_direction24.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction25.h:         1">../src/mae/demo/fl/res/laban_direction25.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction26.h:         1">../src/mae/demo/fl/res/laban_direction26.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction27.h:         1">../src/mae/demo/fl/res/laban_direction27.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction28.h:         1">../src/mae/demo/fl/res/laban_direction28.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction29.h:         1">../src/mae/demo/fl/res/laban_direction29.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction30.h:         1">../src/mae/demo/fl/res/laban_direction30.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction31.h:         1">../src/mae/demo/fl/res/laban_direction31.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction32.h:         1">../src/mae/demo/fl/res/laban_direction32.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction33.h:         1">../src/mae/demo/fl/res/laban_direction33.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img1.h:         1">../src/mae/demo/fl/res/laban_direction_img1.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img2.h:         1">../src/mae/demo/fl/res/laban_direction_img2.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img3.h:         1">../src/mae/demo/fl/res/laban_direction_img3.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img4.h:         1">../src/mae/demo/fl/res/laban_direction_img4.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img5.h:         1">../src/mae/demo/fl/res/laban_direction_img5.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img6.h:         1">../src/mae/demo/fl/res/laban_direction_img6.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img7.h:         1">../src/mae/demo/fl/res/laban_direction_img7.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img8.h:         1">../src/mae/demo/fl/res/laban_direction_img8.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img9.h:         1">../src/mae/demo/fl/res/laban_direction_img9.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img10.h:         1">../src/mae/demo/fl/res/laban_direction_img10.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img11.h:         1">../src/mae/demo/fl/res/laban_direction_img11.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img12.h:         1">../src/mae/demo/fl/res/laban_direction_img12.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img13.h:         1">../src/mae/demo/fl/res/laban_direction_img13.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img14.h:         1">../src/mae/demo/fl/res/laban_direction_img14.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img15.h:         1">../src/mae/demo/fl/res/laban_direction_img15.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img16.h:         1">../src/mae/demo/fl/res/laban_direction_img16.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img17.h:         1">../src/mae/demo/fl/res/laban_direction_img17.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img18.h:         1">../src/mae/demo/fl/res/laban_direction_img18.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img19.h:         1">../src/mae/demo/fl/res/laban_direction_img19.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img20.h:         1">../src/mae/demo/fl/res/laban_direction_img20.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img21.h:         1">../src/mae/demo/fl/res/laban_direction_img21.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img22.h:         1">../src/mae/demo/fl/res/laban_direction_img22.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img23.h:         1">../src/mae/demo/fl/res/laban_direction_img23.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img24.h:         1">../src/mae/demo/fl/res/laban_direction_img24.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img25.h:         1">../src/mae/demo/fl/res/laban_direction_img25.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img26.h:         1">../src/mae/demo/fl/res/laban_direction_img26.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img27.h:         1">../src/mae/demo/fl/res/laban_direction_img27.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img28.h:         1">../src/mae/demo/fl/res/laban_direction_img28.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img29.h:         1">../src/mae/demo/fl/res/laban_direction_img29.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img30.h:         1">../src/mae/demo/fl/res/laban_direction_img30.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img31.h:         1">../src/mae/demo/fl/res/laban_direction_img31.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img32.h:         1">../src/mae/demo/fl/res/laban_direction_img32.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction_img33.h:         1">../src/mae/demo/fl/res/laban_direction_img33.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction1.png.h:         1">../src/mae/demo/fl/res/laban_direction1.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction2.png.h:         1">../src/mae/demo/fl/res/laban_direction2.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction3.png.h:         1">../src/mae/demo/fl/res/laban_direction3.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction4.png.h:         1">../src/mae/demo/fl/res/laban_direction4.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction5.png.h:         1">../src/mae/demo/fl/res/laban_direction5.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction6.png.h:         1">../src/mae/demo/fl/res/laban_direction6.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction7.png.h:         1">../src/mae/demo/fl/res/laban_direction7.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction8.png.h:         1">../src/mae/demo/fl/res/laban_direction8.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction9.png.h:         1">../src/mae/demo/fl/res/laban_direction9.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction10.png.h:         1">../src/mae/demo/fl/res/laban_direction10.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction11.png.h:         1">../src/mae/demo/fl/res/laban_direction11.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction12.png.h:         1">../src/mae/demo/fl/res/laban_direction12.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction13.png.h:         1">../src/mae/demo/fl/res/laban_direction13.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction14.png.h:         1">../src/mae/demo/fl/res/laban_direction14.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction15.png.h:         1">../src/mae/demo/fl/res/laban_direction15.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction16.png.h:         1">../src/mae/demo/fl/res/laban_direction16.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction17.png.h:         1">../src/mae/demo/fl/res/laban_direction17.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction18.png.h:         1">../src/mae/demo/fl/res/laban_direction18.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction19.png.h:         1">../src/mae/demo/fl/res/laban_direction19.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction20.png.h:         1">../src/mae/demo/fl/res/laban_direction20.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction21.png.h:         1">../src/mae/demo/fl/res/laban_direction21.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction22.png.h:         1">../src/mae/demo/fl/res/laban_direction22.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction23.png.h:         1">../src/mae/demo/fl/res/laban_direction23.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction24.png.h:         1">../src/mae/demo/fl/res/laban_direction24.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction25.png.h:         1">../src/mae/demo/fl/res/laban_direction25.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction26.png.h:         1">../src/mae/demo/fl/res/laban_direction26.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction27.png.h:         1">../src/mae/demo/fl/res/laban_direction27.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction28.png.h:         1">../src/mae/demo/fl/res/laban_direction28.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction29.png.h:         1">../src/mae/demo/fl/res/laban_direction29.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction30.png.h:         1">../src/mae/demo/fl/res/laban_direction30.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction31.png.h:         1">../src/mae/demo/fl/res/laban_direction31.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction32.png.h:         1">../src/mae/demo/fl/res/laban_direction32.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/laban_direction33.png.h:         1">../src/mae/demo/fl/res/laban_direction33.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/demo/fl/res/background0.png.h:         1">../src/mae/demo/fl/res/background0.png.h:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD></TR>
+<TR><TD><CODE><A HREF="cccc_src.html#../src/mae/indexer_fix.hpp:         1">../src/mae/indexer_fix.hpp:1</A></CODE><BR>
+</TD>
+<TD>&lt;file scope items&gt;</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD></TR>
+</TABLE>
+<H1><A NAME="infocccc">About CCCC</A></H1>
+<P>This report was generated by the program CCCC, which is FREELY REDISTRIBUTABLE but carries NO WARRANTY.
+<P>CCCC was developed by Tim Littlefair. 
+as part of a PhD research project. This project is now completed and descriptions of the findings can be accessed at <A HREF=http://www.chs.ecu.edu.au/~tlittlef>http://www.chs.ecu.edu.au/~tlittlef</A>. <P>User support for CCCC can be obtained by <A HREF=mailto:cccc-users@lists.sourceforge.net>mailing the list cccc-users@lists.sourceforge.net</A>.<P>Please also visit the CCCC development website at <A HREF=http://cccc.sourceforge.net>http://cccc.sourceforge.net</A>.
+</BODY></HTML>

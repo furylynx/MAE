@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module bvh_controller-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="655" level="1" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="113" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="162" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="4.043" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.698" level="0" />
+<weighted_methods_per_class_unity value="12" level="0" />
+<weighted_methods_per_class_visibility value="2" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="4" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="38" />
+<lines_of_code value="11" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>bvh_controller()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="15" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="44" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>bvh_str(shared_ptr)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="285" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="74" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>bvh_str(vector)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="280" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="54" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>bvh_str(vector,double)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="24" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="64" />
+</extent>
+<lines_of_code value="176" level="2" />
+<McCabes_cyclomatic_complexity value="30" level="1" />
+<lines_of_comment value="46" level="0" />
+<lines_of_code_per_line_of_comment value="3.826" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.652" level="0" />
+</member_function>
+<member_function>
+<name>generate_hierarchy_element(shared_ptr,int,string,bool)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="832" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="144" />
+</extent>
+<lines_of_code value="46" level="1" />
+<McCabes_cyclomatic_complexity value="7" level="0" />
+<lines_of_comment value="9" level="0" />
+<lines_of_code_per_line_of_comment value="5.111" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.778" level="0" />
+</member_function>
+<member_function>
+<name>parse_channels(string &amp;,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="762" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="133" />
+</extent>
+<lines_of_code value="41" level="1" />
+<McCabes_cyclomatic_complexity value="9" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="5.857" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.286" level="0" />
+</member_function>
+<member_function>
+<name>parse_offset(string &amp;,int,shared_ptr)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="809" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="123" />
+</extent>
+<lines_of_code value="17" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="10" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>print_bvh_file(shared_ptr,string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="299" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="91" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>print_bvh_file(vector,string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="292" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="82" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>read_bvh_file(string,shared_ptr)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="740" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="112" />
+</extent>
+<lines_of_code value="21" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="2.625" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>read_bvh_str(string,shared_ptr)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="306" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="102" />
+</extent>
+<lines_of_code value="309" level="2" />
+<McCabes_cyclomatic_complexity value="57" level="2" />
+<lines_of_comment value="51" level="0" />
+<lines_of_code_per_line_of_comment value="6.059" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.118" level="0" />
+</member_function>
+<member_function>
+<name>~bvh_controller()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="20" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="45" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>bvh_controller</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>bool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="833" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="144" />
+</extent>
+<name>shared_ptr</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="285" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="299" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="307" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="741" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="810" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="832" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="74" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="91" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="102" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="112" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="124" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="144" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="292" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="299" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="307" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="741" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="762" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="809" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="833" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="82" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="91" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="102" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="112" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="123" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="133" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="144" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="146" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="147" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="148" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="149" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="150" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="151" />
+</extent>
+<name>vector</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="24" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="280" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="292" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="54" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="64" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="82" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module kp_movement_detector-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="112" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="12" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="58" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="1.931" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.207" level="0" />
+<weighted_methods_per_class_unity value="10" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="1" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="5" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="32" />
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>add_listener(shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="91" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="212" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>clear_buffer()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="84" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="206" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>clear_listeners()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="103" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="231" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>detect_movement(long,double,shared_ptr,vector)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="72" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="163" />
+</extent>
+<lines_of_code value="29" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="11" level="0" />
+<lines_of_code_per_line_of_comment value="2.636" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.545" level="0" />
+</member_function>
+<member_function>
+<name>kp_movement_detector(shared_ptr,shared_ptr,bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="44" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="131" />
+</extent>
+<lines_of_code value="11" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="9" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>kp_movement_detector(shared_ptr,shared_ptr,shared_ptr,bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="57" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="144" />
+</extent>
+<lines_of_code value="11" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="10" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>notify_listeners(long,shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="111" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="237" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>remove_listener(shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="98" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="218" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_buffer(int)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="79" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="200" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~kp_movement_detector()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="59" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="156" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>kp_movement_detector</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>bool</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="45" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="58" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="114" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="132" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="145" />
+</extent>
+<name>i_movement_detector</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="32" />
+</extent>
+<name>list</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="119" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="121" />
+</extent>
+<name>shared_ptr</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="44" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="45" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="57" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="58" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="58" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="72" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="91" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="98" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="111" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="115" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="116" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="117" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="131" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="132" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="144" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="145" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="145" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="163" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="212" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="218" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="237" />
+</extent>
+<name>vector</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="72" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/kp_movement_detector.hpp" line="164" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>
