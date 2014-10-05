@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module server-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="40" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="0" />
+<lines_of_code value="136" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="0.294" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<weighted_methods_per_class_unity value="22" level="0" />
+<weighted_methods_per_class_visibility value="2" level="0" />
+<depth_of_inheritance_tree value="1" level="0" />
+<number_of_children value="1" level="0" />
+<coupling_between_objects value="13" level="0" />
+<IF4 value="144" level="1" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="121" level="2" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="100" level="1" />
+<IF4_concrete_per_member_function value="********" level="2" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="44" />
+<lines_of_code value="17" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>accept(shared_ptr,const error_code &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="175" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>accept_client(shared_ptr,bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="133" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>add_registration_manager(shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="79" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>begin_read(shared_ptr,int,long)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="200" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>begin_write(shared_ptr,string)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="183" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>create_recognition_message(long,vector,bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="125" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_registration_managers()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="71" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>handle_further_message(shared_ptr,string)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="115" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>handle_initial_message(shared_ptr,string,string)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="106" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>initialize()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="167" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>notify_clients(long,vector)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="64" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>notify_registered_sequence(shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="233" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>on_read(shared_ptr,shared_ptr,int,const error_code &amp;,const size_t)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="211" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="9" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>on_read_complete(shared_ptr,string,int,const error_code &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="221" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>on_recognition(long,vector)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="241" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="249" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="12" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>on_write(shared_ptr,const error_code &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="191" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>register_sequence(shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="94" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>remove_client(shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="140" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>remove_registration_manager(shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="87" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>server(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="55" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>server_run()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="226" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~server()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="56" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>server</name>
+<client_module>
+<name>fl_server</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="../src/mae/eventing/fl/fl_server.hpp" line="31" />
+</extent>
+</client_module>
+<supplier_module>
+<name>bool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="125" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="133" />
+</extent>
+<name>cs_base</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="44" />
+</extent>
+<name>error_code</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="175" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="191" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="211" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="221" />
+</extent>
+<name>i_recognition_listener</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="44" />
+</extent>
+<name>list</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="159" />
+</extent>
+<name>movement_controller</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>has by reference</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="161" />
+</extent>
+<name>shared_ptr</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="79" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="87" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="94" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="106" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="115" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="133" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="140" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="146" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="150" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="151" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="153" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="175" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="183" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="191" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="200" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="211" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="211" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="221" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="233" />
+</extent>
+<name>size_t</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="211" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="106" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="106" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="115" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="144" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="183" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="221" />
+</extent>
+<name>uint16_t</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="143" />
+</extent>
+<name>unordered_map</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="156" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="157" />
+</extent>
+<name>vector</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="64" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="125" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="155" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="241" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="249" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

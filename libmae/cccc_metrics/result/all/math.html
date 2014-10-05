@@ -1,0 +1,604 @@
+<HTML><HEAD><TITLE>
+Detailed report on module math
+</TITLE>
+</HEAD>
+<BODY>
+<H1><A NAME="summary">Detailed report on module math</A></H1>
+<TABLE BORDER WIDTH=100%>
+<TR>
+<TH BGCOLOR="AQUA" WIDTH=70%>Metric</TH><TH BGCOLOR="AQUA" WIDTH=10%>Tag</TH><TH BGCOLOR="AQUA" WIDTH=10%>Overall</TH><TH BGCOLOR="AQUA" WIDTH=10%>Per Function</TH></TR>
+<TR>
+<TD>Lines of Code</TD><TD>LOC</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>   541</EM></TD><TD ALIGN=RIGHT>******</TD></TR>
+<TR>
+<TD>McCabe's Cyclomatic Number</TD><TD>MVG</TD><TD ALIGN=RIGHT>    89</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
+<TR>
+<TD>Lines of Comment</TD><TD>COM</TD><TD ALIGN=RIGHT>   359</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>********</STRONG></TD></TR>
+<TR>
+<TD>LOC/COM</TD><TD>L_C</TD><TD ALIGN=RIGHT> 1.507</TD><TD>&nbsp;</TD></TR>
+<TR>
+<TD>MVG/COM</TD><TD>M_C</TD><TD ALIGN=RIGHT> 0.248</TD><TD>&nbsp;</TD></TR>
+<TR>
+<TD>Weighted Methods per Class ( &nbsp;weighting = unity&nbsp;)</TD><TD>WMC1</TD><TD ALIGN=RIGHT>    41</TD><TD>&nbsp;</TD></TR>
+<TR>
+<TD>Weighted Methods per Class ( &nbsp;weighting = visible&nbsp;)</TD><TD>WMCv</TD><TD ALIGN=RIGHT>     0</TD><TD>&nbsp;</TD></TR>
+<TR>
+<TD>Depth of Inheritance Tree</TD><TD>DIT</TD><TD ALIGN=RIGHT>     0</TD><TD>&nbsp;</TD></TR>
+<TR>
+<TD>Number of Children</TD><TD>NOC</TD><TD ALIGN=RIGHT>     0</TD><TD>&nbsp;</TD></TR>
+<TR>
+<TD>Coupling between objects</TD><TD>CBO</TD><TD ALIGN=RIGHT>     5</TD><TD>&nbsp;</TD></TR>
+<TR>
+<TD>Information Flow measure ( &nbsp;inclusive&nbsp;)</TD><TD>IF4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>********</TD></TR>
+<TR>
+<TD>Information Flow measure ( &nbsp;visible&nbsp;)</TD><TD>IF4v</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>********</TD></TR>
+<TR>
+<TD>Information Flow measure ( &nbsp;concrete&nbsp;)</TD><TD>IF4c</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>********</TD></TR>
+</TABLE>
+<H2><A NAME="modext">Definitions and Declarations</A></H2>
+<TABLE BORDER WIDTH=100%><TR>
+<TD WIDTH=50%>Description</TD><TH BGCOLOR="AQUA" WIDTH=10%>LOC</TH><TH BGCOLOR="AQUA" WIDTH=10%>MVG</TH><TH BGCOLOR="AQUA" WIDTH=10%>COM</TH><TH BGCOLOR="AQUA" WIDTH=10%>L_C</TH><TH BGCOLOR="AQUA" WIDTH=10%>M_C</TH><TR>
+<TD>definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        32">../src/mae/fl/math.hpp:32</A></CODE><BR>
+</TD>
+<TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR><TD HEIGHT=12 COLSPAN=6></TD></TR>
+</TR></TABLE>
+<H2><A NAME="proc">Functions</A></H2>
+<TABLE BORDER WIDTH=100%><TR>
+<TD WIDTH=50%>Function prototype</TD><TH BGCOLOR="AQUA" WIDTH=10%>LOC</TH><TH BGCOLOR="AQUA" WIDTH=10%>MVG</TH><TH BGCOLOR="AQUA" WIDTH=10%>COM</TH><TH BGCOLOR="AQUA" WIDTH=10%>L_C</TH><TH BGCOLOR="AQUA" WIDTH=10%>M_C</TH><TR>
+<TD>are_collinear( &nbsp;Vec3d, &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       319">../src/mae/fl/math.hpp:319</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       600">../src/mae/fl/math.cpp:600</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT> 0.667</TD></TR>
+<TR>
+<TD>calc_angle_half( &nbsp;Vec3d, &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       366">../src/mae/fl/math.hpp:366</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       670">../src/mae/fl/math.cpp:670</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT> 0.625</TD></TR>
+<TR>
+<TD>calc_angle_half_deg( &nbsp;Vec3d, &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       375">../src/mae/fl/math.hpp:375</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       686">../src/mae/fl/math.cpp:686</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>calc_angle_plane( &nbsp;Vec3d, &nbsp;Vec3d, &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       347">../src/mae/fl/math.hpp:347</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       652">../src/mae/fl/math.cpp:652</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    11</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>    66</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>calc_angle_plane_deg( &nbsp;Vec3d, &nbsp;Vec3d, &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       357">../src/mae/fl/math.hpp:357</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       665">../src/mae/fl/math.cpp:665</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>deg_to_rad( &nbsp;double&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       310">../src/mae/fl/math.hpp:310</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       696">../src/mae/fl/math.cpp:696</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>fmod_pos( &nbsp;double, &nbsp;double&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       384">../src/mae/fl/math.hpp:384</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       701">../src/mae/fl/math.cpp:701</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>joint_to_vec( &nbsp;shared_ptr&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        42">../src/mae/fl/math.hpp:42</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        15">../src/mae/fl/math.cpp:15</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>joint_to_vec_fl( &nbsp;shared_ptr&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        58">../src/mae/fl/math.hpp:58</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        30">../src/mae/fl/math.cpp:30</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>maevec_to_vec3d( &nbsp;shared_ptr&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       105">../src/mae/fl/math.hpp:105</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       108">../src/mae/fl/math.cpp:108</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>matrix_mul( &nbsp;Mat, &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       122">../src/mae/fl/math.hpp:122</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       124">../src/mae/fl/math.cpp:124</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>matrix_rot_x( &nbsp;double&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       259">../src/mae/fl/math.hpp:259</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       506">../src/mae/fl/math.cpp:506</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>matrix_rot_y( &nbsp;double&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       267">../src/mae/fl/math.hpp:267</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       522">../src/mae/fl/math.cpp:522</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>matrix_rot_z( &nbsp;double&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       275">../src/mae/fl/math.hpp:275</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       538">../src/mae/fl/math.cpp:538</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>matrix_rot_zxy( &nbsp;double, &nbsp;double, &nbsp;double&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       285">../src/mae/fl/math.hpp:285</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       554">../src/mae/fl/math.cpp:554</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>project_back_to_default( &nbsp;...&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       178">../src/mae/fl/math.hpp:178</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>project_back_to_default( &nbsp;Vec3d, &nbsp;Vec3d, &nbsp;Vec3d, &nbsp;Vec3d, &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       167">../src/mae/fl/math.hpp:167</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       193">../src/mae/fl/math.cpp:193</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    34</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT> 2.615</TD><TD ALIGN=RIGHT> 0.385</TD></TR>
+<TR>
+<TD>project_back_to_default( &nbsp;shared_ptr, &nbsp;shared_ptr, &nbsp;shared_ptr&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       235">../src/mae/fl/math.cpp:235</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>project_back_to_default_maevec( &nbsp;...&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       188">../src/mae/fl/math.hpp:188</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>project_back_to_default_maevec( &nbsp;shared_ptr, &nbsp;shared_ptr, &nbsp;shared_ptr&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       245">../src/mae/fl/math.cpp:245</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>project_orthogonal( &nbsp;Vec3d, &nbsp;Vec3d, &nbsp;Vec3d, &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       200">../src/mae/fl/math.hpp:200</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       251">../src/mae/fl/math.cpp:251</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    39</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>    15</TD><TD ALIGN=RIGHT> 2.600</TD><TD ALIGN=RIGHT> 0.333</TD></TR>
+<TR>
+<TD>project_to_basis( &nbsp;...&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       144">../src/mae/fl/math.hpp:144</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>project_to_basis( &nbsp;Vec3d, &nbsp;Vec3d, &nbsp;Vec3d, &nbsp;Vec3d, &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       133">../src/mae/fl/math.hpp:133</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       136">../src/mae/fl/math.cpp:136</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    34</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT> 2.833</TD><TD ALIGN=RIGHT> 0.417</TD></TR>
+<TR>
+<TD>project_to_basis( &nbsp;shared_ptr, &nbsp;shared_ptr, &nbsp;shared_ptr&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       178">../src/mae/fl/math.cpp:178</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>project_to_basis_maevec( &nbsp;...&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       155">../src/mae/fl/math.hpp:155</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>project_to_basis_maevec( &nbsp;shared_ptr, &nbsp;shared_ptr, &nbsp;shared_ptr&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       188">../src/mae/fl/math.cpp:188</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>quaternion( &nbsp;Vec3d, &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       294">../src/mae/fl/math.hpp:294</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       561">../src/mae/fl/math.cpp:561</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    34</EM></TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT> 4.250</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>rad_to_deg( &nbsp;double&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       302">../src/mae/fl/math.hpp:302</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       691">../src/mae/fl/math.cpp:691</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>rotate_around_axis( &nbsp;Vec3d, &nbsp;Vec3d, &nbsp;double&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       211">../src/mae/fl/math.hpp:211</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       304">../src/mae/fl/math.cpp:304</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    47</EM></TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT> 3.917</TD><TD ALIGN=RIGHT> 0.583</TD></TR>
+<TR>
+<TD>rotate_yzx( &nbsp;Vec3d, &nbsp;double, &nbsp;double, &nbsp;double&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       251">../src/mae/fl/math.hpp:251</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       493">../src/mae/fl/math.cpp:493</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    11</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>rotate_zxy( &nbsp;Vec3d, &nbsp;double, &nbsp;double, &nbsp;double&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       240">../src/mae/fl/math.hpp:240</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       480">../src/mae/fl/math.cpp:480</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    11</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>rotation_angles_yzx( &nbsp;Vec3d, &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       229">../src/mae/fl/math.hpp:229</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       401">../src/mae/fl/math.cpp:401</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    62</EM></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    11</EM></TD><TD ALIGN=RIGHT>    15</TD><TD ALIGN=RIGHT> 4.133</TD><TD ALIGN=RIGHT> 0.733</TD></TR>
+<TR>
+<TD>rotation_angles_zxy( &nbsp;Vec3d, &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       220">../src/mae/fl/math.hpp:220</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       366">../src/mae/fl/math.cpp:366</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    23</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT> 1.917</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>sign( &nbsp;double&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       392">../src/mae/fl/math.hpp:392</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       713">../src/mae/fl/math.cpp:713</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>stdvec_to_vec2d( &nbsp;vector&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        97">../src/mae/fl/math.hpp:97</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        88">../src/mae/fl/math.cpp:88</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    17</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>stdvec_to_vec3d( &nbsp;vector&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        89">../src/mae/fl/math.hpp:89</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        68">../src/mae/fl/math.cpp:68</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    17</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>vec3d_to_maevec( &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       113">../src/mae/fl/math.hpp:113</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       119">../src/mae/fl/math.cpp:119</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>vec_to_joint( &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        50">../src/mae/fl/math.hpp:50</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        25">../src/mae/fl/math.cpp:25</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>vec_to_joint_fl( &nbsp;Vec2d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        66">../src/mae/fl/math.hpp:66</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        39">../src/mae/fl/math.cpp:39</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>vec_to_stdvec( &nbsp;Vec2d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        81">../src/mae/fl/math.hpp:81</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        56">../src/mae/fl/math.cpp:56</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>vec_to_stdvec( &nbsp;Vec3d&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        73">../src/mae/fl/math.hpp:73</A></CODE><BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        44">../src/mae/fl/math.cpp:44</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR><TD HEIGHT=12 COLSPAN=6></TD></TR>
+</TR></TABLE>
+<H2><A NAME="structdet">Relationships</A></H2>
+<TABLE BORDER WIDTH=100%>
+<TR><TH WIDTH=50%>Clients</TH><TH WIDTH=50%>Suppliers</TH></TR>
+<TR>
+<TD WIDTH=50%>
+&nbsp;
+</TD>
+<TD WIDTH=50%>
+Mat [CV] <BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       122">../src/mae/fl/math.hpp:122</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       124">../src/mae/fl/math.cpp:124</A></CODE><BR>
+<BR>
+<BR>
+Vec2d [CV] <BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        66">../src/mae/fl/math.hpp:66</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        81">../src/mae/fl/math.hpp:81</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        39">../src/mae/fl/math.cpp:39</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        56">../src/mae/fl/math.cpp:56</A></CODE><BR>
+<BR>
+<BR>
+Vec3d [CV] <BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        50">../src/mae/fl/math.hpp:50</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        73">../src/mae/fl/math.hpp:73</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       113">../src/mae/fl/math.hpp:113</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       122">../src/mae/fl/math.hpp:122</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       133">../src/mae/fl/math.hpp:133</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       133">../src/mae/fl/math.hpp:133</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       133">../src/mae/fl/math.hpp:133</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       133">../src/mae/fl/math.hpp:133</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       134">../src/mae/fl/math.hpp:134</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       167">../src/mae/fl/math.hpp:167</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       167">../src/mae/fl/math.hpp:167</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       167">../src/mae/fl/math.hpp:167</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       167">../src/mae/fl/math.hpp:167</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       168">../src/mae/fl/math.hpp:168</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       200">../src/mae/fl/math.hpp:200</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       200">../src/mae/fl/math.hpp:200</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       200">../src/mae/fl/math.hpp:200</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       201">../src/mae/fl/math.hpp:201</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       211">../src/mae/fl/math.hpp:211</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       211">../src/mae/fl/math.hpp:211</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       220">../src/mae/fl/math.hpp:220</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       220">../src/mae/fl/math.hpp:220</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       229">../src/mae/fl/math.hpp:229</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       229">../src/mae/fl/math.hpp:229</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       240">../src/mae/fl/math.hpp:240</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       251">../src/mae/fl/math.hpp:251</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       294">../src/mae/fl/math.hpp:294</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       294">../src/mae/fl/math.hpp:294</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       319">../src/mae/fl/math.hpp:319</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       319">../src/mae/fl/math.hpp:319</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       347">../src/mae/fl/math.hpp:347</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       347">../src/mae/fl/math.hpp:347</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       347">../src/mae/fl/math.hpp:347</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       357">../src/mae/fl/math.hpp:357</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       357">../src/mae/fl/math.hpp:357</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       357">../src/mae/fl/math.hpp:357</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       366">../src/mae/fl/math.hpp:366</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       366">../src/mae/fl/math.hpp:366</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       375">../src/mae/fl/math.hpp:375</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       375">../src/mae/fl/math.hpp:375</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        25">../src/mae/fl/math.cpp:25</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        44">../src/mae/fl/math.cpp:44</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       119">../src/mae/fl/math.cpp:119</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       124">../src/mae/fl/math.cpp:124</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       136">../src/mae/fl/math.cpp:136</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       136">../src/mae/fl/math.cpp:136</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       136">../src/mae/fl/math.cpp:136</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       136">../src/mae/fl/math.cpp:136</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       137">../src/mae/fl/math.cpp:137</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       193">../src/mae/fl/math.cpp:193</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       193">../src/mae/fl/math.cpp:193</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       193">../src/mae/fl/math.cpp:193</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       193">../src/mae/fl/math.cpp:193</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       194">../src/mae/fl/math.cpp:194</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       251">../src/mae/fl/math.cpp:251</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       251">../src/mae/fl/math.cpp:251</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       251">../src/mae/fl/math.cpp:251</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       252">../src/mae/fl/math.cpp:252</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       304">../src/mae/fl/math.cpp:304</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       304">../src/mae/fl/math.cpp:304</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       366">../src/mae/fl/math.cpp:366</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       366">../src/mae/fl/math.cpp:366</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       401">../src/mae/fl/math.cpp:401</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       401">../src/mae/fl/math.cpp:401</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       480">../src/mae/fl/math.cpp:480</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       493">../src/mae/fl/math.cpp:493</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       561">../src/mae/fl/math.cpp:561</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       561">../src/mae/fl/math.cpp:561</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       600">../src/mae/fl/math.cpp:600</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       600">../src/mae/fl/math.cpp:600</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       652">../src/mae/fl/math.cpp:652</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       652">../src/mae/fl/math.cpp:652</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       652">../src/mae/fl/math.cpp:652</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       665">../src/mae/fl/math.cpp:665</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       665">../src/mae/fl/math.cpp:665</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       665">../src/mae/fl/math.cpp:665</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       670">../src/mae/fl/math.cpp:670</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       670">../src/mae/fl/math.cpp:670</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       686">../src/mae/fl/math.cpp:686</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       686">../src/mae/fl/math.cpp:686</A></CODE><BR>
+<BR>
+<BR>
+shared_ptr [CV] <BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        42">../src/mae/fl/math.hpp:42</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        58">../src/mae/fl/math.hpp:58</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:       105">../src/mae/fl/math.hpp:105</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        15">../src/mae/fl/math.cpp:15</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        30">../src/mae/fl/math.cpp:30</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       108">../src/mae/fl/math.cpp:108</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       178">../src/mae/fl/math.cpp:178</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       178">../src/mae/fl/math.cpp:178</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       178">../src/mae/fl/math.cpp:178</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       188">../src/mae/fl/math.cpp:188</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       188">../src/mae/fl/math.cpp:188</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       188">../src/mae/fl/math.cpp:188</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       235">../src/mae/fl/math.cpp:235</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       235">../src/mae/fl/math.cpp:235</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       235">../src/mae/fl/math.cpp:235</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       245">../src/mae/fl/math.cpp:245</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       245">../src/mae/fl/math.cpp:245</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:       245">../src/mae/fl/math.cpp:245</A></CODE><BR>
+<BR>
+<BR>
+vector [CV] <BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        89">../src/mae/fl/math.hpp:89</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.hpp:        97">../src/mae/fl/math.hpp:97</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        68">../src/mae/fl/math.cpp:68</A></CODE><BR>
+pass by value &nbsp;
+<CODE><A HREF="cccc_src.html#../src/mae/fl/math.cpp:        88">../src/mae/fl/math.cpp:88</A></CODE><BR>
+<BR>
+<BR>
+&nbsp;
+</TD>
+</TR></TABLE>
+</BODY></HTML>

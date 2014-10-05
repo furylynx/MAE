@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module decision_maker-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="128" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="44" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="43" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="2.977" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.023" level="0" />
+<weighted_methods_per_class_unity value="6" level="0" />
+<weighted_methods_per_class_visibility value="3" level="0" />
+<depth_of_inheritance_tree value="1" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="2" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="34" />
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>decide(shared_ptr,shared_ptr,shared_ptr,shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="64" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.cpp" line="32" />
+</extent>
+<lines_of_code value="88" level="1" />
+<McCabes_cyclomatic_complexity value="40" level="2" />
+<lines_of_comment value="14" level="0" />
+<lines_of_code_per_line_of_comment value="6.286" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="2.857" level="0" />
+</member_function>
+<member_function>
+<name>decision_maker(int,double)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="43" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.cpp" line="17" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>distance_okay(shared_ptr,shared_ptr,shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="74" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.cpp" line="132" />
+</extent>
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="10" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>position_okay(double,double)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="83" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.cpp" line="151" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_recognition_tolerance(double)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="52" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.cpp" line="27" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~decision_maker()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="44" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.cpp" line="23" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>decision_maker</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>i_decision_maker</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="34" />
+</extent>
+<name>shared_ptr</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="64" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="64" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="64" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="64" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="74" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="74" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.hpp" line="74" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.cpp" line="32" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.cpp" line="32" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.cpp" line="33" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.cpp" line="33" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.cpp" line="132" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.cpp" line="133" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_maker.cpp" line="133" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

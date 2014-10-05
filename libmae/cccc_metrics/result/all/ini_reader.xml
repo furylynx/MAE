@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module ini_reader-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="128" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="16" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="36" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="3.556" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.444" level="0" />
+<weighted_methods_per_class_unity value="6" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="2" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="28" />
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>get_value(string,string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="22" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="47" />
+</extent>
+<lines_of_code value="20" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="2.857" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_value_nex(string,string,string *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="43" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="58" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="9" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_value_nex(string,string,string *,string *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="50" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="70" />
+</extent>
+<lines_of_code value="19" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="10" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ini_reader(string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="13" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="36" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>read_file(string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="72" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="80" />
+</extent>
+<lines_of_code value="68" level="1" />
+<McCabes_cyclomatic_complexity value="9" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="13.600" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.800" level="0" />
+</member_function>
+<member_function>
+<name>~ini_reader()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="18" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="38" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>ini_reader</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="13" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="22" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="22" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="43" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="43" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="43" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="50" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="50" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="50" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="50" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="72" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="36" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="47" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="47" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="58" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="58" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="58" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="70" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="70" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="70" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="70" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="80" />
+</extent>
+<name>unordered_map</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="73" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

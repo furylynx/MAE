@@ -1,0 +1,1443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module string-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="0" />
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="********" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<weighted_methods_per_class_unity value="0" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="63" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+</module_detail>
+<procedural_detail>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>string</name>
+<client_module>
+<name>accent_sign</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/accent_sign.hpp" line="66" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/accent_sign.cpp" line="51" />
+</extent>
+<name>area_part</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/area_part.hpp" line="59" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/area_part.cpp" line="33" />
+</extent>
+<name>body_part</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/body_part.hpp" line="69" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/body_part.cpp" line="39" />
+</extent>
+<name>bone</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/bone.cpp" line="16" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/bone.cpp" line="27" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/bone.hpp" line="44" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/bone.hpp" line="61" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/bone.hpp" line="128" />
+</extent>
+<name>bvh_controller</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="292" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="299" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="307" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="741" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="762" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="809" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.cpp" line="833" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="82" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="91" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="102" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="112" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="123" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="133" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="144" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="146" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="147" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="148" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="149" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="150" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_controller.hpp" line="151" />
+</extent>
+<name>bvh_spec</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_spec.cpp" line="15" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_spec.cpp" line="15" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_spec.cpp" line="15" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_spec.cpp" line="15" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_spec.hpp" line="51" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_spec.hpp" line="51" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_spec.hpp" line="51" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/bvh_spec.hpp" line="51" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_spec.hpp" line="107" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_spec.hpp" line="108" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_spec.hpp" line="109" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/bvh_spec.hpp" line="110" />
+</extent>
+<name>cancellation_symbol</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.hpp" line="66" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/cancellation_symbol.cpp" line="51" />
+</extent>
+<name>column_definition</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/column_definition.cpp" line="53" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/column_definition.hpp" line="65" />
+</extent>
+<name>custom_limb</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/custom_limb.hpp" line="67" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/custom_limb.cpp" line="44" />
+</extent>
+<name>default_limb</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/default_limb.hpp" line="60" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/default_limb.cpp" line="38" />
+</extent>
+<name>digit_part</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/digit_part.hpp" line="71" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/digit_part.cpp" line="61" />
+</extent>
+<name>direction_symbol</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/direction_symbol.hpp" line="122" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/direction_symbol.cpp" line="114" />
+</extent>
+<name>dynamic_sign</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/dynamic_sign.cpp" line="51" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/dynamic_sign.hpp" line="66" />
+</extent>
+<name>e_area_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/e_area.hpp" line="65" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/e_area.cpp" line="46" />
+</extent>
+<name>e_bone_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/e_bone.hpp" line="75" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/e_bone.cpp" line="62" />
+</extent>
+<name>e_cancel_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_cancel.hpp" line="62" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_cancel.cpp" line="41" />
+</extent>
+<name>e_contact_hook_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_contact_hook.hpp" line="71" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_contact_hook.cpp" line="59" />
+</extent>
+<name>e_digit_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/e_digit.hpp" line="70" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/e_digit.cpp" line="57" />
+</extent>
+<name>e_direction_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_direction.cpp" line="144" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_direction.hpp" line="81" />
+</extent>
+<name>e_dynamic_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_dynamic.hpp" line="68" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_dynamic.cpp" line="53" />
+</extent>
+<name>e_fl_direction_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.hpp" line="129" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.cpp" line="147" />
+</extent>
+<name>e_fl_joint_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_joint.cpp" line="64" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_joint.hpp" line="77" />
+</extent>
+<name>e_joint_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/e_joint.cpp" line="57" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/e_joint.hpp" line="70" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/e_joint.hpp" line="105" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/e_joint.cpp" line="113" />
+</extent>
+<name>e_level_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_level.hpp" line="74" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_level.cpp" line="100" />
+</extent>
+<name>e_limb_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/e_limb.hpp" line="67" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/e_limb.cpp" line="50" />
+</extent>
+<name>e_limb_side_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/e_limb_side.cpp" line="52" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/e_limb_side.hpp" line="67" />
+</extent>
+<name>e_path_type_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/e_path_type.hpp" line="62" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/e_path_type.cpp" line="42" />
+</extent>
+<name>e_relationship_type_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/e_relationship_type.hpp" line="62" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/e_relationship_type.cpp" line="43" />
+</extent>
+<name>e_side_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/e_side.hpp" line="62" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/e_side.cpp" line="44" />
+</extent>
+<name>e_space_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_space.hpp" line="66" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_space.cpp" line="48" />
+</extent>
+<name>e_space_direction_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_space_direction.cpp" line="52" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_space_direction.hpp" line="68" />
+</extent>
+<name>e_time_unit_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/e_time_unit.hpp" line="62" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/e_time_unit.cpp" line="40" />
+</extent>
+<name>e_turn_direction_c</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_turn_direction.hpp" line="63" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/e_turn_direction.cpp" line="42" />
+</extent>
+<name>general_skeleton</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="240" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="148" />
+</extent>
+<name>hierarchy_element</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/hierarchy_element.cpp" line="14" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/hierarchy_element.hpp" line="46" />
+</extent>
+<name>i_degree_sign</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/i_degree_sign.hpp" line="37" />
+</extent>
+<name>i_dynamics_sign</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/i_dynamics_sign.hpp" line="50" />
+</extent>
+<name>i_endpoint</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/i_endpoint.hpp" line="44" />
+</extent>
+<name>i_limb</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/i_limb.hpp" line="44" />
+</extent>
+<name>i_movement</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/i_movement.hpp" line="72" />
+</extent>
+<name>i_part</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/i_part.hpp" line="43" />
+</extent>
+<name>i_pre_sign</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/i_pre_sign.hpp" line="43" />
+</extent>
+<name>i_symbol</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/i_symbol.hpp" line="53" />
+</extent>
+<name>ini_reader</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="13" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="22" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="22" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="43" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="43" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="43" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="50" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="50" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="50" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="50" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.cpp" line="72" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="36" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="47" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="47" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="58" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="58" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="58" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="70" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="70" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="70" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="70" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/ini_reader.hpp" line="80" />
+</extent>
+<name>joint_part</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/joint_part.hpp" line="59" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/joint_part.cpp" line="33" />
+</extent>
+<name>laban_sequence</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="23" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="23" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="52" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="62" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="72" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="304" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="394" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="57" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="57" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="79" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="93" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="107" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="266" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="274" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="344" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="346" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="347" />
+</extent>
+<name>laban_sequence_reader</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="94" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="104" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="118" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="130" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="142" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="154" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="166" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="178" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="190" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="205" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="217" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="229" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="242" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="254" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="266" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="278" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="290" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="302" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="314" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.hpp" line="326" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="25" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="44" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="125" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="139" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="199" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="242" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="290" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="313" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="412" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="425" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="441" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="467" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="520" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="547" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="586" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="613" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="625" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="640" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="660" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence_reader.cpp" line="695" />
+</extent>
+<name>mbool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mbool.hpp" line="36" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mbool.cpp" line="13" />
+</extent>
+<name>movement</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/movement.cpp" line="83" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/movement.hpp" line="109" />
+</extent>
+<name>mstr</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="13" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="27" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="41" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="46" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="61" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="61" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="61" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="88" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="88" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="88" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="99" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="99" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="99" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="135" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="148" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="161" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="161" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="166" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="166" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="174" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="179" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="184" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="203" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="208" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.cpp" line="222" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="44" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="52" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="60" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="67" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="77" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="77" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="77" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="88" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="88" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="88" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="99" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="99" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="99" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="107" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="115" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="124" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="124" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="133" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="133" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="141" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="151" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="160" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="171" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="179" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/mstr.hpp" line="189" />
+</extent>
+<name>mxml</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.hpp" line="38" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.hpp" line="38" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.hpp" line="50" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.hpp" line="50" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.hpp" line="50" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.hpp" line="62" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.hpp" line="62" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.hpp" line="62" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.hpp" line="73" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.hpp" line="73" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.cpp" line="13" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.cpp" line="13" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.cpp" line="37" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.cpp" line="37" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.cpp" line="37" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.cpp" line="60" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.cpp" line="60" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.cpp" line="60" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.cpp" line="90" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/mxml.cpp" line="90" />
+</extent>
+<name>path</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/path.hpp" line="90" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/path.cpp" line="59" />
+</extent>
+<name>pin</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/pin.hpp" line="80" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/pin.cpp" line="63" />
+</extent>
+<name>prop</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/prop.hpp" line="42" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/prop.hpp" line="42" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/prop.hpp" line="67" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/ps/prop.hpp" line="79" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/ps/prop.hpp" line="80" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/prop.cpp" line="20" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/prop.cpp" line="20" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/prop.cpp" line="47" />
+</extent>
+<name>relationship_bow</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="131" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="101" />
+</extent>
+<name>relationship_endpoint</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/relationship_endpoint.hpp" line="84" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/relationship_endpoint.cpp" line="51" />
+</extent>
+<name>rewriting_rules_reader</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/rewriting_rules_reader.hpp" line="58" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/rewriting_rules_reader.hpp" line="66" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/rewriting_rules_reader.hpp" line="78" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/rewriting_rules_reader.hpp" line="88" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/rewriting_rules_reader.hpp" line="98" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/rewriting_rules_reader.cpp" line="28" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/rewriting_rules_reader.cpp" line="47" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/rewriting_rules_reader.cpp" line="83" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/rewriting_rules_reader.cpp" line="124" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/rewriting_rules_reader.cpp" line="144" />
+</extent>
+<name>room_direction</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/room_direction.hpp" line="91" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/room_direction.cpp" line="64" />
+</extent>
+<name>space_measurement</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/space_measurement.hpp" line="86" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/space_measurement.cpp" line="64" />
+</extent>
+<name>space_symbol</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/space_symbol.hpp" line="78" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/space_symbol.cpp" line="66" />
+</extent>
+<name>surface_part</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/surface_part.hpp" line="68" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/ps/surface_part.cpp" line="39" />
+</extent>
+<name>turn_symbol</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/turn_symbol.hpp" line="85" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/turn_symbol.cpp" line="76" />
+</extent>
+<name>vibration_symbol</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/vibration_symbol.hpp" line="86" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/mv/vibration_symbol.cpp" line="75" />
+</extent>
+</client_module>
+<supplier_module>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

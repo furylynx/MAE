@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module shared_ptr-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="0" />
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="********" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<weighted_methods_per_class_unity value="0" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="5" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+</module_detail>
+<procedural_detail>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>shared_ptr</name>
+<client_module>
+<name>client</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="60" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="67" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="75" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="128" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="135" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="143" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="147" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="152" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="153" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="169" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="178" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="186" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="196" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="196" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/client.hpp" line="205" />
+</extent>
+<name>i_registration_manager</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/i_registration_manager.hpp" line="36" />
+</extent>
+<name>i_sequence_serializer</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/i_sequence_serializer.hpp" line="38" />
+</extent>
+<name>laban_serializer</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/fl/laban_serializer.hpp" line="43" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/fl/laban_serializer.cpp" line="25" />
+</extent>
+<name>server</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="79" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="87" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="94" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="106" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="115" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="133" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="140" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="146" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="150" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="151" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="153" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="175" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="183" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="191" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="200" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="211" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="211" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="221" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/eventing/server.hpp" line="233" />
+</extent>
+</client_module>
+<supplier_module>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>
