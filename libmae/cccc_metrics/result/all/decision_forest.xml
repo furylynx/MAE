@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module decision_forest-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="408" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="65" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="112" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="3.643" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.580" level="0" />
+<weighted_methods_per_class_unity value="15" level="0" />
+<weighted_methods_per_class_visibility value="3" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="5" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="36" />
+<lines_of_code value="14" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>add_rewriting_rule(shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="112" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="330" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>add_rewriting_rule(vector,shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="105" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="325" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>add_sequence(shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="76" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="63" />
+</extent>
+<lines_of_code value="64" level="1" />
+<McCabes_cyclomatic_complexity value="11" level="1" />
+<lines_of_comment value="15" level="0" />
+<lines_of_code_per_line_of_comment value="4.267" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.733" level="0" />
+</member_function>
+<member_function>
+<name>clear()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="97" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="319" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>decision_forest(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="50" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="11" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>decision_forest(vector,vector,int,int,e_time_unit,shared_ptr,shared_ptr)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="15" />
+</extent>
+<lines_of_code value="35" level="1" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>find_submatches(shared_ptr,vector)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="137" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="340" />
+</extent>
+<lines_of_code value="90" level="1" />
+<McCabes_cyclomatic_complexity value="17" level="1" />
+<lines_of_comment value="19" level="0" />
+<lines_of_code_per_line_of_comment value="4.737" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.895" level="0" />
+</member_function>
+<member_function>
+<name>get_sequences()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="128" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="335" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>recreate_sequence(shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="121" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="147" />
+</extent>
+<lines_of_code value="72" level="1" />
+<McCabes_cyclomatic_complexity value="11" level="1" />
+<lines_of_comment value="19" level="0" />
+<lines_of_code_per_line_of_comment value="3.789" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.579" level="0" />
+</member_function>
+<member_function>
+<name>remove_sequence(int)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="92" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="263" />
+</extent>
+<lines_of_code value="21" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="3.500" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.000" level="0" />
+</member_function>
+<member_function>
+<name>remove_sequence(shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="84" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="249" />
+</extent>
+<lines_of_code value="14" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>remove_sequence_p(shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="165" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="284" />
+</extent>
+<lines_of_code value="30" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="5.000" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.000" level="0" />
+</member_function>
+<member_function>
+<name>set_recognition_tolerance(double)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="67" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="55" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>str()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="145" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="454" />
+</extent>
+<lines_of_code value="26" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="5.200" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~decision_forest()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="59" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="51" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>decision_forest</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>e_time_unit</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="153" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="17" />
+</extent>
+<name>list</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="159" />
+</extent>
+<name>shared_ptr</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="76" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="84" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="105" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="112" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="121" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="138" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="155" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="156" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="165" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="17" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="18" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="63" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="147" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="249" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="284" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="325" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="330" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="341" />
+</extent>
+<name>unordered_map</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="158" />
+</extent>
+<name>vector</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="105" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="138" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="148" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.hpp" line="149" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="15" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="16" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="325" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/decision_forest.cpp" line="341" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

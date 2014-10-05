@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module general_skeleton-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="222" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="35" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="103" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="2.155" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.340" level="0" />
+<weighted_methods_per_class_unity value="18" level="0" />
+<weighted_methods_per_class_visibility value="1" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="1" level="0" />
+<coupling_between_objects value="5" level="0" />
+<IF4 value="16" level="0" />
+<IF4_per_member_function value="********" level="2" />
+<IF4_visible value="16" level="0" />
+<IF4_visible_per_member_function value="********" level="2" />
+<IF4_concrete value="9" level="0" />
+<IF4_concrete_per_member_function value="********" level="2" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="35" />
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>general_skeleton()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="13" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="42" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>general_skeleton(shared_ptr)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="26" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="49" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_hierarchy()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="72" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="73" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_joint(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="53" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="67" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_right_left()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="135" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="113" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_top_down()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="107" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="96" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_weight()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="145" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="127" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>operator &lt;&lt;(ostream &amp;,const general_skeleton &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="171" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>operator &lt;&lt;(ostream &amp;,const shared_ptr &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="157" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ply_file(string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="240" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="148" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>ply_str()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="183" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="140" />
+</extent>
+<lines_of_code value="47" level="1" />
+<McCabes_cyclomatic_complexity value="10" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="6.714" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.429" level="0" />
+</member_function>
+<member_function>
+<name>set_hierarchy(shared_ptr)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="77" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="79" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_joint(int,shared_ptr)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="37" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="59" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_right_left(shared_ptr)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="112" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="105" />
+</extent>
+<lines_of_code value="21" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="2.625" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.750" level="0" />
+</member_function>
+<member_function>
+<name>set_top_down(shared_ptr)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="82" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="88" />
+</extent>
+<lines_of_code value="22" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="2.750" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.750" level="0" />
+</member_function>
+<member_function>
+<name>set_weight(shared_ptr)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="140" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="120" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>str()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="150" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="134" />
+</extent>
+<lines_of_code value="28" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="5.600" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~general_skeleton()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="32" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="51" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>general_skeleton</name>
+<client_module>
+<name>fl_skeleton</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="../src/mae/fl/fl_skeleton.hpp" line="30" />
+</extent>
+</client_module>
+<supplier_module>
+<name>ostream</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="157" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="171" />
+</extent>
+<name>shared_ptr</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="26" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="37" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="77" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="82" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="112" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="140" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="49" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="59" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="79" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="88" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="105" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="120" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="157" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="180" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="182" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="183" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="185" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.cpp" line="240" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="148" />
+</extent>
+<name>unordered_map</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/general_skeleton.hpp" line="179" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

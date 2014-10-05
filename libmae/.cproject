@@ -7,6 +7,9 @@
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/Cpp_test-shared-lib"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/libmae"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/mae"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/mae/Debug"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="mae" srcPrefixMapping="" srcRootPath=""/>
 					</externalSetting>
 				</externalSettings>
 				<extensions>
@@ -97,8 +100,11 @@
 				<externalSettings>
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/Cpp_test-shared-lib"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/mae"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/Cpp_test-shared-lib/Release"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/mae/Release"/>
 						<entry flags="RESOLVED" kind="libraryFile" name="Cpp_test-shared-lib" srcPrefixMapping="" srcRootPath=""/>
+						<entry flags="RESOLVED" kind="libraryFile" name="mae" srcPrefixMapping="" srcRootPath=""/>
 					</externalSetting>
 				</externalSettings>
 				<extensions>

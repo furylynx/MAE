@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module e_fl_direction_c-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="145" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="154" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="31" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="4.677" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="4.968" level="0" />
+<weighted_methods_per_class_unity value="5" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="5" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="../src/mae/fl/e_fl_direction.hpp" line="87" />
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>dir(e_direction,e_level,bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/e_fl_direction.hpp" line="114" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/e_fl_direction.cpp" line="64" />
+</extent>
+<lines_of_code value="39" level="1" />
+<McCabes_cyclomatic_complexity value="114" level="2" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="4.875" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="14.250" level="2" />
+</member_function>
+<member_function>
+<name>parse(string)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/e_fl_direction.hpp" line="129" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/e_fl_direction.cpp" line="147" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>str(e_fl_direction)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/e_fl_direction.hpp" line="96" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/e_fl_direction.cpp" line="15" />
+</extent>
+<lines_of_code value="42" level="1" />
+<McCabes_cyclomatic_complexity value="35" level="2" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="7.000" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="5.833" level="1" />
+</member_function>
+<member_function>
+<name>to_int(e_fl_direction)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/e_fl_direction.hpp" line="104" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/e_fl_direction.cpp" line="59" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>vec()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/e_fl_direction.hpp" line="121" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/e_fl_direction.cpp" line="104" />
+</extent>
+<lines_of_code value="40" level="1" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="8.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>e_fl_direction_c</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>bool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.hpp" line="114" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.cpp" line="64" />
+</extent>
+<name>e_direction</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.hpp" line="114" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.cpp" line="64" />
+</extent>
+<name>e_fl_direction</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.hpp" line="96" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.hpp" line="104" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.cpp" line="15" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.cpp" line="59" />
+</extent>
+<name>e_level</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.hpp" line="114" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.cpp" line="64" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.hpp" line="129" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/e_fl_direction.cpp" line="147" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

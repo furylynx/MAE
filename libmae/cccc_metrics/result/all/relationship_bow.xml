@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module relationship_bow-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="148" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="22" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="89" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="1.663" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.247" level="0" />
+<weighted_methods_per_class_unity value="17" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="1" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="7" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="32" />
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>get_beat()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="113" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="90" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_column()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="100" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="80" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_duration()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="120" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="95" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_grasping()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="63" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="54" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_hold()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="77" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="64" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_left_endpoint()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="84" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="69" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_measure()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="106" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="85" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_passing()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="70" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="59" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_right_endpoint()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="91" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="74" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_type()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="56" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="49" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>operator &lt;&lt;(ostream &amp;,const relationship_bow &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="152" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>operator &lt;&lt;(ostream &amp;,const shared_ptr &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="158" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>recreate(unordered_map,int,double,double)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="142" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="156" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="9" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>relationship_bow(e_relationship_type,bool,bool,bool,int,double,shared_ptr,shared_ptr)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="47" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="17" />
+</extent>
+<lines_of_code value="24" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="12" level="0" />
+<lines_of_code_per_line_of_comment value="2.000" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>str()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="150" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="165" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>xml(int,string)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="131" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="101" />
+</extent>
+<lines_of_code value="33" level="1" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="12" level="0" />
+<lines_of_code_per_line_of_comment value="2.750" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~relationship_bow()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="48" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="45" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>relationship_bow</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>bool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="47" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="47" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="47" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="167" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="168" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="169" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="17" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="17" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="17" />
+</extent>
+<name>e_relationship_type</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="47" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="166" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="17" />
+</extent>
+<name>i_movement</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="32" />
+</extent>
+<name>ostream</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="152" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="158" />
+</extent>
+<name>shared_ptr</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="47" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="47" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="158" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="173" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="174" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="17" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="17" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="131" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="101" />
+</extent>
+<name>unordered_map</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.hpp" line="142" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/relationship_bow.cpp" line="156" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

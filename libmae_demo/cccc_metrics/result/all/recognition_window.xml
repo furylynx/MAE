@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module recognition_window-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="95" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="48" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="1.979" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.125" level="0" />
+<weighted_methods_per_class_unity value="8" level="0" />
+<weighted_methods_per_class_visibility value="4" level="0" />
+<depth_of_inheritance_tree value="1" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="8" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="37" />
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>cleanup()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="86" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="72" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>handle_event(SDL_Event &amp;)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="69" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="101" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>initialize()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="81" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="34" />
+</extent>
+<lines_of_code value="26" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="9" level="0" />
+<lines_of_code_per_line_of_comment value="2.889" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>on_recognition(long,vector)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="94" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="102" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="107" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="117" />
+</extent>
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="13" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>paint(SDL_Surface *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="62" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="81" />
+</extent>
+<lines_of_code value="17" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>recognition_window(...)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="52" />
+</extent>
+<lines_of_code value="3" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="11" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>recognition_window(string,int,int,int,int,Uint32)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="18" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~recognition_window()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="55" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="29" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>recognition_window</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>SDL_Event</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="69" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="101" />
+</extent>
+<name>SDL_Surface</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="62" />
+</extent>
+<extent>
+<description>has by reference</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="76" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="81" />
+</extent>
+<name>Uint32</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="19" />
+</extent>
+<name>i_recognition_listener</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="37" />
+</extent>
+<name>sdl_window</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>inheritance</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="37" />
+</extent>
+<name>shared_ptr</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="72" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="74" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="18" />
+</extent>
+<name>vector</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="94" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.hpp" line="102" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="107" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/demo/fl/recognition_window.cpp" line="117" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

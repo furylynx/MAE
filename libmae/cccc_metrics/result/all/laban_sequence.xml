@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module laban_sequence-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="408" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="61" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="226" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="1.805" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.270" level="0" />
+<weighted_methods_per_class_unity value="42" level="0" />
+<weighted_methods_per_class_visibility value="1" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="7" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="36" />
+<lines_of_code value="18" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>add_author(string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="52" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="79" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>add_column_definition(shared_ptr)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="132" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="188" />
+</extent>
+<lines_of_code value="14" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>add_movement(shared_ptr)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="217" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="239" />
+</extent>
+<lines_of_code value="50" level="1" />
+<McCabes_cyclomatic_complexity value="18" level="1" />
+<lines_of_comment value="11" level="0" />
+<lines_of_code_per_line_of_comment value="4.545" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.636" level="0" />
+</member_function>
+<member_function>
+<name>clear_column_definitions()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="164" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="208" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>clear_movements()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="296" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="259" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>default_beat_duration()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="424" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="316" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>default_beats_per_measure()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="430" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="323" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>default_columns()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="440" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="338" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>default_time_unit()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="435" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="330" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_authors()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="57" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="86" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_beat_duration()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="107" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="159" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_beats()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="117" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="173" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_column_definition(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="152" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="203" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_column_definitions()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="147" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="195" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_column_movements(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="279" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="247" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_columns()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="175" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="215" />
+</extent>
+<lines_of_code value="22" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="3.667" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_description()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="77" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="114" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_last_movement()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="291" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="254" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_measures()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="87" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="130" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_movements()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="212" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="229" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_time_unit()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="97" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="143" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_title()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="67" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="100" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_version()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="42" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="65" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>laban_sequence()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="17" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="45" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>laban_sequence(string,string,int,e_time_unit,int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="23" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="57" />
+</extent>
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="10" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>operator &lt;&lt;(ostream &amp;,const laban_sequence &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="298" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>operator &lt;&lt;(ostream &amp;,const shared_ptr &amp;)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="304" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_authors(vector)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="47" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="72" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_beat_duration(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="102" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="151" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_beats(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="112" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="166" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_column_definitions(vector)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="122" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="180" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_description(string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="72" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="107" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_measures(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="82" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="122" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_movements(vector)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="202" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="222" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_time_unit(e_time_unit)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="92" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="137" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>set_title(string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="62" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="93" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>str()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="419" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="295" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>xml(bool,int,string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="304" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="266" />
+</extent>
+<lines_of_code value="63" level="1" />
+<McCabes_cyclomatic_complexity value="8" level="0" />
+<lines_of_comment value="15" level="0" />
+<lines_of_code_per_line_of_comment value="4.200" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.533" level="0" />
+</member_function>
+<member_function>
+<name>xml_namespace_header(string)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="394" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="274" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>xml_namespace_uri()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="414" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="288" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>xml_schema_location()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="409" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="281" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~laban_sequence()</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="37" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="58" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>laban_sequence</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>bool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="304" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="266" />
+</extent>
+<name>e_time_unit</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="24" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="92" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="57" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="137" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="350" />
+</extent>
+<name>ostream</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="298" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="304" />
+</extent>
+<name>shared_ptr</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="132" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="217" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="188" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="239" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="304" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="362" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="23" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="23" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="52" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="62" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="72" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="304" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="394" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="57" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="57" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="79" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="93" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="107" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="266" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="274" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="344" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="346" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="347" />
+</extent>
+<name>unordered_map</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="354" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="357" />
+</extent>
+<name>vector</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="47" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="122" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.cpp" line="202" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="72" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="180" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="222" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="345" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="355" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="358" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/fl/laban/laban_sequence.hpp" line="360" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>
