@@ -7,6 +7,7 @@
  * ----------------------------------------------------------------------------- */
 
 
+
 public class general_joint {
   private long swigCPtr;
   private boolean swigCMemOwn;

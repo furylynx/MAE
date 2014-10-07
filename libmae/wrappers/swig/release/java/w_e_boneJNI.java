@@ -7,6 +7,7 @@
  * ----------------------------------------------------------------------------- */
 
 
+
 public class w_e_boneJNI {
   public final static native long new_int_vector__SWIG_0();
   public final static native long new_int_vector__SWIG_1(long jarg1);

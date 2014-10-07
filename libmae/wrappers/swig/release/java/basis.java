@@ -7,6 +7,7 @@
  * ----------------------------------------------------------------------------- */
 
 
+
 public class basis {
   private long swigCPtr;
   protected boolean swigCMemOwn;
