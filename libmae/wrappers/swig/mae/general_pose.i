@@ -3,6 +3,7 @@
 //custom includes
  
 //global includes
+%include "stl.i"
 %include "std_shared_ptr.i"
 %include "std_list.i"
 %include "std_unordered_map.i"

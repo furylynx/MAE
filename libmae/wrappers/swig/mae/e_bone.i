@@ -1,12 +1,12 @@
  // e_bone.i - SWIG interface
 
 //custom includes
-%template(vector_e_bone) vector<e_bone>;
+
 
 //global includes
 %include "std_string.i"
 %include "std_vector.i"
-%include "except.i"
+%include "exception.i"
 
 
 %module w_e_bone
