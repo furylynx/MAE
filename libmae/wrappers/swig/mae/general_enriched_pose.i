@@ -5,6 +5,7 @@
 %include "general_pose.i"
  
 //global includes
+%include "stl.i"
 %include "std_shared_ptr.i"
 %include "std_unordered_map.i"
 %include "exception.i"

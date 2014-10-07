@@ -5,6 +5,7 @@
 %include "general_enriched_pose.i"
  
 //global includes
+%include "stl.i"
 %include "std_shared_ptr.i"
 %include "std_vector.i"
 %include "std_list.i"

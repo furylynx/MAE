@@ -6,7 +6,7 @@
 //global includes
 %include "std_string.i"
 %include "std_vector.i"
-%include "except.i"
+%include "exception.i"
 
 
 %module w_bone

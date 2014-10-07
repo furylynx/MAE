@@ -15,7 +15,7 @@
 //global includes
 %include "std_shared_ptr.i"
 %include "std_vector.i"
-%include "except.i"
+%include "exception.i"
 
 
 %module w_movement_controller
