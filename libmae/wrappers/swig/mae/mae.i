@@ -1,3 +1,6 @@
  // mae.i - SWIG interface
 
-%include "movement_controller.i"
+%include "fl/fl_movement_controller.i"
+
+//TODO laban_reader to parse from string...
+//TODO bvh_controller to read from bvh file for testing??

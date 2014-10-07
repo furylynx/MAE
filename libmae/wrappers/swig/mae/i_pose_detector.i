@@ -1,19 +1,26 @@
 // i_pose_detector.i - SWIG interface
  
-%include "shared_ptr.i"
+//custom includes
+%include "general_pose.i"
+%include "bone.i"
+ 
+//global includes
+%include "std_shared_ptr.i"
 %include "std_vector.i"
-#include "exception.i"
+%include "exception.i"
 
-#include "general_pose.i"
-#include "bone.i"
+ 
+%module w_i_pose_detector
+%{
+	#include "../../../src/mae/i_pose_detector.hpp"
+%}
+ 
+//shared_ptr
+%shared_ptr(general_pose)
+//TODO shared_ptr skeleton template
 
-%template (bone_vector) vector<bone>;
-%template (general_pose_vector) shared_ptr<general_pose>;
- 
- %module i_pose_detector
- %{
- #include "../../../src/mae/i_pose_detector.hpp"
- %}
- 
- // Parse the original header file
- %include "../../../src/mae/i_pose_detector.hpp"
+//templates
+%template (bone_vector) std::vector<bone>;
+
+// Parse the original header file
+%include "../../../src/mae/i_pose_detector.hpp"
