@@ -7,6 +7,7 @@
  * ----------------------------------------------------------------------------- */
 
 
+
 public class hierarchy_element_vector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
