@@ -306,8 +306,8 @@ namespace mae
 		std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> bvh_controller::read_bvh_str(
 				std::string bvh_str, std::shared_ptr<bvh_spec> spec)
 		{
-			std::unordered_map<std::string, int> joint_str;
-			std::unordered_map<std::string, bool> joint_torso;
+			std::map<std::string, int> joint_str;
+			std::map<std::string, bool> joint_torso;
 
 			joint_str = spec->get_id_map();
 			joint_torso = spec->get_torso_map();
@@ -832,8 +832,8 @@ namespace mae
 		std::shared_ptr<hierarchy_element> bvh_controller::generate_hierarchy_element(std::shared_ptr<bvh_spec> spec,
 				int element_count, std::string element_name, bool is_dummy)
 		{
-			std::unordered_map<std::string, int> joint_str;
-			std::unordered_map<std::string, bool> joint_torso;
+			std::map<std::string, int> joint_str;
+			std::map<std::string, bool> joint_torso;
 
 			if (spec != nullptr)
 			{

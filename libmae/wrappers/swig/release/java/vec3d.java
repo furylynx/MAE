@@ -7,7 +7,6 @@
  * ----------------------------------------------------------------------------- */
 
 
-
 public class vec3d {
   private long swigCPtr;
   protected boolean swigCMemOwn;

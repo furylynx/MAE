@@ -7,7 +7,6 @@
  * ----------------------------------------------------------------------------- */
 
 
-
 public class w_e_boneJNI {
   public final static native long new_int_vector__SWIG_0();
   public final static native long new_int_vector__SWIG_1(long jarg1);
@@ -187,8 +186,8 @@ public class w_e_boneJNI {
   public final static native void general_joint_set_rotation(long jarg1, general_joint jarg1_, double jarg2);
   public final static native double general_joint_get_rotation(long jarg1, general_joint jarg1_);
   public final static native long general_joint_vec(long jarg1, general_joint jarg1_);
-  public final static native boolean general_joint_equals__SWIG_0(long jarg1, general_joint jarg1_, long jarg2, general_joint jarg2_);
-  public final static native boolean general_joint_equals__SWIG_1(long jarg1, general_joint jarg1_, long jarg2, general_joint jarg2_);
+  public final static native boolean general_joint_equals_val(long jarg1, general_joint jarg1_, long jarg2, general_joint jarg2_);
+  public final static native boolean general_joint_equals(long jarg1, general_joint jarg1_, long jarg2, general_joint jarg2_);
   public final static native String general_joint_str(long jarg1, general_joint jarg1_);
   public final static native long new_basis__SWIG_0();
   public final static native long new_basis__SWIG_1(long jarg1, vec3d jarg1_, long jarg2, vec3d jarg2_, long jarg3, vec3d jarg3_, long jarg4, vec3d jarg4_);

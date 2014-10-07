@@ -7,7 +7,6 @@
  * ----------------------------------------------------------------------------- */
 
 
-
 public class bone {
   private long swigCPtr;
   protected boolean swigCMemOwn;

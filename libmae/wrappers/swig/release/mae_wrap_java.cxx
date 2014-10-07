@@ -3441,7 +3441,7 @@ SWIGEXPORT jlong JNICALL Java_w_1e_1boneJNI_general_1joint_1vec(JNIEnv *jenv, jc
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_w_1e_1boneJNI_general_1joint_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_w_1e_1boneJNI_general_1joint_1equals_1val(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   mae::general_joint arg2 ;
@@ -3463,13 +3463,13 @@ SWIGEXPORT jboolean JNICALL Java_w_1e_1boneJNI_general_1joint_1equals_1_1SWIG_10
     return 0;
   }
   arg2 = *argp2; 
-  result = (bool)((mae::general_joint const *)arg1)->equals(arg2);
+  result = (bool)((mae::general_joint const *)arg1)->equals_val(arg2);
   jresult = (jboolean)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_w_1e_1boneJNI_general_1joint_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_w_1e_1boneJNI_general_1joint_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   std::shared_ptr< mae::general_joint > arg2 ;

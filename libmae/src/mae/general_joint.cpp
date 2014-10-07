@@ -107,14 +107,14 @@ namespace mae
 		return std::shared_ptr<vec3d>(new vec3d(x_, y_, z_));
 	}
 
-	bool general_joint::equals(general_joint joint) const
+	bool general_joint::equals_val(general_joint joint) const
 	{
 		return x_ == joint.get_x() && y_ == joint.get_y() && z_ == joint.get_z() && valid_ == joint.is_valid() && confidence_ == joint.get_confidence();
 	}
 
 	bool general_joint::equals(std::shared_ptr<general_joint> joint) const
 	{
-		return equals(*joint);
+		return equals_val(*joint);
 	}
 
 	std::string general_joint::str() const
