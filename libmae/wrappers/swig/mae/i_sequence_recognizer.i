@@ -1,17 +1,25 @@
 // i_sequence_recognizer.i - SWIG interface
- 
-%include "shared_ptr.i"
+
+//custom includes
+%include "bone.i"
+
+//global includes
+%include "std_shared_ptr.i"
 %include "std_vector.i"
-#include "exception.i"
+%include "exception.i"
 
-#include "bone.i"
 
-%template (bone_vector) vector<bone>;
- 
- %module i_sequence_recognizer
- %{
- #include "../../../src/mae/i_sequence_recognizer.hpp"
- %}
- 
- // Parse the original header file
- %include "../../../src/mae/i_sequence_recognizer.hpp"
+%module w_i_sequence_recognizer
+%{
+	#include "../../../src/mae/i_sequence_recognizer.hpp"
+%}
+
+//shared_ptr
+//TODO sequence template arg
+
+//templates
+%template (bone_vector) std::vector<bone>;
+//TODO vector of sequences template arg
+
+// Parse the original header file
+%include "../../../src/mae/i_sequence_recognizer.hpp"
