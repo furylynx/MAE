@@ -90,7 +90,7 @@ namespace mae
 
 			}
 
-			std::shared_ptr<i_movement> path::recreate(std::unordered_map<int, int> column_mapping, unsigned int measure, double beat, double duration) const
+			std::shared_ptr<i_movement> path::recreate(std::map<int, int> column_mapping, unsigned int measure, double beat, double duration) const
 			{
 				std::shared_ptr<i_movement> result;
 

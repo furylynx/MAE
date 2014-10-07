@@ -20,7 +20,7 @@
 #include <stdexcept>
 #include <string>
 #include <sstream>
-#include <unordered_map>
+#include <map>
 
 namespace mae
 {
@@ -89,7 +89,7 @@ namespace mae
 						 * @param column_mapping
 						 * @return The new endpoint.
 						 */
-						virtual std::shared_ptr<relationship_endpoint> recreate(std::unordered_map<int, int> column_mapping) const;
+						virtual std::shared_ptr<relationship_endpoint> recreate(std::map<int, int> column_mapping) const;
 
 						/**
 						 * Returns true if elements are equal.

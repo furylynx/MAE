@@ -37,15 +37,6 @@ namespace mae
 			 */
 			general_enriched_pose(std::shared_ptr<general_pose> pose);
 
-			/**
-			 * Creates an enriched pose with values already set.
-			 *
-			 * @param hashmap_keypose All values for key poses.
-			 * @param hashmap_inmotion All values for motion starts.
-			 */
-			general_enriched_pose(std::unordered_map<int, bool> hashmap_keypose,
-					std::unordered_map<int, bool> hashmap_inmotion);
-
 			virtual ~general_enriched_pose();
 
 			/**

@@ -139,7 +139,7 @@ namespace mae
 					 * @param duration The new duration.
 					 * @return The new, recreated movement.
 					 */
-					virtual std::shared_ptr<i_movement> recreate(std::unordered_map<int, int> column_mapping, unsigned int measure, double beat, double duration) const;
+					virtual std::shared_ptr<i_movement> recreate(std::map<int, int> column_mapping, unsigned int measure, double beat, double duration) const;
 
 
 					/**

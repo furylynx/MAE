@@ -6,7 +6,6 @@
 %include "stl.i"
 %include "std_shared_ptr.i"
 %include "std_list.i"
-%include "std_unordered_map.i"
 %include "exception.i"
 
 
@@ -16,11 +15,10 @@
 %}
 
 //shared_ptr
+%shared_ptr(mae::general_pose);
 
 //templates
 %template (int_list) std::list<int>;
-%template (int_int_double_map) std::unordered_map<int, unordered_map<int, double> >;
-%template (int_int_map) std::unordered_map<int, int>;
  
  // Parse the original header file
  %include "../../../src/mae/general_pose.hpp"

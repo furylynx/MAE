@@ -16,7 +16,7 @@
 #include "../mstr.hpp"
 
 //global includes
-#include <unordered_map>
+#include <map>
 #include <string>
 #include <memory>
 
@@ -48,7 +48,7 @@ namespace mae
 				 * @param string_id_map
 				 * @param string_torso_map
 				 */
-				bvh_spec(std::string left_anchor, std::string right_anchor, std::string top_anchor, std::string bottom_anchor, std::unordered_map<std::string, int> string_id_map, std::unordered_map<std::string, bool> string_torso_map);
+				bvh_spec(std::string left_anchor, std::string right_anchor, std::string top_anchor, std::string bottom_anchor, std::map<std::string, int> string_id_map, std::map<std::string, bool> string_torso_map);
 				virtual ~bvh_spec();
 
 				/**
@@ -56,14 +56,14 @@ namespace mae
 				 *
 				 * @return The string to id map.
 				 */
-				virtual std::unordered_map<std::string, int> get_id_map() const;
+				virtual std::map<std::string, int> get_id_map() const;
 
 				/**
 				 * Returns the string to torso joint map.
 				 *
 				 * @return
 				 */
-				virtual std::unordered_map<std::string, bool> get_torso_map() const;
+				virtual std::map<std::string, bool> get_torso_map() const;
 
 				/**
 				 * Returns the anchor's joint name.
@@ -101,8 +101,8 @@ namespace mae
 				static std::shared_ptr<bvh_spec> default_spec();
 
 			private:
-				std::unordered_map<std::string, int> string_id_map_;
-				std::unordered_map<std::string, bool> string_torso_map_;
+				std::map<std::string, int> string_id_map_;
+				std::map<std::string, bool> string_torso_map_;
 
 				std::string left_anchor_;
 				std::string right_anchor_;

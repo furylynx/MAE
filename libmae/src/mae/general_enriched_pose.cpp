@@ -18,17 +18,21 @@ namespace mae
 	}
 
 	general_enriched_pose::general_enriched_pose(std::shared_ptr<general_pose> pose)
-			: general_pose(pose->get_directions(), pose->get_distances())
+			: general_pose()
 	{
-		this->hashmap_keypose_ = std::unordered_map<int, bool>();
-		this->hashmap_inmotion_ = std::unordered_map<int, bool>();
-	}
+		//fill hashmaps with pose's data
+		std::list<int> body_parts = pose->get_body_parts();
+		std::list<int> directions = pose->get_directions();
+		for (std::list<int>::iterator bp_it = body_parts.begin(); bp_it != body_parts.end(); bp_it++)
+		{
+			set_direction(*bp_it, pose->get_direction(*bp_it));
+			set_rotation(*bp_it, pose->get_rotation(*bp_it));
 
-	general_enriched_pose::general_enriched_pose(std::unordered_map<int, bool> hashmap_keypose,
-			std::unordered_map<int, bool> hashmap_inmotion)
-	{
-		this->hashmap_keypose_ = hashmap_keypose;
-		this->hashmap_inmotion_ = hashmap_inmotion;
+			for (std::list<int>::iterator d_it = directions.begin(); d_it != directions.end(); d_it++)
+			{
+				set_distance(*bp_it, *d_it, pose->get_distance(*bp_it, *d_it));
+			}
+		}
 	}
 
 	general_enriched_pose::~general_enriched_pose()

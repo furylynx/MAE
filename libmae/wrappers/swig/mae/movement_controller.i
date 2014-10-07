@@ -24,13 +24,13 @@
 %}
 
 //shared_ptr
-%shared_ptr(i_pose_listener)
+%shared_ptr(mae::i_pose_listener)
 //TODO interfaces with template args
 //TODO skeleton template arg
 //TODO sequence template arg
 
 //templates
-%template (bone_vector) std::vector<bone>;
+%template (bone_vector) std::vector<mae::bone>;
 //TODO 
  
 // Parse the original header file

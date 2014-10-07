@@ -32,16 +32,6 @@ namespace mae
 			 */
 			general_pose();
 
-			/**
-			 * Creates a new pose from the given hashmaps.
-			 *
-			 * @param hashmap_direction
-			 * @param hashmap_distance
-			 */
-			general_pose(std::unordered_map<int, int> hashmap_direction,
-					std::unordered_map<int, std::unordered_map<int, double> > hashmap_distance);
-
-
 			virtual ~general_pose();
 
 			/**
@@ -65,13 +55,6 @@ namespace mae
 			 * @return The direction code.
 			 */
 			virtual int get_direction(int body_part) const;
-
-			/**
-			 * Returns the hashmap that contains all body part to direction assignments.
-			 *
-			 * @return
-			 */
-			virtual std::unordered_map<int, int> get_directions() const;
 
 			/**
 			 * Sets the distance of a body part to a certain direction. These distances can be used
@@ -99,13 +82,6 @@ namespace mae
 			virtual double get_distance(int body_part, int direction) const;
 
 			/**
-			 * Returns the hashmap that contains all distance information for the body parts and directions.
-			 *
-			 * @return
-			 */
-			virtual std::unordered_map<int, std::unordered_map<int, double> > get_distances() const;
-
-			/**
 			 * Sets the rotation of the body part in the specific pose.
 			 *
 			 * @param body_part The body part.
@@ -128,6 +104,13 @@ namespace mae
 			 */
 			virtual std::list<int> get_body_parts() const;
 
+			/**
+			 * Returns all directions that have a distance assigned.
+			 *
+			 * @return All directions.
+			 */
+			virtual std::list<int> get_directions() const;
+
 		private:
 			std::unordered_map<int, int> hashmap_direction_;
 			std::unordered_map<int, std::unordered_map<int, double> > hashmap_distance_;
@@ -135,6 +118,9 @@ namespace mae
 			std::unordered_map<int, double> hashmap_rotation_;
 
 			std::list<int> body_parts_;
+
+			std::unordered_map<int, int> hashmap_directions_;
+			std::list<int> directions_;
 
 	};
 

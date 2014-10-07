@@ -7,32 +7,41 @@
 
 #include "bone.hpp"
 
-
 namespace mae
 {
 
 	std::vector<bone> bone::default_bones_ = std::vector<bone>();
 
+	bone::bone()
+	{
+		id_ = -1;
+		name_ = "";
+		from_ = -1;
+		to_ = -1;
+		middle_joint_ = -1;
+		middle_ = false;
+	}
+
 	bone::bone(int id, std::string name, int from, int to)
 	{
-		this->id_ = id;
-		this->name_ = name;
-		this->from_ = from;
-		this->to_ = to;
+		id_ = id;
+		name_ = name;
+		from_ = from;
+		to_ = to;
 
-		this->middle_joint_ = 0;
-		this->middle_ = false;
+		middle_joint_ = 0;
+		middle_ = false;
 	}
 
 	bone::bone(int id, std::string name, int from, int to, int middle_joint)
 	{
-		this->id_ = id;
-		this->name_ = name;
-		this->from_ = from;
-		this->to_ = to;
+		id_ = id;
+		name_ = name;
+		from_ = from;
+		to_ = to;
 
-		this->middle_joint_ = middle_joint;
-		this->middle_ = true;
+		middle_joint_ = middle_joint;
+		middle_ = true;
 	}
 
 	bone::~bone()
@@ -79,23 +88,53 @@ namespace mae
 		{
 			std::vector<bone> result;
 
-			result.push_back(bone(e_bone_c::to_int(e_bone::LEFT_UPPER_ARM), 	e_bone_c::str(e_bone::LEFT_UPPER_ARM), 	e_joint_c::to_int(e_joint::LEFT_SHOULDER), 		e_joint_c::to_int(e_joint::LEFT_ELBOW)));
-			result.push_back(bone(e_bone_c::to_int(e_bone::LEFT_FOREARM), 		e_bone_c::str(e_bone::LEFT_FOREARM), 	e_joint_c::to_int(e_joint::LEFT_ELBOW), 		e_joint_c::to_int(e_joint::LEFT_HAND)));
-			result.push_back(bone(e_bone_c::to_int(e_bone::LEFT_WHOLE_ARM), 	e_bone_c::str(e_bone::LEFT_WHOLE_ARM), 	e_joint_c::to_int(e_joint::LEFT_SHOULDER), 		e_joint_c::to_int(e_joint::LEFT_HAND), e_joint_c::to_int(e_joint::LEFT_ELBOW)));
+			result.push_back(
+					bone(e_bone_c::to_int(e_bone::LEFT_UPPER_ARM), e_bone_c::str(e_bone::LEFT_UPPER_ARM),
+							e_joint_c::to_int(e_joint::LEFT_SHOULDER), e_joint_c::to_int(e_joint::LEFT_ELBOW)));
+			result.push_back(
+					bone(e_bone_c::to_int(e_bone::LEFT_FOREARM), e_bone_c::str(e_bone::LEFT_FOREARM),
+							e_joint_c::to_int(e_joint::LEFT_ELBOW), e_joint_c::to_int(e_joint::LEFT_HAND)));
+			result.push_back(
+					bone(e_bone_c::to_int(e_bone::LEFT_WHOLE_ARM), e_bone_c::str(e_bone::LEFT_WHOLE_ARM),
+							e_joint_c::to_int(e_joint::LEFT_SHOULDER), e_joint_c::to_int(e_joint::LEFT_HAND),
+							e_joint_c::to_int(e_joint::LEFT_ELBOW)));
 
-			result.push_back(bone(e_bone_c::to_int(e_bone::RIGHT_UPPER_ARM),	e_bone_c::str(e_bone::RIGHT_UPPER_ARM), e_joint_c::to_int(e_joint::RIGHT_SHOULDER), 	e_joint_c::to_int(e_joint::RIGHT_ELBOW)));
-			result.push_back(bone(e_bone_c::to_int(e_bone::RIGHT_FOREARM), 		e_bone_c::str(e_bone::RIGHT_FOREARM), 	e_joint_c::to_int(e_joint::RIGHT_ELBOW), 		e_joint_c::to_int(e_joint::RIGHT_HAND)));
-			result.push_back(bone(e_bone_c::to_int(e_bone::RIGHT_WHOLE_ARM), 	e_bone_c::str(e_bone::RIGHT_WHOLE_ARM), e_joint_c::to_int(e_joint::RIGHT_SHOULDER), 	e_joint_c::to_int(e_joint::RIGHT_HAND), e_joint_c::to_int(e_joint::RIGHT_ELBOW)));
+			result.push_back(
+					bone(e_bone_c::to_int(e_bone::RIGHT_UPPER_ARM), e_bone_c::str(e_bone::RIGHT_UPPER_ARM),
+							e_joint_c::to_int(e_joint::RIGHT_SHOULDER), e_joint_c::to_int(e_joint::RIGHT_ELBOW)));
+			result.push_back(
+					bone(e_bone_c::to_int(e_bone::RIGHT_FOREARM), e_bone_c::str(e_bone::RIGHT_FOREARM),
+							e_joint_c::to_int(e_joint::RIGHT_ELBOW), e_joint_c::to_int(e_joint::RIGHT_HAND)));
+			result.push_back(
+					bone(e_bone_c::to_int(e_bone::RIGHT_WHOLE_ARM), e_bone_c::str(e_bone::RIGHT_WHOLE_ARM),
+							e_joint_c::to_int(e_joint::RIGHT_SHOULDER), e_joint_c::to_int(e_joint::RIGHT_HAND),
+							e_joint_c::to_int(e_joint::RIGHT_ELBOW)));
 
-			result.push_back(bone(e_bone_c::to_int(e_bone::LEFT_THIGH), 		e_bone_c::str(e_bone::LEFT_THIGH), 		e_joint_c::to_int(e_joint::LEFT_HIP), 			e_joint_c::to_int(e_joint::LEFT_KNEE)));
-			result.push_back(bone(e_bone_c::to_int(e_bone::LEFT_SHANK), 		e_bone_c::str(e_bone::LEFT_SHANK), 		e_joint_c::to_int(e_joint::LEFT_KNEE), 			e_joint_c::to_int(e_joint::LEFT_FOOT)));
-			result.push_back(bone(e_bone_c::to_int(e_bone::LEFT_WHOLE_LEG), 	e_bone_c::str(e_bone::LEFT_WHOLE_LEG), 	e_joint_c::to_int(e_joint::LEFT_HIP), 			e_joint_c::to_int(e_joint::LEFT_FOOT), e_joint_c::to_int(e_joint::LEFT_KNEE)));
+			result.push_back(
+					bone(e_bone_c::to_int(e_bone::LEFT_THIGH), e_bone_c::str(e_bone::LEFT_THIGH),
+							e_joint_c::to_int(e_joint::LEFT_HIP), e_joint_c::to_int(e_joint::LEFT_KNEE)));
+			result.push_back(
+					bone(e_bone_c::to_int(e_bone::LEFT_SHANK), e_bone_c::str(e_bone::LEFT_SHANK),
+							e_joint_c::to_int(e_joint::LEFT_KNEE), e_joint_c::to_int(e_joint::LEFT_FOOT)));
+			result.push_back(
+					bone(e_bone_c::to_int(e_bone::LEFT_WHOLE_LEG), e_bone_c::str(e_bone::LEFT_WHOLE_LEG),
+							e_joint_c::to_int(e_joint::LEFT_HIP), e_joint_c::to_int(e_joint::LEFT_FOOT),
+							e_joint_c::to_int(e_joint::LEFT_KNEE)));
 
-			result.push_back(bone(e_bone_c::to_int(e_bone::RIGHT_THIGH), 		e_bone_c::str(e_bone::RIGHT_THIGH), 	e_joint_c::to_int(e_joint::RIGHT_HIP), 			e_joint_c::to_int(e_joint::RIGHT_KNEE)));
-			result.push_back(bone(e_bone_c::to_int(e_bone::RIGHT_SHANK), 		e_bone_c::str(e_bone::RIGHT_SHANK), 	e_joint_c::to_int(e_joint::RIGHT_KNEE), 		e_joint_c::to_int(e_joint::RIGHT_FOOT)));
-			result.push_back(bone(e_bone_c::to_int(e_bone::RIGHT_WHOLE_LEG), 	e_bone_c::str(e_bone::RIGHT_WHOLE_LEG), e_joint_c::to_int(e_joint::RIGHT_HIP), 			e_joint_c::to_int(e_joint::RIGHT_FOOT), e_joint_c::to_int(e_joint::RIGHT_KNEE)));
+			result.push_back(
+					bone(e_bone_c::to_int(e_bone::RIGHT_THIGH), e_bone_c::str(e_bone::RIGHT_THIGH),
+							e_joint_c::to_int(e_joint::RIGHT_HIP), e_joint_c::to_int(e_joint::RIGHT_KNEE)));
+			result.push_back(
+					bone(e_bone_c::to_int(e_bone::RIGHT_SHANK), e_bone_c::str(e_bone::RIGHT_SHANK),
+							e_joint_c::to_int(e_joint::RIGHT_KNEE), e_joint_c::to_int(e_joint::RIGHT_FOOT)));
+			result.push_back(
+					bone(e_bone_c::to_int(e_bone::RIGHT_WHOLE_LEG), e_bone_c::str(e_bone::RIGHT_WHOLE_LEG),
+							e_joint_c::to_int(e_joint::RIGHT_HIP), e_joint_c::to_int(e_joint::RIGHT_FOOT),
+							e_joint_c::to_int(e_joint::RIGHT_KNEE)));
 
-			result.push_back(bone(e_bone_c::to_int(e_bone::HEAD), 				e_bone_c::str(e_bone::HEAD), 			e_joint_c::to_int(e_joint::NECK), 				e_joint_c::to_int(e_joint::HEAD)));
+			result.push_back(
+					bone(e_bone_c::to_int(e_bone::HEAD), e_bone_c::str(e_bone::HEAD), e_joint_c::to_int(e_joint::NECK),
+							e_joint_c::to_int(e_joint::HEAD)));
 
 			default_bones_ = result;
 			return result;
