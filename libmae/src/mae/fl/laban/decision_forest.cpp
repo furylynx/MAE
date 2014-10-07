@@ -152,8 +152,8 @@ namespace mae
 				std::vector<std::shared_ptr<column_definition> > col_defs = sequence->get_column_definitions();
 
 				//mapping for forest's definitions to the given sequence's definitions
-				std::unordered_map<int, int> column_mapping;
-				column_mapping.reserve(col_defs.size());
+				std::map<int, int> column_mapping;
+				//column_mapping.reserve(col_defs.size());
 
 				for (unsigned int i = 0; i < col_defs.size(); i++)
 				{

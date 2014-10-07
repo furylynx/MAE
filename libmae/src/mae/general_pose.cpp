@@ -11,21 +11,10 @@ namespace mae
 {
 		general_pose::general_pose()
 		{
-			this->hashmap_direction_ = std::unordered_map<int, int>();
-			this->hashmap_distance_ = std::unordered_map<int, std::unordered_map<int, double> >();
-		}
-
-		general_pose::general_pose(std::unordered_map<int, int> hashmap_direction,
-				std::unordered_map<int, std::unordered_map<int, double> > hashmap_distance)
-		{
-			this->hashmap_direction_ = hashmap_direction;
-			this->hashmap_distance_ = hashmap_distance;
 		}
 
 		general_pose::~general_pose()
 		{
-			hashmap_direction_.clear();
-			hashmap_distance_.clear();
 		}
 
 		void general_pose::set_direction(int body_part, int direction)
@@ -60,13 +49,14 @@ namespace mae
 
 		}
 
-		std::unordered_map<int, int> general_pose::get_directions() const
-		{
-			return hashmap_direction_;
-		}
-
 		void general_pose::set_distance(int body_part, int direction, double distance)
 		{
+			if (hashmap_directions_.find(direction) == hashmap_directions_.end())
+			{
+				hashmap_directions_.insert(std::make_pair(direction, 0));
+				directions_.push_back(direction);
+			}
+
 			if (hashmap_distance_.find(body_part) == hashmap_distance_.end())
 			{
 				//key is not in map
@@ -119,11 +109,6 @@ namespace mae
 			}
 		}
 
-		std::unordered_map<int, std::unordered_map<int, double> > general_pose::get_distances() const
-		{
-			return hashmap_distance_;
-		}
-
 		void general_pose::set_rotation(int body_part, double rotation)
 		{
 			hashmap_rotation_[body_part] = rotation;
@@ -144,6 +129,11 @@ namespace mae
 		std::list<int> general_pose::get_body_parts() const
 		{
 			return body_parts_;
+		}
+
+		std::list<int> general_pose::get_directions() const
+		{
+			return directions_;
 		}
 
 } // namespace mae

@@ -26,6 +26,11 @@ namespace mae
 	{
 		public:
 			/**
+			 * Creates a new basis with no vectors set.
+			 */
+			basis();
+
+			/**
 			 * Creates a new coordinate basis.
 			 *
 			 * @param position_vector The position vector of the basis.

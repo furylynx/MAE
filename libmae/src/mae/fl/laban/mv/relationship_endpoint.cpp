@@ -83,7 +83,7 @@ namespace mae
 					return sstr.str();
 				}
 
-				std::shared_ptr<relationship_endpoint> relationship_endpoint::recreate(std::unordered_map<int, int> column_mapping) const
+				std::shared_ptr<relationship_endpoint> relationship_endpoint::recreate(std::map<int, int> column_mapping) const
 				{
 					std::shared_ptr<relationship_endpoint> result;
 

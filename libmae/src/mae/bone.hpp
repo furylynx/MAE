@@ -28,6 +28,11 @@ namespace mae
 	{
 		public:
 			/**
+			 * Creates a new empty bone with no information.
+			 */
+			bone();
+
+			/**
 			 * Creates a bone with an id and a name. A bone should typically be defined
 			 * pointing away from the root or parent.
 			 *

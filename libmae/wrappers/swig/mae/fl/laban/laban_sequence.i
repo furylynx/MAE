@@ -20,13 +20,13 @@
 %}
 
 //shared_ptr
-%shared_ptr(column_definition);
-%shared_ptr(i_movement);
+%shared_ptr(mae::fl::laban::column_definition);
+%shared_ptr(mae::fl::laban::i_movement);
 
 //templates
 %template (string_vector) std::vector<std::string>;
-%template (coldef_vector) std::vector<std::shared_ptr<column_definition> >;
-%template (i_mov_vector) std::vector<std::shared_ptr<i_movement> >
+%template (coldef_vector) std::vector<std::shared_ptr<mae::fl::laban::column_definition> >;
+%template (i_mov_vector) std::vector<std::shared_ptr<mae::fl::laban::i_movement> >;
 %template (int_vector) std::vector<int>;
 
 

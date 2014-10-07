@@ -53,6 +53,8 @@
 									<listOptionValue builtIn="false" value="/usr/lib/x86_64-linux-gnu/glib-2.0/include"/>
 									<listOptionValue builtIn="false" value="/usr/include/libxml++-2.6"/>
 									<listOptionValue builtIn="false" value="/usr/lib/libxml++-2.6/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/java/jdk1.7.0_45/include/"/>
+									<listOptionValue builtIn="false" value="/usr/local/java/jdk1.7.0_45/include/linux/"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.1719826930" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def"/>
 								<option id="gnu.cpp.compiler.option.other.pic.1750557846" name="Position Independent Code (-fPIC)" superClass="gnu.cpp.compiler.option.other.pic" value="true" valueType="boolean"/>
@@ -146,10 +148,13 @@
 									<listOptionValue builtIn="false" value="/usr/lib/x86_64-linux-gnu/glib-2.0/include"/>
 									<listOptionValue builtIn="false" value="/usr/include/libxml++-2.6"/>
 									<listOptionValue builtIn="false" value="/usr/lib/libxml++-2.6/include"/>
+									<listOptionValue builtIn="false" value="/usr/local/java/jdk1.7.0_45/include/"/>
+									<listOptionValue builtIn="false" value="/usr/local/java/jdk1.7.0_45/include/linux/"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.1387146456" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.other.pic.1656021026" name="Position Independent Code (-fPIC)" superClass="gnu.cpp.compiler.option.other.pic" value="true" valueType="boolean"/>
 								<option id="gnu.cpp.compiler.option.preprocessor.def.1230528361" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def"/>
+								<option id="gnu.cpp.compiler.option.other.other.100452027" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -fno-strict-aliasing" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1543095758" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.so.release.1849067105" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.so.release">

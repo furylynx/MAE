@@ -12,8 +12,8 @@ namespace mae
 	namespace fl
 	{
 
-		bvh_spec::bvh_spec(std::string left_anchor, std::string right_anchor, std::string top_anchor, std::string bottom_anchor, std::unordered_map<std::string, int> string_id_map,
-				std::unordered_map<std::string, bool> string_torso_map)
+		bvh_spec::bvh_spec(std::string left_anchor, std::string right_anchor, std::string top_anchor, std::string bottom_anchor, std::map<std::string, int> string_id_map,
+				std::map<std::string, bool> string_torso_map)
 		{
 			left_anchor_ = left_anchor;
 			right_anchor_ = right_anchor;
@@ -28,12 +28,12 @@ namespace mae
 		{
 		}
 
-		std::unordered_map<std::string, int> bvh_spec::get_id_map() const
+		std::map<std::string, int> bvh_spec::get_id_map() const
 		{
 			return string_id_map_;
 		}
 
-		std::unordered_map<std::string, bool> bvh_spec::get_torso_map() const
+		std::map<std::string, bool> bvh_spec::get_torso_map() const
 		{
 			return string_torso_map_;
 		}
@@ -60,7 +60,7 @@ namespace mae
 
 		std::shared_ptr<bvh_spec> bvh_spec::default_spec()
 		{
-			std::unordered_map<std::string, int> string_id_map;
+			std::map<std::string, int> string_id_map;
 
 			//fill joint_str map
 			for (e_joint j : e_joint_c::vec())
@@ -75,7 +75,7 @@ namespace mae
 			string_id_map.insert(std::make_pair("end site#4", e_joint_c::to_int(e_joint::END_RF)));
 			string_id_map.insert(std::make_pair("end site#5", e_joint_c::to_int(e_joint::END_H)));
 
-			std::unordered_map<std::string, bool> string_torso_map;
+			std::map<std::string, bool> string_torso_map;
 			string_torso_map.insert(std::make_pair(mstr::to_lower(e_joint_c::str(e_joint::TORSO)), true));
 			string_torso_map.insert(std::make_pair(mstr::to_lower(e_joint_c::str(e_joint::LEFT_SHOULDER)), true));
 			string_torso_map.insert(std::make_pair(mstr::to_lower(e_joint_c::str(e_joint::RIGHT_SHOULDER)), true));

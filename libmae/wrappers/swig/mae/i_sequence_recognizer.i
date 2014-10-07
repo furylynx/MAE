@@ -18,7 +18,7 @@
 //TODO sequence template arg
 
 //templates
-%template (bone_vector) std::vector<bone>;
+%template (bone_vector) std::vector<mae::bone>;
 //TODO vector of sequences template arg
 
 // Parse the original header file

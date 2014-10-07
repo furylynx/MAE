@@ -16,7 +16,7 @@
 %}
 
 //shared_ptr
-%shared_ptr(general_joint)
+%shared_ptr(mae::general_joint)
  
 //templates
 

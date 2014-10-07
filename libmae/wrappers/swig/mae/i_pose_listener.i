@@ -14,7 +14,7 @@
 %}
  
 //shared_ptr 
-%shared_ptr(general_pose)
+%shared_ptr(mae::general_pose)
 
 //templates
  

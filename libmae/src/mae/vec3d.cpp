@@ -10,6 +10,13 @@
 namespace mae
 {
 
+	vec3d::vec3d()
+	{
+		x_ = 0;
+		y_ = 0;
+		z_ = 0;
+	}
+
 	vec3d::vec3d(double x, double y, double z)
 	{
 		x_ = x;

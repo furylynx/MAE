@@ -9,6 +9,13 @@
 
 namespace mae
 {
+	basis::basis()
+	{
+		position_vector_ = nullptr;
+		u_ = nullptr;
+		r_ = nullptr;
+		t_ = nullptr;
+	}
 
 	basis::basis(std::shared_ptr<vec3d> position_vector, std::shared_ptr<vec3d> u, std::shared_ptr<vec3d> r,
 			std::shared_ptr<vec3d> t)
