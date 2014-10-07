@@ -7,7 +7,6 @@
  * ----------------------------------------------------------------------------- */
 
 
-
 public class general_skeleton {
   private long swigCPtr;
   protected boolean swigCMemOwn;

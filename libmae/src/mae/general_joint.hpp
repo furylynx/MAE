@@ -154,7 +154,7 @@ namespace mae
 			 * @param joint A joint.
 			 * @return True if equal.
 			 */
-			virtual bool equals(general_joint joint) const;
+			virtual bool equals_val(general_joint joint) const;
 
 			/**
 			 * Returns true if this joint equals the given joint.
