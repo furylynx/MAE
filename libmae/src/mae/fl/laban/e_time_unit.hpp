@@ -27,7 +27,7 @@ namespace mae
 		namespace laban
 		{
 
-			enum class e_time_unit
+			enum class e_time_unit : int
 			{
 					NONE,
 					MINUTE,

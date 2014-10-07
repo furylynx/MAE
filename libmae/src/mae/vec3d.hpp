@@ -26,6 +26,11 @@ namespace mae
 	{
 		public:
 			/**
+			 * Creates a new three dimensional vector with zeros as default values.
+			 */
+			vec3d();
+
+			/**
 			 * Creates a new three dimensional vector.
 			 *
 			 * @param x The x value.

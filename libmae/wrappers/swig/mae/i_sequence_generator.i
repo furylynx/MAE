@@ -18,12 +18,12 @@
 %}
 
 //shared_ptr
-%shared_ptr(general_enriched_pose)
+%shared_ptr(mae::general_enriched_pose)
 //TODO sequence template arg
 
 //templates
-%template (bone_vector) std::vector<bone>;
-%template (enriched_pose_list) std::list<std::shared_ptr<general_enriched_pose> >;
+%template (bone_vector) std::vector<mae::bone>;
+%template (enriched_pose_list) std::list<std::shared_ptr<mae::general_enriched_pose> >;
 
 
 // Parse the original header file

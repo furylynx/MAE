@@ -18,8 +18,8 @@
 %}
 
 //shared_ptr
-%shared_ptr(i_pre_sign);
-%shared_ptr(column_definition);
+%shared_ptr(mae::fl::laban::ps::i_pre_sign);
+%shared_ptr(mae::fl::laban::column_definition);
 
 //templates
 

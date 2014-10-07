@@ -20,9 +20,9 @@
 %}
 
 //shared_ptr
-%shared_ptr(bone);
-%shared_ptr(hierarchy);
-%shared_ptr(vec3d);
+%shared_ptr(mae::bone);
+%shared_ptr(mae::hierarchy);
+%shared_ptr(mae::vec3d);
 
 //templates
 

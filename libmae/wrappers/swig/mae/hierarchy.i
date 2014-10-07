@@ -17,10 +17,10 @@
 %}
 
 //shared_ptr
-%shared_ptr(hierarchy_element);
+%shared_ptr(mae::hierarchy_element);
  
 //templates
-%template(hierarchy_element_vector) std::vector<std::shared_ptr<hierarchy_element> >;
+%template(hierarchy_element_vector) std::vector<std::shared_ptr<mae::hierarchy_element> >;
 
  
  // Parse the original header file

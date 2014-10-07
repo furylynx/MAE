@@ -1,6 +1,7 @@
 // fl_movement_controller.i - SWIG interface
  
 //custom includes
+%include "../bone.i"
 %include "../movement_controller.i"
 %include "../general_skeleton.i"
 %include "fl_skeleton.i"
@@ -22,11 +23,11 @@
 %}
 
 //shared_ptr
-%shared_ptr(general_skeleton);
+%shared_ptr(mae::general_skeleton);
 
 //templates
-%template (bone_vector) std::vector<bone>;
-%template (fl_skel_laban_movement_controller) movement_controller<fl_skeleton, laban::laban_sequence>;
+%template (bone_vector) std::vector<mae::bone>;
+%template (fl_skel_laban_movement_controller) mae::movement_controller<mae::fl::fl_skeleton, mae::fl::laban::laban_sequence>;
 //TODO all other templates as given by the movement_controller...??
 
 // Parse the original header file

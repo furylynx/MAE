@@ -8,14 +8,15 @@
 %include "std_vector.i"
 %include "exception.i"
 
-
 %module w_bone
 %{
- #include "../../../src/mae/bone.hpp"
+	#include "../../../src/mae/bone.hpp"
 %}
 
+//shared_ptr
+
 //templates
-%template(bone_vector) std::vector<bone>;   
+%template(bone_vector) std::vector<mae::bone>;   
  
 // Parse the original header file
 %include "../../../src/mae/bone.hpp"

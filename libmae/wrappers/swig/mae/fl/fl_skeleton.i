@@ -18,8 +18,8 @@
 %}
 
 //shared_ptr
-%shared_ptr(general_skeleton);
-%shared_ptr(basis);
+%shared_ptr(mae::general_skeleton);
+%shared_ptr(mae::basis);
 
 //templates
 
