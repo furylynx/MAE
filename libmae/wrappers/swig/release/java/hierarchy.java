@@ -7,6 +7,7 @@
  * ----------------------------------------------------------------------------- */
 
 
+
 public class hierarchy {
   private long swigCPtr;
   protected boolean swigCMemOwn;

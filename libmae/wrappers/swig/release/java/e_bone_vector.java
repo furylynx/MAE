@@ -7,6 +7,7 @@
  * ----------------------------------------------------------------------------- */
 
 
+
 public class e_bone_vector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
