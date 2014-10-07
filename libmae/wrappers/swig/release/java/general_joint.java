@@ -7,7 +7,6 @@
  * ----------------------------------------------------------------------------- */
 
 
-
 public class general_joint {
   private long swigCPtr;
   private boolean swigCMemOwn;
@@ -115,12 +114,12 @@ public class general_joint {
     return new SWIGTYPE_p_std__shared_ptrT_mae__vec3d_t(w_e_boneJNI.general_joint_vec(swigCPtr, this), true);
   }
 
-  public boolean equals(general_joint joint) {
-    return w_e_boneJNI.general_joint_equals__SWIG_0(swigCPtr, this, general_joint.getCPtr(joint), joint);
+  public boolean equals_val(general_joint joint) {
+    return w_e_boneJNI.general_joint_equals_val(swigCPtr, this, general_joint.getCPtr(joint), joint);
   }
 
   public boolean equals(general_joint joint) {
-    return w_e_boneJNI.general_joint_equals__SWIG_1(swigCPtr, this, general_joint.getCPtr(joint), joint);
+    return w_e_boneJNI.general_joint_equals(swigCPtr, this, general_joint.getCPtr(joint), joint);
   }
 
   public String str() {
