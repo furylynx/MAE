@@ -8,7 +8,6 @@
 %include "std_string.i"
 %include "exception.i"
 
-
 //module definition
 %module w_basis
 %{
@@ -21,5 +20,9 @@
 //shared_ptr
 %shared_ptr(mae::vec3d);
 
- // Parse the original header file
- %include "../../../src/mae/basis.hpp"
+// Parse the original header file
+%include "../../../src/mae/basis.hpp"
+
+//package
+%include "typemaps.i"
+%typemap("javapackage") basis, basis *, basis & "mae";

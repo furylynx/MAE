@@ -5,6 +5,7 @@ INCONFIG="mae/mae.i"
 OUTDIRJAVA="release/java/"
 OUTDIRCXX="release/"
 OUTFILECXX="mae_wrap"
+PACKAGE=mae
 #OUTDIRCSHARP=release/csharp/
 
 #script (modify if other language is required)
@@ -23,8 +24,7 @@ then
 fi
 
 #generate java wrapper files
-swig -c++ -java -outdir $OUTDIRJAVA -o $OUTPATHJAVACXX $INCONFIG
-
+swig -c++ -java -package $PACKAGE -outdir $OUTDIRJAVA -o $OUTPATHJAVACXX $INCONFIG
 
 
 ## -- Add other commands for other languages if required; this may require to adjust the configuration files (*.i) --
