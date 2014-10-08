@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>MAE-Java-Sample</name>
+	<name>MAEJava</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>swig</name>
+			<type>2</type>
+			<location>/sda7/data/workspace-git/MAE/libmae/wrappers/swig/release/java</location>
+		</link>
+	</linkedResources>
 </projectDescription>
