@@ -33,7 +33,7 @@ namespace mae
 
 				enum class e_level : int
 				{
-						NONE,
+						NONE_LEVEL,
 						HIGH,
 						MIDDLE,
 						LOW

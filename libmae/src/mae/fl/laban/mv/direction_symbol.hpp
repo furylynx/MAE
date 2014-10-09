@@ -50,7 +50,7 @@ namespace mae
 						 * @param space_measurement (optional) A space measurement sign.
 						 * @param contact_hook (optional) The contact hook.
 						 */
-						direction_symbol(e_level vertical, e_direction horizontal, std::shared_ptr<pin> modification_pin = nullptr, std::shared_ptr<pin> relationship_pin = nullptr, std::shared_ptr<i_dynamics_sign> dynamics = nullptr, std::shared_ptr<space_measurement> space_measurement = nullptr, e_contact_hook contact_hook = e_contact_hook::NONE);
+						direction_symbol(e_level vertical, e_direction horizontal, std::shared_ptr<pin> modification_pin = nullptr, std::shared_ptr<pin> relationship_pin = nullptr, std::shared_ptr<i_dynamics_sign> dynamics = nullptr, std::shared_ptr<space_measurement> space_measurement = nullptr, e_contact_hook contact_hook = e_contact_hook::NONE_CONTACT_HOOK);
 						virtual ~direction_symbol();
 
 						/**

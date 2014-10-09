@@ -20,7 +20,7 @@ namespace mae
 				{
 					switch (digit)
 					{
-						case e_digit::NONE        	: return "none";
+						case e_digit::NONE_DIGIT        	: return "none";
 						case e_digit::THUMB       	: return "thumb";
 						case e_digit::INDEXFINGER 	: return "indexFinger";
 						case e_digit::MIDDLEFINGER	: return "middleFinger";
@@ -39,7 +39,7 @@ namespace mae
 				std::vector<e_digit> e_digit_c::vec()
 				{
 					std::vector<e_digit> result;
-					result.push_back(e_digit::NONE        	);
+					result.push_back(e_digit::NONE_DIGIT        	);
 					result.push_back(e_digit::THUMB        	);
 					result.push_back(e_digit::INDEXFINGER 	);
 					result.push_back(e_digit::MIDDLEFINGER 	);

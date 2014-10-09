@@ -30,7 +30,7 @@ namespace mae
 
 				enum class e_space : int
 				{
-						NONE,
+						NONE_SPACE,
 						NARROW,
 						WIDE,
 						FOLDING,

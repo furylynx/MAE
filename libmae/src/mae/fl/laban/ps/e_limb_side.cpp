@@ -19,7 +19,7 @@ namespace mae
 				{
 					switch (lside)
 					{
-					case e_limb_side::NONE             		: return "none";
+					case e_limb_side::NONE_LIMB_SIDE             		: return "none";
 					case e_limb_side::INNER            		: return "inner";
 					case e_limb_side::OUTER            		: return "outer";
 					case e_limb_side::LITTLEFINGER     		: return "littleFinger";
@@ -37,7 +37,7 @@ namespace mae
 				std::vector<e_limb_side> e_limb_side_c::vec()
 				{
 					std::vector<e_limb_side> result;
-					result.push_back(e_limb_side::NONE             );
+					result.push_back(e_limb_side::NONE_LIMB_SIDE             );
 					result.push_back(e_limb_side::INNER            );
 					result.push_back(e_limb_side::OUTER            );
 					result.push_back(e_limb_side::LITTLEFINGER     );

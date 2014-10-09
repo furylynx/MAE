@@ -9,7 +9,7 @@
 package maejava;
 
 public final class e_bone {
-  public final static e_bone INVALID = new e_bone("INVALID", w_e_boneJNI.INVALID_get());
+  public final static e_bone INVALID_BONE = new e_bone("INVALID_BONE", w_e_boneJNI.INVALID_BONE_get());
   public final static e_bone HEAD = new e_bone("HEAD", w_e_boneJNI.HEAD_get());
   public final static e_bone LEFT_UPPER_ARM = new e_bone("LEFT_UPPER_ARM", w_e_boneJNI.LEFT_UPPER_ARM_get());
   public final static e_bone LEFT_FOREARM = new e_bone("LEFT_FOREARM", w_e_boneJNI.LEFT_FOREARM_get());
@@ -58,7 +58,7 @@ public final class e_bone {
     swigNext = this.swigValue+1;
   }
 
-  private static e_bone[] swigValues = { INVALID, HEAD, LEFT_UPPER_ARM, LEFT_FOREARM, LEFT_WHOLE_ARM, RIGHT_UPPER_ARM, RIGHT_FOREARM, RIGHT_WHOLE_ARM, LEFT_THIGH, LEFT_SHANK, LEFT_WHOLE_LEG, RIGHT_THIGH, RIGHT_SHANK, RIGHT_WHOLE_LEG };
+  private static e_bone[] swigValues = { INVALID_BONE, HEAD, LEFT_UPPER_ARM, LEFT_FOREARM, LEFT_WHOLE_ARM, RIGHT_UPPER_ARM, RIGHT_FOREARM, RIGHT_WHOLE_ARM, LEFT_THIGH, LEFT_SHANK, LEFT_WHOLE_LEG, RIGHT_THIGH, RIGHT_SHANK, RIGHT_WHOLE_LEG };
   private static int swigNext = 0;
   private final int swigValue;
   private final String swigName;

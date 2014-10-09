@@ -18,7 +18,7 @@ namespace mae
 			{
 				switch (type)
 				{
-				case e_path_type::NONE           		: return "none";
+				case e_path_type::NONE_PATH_TYPE           		: return "none";
 				case e_path_type::STRAIGHT     			: return "straight";
 				case e_path_type::CIRCULAR_LEFT 		: return "circularLeft";
                 case e_path_type::CIRCULAR_RIGHT        : return "circularRight";
@@ -31,7 +31,7 @@ namespace mae
 			std::vector<e_path_type> e_path_type_c::vec()
 			{
 				std::vector<e_path_type> result;
-				result.push_back(e_path_type::NONE           	);
+				result.push_back(e_path_type::NONE_PATH_TYPE           	);
 				result.push_back(e_path_type::STRAIGHT     		);
 				result.push_back(e_path_type::CIRCULAR_LEFT 	);
 				result.push_back(e_path_type::CIRCULAR_RIGHT 	);

@@ -28,7 +28,7 @@ namespace mae
 
 			enum class e_relationship_type : int
 			{
-					NONE,
+					NONE_RELATIONSHIP_TYPE,
 					ADDRESS,
 					NEAR,
 					TOUCH,

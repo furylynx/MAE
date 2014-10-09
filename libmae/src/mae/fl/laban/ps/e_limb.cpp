@@ -19,7 +19,7 @@ namespace mae
 				{
 					switch (limb)
 					{
-					case e_limb::NONE     		: return "none";
+					case e_limb::NONE_LIMB     		: return "none";
 					case e_limb::ARM      		: return "arm";
 					case e_limb::LEG      		: return "leg";
 					case e_limb::NECK     		: return "neck";
@@ -35,7 +35,7 @@ namespace mae
 				std::vector<e_limb> e_limb_c::vec()
 				{
 					std::vector<e_limb> result;
-					result.push_back(e_limb::NONE     		);
+					result.push_back(e_limb::NONE_LIMB     		);
 					result.push_back(e_limb::ARM      	 	);
 					result.push_back(e_limb::LEG      		);
 					result.push_back(e_limb::NECK     	 	);

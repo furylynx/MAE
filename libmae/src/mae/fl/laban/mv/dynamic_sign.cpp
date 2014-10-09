@@ -20,7 +20,7 @@ namespace mae
 				{
 					dynamic_ = dynamic;
 
-					if (dynamic == e_dynamic::NONE)
+					if (dynamic == e_dynamic::NONE_DYNAMIC)
 					{
 						throw std::invalid_argument("Dynamic must not be NONE.");
 					}

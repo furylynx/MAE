@@ -28,9 +28,9 @@ namespace mae
 			namespace ps
 			{
 
-				enum class e_area
+				enum class e_area : int
 				{
-						NONE,
+						NONE_AREA,
 						HEAD,
 						CHEST,
 						WAIST,

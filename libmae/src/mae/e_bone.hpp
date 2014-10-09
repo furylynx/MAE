@@ -24,7 +24,7 @@ namespace mae
 
 	enum class e_bone : int
 	{
-			INVALID 			= 	0,
+			INVALID_BONE 		= 	0,
 			HEAD 				= 	5,
 			LEFT_UPPER_ARM 		= -	8,
 			LEFT_FOREARM 		= -	9,

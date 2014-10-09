@@ -19,7 +19,7 @@ namespace mae
 				{
 					switch (dynamic)
 					{
-					case e_dynamic::NONE 					: return "none";
+					case e_dynamic::NONE_DYNAMIC 					: return "none";
 					case e_dynamic::STRONG           		: return "strong";
 					case e_dynamic::GENTLE           		: return "gentle";
 					case e_dynamic::EMPHASIZED       		: return "emphasized";
@@ -37,7 +37,7 @@ namespace mae
 				std::vector<e_dynamic> e_dynamic_c::vec()
 				{
 					std::vector<e_dynamic> result;
-					result.push_back(e_dynamic::NONE 			);
+					result.push_back(e_dynamic::NONE_DYNAMIC 			);
 					result.push_back(e_dynamic::STRONG         );
 					result.push_back(e_dynamic::GENTLE         );
 					result.push_back(e_dynamic::EMPHASIZED     );

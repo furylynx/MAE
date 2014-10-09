@@ -30,7 +30,7 @@ namespace mae
 
 				enum class e_turn_direction : int
 				{
-						NONE,
+						NONE_TURN_DIRECTION,
 						COUNTER_CLOCKWISE,
 						CLOCKWISE,
 						ANY

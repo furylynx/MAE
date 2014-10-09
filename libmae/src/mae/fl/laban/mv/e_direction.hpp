@@ -32,9 +32,9 @@ namespace mae
 			namespace mv
 			{
 
-				enum class e_direction
+				enum class e_direction : int
 				{
-						NONE,
+						NONE_DIRECTION,
 						PLACE,
 						FORWARD,
 						BACKWARD,

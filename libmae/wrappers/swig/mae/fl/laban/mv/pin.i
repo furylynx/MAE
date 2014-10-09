@@ -18,6 +18,7 @@
 
 //shared_ptr
 %shared_ptr(mae::fl::laban::mv::i_degree_sign);
+%shared_ptr(mae::fl::laban::mv::pin);
 
 //templates
 

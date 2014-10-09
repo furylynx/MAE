@@ -14,7 +14,7 @@ namespace mae
 	{
 		switch (joint)
 		{
-		case e_joint::INVALID  			: return "INVALID";
+		case e_joint::INVALID_JOINT  			: return "INVALID";
 		case e_joint::HEAD         		: return "HEAD";
 		case e_joint::NECK         		: return "NECK";
         case e_joint::LEFT_SHOULDER     : return "LEFT_SHOULDER";
@@ -53,7 +53,7 @@ namespace mae
 	std::vector<e_joint> e_joint_c::vec()
 	{
 		std::vector<e_joint> result;
-		result.push_back(e_joint::INVALID  		 );
+		result.push_back(e_joint::INVALID_JOINT  		 );
 		result.push_back(e_joint::HEAD         	 );
 		result.push_back(e_joint::NECK         	 );
 		result.push_back(e_joint::LEFT_SHOULDER  );

@@ -29,7 +29,7 @@ namespace mae
 
 			enum class e_time_unit : int
 			{
-					NONE,
+					NONE_TIME_UNIT,
 					MINUTE,
 					SECOND,
 					MILLISECOND

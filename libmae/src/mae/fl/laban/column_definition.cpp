@@ -41,7 +41,7 @@ namespace mae
 				bone b = bone(eb);
 				column_index_ = b.get_id();
 
-				ps::e_side side = ps::e_side::NONE;
+				ps::e_side side = ps::e_side::NONE_SIDE;
 				if (mstr::to_lower(b.get_name()).find("left") == 0)
 				{
 					side = ps::e_side::LEFT;
