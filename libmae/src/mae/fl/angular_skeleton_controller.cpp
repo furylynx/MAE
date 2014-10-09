@@ -88,11 +88,11 @@ namespace mae
 				std::cout << "fl_skeleton_controller: specified skeleton" << std::endl;
 			}
 
-			std::shared_ptr<basis> torso_basis = fl_ctrl_->create_torso_basis(skeleton);
+			std::shared_ptr<mae::math::basis> torso_basis = fl_ctrl_->create_torso_basis(skeleton);
 
-			cv::Vec3d u = math::maevec_to_vec3d(torso_basis->get_u());
-			cv::Vec3d r = math::maevec_to_vec3d(torso_basis->get_r());
-			cv::Vec3d t = math::maevec_to_vec3d(torso_basis->get_t());
+			cv::Vec3d u = mae::math::math::maevec_to_vec3d(torso_basis->get_u());
+			cv::Vec3d r = mae::math::math::maevec_to_vec3d(torso_basis->get_r());
+			cv::Vec3d t = mae::math::math::maevec_to_vec3d(torso_basis->get_t());
 
 			//-----
 			//calculate angular representation (if wanted)
@@ -177,11 +177,11 @@ namespace mae
 			// calculate angles for first degree joints
 			// ---
 
-			cv::Vec3d vec_i = math::joint_to_vec(skeleton->get_joint(adjacent_joint));
-			cv::Vec3d vec_o = math::joint_to_vec(skeleton->get_joint(outer_joint));
+			cv::Vec3d vec_i = mae::math::math::joint_to_vec(skeleton->get_joint(adjacent_joint));
+			cv::Vec3d vec_o = mae::math::math::joint_to_vec(skeleton->get_joint(outer_joint));
 
 			//set up new rotated basis
-			double beta = math::calc_angle_half(md, r);
+			double beta = mae::math::math::calc_angle_half(md, r);
 
 			cv::Vec3d u_r = u;
 			cv::Vec3d r_r = r;
@@ -199,10 +199,10 @@ namespace mae
 
 				//TODO dont calculate the rotation matrix several times : efficiency!!
 				//apply to all
-				u_r = math::rotate_around_axis(u, b, -beta);
+				u_r = mae::math::math::rotate_around_axis(u, b, -beta);
 				// r is not needed to be rotated since the projection will work with the plane spanned by u and t
-				r_r = math::rotate_around_axis(r, b, -beta);
-				t_r = math::rotate_around_axis(t, b, -beta);
+				r_r = mae::math::math::rotate_around_axis(r, b, -beta);
+				t_r = mae::math::math::rotate_around_axis(t, b, -beta);
 			}
 
 			// get first degree bone vector
@@ -210,23 +210,23 @@ namespace mae
 
 			// inclination theta
 			// calculates theta in radian
-			double phi = math::calc_angle_half_deg(r_r, fdvec);
+			double phi = mae::math::math::calc_angle_half_deg(r_r, fdvec);
 
 			// calculates phi in radian
 			double theta;
 
-			if (math::are_collinear(r_r, fdvec))
+			if (mae::math::math::are_collinear(r_r, fdvec))
 			{
 				theta = 0;
 			}
 			else
 			{
 				//get azimuth phi by projecting the joint on the r-t-plane
-				cv::Vec3d vec_o_p = math::project_orthogonal(vec_o, vec_i, u_r, t_r);
+				cv::Vec3d vec_o_p = mae::math::math::project_orthogonal(vec_o, vec_i, u_r, t_r);
 				cv::Vec3d fdvec_p = cv::normalize(vec_i - vec_o_p);
 
 				//				theta = FLMath::calcAngleDeg(t_r, fdvec_p);
-				theta = math::calc_angle_plane_deg(t_r, fdvec_p, r_r);
+				theta = mae::math::math::calc_angle_plane_deg(t_r, fdvec_p, r_r);
 			}
 
 			cv::Vec2d angles;
@@ -244,31 +244,31 @@ namespace mae
 			// calculate angles for first degree joints
 			// ---
 
-			cv::Vec3d vec_i = math::joint_to_vec(skeleton->get_joint(adjacent_joint));
-			cv::Vec3d vec_o = math::joint_to_vec(skeleton->get_joint(outer_joint));
+			cv::Vec3d vec_i = mae::math::math::joint_to_vec(skeleton->get_joint(adjacent_joint));
+			cv::Vec3d vec_o = mae::math::math::joint_to_vec(skeleton->get_joint(outer_joint));
 
 			// get first degree bone vector
 			cv::Vec3d fdvec = cv::normalize(vec_o - vec_i);
 
 			// inclination theta
 			// calculates theta in radian
-			double phi = math::calc_angle_half_deg(r, fdvec);
+			double phi = mae::math::math::calc_angle_half_deg(r, fdvec);
 
 			// calculates phi in radian
 			double theta;
 
-			if (math::are_collinear(r, fdvec))
+			if (mae::math::math::are_collinear(r, fdvec))
 			{
 				theta = 0;
 			}
 			else
 			{
 				//get azimuth phi by projecting the joint on the u-t-plane
-				cv::Vec3d vec_o_p = math::project_orthogonal(vec_o, vec_i, u, t);
+				cv::Vec3d vec_o_p = mae::math::math::project_orthogonal(vec_o, vec_i, u, t);
 				cv::Vec3d fdvec_p = cv::normalize(vec_i - vec_o_p);
 
 				//				theta = FLMath::calcAngleDeg(t, fdvec_p);
-				theta = math::calc_angle_plane_deg(t, fdvec_p, r);
+				theta = mae::math::math::calc_angle_plane_deg(t, fdvec_p, r);
 
 			}
 
@@ -287,31 +287,31 @@ namespace mae
 			// calculate angles for first degree joints
 			// ---
 
-			cv::Vec3d vec_i = math::joint_to_vec(skeleton->get_joint(adjacent_joint));
-			cv::Vec3d vec_o = math::joint_to_vec(skeleton->get_joint(outer_joint));
+			cv::Vec3d vec_i = mae::math::math::joint_to_vec(skeleton->get_joint(adjacent_joint));
+			cv::Vec3d vec_o = mae::math::math::joint_to_vec(skeleton->get_joint(outer_joint));
 
 			// get first degree bone vector
 			cv::Vec3d fdvec = cv::normalize(vec_o - vec_i);
 
 			// inclination theta
 			// calculates theta in radian
-			double phi = math::calc_angle_half_deg(u, fdvec);
+			double phi = mae::math::math::calc_angle_half_deg(u, fdvec);
 
 			// calculates phi in radian
 			double theta;
 
-			if (math::are_collinear(u, fdvec))
+			if (mae::math::math::are_collinear(u, fdvec))
 			{
 				theta = 0;
 			}
 			else
 			{
 				//get azimuth phi by projecting the joint on the r-t-plane
-				cv::Vec3d vec_o_p = math::project_orthogonal(vec_o, vec_i, r, t);
+				cv::Vec3d vec_o_p = mae::math::math::project_orthogonal(vec_o, vec_i, r, t);
 				cv::Vec3d fdvec_p = cv::normalize(vec_i - vec_o_p);
 
 				//				theta = FLMath::calcAngleDeg(r, fdvec_p);
-				theta = math::calc_angle_plane_deg(r, fdvec_p, u);
+				theta = mae::math::math::calc_angle_plane_deg(r, fdvec_p, u);
 			}
 
 			cv::Vec2d angles;
@@ -330,9 +330,9 @@ namespace mae
 			// calculate angles for second degree joints
 			// ---
 
-			cv::Vec3d vec_i = math::joint_to_vec(skeleton->get_joint(adjacent_joint));
-			cv::Vec3d vec_o = math::joint_to_vec(skeleton->get_joint(outer_joint));
-			cv::Vec3d vec_e = math::joint_to_vec(skeleton->get_joint(extremity_joint));
+			cv::Vec3d vec_i = mae::math::math::joint_to_vec(skeleton->get_joint(adjacent_joint));
+			cv::Vec3d vec_o = mae::math::math::joint_to_vec(skeleton->get_joint(outer_joint));
+			cv::Vec3d vec_e = mae::math::math::joint_to_vec(skeleton->get_joint(extremity_joint));
 
 			// get first degree bone vector
 			cv::Vec3d fdvec = cv::normalize(vec_o - vec_i);
@@ -342,12 +342,12 @@ namespace mae
 
 			// calc inclination phi
 			// angle between fdvec and sdvec which is the angle between r_r and sdvec (angle ranges from 0 to 180 degree
-			double phi = math::calc_angle_half_deg(fdvec, sdvec);
+			double phi = mae::math::math::calc_angle_half_deg(fdvec, sdvec);
 
 			// calc azimuth theta
 			double theta;
 
-			if (math::are_collinear(fdvec, sdvec))
+			if (mae::math::math::are_collinear(fdvec, sdvec))
 			{
 				// both joint vectors fdvec and sdvec are collinear
 				// therefore we can set phi to zero
@@ -359,7 +359,7 @@ namespace mae
 				// ... by rotation angle beta
 				//double beta = std::acos(fdvec.dot(r));
 				//double beta = FLMath::calcAngle(fdvec, r);
-				double beta = math::calc_angle_half(fdvec, r);
+				double beta = mae::math::math::calc_angle_half(fdvec, r);
 
 				//rotate around axis b = v x r ...
 				cv::Vec3d b = t;
@@ -371,17 +371,17 @@ namespace mae
 
 				//TODO dont calculate the rotation matrix several times : efficiency!!
 				//apply to all
-				cv::Vec3d u_r = math::rotate_around_axis(u, b, -beta);
+				cv::Vec3d u_r = mae::math::math::rotate_around_axis(u, b, -beta);
 				// r is not needed to be rotated since the projection will work with the plane spanned by u and t
-				// cv::Vec3d r_r = FLMath::rotateAroundAxis(r, b, beta);
-				cv::Vec3d t_r = math::rotate_around_axis(t, b, -beta);
+				// cv::Vec3d r_r = mae::math::math::rotateAroundAxis(r, b, beta);
+				cv::Vec3d t_r = mae::math::math::rotate_around_axis(t, b, -beta);
 
 				//plane othogonal to v is E(u,t)
-				cv::Vec3d sdvec_p = math::project_orthogonal(vec_e, vec_o, u_r, t_r);
+				cv::Vec3d sdvec_p = mae::math::math::project_orthogonal(vec_e, vec_o, u_r, t_r);
 				sdvec_p = cv::normalize(vec_o - sdvec_p);
 
-				//				theta = FLMath::calcAngleDeg(t_r, sdvec_p);
-				theta = math::calc_angle_plane_deg(t_r, sdvec_p, fdvec);
+				//				theta = mae::math::math::calcAngleDeg(t_r, sdvec_p);
+				theta = mae::math::math::calc_angle_plane_deg(t_r, sdvec_p, fdvec);
 			}
 
 			//return the angles

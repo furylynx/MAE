@@ -64,12 +64,12 @@ namespace mae
 			return hierarchy_;
 		}
 
-		void angular_skeleton::set_torso_basis(std::shared_ptr<basis> torso_basis)
+		void angular_skeleton::set_torso_basis(std::shared_ptr<mae::math::basis> torso_basis)
 		{
 			torso_basis_ = torso_basis;
 		}
 
-		std::shared_ptr<basis> angular_skeleton::get_torso_basis() const
+		std::shared_ptr<mae::math::basis> angular_skeleton::get_torso_basis() const
 		{
 			return torso_basis_;
 		}
@@ -124,12 +124,12 @@ namespace mae
 			return this->right_left;
 		}
 
-		void angular_skeleton::set_weight(std::shared_ptr<mae::vec3d> weight)
+		void angular_skeleton::set_weight(std::shared_ptr<mae::math::vec3d> weight)
 		{
 			weight_ = weight;
 		}
 
-		std::shared_ptr<mae::vec3d> angular_skeleton::get_weight() const
+		std::shared_ptr<mae::math::vec3d> angular_skeleton::get_weight() const
 		{
 			return weight_;
 		}

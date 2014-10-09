@@ -9,7 +9,7 @@
 #define BASIS_HPP_
 
 //eclipse indexer fix
-#include "indexer_fix.hpp"
+#include "../indexer_fix.hpp"
 
 //custom includes
 #include "vec3d.hpp"
@@ -21,6 +21,8 @@
 
 namespace mae
 {
+	namespace math
+	{
 
 	class basis
 	{
@@ -141,6 +143,7 @@ namespace mae
 
 	};
 
+	} // namespace math
 } // namespace mae
 
 #endif // BASIS_HPP_

@@ -1,7 +1,7 @@
 // general_joint.i - SWIG interface
 
 //custom includes
-%include "vec3d.i"
+%include "math/vec3d.i"
 
 //global includes
 %include "std_shared_ptr.i"

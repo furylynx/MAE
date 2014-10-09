@@ -21,12 +21,12 @@ namespace mae
 		{
 		}
 
-		void fl_skeleton::set_torso_basis(std::shared_ptr<basis> torso_basis)
+		void fl_skeleton::set_torso_basis(std::shared_ptr<mae::math::basis> torso_basis)
 		{
 			torso_basis_ = torso_basis;
 		}
 
-		std::shared_ptr<basis> fl_skeleton::get_torso_basis() const
+		std::shared_ptr<mae::math::basis> fl_skeleton::get_torso_basis() const
 		{
 			return torso_basis_;
 		}

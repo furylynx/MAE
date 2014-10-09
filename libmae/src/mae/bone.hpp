@@ -15,7 +15,6 @@
 #include "e_bone.hpp"
 #include "e_joint.hpp"
 
-
 //global includes
 #include <string>
 #include <vector>
@@ -121,12 +120,12 @@ namespace mae
 			/**
 			 * The reserved value for the top-down bone. This bone is used for the general skeleton.
 			 */
-			static const int RESERVED_TOP_DOWN 	= 9999;
+			static const int RESERVED_TOP_DOWN = 9999;
 
 			/**
 			 * The reserved value for the right-left bone. This bone is used for the general skeleton.
 			 */
-			static const int RESERVED_RIGHT_LEFT 	= 10000;
+			static const int RESERVED_RIGHT_LEFT = 10000;
 
 		private:
 			int id_;

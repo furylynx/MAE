@@ -4,8 +4,8 @@
 %include "bone.i"
 %include "hierarchy.i"
 %include "general_joint.i"
-%include "basis.i"
-%include "vec3d.i"
+%include "math/basis.i"
+%include "math/vec3d.i"
  
 //global includes
 %include "std_shared_ptr.i"
@@ -22,7 +22,7 @@
 //shared_ptr
 %shared_ptr(mae::bone);
 %shared_ptr(mae::hierarchy);
-%shared_ptr(mae::vec3d);
+%shared_ptr(mae::math::vec3d);
 
 //templates
 

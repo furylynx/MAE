@@ -14,13 +14,15 @@
 //custom includes
 #include "angular_skeleton.hpp"
 #include "fl_skeleton_controller.hpp"
-#include "math.hpp"
+
 #include "e_fl_joint.hpp"
 
-#include "../basis.hpp"
 #include "../general_skeleton.hpp"
 #include "../i_skeleton_controller.hpp"
 #include "../e_joint.hpp"
+#include "../math/math.hpp"
+
+#include "../math/basis.hpp"
 
 //global includes
 #include <opencv2/core/core.hpp>

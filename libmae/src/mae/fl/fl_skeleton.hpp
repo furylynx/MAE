@@ -14,7 +14,7 @@
 //custom includes
 #include "../general_skeleton.hpp"
 #include "../bone.hpp"
-#include "../vec3d.hpp"
+#include "../math/vec3d.hpp"
 
 //global includes
 #include <unordered_map>
@@ -52,7 +52,7 @@ namespace mae
 				 *
 				 * @param torso_basis The torso basis.
 				 */
-				virtual void set_torso_basis(std::shared_ptr<basis> torso_basis);
+				virtual void set_torso_basis(std::shared_ptr<mae::math::basis> torso_basis);
 
 				/**
 				 * Returns the torso basis.
@@ -64,7 +64,7 @@ namespace mae
 				 *
 				 * @return The torso basis.
 				 */
-				virtual std::shared_ptr<basis> get_torso_basis() const;
+				virtual std::shared_ptr<mae::math::basis> get_torso_basis() const;
 
 				/**
 				 * Sets the original general skeleton.
@@ -106,7 +106,7 @@ namespace mae
 				std::shared_ptr<general_skeleton> orig_skeleton_;
 
 				//central coordinate system
-				std::shared_ptr<basis> torso_basis_;
+				std::shared_ptr<mae::math::basis> torso_basis_;
 
 		};
 

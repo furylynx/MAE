@@ -9,7 +9,7 @@
 
 namespace mae
 {
-	namespace fl
+	namespace math
 	{
 
 		cv::Vec3d math::joint_to_vec(std::shared_ptr<general_joint> joint)
@@ -715,5 +715,5 @@ namespace mae
 			return (x > 0) - (x < 0);
 		}
 
-	} // namespace fl
+	} // namespace math
 } // namespace mae
