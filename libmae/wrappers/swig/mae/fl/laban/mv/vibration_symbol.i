@@ -21,6 +21,7 @@
 %shared_ptr(mae::fl::laban::mv::i_symbol);
 %shared_ptr(mae::fl::laban::mv::pin);
 %shared_ptr(mae::fl::laban::mv::i_dynamics_sign);
+%shared_ptr(mae::fl::laban::mv::vibration_symbol);
 
 //templates
 

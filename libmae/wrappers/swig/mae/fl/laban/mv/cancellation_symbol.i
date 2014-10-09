@@ -18,6 +18,7 @@
 
 //shared_ptr
 %shared_ptr(mae::fl::laban::mv::i_symbol);
+%shared_ptr(mae::fl::laban::mv::cancellation_symbol);
 
 //templates
 
