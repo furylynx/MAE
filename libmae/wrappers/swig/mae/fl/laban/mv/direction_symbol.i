@@ -26,6 +26,7 @@
 %shared_ptr(mae::fl::laban::mv::space_measurement);
 %shared_ptr(mae::fl::laban::mv::pin);
 %shared_ptr(mae::fl::laban::mv::i_dynamics_sign);
+%shared_ptr(mae::fl::laban::mv::direction_symbol);
 
 //templates
 

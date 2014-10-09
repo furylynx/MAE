@@ -20,6 +20,7 @@
 //shared_ptr
 %shared_ptr(mae::fl::laban::ps::i_part);
 %shared_ptr(mae::fl::laban::ps::i_endpoint);
+%shared_ptr(mae::fl::laban::ps::digit_part);
 
 //templates
 

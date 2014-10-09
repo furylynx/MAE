@@ -22,6 +22,7 @@
 %shared_ptr(mae::fl::laban::mv::i_symbol);
 %shared_ptr(mae::fl::laban::mv::i_dynamics_sign);
 %shared_ptr(mae::fl::laban::mv::i_degree_sign);
+%shared_ptr(mae::fl::laban::mv::turn_symbol);
 
 //templates
 

@@ -17,6 +17,7 @@
 
 //shared_ptr
 %shared_ptr(mae::fl::laban::mv::i_dynamics_sign);
+%shared_ptr(mae::fl::laban::mv::accent_sign);
 
 //templates
 
