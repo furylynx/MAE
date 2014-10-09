@@ -16,7 +16,7 @@ namespace mae
 		{
 			switch (joint)
 			{
-			case e_fl_joint::INVALID		   	: return "INVALID";
+			case e_fl_joint::INVALID_FL_JOINT		   	: return "INVALID";
 			case e_fl_joint::HEAD          		: return "HEAD";
 			case e_fl_joint::LEFT_UPPER_ARM		: return "LEFT_UPPER_ARM";
 	        case e_fl_joint::LEFT_FOREARM      	: return "LEFT_FOREARM";
@@ -43,7 +43,7 @@ namespace mae
 		std::vector<e_fl_joint> e_fl_joint_c::vec()
 		{
 			std::vector<e_fl_joint> result;
-			result.push_back(e_fl_joint::INVALID		 );
+			result.push_back(e_fl_joint::INVALID_FL_JOINT		 );
 			result.push_back(e_fl_joint::HEAD          	 );
 			result.push_back(e_fl_joint::LEFT_UPPER_ARM	 );
 			result.push_back(e_fl_joint::LEFT_FOREARM    );

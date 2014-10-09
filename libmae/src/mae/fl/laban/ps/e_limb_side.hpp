@@ -30,7 +30,7 @@ namespace mae
 
 				enum class e_limb_side : int
 				{
-						NONE,
+						NONE_LIMB_SIDE,
 						INNER,
 						OUTER,
 						LITTLEFINGER,

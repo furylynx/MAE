@@ -30,7 +30,7 @@ namespace mae
 
 				enum class e_digit : int
 				{
-						NONE,
+						NONE_DIGIT,
 						THUMB,
 						INDEXFINGER,
 						MIDDLEFINGER,

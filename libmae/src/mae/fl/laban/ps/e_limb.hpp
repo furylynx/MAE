@@ -27,9 +27,9 @@ namespace mae
 		{
 			namespace ps
 			{
-				enum class e_limb
+				enum class e_limb : int
 				{
-						NONE,
+						NONE_LIMB,
 						ARM,
 						LEG,
 						NECK,

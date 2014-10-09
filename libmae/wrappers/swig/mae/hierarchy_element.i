@@ -1,6 +1,7 @@
 // hierarchy_element.i - SWIG interface
 
 //custom includes
+//%import "hierarchy.i"
 
 //global includes
 %include "std_shared_ptr.i"

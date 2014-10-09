@@ -9,7 +9,7 @@
 package maejava;
 
 public final class e_time_unit {
-  public final static e_time_unit NONE = new e_time_unit("NONE");
+  public final static e_time_unit NONE_TIME_UNIT = new e_time_unit("NONE_TIME_UNIT");
   public final static e_time_unit MINUTE = new e_time_unit("MINUTE");
   public final static e_time_unit SECOND = new e_time_unit("SECOND");
   public final static e_time_unit MILLISECOND = new e_time_unit("MILLISECOND");
@@ -48,7 +48,7 @@ public final class e_time_unit {
     swigNext = this.swigValue+1;
   }
 
-  private static e_time_unit[] swigValues = { NONE, MINUTE, SECOND, MILLISECOND };
+  private static e_time_unit[] swigValues = { NONE_TIME_UNIT, MINUTE, SECOND, MILLISECOND };
   private static int swigNext = 0;
   private final int swigValue;
   private final String swigName;

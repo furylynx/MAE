@@ -20,7 +20,7 @@ namespace mae
 				{
 					cancel_ = cancel;
 
-					if (cancel == e_cancel::NONE)
+					if (cancel == e_cancel::NONE_CANCEL)
 					{
 						throw std::invalid_argument("Cancel must not be NONE.");
 					}

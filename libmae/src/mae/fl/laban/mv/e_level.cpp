@@ -19,7 +19,7 @@ namespace mae
 				{
 					switch (level)
 					{
-					case e_level::NONE 		: return "none";
+					case e_level::NONE_LEVEL 		: return "none";
 					case e_level::HIGH  		: return "high";
 					case e_level::MIDDLE		: return "middle";
 					case e_level::LOW    		: return "low";
@@ -78,9 +78,9 @@ namespace mae
 					{
 						return e_level::LOW;
 					}
-					else if (direction == e_fl_direction::INVALID)
+					else if (direction == e_fl_direction::INVALID_FL_DIRECTION)
 					{
-						return e_level::NONE;
+						return e_level::NONE_LEVEL;
 					}
 
 					throw std::invalid_argument("Enum value not listed in the lvl() method");
@@ -89,7 +89,7 @@ namespace mae
 				std::vector<e_level> e_level_c::vec()
 				{
 					std::vector<e_level> result;
-					result.push_back(e_level::NONE 	);
+					result.push_back(e_level::NONE_LEVEL 	);
 					result.push_back(e_level::HIGH  );
 					result.push_back(e_level::MIDDLE);
 					result.push_back(e_level::LOW   );

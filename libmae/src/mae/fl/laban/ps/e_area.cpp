@@ -19,7 +19,7 @@ namespace mae
 				{
 					switch (area)
 					{
-					case e_area::NONE 		: return "none";
+					case e_area::NONE_AREA 		: return "none";
 					case e_area::HEAD 		: return "head";
 					case e_area::CHEST		: return "chest";
 					case e_area::WAIST		: return "waist";
@@ -33,7 +33,7 @@ namespace mae
 				std::vector<e_area> e_area_c::vec()
 				{
 					std::vector<e_area> result;
-					result.push_back(e_area::NONE 		);
+					result.push_back(e_area::NONE_AREA 		);
 					result.push_back(e_area::HEAD 	  	);
 					result.push_back(e_area::CHEST	 	);
 					result.push_back(e_area::WAIST	  	);

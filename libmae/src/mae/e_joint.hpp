@@ -22,9 +22,9 @@
 namespace mae
 {
 
-	enum class e_joint
+	enum class e_joint : int
 	{
-			INVALID = 0,
+			INVALID_JOINT = 0,
 			HEAD,
 			NECK,
 			LEFT_SHOULDER,

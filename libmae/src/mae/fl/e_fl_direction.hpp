@@ -38,7 +38,7 @@ namespace mae
 
 		enum class e_fl_direction : int
 		{
-				INVALID = 0,
+				INVALID_FL_DIRECTION = 0,
 				P_H,
 				P_M,
 				P_L,

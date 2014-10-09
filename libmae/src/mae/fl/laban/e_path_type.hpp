@@ -28,7 +28,7 @@ namespace mae
 
 			enum class e_path_type : int
 			{
-					NONE,
+					NONE_PATH_TYPE,
 					STRAIGHT,
 					CIRCULAR_LEFT,
 					CIRCULAR_RIGHT,

@@ -42,7 +42,7 @@ namespace mae
 						 * @param degree The degree which is an integer between 1 and 6.
 						 * @param direction (optional) The space direction (similiar to the (horizontal) direction of a direction symbol).
 						 */
-						space_measurement(e_space type, unsigned int degree, e_space_direction direction = e_space_direction::NONE);
+						space_measurement(e_space type, unsigned int degree, e_space_direction direction = e_space_direction::NONE_SPACE_DIRECTION);
 						virtual ~space_measurement();
 
 						/**

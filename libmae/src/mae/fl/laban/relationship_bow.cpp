@@ -35,7 +35,7 @@ namespace mae
 					throw std::invalid_argument("Beat must not be negative.");
 				}
 
-				if (type == e_relationship_type::NONE)
+				if (type == e_relationship_type::NONE_RELATIONSHIP_TYPE)
 				{
 					throw std::invalid_argument("Type must not be NONE.");
 				}

@@ -30,7 +30,7 @@ namespace mae
 
 				enum class e_side : int
 				{
-						NONE,
+						NONE_SIDE,
 						LEFT,
 						RIGHT
 				};

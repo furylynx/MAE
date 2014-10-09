@@ -3,6 +3,7 @@
 //custom includes
 %include "bone.i"
 %include "hierarchy.i"
+%include "hierarchy_element.i"
 %include "general_joint.i"
 %include "math/basis.i"
 %include "math/vec3d.i"

@@ -19,7 +19,7 @@ namespace mae
 				{
 					switch (turn)
 					{
-					case e_turn_direction::NONE 				: return "none";
+					case e_turn_direction::NONE_TURN_DIRECTION 				: return "none";
 					case e_turn_direction::COUNTER_CLOCKWISE	: return "counterClockwise";
 					case e_turn_direction::CLOCKWISE        	: return "clockwise";
 					case e_turn_direction::ANY               	: return "any";
@@ -31,7 +31,7 @@ namespace mae
 				std::vector<e_turn_direction> e_turn_direction_c::vec()
 				{
 					std::vector<e_turn_direction> result;
-					result.push_back(e_turn_direction::NONE 			);
+					result.push_back(e_turn_direction::NONE_TURN_DIRECTION 			);
 					result.push_back(e_turn_direction::COUNTER_CLOCKWISE);
 					result.push_back(e_turn_direction::CLOCKWISE        );
 					result.push_back(e_turn_direction::ANY              );

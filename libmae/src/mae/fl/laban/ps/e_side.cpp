@@ -20,7 +20,7 @@ namespace mae
 				{
 					switch (e_side_)
 					{
-					case e_side::NONE:
+					case e_side::NONE_SIDE:
 						return "none";
 					case e_side::LEFT:
 						return "left";
@@ -34,7 +34,7 @@ namespace mae
 				std::vector<e_side> e_side_c::vec()
 				{
 					std::vector<e_side> result;
-					result.push_back(e_side::NONE 		);
+					result.push_back(e_side::NONE_SIDE 		);
 					result.push_back(e_side::LEFT 	  	);
 					result.push_back(e_side::RIGHT	 	);
 

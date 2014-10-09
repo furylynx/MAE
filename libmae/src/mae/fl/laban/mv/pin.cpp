@@ -21,7 +21,7 @@ namespace mae
 					level_ = level;
 					horizontal_ = horizontal;
 
-					if (level == e_level::NONE)
+					if (level == e_level::NONE_LEVEL)
 					{
 						throw std::invalid_argument("Level must not be NONE.");
 					}

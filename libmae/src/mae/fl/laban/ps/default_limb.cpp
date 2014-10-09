@@ -20,7 +20,7 @@ namespace mae
 				{
 					limb_ = limb;
 
-					if (limb_ == e_limb::NONE)
+					if (limb_ == e_limb::NONE_LIMB)
 					{
 						throw std::invalid_argument("NONE is not allowed for a default limb.");
 					}

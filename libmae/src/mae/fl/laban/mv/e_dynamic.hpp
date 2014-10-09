@@ -30,7 +30,7 @@ namespace mae
 
 				enum class e_dynamic : int
 				{
-						NONE,
+						NONE_DYNAMIC,
 						STRONG,
 						GENTLE,
 						EMPHASIZED,

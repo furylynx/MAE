@@ -24,9 +24,9 @@ namespace mae
 	namespace fl
 	{
 
-		enum class e_fl_joint
+		enum class e_fl_joint : int
 		{
-				INVALID = 0,
+				INVALID_FL_JOINT = 0,
 				HEAD,
 				LEFT_UPPER_ARM,
 				LEFT_FOREARM,

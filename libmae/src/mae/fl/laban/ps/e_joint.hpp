@@ -30,7 +30,7 @@ namespace mae
 
 				enum class e_joint : int
 				{
-						NONE,
+						NONE_JOINT,
 						SHOULDER,
 						ELBOW,
 						WRIST,

@@ -19,7 +19,7 @@ namespace mae
 				{
 					switch (hook)
 					{
-					case e_contact_hook::NONE        		: return "none";
+					case e_contact_hook::NONE_CONTACT_HOOK  : return "none";
 					case e_contact_hook::NAIL        		: return "nail";
 					case e_contact_hook::TIP         		: return "tip";
 					case e_contact_hook::PAD         		: return "pad";
@@ -40,7 +40,7 @@ namespace mae
 				std::vector<e_contact_hook> e_contact_hook_c::vec()
 				{
 					std::vector<e_contact_hook> result;
-					result.push_back(e_contact_hook::NONE        );
+					result.push_back(e_contact_hook::NONE_CONTACT_HOOK);
 					result.push_back(e_contact_hook::NAIL        );
 					result.push_back(e_contact_hook::TIP         );
 					result.push_back(e_contact_hook::PAD         );

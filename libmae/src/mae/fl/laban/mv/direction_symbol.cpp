@@ -29,7 +29,7 @@ namespace mae
 					space_measurement_ = space_measurement;
 					contact_hook_ = contact_hook;
 
-					if (vertical == e_level::NONE || horizontal == e_direction::NONE)
+					if (vertical == e_level::NONE_LEVEL || horizontal == e_direction::NONE_DIRECTION)
 					{
 						throw std::invalid_argument("Direction and level must not be NONE.");
 					}
@@ -160,7 +160,7 @@ namespace mae
 						sstr << dynamics_->xml(indent + 1, namesp);
 					}
 
-					if (contact_hook_ != e_contact_hook::NONE)
+					if (contact_hook_ != e_contact_hook::NONE_CONTACT_HOOK)
 					{
 						sstr << indent_stream.str() << "\t" << "<" << ns << "contactHook>"
 								<< e_contact_hook_c::str(contact_hook_) << "</" << ns << "contactHook>" << std::endl;

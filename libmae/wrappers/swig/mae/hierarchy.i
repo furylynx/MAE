@@ -1,7 +1,7 @@
 // hierarchy.i - SWIG interface
  
 //custom includes
-%include "hierarchy_element.i"
+//%import "hierarchy_element.i"
 
 
 //global includes
