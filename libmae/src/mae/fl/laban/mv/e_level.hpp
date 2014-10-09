@@ -31,7 +31,7 @@ namespace mae
 			namespace mv
 			{
 
-				enum class e_level
+				enum class e_level : int
 				{
 						NONE,
 						HIGH,

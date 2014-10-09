@@ -54,6 +54,7 @@ public class w_e_boneJNI {
   public final static native long new_bone__SWIG_0();
   public final static native long new_bone__SWIG_1(int jarg1, String jarg2, int jarg3, int jarg4);
   public final static native long new_bone__SWIG_2(int jarg1, String jarg2, int jarg3, int jarg4, int jarg5);
+  public final static native long new_bone__SWIG_3(int jarg1);
   public final static native void delete_bone(long jarg1);
   public final static native int bone_get_id(long jarg1, bone jarg1_);
   public final static native String bone_get_name(long jarg1, bone jarg1_);
@@ -62,7 +63,6 @@ public class w_e_boneJNI {
   public final static native boolean bone_has_middle_joint(long jarg1, bone jarg1_);
   public final static native int bone_get_middle_joint(long jarg1, bone jarg1_);
   public final static native long bone_default_bones();
-  public final static native long bone_create_bone(int jarg1);
   public final static native int bone_RESERVED_TOP_DOWN_get();
   public final static native int bone_RESERVED_RIGHT_LEFT_get();
   public final static native long new_string_vector__SWIG_0();
@@ -230,7 +230,8 @@ public class w_e_boneJNI {
   public final static native String i_pre_sign_xml__SWIG_1(long jarg1, i_pre_sign jarg1_, long jarg2);
   public final static native String i_pre_sign_xml__SWIG_2(long jarg1, i_pre_sign jarg1_);
   public final static native boolean i_pre_sign_equals(long jarg1, i_pre_sign jarg1_, long jarg2, i_pre_sign jarg2_);
-  public final static native long new_column_definition(int jarg1, long jarg2, i_pre_sign jarg2_);
+  public final static native long new_column_definition__SWIG_0(int jarg1, long jarg2, i_pre_sign jarg2_);
+  public final static native long new_column_definition__SWIG_1(int jarg1);
   public final static native void delete_column_definition(long jarg1);
   public final static native int column_definition_get_column_index(long jarg1, column_definition jarg1_);
   public final static native long column_definition_get_pre_sign(long jarg1, column_definition jarg1_);

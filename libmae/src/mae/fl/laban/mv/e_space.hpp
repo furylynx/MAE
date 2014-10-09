@@ -28,7 +28,7 @@ namespace mae
 			namespace mv
 			{
 
-				enum class e_space
+				enum class e_space : int
 				{
 						NONE,
 						NARROW,

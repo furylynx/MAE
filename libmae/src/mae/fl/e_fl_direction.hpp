@@ -36,7 +36,7 @@ namespace mae
 			}
 		}
 
-		enum class e_fl_direction
+		enum class e_fl_direction : int
 		{
 				INVALID = 0,
 				P_H,

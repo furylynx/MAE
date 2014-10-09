@@ -26,7 +26,7 @@ namespace mae
 		namespace laban
 		{
 
-			enum class e_path_type
+			enum class e_path_type : int
 			{
 					NONE,
 					STRAIGHT,

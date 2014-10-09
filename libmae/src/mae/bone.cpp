@@ -44,6 +44,36 @@ namespace mae
 		middle_ = true;
 	}
 
+	bone::bone(e_bone eb)
+	{
+		std::vector<bone> def_bones = bone::default_bones();
+
+		bool e_bone_found = false;
+
+		//using for loop here and the default bone minimizes the effort for maintenance at cost of runtime
+		for (unsigned int i = 0; i < def_bones.size(); i++)
+		{
+			if (def_bones.at(i).get_id() == e_bone_c::to_int(eb))
+			{
+				bone b = def_bones.at(i);
+
+				id_ = b.get_id();
+				from_ = b.get_from();
+				to_ = b.get_to();
+				middle_ = b.has_middle_joint();
+				middle_joint_ = b.get_middle_joint();
+
+				e_bone_found = true;
+				break;
+			}
+		}
+
+		if (!e_bone_found)
+		{
+			throw std::invalid_argument("The bone was not found in default bones. Therefore, it could not be created.");
+		}
+	}
+
 	bone::~bone()
 	{
 	}
@@ -141,19 +171,5 @@ namespace mae
 		}
 	}
 
-	bone bone::create_bone(e_bone the_bone)
-	{
-		std::vector<bone> def_bones = bone::default_bones();
-
-		for (unsigned int i = 0; i < def_bones.size(); i++)
-		{
-			if (def_bones.at(i).get_id() == e_bone_c::to_int(the_bone))
-			{
-				return def_bones.at(i);
-			}
-		}
-
-		throw std::invalid_argument("The bone was not found in default bones. Therefore, it could not be created.");
-	}
 
 } // namespace mae

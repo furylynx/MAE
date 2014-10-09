@@ -28,7 +28,7 @@ namespace mae
 			namespace mv
 			{
 
-				enum class e_cancel
+				enum class e_cancel : int
 				{
 						NONE,
 						BACK_NORMAL,
