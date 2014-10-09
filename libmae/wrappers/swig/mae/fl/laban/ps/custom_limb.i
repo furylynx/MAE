@@ -1,9 +1,9 @@
-// surface_part.i - SWIG interface
+// custom_limb.i - SWIG interface
  
 //custom includes
 %include "i_part.i"
-%include "e_limb_side.i"
 %include "i_limb.i"
+%include "i_endpoint.i"
 
 //global includes
 %include "std_shared_ptr.i"
@@ -12,16 +12,17 @@
 
 
 //module definition
-%module w_surface_part
+%module w_custom_limb
 %{
-	#include "../../../src/mae/fl/laban/ps/surface_part.hpp"
+	#include "../../../src/mae/fl/laban/ps/custom_limb.hpp"
 %}
 
 //shared_ptr
 %shared_ptr(mae::fl::laban::ps::i_part);
 %shared_ptr(mae::fl::laban::ps::i_limb);
+%shared_ptr(mae::fl::laban::ps::i_endpoint);
 
 //templates
 
 // Parse the original header file
-%include "../../../src/mae/fl/laban/ps/surface_part.hpp"
+%include "../../../src/mae/fl/laban/ps/custom_limb.hpp"

@@ -1,9 +1,9 @@
-// body_part.i - SWIG interface
+// default_limb.i - SWIG interface
  
 //custom includes
-%include "i_pre_sign.i"
-%include "e_side.i"
 %include "i_part.i"
+%include "i_limb.i"
+%include "e_limb.i"
 
 //global includes
 %include "std_shared_ptr.i"
@@ -12,16 +12,16 @@
 
 
 //module definition
-%module w_body_part
+%module w_default_limb
 %{
-	#include "../../../src/mae/fl/laban/ps/body_part.hpp"
+	#include "../../../src/mae/fl/laban/ps/default_limb.hpp"
 %}
 
 //shared_ptr
 %shared_ptr(mae::fl::laban::ps::i_part);
-%shared_ptr(mae::fl::laban::ps::i_pre_sign);
+%shared_ptr(mae::fl::laban::ps::i_limb);
 
 //templates
 
 // Parse the original header file
-%include "../../../src/mae/fl/laban/ps/body_part.hpp"
+%include "../../../src/mae/fl/laban/ps/default_limb.hpp"
