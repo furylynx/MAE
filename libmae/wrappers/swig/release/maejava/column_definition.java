@@ -36,7 +36,11 @@ public class column_definition {
   }
 
   public column_definition(int column_index, i_pre_sign pre_sign) {
-    this(w_e_boneJNI.new_column_definition(column_index, i_pre_sign.getCPtr(pre_sign), pre_sign), true);
+    this(w_e_boneJNI.new_column_definition__SWIG_0(column_index, i_pre_sign.getCPtr(pre_sign), pre_sign), true);
+  }
+
+  public column_definition(e_bone eb) {
+    this(w_e_boneJNI.new_column_definition__SWIG_1(eb.swigValue()), true);
   }
 
   public int get_column_index() {

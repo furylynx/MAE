@@ -28,6 +28,10 @@ int main()
 		//-----------------------
 
 		std::string sequences_dir = "sequences/";
+		std::string tolerance_str = "0.5";
+		double tolerance = 0.5;
+		std::string bones = "RIGHT_WHOLE_ARM,LEFT_WHOLE_ARM";
+
 		std::string config_path = "SamplesConfig.xml";
 		std::string max_users_str = "15";
 		int max_users = 15;
@@ -49,6 +53,14 @@ int main()
 		mae::ini_reader ini_reader = mae::ini_reader("config.ini");
 
 		ini_reader.get_value_nex("mae", "sequences_dir", &sequences_dir);
+
+		if (ini_reader.get_value_nex("mae", "tolerance", &tolerance_str))
+		{
+			tolerance = std::stod(tolerance_str);
+		}
+
+		ini_reader.get_value_nex("mae", "bones", &bones);
+
 
 		ini_reader.get_value_nex("nite", "config_path", &config_path);
 		if (ini_reader.get_value_nex("nite", "max_users", &max_users_str))
@@ -86,21 +98,44 @@ int main()
 		//set up the controller
 		//-----------------------
 
+		//body parts to be regarded
+		std::vector<std::string> bones_split = mae::mstr::split(bones, ',');
 		std::vector<mae::bone> body_parts;
-		body_parts.push_back(mae::bone::create_bone(mae::e_bone::RIGHT_WHOLE_ARM));
-		body_parts.push_back(mae::bone::create_bone(mae::e_bone::LEFT_WHOLE_ARM));
-
 		std::vector<std::shared_ptr<mae::fl::laban::column_definition> > column_definitions;
 
+		std::cout << "body parts to be regarded:" << std::endl;
+		for (unsigned int i = 0; i < bones_split.size(); i++)
+		{
+			mae::e_bone eb = mae::e_bone_c::parse(mae::mstr::trim(bones_split.at(i)));
+			mae::bone b = mae::bone(eb);
+			body_parts.push_back(b);
+			std::cout << " - " << mae::e_bone_c::str(eb) << std::endl;
+
+			if (std::abs(b.get_id()) != 1 && std::abs(b.get_id()) != 2 && std::abs(b.get_id()) != 4)
+			{
+				//generate column definition for the bone
+				column_definitions.push_back(std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(eb)));
+			}
+		}
+
+//		body_parts.push_back(mae::bone::create_bone(mae::e_bone::RIGHT_WHOLE_ARM));
+//		body_parts.push_back(mae::bone::create_bone(mae::e_bone::LEFT_WHOLE_ARM));
+
+
+		//column definitions to be used
+
+
+		//create the movement controller
 		std::cout << "initialize fl movement controller" << std::endl;
 
 //		mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,
 //				column_definitions);
 
-	mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,
-			column_definitions, 0, mae::fl::laban::laban_sequence::default_beats_per_measure(),
-			mae::fl::laban::laban_sequence::default_beat_duration(),
-			mae::fl::laban::laban_sequence::default_time_unit(), 1.0 / 30.0, true);
+		mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,
+				column_definitions, 0, mae::fl::laban::laban_sequence::default_beats_per_measure(),
+				mae::fl::laban::laban_sequence::default_beat_duration(),
+				mae::fl::laban::laban_sequence::default_time_unit(), 1.0 / 30.0, false);
+		movement_controller.set_recognition_tolerance(tolerance);
 
 		std::cout << "parse sequences to be registered" << std::endl;
 
@@ -226,12 +261,10 @@ int main()
 //		counter++;
 //	}
 
-	}
-	catch (std::exception &e)
+	} catch (std::exception &e)
 	{
 		std::cerr << "An exception has occurred: " << e.what() << std::endl;
-	}
-	catch(...)
+	} catch (...)
 	{
 		std::cerr << "unknown exception" << std::endl;
 	}

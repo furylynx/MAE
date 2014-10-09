@@ -28,7 +28,7 @@ namespace mae
 			namespace mv
 			{
 
-				enum class e_contact_hook
+				enum class e_contact_hook : int
 				{
 						NONE,
 						NAIL,

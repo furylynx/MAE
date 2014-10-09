@@ -28,7 +28,7 @@ namespace mae
 			namespace mv
 			{
 
-				enum class e_dynamic
+				enum class e_dynamic : int
 				{
 						NONE,
 						STRONG,

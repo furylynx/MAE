@@ -28,7 +28,7 @@ namespace mae
 			namespace ps
 			{
 
-				enum class e_side
+				enum class e_side : int
 				{
 						NONE,
 						LEFT,

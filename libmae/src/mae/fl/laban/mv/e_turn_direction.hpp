@@ -28,7 +28,7 @@ namespace mae
 			namespace mv
 			{
 
-				enum class e_turn_direction
+				enum class e_turn_direction : int
 				{
 						NONE,
 						COUNTER_CLOCKWISE,

@@ -26,7 +26,7 @@ namespace mae
 		namespace laban
 		{
 
-			enum class e_relationship_type
+			enum class e_relationship_type : int
 			{
 					NONE,
 					ADDRESS,

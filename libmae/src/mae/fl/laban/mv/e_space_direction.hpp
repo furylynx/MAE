@@ -28,7 +28,7 @@ namespace mae
 			namespace mv
 			{
 
-				enum class e_space_direction
+				enum class e_space_direction : int
 				{
 						NONE,
 						LEFT,
