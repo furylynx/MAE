@@ -20,7 +20,7 @@ namespace mae
 				{
 					switch (cancel)
 					{
-					case e_cancel::NONE           		: return "none";
+					case e_cancel::NONE_CANCEL           		: return "none";
 					case e_cancel::BACK_NORMAL    		: return "back-normal";
 					case e_cancel::RELEASE_CONTACT 		: return "release-contact";
 					}
@@ -31,7 +31,7 @@ namespace mae
 				std::vector<e_cancel> e_cancel_c::vec()
 				{
 					std::vector<e_cancel> result;
-					result.push_back(e_cancel::NONE           	);
+					result.push_back(e_cancel::NONE_CANCEL           	);
 					result.push_back(e_cancel::BACK_NORMAL      );
 					result.push_back(e_cancel::RELEASE_CONTACT 	);
 

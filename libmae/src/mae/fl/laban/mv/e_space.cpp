@@ -19,7 +19,7 @@ namespace mae
 				{
 					switch (space)
 					{
-					case e_space::NONE    		: return "none";
+					case e_space::NONE_SPACE    		: return "none";
 					case e_space::NARROW  		: return "narrow";
 					case e_space::WIDE    		: return "wide";
 					case e_space::FOLDING 		: return "folding";
@@ -34,7 +34,7 @@ namespace mae
 				std::vector<e_space> e_space_c::vec()
 				{
 					std::vector<e_space> result;
-					result.push_back(e_space::NONE    	);
+					result.push_back(e_space::NONE_SPACE    	);
 					result.push_back(e_space::NARROW  	);
 					result.push_back(e_space::WIDE    	);
 					result.push_back(e_space::FOLDING 	);

@@ -30,7 +30,7 @@ namespace mae
 
 				enum class e_cancel : int
 				{
-						NONE,
+						NONE_CANCEL,
 						BACK_NORMAL,
 						RELEASE_CONTACT
 				};

@@ -30,7 +30,7 @@ namespace mae
 
 				enum class e_space_direction : int
 				{
-						NONE,
+						NONE_SPACE_DIRECTION,
 						LEFT,
 						FRONT_LEFT,
 						FRONT,

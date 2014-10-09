@@ -19,6 +19,9 @@
 //templates
 %template(int_vector) std::vector<int>;
 //%template(e_bone_vector) std::vector<mae::e_bone>;
+
+//rename
+//%rename (EBone) e_bone;
  
 // Parse the original header file
 %include "../../../src/mae/e_bone.hpp"

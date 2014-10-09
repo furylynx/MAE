@@ -8,3 +8,6 @@
 %include "space_measurement.i"
 %include "turn_symbol.i"
 %include "vibration_symbol.i"
+
+%include "e_level.i"
+%include "e_direction.i"

@@ -97,7 +97,7 @@ namespace mae
 				std::vector<mae::fl::e_fl_direction> fl_dirs = mae::fl::e_fl_direction_c::vec();
 				for (unsigned int i = 0; i < fl_dirs.size(); i++)
 				{
-					if (fl_dirs.at(i) == mae::fl::e_fl_direction::INVALID)
+					if (fl_dirs.at(i) == mae::fl::e_fl_direction::INVALID_FL_DIRECTION)
 					{
 						continue;
 					}

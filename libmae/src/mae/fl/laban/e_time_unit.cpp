@@ -17,7 +17,7 @@ namespace mae
 			{
 				switch (unit)
 				{
-				case e_time_unit::NONE           		: return "none";
+				case e_time_unit::NONE_TIME_UNIT           		: return "none";
 				case e_time_unit::MINUTE    			: return "minute";
 				case e_time_unit::SECOND    			: return "second";
                 case e_time_unit::MILLISECOND        	: return "millisecond";
@@ -29,7 +29,7 @@ namespace mae
 			std::vector<e_time_unit> e_time_unit_c::vec()
 			{
 				std::vector<e_time_unit> result;
-				result.push_back(e_time_unit::NONE  		);
+				result.push_back(e_time_unit::NONE_TIME_UNIT  		);
 				result.push_back(e_time_unit::MINUTE       	);
 				result.push_back(e_time_unit::SECOND      	);
 				result.push_back(e_time_unit::MILLISECOND  	);

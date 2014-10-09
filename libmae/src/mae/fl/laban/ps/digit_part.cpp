@@ -31,7 +31,7 @@ namespace mae
 									"Knuckle must not be greater than 4 since a finger is addressed.");
 						}
 					}
-					else if (digit == e_digit::NONE)
+					else if (digit == e_digit::NONE_DIGIT)
 					{
 						throw std::invalid_argument("Digit is set to NONE which is invalid.");
 					}

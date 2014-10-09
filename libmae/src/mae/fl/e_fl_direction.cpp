@@ -16,7 +16,7 @@ namespace mae
 		{
 			switch (direction)
 			{
-			case e_fl_direction::INVALID : return "INVALID";
+			case e_fl_direction::INVALID_FL_DIRECTION : return "INVALID";
 			case e_fl_direction::P_H     : return "PLACE HIGH";
 			case e_fl_direction::P_M     : return "PLACE MID";
 	        case e_fl_direction::P_L     : return "PLACE LOW";
@@ -63,7 +63,7 @@ namespace mae
 
 		e_fl_direction e_fl_direction_c::dir(laban::mv::e_direction direction, laban::mv::e_level level, bool left)
 		{
-			if 		(direction == laban::mv::e_direction::NONE || level == laban::mv::e_level::NONE) { return e_fl_direction::INVALID    ;}
+			if 		(direction == laban::mv::e_direction::NONE_DIRECTION || level == laban::mv::e_level::NONE_LEVEL) { return e_fl_direction::INVALID_FL_DIRECTION    ;}
 			else if (direction == laban::mv::e_direction::PLACE && level == laban::mv::e_level::HIGH) { return e_fl_direction::P_H        ;}
 			else if (direction == laban::mv::e_direction::PLACE && level == laban::mv::e_level::MIDDLE ) { return e_fl_direction::P_M        ;}
 			else if (direction == laban::mv::e_direction::PLACE && level == laban::mv::e_level::LOW ) { return e_fl_direction::P_L        ;}
@@ -105,7 +105,7 @@ namespace mae
 		{
 			std::vector<e_fl_direction> result;
 
-			result.push_back(e_fl_direction::INVALID  );
+			result.push_back(e_fl_direction::INVALID_FL_DIRECTION  );
 			result.push_back(e_fl_direction::P_H      );
 			result.push_back(e_fl_direction::P_M      );
 			result.push_back(e_fl_direction::P_L      );

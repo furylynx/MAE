@@ -14,7 +14,7 @@ namespace mae
 	{
 		switch (bone)
 		{
-		case e_bone::INVALID    			: return "INVALID";
+		case e_bone::INVALID_BONE    			: return "INVALID";
 		case e_bone::HEAD           		: return "HEAD";
 		case e_bone::LEFT_UPPER_ARM 		: return "LEFT_UPPER_ARM";
         case e_bone::LEFT_FOREARM           : return "LEFT_FOREARM";
@@ -41,7 +41,7 @@ namespace mae
 	std::vector<e_bone> e_bone_c::vec()
 	{
 		std::vector<e_bone> result;
-		result.push_back(e_bone::INVALID    		);
+		result.push_back(e_bone::INVALID_BONE    		);
 		result.push_back(e_bone::HEAD           	);
 		result.push_back(e_bone::LEFT_UPPER_ARM 	);
 		result.push_back(e_bone::LEFT_FOREARM    	);

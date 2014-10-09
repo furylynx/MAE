@@ -115,7 +115,7 @@ namespace mae
 
 				for (e_fl_direction dir : e_fl_direction_c::vec())
 				{
-					if (dir == e_fl_direction::INVALID)
+					if (dir == e_fl_direction::INVALID_FL_DIRECTION)
 					{
 						continue;
 					}
@@ -191,15 +191,15 @@ namespace mae
 				else
 				{
 					//find minimum distance to set direction
-					e_fl_direction min_dist_dir = e_fl_direction::INVALID;
+					e_fl_direction min_dist_dir = e_fl_direction::INVALID_FL_DIRECTION;
 					for (e_fl_direction dir : e_fl_direction_c::vec())
 					{
-						if (dir == e_fl_direction::INVALID)
+						if (dir == e_fl_direction::INVALID_FL_DIRECTION)
 						{
 							continue;
 						}
 
-						if ((min_dist_dir == e_fl_direction::INVALID
+						if ((min_dist_dir == e_fl_direction::INVALID_FL_DIRECTION
 								&& result->get_distance(bone_id, e_fl_direction_c::to_int(dir)) >= 0)
 								|| (result->get_distance(bone_id, e_fl_direction_c::to_int(dir))
 										< result->get_distance(bone_id, e_fl_direction_c::to_int(min_dist_dir))

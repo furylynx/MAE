@@ -22,7 +22,7 @@ namespace mae
 					degree_ = degree;
 					direction_ = direction;
 
-					if (type_ == e_space::NONE)
+					if (type_ == e_space::NONE_SPACE)
 					{
 						throw std::invalid_argument("Type must not be NONE.");
 					}
@@ -86,7 +86,7 @@ namespace mae
 					sstr << indent_stream.str() << "\t" << "<" << ns << "degree>" << degree_ << "</" << ns << "degree>"
 							<< std::endl;
 
-					if (direction_ != e_space_direction::NONE)
+					if (direction_ != e_space_direction::NONE_SPACE_DIRECTION)
 					{
 						sstr << indent_stream.str() << "\t" << "<" << ns << "direction>"
 								<< e_space_direction_c::str(direction_) << "</" << ns << "direction>" << std::endl;

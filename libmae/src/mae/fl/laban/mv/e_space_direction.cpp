@@ -19,7 +19,7 @@ namespace mae
 				{
 					switch (space_direction)
 					{
-					case e_space_direction::NONE       		: return "none";
+					case e_space_direction::NONE_SPACE_DIRECTION       		: return "none";
 					case e_space_direction::LEFT 			: return "left";
 					case e_space_direction::FRONT_LEFT 		: return "frontLeft";
 					case e_space_direction::FRONT      		: return "front";
@@ -36,7 +36,7 @@ namespace mae
 				std::vector<e_space_direction> e_space_direction_c::vec()
 				{
 					std::vector<e_space_direction> result;
-					result.push_back(e_space_direction::NONE       	);
+					result.push_back(e_space_direction::NONE_SPACE_DIRECTION       	);
 					result.push_back(e_space_direction::LEFT 		);
 					result.push_back(e_space_direction::FRONT_LEFT 	);
 					result.push_back(e_space_direction::FRONT      	);

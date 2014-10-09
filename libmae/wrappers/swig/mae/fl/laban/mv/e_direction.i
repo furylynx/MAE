@@ -1,7 +1,7 @@
 // e_direction.i - SWIG interface
  
 //custom includes
-%include "../../e_fl_direction.i"
+//%import "../../e_fl_direction.i"
  
 //global includes
 %include "std_string.i"

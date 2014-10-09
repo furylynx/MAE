@@ -19,7 +19,7 @@ namespace mae
 				{
 					switch (direction)
 					{
-					case e_direction::NONE         		: return "none";
+					case e_direction::NONE_DIRECTION    : return "none";
 					case e_direction::PLACE        		: return "place";
 					case e_direction::FORWARD      		: return "forward";
 					case e_direction::BACKWARD     		: return "backward";
@@ -114,9 +114,9 @@ namespace mae
 					{
 						return e_direction::LEFT_BACKWARD;
 					}
-					else if (direction == e_fl_direction::INVALID)
+					else if (direction == e_fl_direction::INVALID_FL_DIRECTION)
 					{
-						return e_direction::NONE;
+						return e_direction::NONE_DIRECTION;
 					}
 
 
@@ -127,7 +127,7 @@ namespace mae
 				std::vector<e_direction> e_direction_c::vec()
 				{
 					std::vector<e_direction> result;
-					result.push_back(e_direction::NONE         	);
+					result.push_back(e_direction::NONE_DIRECTION);
 					result.push_back(e_direction::PLACE        	);
 					result.push_back(e_direction::FORWARD      	);
 					result.push_back(e_direction::BACKWARD     	);

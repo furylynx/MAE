@@ -24,7 +24,7 @@ namespace mae
 					dynamics_ = dynamics;
 					degree_ = degree;
 
-					if (direction == e_turn_direction::NONE)
+					if (direction == e_turn_direction::NONE_TURN_DIRECTION)
 					{
 						throw std::invalid_argument("Direction must not be NONE.");
 					}

@@ -30,7 +30,7 @@ namespace mae
 
 				enum class e_contact_hook : int
 				{
-						NONE,
+						NONE_CONTACT_HOOK,
 						NAIL,
 						TIP,
 						PAD,

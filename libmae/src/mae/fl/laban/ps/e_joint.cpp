@@ -20,7 +20,7 @@ namespace mae
 				{
 					switch (joint_)
 					{
-					case e_joint::NONE    	: return "none";
+					case e_joint::NONE_JOINT    	: return "none";
 					case e_joint::SHOULDER	: return "shoulder";
 					case e_joint::ELBOW   	: return "elbow";
 					case e_joint::WRIST   	: return "wrist";
@@ -39,7 +39,7 @@ namespace mae
 				std::vector<e_joint> e_joint_c::vec()
 				{
 					std::vector<e_joint> result;
-					result.push_back(e_joint::NONE    	);
+					result.push_back(e_joint::NONE_JOINT    	);
 					result.push_back(e_joint::SHOULDER 	);
 					result.push_back(e_joint::ELBOW   	);
 					result.push_back(e_joint::WRIST    	);
