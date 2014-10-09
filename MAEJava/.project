@@ -16,9 +16,14 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>swig</name>
+			<name>maejava</name>
 			<type>2</type>
 			<location>/sda7/data/workspace-git/MAE/libmae/wrappers/swig/release/java</location>
+		</link>
+		<link>
+			<name>swig</name>
+			<type>2</type>
+			<location>/sda7/data/workspace-git/MAE/libmae/wrappers/swig/release</location>
 		</link>
 	</linkedResources>
 </projectDescription>
