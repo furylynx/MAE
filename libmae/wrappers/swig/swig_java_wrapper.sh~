@@ -5,7 +5,7 @@ INCONFIG="mae/mae.i"
 OUTDIRJAVA="release/java/"
 OUTDIRCXX="release/"
 OUTFILECXX="mae_wrap"
-PACKAGE=mae
+PACKAGE=maejava
 #OUTDIRCSHARP=release/csharp/
 
 #script (modify if other language is required)
