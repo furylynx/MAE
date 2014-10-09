@@ -23,6 +23,7 @@
 %shared_ptr(mae::fl::laban::i_movement);
 %shared_ptr(mae::fl::laban::mv::i_symbol);
 %shared_ptr(mae::fl::laban::ps::i_pre_sign);
+%shared_ptr(mae::fl::laban::movement);
 
 //templates
 %template (int_int_map) std::map<int, int>;

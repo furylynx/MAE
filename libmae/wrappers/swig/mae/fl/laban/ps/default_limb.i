@@ -20,6 +20,7 @@
 //shared_ptr
 %shared_ptr(mae::fl::laban::ps::i_part);
 %shared_ptr(mae::fl::laban::ps::i_limb);
+%shared_ptr(mae::fl::laban::ps::default_limb);
 
 //templates
 

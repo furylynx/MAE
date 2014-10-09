@@ -20,6 +20,7 @@
 
 //shared_ptr
 %shared_ptr(mae::fl::laban::i_movement);
+%shared_ptr(mae::fl::laban::path);
 
 //templates
 %template (int_int_map) std::map<int, int>;

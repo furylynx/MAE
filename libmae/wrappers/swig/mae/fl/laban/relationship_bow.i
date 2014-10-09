@@ -21,6 +21,7 @@
 //shared_ptr
 %shared_ptr(mae::fl::laban::i_movement);
 %shared_ptr(mae::fl::laban::mv::relationship_endpoint);
+%shared_ptr(mae::fl::laban::relationship_bow);
 
 //templates
 %template (int_int_map) std::map<int, int>;
