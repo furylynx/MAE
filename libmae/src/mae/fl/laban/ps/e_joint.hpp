@@ -28,7 +28,7 @@ namespace mae
 			namespace ps
 			{
 
-				enum class e_joint
+				enum class e_joint : int
 				{
 						NONE,
 						SHOULDER,

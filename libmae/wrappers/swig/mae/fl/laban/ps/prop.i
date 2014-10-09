@@ -1,7 +1,7 @@
 // prop.i - SWIG interface
  
 //custom includes
-$include "i_pre_sign.i"
+%include "i_pre_sign.i"
 
 //global includes
 %include "std_shared_ptr.i"
