@@ -2,7 +2,7 @@
  
 //custom includes
 %include "../general_skeleton.i"
-%include "../basis.i"
+%include "../math/basis.i"
 
  
 //global includes
@@ -19,7 +19,7 @@
 
 //shared_ptr
 %shared_ptr(mae::general_skeleton);
-%shared_ptr(mae::basis);
+%shared_ptr(mae::math::basis);
 
 //templates
 

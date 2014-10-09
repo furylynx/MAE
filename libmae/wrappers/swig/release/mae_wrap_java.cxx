@@ -419,13 +419,13 @@ SWIGINTERN void std_vector_Sl_std_shared_ptr_Sl_mae_hierarchy_element_Sg__Sg__se
 	#include "../../../src/mae/hierarchy.hpp"
 
 
-	#include "../../../src/mae/vec3d.hpp"
+	#include "../../../src/mae/math/vec3d.hpp"
 
 
 	#include "../../../src/mae/general_joint.hpp"
 
 
-	#include "../../../src/mae/basis.hpp"
+	#include "../../../src/mae/math/basis.hpp"
 
 
 	#include "../../../src/mae/general_skeleton.hpp"
@@ -2917,12 +2917,12 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_hierarchy_1default_1hierarch
 
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1vec3d_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
-  mae::vec3d *result = 0 ;
+  mae::math::vec3d *result = 0 ;
   
   (void)jenv;
   (void)jcls;
-  result = (mae::vec3d *)new mae::vec3d();
-  *(mae::vec3d **)&jresult = result; 
+  result = (mae::math::vec3d *)new mae::math::vec3d();
+  *(mae::math::vec3d **)&jresult = result; 
   return jresult;
 }
 
@@ -2932,37 +2932,37 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1vec3d_1_1SWIG_11(JNIEnv
   double arg1 ;
   double arg2 ;
   double arg3 ;
-  mae::vec3d *result = 0 ;
+  mae::math::vec3d *result = 0 ;
   
   (void)jenv;
   (void)jcls;
   arg1 = (double)jarg1; 
   arg2 = (double)jarg2; 
   arg3 = (double)jarg3; 
-  result = (mae::vec3d *)new mae::vec3d(arg1,arg2,arg3);
-  *(mae::vec3d **)&jresult = result; 
+  result = (mae::math::vec3d *)new mae::math::vec3d(arg1,arg2,arg3);
+  *(mae::math::vec3d **)&jresult = result; 
   return jresult;
 }
 
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1vec3d(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mae::vec3d *arg1 = (mae::vec3d *) 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   
   (void)jenv;
   (void)jcls;
-  arg1 = *(mae::vec3d **)&jarg1; 
+  arg1 = *(mae::math::vec3d **)&jarg1; 
   delete arg1;
 }
 
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_vec3d_1set_1x(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
-  mae::vec3d *arg1 = (mae::vec3d *) 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   double arg2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::vec3d **)&jarg1; 
+  arg1 = *(mae::math::vec3d **)&jarg1; 
   arg2 = (double)jarg2; 
   (arg1)->set_x(arg2);
 }
@@ -2970,27 +2970,27 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_vec3d_1set_1x(JNIEnv *jenv, j
 
 SWIGEXPORT jdouble JNICALL Java_maejava_w_1e_1boneJNI_vec3d_1get_1x(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
-  mae::vec3d *arg1 = (mae::vec3d *) 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   double result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::vec3d **)&jarg1; 
-  result = (double)((mae::vec3d const *)arg1)->get_x();
+  arg1 = *(mae::math::vec3d **)&jarg1; 
+  result = (double)((mae::math::vec3d const *)arg1)->get_x();
   jresult = (jdouble)result; 
   return jresult;
 }
 
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_vec3d_1set_1y(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
-  mae::vec3d *arg1 = (mae::vec3d *) 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   double arg2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::vec3d **)&jarg1; 
+  arg1 = *(mae::math::vec3d **)&jarg1; 
   arg2 = (double)jarg2; 
   (arg1)->set_y(arg2);
 }
@@ -2998,27 +2998,27 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_vec3d_1set_1y(JNIEnv *jenv, j
 
 SWIGEXPORT jdouble JNICALL Java_maejava_w_1e_1boneJNI_vec3d_1get_1y(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
-  mae::vec3d *arg1 = (mae::vec3d *) 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   double result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::vec3d **)&jarg1; 
-  result = (double)((mae::vec3d const *)arg1)->get_y();
+  arg1 = *(mae::math::vec3d **)&jarg1; 
+  result = (double)((mae::math::vec3d const *)arg1)->get_y();
   jresult = (jdouble)result; 
   return jresult;
 }
 
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_vec3d_1set_1z(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
-  mae::vec3d *arg1 = (mae::vec3d *) 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   double arg2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::vec3d **)&jarg1; 
+  arg1 = *(mae::math::vec3d **)&jarg1; 
   arg2 = (double)jarg2; 
   (arg1)->set_z(arg2);
 }
@@ -3026,14 +3026,14 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_vec3d_1set_1z(JNIEnv *jenv, j
 
 SWIGEXPORT jdouble JNICALL Java_maejava_w_1e_1boneJNI_vec3d_1get_1z(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
-  mae::vec3d *arg1 = (mae::vec3d *) 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   double result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::vec3d **)&jarg1; 
-  result = (double)((mae::vec3d const *)arg1)->get_z();
+  arg1 = *(mae::math::vec3d **)&jarg1; 
+  result = (double)((mae::math::vec3d const *)arg1)->get_z();
   jresult = (jdouble)result; 
   return jresult;
 }
@@ -3041,14 +3041,14 @@ SWIGEXPORT jdouble JNICALL Java_maejava_w_1e_1boneJNI_vec3d_1get_1z(JNIEnv *jenv
 
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_vec3d_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
-  mae::vec3d *arg1 = (mae::vec3d *) 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::vec3d **)&jarg1; 
-  result = ((mae::vec3d const *)arg1)->str();
+  arg1 = *(mae::math::vec3d **)&jarg1; 
+  result = ((mae::math::vec3d const *)arg1)->str();
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -3149,17 +3149,17 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1general_1joint_1_1SWIG_
 
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1general_1joint_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jdouble jarg2, jdouble jarg3) {
   jlong jresult = 0 ;
-  std::shared_ptr< mae::vec3d > arg1 ;
+  std::shared_ptr< mae::math::vec3d > arg1 ;
   double arg2 ;
   double arg3 ;
-  std::shared_ptr< mae::vec3d > *argp1 ;
+  std::shared_ptr< mae::math::vec3d > *argp1 ;
   mae::general_joint *result = 0 ;
   
   (void)jenv;
   (void)jcls;
-  argp1 = *(std::shared_ptr< mae::vec3d > **)&jarg1; 
+  argp1 = *(std::shared_ptr< mae::math::vec3d > **)&jarg1; 
   if (!argp1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::vec3d >");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::math::vec3d >");
     return 0;
   }
   arg1 = *argp1; 
@@ -3175,16 +3175,16 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1general_1joint_1_1SWIG_
 
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1general_1joint_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jdouble jarg2) {
   jlong jresult = 0 ;
-  std::shared_ptr< mae::vec3d > arg1 ;
+  std::shared_ptr< mae::math::vec3d > arg1 ;
   double arg2 ;
-  std::shared_ptr< mae::vec3d > *argp1 ;
+  std::shared_ptr< mae::math::vec3d > *argp1 ;
   mae::general_joint *result = 0 ;
   
   (void)jenv;
   (void)jcls;
-  argp1 = *(std::shared_ptr< mae::vec3d > **)&jarg1; 
+  argp1 = *(std::shared_ptr< mae::math::vec3d > **)&jarg1; 
   if (!argp1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::vec3d >");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::math::vec3d >");
     return 0;
   }
   arg1 = *argp1; 
@@ -3199,15 +3199,15 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1general_1joint_1_1SWIG_
 
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1general_1joint_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
-  std::shared_ptr< mae::vec3d > arg1 ;
-  std::shared_ptr< mae::vec3d > *argp1 ;
+  std::shared_ptr< mae::math::vec3d > arg1 ;
+  std::shared_ptr< mae::math::vec3d > *argp1 ;
   mae::general_joint *result = 0 ;
   
   (void)jenv;
   (void)jcls;
-  argp1 = *(std::shared_ptr< mae::vec3d > **)&jarg1; 
+  argp1 = *(std::shared_ptr< mae::math::vec3d > **)&jarg1; 
   if (!argp1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::vec3d >");
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::math::vec3d >");
     return 0;
   }
   arg1 = *argp1; 
@@ -3427,7 +3427,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_general_1joint_1vec(JNIEnv *
   jlong jresult = 0 ;
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   std::shared_ptr< mae::general_joint > *smartarg1 = 0 ;
-  std::shared_ptr< mae::vec3d > result;
+  std::shared_ptr< mae::math::vec3d > result;
   
   (void)jenv;
   (void)jcls;
@@ -3436,7 +3436,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_general_1joint_1vec(JNIEnv *
   smartarg1 = *(std::shared_ptr<  mae::general_joint > **)&jarg1;
   arg1 = (mae::general_joint *)(smartarg1 ? smartarg1->get() : 0); 
   result = (arg1)->vec();
-  *(std::shared_ptr< mae::vec3d > **)&jresult = new std::shared_ptr< mae::vec3d >((const std::shared_ptr< mae::vec3d > &)result); 
+  *(std::shared_ptr< mae::math::vec3d > **)&jresult = new std::shared_ptr< mae::math::vec3d >((const std::shared_ptr< mae::math::vec3d > &)result); 
   return jresult;
 }
 
@@ -3512,27 +3512,27 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_general_1joint_1str(JNIEnv
 
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1basis_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
-  mae::basis *result = 0 ;
+  mae::math::basis *result = 0 ;
   
   (void)jenv;
   (void)jcls;
-  result = (mae::basis *)new mae::basis();
-  *(mae::basis **)&jresult = result; 
+  result = (mae::math::basis *)new mae::math::basis();
+  *(mae::math::basis **)&jresult = result; 
   return jresult;
 }
 
 
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1basis_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
   jlong jresult = 0 ;
-  std::shared_ptr< mae::vec3d > arg1 ;
-  std::shared_ptr< mae::vec3d > arg2 ;
-  std::shared_ptr< mae::vec3d > arg3 ;
-  std::shared_ptr< mae::vec3d > arg4 ;
-  std::shared_ptr< mae::vec3d > *argp1 ;
-  std::shared_ptr< mae::vec3d > *argp2 ;
-  std::shared_ptr< mae::vec3d > *argp3 ;
-  std::shared_ptr< mae::vec3d > *argp4 ;
-  mae::basis *result = 0 ;
+  std::shared_ptr< mae::math::vec3d > arg1 ;
+  std::shared_ptr< mae::math::vec3d > arg2 ;
+  std::shared_ptr< mae::math::vec3d > arg3 ;
+  std::shared_ptr< mae::math::vec3d > arg4 ;
+  std::shared_ptr< mae::math::vec3d > *argp1 ;
+  std::shared_ptr< mae::math::vec3d > *argp2 ;
+  std::shared_ptr< mae::math::vec3d > *argp3 ;
+  std::shared_ptr< mae::math::vec3d > *argp4 ;
+  mae::math::basis *result = 0 ;
   
   (void)jenv;
   (void)jcls;
@@ -3540,149 +3540,149 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1basis_1_1SWIG_11(JNIEnv
   (void)jarg2_;
   (void)jarg3_;
   (void)jarg4_;
-  argp1 = *(std::shared_ptr< mae::vec3d > **)&jarg1; 
+  argp1 = *(std::shared_ptr< mae::math::vec3d > **)&jarg1; 
   if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::vec3d > **)&jarg2; 
+  argp2 = *(std::shared_ptr< mae::math::vec3d > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
-  argp3 = *(std::shared_ptr< mae::vec3d > **)&jarg3; 
+  argp3 = *(std::shared_ptr< mae::math::vec3d > **)&jarg3; 
   if (argp3) arg3 = *argp3; 
-  argp4 = *(std::shared_ptr< mae::vec3d > **)&jarg4; 
+  argp4 = *(std::shared_ptr< mae::math::vec3d > **)&jarg4; 
   if (argp4) arg4 = *argp4; 
-  result = (mae::basis *)new mae::basis(arg1,arg2,arg3,arg4);
-  *(mae::basis **)&jresult = result; 
+  result = (mae::math::basis *)new mae::math::basis(arg1,arg2,arg3,arg4);
+  *(mae::math::basis **)&jresult = result; 
   return jresult;
 }
 
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1basis(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mae::basis *arg1 = (mae::basis *) 0 ;
+  mae::math::basis *arg1 = (mae::math::basis *) 0 ;
   
   (void)jenv;
   (void)jcls;
-  arg1 = *(mae::basis **)&jarg1; 
+  arg1 = *(mae::math::basis **)&jarg1; 
   delete arg1;
 }
 
 
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_basis_1get_1u(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
-  mae::basis *arg1 = (mae::basis *) 0 ;
-  std::shared_ptr< mae::vec3d > result;
+  mae::math::basis *arg1 = (mae::math::basis *) 0 ;
+  std::shared_ptr< mae::math::vec3d > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::basis **)&jarg1; 
-  result = ((mae::basis const *)arg1)->get_u();
-  *(std::shared_ptr< mae::vec3d > **)&jresult = result ? new std::shared_ptr< mae::vec3d >(result) : 0; 
+  arg1 = *(mae::math::basis **)&jarg1; 
+  result = ((mae::math::basis const *)arg1)->get_u();
+  *(std::shared_ptr< mae::math::vec3d > **)&jresult = result ? new std::shared_ptr< mae::math::vec3d >(result) : 0; 
   return jresult;
 }
 
 
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_basis_1get_1r(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
-  mae::basis *arg1 = (mae::basis *) 0 ;
-  std::shared_ptr< mae::vec3d > result;
+  mae::math::basis *arg1 = (mae::math::basis *) 0 ;
+  std::shared_ptr< mae::math::vec3d > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::basis **)&jarg1; 
-  result = ((mae::basis const *)arg1)->get_r();
-  *(std::shared_ptr< mae::vec3d > **)&jresult = result ? new std::shared_ptr< mae::vec3d >(result) : 0; 
+  arg1 = *(mae::math::basis **)&jarg1; 
+  result = ((mae::math::basis const *)arg1)->get_r();
+  *(std::shared_ptr< mae::math::vec3d > **)&jresult = result ? new std::shared_ptr< mae::math::vec3d >(result) : 0; 
   return jresult;
 }
 
 
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_basis_1get_1t(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
-  mae::basis *arg1 = (mae::basis *) 0 ;
-  std::shared_ptr< mae::vec3d > result;
+  mae::math::basis *arg1 = (mae::math::basis *) 0 ;
+  std::shared_ptr< mae::math::vec3d > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::basis **)&jarg1; 
-  result = ((mae::basis const *)arg1)->get_t();
-  *(std::shared_ptr< mae::vec3d > **)&jresult = result ? new std::shared_ptr< mae::vec3d >(result) : 0; 
+  arg1 = *(mae::math::basis **)&jarg1; 
+  result = ((mae::math::basis const *)arg1)->get_t();
+  *(std::shared_ptr< mae::math::vec3d > **)&jresult = result ? new std::shared_ptr< mae::math::vec3d >(result) : 0; 
   return jresult;
 }
 
 
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_basis_1get_1position_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
-  mae::basis *arg1 = (mae::basis *) 0 ;
-  std::shared_ptr< mae::vec3d > result;
+  mae::math::basis *arg1 = (mae::math::basis *) 0 ;
+  std::shared_ptr< mae::math::vec3d > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::basis **)&jarg1; 
-  result = ((mae::basis const *)arg1)->get_position_vector();
-  *(std::shared_ptr< mae::vec3d > **)&jresult = result ? new std::shared_ptr< mae::vec3d >(result) : 0; 
+  arg1 = *(mae::math::basis **)&jarg1; 
+  result = ((mae::math::basis const *)arg1)->get_position_vector();
+  *(std::shared_ptr< mae::math::vec3d > **)&jresult = result ? new std::shared_ptr< mae::math::vec3d >(result) : 0; 
   return jresult;
 }
 
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_basis_1set_1u(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::basis *arg1 = (mae::basis *) 0 ;
-  std::shared_ptr< mae::vec3d > arg2 ;
-  std::shared_ptr< mae::vec3d > *argp2 ;
+  mae::math::basis *arg1 = (mae::math::basis *) 0 ;
+  std::shared_ptr< mae::math::vec3d > arg2 ;
+  std::shared_ptr< mae::math::vec3d > *argp2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(mae::basis **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::vec3d > **)&jarg2; 
+  arg1 = *(mae::math::basis **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::math::vec3d > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   (arg1)->set_u(arg2);
 }
 
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_basis_1set_1r(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::basis *arg1 = (mae::basis *) 0 ;
-  std::shared_ptr< mae::vec3d > arg2 ;
-  std::shared_ptr< mae::vec3d > *argp2 ;
+  mae::math::basis *arg1 = (mae::math::basis *) 0 ;
+  std::shared_ptr< mae::math::vec3d > arg2 ;
+  std::shared_ptr< mae::math::vec3d > *argp2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(mae::basis **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::vec3d > **)&jarg2; 
+  arg1 = *(mae::math::basis **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::math::vec3d > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   (arg1)->set_r(arg2);
 }
 
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_basis_1set_1t(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::basis *arg1 = (mae::basis *) 0 ;
-  std::shared_ptr< mae::vec3d > arg2 ;
-  std::shared_ptr< mae::vec3d > *argp2 ;
+  mae::math::basis *arg1 = (mae::math::basis *) 0 ;
+  std::shared_ptr< mae::math::vec3d > arg2 ;
+  std::shared_ptr< mae::math::vec3d > *argp2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(mae::basis **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::vec3d > **)&jarg2; 
+  arg1 = *(mae::math::basis **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::math::vec3d > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   (arg1)->set_t(arg2);
 }
 
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_basis_1set_1position_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::basis *arg1 = (mae::basis *) 0 ;
-  std::shared_ptr< mae::vec3d > arg2 ;
-  std::shared_ptr< mae::vec3d > *argp2 ;
+  mae::math::basis *arg1 = (mae::math::basis *) 0 ;
+  std::shared_ptr< mae::math::vec3d > arg2 ;
+  std::shared_ptr< mae::math::vec3d > *argp2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(mae::basis **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::vec3d > **)&jarg2; 
+  arg1 = *(mae::math::basis **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::math::vec3d > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   (arg1)->set_position_vector(arg2);
 }
@@ -3690,14 +3690,14 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_basis_1set_1position_1vector(
 
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_basis_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
-  mae::basis *arg1 = (mae::basis *) 0 ;
+  mae::math::basis *arg1 = (mae::math::basis *) 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::basis **)&jarg1; 
-  result = ((mae::basis const *)arg1)->str();
+  arg1 = *(mae::math::basis **)&jarg1; 
+  result = ((mae::math::basis const *)arg1)->str();
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -3872,15 +3872,15 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_general_1skeleton_1get_1righ
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_general_1skeleton_1set_1weight(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
-  std::shared_ptr< mae::vec3d > arg2 ;
-  std::shared_ptr< mae::vec3d > *argp2 ;
+  std::shared_ptr< mae::math::vec3d > arg2 ;
+  std::shared_ptr< mae::math::vec3d > *argp2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
   arg1 = *(mae::general_skeleton **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::vec3d > **)&jarg2; 
+  argp2 = *(std::shared_ptr< mae::math::vec3d > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   (arg1)->set_weight(arg2);
 }
@@ -3889,14 +3889,14 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_general_1skeleton_1set_1weigh
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_general_1skeleton_1get_1weight(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
-  std::shared_ptr< mae::vec3d > result;
+  std::shared_ptr< mae::math::vec3d > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(mae::general_skeleton **)&jarg1; 
   result = ((mae::general_skeleton const *)arg1)->get_weight();
-  *(std::shared_ptr< mae::vec3d > **)&jresult = result ? new std::shared_ptr< mae::vec3d >(result) : 0; 
+  *(std::shared_ptr< mae::math::vec3d > **)&jresult = result ? new std::shared_ptr< mae::math::vec3d >(result) : 0; 
   return jresult;
 }
 
@@ -3975,15 +3975,15 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1fl_1skeleton(JNIEnv *
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1set_1torso_1basis(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::fl::fl_skeleton *arg1 = (mae::fl::fl_skeleton *) 0 ;
-  std::shared_ptr< mae::basis > arg2 ;
-  std::shared_ptr< mae::basis > *argp2 ;
+  std::shared_ptr< mae::math::basis > arg2 ;
+  std::shared_ptr< mae::math::basis > *argp2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
   arg1 = *(mae::fl::fl_skeleton **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::basis > **)&jarg2; 
+  argp2 = *(std::shared_ptr< mae::math::basis > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   (arg1)->set_torso_basis(arg2);
 }
@@ -3992,14 +3992,14 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1set_1torso_1bas
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1get_1torso_1basis(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::fl_skeleton *arg1 = (mae::fl::fl_skeleton *) 0 ;
-  std::shared_ptr< mae::basis > result;
+  std::shared_ptr< mae::math::basis > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(mae::fl::fl_skeleton **)&jarg1; 
   result = ((mae::fl::fl_skeleton const *)arg1)->get_torso_basis();
-  *(std::shared_ptr< mae::basis > **)&jresult = result ? new std::shared_ptr< mae::basis >(result) : 0; 
+  *(std::shared_ptr< mae::math::basis > **)&jresult = result ? new std::shared_ptr< mae::math::basis >(result) : 0; 
   return jresult;
 }
 

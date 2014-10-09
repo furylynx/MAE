@@ -10,7 +10,7 @@
 //module definition
 %module w_vec3d
 %{
-	#include "../../../src/mae/vec3d.hpp"
+	#include "../../../src/mae/math/vec3d.hpp"
 %}
 
 //shared_ptr
@@ -19,4 +19,4 @@
 
 
 // Parse the original header file
-%include "../../../src/mae/vec3d.hpp"
+%include "../../../src/mae/math/vec3d.hpp"

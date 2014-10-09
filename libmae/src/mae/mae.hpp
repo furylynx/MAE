@@ -21,6 +21,7 @@
 #include "mxml.hpp"
 #include "mos.hpp"
 
+#include "math/math.hpp"
 #include "fl/fl.hpp"
 
 #endif // MAE_HPP_

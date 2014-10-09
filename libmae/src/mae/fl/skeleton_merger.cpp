@@ -26,7 +26,7 @@ namespace mae
 				std::vector<std::shared_ptr<general_skeleton> > skeletons)
 		{
 
-			std::vector<std::shared_ptr<basis> > bases;
+			std::vector<std::shared_ptr<mae::math::basis> > bases;
 
 			//cleanup the skeletons vector and create bases
 			for (std::vector<std::shared_ptr<general_skeleton> >::iterator it = skeletons.begin();
@@ -106,7 +106,7 @@ namespace mae
 					std::shared_ptr<general_joint> joint = skeletons.at(j)->get_joint(el_id);
 
 					//offset point which is the offset in urt coordinates to the root element of the hierarchy (e.g., torso)
-					std::shared_ptr<vec3d> off_p = math::project_to_basis_maevec(joint->vec(), bases.at(j));
+					std::shared_ptr<mae::math::vec3d> off_p = mae::math::math::project_to_basis_maevec(joint->vec(), bases.at(j));
 					double confidence = joint->get_confidence();
 
 					if (!confidence_sum_zero)
@@ -142,8 +142,8 @@ namespace mae
 				r_rot = r_rot / confidence_sum;
 
 				//translate to x,y,z
-				std::shared_ptr<vec3d> ovec = std::shared_ptr<vec3d>(new vec3d(r_off_u, r_off_r, r_off_t));
-				std::shared_ptr<vec3d> nvec = math::project_back_to_default_maevec(ovec, bases.at(0));
+				std::shared_ptr<mae::math::vec3d> ovec = std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(r_off_u, r_off_r, r_off_t));
+				std::shared_ptr<mae::math::vec3d> nvec = mae::math::math::project_back_to_default_maevec(ovec, bases.at(0));
 
 				result->set_joint(el_id, std::shared_ptr<general_joint>(new general_joint(nvec, r_rot, r_conf)));
 			}

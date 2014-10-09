@@ -12,9 +12,10 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-#include "angular_joint.hpp"
+#include "../fl/angular_joint.hpp"
 
-#include "../basis.hpp"
+#include "vec3d.hpp"
+#include "basis.hpp"
 #include "../general_joint.hpp"
 
 //global includes
@@ -26,7 +27,7 @@
 
 namespace mae
 {
-	namespace fl
+	namespace math
 	{
 
 		class math
@@ -393,7 +394,7 @@ namespace mae
 
 		};
 
-	} // namespace fl
+	} // namespace math
 } // namespace mae
 
 #endif // FLMATH_HPP_
