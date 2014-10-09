@@ -28,7 +28,7 @@ namespace mae
 			namespace ps
 			{
 
-				enum class e_digit
+				enum class e_digit : int
 				{
 						NONE,
 						THUMB,

@@ -28,7 +28,8 @@ namespace mae
 			namespace ps
 			{
 
-				enum class e_limb_side{
+				enum class e_limb_side : int
+				{
 						NONE,
 						INNER,
 						OUTER,

@@ -1,7 +1,7 @@
 // i_endpoint.i - SWIG interface
  
 //custom includes
-$include "i_part.i"
+%include "i_part.i"
 
 //global includes
 %include "std_shared_ptr.i"
