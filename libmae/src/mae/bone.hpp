@@ -63,6 +63,13 @@ namespace mae
 			 * @param middle_joint Joint lying between the two outer ones (e.g. the elbow for from shoulder to hand).
 			 */
 			bone(int id, std::string name, int from, int to, int middle_joint);
+
+			/**
+			 * Creates a bone from the e_bone enum value.
+			 *
+			 * @param eb
+			 */
+			bone(e_bone eb);
 			virtual ~bone();
 
 			/**
@@ -114,8 +121,6 @@ namespace mae
 			 * @return The default hierarchy.
 			 */
 			static std::vector<bone> default_bones();
-
-			static bone create_bone(e_bone the_bone);
 
 			/**
 			 * The reserved value for the top-down bone. This bone is used for the general skeleton.

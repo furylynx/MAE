@@ -12,7 +12,13 @@
 #include "../../indexer_fix.hpp"
 
 //custom includes
+#include "../../e_bone.hpp"
+#include "../../bone.hpp"
+
 #include "ps/i_pre_sign.hpp"
+#include "ps/area_part.hpp"
+#include "ps/default_limb.hpp"
+#include "ps/body_part.hpp"
 
 //global includes
 #include <string>
@@ -37,6 +43,13 @@ namespace mae
 				 * @param pre_sign The pre-sign.
 				 */
 				column_definition(int column_index, std::shared_ptr<ps::i_pre_sign> pre_sign);
+
+				/**
+				 * Creates a new column definition for the given e_bone enum value.
+				 *
+				 * @param eb The bone enum value.
+				 */
+				column_definition(mae::e_bone eb);
 
 				virtual ~column_definition();
 

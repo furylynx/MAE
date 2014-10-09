@@ -47,6 +47,10 @@ public class bone {
     this(w_e_boneJNI.new_bone__SWIG_2(id, name, from, to, middle_joint), true);
   }
 
+  public bone(e_bone eb) {
+    this(w_e_boneJNI.new_bone__SWIG_3(eb.swigValue()), true);
+  }
+
   public int get_id() {
     return w_e_boneJNI.bone_get_id(swigCPtr, this);
   }
@@ -73,10 +77,6 @@ public class bone {
 
   public static bone_vector default_bones() {
     return new bone_vector(w_e_boneJNI.bone_default_bones(), true);
-  }
-
-  public static bone create_bone(e_bone the_bone) {
-    return new bone(w_e_boneJNI.bone_create_bone(the_bone.swigValue()), true);
   }
 
   public final static int RESERVED_TOP_DOWN = w_e_boneJNI.bone_RESERVED_TOP_DOWN_get();

@@ -18,7 +18,6 @@
 
 //templates
 %template(int_vector) std::vector<int>;
-//%template (tu_vector) std::vector<mae::fl::laban::e_time_unit>;
 
 // Parse the original header file
 %include "../../../src/mae/fl/laban/e_time_unit.hpp"

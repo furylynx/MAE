@@ -434,6 +434,9 @@ SWIGINTERN void std_vector_Sl_std_shared_ptr_Sl_mae_hierarchy_element_Sg__Sg__se
 	#include "../../../src/mae/fl/fl_skeleton.hpp"
 
 
+ 	#include "../../../src/mae/e_bone.hpp"
+
+
 	#include "../../../src/mae/fl/laban/ps/i_pre_sign.hpp"
 
 
@@ -1231,6 +1234,20 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1bone_1_1SWIG_12(JNIEnv 
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1bone_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jlong jresult = 0 ;
+  mae::e_bone arg1 ;
+  mae::bone *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (mae::e_bone)jarg1; 
+  result = (mae::bone *)new mae::bone(arg1);
+  *(mae::bone **)&jresult = result; 
+  return jresult;
+}
+
+
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1bone(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::bone *arg1 = (mae::bone *) 0 ;
   
@@ -1339,20 +1356,6 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_bone_1default_1bones(JNIEnv 
   (void)jcls;
   result = mae::bone::default_bones();
   *(std::vector< mae::bone > **)&jresult = new std::vector< mae::bone >((const std::vector< mae::bone > &)result); 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_bone_1create_1bone(JNIEnv *jenv, jclass jcls, jint jarg1) {
-  jlong jresult = 0 ;
-  mae::e_bone arg1 ;
-  mae::bone result;
-  
-  (void)jenv;
-  (void)jcls;
-  arg1 = (mae::e_bone)jarg1; 
-  result = mae::bone::create_bone(arg1);
-  *(mae::bone **)&jresult = new mae::bone((const mae::bone &)result); 
   return jresult;
 }
 
@@ -4153,7 +4156,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_i_1pre_1sign_1equals(JNIE
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1column_1definition(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1column_1definition_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   int arg1 ;
   std::shared_ptr< mae::fl::laban::ps::i_pre_sign > arg2 ;
@@ -4167,6 +4170,22 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1column_1definition(JNIE
   argp2 = *(std::shared_ptr< mae::fl::laban::ps::i_pre_sign > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   result = (mae::fl::laban::column_definition *)new mae::fl::laban::column_definition(arg1,arg2);
+  
+  *(std::shared_ptr<  mae::fl::laban::column_definition > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::column_definition >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1column_1definition_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jlong jresult = 0 ;
+  mae::e_bone arg1 ;
+  mae::fl::laban::column_definition *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (mae::e_bone)jarg1; 
+  result = (mae::fl::laban::column_definition *)new mae::fl::laban::column_definition(arg1);
   
   *(std::shared_ptr<  mae::fl::laban::column_definition > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::column_definition >(result SWIG_NO_NULL_DELETER_1) : 0;
   

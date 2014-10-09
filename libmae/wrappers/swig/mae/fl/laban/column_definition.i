@@ -1,6 +1,7 @@
 // column_definition.i - SWIG interface
  
 //custom includes
+%include "../../e_bone.i"
 %include "ps/i_pre_sign.i"
 
 
