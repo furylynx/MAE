@@ -2,7 +2,7 @@
 
 #file info (modify if required)
 INCONFIG="mae/mae.i"
-OUTDIRJAVA="release/java/"
+OUTDIRJAVA="release/maejava/"
 OUTDIRCXX="release/"
 OUTFILECXX="mae_wrap"
 PACKAGE=maejava

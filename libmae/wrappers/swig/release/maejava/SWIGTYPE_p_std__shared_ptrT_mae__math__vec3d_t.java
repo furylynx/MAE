@@ -8,18 +8,18 @@
 
 package maejava;
 
-public class SWIGTYPE_p_std__shared_ptrT_mae__vec3d_t {
+public class SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t {
   private long swigCPtr;
 
-  protected SWIGTYPE_p_std__shared_ptrT_mae__vec3d_t(long cPtr, boolean futureUse) {
+  protected SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t(long cPtr, boolean futureUse) {
     swigCPtr = cPtr;
   }
 
-  protected SWIGTYPE_p_std__shared_ptrT_mae__vec3d_t() {
+  protected SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t() {
     swigCPtr = 0;
   }
 
-  protected static long getCPtr(SWIGTYPE_p_std__shared_ptrT_mae__vec3d_t obj) {
+  protected static long getCPtr(SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 }
