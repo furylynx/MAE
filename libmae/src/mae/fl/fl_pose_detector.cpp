@@ -126,20 +126,20 @@ namespace mae
 						{
 							//calculate angle between two extremity bones
 							//set value should is 180 degrees
-							cv::Vec3d v = math::joint_to_vec(
+							cv::Vec3d v = mae::math::math::joint_to_vec(
 									skeleton->get_orig_skeleton()->get_joint(
 											body_parts.at(bone_index).get_middle_joint()))
-									- math::joint_to_vec(
+									- mae::math::math::joint_to_vec(
 											skeleton->get_orig_skeleton()->get_joint(
 													body_parts.at(bone_index).get_from()));
 
-							cv::Vec3d w = math::joint_to_vec(
+							cv::Vec3d w = mae::math::math::joint_to_vec(
 									skeleton->get_orig_skeleton()->get_joint(body_parts.at(bone_index).get_to()))
-									- math::joint_to_vec(
+									- mae::math::math::joint_to_vec(
 											skeleton->get_orig_skeleton()->get_joint(
 													body_parts.at(bone_index).get_middle_joint()));
 
-							double angle = 180 - math::calc_angle_half(v, w);
+							double angle = 180 - mae::math::math::calc_angle_half(v, w);
 
 							result->set_distance(bone_id, e_fl_direction_c::to_int(dir), angle);
 						}
@@ -160,15 +160,15 @@ namespace mae
 						if (skeleton->get_hierarchy()->at(body_parts.at(bone_index).get_to())->get_parent()->get_id()
 								== body_parts.at(bone_index).get_from())
 						{
-							real_dir = math::joint_to_vec(skeleton->get_joint(body_parts.at(bone_index).get_to()));
+							real_dir = mae::math::math::joint_to_vec(skeleton->get_joint(body_parts.at(bone_index).get_to()));
 						}
 						else
 						{
 							//get bone vector in {u,r,t}
-							std::shared_ptr<basis> torso_basis = skeleton->get_torso_basis();
+							std::shared_ptr<mae::math::basis> torso_basis = skeleton->get_torso_basis();
 
 							real_dir =
-									math::project_to_basis(
+									mae::math::math::project_to_basis(
 											skeleton->get_orig_skeleton()->get_joint(body_parts.at(bone_index).get_to())->vec(),
 											torso_basis,
 											skeleton->get_orig_skeleton()->get_joint(
@@ -176,7 +176,7 @@ namespace mae
 						}
 
 						//angle between the vectors is the distance
-						double angle = math::calc_angle_half(set_dir, real_dir);
+						double angle = mae::math::math::calc_angle_half(set_dir, real_dir);
 
 						result->set_distance(bone_id, e_fl_direction_c::to_int(dir), angle);
 					}

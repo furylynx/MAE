@@ -13,13 +13,14 @@
 
 //custom includes
 #include "fl_skeleton.hpp"
-#include "math.hpp"
 #include "e_fl_joint.hpp"
 
 #include "../i_skeleton_controller.hpp"
 #include "../general_joint.hpp"
 #include "../general_skeleton.hpp"
 #include "../e_joint.hpp"
+
+#include "../math/math.hpp"
 
 //global includes
 #include <opencv2/core/core.hpp>
@@ -60,7 +61,7 @@ namespace mae
 				 * @param skeleton The skeleton.
 				 * @return The torso basis.
 				 */
-				virtual std::shared_ptr<basis> create_torso_basis(std::shared_ptr<general_skeleton> skeleton);
+				virtual std::shared_ptr<mae::math::basis> create_torso_basis(std::shared_ptr<general_skeleton> skeleton);
 
 			private:
 				bool debug_;

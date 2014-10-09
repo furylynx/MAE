@@ -18,8 +18,9 @@
 #include "laban/laban_sequence.hpp"
 
 #include "fl_skeleton.hpp"
-#include "math.hpp"
 #include "e_fl_direction.hpp"
+
+#include "../math/math.hpp"
 
 //global includes
 #include <opencv2/opencv.hpp>

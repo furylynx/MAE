@@ -11,18 +11,14 @@
 //module definition
 %module w_basis
 %{
-	#include "../../../src/mae/basis.hpp"
+	#include "../../../src/mae/math/basis.hpp"
 %}
 
 //templates
 
 
 //shared_ptr
-%shared_ptr(mae::vec3d);
+%shared_ptr(mae::math::vec3d);
 
 // Parse the original header file
-%include "../../../src/mae/basis.hpp"
-
-//package
-%include "typemaps.i"
-%typemap("javapackage") basis, basis *, basis & "mae";
+%include "../../../src/mae/math/basis.hpp"

@@ -12,7 +12,7 @@
 #include "indexer_fix.hpp"
 
 //custom includes
-#include "vec3d.hpp"
+#include "math/vec3d.hpp"
 
 //global includes
 #include <iostream>
@@ -50,7 +50,7 @@ namespace mae
 			 * @param rotation The rotation of the bone of which this joint is the end point (ranging from 0 to 360 degree).
 			 * @param confidence The confidence (ranging from zero to one, where one is the most confident)
 			 */
-			general_joint(std::shared_ptr<vec3d> pos, double rotation = 0, double confidence = 1);
+			general_joint(std::shared_ptr<mae::math::vec3d> pos, double rotation = 0, double confidence = 1);
 
 			/**
 			 * Sets the x-coordinate.
@@ -146,7 +146,7 @@ namespace mae
 			 *
 			 * @return The vector.
 			 */
-			virtual std::shared_ptr<vec3d> vec();
+			virtual std::shared_ptr<mae::math::vec3d> vec();
 
 			/**
 			 * Returns true if this joint equals the given joint.

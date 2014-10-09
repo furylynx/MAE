@@ -15,8 +15,9 @@
 #include "../general_skeleton.hpp"
 #include "../mstr.hpp"
 
-#include "math.hpp"
 #include "bvh_spec.hpp"
+
+#include "../math/math.hpp"
 
 //global includes
 #include <stdio.h>
