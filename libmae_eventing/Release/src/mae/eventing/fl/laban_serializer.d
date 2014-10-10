@@ -7,18 +7,33 @@ src/mae/eventing/fl/laban_serializer.d: \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/column_definition.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mstr.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/area_part.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_endpoint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_part.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_area.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../mstr.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/default_limb.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_limb.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_limb.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/body_part.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_side.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/i_movement.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/movement.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/i_symbol.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/e_time_unit.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mstr.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_reader.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mbool.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mxml.hpp \
  /usr/include/libxml++-2.6/libxml++/libxml++.h \
  /usr/include/libxml++-2.6/libxml++/exceptions/internal_error.h \
@@ -138,14 +153,6 @@ src/mae/eventing/fl/laban_serializer.d: \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/../../../mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/../../e_fl_direction.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/e_level.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/body_part.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_side.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../mstr.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_part.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/area_part.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_endpoint.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_area.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/digit_part.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_digit.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/joint_part.hpp \
@@ -154,9 +161,6 @@ src/mae/eventing/fl/laban_serializer.d: \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_endpoint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/surface_part.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_limb_side.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_limb.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/default_limb.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_limb.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/custom_limb.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/prop.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_side.hpp \
@@ -198,9 +202,43 @@ src/mae/eventing/fl/laban_serializer.d: \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/column_definition.hpp:
 
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mstr.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_joint.hpp:
+
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/area_part.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_endpoint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_part.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_area.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../mstr.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/default_limb.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_limb.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_limb.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/body_part.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_side.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/i_movement.hpp:
 
@@ -214,13 +252,9 @@ src/mae/eventing/fl/laban_serializer.d: \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mstr.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp:
-
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_reader.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mbool.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mstr.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mxml.hpp:
 
@@ -486,22 +520,6 @@ src/mae/eventing/fl/laban_serializer.d: \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/e_level.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/body_part.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_side.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../mstr.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_part.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/area_part.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_endpoint.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_area.hpp:
-
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/digit_part.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_digit.hpp:
@@ -517,12 +535,6 @@ src/mae/eventing/fl/laban_serializer.d: \
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/surface_part.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_limb_side.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_limb.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/default_limb.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_limb.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/custom_limb.hpp:
 

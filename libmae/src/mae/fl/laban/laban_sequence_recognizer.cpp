@@ -29,7 +29,7 @@ namespace mae
 			{
 				if (debug)
 				{
-					std::cout << "create laban sequence recognizer...";
+					std::cout << "creating laban sequence recognizer.";
 				}
 
 				debug_ = debug;
@@ -42,10 +42,6 @@ namespace mae
 				//TODO rewriting rules...
 				decision_forest_ = std::shared_ptr<decision_forest>(new decision_forest(column_definitions_, reserved_columns_, beats_per_measure_, beat_duration_, time_unit_));
 
-				if (debug)
-				{
-					std::cout << "done." << std::endl;
-				}
 			}
 
 			laban_sequence_recognizer::~laban_sequence_recognizer()

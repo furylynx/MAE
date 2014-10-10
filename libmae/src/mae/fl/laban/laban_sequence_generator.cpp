@@ -29,7 +29,7 @@ namespace mae
 			{
 				if (debug)
 				{
-					std::cout << "laban sequence generator created." << std::endl;
+					std::cout << "creating laban sequence generator." << std::endl;
 				}
 
 				column_definitions_ = column_definitions;

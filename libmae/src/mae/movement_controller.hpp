@@ -173,14 +173,19 @@ namespace mae{
 				 */
 				virtual void notify_recognition_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences);
 
-			protected:
-
 				/**
 				 * Returns the movement detector which is registered to this controller.
 				 *
 				 * @return The movement detector.
 				 */
 				virtual std::shared_ptr<i_movement_detector<T,U> > get_movement_detector();
+
+				/**
+				 * Returns the sequence recognizer which is registered to this controller.
+				 *
+				 * @return The sequence recognizer.
+				 */
+				virtual std::shared_ptr<i_sequence_recognizer<U> > get_sequence_recognizer();
 
 			private:
 				bool debug_;
@@ -235,7 +240,7 @@ namespace mae{
 		{
 			if (debug)
 			{
-				std::cout << "movement controller created." << std::endl;
+				std::cout << "creating movement controller." << std::endl;
 			}
 
 			this->debug_ = debug;
@@ -298,6 +303,12 @@ namespace mae{
 		std::shared_ptr<i_movement_detector<T,U> >  movement_controller<T, U>::get_movement_detector()
 		{
 			return imd_;
+		}
+
+		template <typename T, typename U>
+		std::shared_ptr<i_sequence_recognizer<U> > movement_controller<T, U>::get_sequence_recognizer()
+		{
+			return isr_;
 		}
 
 		template <typename T, typename U>
