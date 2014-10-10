@@ -43,10 +43,9 @@ int main()
 		std::string recognition_window_str = "false";
 		bool recognition_window = false;
 
-		std::string resources_dir = "resources";
 
 		std::string port_str = "1300";
-		uint16_t port = mae::eventing::cs_base::get_default_port();
+		uint16_t port = 49337;//mae::eventing::cs_base::get_default_port();
 		std::string password = "";
 
 		std::cout << "Loading the configuration...";
@@ -80,8 +79,6 @@ int main()
 		{
 			recognition_window = mae::mbool::parse(recognition_window_str);
 		}
-
-		ini_reader.get_value_nex("demo", "resources_dir", &resources_dir);
 
 		if (ini_reader.get_value_nex("socket", "port", &port_str))
 		{
@@ -118,23 +115,17 @@ int main()
 			}
 		}
 
-//		body_parts.push_back(mae::bone::create_bone(mae::e_bone::RIGHT_WHOLE_ARM));
-//		body_parts.push_back(mae::bone::create_bone(mae::e_bone::LEFT_WHOLE_ARM));
-
-
-		//column definitions to be used
-
-
 		//create the movement controller
 		std::cout << "initialize fl movement controller" << std::endl;
 
-//		mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,
-//				column_definitions);
+//		mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller();
+
+//		body_parts = mae::bone::default_bones();
 
 		mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,
 				column_definitions, 0, mae::fl::laban::laban_sequence::default_beats_per_measure(),
 				mae::fl::laban::laban_sequence::default_beat_duration(),
-				mae::fl::laban::laban_sequence::default_time_unit(), 1.0 / 30.0, false);
+				mae::fl::laban::laban_sequence::default_time_unit(), 1.0 / 30.0, true);
 		movement_controller.set_recognition_tolerance(tolerance);
 
 		std::cout << "parse sequences to be registered" << std::endl;
@@ -240,7 +231,7 @@ int main()
 			std::vector<std::shared_ptr<mae::general_skeleton> > skeletons = nitec.wait_for_update();
 			if (skeletons.size() > 0 && skeletons.at(0) != nullptr)
 			{
-				std::cout << "LNiTE: next frame" << std::endl;
+				//std::cout << "LNiTE: next frame" << std::endl;
 				movement_controller.next_frame(0, skeletons.at(0));
 			}
 		}

@@ -131,4 +131,12 @@ public class fl_skel_laban_movement_controller {
     w_e_boneJNI.fl_skel_laban_movement_controller_notify_recognition_listeners(swigCPtr, this, timestamp, SWIGTYPE_p_std__vectorT_std__shared_ptrT_mae__fl__laban__laban_sequence_t_t.getCPtr(sequences));
   }
 
+  public SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t get_movement_detector() {
+    return new SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t(w_e_boneJNI.fl_skel_laban_movement_controller_get_movement_detector(swigCPtr, this), true);
+  }
+
+  public SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t get_sequence_recognizer() {
+    return new SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t(w_e_boneJNI.fl_skel_laban_movement_controller_get_sequence_recognizer(swigCPtr, this), true);
+  }
+
 }

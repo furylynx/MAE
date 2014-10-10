@@ -355,6 +355,8 @@ public class w_e_boneJNI {
   public final static native void fl_skel_laban_movement_controller_clear_listeners(long jarg1, fl_skel_laban_movement_controller jarg1_);
   public final static native void fl_skel_laban_movement_controller_notify_sequence_listeners(long jarg1, fl_skel_laban_movement_controller jarg1_, int jarg2, long jarg3);
   public final static native void fl_skel_laban_movement_controller_notify_recognition_listeners(long jarg1, fl_skel_laban_movement_controller jarg1_, int jarg2, long jarg3);
+  public final static native long fl_skel_laban_movement_controller_get_movement_detector(long jarg1, fl_skel_laban_movement_controller jarg1_);
+  public final static native long fl_skel_laban_movement_controller_get_sequence_recognizer(long jarg1, fl_skel_laban_movement_controller jarg1_);
   public final static native long new_fl_movement_controller__SWIG_0(long jarg1, double jarg2, boolean jarg3);
   public final static native long new_fl_movement_controller__SWIG_1(long jarg1, double jarg2);
   public final static native long new_fl_movement_controller__SWIG_2(long jarg1);
