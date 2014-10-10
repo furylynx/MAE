@@ -7,18 +7,33 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/column_definition.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mstr.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/area_part.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_endpoint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_part.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_area.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../mstr.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/default_limb.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_limb.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_limb.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/body_part.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_side.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/i_movement.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/movement.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/i_symbol.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/e_time_unit.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mstr.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_reader.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mbool.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mxml.hpp \
  /usr/include/libxml++-2.6/libxml++/libxml++.h \
  /usr/include/libxml++-2.6/libxml++/exceptions/internal_error.h \
@@ -138,14 +153,6 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/../../../mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/../../e_fl_direction.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/e_level.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/body_part.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_side.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../mstr.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_part.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/area_part.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_endpoint.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_area.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/digit_part.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_digit.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/joint_part.hpp \
@@ -154,9 +161,6 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_endpoint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/surface_part.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_limb_side.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_limb.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/default_limb.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_limb.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/custom_limb.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/prop.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_side.hpp \
@@ -188,13 +192,11 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
  ../src/mae/eventing/fl/../cs_base.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/mae.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/bone.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/indexer_fix.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/e_bone.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/mstr.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/general_enriched_pose.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/general_pose.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy_element.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/movement_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/kp_movement_detector.hpp \
@@ -211,11 +213,19 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/i_skeleton_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/general_skeleton.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/general_joint.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/vec3d.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/basis.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/math/vec3d.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/math/../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/math/basis.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/math/vec3d.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/ini_reader.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/mxml.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/mos.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/math/math.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/math/../fl/angular_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/math/../fl/../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/math/basis.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/math/../general_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/angular_skeleton_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../indexer_fix.hpp \
@@ -225,14 +235,14 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_skeleton_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_skeleton.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../vec3d.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/math.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../basis.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../math/vec3d.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/e_fl_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_skeleton_controller.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../e_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../math/math.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../math/basis.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/bvh_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/bvh_spec.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_movement_controller.hpp \
@@ -244,7 +254,6 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../e_fl_direction.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../fl_movement_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../general_enriched_pose.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../i_sequence_generator.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_recognizer.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/decision_forest.hpp \
@@ -299,9 +308,43 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/column_definition.hpp:
 
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mstr.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_joint.hpp:
+
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/area_part.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_endpoint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_part.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_area.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../mstr.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/default_limb.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_limb.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_limb.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/body_part.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_side.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/i_movement.hpp:
 
@@ -315,13 +358,9 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mstr.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../indexer_fix.hpp:
-
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_reader.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mbool.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mstr.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../mxml.hpp:
 
@@ -587,22 +626,6 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/mv/../../laban/mv/e_level.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/body_part.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_side.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../mstr.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_part.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/area_part.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_endpoint.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_area.hpp:
-
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/digit_part.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_digit.hpp:
@@ -618,12 +641,6 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/surface_part.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_limb_side.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_limb.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/default_limb.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/e_limb.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/custom_limb.hpp:
 
@@ -687,19 +704,15 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/bone.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/indexer_fix.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/e_bone.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/mstr.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp:
-
 /sda7/data/workspace-git/MAE/libmae/src/mae/general_enriched_pose.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/indexer_fix.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/general_pose.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/e_joint.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/hierarchy_element.hpp:
 
@@ -733,15 +746,31 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/general_joint.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/vec3d.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/math/vec3d.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/basis.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/math/../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/math/basis.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/math/vec3d.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/ini_reader.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/mstr.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/mxml.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/mos.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/math/math.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/math/../fl/angular_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/math/../fl/../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/math/basis.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/math/../general_joint.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl.hpp:
 
@@ -761,13 +790,7 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_skeleton.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../vec3d.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/math.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../basis.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp:
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../math/vec3d.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/e_fl_joint.hpp:
 
@@ -775,7 +798,13 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_skeleton_controller.hpp:
 
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../general_joint.hpp:
+
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../e_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../math/math.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/../math/basis.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/bvh_controller.hpp:
 
@@ -798,8 +827,6 @@ src/mae/eventing/fl/fl_client.d: ../src/mae/eventing/fl/fl_client.cpp \
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../fl_movement_controller.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../general_enriched_pose.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../bone.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../i_sequence_generator.hpp:
 

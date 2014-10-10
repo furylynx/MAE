@@ -6583,6 +6583,36 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1co
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1get_1movement_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  SwigValueWrapper< std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  result = (arg1)->get_movement_detector();
+  *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jresult = new std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >((const std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1get_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  SwigValueWrapper< std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  result = (arg1)->get_sequence_recognizer();
+  *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jresult = new std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > >((const std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > &)result); 
+  return jresult;
+}
+
+
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jdouble jarg2, jboolean jarg3) {
   jlong jresult = 0 ;
   unsigned int arg1 ;

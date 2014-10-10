@@ -61,6 +61,7 @@ namespace mae {
 				 * @param debug True for debug console print.
 				 */
 				fl_movement_controller(std::vector<bone> body_parts, std::vector<std::shared_ptr<laban::column_definition> > column_definitions, unsigned int pose_buffer_size = 0, unsigned int beats_per_measure = laban::laban_sequence::default_beats_per_measure(), unsigned int beat_duration = laban::laban_sequence::default_beat_duration(), laban::e_time_unit time_unit = laban::laban_sequence::default_time_unit(), double framerate = 1.0/30.0, bool debug = false);
+
 				virtual ~fl_movement_controller();
 
 				/**
@@ -81,7 +82,7 @@ namespace mae {
 				virtual void set_recognition_tolerance(double tolerance);
 
 			private:
-				std::shared_ptr<fl_skeleton_controller> skel_ctrl;
+				std::shared_ptr<fl_skeleton_controller> skel_ctrl_;
 
 				std::shared_ptr<laban::laban_sequence_recognizer> isr_;
 
