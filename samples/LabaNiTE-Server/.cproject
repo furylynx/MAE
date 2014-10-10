@@ -148,10 +148,10 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.241837962" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
 								<option id="gnu.cpp.link.option.libs.257928105" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_eventing"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_nite"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_system"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_filesystem"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_eventing"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_nite"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae_demo"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.874066695" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
