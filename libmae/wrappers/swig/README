@@ -12,7 +12,6 @@ In order to not have to ship two libraries (libmae + libmaewrapped) it is recomm
 the build of the libmae library. This makes it possible to use the native calls from Java on the libmae library.
 
 
-
 Code generation
 ==================
 Run ./swig_java_wrapper.sh in terminal to start the code generation.
