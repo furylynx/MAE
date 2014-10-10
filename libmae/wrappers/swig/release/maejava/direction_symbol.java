@@ -6,6 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
+
 package maejava;
 
 public class direction_symbol extends i_symbol {

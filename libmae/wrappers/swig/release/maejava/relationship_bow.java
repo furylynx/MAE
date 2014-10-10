@@ -6,6 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
+
 package maejava;
 
 public class relationship_bow extends i_movement {

@@ -6,6 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
+
 package maejava;
 
 public class accent_sign extends i_dynamics_sign {
