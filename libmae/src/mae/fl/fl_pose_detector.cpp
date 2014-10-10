@@ -16,7 +16,7 @@ namespace mae
 		{
 			if (debug)
 			{
-				std::cout << "pose detector created." << std::endl;
+				std::cout << "creating pose detector." << std::endl;
 			}
 
 			debug_ = debug;
