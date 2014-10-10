@@ -235,7 +235,7 @@ namespace mae{
 		{
 			if (debug)
 			{
-				std::cout << "movement controller created." << std::endl;
+				std::cout << "creating movement controller." << std::endl;
 			}
 
 			this->debug_ = debug;
