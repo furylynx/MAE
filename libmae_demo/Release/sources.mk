@@ -25,4 +25,5 @@ C_UPPER_DEPS :=
 SUBDIRS := \
 src/mae/demo \
 src/mae/demo/fl \
+src/mae/demo/fl/res \
 

@@ -13,5 +13,8 @@
 #include "sequence_window.hpp"
 #include "laban_visualizer.hpp"
 #include "recorder_window.hpp"
+#include "pose_window.hpp"
+
+#include "res/res.hpp"
 
 #endif // DEMO_FL_HPP_
