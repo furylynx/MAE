@@ -16,7 +16,7 @@
 
 #include "../sdl_window.hpp"
 
-#include "res/laban_res.hpp"
+#include "res/res.hpp"
 
 //global includes
 #include <string>

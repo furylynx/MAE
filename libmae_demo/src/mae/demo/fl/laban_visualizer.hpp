@@ -12,7 +12,7 @@
 #include "../../indexer_fix.hpp"
 
 //custom includes
-#include "res/laban_res.hpp"
+#include "res/res.hpp"
 
 //global includes
 #include <memory>
@@ -54,18 +54,9 @@ namespace mae
 					virtual void paint_sequence(SDL_Surface* graphics, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height);
 
 				private:
-					std::vector<SDL_Surface*> directions_;
+					std::shared_ptr<res::directions_handler> directions_handler_;
 					SDL_PixelFormat* format_;
 
-					/**
-					 * Loads the media for the visualizer.
-					 */
-					virtual void initialize();
-
-					/**
-					 * Performs a cleanup on the media.
-					 */
-					virtual void cleanup();
 			};
 
 		} // namespace fl

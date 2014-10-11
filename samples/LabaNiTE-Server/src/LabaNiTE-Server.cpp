@@ -19,8 +19,8 @@
 
 int main()
 {
-	try
-	{
+//	try
+//	{
 		std::cout << "LabaNiTE-Server started." << std::endl;
 
 		//-----------------------
@@ -31,6 +31,8 @@ int main()
 		std::string tolerance_str = "0.5";
 		double tolerance = 0.5;
 		std::string bones = "RIGHT_WHOLE_ARM,LEFT_WHOLE_ARM";
+		std::string debug_str = "false";
+		bool debug = false;
 
 		std::string config_path = "SamplesConfig.xml";
 		std::string max_users_str = "15";
@@ -56,6 +58,11 @@ int main()
 		if (ini_reader.get_value_nex("mae", "tolerance", &tolerance_str))
 		{
 			tolerance = std::stod(tolerance_str);
+		}
+
+		if (ini_reader.get_value_nex("mae", "debug", &debug_str))
+		{
+			debug = mae::mbool::parse(debug_str);
 		}
 
 		ini_reader.get_value_nex("mae", "bones", &bones);
@@ -118,14 +125,10 @@ int main()
 		//create the movement controller
 		std::cout << "initialize fl movement controller" << std::endl;
 
-//		mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller();
-
-//		body_parts = mae::bone::default_bones();
-
 		mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,
 				column_definitions, 0, mae::fl::laban::laban_sequence::default_beats_per_measure(),
 				mae::fl::laban::laban_sequence::default_beat_duration(),
-				mae::fl::laban::laban_sequence::default_time_unit(), 1.0 / 30.0, true);
+				mae::fl::laban::laban_sequence::default_time_unit(), 1.0 / 30.0, debug);
 		movement_controller.set_recognition_tolerance(tolerance);
 
 		std::cout << "parse sequences to be registered" << std::endl;
@@ -191,7 +194,9 @@ int main()
 
 		if (pose_window)
 		{
-			//TODO draw pose window
+			std::shared_ptr<mae::demo::fl::pose_window> pwin = std::shared_ptr<mae::demo::fl::pose_window>(
+					new mae::demo::fl::pose_window("LabaNiTE-Server"));
+			movement_controller.add_listener(pwin);
 		}
 
 		if (recognition_window)
@@ -252,13 +257,13 @@ int main()
 //		counter++;
 //	}
 
-	} catch (std::exception &e)
-	{
-		std::cerr << "An exception has occurred: " << e.what() << std::endl;
-	} catch (...)
-	{
-		std::cerr << "unknown exception" << std::endl;
-	}
+//	} catch (std::exception &e)
+//	{
+//		std::cerr << "An exception has occurred: " << e.what() << std::endl;
+//	} catch (...)
+//	{
+//		std::cerr << "unknown exception" << std::endl;
+//	}
 
 	return 0;
 }

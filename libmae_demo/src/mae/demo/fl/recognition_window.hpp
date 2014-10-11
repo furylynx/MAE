@@ -14,7 +14,7 @@
 //custom includes
 #include "laban_visualizer.hpp"
 
-#include "res/laban_res.hpp"
+#include "res/res.hpp"
 
 #include "../sdl_window.hpp"
 
