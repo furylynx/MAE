@@ -122,6 +122,8 @@ int main()
 
 //		body_parts = mae::bone::default_bones();
 
+//		body_parts = mae::bone::default_bones();
+
 		mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,
 				column_definitions, 0, mae::fl::laban::laban_sequence::default_beats_per_measure(),
 				mae::fl::laban::laban_sequence::default_beat_duration(),
