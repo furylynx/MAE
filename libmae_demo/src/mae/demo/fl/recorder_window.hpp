@@ -15,7 +15,7 @@
 #include "../sdl_window.hpp"
 #include "laban_visualizer.hpp"
 
-#include "res/laban_res.hpp"
+#include "res/res.hpp"
 
 //global includes
 #include <mae/mae.hpp>

@@ -18,12 +18,11 @@ namespace mae
 			{
 				format_ = format;
 
-				initialize();
+				directions_handler_ = std::shared_ptr<res::directions_handler>(new res::directions_handler(format));
 			}
 
 			laban_visualizer::~laban_visualizer()
 			{
-				cleanup();
 			}
 
 			void laban_visualizer::paint_sequence(SDL_Surface* graphics,
@@ -66,9 +65,9 @@ namespace mae
 										mae::fl::e_fl_direction_c::dir(symb->get_horizontal(), symb->get_vertical(),
 												(column < 0)));
 
-								if (direction <= directions_.size() && direction > 0)
+								if (direction < directions_handler_->size() && direction > 0)
 								{
-									SDL_Surface* direction_surface = directions_.at(direction - 1);
+									SDL_Surface* direction_surface = directions_handler_->get_direction_image(direction);
 
 									//apply direction for all body parts
 									SDL_Rect offset_scale;
@@ -86,85 +85,6 @@ namespace mae
 						}
 					}
 				}
-			}
-
-			void laban_visualizer::initialize()
-			{
-				//Loading success flag
-				bool success = true;
-
-				//load all other directions (33 images)
-				std::vector<mae::fl::e_fl_direction> fl_dirs = mae::fl::e_fl_direction_c::vec();
-				for (unsigned int i = 0; i < fl_dirs.size(); i++)
-				{
-					if (fl_dirs.at(i) == mae::fl::e_fl_direction::INVALID_FL_DIRECTION)
-					{
-						continue;
-					}
-
-//					//load direction png image
-//					std::stringstream d_sstr;
-//					d_sstr << resources_dir_;
-//					d_sstr << "laban_direction" << mae::fl::e_fl_direction_c::to_int(fl_dirs.at(i)) << ".png";
-//					SDL_Surface* png_sur = IMG_Load(d_sstr.str().c_str());
-
-					if (i >= res::laban_res_size)
-					{
-						//nothing to do...
-						break;
-					}
-
-					SDL_Surface* png_sur = IMG_LoadTyped_RW(SDL_RWFromConstMem(res::laban_res[i-1].data, res::laban_res[i-1].size), 0, "PNG");
-
-					if (png_sur == nullptr)
-					{
-						//failed to load, therefore break, do cleanup and throw exception
-						success = false;
-						break;
-					}
-					else
-					{
-						SDL_Surface* sur = SDL_ConvertSurface(png_sur, format_, 0);
-
-						//Get rid of old loaded surface
-						SDL_FreeSurface(png_sur);
-						png_sur = nullptr;
-
-						if (sur == nullptr)
-						{
-							//failed to load, therefore break, do cleanup and throw exception
-							success = false;
-							break;
-						}
-						else
-						{
-							//add surface to list
-							directions_.push_back(sur);
-						}
-					}
-				}
-
-				if (!success)
-				{
-					cleanup();
-					std::stringstream e_sstr;
-					e_sstr << "Could not load the resources. " << std::endl;
-
-					throw std::runtime_error(e_sstr.str());
-				}
-			}
-
-			void laban_visualizer::cleanup()
-			{
-				for (unsigned int i = 0; i < directions_.size(); i++)
-				{
-					if (directions_.at(i) != nullptr)
-					{
-						SDL_FreeSurface(directions_.at(i));
-					}
-				}
-
-				directions_.clear();
 			}
 
 		} // namespace fl
