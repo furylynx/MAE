@@ -36,6 +36,10 @@ int main()
 	std::string sequence_author = "mae";
 	std::string sequence_description = "A recorded sequence by the LabaNiTE-Recorder.";
 	std::string sequences_dir = "sequences/";
+	std::string bones = "RIGHT_WHOLE_ARM,LEFT_WHOLE_ARM";
+
+	std::string debug_str = "false";
+	bool debug = false;
 
 	std::string sequence_path = "";
 	std::string bvh_path = "";
@@ -70,6 +74,13 @@ int main()
 	ini_reader.get_value_nex("mae", "sequence_author", &sequence_author);
 	ini_reader.get_value_nex("mae", "sequence_description", &sequence_description);
 	ini_reader.get_value_nex("mae", "sequences_dir", &sequences_dir);
+
+	if (ini_reader.get_value_nex("mae", "debug", &debug_str))
+	{
+		debug = mae::mbool::parse(debug_str);
+	}
+
+	ini_reader.get_value_nex("mae", "bones", &bones);
 
 	ini_reader.get_value_nex("nite", "config_path", &config_path);
 
@@ -108,27 +119,37 @@ int main()
 	//set up the controller
 	//-----------------------
 
+	std::vector<std::string> bones_split = mae::mstr::split(bones, ',');
 	std::vector<mae::bone> body_parts;
-	body_parts.push_back(mae::bone::create_bone(mae::e_bone::RIGHT_WHOLE_ARM));
-	body_parts.push_back(mae::bone::create_bone(mae::e_bone::LEFT_WHOLE_ARM));
-
 	std::vector<std::shared_ptr<mae::fl::laban::column_definition> > column_definitions;
+
+	std::cout << "body parts to be regarded:" << std::endl;
+	for (unsigned int i = 0; i < bones_split.size(); i++)
+	{
+		mae::e_bone eb = mae::e_bone_c::parse(mae::mstr::trim(bones_split.at(i)));
+		mae::bone b = mae::bone(eb);
+		body_parts.push_back(b);
+		std::cout << " - " << mae::e_bone_c::str(eb) << std::endl;
+
+		if (std::abs(b.get_id()) != 1 && std::abs(b.get_id()) != 2 && std::abs(b.get_id()) != 4)
+		{
+			//generate column definition for the bone
+			column_definitions.push_back(std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(eb)));
+		}
+	}
 
 	mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,
 			column_definitions, sequence_length * 30 + 1);
 
-	//add window for demo purposes
+	//-----------------------
+	// initialize window
+	//-----------------------
+
 	std::shared_ptr<mae::demo::fl::recorder_window> rwin = nullptr;
 	if (window)
 	{
-		//-----------------------
-		// initialize window
-		//-----------------------
-
-		//TODO font?!!
 		rwin = std::shared_ptr<mae::demo::fl::recorder_window>(
-				new mae::demo::fl::recorder_window("LabaNiTE-Recorder",
-						"/usr/share/fonts/truetype/freefont/FreeSerif.ttf"));
+				new mae::demo::fl::recorder_window("LabaNiTE-Recorder"));
 		movement_controller.add_listener(rwin);
 	}
 

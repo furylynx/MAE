@@ -15,11 +15,12 @@ namespace mae
 		{
 
 
-			recognition_window::recognition_window(std::string title, int width, int height,
+			recognition_window::recognition_window(std::string title, bool backgroundimage, int width, int height,
 					int x_pos, int y_pos, Uint32 flags)
 					: sdl_window(title, width, height, x_pos, y_pos, flags)
 			{
 				background_ = nullptr;
+				backgroundimage_ = backgroundimage;
 
 				visualizer_ = std::shared_ptr<laban_visualizer>(new laban_visualizer(get_surface()->format));
 
@@ -87,7 +88,7 @@ namespace mae
 				bg_os.w = (int) (background_->w * (double) get_width() / 1920.0);
 				bg_os.h = (int) (background_->h * (double) get_height() / 1080.0);
 
-				if (background_ != nullptr)
+				if (background_ != nullptr && backgroundimage_)
 				{
 					SDL_BlitScaled(background_, NULL, graphics, &bg_os);
 				}

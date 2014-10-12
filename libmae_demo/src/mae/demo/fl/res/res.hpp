@@ -50,6 +50,8 @@
 
 #include "background0.png.h"
 
+#include "droidsans.ttf.h"
+
 #include "directions_handler.hpp"
 
 //global includes
@@ -138,6 +140,10 @@ namespace mae
 					{MAE_LABAN_DIRECTION32_SIZE  , data_laban_dir_32} ,
 					{MAE_LABAN_DIRECTION33_SIZE  , data_laban_dir_33} ,
 				};
+
+				static unsigned char data_droidsans[] = MAE_BACKGROUND0_DATA;
+
+				static const mae_res droidsans_ttf = {MAE_DROIDSANS_SIZE, data_droidsans };
 
 			} // namespace res
 		} // namespace fl

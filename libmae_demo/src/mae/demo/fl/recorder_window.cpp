@@ -14,11 +14,11 @@ namespace mae
 		namespace fl
 		{
 
-			recorder_window::recorder_window(std::string title, std::string font_path,
+			recorder_window::recorder_window(std::string title, bool backgroundimage,
 					int width, int height, int x_pos, int y_pos, Uint32 flags) : sdl_window(title, width, height, x_pos, y_pos, flags)
 			{
 
-				font_str_ = font_path;
+				backgroundimage_ = backgroundimage;
 				background_ = nullptr;
 				current_sequence_ = nullptr;
 				countdown_ = -1;
@@ -36,12 +36,7 @@ namespace mae
 
 			void recorder_window::initialize()
 			{
-//				//load background png image
-//				std::stringstream bg_sstr;
-//				bg_sstr << resources_dir_;
-//				bg_sstr << "background0.png";
-//				SDL_Surface* loaded_surface = IMG_Load(bg_sstr.str().c_str());
-
+				//load background png image
 				SDL_Surface* loaded_surface = IMG_LoadTyped_RW(SDL_RWFromConstMem(res::background0.data, res::background0.size), 0, "PNG");
 
 				if (loaded_surface != nullptr)
@@ -68,15 +63,16 @@ namespace mae
 					throw std::runtime_error(e_sstr.str());
 				}
 
-				small_font_ = TTF_OpenFont(font_str_.c_str(), 30);
-				big_font_ = TTF_OpenFont(font_str_.c_str(), 45);
+
+				small_font_ = TTF_OpenFontRW(SDL_RWFromConstMem(res::droidsans_ttf.data, res::droidsans_ttf.size),0 , 30);
+				big_font_ = TTF_OpenFontRW(SDL_RWFromConstMem(res::droidsans_ttf.data, res::droidsans_ttf.size),0 , 45);
 
 				if (small_font_ == nullptr || big_font_ == nullptr)
 				{
 					cleanup();
 
 					std::stringstream e_sstr;
-					e_sstr << "Unable to load font " << font_str_ << "! TTF Error: " << TTF_GetError() << std::endl;
+					e_sstr << "Unable to load font! TTF Error: " << TTF_GetError() << std::endl;
 					throw std::runtime_error(e_sstr.str());
 				}
 
