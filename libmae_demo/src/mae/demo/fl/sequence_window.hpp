@@ -41,14 +41,14 @@ namespace mae
 					 * Creates a new SDL window for generated laban_sequences with the given parameters.
 					 *
 					 * @param title The window title.
-					 * @param resources_dir The resource directory which contains images for the dir+lvl symbols.
+					 * @param backgroundimage True if background image is desired.
 					 * @param width The window width.
 					 * @param height The window height.
 					 * @param x_pos The window's x position.
 					 * @param y_pos The window's y position.
 					 * @param flags The window flags.
 					 */
-					sequence_window(std::string title, int width = 1024, int height = 576, int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags = SDL_WINDOW_SHOWN);
+					sequence_window(std::string title, bool backgroundimage = false, int width = 1024, int height = 576, int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags = SDL_WINDOW_SHOWN);
 					virtual ~sequence_window();
 
 				protected:
@@ -73,6 +73,7 @@ namespace mae
 					std::shared_ptr<mae::fl::laban::laban_sequence> current_sequence_;
 
 					SDL_Surface* background_;
+					bool backgroundimage_;
 
 					/**
 					 * Initializes all required surfaces. May fail with an exception, but will release all surface before this.

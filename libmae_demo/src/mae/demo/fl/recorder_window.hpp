@@ -36,15 +36,14 @@ namespace mae
 					 * Creates a new recorder window to print countdowns and the currently recorded sequence.
 					 *
 					 * @param title The window title.
-					 * @param resources_dir The resources path.
-					 * @param font_path The font path.
+					 * @param backgroundimage True if background image is desired.
 					 * @param width The width.
 					 * @param height The height.
 					 * @param x_pos The x pos.
 					 * @param y_pos The y pos.
 					 * @param flags The flags to be applied.
 					 */
-					recorder_window(std::string title, std::string font_path, int width = 1024, int height = 576, int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags = SDL_WINDOW_SHOWN);
+					recorder_window(std::string title, bool backgroundimage = false, int width = 1024, int height = 576, int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags = SDL_WINDOW_SHOWN);
 					virtual ~recorder_window();
 
 					/**
@@ -83,9 +82,10 @@ namespace mae
 					int countdown_;
 
 					SDL_Surface* background_;
+					bool backgroundimage_;
+
 					TTF_Font* small_font_;
 					TTF_Font* big_font_;
-					std::string font_str_;
 
 					const char* wait_str = "Waiting for user...";
 					const SDL_Color text_color = {0xe1, 0x71, 0x00, 0xff};
