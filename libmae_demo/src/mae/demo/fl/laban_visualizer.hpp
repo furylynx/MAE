@@ -57,6 +57,9 @@ namespace mae
 					std::shared_ptr<res::directions_handler> directions_handler_;
 					SDL_PixelFormat* format_;
 
+					virtual void paint_staff(SDL_Surface* graphics, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height, int max_column_index);
+
+					virtual void draw_line(SDL_Surface* graphics, int from_x, int from_y, int to_x, int to_y);
 			};
 
 		} // namespace fl

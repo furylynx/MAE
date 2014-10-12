@@ -145,6 +145,11 @@ namespace mae
 						sstr << countdown_ << " s";
 
 						SDL_Surface* text = TTF_RenderText_Solid(big_font_, sstr.str().c_str(), text_color);
+						SDL_Surface* text_sur = SDL_ConvertSurface(text, get_surface()->format, 0);
+
+						//Get rid of old loaded surface
+						SDL_FreeSurface(text);
+						text = nullptr;
 
 						SDL_Rect offset_scale;
 						offset_scale.x = get_width()/2 - text->w/2;
@@ -153,13 +158,18 @@ namespace mae
 						offset_scale.w = text->w;
 						offset_scale.h = text->h;
 
-						//SDL_BlitScaled(text, NULL, graphics, &offset_scale);
-						SDL_BlitSurface(text, NULL, graphics, &offset_scale);
+						SDL_BlitScaled(text_sur, NULL, graphics, &offset_scale);
+						//SDL_BlitSurface(text_sur, NULL, graphics, &offset_scale);
 					}
 					else
 					{
 						//print waiting for calibration or something
 						SDL_Surface* text = TTF_RenderText_Solid(small_font_, wait_str, text_color);
+						SDL_Surface* text_sur = SDL_ConvertSurface(text, get_surface()->format, 0);
+
+						//Get rid of old loaded surface
+						SDL_FreeSurface(text);
+						text = nullptr;
 
 						SDL_Rect offset_scale;
 						offset_scale.x = get_width()/2 - text->w/2;
@@ -168,9 +178,9 @@ namespace mae
 						offset_scale.w = text->w;
 						offset_scale.h = text->h;
 
-						SDL_BlitSurface(text, NULL, graphics, &offset_scale);
-						//SDL_BlitScaled(text, NULL, graphics, &offset_scale);
-						//SDL_BlitScaled(text, NULL, graphics, &bg_os);
+						SDL_BlitScaled(text_sur, NULL, graphics, &offset_scale);
+						//SDL_BlitSurface(text_sur, NULL, graphics, &offset_scale);
+
 					}
 				}
 			}
