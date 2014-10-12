@@ -57,8 +57,26 @@ namespace mae
 					std::shared_ptr<res::directions_handler> directions_handler_;
 					SDL_PixelFormat* format_;
 
+					/**
+					 * Draws the staff on the graphics.
+					 *
+					 * @param graphics The graphics component.
+					 * @param sequence The sequence.
+					 * @param window_width The window width.
+					 * @param window_height The window height.
+					 * @param max_column_index The maximum column index.
+					 */
 					virtual void paint_staff(SDL_Surface* graphics, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height, int max_column_index);
 
+					/**
+					 * Draws the line on the graphics.
+					 *
+					 * @param graphics The graphics component.
+					 * @param from_x x1.
+					 * @param from_y y1.
+					 * @param to_x x2.
+					 * @param to_y y2.
+					 */
 					virtual void draw_line(SDL_Surface* graphics, int from_x, int from_y, int to_x, int to_y);
 			};
 

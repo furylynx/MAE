@@ -37,7 +37,18 @@ namespace mae
 		class pose_window: public sdl_window, public mae::i_pose_listener
 		{
 			public:
-				pose_window(std::string title, int width = 1024, int height = 576, int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags = SDL_WINDOW_SHOWN);
+				/**
+				 * Creates a window which shows poses for the input stream.
+				 *
+				 * @param title The window title.
+				 * @param backgroundimage True if background image is desired.
+				 * @param width The window's width.
+				 * @param height The window's height.
+				 * @param x_pos The x position.
+				 * @param y_pos The y position.
+				 * @param flags The window flags.
+				 */
+				pose_window(std::string title, bool backgroundimage = false, int width = 1024, int height = 576, int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags = SDL_WINDOW_SHOWN);
 				virtual ~pose_window();
 
 			protected:
@@ -60,6 +71,7 @@ namespace mae
 				std::shared_ptr<mae::general_pose> current_pose_;
 
 				SDL_Surface* background_;
+				bool backgroundimage_;
 
 
 				/**
