@@ -36,11 +36,19 @@ namespace mae
 					max_index = columns.back();
 				}
 
+				//paint the Labanotation staff
+				paint_staff(graphics, sequence, window_width, window_height, max_index);
+
+				int total_beats = sequence->get_measures() * sequence->get_beats();
+				double beat_height = (window_height - 105) / total_beats;
+				double column_width = (window_width - 100.0)/(max_index * 2.0);
+
 				for (unsigned int i = 0; i < columns.size(); i++)
 				{
 					//draw by column
 					int column = columns.at(i);
-					int draw_x_pos = (int) ((window_width - 100) * (0.5 + (double) (column) / (max_index * 2)) + 20);
+					int draw_x_pos = (int)((window_width / 2.0) + ((column - (mae::math::math::sign(column)*0.5))*column_width)) - 30;
+					//(int) ((window_width - 100) * (0.5 + (double) (column) / (max_index * 2)) + 20);
 
 					std::vector<std::shared_ptr<mae::fl::laban::i_movement> > movements =
 							sequence->get_column_movements(column);
@@ -53,13 +61,22 @@ namespace mae
 							if (std::shared_ptr<mae::fl::laban::mv::direction_symbol> symb = std::dynamic_pointer_cast<
 									mae::fl::laban::mv::direction_symbol>(mov->get_symbol()))
 							{
-								int draw_y_pos = (int) ((window_height - 50)
-										* (1
-												- ((mov->get_measure() * sequence->get_beats() + mov->get_beat()
-														+ mov->get_duration())
-														/ (sequence->get_measures() * sequence->get_beats()))));
-								int draw_h = (int) ((window_height - 50)
-										* (mov->get_duration() / (sequence->get_measures() * sequence->get_beats())));
+								int draw_y_pos = 0;
+								int draw_h = 0;
+
+								if (mov->get_measure() != 0)
+								{
+									draw_y_pos = (int) (window_height - 50 - (mov->get_measure() * sequence->get_beats() + mov->get_beat()
+																			+ mov->get_duration()) * beat_height) - 5;
+									draw_h = (int) (beat_height * mov->get_duration());
+								}
+								else
+								{
+									draw_y_pos = (int) (window_height - 50 - (mov->get_measure() * sequence->get_beats() + mov->get_beat()
+										+ sequence->get_beats()) * beat_height);
+									draw_h = (int) (beat_height * sequence->get_beats());
+								}
+
 
 								unsigned int direction = mae::fl::e_fl_direction_c::to_int(
 										mae::fl::e_fl_direction_c::dir(symb->get_horizontal(), symb->get_vertical(),
@@ -67,7 +84,8 @@ namespace mae
 
 								if (direction < directions_handler_->size() && direction > 0)
 								{
-									SDL_Surface* direction_surface = directions_handler_->get_direction_image(direction);
+									SDL_Surface* direction_surface = directions_handler_->get_direction_image(
+											direction);
 
 									//apply direction for all body parts
 									SDL_Rect offset_scale;
@@ -85,6 +103,77 @@ namespace mae
 						}
 					}
 				}
+			}
+
+			void laban_visualizer::paint_staff(SDL_Surface* graphics,
+					std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height,
+					int max_column_index)
+			{
+				int total_beats = sequence->get_measures() * sequence->get_beats();
+				double beat_height = (window_height - 105) / total_beats;
+				double column_width = (window_width - 100)/(max_column_index * 2.0);
+
+				//draw staff
+				int left_bound = (int)((window_width / 2.0) - (2.0*column_width));
+				int right_bound = (int)((window_width / 2.0) + (2.0*column_width));
+				int bottom_bound = (window_height - 50);
+				int top_bound = 50;
+				int center = (int)(window_width / 2.0);
+
+				//bottom line
+				draw_line(graphics, left_bound, bottom_bound, right_bound, bottom_bound);
+
+				//top line
+				draw_line(graphics,  left_bound, 50,  window_width / 2 + 2*column_width, 50);
+
+				//draw movement start lines
+				int start_line_y = (int)(window_height - 50 - (beat_height*sequence->get_beats()));
+				draw_line(graphics, left_bound, start_line_y,  right_bound, start_line_y);
+				draw_line(graphics, left_bound, start_line_y-5,  right_bound, start_line_y - 5);
+
+				//draw center line
+				draw_line(graphics, center, top_bound, center, bottom_bound);
+
+				//draw right and left line
+				draw_line(graphics, left_bound, top_bound, left_bound, bottom_bound);
+				draw_line(graphics, right_bound, top_bound, right_bound, bottom_bound);
+
+				//draw beat and measure marks
+				for (unsigned int i = sequence->get_beats() + 1 ; i < sequence->get_measures() * sequence->get_beats(); i++)
+				{
+					int mark_pos_y = (int) (window_height - 55 - (i * beat_height));
+					if ((i % sequence->get_beats()) == 0)
+					{
+						//is a measure -> more width
+						draw_line(graphics, left_bound, mark_pos_y,  right_bound, mark_pos_y);
+					}
+					else
+					{
+						//is a beat -> less width
+						draw_line(graphics, center-15, mark_pos_y,  center+15, mark_pos_y);
+					}
+				}
+			}
+
+			void laban_visualizer::draw_line(SDL_Surface* graphics, int from_x, int from_y, int to_x, int to_y)
+			{
+				SDL_Rect tmp_rect;
+				tmp_rect.x = from_x;
+				tmp_rect.y = from_y;
+
+				tmp_rect.h = to_y - from_y;
+				if (tmp_rect.h == 0)
+				{
+					tmp_rect.h = 2;
+				}
+
+				tmp_rect.w = to_x - from_x;
+				if (tmp_rect.w == 0)
+				{
+					tmp_rect.w = 2;
+				}
+
+				SDL_FillRect(graphics, &tmp_rect, 0);
 			}
 
 		} // namespace fl
