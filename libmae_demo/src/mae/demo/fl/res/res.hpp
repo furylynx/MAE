@@ -141,7 +141,7 @@ namespace mae
 					{MAE_LABAN_DIRECTION33_SIZE  , data_laban_dir_33} ,
 				};
 
-				static unsigned char data_droidsans[] = MAE_BACKGROUND0_DATA;
+				static unsigned char data_droidsans[] = MAE_DROIDSANS_DATA;
 
 				static const mae_res droidsans_ttf = {MAE_DROIDSANS_SIZE, data_droidsans };
 
