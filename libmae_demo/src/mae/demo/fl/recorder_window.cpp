@@ -122,9 +122,13 @@ namespace mae
 				bg_os.w = get_width();
 				bg_os.h = get_height();
 
-				if (background_ != nullptr)
+				if (background_ != nullptr && backgroundimage_)
 				{
 					SDL_BlitScaled(background_, NULL, graphics, &bg_os);
+				}
+				else
+				{
+					SDL_FillRect(graphics, &bg_os, 0xFFFFFFFF);
 				}
 
 				if (current_sequence_ != nullptr)
@@ -149,11 +153,11 @@ namespace mae
 						text = nullptr;
 
 						SDL_Rect offset_scale;
-						offset_scale.x = get_width()/2 - text_sur->w/2;
-						offset_scale.y = get_height()/2 - text_sur->h/2;
-
 						offset_scale.w = get_width()/3;
 						offset_scale.h = (int)(text_sur->h*((get_width()/3.0)/text_sur->w));
+
+						offset_scale.x = get_width()/2 - offset_scale.w/2;
+						offset_scale.y = get_height()/2 - offset_scale.h/2;
 
 						SDL_BlitScaled(text_sur, NULL, graphics, &offset_scale);
 
@@ -172,11 +176,13 @@ namespace mae
 						text = nullptr;
 
 						SDL_Rect offset_scale;
-						offset_scale.x = get_width()/2 - text_sur->w/2;
-						offset_scale.y = get_height()/2 - text_sur->h/2;
-
 						offset_scale.w = get_width()/3;
 						offset_scale.h = (int)(text_sur->h*((get_width()/3.0)/text_sur->w));
+
+						offset_scale.x = get_width()/2 - offset_scale.w/2;
+						offset_scale.y = get_height()/2 - offset_scale.h/2;
+
+
 
 						SDL_BlitScaled(text_sur, NULL, graphics, &offset_scale);
 
