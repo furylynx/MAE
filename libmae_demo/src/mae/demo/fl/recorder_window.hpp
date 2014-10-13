@@ -84,8 +84,7 @@ namespace mae
 					SDL_Surface* background_;
 					bool backgroundimage_;
 
-					TTF_Font* small_font_;
-					TTF_Font* big_font_;
+					TTF_Font* font_;
 
 					const char* wait_str = "Waiting for user...";
 					const SDL_Color text_color = {0xe1, 0x71, 0x00, 0xff};

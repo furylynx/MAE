@@ -37,7 +37,7 @@ namespace mae
 			void recorder_window::initialize()
 			{
 				//load background png image
-				SDL_Surface* loaded_surface = IMG_LoadTyped_RW(SDL_RWFromConstMem(res::background0.data, res::background0.size), 0, "PNG");
+				SDL_Surface* loaded_surface = IMG_LoadTyped_RW(SDL_RWFromConstMem(res::background0.data, res::background0.size), 1, "PNG");
 
 				if (loaded_surface != nullptr)
 				{
@@ -63,12 +63,9 @@ namespace mae
 					throw std::runtime_error(e_sstr.str());
 				}
 
-				small_font_ = TTF_OpenFont("/usr/share/fonts/truetype/droid/DroidSans.ttf", 30);
-				big_font_ = TTF_OpenFont("/usr/share/fonts/truetype/droid/DroidSans.ttf", 45);
-				//small_font_ = TTF_OpenFontRW(SDL_RWFromConstMem(res::droidsans_ttf.data, res::droidsans_ttf.size),0 , 30);
-				//big_font_ = TTF_OpenFontRW(SDL_RWFromConstMem(res::droidsans_ttf.data, res::droidsans_ttf.size),0 , 45);
+				font_ = TTF_OpenFontRW(SDL_RWFromConstMem(res::droidsans_ttf.data, res::droidsans_ttf.size), 1, 45);
 
-				if (small_font_ == nullptr || big_font_ == nullptr)
+				if (font_ == nullptr)
 				{
 					cleanup();
 
@@ -88,8 +85,11 @@ namespace mae
 					background_ = nullptr;
 				}
 
-				TTF_CloseFont(small_font_);
-				TTF_CloseFont(big_font_);
+				if (font_ != nullptr)
+				{
+					TTF_CloseFont(font_);
+					font_ = nullptr;
+				}
 			}
 
 			void recorder_window::clear_paint()
@@ -141,7 +141,7 @@ namespace mae
 						std::stringstream sstr;
 						sstr << countdown_ << " s";
 
-						SDL_Surface* text = TTF_RenderText_Solid(big_font_, sstr.str().c_str(), text_color);
+						SDL_Surface* text = TTF_RenderText_Solid(font_, sstr.str().c_str(), text_color);
 						SDL_Surface* text_sur = SDL_ConvertSurface(text, get_surface()->format, 0);
 
 						//Get rid of old loaded surface
@@ -152,16 +152,19 @@ namespace mae
 						offset_scale.x = get_width()/2 - text_sur->w/2;
 						offset_scale.y = get_height()/2 - text_sur->h/2;
 
-						offset_scale.w = text_sur->w;
-						offset_scale.h = text_sur->h;
+						offset_scale.w = get_width()/3;
+						offset_scale.h = (int)(text_sur->h*((get_width()/3.0)/text_sur->w));
 
 						SDL_BlitScaled(text_sur, NULL, graphics, &offset_scale);
-						//SDL_BlitSurface(text_sur, NULL, graphics, &offset_scale);
+
+						//free text surface
+						SDL_FreeSurface(text_sur);
+						text_sur = nullptr;
 					}
 					else
 					{
 						//print waiting for calibration or something
-						SDL_Surface* text = TTF_RenderText_Solid(small_font_, wait_str, text_color);
+						SDL_Surface* text = TTF_RenderText_Solid(font_, wait_str, text_color);
 						SDL_Surface* text_sur = SDL_ConvertSurface(text, get_surface()->format, 0);
 
 						//Get rid of old loaded surface
@@ -172,12 +175,14 @@ namespace mae
 						offset_scale.x = get_width()/2 - text_sur->w/2;
 						offset_scale.y = get_height()/2 - text_sur->h/2;
 
-						offset_scale.w = text_sur->w;
-						offset_scale.h = text_sur->h;
+						offset_scale.w = get_width()/3;
+						offset_scale.h = (int)(text_sur->h*((get_width()/3.0)/text_sur->w));
 
 						SDL_BlitScaled(text_sur, NULL, graphics, &offset_scale);
-						//SDL_BlitSurface(text_sur, NULL, graphics, &offset_scale);
 
+						//free text surface
+						SDL_FreeSurface(text_sur);
+						text_sur = nullptr;
 					}
 				}
 			}
