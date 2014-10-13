@@ -30,6 +30,7 @@ namespace mae
 
 				directions_handler::~directions_handler()
 				{
+					cleanup();
 				}
 
 				SDL_Surface* directions_handler::get_direction_image(unsigned int direction)

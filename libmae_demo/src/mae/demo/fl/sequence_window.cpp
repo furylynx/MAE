@@ -90,6 +90,10 @@ namespace mae
 				{
 					SDL_BlitScaled(background_, NULL, graphics, &bg_os);
 				}
+				else
+				{
+					SDL_FillRect(graphics, &bg_os, 0xFFFFFFFF);
+				}
 
 				if (current_sequence_ != nullptr)
 				{
