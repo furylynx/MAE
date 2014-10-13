@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<laban:score xmlns:laban="http://www.example.org/labanotation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/labanotation labanotation.xsd ">
+<laban:version>0.5</laban:version>
+<laban:author>furylynx</laban:author>
+<laban:title>Wheel</laban:title>
+<laban:description></laban:description>
+<laban:staff>
+   <laban:measures>2</laban:measures>
+   <laban:timing>
+      <laban:timeUnit>second</laban:timeUnit>
+      <laban:measure>
+         <laban:index>0</laban:index>
+         <laban:beatDuration>100</laban:beatDuration>
+         <laban:beats>5</laban:beats>
+      </laban:measure>
+   </laban:timing>
+   <laban:movements>
+   </laban:movements>
+</laban:staff>
+</laban:score>

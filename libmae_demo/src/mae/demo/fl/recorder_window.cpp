@@ -63,9 +63,10 @@ namespace mae
 					throw std::runtime_error(e_sstr.str());
 				}
 
-
-				small_font_ = TTF_OpenFontRW(SDL_RWFromConstMem(res::droidsans_ttf.data, res::droidsans_ttf.size),0 , 30);
-				big_font_ = TTF_OpenFontRW(SDL_RWFromConstMem(res::droidsans_ttf.data, res::droidsans_ttf.size),0 , 45);
+				small_font_ = TTF_OpenFont("/usr/share/fonts/truetype/droid/DroidSans.ttf", 30);
+				big_font_ = TTF_OpenFont("/usr/share/fonts/truetype/droid/DroidSans.ttf", 45);
+				//small_font_ = TTF_OpenFontRW(SDL_RWFromConstMem(res::droidsans_ttf.data, res::droidsans_ttf.size),0 , 30);
+				//big_font_ = TTF_OpenFontRW(SDL_RWFromConstMem(res::droidsans_ttf.data, res::droidsans_ttf.size),0 , 45);
 
 				if (small_font_ == nullptr || big_font_ == nullptr)
 				{
@@ -148,11 +149,11 @@ namespace mae
 						text = nullptr;
 
 						SDL_Rect offset_scale;
-						offset_scale.x = get_width()/2 - text->w/2;
-						offset_scale.y = get_height()/2 - text->h/2;
+						offset_scale.x = get_width()/2 - text_sur->w/2;
+						offset_scale.y = get_height()/2 - text_sur->h/2;
 
-						offset_scale.w = text->w;
-						offset_scale.h = text->h;
+						offset_scale.w = text_sur->w;
+						offset_scale.h = text_sur->h;
 
 						SDL_BlitScaled(text_sur, NULL, graphics, &offset_scale);
 						//SDL_BlitSurface(text_sur, NULL, graphics, &offset_scale);
@@ -168,11 +169,11 @@ namespace mae
 						text = nullptr;
 
 						SDL_Rect offset_scale;
-						offset_scale.x = get_width()/2 - text->w/2;
-						offset_scale.y = get_height()/2 - text->h/2;
+						offset_scale.x = get_width()/2 - text_sur->w/2;
+						offset_scale.y = get_height()/2 - text_sur->h/2;
 
-						offset_scale.w = text->w;
-						offset_scale.h = text->h;
+						offset_scale.w = text_sur->w;
+						offset_scale.h = text_sur->h;
 
 						SDL_BlitScaled(text_sur, NULL, graphics, &offset_scale);
 						//SDL_BlitSurface(text_sur, NULL, graphics, &offset_scale);
