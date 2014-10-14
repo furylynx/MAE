@@ -37,10 +37,15 @@ namespace mae
 					/**
 					 * Creates a new visualizer for laban sequences.
 					 *
-					 * @param resources_dir The resources directory containing images for dir+lvl of laban.
 					 * @param format The pixel format to be applied.
 					 */
 					laban_visualizer(SDL_PixelFormat* format);
+
+					/**
+					 * Creates a new visualizer for laban sequences with a default pixel format.
+					 */
+					laban_visualizer();
+
 					virtual ~laban_visualizer();
 
 					/**
@@ -53,9 +58,21 @@ namespace mae
 					 */
 					virtual void paint_sequence(SDL_Surface* graphics, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height);
 
+					/**
+					 * Prints the sequence to the png file.
+					 *
+					 * @param file The file to be printed to.
+					 * @param sequence The sequence to be printed.
+					 * @param window_width The image width.
+					 * @param window_height The image height.
+					 */
+					virtual void png(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width = 1920, int height = 1080);
+
 				private:
 					std::shared_ptr<res::directions_handler> directions_handler_;
 					SDL_PixelFormat* format_;
+
+					bool free_format_;
 
 					/**
 					 * Draws the staff on the graphics.

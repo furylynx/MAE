@@ -16,13 +16,45 @@ namespace mae
 
 			laban_visualizer::laban_visualizer(SDL_PixelFormat* format)
 			{
+				free_format_ = false;
 				format_ = format;
 
-				directions_handler_ = std::shared_ptr<res::directions_handler>(new res::directions_handler(format));
+				directions_handler_ = std::shared_ptr<res::directions_handler>(new res::directions_handler(format_));
+			}
+
+			laban_visualizer::laban_visualizer()
+			{
+				free_format_ = true;
+
+				format_ = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
+
+				try
+				{
+					directions_handler_ = std::shared_ptr<res::directions_handler>(new res::directions_handler(format_));
+				}
+				catch(std::exception& e)
+				{
+					//free allocated format
+					SDL_FreeFormat(format_);
+
+					throw e;
+				}
+				catch (...)
+				{
+					//free allocated format
+					SDL_FreeFormat(format_);
+
+					throw std::runtime_error("Could not initialize the directions handler.");
+				}
+
 			}
 
 			laban_visualizer::~laban_visualizer()
 			{
+				if (free_format_)
+				{
+					SDL_FreeFormat(format_);
+				}
 			}
 
 			void laban_visualizer::paint_sequence(SDL_Surface* graphics,
@@ -103,6 +135,18 @@ namespace mae
 						}
 					}
 				}
+			}
+
+			void laban_visualizer::png(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width, int height)
+			{
+				SDL_Surface* surface = SDL_CreateRGBSurface(0, width, height, (int)format_->BitsPerPixel, format_->Rmask, format_->Gmask, format_->Bmask, format_->Amask);
+
+				paint_sequence(surface, sequence, width, height);
+
+				SDL_SaveBMP_RW(surface, SDL_RWFromFile(file.c_str(), "wb"), 1);
+
+				SDL_FreeSurface(surface);
+				surface = nullptr;
 			}
 
 			void laban_visualizer::paint_staff(SDL_Surface* graphics,
