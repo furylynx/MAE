@@ -62,12 +62,8 @@ namespace mae
 
 			void decision_forest::add_sequence(std::shared_ptr<laban_sequence> sequence)
 			{
-
-				std::shared_ptr<laban_sequence> recreated_sequence = sequence;
-				if (sequence->get_beat_duration() != beat_duration_ || sequence)
-				{
-					recreated_sequence = recreate_sequence(sequence);
-				}
+				//recreate sequence to have columns correctly mapped and
+				std::shared_ptr<laban_sequence> recreated_sequence = recreate_sequence(sequence);
 
 				//add to list for later removal by index
 				sequences_.push_back(sequence);
@@ -102,7 +98,7 @@ namespace mae
 								tree_list = trees_.at(column);
 								for (unsigned int j = 0; j < tree_list.size(); j++)
 								{
-									if (decision_maker_->decide(decision_item, nullptr,
+									if (decision_maker_->decide_insertion(decision_item, nullptr,
 											tree_list.at(j)->get_root()->get_decision_item(), nullptr))
 									{
 										//add in reverse order to tree
@@ -142,6 +138,7 @@ namespace mae
 						}
 					}
 				}
+
 			}
 
 			std::shared_ptr<laban_sequence> decision_forest::recreate_sequence(std::shared_ptr<laban_sequence> sequence)
@@ -383,29 +380,32 @@ namespace mae
 						for (unsigned int j = 0; j < tree_list.size(); j++)
 						{
 							//find matching tree(s)
-							if (decision_maker_->decide(decision_item, nullptr,
+							if (decision_maker_->decide_match(decision_item, nullptr,
 									tree_list.at(j)->get_root()->get_decision_item(), nullptr))
 							{
-								//find submatches in reverse order and
+								//find submatches in reverse order
 
-								std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > sub_seqs =
+								std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > submatches =
 										tree_list.at(j)->find_submatches(column_sequence, 0, -1, true);
 
-								for (unsigned int k = 0; k < sub_seqs.size(); k++)
+								for (unsigned int k = 0; k < submatches.size(); k++)
 								{
 									//get set distance for the submatch
-									std::shared_ptr<laban_sequence> sub_seq_val = sub_seqs.at(k)->get_value();
-									std::shared_ptr<i_movement> sub_seq_el = sub_seqs.at(k)->get_sequence().back();
-									double set_dist = (sub_seq_val->get_last_movement()->get_measure()
-											* beats_per_measure_ + sub_seq_val->get_last_movement()->get_beat()
-											+ sub_seq_val->get_last_movement()->get_duration())
-											- (sub_seq_el->get_measure() * beats_per_measure_ + sub_seq_el->get_beat()
-													+ sub_seq_el->get_duration());
+									std::shared_ptr<laban_sequence> submatch_val = submatches.at(k)->get_value();
+									std::shared_ptr<i_movement> submatch_back = submatches.at(k)->get_sequence().back();
+									double set_dist = (submatch_val->get_last_movement()->get_measure()
+											* beats_per_measure_ + submatch_val->get_last_movement()->get_beat()
+											+ submatch_val->get_last_movement()->get_duration())
+											- (submatch_back->get_measure() * beats_per_measure_ + submatch_back->get_beat()
+													+ submatch_back->get_duration());
 
-									if (decision_maker_->position_okay(dist_to_last, set_dist))
+									//position check is supposed to take care, that distance is not in area but only min dist is ok
+									bool check_startpose = (submatch_back->get_measure() == 0 && decision_item->get_measure() != 0);
+
+									if (decision_maker_->position_okay(dist_to_last, set_dist, check_startpose))
 									{
 										//append to tmp_seqs
-										tmp_seqs.push_back(sub_seqs.at(k));
+										tmp_seqs.push_back(submatches.at(k));
 									}
 								}
 							}
