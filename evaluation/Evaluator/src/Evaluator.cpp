@@ -18,6 +18,7 @@
 //#include <mae/indexer_fix.hpp>
 
 #include <mae/mae.hpp>
+#include <mae/demo/demo.hpp>
 #include <boost/filesystem.hpp>
 
 int main()
@@ -31,7 +32,10 @@ int main()
 	};
 
 	std::vector<double> tolerances
-	{ 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0 };
+	{ //0.5, 1.0, 1.5, 2.0, 2.5,
+		3.0
+		//, 3.5, 4.0, 4.5, 5.0
+	};
 
 	std::vector<std::vector<int> > directory_recognized;
 	std::vector<std::vector<int> > directory_total;
@@ -69,8 +73,9 @@ int main()
 			mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(mae::e_bone::RIGHT_FOREARM)) };
 
 	//set up the movement controller
+	int buffer_size = 300;
 	mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,
-			column_definitions, 0, mae::fl::laban::laban_sequence::default_beats_per_measure(),
+			column_definitions, buffer_size, mae::fl::laban::laban_sequence::default_beats_per_measure(),
 			mae::fl::laban::laban_sequence::default_beat_duration(),
 			mae::fl::laban::laban_sequence::default_time_unit(), 1.0 / 30.0, false);
 
@@ -80,6 +85,7 @@ int main()
 
 	mae::fl::laban::laban_sequence_reader s_reader = mae::fl::laban::laban_sequence_reader();
 	mae::fl::bvh_controller bvh_ctrl = mae::fl::bvh_controller();
+	mae::demo::fl::laban_visualizer vis = mae::demo::fl::laban_visualizer();
 
 	for (unsigned int directory_id = 0; directory_id < directories.size(); directory_id++)
 	{
@@ -166,6 +172,20 @@ int main()
 								movement_controller.next_frame(0, skeleton_data.at(i));
 							}
 
+							if (tolerance_id == 0 && movement_controller.get_current_sequence() != nullptr)
+							{
+								std::stringstream exp_path;
+								exp_path << "labansequences/" << file_name << ".laban";
+
+								std::stringstream png_exp_path;
+								png_exp_path << "labansequences/" << file_name << ".bmp";
+
+								//print sequence
+								movement_controller.get_current_sequence()->xml_file(exp_path.str());
+								//draw png
+								vis.png(png_exp_path.str(), movement_controller.get_current_sequence(), 1280, 720);
+							}
+
 							//clear buffer
 							movement_controller.clear_buffer();
 
@@ -176,11 +196,14 @@ int main()
 							{
 								recognized[tolerance_id]++;
 								directory_recognized.at(directory_id)[tolerance_id]++;
+
+								std::cout << " ++ " << file_path << " : was recognized with tolerance "
+																		<< tolerances.at(tolerance_id) << " °° " << std::endl;
 							}
 							else
 							{
-								std::cout << file_path << " - not recognized with tolerance "
-										<< tolerances.at(tolerance_id) << std::endl;
+								std::cout << " -- " << file_path << " : not recognized with tolerance "
+										<< tolerances.at(tolerance_id) << " ## " << std::endl;
 							}
 						}
 
