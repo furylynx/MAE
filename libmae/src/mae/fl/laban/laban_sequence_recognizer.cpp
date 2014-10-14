@@ -99,8 +99,6 @@ namespace mae
 
 				int length = std::ceil(sequence->get_measures()*sequence->get_beats()*sequence->get_beat_duration()*time);
 
-				std::cout << "length=" << length << std::endl;
-
 				return length;
 			}
 

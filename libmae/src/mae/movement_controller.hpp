@@ -323,8 +323,6 @@ namespace mae{
 
 				if (imd_ != nullptr && buffer_size_ < tmp_buffer_size && !no_buffer_size_update_)
 				{
-					std::cout << "actually setting the new buffer size: " << tmp_buffer_size << std::endl;
-
 					buffer_size_ = tmp_buffer_size;
 					imd_->set_buffer(buffer_size_);
 				}

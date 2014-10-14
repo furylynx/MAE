@@ -23,10 +23,11 @@
 int main()
 {
 
-	std::cout << "Evaluator started." << std::endl;
+	std::cout << std::endl << "Evaluator" << std::endl;
+	std::cout << "===============" << std::endl << std::endl;
 
 	std::vector<std::string> directories
-	{ "bvhs/cut/"//, "bvhs/indi/"
+	{ "bvhs/cut/", "bvhs/dontcare/" , "bvhs/indi/" , "bvhs/raise/" , "bvhs/sequential/" , "bvhs/wheel/"
 	};
 
 	std::vector<double> tolerances
@@ -37,6 +38,8 @@ int main()
 
 	std::vector<int> recognized;
 	std::vector<int> total;
+
+	std::vector<std::string> sequence_titles;
 
 	for (unsigned int j = 0; j < tolerances.size(); j++)
 	{
@@ -81,6 +84,7 @@ int main()
 	for (unsigned int directory_id = 0; directory_id < directories.size(); directory_id++)
 	{
 		std::string directory = directories.at(directory_id);
+		std::cout << "*** " << directory << " ***" << std::endl;
 
 		if (boost::filesystem::is_directory(boost::filesystem::path(directory)))
 		{
@@ -112,6 +116,11 @@ int main()
 								std::cout << "registering \"" << sequence->get_title() << "\" from file '" << file_name
 										<< "'" << std::endl;
 								movement_controller.register_sequence(sequence);
+
+								if (sequence_titles.size() == directory_id)
+								{
+									sequence_titles.push_back(sequence->get_title());
+								}
 							}
 							else
 							{
@@ -138,7 +147,7 @@ int main()
 					std::string file_path = entry.path().string();
 					std::string file_name = entry.path().filename().string();
 
-					if (file_name.rfind(".bvh") == file_name.length() - 6)
+					if (file_name.rfind(".bvh") == file_name.length() - 4)
 					{
 						//parse and send to movement controller
 						std::vector<std::shared_ptr<mae::general_skeleton> > skeleton_data = bvh_ctrl.read_bvh_file(
@@ -198,11 +207,81 @@ int main()
 		}
 	}
 
-	std::cout << std::endl << std::endl << "::Overall rate::";
+	std::cout << std::endl << std::endl << "::Overall rate::" << std::endl;
 	for (unsigned int j = 0; j < tolerances.size(); j++)
 	{
 		std::cout << "tolerance " << tolerances.at(j) << " => " << (double) recognized.at(j) / total.at(j) << std::endl;
 	}
+
+
+	//LATEX table
+	std::cout << std::endl << std::endl << std::endl;
+	std::cout << "::: LaTeX table :::" << std::endl << std::endl;
+
+
+	std::cout << "\\begin{table}[H]%" << std::endl;
+	std::cout << "\\setlength\\extrarowheight{5pt}" << std::endl;
+	std::cout << "\\begin{tabular}{l";
+	for (unsigned int j = 0; j < tolerances.size(); j++)
+	{
+		std::cout << " l";
+	}
+	std::cout << "}" << std::endl;
+	std::cout << "\\hline" << std::endl;
+	std::cout << "Tolerance in beats & ";
+	for (unsigned int j = 0; j<tolerances.size(); j++)
+	{
+		std::cout << tolerances.at(j);
+		if (j != tolerances.size()-1)
+		{
+			std::cout << " & ";
+		}
+	}
+	std::cout << "\\\\" << std::endl;
+	std::cout << "\\hline" << std::endl;
+	for (unsigned int i = 0; i < directories.size(); i++)
+	{
+		if (sequence_titles.size() > i)
+		{
+			std::cout << sequence_titles.at(i) << " & ";
+		}
+		else
+		{
+			std::cout << directories.at(i) << " & ";
+		}
+
+		for (unsigned int j = 0; j<tolerances.size(); j++)
+		{
+			std::cout << (double)directory_recognized.at(i).at(j)/directory_total.at(i).at(j);
+			if (j != tolerances.size()-1)
+			{
+				std::cout << " & ";
+			}
+		}
+
+		std::cout << " \\\\" << std::endl;
+	}
+
+	std::cout << "\\hline" << std::endl;
+	std::cout << "Total" << " & ";
+
+	for (unsigned int j = 0; j < tolerances.size(); j++)
+	{
+		std::cout << recognized.at(j)/total.at(j);
+
+		if (j != tolerances.size()-1)
+		{
+			std::cout << " & ";
+		}
+	}
+
+	std::cout << " \\\\" << std::endl;
+	std::cout << "\\hline" << std::endl;
+	std::cout << "\\end{tabular}" << std::endl;
+	std::cout << "\\caption[Short description.]{Long description.}" << std::endl;
+	std::cout << "\\label{tab:feature-sets}" << std::endl;
+	std::cout << "\\end{table}" << std::endl;
+
 
 	return 0;
 }

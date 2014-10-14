@@ -656,13 +656,6 @@ namespace mae
 							motion_rot_mat *= *iterator;
 						}
 
-						//TODO remove
-						if (frame_count == 1 && (i == 1 || i == 2 || i == 3))
-						{
-							std::cout << i << " " << rot_zeta << " " << rot_xi << " " << rot_ypsilon << std::endl;
-							std::cout << ">> channels " << channels.at(3) << " " << channels.at(4) << " " << channels.at(5) << std::endl;
-						}
-
 						if (i != 0)
 						{
 							motion_rot_mat *= joint_rot_mat.at(hy->at(joint_sequence.at(i))->get_parent()->get_id());
