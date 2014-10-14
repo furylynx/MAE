@@ -6,6 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
+#include <cstddef>
 #include <iostream>
 
 #include <mae/indexer_fix.hpp>

@@ -15,6 +15,7 @@
 //...
 
 //global includes
+#include <cstddef>
 #include <string>
 #include <sstream>
 #include <iostream>

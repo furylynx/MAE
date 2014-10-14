@@ -6,15 +6,16 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
+//custom includes
+#include "eval_listener.hpp"
+
+//global includes
+#include <cstddef>
 #include <iostream>
 #include <vector>
 #include <string>
 
-#define __SIZE_TYPE__ long unsigned int
-typedef __SIZE_TYPE__ size_t;
-typedef size_t size_type;
-
-#include <mae/indexer_fix.hpp>
+//#include <mae/indexer_fix.hpp>
 
 #include <mae/mae.hpp>
 #include <boost/filesystem.hpp>
@@ -25,7 +26,8 @@ int main()
 	std::cout << "Evaluator started." << std::endl;
 
 	std::vector<std::string> directories
-	{ "bvhs/cut/", "bvhs/indi/" };
+	{ "bvhs/cut/"//, "bvhs/indi/"
+	};
 
 	std::vector<double> tolerances
 	{ 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0 };
@@ -69,7 +71,9 @@ int main()
 			mae::fl::laban::laban_sequence::default_beat_duration(),
 			mae::fl::laban::laban_sequence::default_time_unit(), 1.0 / 30.0, false);
 
-	//TODO add listener to the controller
+	//add listener to the controller
+	std::shared_ptr<eval::eval_listener> eval_listener = std::shared_ptr<eval::eval_listener>(new eval::eval_listener());
+	movement_controller.add_listener(eval_listener);
 
 	mae::fl::laban::laban_sequence_reader s_reader = mae::fl::laban::laban_sequence_reader();
 	mae::fl::bvh_controller bvh_ctrl = mae::fl::bvh_controller();
@@ -145,6 +149,7 @@ int main()
 							//update tolerance
 							double tolerance = tolerances.at(tolerance_id);
 							movement_controller.set_recognition_tolerance(tolerance);
+							eval_listener->reset();
 
 							//send data
 							for (unsigned int i = 0; i < skeleton_data.size(); i++)
@@ -155,10 +160,10 @@ int main()
 							//clear buffer
 							movement_controller.clear_buffer();
 
-							//TODO check whether sequence was recognized
+							//update results
 							total[tolerance_id]++;
 							directory_total.at(directory_id)[tolerance_id]++;
-							if (true) //TODO check listener whether recognition was made
+							if (eval_listener->sequence_recognized()) //check listener whether recognition was made
 							{
 								recognized[tolerance_id]++;
 								directory_recognized.at(directory_id)[tolerance_id]++;
