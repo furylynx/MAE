@@ -139,12 +139,24 @@ namespace mae
 
 			void laban_visualizer::png(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width, int height)
 			{
+				//generate surface
 				SDL_Surface* surface = SDL_CreateRGBSurface(0, width, height, (int)format_->BitsPerPixel, format_->Rmask, format_->Gmask, format_->Bmask, format_->Amask);
 
+				//white background
+				SDL_Rect rect;
+				rect.x = 0;
+				rect.y = 0;
+				rect.w = surface->w;
+				rect.h = surface->h;
+				SDL_FillRect(surface, &rect, 0xFFFFFFFF);
+
+				//print sequence to the surface
 				paint_sequence(surface, sequence, width, height);
 
+				//store surface as a file
 				SDL_SaveBMP_RW(surface, SDL_RWFromFile(file.c_str(), "wb"), 1);
 
+				//free the surface
 				SDL_FreeSurface(surface);
 				surface = nullptr;
 			}
