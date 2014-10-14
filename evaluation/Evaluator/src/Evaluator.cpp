@@ -267,7 +267,7 @@ int main()
 
 	for (unsigned int j = 0; j < tolerances.size(); j++)
 	{
-		std::cout << recognized.at(j)/total.at(j);
+		std::cout << (double)recognized.at(j)/total.at(j);
 
 		if (j != tolerances.size()-1)
 		{
