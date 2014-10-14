@@ -119,10 +119,11 @@ namespace mae
 					 * Returns all children that match the decision.
 					 *
 					 * @param decision_item The item to be matched.
+					 * @param insertion True if matching children for insertion.
 					 * @return The child that matches the item.
 					 */
 					virtual std::vector<std::shared_ptr<decision_node<T, U> > > get_matching_children(std::shared_ptr<T> decision_item,
-							std::shared_ptr<T> decision_item_predecessor);
+							std::shared_ptr<T> decision_item_predecessor, bool insertion = true);
 
 					/**
 					 * Returns the attached sequences which are those that begin with the assigned movement.
@@ -137,8 +138,17 @@ namespace mae
 					 */
 					virtual std::shared_ptr<T> get_decision_item();
 
+					/**
+					 * Returns true if this node's decision item is matching.
+					 *
+					 * @param decision_item The other item (to be matched with).
+					 * @param decision_item_predecessor The other item's predecessor.
+					 * @param decision_item_parent This item's parent's item.
+					 * @param insertion True if matching children for insertion.
+					 * @return True if matching.
+					 */
 					virtual bool is_matching(std::shared_ptr<T> decision_item,
-							std::shared_ptr<T> decision_item_predecessor, std::shared_ptr<T> decision_item_parent);
+							std::shared_ptr<T> decision_item_predecessor, std::shared_ptr<T> decision_item_parent, bool insertion = true);
 
 					/**
 					 * Returns true if this node is a leaf.
@@ -236,7 +246,7 @@ namespace mae
 					}
 
 					std::vector<std::shared_ptr<decision_node<T, U> > > matching_children = get_matching_children(sequence.at(next_index),
-							sequence.at(current_index));
+							sequence.at(current_index), true);
 
 					if (matching_children.size() > 0)
 					{
@@ -344,45 +354,41 @@ namespace mae
 			{
 				if (end_pos < 0)
 				{
+					//set end_pos if not specified
 					end_pos = whole_sequence.size() - 1;
 				}
 
 				//all treasures that are given by submatches for the whole sequence
 				std::vector<std::shared_ptr<decision_value<T, U> > > result;
 
-				unsigned int current_step = step;
-				unsigned int next_step = step + 1;
+				unsigned int current_index = step;
+				unsigned int next_index = step + 1;
 
 				if (reverse_order)
 				{
-					current_step = whole_sequence.size() - 1 - step;
-					next_step = whole_sequence.size() - 1 - (step + 1);
+					//change indices for reverse order
+					current_index = whole_sequence.size() - 1 - step;
+					next_index = whole_sequence.size() - 1 - (step + 1);
 				}
 
 				if (!is_leaf() && step != end_pos)
 				{
 					//recursively search all matching children for sequences
 					std::vector<std::shared_ptr<decision_node<T, U> > > matching_children = get_matching_children(
-							whole_sequence.at(next_step), whole_sequence.at(current_step));
+							whole_sequence.at(next_index), whole_sequence.at(current_index), false);
 
 					for (unsigned int i= 0; i < matching_children.size(); i++)
 					{
+						//recurse; step is just incremented (it is not equal to the sequence element's index - this is next_index)
 						std::vector<std::shared_ptr<decision_value<T, U> > > child_result = matching_children.at(i)->find_submatches(whole_sequence, step + 1, end_pos, reverse_order);
 						result.insert(result.end(), child_result.begin(), child_result.end());
 					}
 				}
 
-				//dont just insert, but check the whole sequence for no further occurences before the end
-				//of the to be returned sequences. The end is given by the position (measure, beat) of the last
-				//processed element (the decision element of the leaf node)
+				//just insert all values for this node (since node had a match)
 				for (unsigned int i = 0; i < values_.size(); i++)
 				{
-					if (step >= end_pos - 1
-							|| decision_maker_->distance_okay(whole_sequence.at(current_step),
-									whole_sequence.at(next_step), values_.at(i)->get_sequence().front()))
-					{
-						result.push_back(values_.at(i));
-					}
+					result.push_back(values_.at(i));
 				}
 
 				return result;
@@ -410,9 +416,9 @@ namespace mae
 					{
 						if (step != end_pos)
 						{
-							//recursively search all matching children for sequences
+							//recursively search all matching children for sequences - since insertion matching is equal to the exact matching
 							std::vector<std::shared_ptr<decision_node<T, U> > > matching_children = get_matching_children(
-									sequence.at(step + 1), sequence.at(step));
+									sequence.at(step + 1), sequence.at(step), true);
 
 							for (unsigned int i= 0; i < matching_children.size(); i++)
 							{
@@ -441,13 +447,13 @@ namespace mae
 
 			template<typename T, typename U>
 			std::vector<std::shared_ptr<decision_node<T, U> > > decision_node<T, U>::get_matching_children(
-					std::shared_ptr<T> decision_item, std::shared_ptr<T> decision_item_predecessor)
+					std::shared_ptr<T> decision_item, std::shared_ptr<T> decision_item_predecessor, bool insertion)
 			{
 				std::vector<std::shared_ptr<decision_node<T, U> > > result;
 
 				for (unsigned int i = 0; i < children_.size(); i++)
 				{
-					if (children_.at(i)->is_matching(decision_item, decision_item_predecessor, decision_item_))
+					if (children_.at(i)->is_matching(decision_item, decision_item_predecessor, decision_item_, insertion))
 					{
 						result.push_back( children_.at(i) );
 					}
@@ -464,10 +470,16 @@ namespace mae
 
 			template<typename T, typename U>
 			bool decision_node<T, U>::is_matching(std::shared_ptr<T> decision_item,
-					std::shared_ptr<T> decision_item_predecessor, std::shared_ptr<T> decision_item_parent)
+					std::shared_ptr<T> decision_item_predecessor, std::shared_ptr<T> decision_item_parent, bool insertion)
 			{
-				return decision_maker_->decide(decision_item_, decision_item_parent, decision_item,
-						decision_item_predecessor);
+				if (insertion)
+				{
+					return decision_maker_->decide_insertion(decision_item, decision_item_predecessor, decision_item_, decision_item_parent);
+				}
+				else
+				{
+					return decision_maker_->decide_match(decision_item, decision_item_predecessor, decision_item_, decision_item_parent);
+				}
 			}
 
 			template<typename T, typename U>

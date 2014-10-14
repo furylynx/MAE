@@ -22,6 +22,7 @@
 #include <string>
 #include <sstream>
 #include <stdexcept>
+#include <fstream>
 #include <ios>
 #include <iomanip>
 #include <vector>
@@ -286,6 +287,13 @@ namespace mae {
 				 * @return The string.
 				 */
 				virtual std::string xml_namespace_uri() const;
+
+				/**
+				 * Prints the sequence to an XML file.
+				 *
+				 * @param path The file to be printed to.
+				 */
+				virtual void xml_file(std::string path) const;
 
 				/**
 				 * Returns the string representation for the sequence.

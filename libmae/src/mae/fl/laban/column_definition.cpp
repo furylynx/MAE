@@ -42,11 +42,25 @@ namespace mae
 				column_index_ = b.get_id();
 
 				ps::e_side side = ps::e_side::NONE_SIDE;
-				if (mstr::to_lower(b.get_name()).find("left") == 0)
+
+				if (
+						eb == mae::e_bone::LEFT_UPPER_ARM 	||
+						eb == mae::e_bone::LEFT_FOREARM 	||
+						eb == mae::e_bone::LEFT_WHOLE_ARM   ||
+						eb == mae::e_bone::LEFT_THIGH 		||
+						eb == mae::e_bone::LEFT_SHANK 		||
+						eb == mae::e_bone::LEFT_WHOLE_LEG
+					)
 				{
 					side = ps::e_side::LEFT;
 				}
-				else if (mstr::to_lower(b.get_name()).find("left") == 0)
+				else if (
+						eb == mae::e_bone::RIGHT_UPPER_ARM 	||
+						eb == mae::e_bone::RIGHT_FOREARM 	||
+						eb == mae::e_bone::RIGHT_WHOLE_ARM   ||
+						eb == mae::e_bone::RIGHT_THIGH 		||
+						eb == mae::e_bone::RIGHT_SHANK 		||
+						eb == mae::e_bone::RIGHT_WHOLE_LEG)
 				{
 					side = ps::e_side::RIGHT;
 				}

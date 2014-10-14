@@ -809,12 +809,7 @@ namespace mae
 
 			if (offset.size() != 3)
 			{
-				//TODO remove
-				std::cout << "PARSE OFFSET: More than 3 values!" << std::endl;
-
 				throw std::invalid_argument("bvh_controller: More than 3 values to parse for offset.");
-				//syntax error
-				return std::shared_ptr<general_joint>(new general_joint());
 			}
 
 			cv::Vec3d el_position = mae::math::math::stdvec_to_vec3d(offset) + mae::math::math::joint_to_vec(parent_joint);

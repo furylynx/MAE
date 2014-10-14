@@ -47,7 +47,7 @@ namespace mae
 					 * @param beat_duration The beat duration as used by the laban sequence generator.
 					 * @param time_unit The time unit as used by the laban sequence generator.
 					 */
-					rewriting_forest(unsigned int beats_per_measure = laban_sequence::default_beats_per_measure(), unsigned int beat_duration = laban_sequence::default_beat_duration(), e_time_unit time_unit = laban_sequence::default_time_unit());
+					rewriting_forest(unsigned int beats_per_measure = laban_sequence::default_beats_per_measure(), unsigned int beat_duration = laban_sequence::default_beat_duration(), e_time_unit time_unit = laban_sequence::default_time_unit(), double tolerance = 0.5);
 
 					/**
 					 * Creates a new decision forest for rewriting rules with initial rules set.
@@ -60,6 +60,20 @@ namespace mae
 					rewriting_forest(std::vector<std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > > rules, unsigned int beats_per_measure = laban_sequence::default_beats_per_measure(), unsigned int beat_duration = laban_sequence::default_beat_duration(), e_time_unit time_unit = laban_sequence::default_time_unit());
 
 					virtual ~rewriting_forest();
+
+					/**
+					 * Returns the tolerance value (in beats) for a connected sequence.
+					 *
+					 * @return The tolerance.
+					 */
+					virtual double get_tolerance();
+
+					/**
+					 * Sets the tolerance value (in beats) for a connected sequence.
+					 *
+					 * @param tolerance The tolerance.
+					 */
+					virtual void set_tolerance(double tolerance);
 
 					/**
 					 * Returns all equivalent sequences for the given sequence (this includes the unchanged sequence itself).
@@ -96,6 +110,7 @@ namespace mae
 					unsigned int beats_per_measure_;
 					unsigned int beat_duration_;
 					e_time_unit time_unit_;
+					double tolerance_;
 
 					std::shared_ptr<i_decision_maker<i_movement> > decision_maker_;
 					std::vector<std::shared_ptr<decision_tree<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > > trees_;

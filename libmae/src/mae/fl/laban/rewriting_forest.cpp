@@ -15,11 +15,12 @@ namespace mae
 		{
 
 			rewriting_forest::rewriting_forest(unsigned int beats_per_measure, unsigned int beat_duration,
-					e_time_unit time_unit)
+					e_time_unit time_unit, double tolerance)
 			{
 				beats_per_measure_ = beats_per_measure;
 				beat_duration_ = beat_duration;
 				time_unit_ = time_unit;
+				tolerance_ = tolerance;
 
 				// decision maker
 				decision_maker_ = std::shared_ptr<i_decision_maker<i_movement> >(new rewriting_decision_maker());
@@ -44,6 +45,16 @@ namespace mae
 			{
 			}
 
+			double rewriting_forest::get_tolerance()
+			{
+				return tolerance_;
+			}
+
+			void rewriting_forest::set_tolerance(double tolerance)
+			{
+				tolerance_ = tolerance;
+			}
+
 			std::vector<std::vector<std::shared_ptr<i_movement> > > rewriting_forest::replacements(
 					std::vector<std::shared_ptr<i_movement> > sequence)
 			{
@@ -52,8 +63,7 @@ namespace mae
 				//replace subsequences of continous subsequence from index pos to size of the match
 				//this does replace the first match; any other match must be applied on all previous possible sequences
 
-				//TODO good value
-				double deviation = 0.5;
+				double deviation = tolerance_;
 
 				std::vector<int> indices;
 
@@ -98,7 +108,7 @@ namespace mae
 						//find decision tree with same start pos
 						for (unsigned int k = 0; k < trees_.size(); k++)
 						{
-							if (decision_maker_->decide(result.at(i).at(index), nullptr,
+							if (decision_maker_->decide_match(result.at(i).at(index), nullptr,
 									trees_.at(k)->get_root()->get_decision_item(), nullptr))
 							{
 								//use end_index_cont for submatches
@@ -215,7 +225,7 @@ namespace mae
 			{
 				for (unsigned int k = 0; k < trees_.size(); k++)
 				{
-					if (decision_maker_->decide(rule->get_sequence().front(), nullptr, trees_.at(k)->get_root()->get_decision_item(), nullptr))
+					if (decision_maker_->decide_insertion(rule->get_sequence().front(), nullptr, trees_.at(k)->get_root()->get_decision_item(), nullptr))
 					{
 						//add in normal order to tree
 						trees_.at(k)->add_sequence(rule, false);

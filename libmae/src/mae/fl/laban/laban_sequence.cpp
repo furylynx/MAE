@@ -165,7 +165,8 @@ namespace mae
 			{
 				if (i_movements_vec_.size() > 0)
 				{
-					throw std::runtime_error("laban_sequence: Cannot clear the column definitions because there are already movements registered. Clear movements first.");
+					throw std::runtime_error(
+							"laban_sequence: Cannot clear the column definitions because there are already movements registered. Clear movements first.");
 				}
 
 				column_definitions_map_.clear();
@@ -184,9 +185,9 @@ namespace mae
 				result.push_back(4);
 
 				//insert all defined columns too regarding the order of the vector
-				for(unsigned int i = 0; i < column_definitions_vec_.size(); i++)
+				for (unsigned int i = 0; i < column_definitions_vec_.size(); i++)
 				{
-					for(std::vector<int>::iterator it = result.begin(); it != result.end(); it++)
+					for (std::vector<int>::iterator it = result.begin(); it != result.end(); it++)
 					{
 						if (*it > column_definitions_vec_.at(i)->get_column_index())
 						{
@@ -232,8 +233,10 @@ namespace mae
 
 					movements_vec_.push_back(mov);
 
-					if (last_movement_ == nullptr || (last_movement_->get_measure() < mov->get_measure() || (last_movement_->get_measure() == mov->get_measure()
-							&& last_movement_->get_beat() < mov->get_beat())))
+					if (last_movement_ == nullptr
+							|| (last_movement_->get_measure() < mov->get_measure()
+									|| (last_movement_->get_measure() == mov->get_measure()
+											&& last_movement_->get_beat() < mov->get_beat())))
 					{
 						last_movement_ = i_mov;
 					}
@@ -249,8 +252,9 @@ namespace mae
 						{
 							std::shared_ptr<i_movement> col_item = col.at(insert_pos);
 
-							if (col_item->get_measure() > mov->get_measure() || (col_item->get_measure() == mov->get_measure()
-									&& col_item->get_beat() >= mov->get_beat()))
+							if (col_item->get_measure() > mov->get_measure()
+									|| (col_item->get_measure() == mov->get_measure()
+											&& col_item->get_beat() >= mov->get_beat()))
 							{
 								//insert at the position
 
@@ -317,8 +321,6 @@ namespace mae
 					namesp_r.append(":");
 				}
 
-
-
 				std::stringstream sstr;
 
 				//set fixed decimals and precision
@@ -334,7 +336,7 @@ namespace mae
 				if (!no_header)
 				{
 					sstr << str_indent << "<" << namesp_r << "score " << xml_namespace_header(namesp) << ">"
-						<< std::endl;
+							<< std::endl;
 				}
 				else
 				{
@@ -342,27 +344,35 @@ namespace mae
 				}
 
 				//print header
-				sstr << str_indent << "\t" << "<" << namesp_r << "version>" << version_ << "</" << namesp_r << "version>" << std::endl;
+				sstr << str_indent << "\t" << "<" << namesp_r << "version>" << version_ << "</" << namesp_r
+						<< "version>" << std::endl;
 
 				for (unsigned int i = 0; i < authors_.size(); i++)
 				{
-					sstr << str_indent << "\t" << "<" << namesp_r << "author>" << authors_.at(i) << "</" << namesp_r << "author>" << std::endl;
+					sstr << str_indent << "\t" << "<" << namesp_r << "author>" << authors_.at(i) << "</" << namesp_r
+							<< "author>" << std::endl;
 				}
-				sstr << str_indent << "\t" << "<" << namesp_r << "title>" << title_ << "</" << namesp_r << "title>" << std::endl;
-				sstr << str_indent << "\t" << "<" << namesp_r << "description>" << description_ << "</" << namesp_r << "description>" << std::endl;
+				sstr << str_indent << "\t" << "<" << namesp_r << "title>" << title_ << "</" << namesp_r << "title>"
+						<< std::endl;
+				sstr << str_indent << "\t" << "<" << namesp_r << "description>" << description_ << "</" << namesp_r
+						<< "description>" << std::endl;
 
 				//print staff
 				sstr << str_indent << "\t" << "<" << namesp_r << "staff>" << std::endl;
 
 				//print staff header
-				sstr << str_indent << "\t\t" << "<" << namesp_r << "measures>" << measures_ << "</" << namesp_r << "measures>" << std::endl;
+				sstr << str_indent << "\t\t" << "<" << namesp_r << "measures>" << measures_ << "</" << namesp_r
+						<< "measures>" << std::endl;
 				sstr << str_indent << "\t\t" << "<" << namesp_r << "timing>" << std::endl;
-				sstr << str_indent << "\t\t\t" << "<" << namesp_r << "timeUnit>" << e_time_unit_c::str(time_unit_) << "</" << namesp_r << "timeUnit>"
-						<< std::endl;
+				sstr << str_indent << "\t\t\t" << "<" << namesp_r << "timeUnit>" << e_time_unit_c::str(time_unit_)
+						<< "</" << namesp_r << "timeUnit>" << std::endl;
 				sstr << str_indent << "\t\t\t" << "<" << namesp_r << "measure>" << std::endl;
-				sstr << str_indent << "\t\t\t\t" << "<" << namesp_r << "index>" << 0 << "</" << namesp_r << "index>" << std::endl;
-				sstr << str_indent << "\t\t\t\t" << "<" << namesp_r << "beatDuration>" << beat_duration_ << "</" << namesp_r << "beatDuration>" << std::endl;
-				sstr << str_indent << "\t\t\t\t" << "<" << namesp_r << "beats>" << beats_ << "</" << namesp_r << "beats>" << std::endl;
+				sstr << str_indent << "\t\t\t\t" << "<" << namesp_r << "index>" << 0 << "</" << namesp_r << "index>"
+						<< std::endl;
+				sstr << str_indent << "\t\t\t\t" << "<" << namesp_r << "beatDuration>" << beat_duration_ << "</"
+						<< namesp_r << "beatDuration>" << std::endl;
+				sstr << str_indent << "\t\t\t\t" << "<" << namesp_r << "beats>" << beats_ << "</" << namesp_r
+						<< "beats>" << std::endl;
 				sstr << str_indent << "\t\t\t" << "</" << namesp_r << "measure>" << std::endl;
 				sstr << str_indent << "\t\t" << "</" << namesp_r << "timing>" << std::endl;
 
@@ -398,10 +408,12 @@ namespace mae
 				sstr << "xmlns";
 				if (namesp.size() > 0)
 				{
-					sstr << ":" << namesp ;
+					sstr << ":" << namesp;
 				}
 
-				sstr <<  "=\"http://www.example.org/labanotation\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"" << xml_schema_location() << "\"";
+				sstr
+						<< "=\"http://www.example.org/labanotation\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\""
+						<< xml_schema_location() << "\"";
 
 				return sstr.str();
 			}
@@ -414,6 +426,21 @@ namespace mae
 			std::string laban_sequence::xml_namespace_uri() const
 			{
 				return "http://www.example.org/labanotation";
+			}
+
+			void laban_sequence::xml_file(std::string path) const
+			{
+				std::ofstream outfile(path);
+
+				if (outfile.is_open())
+				{
+					outfile << xml();
+					outfile.close();
+				}
+				else
+				{
+					throw std::invalid_argument("Cannot write to the file.");
+				}
 			}
 
 			std::string laban_sequence::str() const
