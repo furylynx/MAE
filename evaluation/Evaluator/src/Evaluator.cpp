@@ -32,9 +32,12 @@ int main()
 	};
 
 	std::vector<double> tolerances
-	{ //0.5, 1.0, 1.5, 2.0, 2.5,
+	{ 0.5, 1.0, 1.5, 2.0, 2.5,
 		3.0
-		//, 3.5, 4.0, 4.5, 5.0
+		//, 3.5
+		, 4.0
+		//, 4.5
+		, 5.0
 	};
 
 	std::vector<std::vector<int> > directory_recognized;
@@ -244,10 +247,10 @@ int main()
 
 	std::cout << "\\begin{table}[H]%" << std::endl;
 	std::cout << "\\setlength\\extrarowheight{5pt}" << std::endl;
-	std::cout << "\\begin{tabular}{l";
+	std::cout << "\\begin{tabular}{l | ";
 	for (unsigned int j = 0; j < tolerances.size(); j++)
 	{
-		std::cout << " l";
+		std::cout << " c";
 	}
 	std::cout << "}" << std::endl;
 	std::cout << "\\hline" << std::endl;
@@ -275,7 +278,7 @@ int main()
 
 		for (unsigned int j = 0; j<tolerances.size(); j++)
 		{
-			std::cout << (double)directory_recognized.at(i).at(j)/directory_total.at(i).at(j);
+			std::cout << std::setprecision(2) << (double)directory_recognized.at(i).at(j)/directory_total.at(i).at(j);
 			if (j != tolerances.size()-1)
 			{
 				std::cout << " & ";
@@ -290,7 +293,7 @@ int main()
 
 	for (unsigned int j = 0; j < tolerances.size(); j++)
 	{
-		std::cout << (double)recognized.at(j)/total.at(j);
+		std::cout << std::setprecision(2) << (double)recognized.at(j)/total.at(j);
 
 		if (j != tolerances.size()-1)
 		{
@@ -301,8 +304,8 @@ int main()
 	std::cout << " \\\\" << std::endl;
 	std::cout << "\\hline" << std::endl;
 	std::cout << "\\end{tabular}" << std::endl;
-	std::cout << "\\caption[Short description.]{Long description.}" << std::endl;
-	std::cout << "\\label{tab:feature-sets}" << std::endl;
+	std::cout << "\\caption[The recognition rates of the engine.]{The recognition rates of the engine.}" << std::endl;
+	std::cout << "\\label{tab:recognition-rates}" << std::endl;
 	std::cout << "\\end{table}" << std::endl;
 
 
