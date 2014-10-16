@@ -112,13 +112,14 @@ namespace mae
 
 		private:
 			bool debug_;
-			std::shared_ptr<i_pose_detector<T> > ipd;
-			std::shared_ptr<i_sequence_generator<U> > isg;
-			std::shared_ptr<i_kp_detector> ikpd;
+			std::shared_ptr<i_pose_detector<T> > ipd_;
+			std::shared_ptr<i_sequence_generator<U> > isg_;
+			std::shared_ptr<i_kp_detector> ikpd_;
 
 			std::list<std::shared_ptr<i_pose_listener> > listeners_;
-			int pose_buffer_size;
-			std::list<std::shared_ptr<general_enriched_pose> > poses;
+			int pose_buffer_size_;
+			std::list<std::shared_ptr<general_enriched_pose> > poses_;
+			std::shared_ptr<general_pose> previous_pose_;
 
 	};
 } // namespace mae
@@ -131,12 +132,13 @@ namespace mae
 	kp_movement_detector<T, U>::kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
 			std::shared_ptr<i_sequence_generator<U> > isg, bool debug)
 	{
-		this->debug_ = debug;
-		this->ipd = ipd;
-		this->isg = isg;
-		this->ikpd = std::shared_ptr<i_kp_detector>(new kp_detector(debug));
+		debug_ = debug;
+		ipd_ = ipd;
+		isg_ = isg;
+		ikpd_ = std::shared_ptr<i_kp_detector>(new kp_detector(debug));
 
-		this->pose_buffer_size = 400;
+		pose_buffer_size_ = 400;
+		previous_pose_ = nullptr;
 
 	}
 
@@ -144,19 +146,20 @@ namespace mae
 	kp_movement_detector<T, U>::kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
 			std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_kp_detector> ikpd, bool debug)
 	{
-		this->debug_ = debug;
-		this->ipd = ipd;
-		this->isg = isg;
-		this->ikpd = ikpd;
+		debug_ = debug;
+		ipd_ = ipd;
+		isg_ = isg;
+		ikpd_ = ikpd;
 
-		this->pose_buffer_size = 400;
+		pose_buffer_size_ = 400;
+		previous_pose_ = nullptr;
 	}
 
 	template<typename T, typename U>
 	kp_movement_detector<T, U>::~kp_movement_detector()
 	{
 		//clear the queue
-		poses.clear();
+		poses_.clear();
 	}
 
 	template<typename T, typename U>
@@ -170,25 +173,29 @@ namespace mae
 
 		std::shared_ptr<U> sequence;
 
-		if (ipd)
+		if (ipd_)
 		{
-			std::shared_ptr<general_pose> pose = ipd->pose(skeleton, body_parts);
+			std::shared_ptr<general_pose> pose = ipd_->pose(skeleton, body_parts, previous_pose_);
 
+			//update previous pose
+			previous_pose_ = pose;
+
+			//notify pose listeners
 			notify_listeners(timestamp, pose);
 
-			if (ikpd)
+			if (ikpd_)
 			{
-				std::shared_ptr<general_enriched_pose> enriched_pose = ikpd->estimate_frame(pose, poses, body_parts);
+				std::shared_ptr<general_enriched_pose> enriched_pose = ikpd_->estimate_frame(pose, poses_, body_parts);
 
-				poses.push_front(enriched_pose);
-				if (poses.size() > pose_buffer_size)
+				poses_.push_front(enriched_pose);
+				if (poses_.size() > pose_buffer_size_)
 				{
-					poses.pop_back();
+					poses_.pop_back();
 				}
 
-				if (isg)
+				if (isg_)
 				{
-					sequence = isg->generate_sequence(framerate, poses, body_parts);
+					sequence = isg_->generate_sequence(framerate, poses_, body_parts);
 				}
 			}
 		}
@@ -199,13 +206,14 @@ namespace mae
 	template<typename T, typename U>
 	void kp_movement_detector<T, U>::set_buffer(int size)
 	{
-		pose_buffer_size = size;
+		pose_buffer_size_ = size;
 	}
 
 	template<typename T, typename U>
 	void kp_movement_detector<T, U>::clear_buffer()
 	{
-		poses.clear();
+		poses_.clear();
+		previous_pose_ = nullptr;
 	}
 
 	template<typename T, typename U>
