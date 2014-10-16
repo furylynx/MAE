@@ -19,7 +19,9 @@
 
 #include <mae/mae.hpp>
 #include <mae/demo/demo.hpp>
+
 #include <boost/filesystem.hpp>
+#include <boost/date_time/posix_time/posix_time.hpp>
 
 int main()
 {
@@ -28,16 +30,18 @@ int main()
 	std::cout << "===============" << std::endl << std::endl;
 
 	std::vector<std::string> directories
-	{ "bvhs/cut/", "bvhs/dontcare/" , "bvhs/indi/" , "bvhs/raise/" , "bvhs/sequential/" , "bvhs/wheel/"
+	{ //"bvhs/cut/", "bvhs/dontcare/" , "bvhs/indi/" , "bvhs/raise/" , "bvhs/sequential/" , "bvhs/wheel/"
+		"bvhs/cut_single/"
 	};
 
 	std::vector<double> tolerances
-	{ 0.5, 1.0, 1.5, 2.0, 2.5,
-		3.0
+	{ 0.5
+		//, 1.0, 1.5, 2.0, 2.5
+		//, 3.0
 		//, 3.5
-		, 4.0
+		//, 4.0
 		//, 4.5
-		, 5.0
+		//, 5.0
 	};
 
 	std::vector<std::vector<int> > directory_recognized;
@@ -76,7 +80,7 @@ int main()
 			mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(mae::e_bone::RIGHT_FOREARM)) };
 
 	//set up the movement controller
-	int buffer_size = 300;
+	int buffer_size = 4800;
 	mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,
 			column_definitions, buffer_size, mae::fl::laban::laban_sequence::default_beats_per_measure(),
 			mae::fl::laban::laban_sequence::default_beat_duration(),
@@ -169,11 +173,28 @@ int main()
 							movement_controller.set_recognition_tolerance(tolerance);
 							eval_listener->reset();
 
+							double max_dur = 0;
+							double mean_dur = 0;
 							//send data
 							for (unsigned int i = 0; i < skeleton_data.size(); i++)
 							{
+								boost::posix_time::ptime time1 = boost::posix_time::microsec_clock::universal_time();
 								movement_controller.next_frame(0, skeleton_data.at(i));
+								boost::posix_time::ptime time2 = boost::posix_time::microsec_clock::universal_time();
+								std::cout << "frame " << i << " / " << skeleton_data.size() << " # " << time1 << " -> ";
+								std::cout << time2 << " ::  " << (time2 - time1).total_milliseconds() <<  std::endl;
+								if (i >= buffer_size)
+								{
+									mean_dur += (time2 - time1).total_milliseconds();
+								}
+
+								if ((time2 - time1).total_milliseconds() > max_dur)
+								{
+									max_dur = (time2 - time1).total_milliseconds();
+								}
 							}
+
+							std::cout << "max dur : " << max_dur << " | mean dur : " << std::setprecision(2) << (mean_dur/(skeleton_data.size()-buffer_size)) << std::endl;
 
 							if (tolerance_id == 0 && movement_controller.get_current_sequence() != nullptr)
 							{

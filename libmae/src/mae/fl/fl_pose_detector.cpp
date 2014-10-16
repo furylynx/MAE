@@ -150,7 +150,7 @@ namespace mae
 											skeleton->get_orig_skeleton()->get_joint(
 													body_parts.at(bone_index).get_middle_joint()));
 
-							double angle = 180 - mae::math::math::calc_angle_half(v, w);
+							double angle = 180 - mae::math::math::calc_angle_half_deg(v, w);
 
 							result->set_distance(bone_id, e_fl_direction_c::to_int(dir), angle);
 						}
@@ -188,18 +188,21 @@ namespace mae
 						}
 
 						//angle between the vectors is the distance
-						double angle = mae::math::math::calc_angle_half(set_dir, real_dir);
+						double angle = mae::math::math::calc_angle_half_deg(set_dir, real_dir);
 
 						result->set_distance(bone_id, e_fl_direction_c::to_int(dir), angle);
 					}
 				}
 
 				//determine the direction
-				if (previous_pose != nullptr
+				if (previous_pose != nullptr && hysteresis_val_ > PM_ACCEPT_DIST
+						&& result->get_distance(bone_id, previous_pose->get_direction(bone_id)) >= 0
 						&& result->get_distance(bone_id, previous_pose->get_direction(bone_id)) < hysteresis_val_
 						&& result->get_distance(bone_id, e_fl_direction_c::to_int(e_fl_direction::P_M))
 								> ((2 * PM_ACCEPT_DIST) - hysteresis_val_))
 				{
+					//std::cout << bone_id << " : dist to prev direction (" << previous_pose->get_direction(bone_id) << "): " << result->get_distance(bone_id, previous_pose->get_direction(bone_id)) << std::endl;
+
 					//last value's distance is less than hysteresis threshold so keep direction
 					//the PLACE_MID direction is still favoured if hysteresis value is reached
 					result->set_direction(bone_id, previous_pose->get_direction(bone_id));
@@ -245,7 +248,7 @@ namespace mae
 
 		double fl_pose_detector::default_hysteresis_val()
 		{
-			return 27;
+			return 25;
 		}
 
 	} // namespace fl
