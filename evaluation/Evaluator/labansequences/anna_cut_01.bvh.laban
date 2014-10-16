@@ -78,9 +78,9 @@
 			</laban:movement>
 			<laban:movement>
 				<laban:column>-4</laban:column>
-				<laban:measure>3</laban:measure>
-				<laban:beat>0.00</laban:beat>
-				<laban:duration>0.50</laban:duration>
+				<laban:measure>2</laban:measure>
+				<laban:beat>4.17</laban:beat>
+				<laban:duration>1.33</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>middle</laban:vertical>
@@ -90,96 +90,19 @@
 			<laban:movement>
 				<laban:column>-4</laban:column>
 				<laban:measure>2</laban:measure>
-				<laban:beat>3.83</laban:beat>
-				<laban:duration>1.17</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>middle</laban:vertical>
-					<laban:horizontal>right-forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>-4</laban:column>
-				<laban:measure>2</laban:measure>
-				<laban:beat>3.33</laban:beat>
-				<laban:duration>0.50</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>right-forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>-4</laban:column>
-				<laban:measure>2</laban:measure>
-				<laban:beat>3.00</laban:beat>
-				<laban:duration>0.17</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>middle</laban:vertical>
-					<laban:horizontal>right-forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>-4</laban:column>
-				<laban:measure>2</laban:measure>
-				<laban:beat>2.67</laban:beat>
-				<laban:duration>0.33</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>right-forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>-4</laban:column>
-				<laban:measure>2</laban:measure>
-				<laban:beat>2.00</laban:beat>
-				<laban:duration>0.67</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>middle</laban:vertical>
-					<laban:horizontal>right-forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>-4</laban:column>
-				<laban:measure>2</laban:measure>
 				<laban:beat>1.83</laban:beat>
-				<laban:duration>0.17</laban:duration>
+				<laban:duration>2.00</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>low</laban:vertical>
 					<laban:horizontal>right-forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>-4</laban:column>
-				<laban:measure>2</laban:measure>
-				<laban:beat>0.83</laban:beat>
-				<laban:duration>1.00</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>-4</laban:column>
-				<laban:measure>2</laban:measure>
-				<laban:beat>0.67</laban:beat>
-				<laban:duration>0.17</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>place</laban:horizontal>
 				</laban:direction>
 			</laban:movement>
 			<laban:movement>
 				<laban:column>-4</laban:column>
 				<laban:measure>1</laban:measure>
 				<laban:beat>4.00</laban:beat>
-				<laban:duration>1.67</laban:duration>
+				<laban:duration>2.83</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>low</laban:vertical>
@@ -464,28 +387,6 @@
 			<laban:movement>
 				<laban:column>9</laban:column>
 				<laban:measure>10</laban:measure>
-				<laban:beat>2.67</laban:beat>
-				<laban:duration>2.33</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>10</laban:measure>
-				<laban:beat>2.50</laban:beat>
-				<laban:duration>0.17</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>place</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>10</laban:measure>
 				<laban:beat>2.17</laban:beat>
 				<laban:duration>0.33</laban:duration>
 				<laban:hold>false</laban:hold>
@@ -497,52 +398,8 @@
 			<laban:movement>
 				<laban:column>9</laban:column>
 				<laban:measure>10</laban:measure>
-				<laban:beat>1.67</laban:beat>
-				<laban:duration>0.50</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>place</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>10</laban:measure>
-				<laban:beat>1.50</laban:beat>
-				<laban:duration>0.17</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>10</laban:measure>
 				<laban:beat>1.33</laban:beat>
-				<laban:duration>0.17</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>place</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>10</laban:measure>
-				<laban:beat>0.83</laban:beat>
-				<laban:duration>0.50</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>10</laban:measure>
-				<laban:beat>0.33</laban:beat>
-				<laban:duration>0.50</laban:duration>
+				<laban:duration>0.83</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>low</laban:vertical>
@@ -573,185 +430,9 @@
 			</laban:movement>
 			<laban:movement>
 				<laban:column>9</laban:column>
-				<laban:measure>8</laban:measure>
-				<laban:beat>2.17</laban:beat>
-				<laban:duration>0.67</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>8</laban:measure>
-				<laban:beat>1.83</laban:beat>
-				<laban:duration>0.33</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>place</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>7</laban:measure>
-				<laban:beat>3.67</laban:beat>
-				<laban:duration>0.67</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>7</laban:measure>
-				<laban:beat>3.33</laban:beat>
-				<laban:duration>0.33</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>place</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>7</laban:measure>
-				<laban:beat>1.67</laban:beat>
-				<laban:duration>0.83</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>7</laban:measure>
-				<laban:beat>1.33</laban:beat>
-				<laban:duration>0.33</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>place</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>6</laban:measure>
-				<laban:beat>1.67</laban:beat>
-				<laban:duration>0.17</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>6</laban:measure>
-				<laban:beat>1.50</laban:beat>
-				<laban:duration>0.17</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>place</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>6</laban:measure>
-				<laban:beat>1.17</laban:beat>
-				<laban:duration>0.33</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>6</laban:measure>
-				<laban:beat>1.00</laban:beat>
-				<laban:duration>0.17</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>place</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>6</laban:measure>
-				<laban:beat>0.67</laban:beat>
-				<laban:duration>0.33</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>6</laban:measure>
-				<laban:beat>0.33</laban:beat>
-				<laban:duration>0.33</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>place</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>5</laban:measure>
-				<laban:beat>4.50</laban:beat>
-				<laban:duration>0.83</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>5</laban:measure>
-				<laban:beat>4.33</laban:beat>
-				<laban:duration>0.17</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>place</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
 				<laban:measure>5</laban:measure>
 				<laban:beat>2.67</laban:beat>
-				<laban:duration>1.67</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>5</laban:measure>
-				<laban:beat>2.00</laban:beat>
-				<laban:duration>0.67</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>place</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>5</laban:measure>
-				<laban:beat>1.67</laban:beat>
-				<laban:duration>0.33</laban:duration>
+				<laban:duration>2.67</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>low</laban:vertical>
@@ -762,7 +443,7 @@
 				<laban:column>9</laban:column>
 				<laban:measure>5</laban:measure>
 				<laban:beat>1.50</laban:beat>
-				<laban:duration>0.17</laban:duration>
+				<laban:duration>1.17</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>low</laban:vertical>
@@ -785,28 +466,6 @@
 				<laban:measure>5</laban:measure>
 				<laban:beat>1.17</laban:beat>
 				<laban:duration>0.17</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>place</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>5</laban:measure>
-				<laban:beat>0.67</laban:beat>
-				<laban:duration>0.50</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>5</laban:measure>
-				<laban:beat>0.33</laban:beat>
-				<laban:duration>0.33</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>low</laban:vertical>
@@ -817,7 +476,7 @@
 				<laban:column>9</laban:column>
 				<laban:measure>5</laban:measure>
 				<laban:beat>0.00</laban:beat>
-				<laban:duration>0.33</laban:duration>
+				<laban:duration>1.17</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>low</laban:vertical>
@@ -915,8 +574,8 @@
 			<laban:movement>
 				<laban:column>9</laban:column>
 				<laban:measure>2</laban:measure>
-				<laban:beat>2.00</laban:beat>
-				<laban:duration>2.67</laban:duration>
+				<laban:beat>2.33</laban:beat>
+				<laban:duration>2.33</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>middle</laban:vertical>
@@ -927,7 +586,7 @@
 				<laban:column>9</laban:column>
 				<laban:measure>2</laban:measure>
 				<laban:beat>1.50</laban:beat>
-				<laban:duration>0.50</laban:duration>
+				<laban:duration>0.83</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>high</laban:vertical>
@@ -936,35 +595,13 @@
 			</laban:movement>
 			<laban:movement>
 				<laban:column>9</laban:column>
-				<laban:measure>2</laban:measure>
-				<laban:beat>0.17</laban:beat>
-				<laban:duration>1.33</laban:duration>
+				<laban:measure>1</laban:measure>
+				<laban:beat>4.67</laban:beat>
+				<laban:duration>1.83</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>middle</laban:vertical>
 					<laban:horizontal>left-forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>1</laban:measure>
-				<laban:beat>4.67</laban:beat>
-				<laban:duration>0.50</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>left-forward</laban:horizontal>
-				</laban:direction>
-			</laban:movement>
-			<laban:movement>
-				<laban:column>9</laban:column>
-				<laban:measure>1</laban:measure>
-				<laban:beat>2.33</laban:beat>
-				<laban:duration>2.33</laban:duration>
-				<laban:hold>false</laban:hold>
-				<laban:direction>
-					<laban:vertical>low</laban:vertical>
-					<laban:horizontal>forward</laban:horizontal>
 				</laban:direction>
 			</laban:movement>
 			<laban:movement>
