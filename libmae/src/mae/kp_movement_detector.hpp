@@ -110,6 +110,27 @@ namespace mae
 			 */
 			virtual void notify_listeners(long timestamp, std::shared_ptr<general_pose> pose);
 
+			/**
+			 * Returns the pose detector.
+			 *
+			 * @return The detector.
+			 */
+			virtual std::shared_ptr<i_pose_detector<T> > get_pose_detector() const;
+
+			/**
+			 * Returns the sequence generator.
+			 *
+			 * @return The generator.
+			 */
+			virtual std::shared_ptr<i_sequence_generator<U> > get_sequence_generator() const;
+
+			/**
+			 * Returns the key pose detector.
+			 *
+			 * @return The detector.
+			 */
+			virtual std::shared_ptr<i_kp_detector> get_kp_detector() const;
+
 		private:
 			bool debug_;
 			std::shared_ptr<i_pose_detector<T> > ipd_;
@@ -253,6 +274,24 @@ namespace mae
 		{
 			(*it)->on_pose(timestamp, pose);
 		}
+	}
+
+	template<typename T, typename U>
+	std::shared_ptr<i_pose_detector<T> > kp_movement_detector<T, U>::get_pose_detector() const
+	{
+		return ipd_;
+	}
+
+	template<typename T, typename U>
+	std::shared_ptr<i_sequence_generator<U> > kp_movement_detector<T, U>::get_sequence_generator() const
+	{
+		return isg_;
+	}
+
+	template<typename T, typename U>
+	std::shared_ptr<i_kp_detector> kp_movement_detector<T, U>::get_kp_detector() const
+	{
+		return ikpd_;
 	}
 
 } // namespace mae
