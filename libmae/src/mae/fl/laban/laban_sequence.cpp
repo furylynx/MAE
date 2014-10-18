@@ -131,6 +131,11 @@ namespace mae
 
 			void laban_sequence::add_column_definition(std::shared_ptr<column_definition> col_def)
 			{
+				if (col_def == nullptr)
+				{
+					throw std::invalid_argument("Column definition must not be null!");
+				}
+
 				column_definitions_vec_.push_back(col_def);
 
 				if (column_definitions_map_.find(col_def->get_column_index()) != column_definitions_map_.end())
@@ -187,11 +192,16 @@ namespace mae
 				//insert all defined columns too regarding the order of the vector
 				for (unsigned int i = 0; i < column_definitions_vec_.size(); i++)
 				{
+					//TODO remove
+					std::cout << i+1 << "/" << column_definitions_vec_.size() << std::endl;
+					std::cout << " >> col index " << column_definitions_vec_.at(i)->get_column_index() << std::endl;
+
 					for (std::vector<int>::iterator it = result.begin(); it != result.end(); it++)
 					{
 						if (*it > column_definitions_vec_.at(i)->get_column_index())
 						{
 							result.insert(it, column_definitions_vec_.at(i)->get_column_index());
+							break;
 						}
 					}
 				}
