@@ -81,12 +81,39 @@ namespace mae {
 				 */
 				virtual void set_recognition_tolerance(double tolerance);
 
+				/**
+				 * Returns the laban sequence recognizer.
+				 *
+				 * @return The recognizer.
+				 */
+				virtual std::shared_ptr<mae::fl::laban::laban_sequence_recognizer> get_laban_sequence_recognizer() const;
+
+				/**
+				 * Returns the laban sequence generator.
+				 *
+				 * @return The generator.
+				 */
+				virtual std::shared_ptr<mae::fl::laban::laban_sequence_generator> get_laban_sequence_generator() const;
+
+				/**
+				 * Returns the fl pose detector.
+				 *
+				 * @return The detector.
+				 */
+				virtual std::shared_ptr<fl_pose_detector> get_fl_pose_detector() const;
+
 			private:
 				std::shared_ptr<fl_skeleton_controller> skel_ctrl_;
 
-				std::shared_ptr<laban::laban_sequence_recognizer> isr_;
+				std::shared_ptr<mae::fl::laban::laban_sequence_recognizer> lsr_;
+				std::shared_ptr<mae::fl::laban::laban_sequence_generator> lsg_;
+				std::shared_ptr<fl_pose_detector> flpd_;
+
 
 				bool debug_;
+
+
+				virtual void initialize();
 
 		};
 
