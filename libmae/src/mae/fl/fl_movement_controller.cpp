@@ -20,14 +20,10 @@ namespace mae
 						std::shared_ptr<laban::laban_sequence_recognizer>(new laban::laban_sequence_recognizer(debug)),
 						bone::default_bones(), pose_buffer_size, framerate, debug)
 		{
-			if (debug)
-			{
-				std::cout << "fl movement controller created." << std::endl;
-			}
-
-			skel_ctrl_ = std::shared_ptr<fl_skeleton_controller>(new fl_skeleton_controller(debug));
 			debug_ = debug;
-			isr_ = std::dynamic_pointer_cast<mae::fl::laban::laban_sequence_recognizer>(get_sequence_recognizer());
+
+			initialize();
+
 		}
 
 		fl_movement_controller::fl_movement_controller(std::vector<bone> body_parts,
@@ -45,18 +41,29 @@ namespace mae
 										beat_duration, time_unit, debug)), body_parts, pose_buffer_size, framerate,
 						debug)
 		{
-			if (debug)
-			{
-				std::cout << "fl movement controller created." << std::endl;
-			}
-
-			skel_ctrl_ = std::shared_ptr<fl_skeleton_controller>(new fl_skeleton_controller(debug));
 			debug_ = debug;
-			isr_ = std::dynamic_pointer_cast<mae::fl::laban::laban_sequence_recognizer>(get_sequence_recognizer());
+
+			initialize();
+
 		}
 
 		fl_movement_controller::~fl_movement_controller()
 		{
+		}
+
+		void fl_movement_controller::initialize()
+		{
+			if (debug_)
+			{
+				std::cout << "fl movement controller created." << std::endl;
+			}
+
+			skel_ctrl_ = std::shared_ptr<fl_skeleton_controller>(new fl_skeleton_controller(debug_));
+
+			lsr_ = std::dynamic_pointer_cast<mae::fl::laban::laban_sequence_recognizer>(get_sequence_recognizer());
+			std::shared_ptr<mae::kp_movement_detector<fl_skeleton, laban::laban_sequence> > kp_det = std::dynamic_pointer_cast<mae::kp_movement_detector<fl_skeleton, laban::laban_sequence> >(get_movement_detector());
+			lsg_ = std::dynamic_pointer_cast<laban::laban_sequence_generator>(kp_det->get_sequence_generator());
+			flpd_ = std::dynamic_pointer_cast<fl_pose_detector>(kp_det->get_pose_detector());
 		}
 
 		void fl_movement_controller::next_frame(long timestamp, std::shared_ptr<general_skeleton> skeleton)
@@ -74,10 +81,25 @@ namespace mae
 
 		void fl_movement_controller::set_recognition_tolerance(double tolerance)
 		{
-			if (isr_ != nullptr)
+			if (lsr_ != nullptr)
 			{
-				isr_->set_recognition_tolerance(tolerance);
+				lsr_->set_recognition_tolerance(tolerance);
 			}
+		}
+
+		std::shared_ptr<laban::laban_sequence_recognizer> fl_movement_controller::get_laban_sequence_recognizer() const
+		{
+			return lsr_;
+		}
+
+		std::shared_ptr<mae::fl::laban::laban_sequence_generator> fl_movement_controller::get_laban_sequence_generator() const
+		{
+			return lsg_;
+		}
+
+		std::shared_ptr<fl_pose_detector> fl_movement_controller::get_fl_pose_detector() const
+		{
+			return flpd_;
 		}
 
 	} // namespace fl

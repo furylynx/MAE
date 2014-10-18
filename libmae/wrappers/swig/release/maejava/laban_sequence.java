@@ -189,6 +189,10 @@ public class laban_sequence {
     return w_e_boneJNI.laban_sequence_xml_namespace_uri(swigCPtr, this);
   }
 
+  public void xml_file(String path) {
+    w_e_boneJNI.laban_sequence_xml_file(swigCPtr, this, path);
+  }
+
   public String str() {
     return w_e_boneJNI.laban_sequence_str(swigCPtr, this);
   }

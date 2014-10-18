@@ -5,9 +5,12 @@
 %include "../movement_controller.i"
 %include "../general_skeleton.i"
 %include "fl_skeleton.i"
+%include "fl_pose_detector.i"
 
 %include "laban/column_definition.i"
 %include "laban/laban_sequence.i"
+%include "laban/laban_sequence_recognizer.i"
+%include "laban/laban_sequence_generator.i"
 
  
 //global includes
@@ -24,6 +27,9 @@
 
 //shared_ptr
 %shared_ptr(mae::general_skeleton);
+%shared_ptr(mae::fl::fl_pose_detector);
+%shared_ptr(mae::fl::laban::laban_sequence_generator);
+%shared_ptr(mae::fl::laban::laban_sequence_recognizer);
 
 //templates
 %template (bone_vector) std::vector<mae::bone>;

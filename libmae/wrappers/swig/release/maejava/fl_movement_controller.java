@@ -87,4 +87,19 @@ public class fl_movement_controller extends fl_skel_laban_movement_controller {
     w_e_boneJNI.fl_movement_controller_set_recognition_tolerance(swigCPtr, this, tolerance);
   }
 
+  public laban_sequence_recognizer get_laban_sequence_recognizer() {
+    long cPtr = w_e_boneJNI.fl_movement_controller_get_laban_sequence_recognizer(swigCPtr, this);
+    return (cPtr == 0) ? null : new laban_sequence_recognizer(cPtr, true);
+  }
+
+  public laban_sequence_generator get_laban_sequence_generator() {
+    long cPtr = w_e_boneJNI.fl_movement_controller_get_laban_sequence_generator(swigCPtr, this);
+    return (cPtr == 0) ? null : new laban_sequence_generator(cPtr, true);
+  }
+
+  public fl_pose_detector get_fl_pose_detector() {
+    long cPtr = w_e_boneJNI.fl_movement_controller_get_fl_pose_detector(swigCPtr, this);
+    return (cPtr == 0) ? null : new fl_pose_detector(cPtr, true);
+  }
+
 }

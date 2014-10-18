@@ -15,8 +15,6 @@
 #include "../i_pose_detector.hpp"
 #include "../bone.hpp"
 
-#include "laban/laban_sequence.hpp"
-
 #include "fl_skeleton.hpp"
 #include "e_fl_direction.hpp"
 
