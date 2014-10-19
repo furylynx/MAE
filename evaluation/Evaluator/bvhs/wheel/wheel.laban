@@ -7,10 +7,10 @@
    <laban:staff>
       <laban:measures>2</laban:measures>
       <laban:timing>
-         <laban:timeUnit>second</laban:timeUnit>
+         <laban:timeUnit>millisecond</laban:timeUnit>
          <laban:measure>
             <laban:index>0</laban:index>
-            <laban:beatDuration>100</laban:beatDuration>
+            <laban:beatDuration>200</laban:beatDuration>
             <laban:beats>5</laban:beats>
          </laban:measure>
       </laban:timing>
@@ -78,7 +78,7 @@
             <laban:hold>false</laban:hold>
             <laban:direction>
                <laban:vertical>high</laban:vertical>
-               <laban:horizontal>backward</laban:horizontal>
+               <laban:horizontal>right-backward</laban:horizontal>
             </laban:direction>
          </laban:movement>
          <laban:movement>
@@ -89,7 +89,7 @@
             <laban:hold>false</laban:hold>
             <laban:direction>
                <laban:vertical>middle</laban:vertical>
-               <laban:horizontal>backward</laban:horizontal>
+               <laban:horizontal>right-backward</laban:horizontal>
             </laban:direction>
          </laban:movement>
          <laban:movement>
@@ -100,18 +100,7 @@
             <laban:hold>false</laban:hold>
             <laban:direction>
                <laban:vertical>low</laban:vertical>
-               <laban:horizontal>backward</laban:horizontal>
-            </laban:direction>
-         </laban:movement>
-         <laban:movement>
-            <laban:column>4</laban:column>
-            <laban:measure>2</laban:measure>
-            <laban:beat>2.03</laban:beat>
-            <laban:duration>1.0</laban:duration>
-            <laban:hold>false</laban:hold>
-            <laban:direction>
-               <laban:vertical>low</laban:vertical>
-               <laban:horizontal>place</laban:horizontal>
+               <laban:horizontal>right-backward</laban:horizontal>
             </laban:direction>
          </laban:movement>
       </laban:movements>
