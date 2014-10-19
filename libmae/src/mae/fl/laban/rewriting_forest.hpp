@@ -56,8 +56,9 @@ namespace mae
 					 * @param beats_per_measure The beats per measure as used by the laban sequence generator.
 					 * @param beat_duration The beat duration as used by the laban sequence generator.
 					 * @param time_unit The time unit as used by the laban sequence generator.
+					 * @param tolerance The tolerance applied for finding continuous movements.
 					 */
-					rewriting_forest(std::vector<std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > > rules, unsigned int beats_per_measure = laban_sequence::default_beats_per_measure(), unsigned int beat_duration = laban_sequence::default_beat_duration(), e_time_unit time_unit = laban_sequence::default_time_unit());
+					rewriting_forest(std::vector<std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > > rules, unsigned int beats_per_measure = laban_sequence::default_beats_per_measure(), unsigned int beat_duration = laban_sequence::default_beat_duration(), e_time_unit time_unit = laban_sequence::default_time_unit(), double tolerance = 0.5);
 
 					virtual ~rewriting_forest();
 
