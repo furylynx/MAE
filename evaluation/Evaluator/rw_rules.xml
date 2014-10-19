@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rw:rewritingrules xmlns:rw="http://www.example.org/labanotationrewriting" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/labanotationrewriting rewrinting_rule.xsd">
+	<rw:version>0.5</rw:version>
+	<rw:title>Evaluation Rules</rw:title>
+	<rw:author>fury lynx</rw:author>
+	<rw:rules>
+		<!-- Turn on top is either direct or via high-right direction -->
+		<rw:rule>
+			<rw:sequence>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right-backward</rw:horizontal>
+				</rw:element>
+			</rw:sequence>
+			<rw:replacement>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right-backward</rw:horizontal>
+				</rw:element>
+			</rw:replacement>
+		</rw:rule>
+	</rw:rules>
+</rw:rewritingrules>

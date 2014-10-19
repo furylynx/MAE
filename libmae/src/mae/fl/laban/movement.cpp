@@ -25,10 +25,10 @@ namespace mae
 				hold_ = hold;
 				symbol_ = symbol;
 
-				if (column == 0)
-				{
-					throw std::invalid_argument("Column must not be zero.");
-				}
+//				if (column == 0)
+//				{
+//					throw std::invalid_argument("Column must not be zero.");
+//				}
 
 				if (beat < 0 || duration < 0)
 				{

@@ -126,7 +126,6 @@ namespace mae
 				std::vector<std::shared_ptr<i_movement> > result;
 
 				xmlpp::NodeSet seq_node_set = node->find(mxml::get_xpath("element", nsp), *namespace_map);
-				std::vector<std::shared_ptr<i_movement> > sequence;
 
 				for (unsigned int i = 0; i < seq_node_set.size(); i++)
 				{
@@ -134,7 +133,7 @@ namespace mae
 
 					if (element != nullptr)
 					{
-						sequence.push_back(element);
+						result.push_back(element);
 					}
 				}
 

@@ -44,6 +44,7 @@ namespace mae
 
 			bool rewriting_decision_maker::check_type(std::shared_ptr<i_movement> a, std::shared_ptr<i_movement> b)
 			{
+
 				//check type equal
 				std::shared_ptr<movement> a_mov;
 				std::shared_ptr<movement> b_mov;

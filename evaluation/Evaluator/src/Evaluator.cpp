@@ -30,19 +30,26 @@ int main()
 	std::cout << "===============" << std::endl << std::endl;
 
 	std::vector<std::string> directories
-	{ //"bvhs/cut/", "bvhs/dontcare/" , "bvhs/indi/" , "bvhs/raise/" , "bvhs/sequential/" , "bvhs/wheel/"
-		"bvhs/cut_single/"
-	};
+	{ //"bvhs/cut/", "bvhs/dontcare/" , "bvhs/indi/" , "bvhs/raise/" , "bvhs/sequential/" ,
+		"bvhs/wheel/"
+	//"bvhs/cut_single/"
+		};
 
 	std::vector<double> tolerances
 	{ 0.5
-		//, 1.0, 1.5, 2.0, 2.5
-		//, 3.0
-		//, 3.5
-		//, 4.0
-		//, 4.5
-		//, 5.0
+	, 1.0, 1.5, 2.0, 2.5
+	, 3.0
+	//, 3.5
+	, 4.0
+	//, 4.5
+	, 5.0
 	};
+
+	bool performance_check = false;
+	unsigned int buffer_size = 350;
+	double hysteresis_value = 27;
+
+	std::string rw_rules_file = "rw_rules.xml";
 
 	std::vector<std::vector<int> > directory_recognized;
 	std::vector<std::vector<int> > directory_total;
@@ -80,14 +87,24 @@ int main()
 			mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(mae::e_bone::RIGHT_FOREARM)) };
 
 	//set up the movement controller
-	int buffer_size = 4800;
 	mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,
 			column_definitions, buffer_size, mae::fl::laban::laban_sequence::default_beats_per_measure(),
 			mae::fl::laban::laban_sequence::default_beat_duration(),
 			mae::fl::laban::laban_sequence::default_time_unit(), 1.0 / 30.0, false);
+	movement_controller.get_fl_pose_detector()->set_hysteresis_val(hysteresis_value);
+
+	//add rewriting rules
+	mae::fl::laban::rewriting_rules_reader rw_reader = mae::fl::laban::rewriting_rules_reader();
+	std::vector<std::shared_ptr<mae::fl::laban::decision_value<mae::fl::laban::i_movement, std::vector<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > > > > rw_rules = rw_reader.read_rules_file(rw_rules_file);
+
+	for (unsigned int i = 0; i < rw_rules.size(); i++)
+	{
+		movement_controller.get_laban_sequence_recognizer()->get_decision_forest()->add_rewriting_rule(rw_rules.at(i));
+	}
 
 	//add listener to the controller
-	std::shared_ptr<eval::eval_listener> eval_listener = std::shared_ptr<eval::eval_listener>(new eval::eval_listener());
+	std::shared_ptr<eval::eval_listener> eval_listener = std::shared_ptr<eval::eval_listener>(
+			new eval::eval_listener());
 	movement_controller.add_listener(eval_listener);
 
 	mae::fl::laban::laban_sequence_reader s_reader = mae::fl::laban::laban_sequence_reader();
@@ -137,11 +154,11 @@ int main()
 							}
 							else
 							{
-								std::cout << "!! Could not parse file '" << file_name << "'" << std::endl;
+								std::cout << "!! Could not parse file '" << file_name << "' for it is null." << std::endl;
 							}
 						} catch (std::exception& e)
 						{
-							std::cout << "!! Could not parse file '" << file_name << "'" << std::endl;
+							std::cout << "!! Could not parse file '" << file_name << "' (" << e.what() << ")" << std::endl;
 						} catch (...)
 						{
 							std::cout << "!! Could not parse file '" << file_name << "'" << std::endl;
@@ -149,6 +166,13 @@ int main()
 					}
 				}
 			}
+
+			//TODO remove
+			std::cout << movement_controller.get_laban_sequence_recognizer()->get_decision_forest()->str() << std::endl;
+
+			//TODO remove
+			return 1;
+
 
 			//handle each bvh - determine recognition rate
 			for (boost::filesystem::directory_iterator file_it = boost::filesystem::directory_iterator(pp);
@@ -181,28 +205,37 @@ int main()
 								boost::posix_time::ptime time1 = boost::posix_time::microsec_clock::universal_time();
 								movement_controller.next_frame(0, skeleton_data.at(i));
 								boost::posix_time::ptime time2 = boost::posix_time::microsec_clock::universal_time();
-								std::cout << "frame " << i << " / " << skeleton_data.size() << " # " << time1 << " -> ";
-								std::cout << time2 << " ::  " << (time2 - time1).total_milliseconds() <<  std::endl;
-								if (i >= buffer_size)
-								{
-									mean_dur += (time2 - time1).total_milliseconds();
-								}
 
-								if ((time2 - time1).total_milliseconds() > max_dur)
+								if (performance_check)
 								{
-									max_dur = (time2 - time1).total_milliseconds();
+									std::cout << "frame " << i << " / " << skeleton_data.size() << " # " << time1
+											<< " -> ";
+									std::cout << time2 << " ::  " << (time2 - time1).total_milliseconds() << std::endl;
+									if (i >= buffer_size)
+									{
+										mean_dur += (time2 - time1).total_milliseconds();
+									}
+
+									if ((time2 - time1).total_milliseconds() > max_dur)
+									{
+										max_dur = (time2 - time1).total_milliseconds();
+									}
 								}
 							}
 
-							std::cout << "max dur : " << max_dur << " | mean dur : " << std::setprecision(2) << (mean_dur/(skeleton_data.size()-buffer_size)) << std::endl;
+							if (performance_check)
+							{
+								std::cout << "max dur : " << max_dur << " | mean dur : " << std::setprecision(2)
+									<< (mean_dur / (skeleton_data.size() - buffer_size)) << std::endl;
+							}
 
 							if (tolerance_id == 0 && movement_controller.get_current_sequence() != nullptr)
 							{
 								std::stringstream exp_path;
-								exp_path << "labansequences/" << file_name << ".laban";
+								exp_path << "check/" << file_name << ".laban";
 
 								std::stringstream png_exp_path;
-								png_exp_path << "labansequences/" << file_name << ".bmp";
+								png_exp_path << "check/" << file_name << ".bmp";
 
 								//print sequence
 								movement_controller.get_current_sequence()->xml_file(exp_path.str());
@@ -222,7 +255,7 @@ int main()
 								directory_recognized.at(directory_id)[tolerance_id]++;
 
 								std::cout << " ++ " << file_path << " : was recognized with tolerance "
-																		<< tolerances.at(tolerance_id) << " °° " << std::endl;
+										<< tolerances.at(tolerance_id) << " °° " << std::endl;
 							}
 							else
 							{
@@ -250,21 +283,19 @@ int main()
 		for (unsigned int j = 0; j < tolerances.size(); j++)
 		{
 			std::cout << "dir " << directories.at(i) << " - tolerance " << tolerances.at(j) << " => "
-					<< (double) directory_recognized.at(i).at(j) / directory_total.at(i).at(j) << std::endl;
+					<< (double) directory_recognized.at(i).at(j) / directory_total.at(i).at(j) << " = " << directory_recognized.at(i).at(j) << "/" << directory_total.at(i).at(j) << std::endl;
 		}
 	}
 
 	std::cout << std::endl << std::endl << "::Overall rate::" << std::endl;
 	for (unsigned int j = 0; j < tolerances.size(); j++)
 	{
-		std::cout << "tolerance " << tolerances.at(j) << " => " << (double) recognized.at(j) / total.at(j) << std::endl;
+		std::cout << "tolerance " << tolerances.at(j) << " => " << (double) recognized.at(j) / total.at(j) << " = " << recognized.at(j) << "/" << total.at(j) << std::endl;
 	}
-
 
 	//LATEX table
 	std::cout << std::endl << std::endl << std::endl;
 	std::cout << "::: LaTeX table :::" << std::endl << std::endl;
-
 
 	std::cout << "\\begin{table}[H]%" << std::endl;
 	std::cout << "\\setlength\\extrarowheight{5pt}" << std::endl;
@@ -275,11 +306,12 @@ int main()
 	}
 	std::cout << "}" << std::endl;
 	std::cout << "\\hline" << std::endl;
-	std::cout << "Tolerance in beats & ";
-	for (unsigned int j = 0; j<tolerances.size(); j++)
+	std::cout << "Movement & \\multicolumn{" << tolerances.size() << "}{c}{Tolerance in Beats}\\\\";
+	std::cout << " & ";
+	for (unsigned int j = 0; j < tolerances.size(); j++)
 	{
 		std::cout << tolerances.at(j);
-		if (j != tolerances.size()-1)
+		if (j != tolerances.size() - 1)
 		{
 			std::cout << " & ";
 		}
@@ -297,10 +329,11 @@ int main()
 			std::cout << directories.at(i) << " & ";
 		}
 
-		for (unsigned int j = 0; j<tolerances.size(); j++)
+		for (unsigned int j = 0; j < tolerances.size(); j++)
 		{
-			std::cout << std::setprecision(2) << (double)directory_recognized.at(i).at(j)/directory_total.at(i).at(j);
-			if (j != tolerances.size()-1)
+			std::cout << std::setprecision(2)
+					<< (double) directory_recognized.at(i).at(j) / directory_total.at(i).at(j);
+			if (j != tolerances.size() - 1)
 			{
 				std::cout << " & ";
 			}
@@ -314,9 +347,9 @@ int main()
 
 	for (unsigned int j = 0; j < tolerances.size(); j++)
 	{
-		std::cout << std::setprecision(2) << (double)recognized.at(j)/total.at(j);
+		std::cout << std::setprecision(2) << (double) recognized.at(j) / total.at(j);
 
-		if (j != tolerances.size()-1)
+		if (j != tolerances.size() - 1)
 		{
 			std::cout << " & ";
 		}
@@ -328,7 +361,6 @@ int main()
 	std::cout << "\\caption[The recognition rates of the engine.]{The recognition rates of the engine.}" << std::endl;
 	std::cout << "\\label{tab:recognition-rates}" << std::endl;
 	std::cout << "\\end{table}" << std::endl;
-
 
 	return 0;
 }

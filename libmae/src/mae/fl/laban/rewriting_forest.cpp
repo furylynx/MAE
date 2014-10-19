@@ -26,11 +26,12 @@ namespace mae
 				decision_maker_ = std::shared_ptr<i_decision_maker<i_movement> >(new rewriting_decision_maker());
 			}
 
-			rewriting_forest::rewriting_forest(std::vector<std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > > rules, unsigned int beats_per_measure, unsigned int beat_duration, e_time_unit time_unit)
+			rewriting_forest::rewriting_forest(std::vector<std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > > rules, unsigned int beats_per_measure, unsigned int beat_duration, e_time_unit time_unit, double tolerance)
 			{
 				beats_per_measure_ = beats_per_measure;
 				beat_duration_ = beat_duration;
 				time_unit_ = time_unit;
+				tolerance_ = tolerance;
 
 				// decision maker
 				decision_maker_ = std::shared_ptr<i_decision_maker<i_movement> >(new rewriting_decision_maker());
@@ -94,12 +95,13 @@ namespace mae
 								}
 								else
 								{
+									//no further continuous movement found, therefore break
 									break;
 								}
 							}
 						}
 
-						if (index <= end_index_cont)
+						if (index >= end_index_cont)
 						{
 							//no continous sequence, therefore increment index
 							continue;
@@ -116,7 +118,7 @@ namespace mae
 										std::shared_ptr<
 												decision_value<i_movement,
 														std::vector<std::vector<std::shared_ptr<i_movement> > > > > > replacement_values =
-										trees_.at(k)->find_submatches(sequence, index, end_index_cont);
+										trees_.at(k)->find_submatches(result.at(i), index, end_index_cont, false);
 
 								for (unsigned int l = 0; l < replacement_values.size(); l++)
 								{
@@ -125,9 +127,11 @@ namespace mae
 										result.push_back(
 												construct_replaced(result.at(i),
 														replacement_values.at(l)->get_value()->at(m), index,
-														replacement_values.at(l)->get_sequence().size()));
+														index + replacement_values.at(l)->get_sequence().size() - 1));
 
-										indices.push_back(index + replacement_values.at(l)->get_value()->at(m).size());
+										indices.push_back(index + replacement_values.at(l)->get_value()->at(m).size() + 1);
+
+										return result;
 									}
 								}
 
@@ -145,6 +149,7 @@ namespace mae
 					std::vector<std::shared_ptr<i_movement> > sequence,
 					std::vector<std::shared_ptr<i_movement> > replacement, unsigned int start_pos, unsigned int end_pos)
 			{
+
 				if (start_pos >= sequence.size() || end_pos >= sequence.size())
 				{
 					throw std::invalid_argument("start and end pos must be within the sequence.");
@@ -166,7 +171,7 @@ namespace mae
 				//make continuous movement
 				double beats_replaced = (sequence.at(end_pos)->get_measure() - sequence.at(start_pos)->get_measure())
 						* beats_per_measure_
-						+ (sequence.at(end_pos)->get_measure() - sequence.at(start_pos)->get_measure())
+						+ (sequence.at(end_pos)->get_beat() - sequence.at(start_pos)->get_beat())
 						+ sequence.at(end_pos)->get_duration();
 				double start_beat = sequence.at(start_pos)->get_measure() * beats_per_measure_
 						+ sequence.at(start_pos)->get_beat();
@@ -182,22 +187,14 @@ namespace mae
 					//continous movement
 					unsigned int measure = (int) (((beats_replaced / replacement.size()) * i + start_beat)
 							/ beats_per_measure_);
-					double beat = ((beats_replaced / replacement.size()) * i + start_beat) / beats_per_measure_
-							- measure;
+					double beat = ((beats_replaced / replacement.size()) * i + start_beat)
+							- (measure*beats_per_measure_);
 					double duration = beats_replaced / replacement.size();
 
-					if (std::shared_ptr<movement> rep_mov = std::dynamic_pointer_cast<movement>(rep))
-					{
+					std::map<int, int> col_map;
+					col_map.insert(std::make_pair(rep->get_column(), column));
 
-						std::shared_ptr<mv::i_symbol> symbol = rep_mov->get_symbol();
-						bool hold = rep_mov->get_hold();
-						i_mov = std::shared_ptr<i_movement>(
-								new movement(column, measure, beat, duration, symbol, hold));
-					}
-					else
-					{
-						//TODO handle other cases
-					}
+					i_mov = rep->recreate(col_map, measure, beat, duration);
 
 					result.push_back(i_mov);
 				}
