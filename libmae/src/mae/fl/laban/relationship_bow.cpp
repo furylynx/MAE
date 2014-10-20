@@ -14,7 +14,9 @@ namespace mae
 		namespace laban
 		{
 
-			relationship_bow::relationship_bow(e_relationship_type type, bool grasping, bool passing, bool hold, unsigned int measure, double beat, std::shared_ptr<mv::relationship_endpoint> left_endpoint, std::shared_ptr<mv::relationship_endpoint> right_endpoint)
+			relationship_bow::relationship_bow(e_relationship_type type, bool grasping, bool passing, bool hold,
+					unsigned int measure, double beat, std::shared_ptr<mv::relationship_endpoint> left_endpoint,
+					std::shared_ptr<mv::relationship_endpoint> right_endpoint)
 			{
 				type_ = type;
 				grasping_ = grasping;
@@ -76,7 +78,6 @@ namespace mae
 				return right_endpoint_;
 			}
 
-
 			int relationship_bow::get_column() const
 			{
 				return 0;
@@ -97,8 +98,27 @@ namespace mae
 				return 0;
 			}
 
+			bool relationship_bow::equals(std::shared_ptr<i_movement> a) const
+			{
+				return (measure_ == a->get_measure() && beat_ == a->get_beat() && symbol_equals(a));
+			}
 
-			std::string relationship_bow::xml(unsigned int indent, std::string namesp)
+			bool relationship_bow::symbol_equals(std::shared_ptr<i_movement> a) const
+			{
+				if (std::shared_ptr<relationship_bow> a_rb = std::dynamic_pointer_cast<relationship_bow>(a))
+				{
+					return (a_rb->get_type() == type_ && a_rb->get_grasping() == grasping_
+							&& a_rb->get_passing() == passing_ && a_rb->get_hold() == hold_
+							&& a_rb->get_left_endpoint()->equals(left_endpoint_)
+							&& a_rb->get_right_endpoint()->equals(right_endpoint_));
+				}
+				else
+				{
+					return false;
+				}
+			}
+
+			std::string relationship_bow::xml(unsigned int indent, std::string namesp) const
 			{
 				std::stringstream indent_stream;
 
@@ -108,56 +128,73 @@ namespace mae
 				}
 
 				std::string ns = namesp;
-				if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+				if (ns.size() > 0 && ns.at(ns.size() - 1) != ':')
 				{
 					ns.push_back(':');
 				}
 
 				std::stringstream sstr;
 
-				sstr << std::boolalpha ;
+				sstr << std::boolalpha;
 
 				//print relationship bow
 				sstr << indent_stream.str() << "<" << ns << "relationship>" << std::endl;
 
-				sstr << indent_stream.str() << "\t" << "<" << ns << "type>" << e_relationship_type_c::str(type_) << "</" << ns << "type>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "type>" << e_relationship_type_c::str(type_) << "</"
+						<< ns << "type>" << std::endl;
 
-				sstr << indent_stream.str() << "\t" << "<" << ns << "grasping>" << grasping_ << "</" << ns << "grasping>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "grasping>" << grasping_ << "</" << ns
+						<< "grasping>" << std::endl;
 
-				sstr << indent_stream.str() << "\t" << "<" << ns << "passing>" << passing_ << "</" << ns << "passing>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "passing>" << passing_ << "</" << ns << "passing>"
+						<< std::endl;
 
-				sstr << indent_stream.str() << "\t" << "<" << ns << "hold>" << hold_ << "</" << ns << "hold>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "hold>" << hold_ << "</" << ns << "hold>"
+						<< std::endl;
 
-				sstr << indent_stream.str() << "\t" << "<" << ns << "measure>" << measure_ << "</" << ns << "measure>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "measure>" << measure_ << "</" << ns << "measure>"
+						<< std::endl;
 
-				sstr << indent_stream.str() << "\t" << "<" << ns << "beat>" << beat_ << "</" << ns << "beat>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "beat>" << beat_ << "</" << ns << "beat>"
+						<< std::endl;
 
 				//print endpoints
 				sstr << indent_stream.str() << "\t" << "<" << ns << "endPoints>" << std::endl;
 
-
 				//left endpoint
 				sstr << indent_stream.str() << "\t\t" << "<" << ns << "left>" << std::endl;
-				sstr << left_endpoint_->xml(indent+3, namesp);
-				sstr << indent_stream.str() << "\t\t"  << "</" << ns << "left>" << std::endl;
+				sstr << left_endpoint_->xml(indent + 3, namesp);
+				sstr << indent_stream.str() << "\t\t" << "</" << ns << "left>" << std::endl;
 
 				//right endpoint
 				sstr << indent_stream.str() << "\t\t" << "<" << ns << "right>" << std::endl;
-				sstr << right_endpoint_->xml(indent+3, namesp);
-				sstr << indent_stream.str() << "\t\t"  << "</" << ns << "right>" << std::endl;
+				sstr << right_endpoint_->xml(indent + 3, namesp);
+				sstr << indent_stream.str() << "\t\t" << "</" << ns << "right>" << std::endl;
 
-				sstr << indent_stream.str() << "\t"  << "</" << ns << "endPoints>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "</" << ns << "endPoints>" << std::endl;
 
 				sstr << indent_stream.str() << "</" << ns << "relationship>" << std::endl;
 
 				return sstr.str();
 			}
 
-			std::shared_ptr<i_movement> relationship_bow::recreate(std::map<int, int> column_mapping, unsigned int measure, double beat, double duration) const
+			std::string relationship_bow::svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const
+			{
+				std::stringstream sstr;
+
+				//TODO
+
+				return sstr.str();
+			}
+
+			std::shared_ptr<i_movement> relationship_bow::recreate(std::map<int, int> column_mapping,
+					unsigned int measure, double beat, double duration) const
 			{
 				std::shared_ptr<i_movement> result;
 
-				result = std::shared_ptr<i_movement>(new relationship_bow(type_, grasping_, passing_, hold_, measure, beat, left_endpoint_->recreate(column_mapping), right_endpoint_->recreate(column_mapping)));
+				result = std::shared_ptr<i_movement>(
+						new relationship_bow(type_, grasping_, passing_, hold_, measure, beat,
+								left_endpoint_->recreate(column_mapping), right_endpoint_->recreate(column_mapping)));
 
 				return result;
 			}

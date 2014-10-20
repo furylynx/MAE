@@ -193,6 +193,22 @@ public class laban_sequence {
     w_e_boneJNI.laban_sequence_xml_file(swigCPtr, this, path);
   }
 
+  public String svg(long im_width, long im_height) {
+    return w_e_boneJNI.laban_sequence_svg(swigCPtr, this, im_width, im_height);
+  }
+
+  public void svg_file(String path, long im_width, long im_height) {
+    w_e_boneJNI.laban_sequence_svg_file__SWIG_0(swigCPtr, this, path, im_width, im_height);
+  }
+
+  public void svg_file(String path, long im_width) {
+    w_e_boneJNI.laban_sequence_svg_file__SWIG_1(swigCPtr, this, path, im_width);
+  }
+
+  public void svg_file(String path) {
+    w_e_boneJNI.laban_sequence_svg_file__SWIG_2(swigCPtr, this, path);
+  }
+
   public String str() {
     return w_e_boneJNI.laban_sequence_str(swigCPtr, this);
   }

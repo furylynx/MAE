@@ -111,6 +111,15 @@ namespace mae
 
 				}
 
+				std::string turn_symbol::svg(std::string identifier, int posx, int posy, int width, int height, bool left)
+				{
+					std::stringstream sstr;
+
+					//TODO
+
+					return sstr.str();
+				}
+
 				std::string turn_symbol::str() const
 				{
 					std::stringstream sstr;
