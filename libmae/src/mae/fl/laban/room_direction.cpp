@@ -61,7 +61,24 @@ namespace mae
 				return direction_;
 			}
 
-			std::string room_direction::xml(unsigned int indent, std::string namesp)
+			bool room_direction::equals(std::shared_ptr<i_movement> a) const
+			{
+				return (measure_ == a->get_measure() && beat_ == a->get_beat() && symbol_equals(a));
+			}
+
+			bool room_direction::symbol_equals(std::shared_ptr<i_movement> a) const
+			{
+				if (std::shared_ptr<room_direction> a_rd = std::dynamic_pointer_cast<room_direction>(a))
+				{
+					return (a_rd->get_direction()->equals(direction_));
+				}
+				else
+				{
+					return false;
+				}
+			}
+
+			std::string room_direction::xml(unsigned int indent, std::string namesp) const
 			{
 				std::stringstream indent_stream;
 
@@ -71,7 +88,7 @@ namespace mae
 				}
 
 				std::string ns = namesp;
-				if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+				if (ns.size() > 0 && ns.at(ns.size() - 1) != ':')
 				{
 					ns.push_back(':');
 				}
@@ -83,9 +100,11 @@ namespace mae
 				//print turn symbol
 				sstr << indent_stream.str() << "<" << ns << "roomDirection>" << std::endl;
 
-				sstr << indent_stream.str() << "\t" << "<" << ns << "measure>" << measure_ << "</" << ns << "measure>" << std::endl;
-				sstr << indent_stream.str() << "\t" << "<" << ns << "beat>" << beat_ << "</" << ns << "beat>" << std::endl;
-				sstr << direction_->xml(indent+1, namesp);
+				sstr << indent_stream.str() << "\t" << "<" << ns << "measure>" << measure_ << "</" << ns << "measure>"
+						<< std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "beat>" << beat_ << "</" << ns << "beat>"
+						<< std::endl;
+				sstr << direction_->xml(indent + 1, namesp);
 
 				sstr << indent_stream.str() << "</" << ns << "roomDirection>" << std::endl;
 
@@ -93,7 +112,17 @@ namespace mae
 
 			}
 
-			std::shared_ptr<i_movement> room_direction::recreate(std::map<int, int> column_mapping, unsigned int measure, double beat, double duration) const
+			std::string room_direction::svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const
+			{
+				std::stringstream sstr;
+
+				//TODO
+
+				return sstr.str();
+			}
+
+			std::shared_ptr<i_movement> room_direction::recreate(std::map<int, int> column_mapping,
+					unsigned int measure, double beat, double duration) const
 			{
 				std::shared_ptr<i_movement> result;
 

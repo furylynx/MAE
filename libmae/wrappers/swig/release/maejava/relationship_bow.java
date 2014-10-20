@@ -83,6 +83,14 @@ public class relationship_bow extends i_movement {
     return w_e_boneJNI.relationship_bow_get_duration(swigCPtr, this);
   }
 
+  public boolean equals(i_movement a) {
+    return w_e_boneJNI.relationship_bow_equals(swigCPtr, this, i_movement.getCPtr(a), a);
+  }
+
+  public boolean symbol_equals(i_movement a) {
+    return w_e_boneJNI.relationship_bow_symbol_equals(swigCPtr, this, i_movement.getCPtr(a), a);
+  }
+
   public String xml(long indent, String namesp) {
     return w_e_boneJNI.relationship_bow_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
@@ -93,6 +101,10 @@ public class relationship_bow extends i_movement {
 
   public String xml() {
     return w_e_boneJNI.relationship_bow_xml__SWIG_2(swigCPtr, this);
+  }
+
+  public String svg(long im_width, long im_height, long max_column, long measures, long beats_per_measure) {
+    return w_e_boneJNI.relationship_bow_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
   }
 
   public i_movement recreate(int_int_map column_mapping, long measure, double beat, double duration) {

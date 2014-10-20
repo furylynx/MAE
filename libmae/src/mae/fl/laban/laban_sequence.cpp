@@ -178,7 +178,7 @@ namespace mae
 				column_definitions_vec_.clear();
 			}
 
-			std::vector<int> laban_sequence::get_columns()
+			std::vector<int> laban_sequence::get_columns() const
 			{
 				std::vector<int> result;
 
@@ -445,6 +445,133 @@ namespace mae
 				if (outfile.is_open())
 				{
 					outfile << xml();
+					outfile.close();
+				}
+				else
+				{
+					throw std::invalid_argument("Cannot write to the file.");
+				}
+			}
+
+			std::string laban_sequence::svg(unsigned int im_width, unsigned int im_height) const
+			{
+				std::stringstream sstr;
+
+				//print header
+				sstr << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>" << std::endl;
+				sstr << "<svg" << std::endl;
+				sstr << "\txmlns:dc=\"http://purl.org/dc/elements/1.1/\"" << std::endl;
+				sstr << "\txmlns:cc=\"http://creativecommons.org/ns#\"" << std::endl;
+				sstr << "\txmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"" << std::endl;
+				sstr << "\txmlns:svg=\"http://www.w3.org/2000/svg\"" << std::endl;
+				sstr << "\txmlns=\"http://www.w3.org/2000/svg\"" << std::endl;
+				sstr << "\tversion=\"1.1\"" << std::endl;
+				sstr << "\twidth=\"" << im_width << "\"" << std::endl;
+				sstr << "\theight=\"" << im_height << "\"" << std::endl;
+				sstr << "\tid=\"svg3545\">" << std::endl;
+				sstr << "\t<defs id=\"defs3547\" >" << std::endl;
+				sstr << FILL_PATTERN << std::endl;
+				sstr << "\t</defs>" << std::endl;
+
+				sstr << "\t<metadata id=\"metadata3550\">" << std::endl;
+				sstr << "\t\t<rdf:RDF>" << std::endl;
+				sstr << "\t\t\t<cc:Work rdf:about=\"\">" << std::endl;
+				sstr << "\t\t\t\t<dc:format>image/svg+xml</dc:format>" << std::endl;
+				sstr << "\t\t\t\t<dc:type rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\" />" << std::endl;
+				sstr << "\t\t\t\t<dc:title></dc:title>" << std::endl;
+				sstr << "\t\t\t</cc:Work>" << std::endl;
+				sstr << "\t\t</rdf:RDF>" << std::endl;
+				sstr << "\t</metadata>" << std::endl;
+				sstr << "\t<g id=\"layer1\">" << std::endl;
+
+				//print staff
+				std::vector<int> cols = get_columns();
+				int max_index = std::abs(cols.at(0));
+				if (std::abs(cols.back()) > max_index)
+				{
+					max_index = cols.back();
+				}
+
+				int total_beats = measures_ * beats_;
+				double beat_height = (im_height - 5) / total_beats;
+				double column_width = (im_width)/(max_index * 2.0);
+
+				//draw staff
+				int left_bound = (int)((im_width / 2.0) - (2.0*column_width));
+				int right_bound = (int)((im_width / 2.0) + (2.0*column_width));
+				int bottom_bound = (im_height);
+				int top_bound = 0;
+				int center = (int)(im_width / 2.0);
+
+				//bottom line
+				sstr << "\t<path d=\"m " <<left_bound << "," << bottom_bound << " " << right_bound-left_bound << "," << 0 << "\" id=\"bottomline\"" << std::endl;
+				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+
+				//top line
+				sstr << "\t<path d=\"m " <<left_bound << "," << 0 << " " << (im_width/ 2 + 2*column_width)-left_bound << "," << 0 << "\" id=\"topline\"" << std::endl;
+				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+
+				//draw movement start lines
+				int start_line_y = (int)(im_height - (beat_height*beats_));
+
+				sstr << "\t<path d=\"m " << left_bound << "," << start_line_y << " " << right_bound-left_bound << "," << 0 << "\" id=\"upperstartline\"" << std::endl;
+				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+
+				sstr << "\t<path d=\"m " << left_bound << "," << start_line_y - 5 << " " << right_bound-left_bound << "," << 0 << "\" id=\"lowerstartline\"" << std::endl;
+				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+
+				//draw center line
+				sstr << "\t<path d=\"m " << center << "," << top_bound << " " << 0 << "," << bottom_bound-top_bound << "\" id=\"centerline\"" << std::endl;
+				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+
+				//draw right and left line
+				sstr << "\t<path d=\"m " << left_bound << "," << top_bound << " " << 0 << "," << bottom_bound-top_bound << "\" id=\"leftline\"" << std::endl;
+				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+
+				sstr << "\t<path d=\"m " << right_bound << "," << top_bound << " " << 0 << "," << bottom_bound-top_bound << "\" id=\"rightline\"" << std::endl;
+				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+
+				//draw beat and measure marks
+				for (unsigned int i = beats_ + 1 ; i < measures_ * beats_; i++)
+				{
+					int mark_pos_y = (int) (im_height - 5 - (i * beat_height));
+					if ((i % beats_) == 0)
+					{
+						//is a measure -> more width
+						sstr << "\t<path d=\"m " << left_bound << "," << mark_pos_y << " " << right_bound-left_bound << "," << 0 << "\" id=\"measuremark" << i/beats_ << "\"" << std::endl;
+						sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+					}
+					else
+					{
+						//is a beat -> less width
+						sstr << "\t<path d=\"m " << center - (column_width/4) << "," << mark_pos_y << " " << (column_width/2) << "," << 0 << "\" id=\"beatmark" << i << "\"" << std::endl;
+						sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+					}
+				}
+
+				//TODO coldefs...
+
+
+				//handle movements
+				for (unsigned int i = 0; i < movements_vec_.size(); i++)
+				{
+					sstr << movements_vec_.at(i)->svg(im_width, im_height, max_index, measures_, beats_);
+				}
+
+
+				sstr << "\t</g>" << std::endl;
+				sstr << "</svg>" << std::endl;
+
+				return sstr.str();
+			}
+
+			void laban_sequence::svg_file(std::string path, unsigned int im_width, unsigned int im_height) const
+			{
+				std::ofstream outfile(path);
+
+				if (outfile.is_open())
+				{
+					outfile << svg(im_width, im_height);
 					outfile.close();
 				}
 				else

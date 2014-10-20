@@ -56,7 +56,25 @@ namespace mae
 				return duration_;
 			}
 
-			std::string path::xml(unsigned int indent, std::string namesp)
+			bool path::equals(std::shared_ptr<i_movement> a) const
+			{
+				return (measure_ == a->get_measure() && beat_ == a->get_beat() && duration_ == a->get_duration()
+						&& symbol_equals(a));
+			}
+
+			bool path::symbol_equals(std::shared_ptr<i_movement> a) const
+			{
+				if (std::shared_ptr<path> a_p = std::dynamic_pointer_cast<path>(a))
+				{
+					return (a_p->get_type() == type_);
+				}
+				else
+				{
+					return false;
+				}
+			}
+
+			std::string path::xml(unsigned int indent, std::string namesp) const
 			{
 				std::stringstream indent_stream;
 
@@ -66,7 +84,7 @@ namespace mae
 				}
 
 				std::string ns = namesp;
-				if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+				if (ns.size() > 0 && ns.at(ns.size() - 1) != ':')
 				{
 					ns.push_back(':');
 				}
@@ -79,10 +97,14 @@ namespace mae
 				//print path
 				sstr << indent_stream.str() << "<" << ns << "path>" << std::endl;
 
-				sstr << indent_stream.str() << "\t" << "<" << ns << "type>" << e_path_type_c::str(type_) << "</" << ns << "type>" << std::endl;
-				sstr << indent_stream.str() << "\t" << "<" << ns << "measure>" << measure_ << "</" << ns << "measure>" << std::endl;
-				sstr << indent_stream.str() << "\t" << "<" << ns << "beat>" << beat_ << "</" << ns << "beat>" << std::endl;
-				sstr << indent_stream.str() << "\t" << "<" << ns << "duration>" << duration_ << "</" << ns << "duration>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "type>" << e_path_type_c::str(type_) << "</" << ns
+						<< "type>" << std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "measure>" << measure_ << "</" << ns << "measure>"
+						<< std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "beat>" << beat_ << "</" << ns << "beat>"
+						<< std::endl;
+				sstr << indent_stream.str() << "\t" << "<" << ns << "duration>" << duration_ << "</" << ns
+						<< "duration>" << std::endl;
 
 				sstr << indent_stream.str() << "</" << ns << "path>" << std::endl;
 
@@ -90,7 +112,17 @@ namespace mae
 
 			}
 
-			std::shared_ptr<i_movement> path::recreate(std::map<int, int> column_mapping, unsigned int measure, double beat, double duration) const
+			std::string path::svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const
+			{
+				std::stringstream sstr;
+
+				//TODO
+
+				return sstr.str();
+			}
+
+			std::shared_ptr<i_movement> path::recreate(std::map<int, int> column_mapping, unsigned int measure,
+					double beat, double duration) const
 			{
 				std::shared_ptr<i_movement> result;
 

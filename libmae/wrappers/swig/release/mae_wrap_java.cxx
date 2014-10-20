@@ -4989,19 +4989,65 @@ SWIGEXPORT jdouble JNICALL Java_maejava_w_1e_1boneJNI_i_1movement_1get_1duration
 }
 
 
+SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_i_1movement_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jboolean jresult = 0 ;
+  mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
+  std::shared_ptr< mae::fl::laban::i_movement const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp2 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::i_movement > **)&jarg1;
+  arg1 = (mae::fl::laban::i_movement *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  result = (bool)((mae::fl::laban::i_movement const *)arg1)->equals(arg2);
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_i_1movement_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jboolean jresult = 0 ;
+  mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
+  std::shared_ptr< mae::fl::laban::i_movement const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp2 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::i_movement > **)&jarg1;
+  arg1 = (mae::fl::laban::i_movement *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  result = (bool)((mae::fl::laban::i_movement const *)arg1)->symbol_equals(arg2);
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_i_1movement_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   unsigned int arg2 ;
   std::string arg3 ;
-  std::shared_ptr< mae::fl::laban::i_movement > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::i_movement > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::i_movement > **)&jarg1;
   arg1 = (mae::fl::laban::i_movement *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (unsigned int)jarg2; 
   if(!jarg3) {
@@ -5012,7 +5058,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_i_1movement_1xml_1_1SWIG_1
   if (!arg3_pstr) return 0;
   (&arg3)->assign(arg3_pstr);
   jenv->ReleaseStringUTFChars(jarg3, arg3_pstr); 
-  result = (arg1)->xml(arg2,arg3);
+  result = ((mae::fl::laban::i_movement const *)arg1)->xml(arg2,arg3);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -5022,17 +5068,17 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_i_1movement_1xml_1_1SWIG_1
   jstring jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   unsigned int arg2 ;
-  std::shared_ptr< mae::fl::laban::i_movement > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::i_movement > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::i_movement > **)&jarg1;
   arg1 = (mae::fl::laban::i_movement *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (unsigned int)jarg2; 
-  result = (arg1)->xml(arg2);
+  result = ((mae::fl::laban::i_movement const *)arg1)->xml(arg2);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -5041,16 +5087,44 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_i_1movement_1xml_1_1SWIG_1
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_i_1movement_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
-  std::shared_ptr< mae::fl::laban::i_movement > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::i_movement > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::i_movement > **)&jarg1;
   arg1 = (mae::fl::laban::i_movement *)(smartarg1 ? smartarg1->get() : 0); 
-  result = (arg1)->xml();
+  result = ((mae::fl::laban::i_movement const *)arg1)->xml();
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_i_1movement_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
+  jstring jresult = 0 ;
+  mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
+  unsigned int arg2 ;
+  unsigned int arg3 ;
+  unsigned int arg4 ;
+  unsigned int arg5 ;
+  unsigned int arg6 ;
+  std::shared_ptr< mae::fl::laban::i_movement const > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::i_movement > **)&jarg1;
+  arg1 = (mae::fl::laban::i_movement *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (unsigned int)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  arg4 = (unsigned int)jarg4; 
+  arg5 = (unsigned int)jarg5; 
+  arg6 = (unsigned int)jarg6; 
+  result = ((mae::fl::laban::i_movement const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -5912,7 +5986,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1get_1column
   (void)jcls;
   (void)jarg1_;
   arg1 = *(mae::fl::laban::laban_sequence **)&jarg1; 
-  result = (arg1)->get_columns();
+  result = ((mae::fl::laban::laban_sequence const *)arg1)->get_columns();
   *(std::vector< int > **)&jresult = new std::vector< int >((const std::vector< int > &)result); 
   return jresult;
 }
@@ -6177,6 +6251,91 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1xml_1file(JN
   (&arg2)->assign(arg2_pstr);
   jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
   ((mae::fl::laban::laban_sequence const *)arg1)->xml_file(arg2);
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
+  jstring jresult = 0 ;
+  mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
+  unsigned int arg2 ;
+  unsigned int arg3 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::fl::laban::laban_sequence **)&jarg1; 
+  arg2 = (unsigned int)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  result = ((mae::fl::laban::laban_sequence const *)arg1)->svg(arg2,arg3);
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1svg_1file_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jlong jarg4) {
+  mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
+  std::string arg2 ;
+  unsigned int arg3 ;
+  unsigned int arg4 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::fl::laban::laban_sequence **)&jarg1; 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return ;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return ;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (unsigned int)jarg3; 
+  arg4 = (unsigned int)jarg4; 
+  ((mae::fl::laban::laban_sequence const *)arg1)->svg_file(arg2,arg3,arg4);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1svg_1file_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3) {
+  mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
+  std::string arg2 ;
+  unsigned int arg3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::fl::laban::laban_sequence **)&jarg1; 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return ;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return ;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (unsigned int)jarg3; 
+  ((mae::fl::laban::laban_sequence const *)arg1)->svg_file(arg2,arg3);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1svg_1file_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+  mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
+  std::string arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::fl::laban::laban_sequence **)&jarg1; 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return ;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return ;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  ((mae::fl::laban::laban_sequence const *)arg1)->svg_file(arg2);
 }
 
 
@@ -6765,7 +6924,36 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1rewriting_1forest_1_1SW
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1rewriting_1forest_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1rewriting_1forest_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4, jdouble jarg5) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > arg1 ;
+  unsigned int arg2 ;
+  unsigned int arg3 ;
+  mae::fl::laban::e_time_unit arg4 ;
+  double arg5 ;
+  std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *argp1 ;
+  mae::fl::laban::rewriting_forest *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  arg2 = (unsigned int)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  arg4 = (mae::fl::laban::e_time_unit)jarg4; 
+  arg5 = (double)jarg5; 
+  result = (mae::fl::laban::rewriting_forest *)new mae::fl::laban::rewriting_forest(arg1,arg2,arg3,arg4,arg5);
+  *(mae::fl::laban::rewriting_forest **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1rewriting_1forest_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > arg1 ;
   unsigned int arg2 ;
@@ -6792,7 +6980,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1rewriting_1forest_1_1SW
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1rewriting_1forest_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1rewriting_1forest_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > arg1 ;
   unsigned int arg2 ;
@@ -6817,7 +7005,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1rewriting_1forest_1_1SW
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1rewriting_1forest_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1rewriting_1forest_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > arg1 ;
   unsigned int arg2 ;
@@ -6840,7 +7028,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1rewriting_1forest_1_1SW
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1rewriting_1forest_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1rewriting_1forest_1_1SWIG_19(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *argp1 ;
@@ -10584,6 +10772,78 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_i_1symbol_1xml_1_1SWIG_12(
 }
 
 
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_i_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4, jint jarg5, jint jarg6, jboolean jarg7) {
+  jstring jresult = 0 ;
+  mae::fl::laban::mv::i_symbol *arg1 = (mae::fl::laban::mv::i_symbol *) 0 ;
+  std::string arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  bool arg7 ;
+  std::shared_ptr< mae::fl::laban::mv::i_symbol > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::mv::i_symbol > **)&jarg1;
+  arg1 = (mae::fl::laban::mv::i_symbol *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (int)jarg3; 
+  arg4 = (int)jarg4; 
+  arg5 = (int)jarg5; 
+  arg6 = (int)jarg6; 
+  arg7 = jarg7 ? true : false; 
+  result = (arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_i_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4, jint jarg5, jint jarg6) {
+  jstring jresult = 0 ;
+  mae::fl::laban::mv::i_symbol *arg1 = (mae::fl::laban::mv::i_symbol *) 0 ;
+  std::string arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  std::shared_ptr< mae::fl::laban::mv::i_symbol > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::mv::i_symbol > **)&jarg1;
+  arg1 = (mae::fl::laban::mv::i_symbol *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (int)jarg3; 
+  arg4 = (int)jarg4; 
+  arg5 = (int)jarg5; 
+  arg6 = (int)jarg6; 
+  result = (arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_i_1symbol_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_symbol *arg1 = (mae::fl::laban::mv::i_symbol *) 0 ;
@@ -10831,19 +11091,65 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_movement_1get_1symbol(JNIEnv
 }
 
 
+SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_movement_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jboolean jresult = 0 ;
+  mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
+  std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp2 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::movement > **)&jarg1;
+  arg1 = (mae::fl::laban::movement *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  result = (bool)((mae::fl::laban::movement const *)arg1)->equals(arg2);
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_movement_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jboolean jresult = 0 ;
+  mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
+  std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp2 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::movement > **)&jarg1;
+  arg1 = (mae::fl::laban::movement *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  result = (bool)((mae::fl::laban::movement const *)arg1)->symbol_equals(arg2);
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_movement_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   unsigned int arg2 ;
   std::string arg3 ;
-  std::shared_ptr< mae::fl::laban::movement > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::movement > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::movement > **)&jarg1;
   arg1 = (mae::fl::laban::movement *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (unsigned int)jarg2; 
   if(!jarg3) {
@@ -10854,7 +11160,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_movement_1xml_1_1SWIG_10(J
   if (!arg3_pstr) return 0;
   (&arg3)->assign(arg3_pstr);
   jenv->ReleaseStringUTFChars(jarg3, arg3_pstr); 
-  result = (arg1)->xml(arg2,arg3);
+  result = ((mae::fl::laban::movement const *)arg1)->xml(arg2,arg3);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -10864,17 +11170,17 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_movement_1xml_1_1SWIG_11(J
   jstring jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   unsigned int arg2 ;
-  std::shared_ptr< mae::fl::laban::movement > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::movement > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::movement > **)&jarg1;
   arg1 = (mae::fl::laban::movement *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (unsigned int)jarg2; 
-  result = (arg1)->xml(arg2);
+  result = ((mae::fl::laban::movement const *)arg1)->xml(arg2);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -10883,16 +11189,44 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_movement_1xml_1_1SWIG_11(J
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_movement_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
-  std::shared_ptr< mae::fl::laban::movement > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::movement > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::movement > **)&jarg1;
   arg1 = (mae::fl::laban::movement *)(smartarg1 ? smartarg1->get() : 0); 
-  result = (arg1)->xml();
+  result = ((mae::fl::laban::movement const *)arg1)->xml();
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_movement_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
+  jstring jresult = 0 ;
+  mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
+  unsigned int arg2 ;
+  unsigned int arg3 ;
+  unsigned int arg4 ;
+  unsigned int arg5 ;
+  unsigned int arg6 ;
+  std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::movement > **)&jarg1;
+  arg1 = (mae::fl::laban::movement *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (unsigned int)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  arg4 = (unsigned int)jarg4; 
+  arg5 = (unsigned int)jarg5; 
+  arg6 = (unsigned int)jarg6; 
+  result = ((mae::fl::laban::movement const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -11143,19 +11477,65 @@ SWIGEXPORT jdouble JNICALL Java_maejava_w_1e_1boneJNI_path_1get_1duration(JNIEnv
 }
 
 
+SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_path_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jboolean jresult = 0 ;
+  mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
+  std::shared_ptr< mae::fl::laban::path const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp2 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::path > **)&jarg1;
+  arg1 = (mae::fl::laban::path *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  result = (bool)((mae::fl::laban::path const *)arg1)->equals(arg2);
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_path_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jboolean jresult = 0 ;
+  mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
+  std::shared_ptr< mae::fl::laban::path const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp2 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::path > **)&jarg1;
+  arg1 = (mae::fl::laban::path *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  result = (bool)((mae::fl::laban::path const *)arg1)->symbol_equals(arg2);
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_path_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   unsigned int arg2 ;
   std::string arg3 ;
-  std::shared_ptr< mae::fl::laban::path > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::path const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::path > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::path > **)&jarg1;
   arg1 = (mae::fl::laban::path *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (unsigned int)jarg2; 
   if(!jarg3) {
@@ -11166,7 +11546,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_path_1xml_1_1SWIG_10(JNIEn
   if (!arg3_pstr) return 0;
   (&arg3)->assign(arg3_pstr);
   jenv->ReleaseStringUTFChars(jarg3, arg3_pstr); 
-  result = (arg1)->xml(arg2,arg3);
+  result = ((mae::fl::laban::path const *)arg1)->xml(arg2,arg3);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -11176,17 +11556,17 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_path_1xml_1_1SWIG_11(JNIEn
   jstring jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   unsigned int arg2 ;
-  std::shared_ptr< mae::fl::laban::path > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::path const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::path > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::path > **)&jarg1;
   arg1 = (mae::fl::laban::path *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (unsigned int)jarg2; 
-  result = (arg1)->xml(arg2);
+  result = ((mae::fl::laban::path const *)arg1)->xml(arg2);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -11195,16 +11575,44 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_path_1xml_1_1SWIG_11(JNIEn
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_path_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
-  std::shared_ptr< mae::fl::laban::path > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::path const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::path > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::path > **)&jarg1;
   arg1 = (mae::fl::laban::path *)(smartarg1 ? smartarg1->get() : 0); 
-  result = (arg1)->xml();
+  result = ((mae::fl::laban::path const *)arg1)->xml();
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_path_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
+  jstring jresult = 0 ;
+  mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
+  unsigned int arg2 ;
+  unsigned int arg3 ;
+  unsigned int arg4 ;
+  unsigned int arg5 ;
+  unsigned int arg6 ;
+  std::shared_ptr< mae::fl::laban::path const > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::path > **)&jarg1;
+  arg1 = (mae::fl::laban::path *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (unsigned int)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  arg4 = (unsigned int)jarg4; 
+  arg5 = (unsigned int)jarg5; 
+  arg6 = (unsigned int)jarg6; 
+  result = ((mae::fl::laban::path const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -11933,19 +12341,65 @@ SWIGEXPORT jdouble JNICALL Java_maejava_w_1e_1boneJNI_relationship_1bow_1get_1du
 }
 
 
+SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_relationship_1bow_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jboolean jresult = 0 ;
+  mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
+  std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp2 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::relationship_bow > **)&jarg1;
+  arg1 = (mae::fl::laban::relationship_bow *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  result = (bool)((mae::fl::laban::relationship_bow const *)arg1)->equals(arg2);
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_relationship_1bow_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jboolean jresult = 0 ;
+  mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
+  std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp2 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::relationship_bow > **)&jarg1;
+  arg1 = (mae::fl::laban::relationship_bow *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  result = (bool)((mae::fl::laban::relationship_bow const *)arg1)->symbol_equals(arg2);
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_relationship_1bow_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   unsigned int arg2 ;
   std::string arg3 ;
-  std::shared_ptr< mae::fl::laban::relationship_bow > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::relationship_bow > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::relationship_bow > **)&jarg1;
   arg1 = (mae::fl::laban::relationship_bow *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (unsigned int)jarg2; 
   if(!jarg3) {
@@ -11956,7 +12410,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_relationship_1bow_1xml_1_1
   if (!arg3_pstr) return 0;
   (&arg3)->assign(arg3_pstr);
   jenv->ReleaseStringUTFChars(jarg3, arg3_pstr); 
-  result = (arg1)->xml(arg2,arg3);
+  result = ((mae::fl::laban::relationship_bow const *)arg1)->xml(arg2,arg3);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -11966,17 +12420,17 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_relationship_1bow_1xml_1_1
   jstring jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   unsigned int arg2 ;
-  std::shared_ptr< mae::fl::laban::relationship_bow > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::relationship_bow > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::relationship_bow > **)&jarg1;
   arg1 = (mae::fl::laban::relationship_bow *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (unsigned int)jarg2; 
-  result = (arg1)->xml(arg2);
+  result = ((mae::fl::laban::relationship_bow const *)arg1)->xml(arg2);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -11985,16 +12439,44 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_relationship_1bow_1xml_1_1
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_relationship_1bow_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
-  std::shared_ptr< mae::fl::laban::relationship_bow > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::relationship_bow > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::relationship_bow > **)&jarg1;
   arg1 = (mae::fl::laban::relationship_bow *)(smartarg1 ? smartarg1->get() : 0); 
-  result = (arg1)->xml();
+  result = ((mae::fl::laban::relationship_bow const *)arg1)->xml();
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_relationship_1bow_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
+  jstring jresult = 0 ;
+  mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
+  unsigned int arg2 ;
+  unsigned int arg3 ;
+  unsigned int arg4 ;
+  unsigned int arg5 ;
+  unsigned int arg6 ;
+  std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::relationship_bow > **)&jarg1;
+  arg1 = (mae::fl::laban::relationship_bow *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (unsigned int)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  arg4 = (unsigned int)jarg4; 
+  arg5 = (unsigned int)jarg5; 
+  arg6 = (unsigned int)jarg6; 
+  result = ((mae::fl::laban::relationship_bow const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -12520,19 +13002,65 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_room_1direction_1get_1direct
 }
 
 
+SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_room_1direction_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jboolean jresult = 0 ;
+  mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
+  std::shared_ptr< mae::fl::laban::room_direction const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp2 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::room_direction > **)&jarg1;
+  arg1 = (mae::fl::laban::room_direction *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  result = (bool)((mae::fl::laban::room_direction const *)arg1)->equals(arg2);
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_room_1direction_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jboolean jresult = 0 ;
+  mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
+  std::shared_ptr< mae::fl::laban::room_direction const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp2 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::room_direction > **)&jarg1;
+  arg1 = (mae::fl::laban::room_direction *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  result = (bool)((mae::fl::laban::room_direction const *)arg1)->symbol_equals(arg2);
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_room_1direction_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   unsigned int arg2 ;
   std::string arg3 ;
-  std::shared_ptr< mae::fl::laban::room_direction > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::room_direction const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::room_direction > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::room_direction > **)&jarg1;
   arg1 = (mae::fl::laban::room_direction *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (unsigned int)jarg2; 
   if(!jarg3) {
@@ -12543,7 +13071,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_room_1direction_1xml_1_1SW
   if (!arg3_pstr) return 0;
   (&arg3)->assign(arg3_pstr);
   jenv->ReleaseStringUTFChars(jarg3, arg3_pstr); 
-  result = (arg1)->xml(arg2,arg3);
+  result = ((mae::fl::laban::room_direction const *)arg1)->xml(arg2,arg3);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -12553,17 +13081,17 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_room_1direction_1xml_1_1SW
   jstring jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   unsigned int arg2 ;
-  std::shared_ptr< mae::fl::laban::room_direction > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::room_direction const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::room_direction > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::room_direction > **)&jarg1;
   arg1 = (mae::fl::laban::room_direction *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (unsigned int)jarg2; 
-  result = (arg1)->xml(arg2);
+  result = ((mae::fl::laban::room_direction const *)arg1)->xml(arg2);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -12572,16 +13100,44 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_room_1direction_1xml_1_1SW
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_room_1direction_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
-  std::shared_ptr< mae::fl::laban::room_direction > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::room_direction const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::fl::laban::room_direction > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::room_direction > **)&jarg1;
   arg1 = (mae::fl::laban::room_direction *)(smartarg1 ? smartarg1->get() : 0); 
-  result = (arg1)->xml();
+  result = ((mae::fl::laban::room_direction const *)arg1)->xml();
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_room_1direction_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
+  jstring jresult = 0 ;
+  mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
+  unsigned int arg2 ;
+  unsigned int arg3 ;
+  unsigned int arg4 ;
+  unsigned int arg5 ;
+  unsigned int arg6 ;
+  std::shared_ptr< mae::fl::laban::room_direction const > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::room_direction > **)&jarg1;
+  arg1 = (mae::fl::laban::room_direction *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (unsigned int)jarg2; 
+  arg3 = (unsigned int)jarg3; 
+  arg4 = (unsigned int)jarg4; 
+  arg5 = (unsigned int)jarg5; 
+  arg6 = (unsigned int)jarg6; 
+  result = ((mae::fl::laban::room_direction const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -13182,6 +13738,78 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_cancellation_1symbol_1xml_
   smartarg1 = *(std::shared_ptr<  mae::fl::laban::mv::cancellation_symbol > **)&jarg1;
   arg1 = (mae::fl::laban::mv::cancellation_symbol *)(smartarg1 ? smartarg1->get() : 0); 
   result = (arg1)->xml();
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_cancellation_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4, jint jarg5, jint jarg6, jboolean jarg7) {
+  jstring jresult = 0 ;
+  mae::fl::laban::mv::cancellation_symbol *arg1 = (mae::fl::laban::mv::cancellation_symbol *) 0 ;
+  std::string arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  bool arg7 ;
+  std::shared_ptr< mae::fl::laban::mv::cancellation_symbol > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::mv::cancellation_symbol > **)&jarg1;
+  arg1 = (mae::fl::laban::mv::cancellation_symbol *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (int)jarg3; 
+  arg4 = (int)jarg4; 
+  arg5 = (int)jarg5; 
+  arg6 = (int)jarg6; 
+  arg7 = jarg7 ? true : false; 
+  result = (arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_cancellation_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4, jint jarg5, jint jarg6) {
+  jstring jresult = 0 ;
+  mae::fl::laban::mv::cancellation_symbol *arg1 = (mae::fl::laban::mv::cancellation_symbol *) 0 ;
+  std::string arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  std::shared_ptr< mae::fl::laban::mv::cancellation_symbol > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::mv::cancellation_symbol > **)&jarg1;
+  arg1 = (mae::fl::laban::mv::cancellation_symbol *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (int)jarg3; 
+  arg4 = (int)jarg4; 
+  arg5 = (int)jarg5; 
+  arg6 = (int)jarg6; 
+  result = (arg1)->svg(arg2,arg3,arg4,arg5,arg6);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -14117,6 +14745,78 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_direction_1symbol_1xml_1_1
 }
 
 
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_direction_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4, jint jarg5, jint jarg6, jboolean jarg7) {
+  jstring jresult = 0 ;
+  mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
+  std::string arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  bool arg7 ;
+  std::shared_ptr< mae::fl::laban::mv::direction_symbol > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::mv::direction_symbol > **)&jarg1;
+  arg1 = (mae::fl::laban::mv::direction_symbol *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (int)jarg3; 
+  arg4 = (int)jarg4; 
+  arg5 = (int)jarg5; 
+  arg6 = (int)jarg6; 
+  arg7 = jarg7 ? true : false; 
+  result = (arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_direction_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4, jint jarg5, jint jarg6) {
+  jstring jresult = 0 ;
+  mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
+  std::string arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  std::shared_ptr< mae::fl::laban::mv::direction_symbol > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::mv::direction_symbol > **)&jarg1;
+  arg1 = (mae::fl::laban::mv::direction_symbol *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (int)jarg3; 
+  arg4 = (int)jarg4; 
+  arg5 = (int)jarg5; 
+  arg6 = (int)jarg6; 
+  result = (arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_direction_1symbol_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
@@ -14424,6 +15124,78 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_turn_1symbol_1xml_1_1SWIG_
 }
 
 
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_turn_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4, jint jarg5, jint jarg6, jboolean jarg7) {
+  jstring jresult = 0 ;
+  mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
+  std::string arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  bool arg7 ;
+  std::shared_ptr< mae::fl::laban::mv::turn_symbol > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::mv::turn_symbol > **)&jarg1;
+  arg1 = (mae::fl::laban::mv::turn_symbol *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (int)jarg3; 
+  arg4 = (int)jarg4; 
+  arg5 = (int)jarg5; 
+  arg6 = (int)jarg6; 
+  arg7 = jarg7 ? true : false; 
+  result = (arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_turn_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4, jint jarg5, jint jarg6) {
+  jstring jresult = 0 ;
+  mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
+  std::string arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  std::shared_ptr< mae::fl::laban::mv::turn_symbol > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::mv::turn_symbol > **)&jarg1;
+  arg1 = (mae::fl::laban::mv::turn_symbol *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (int)jarg3; 
+  arg4 = (int)jarg4; 
+  arg5 = (int)jarg5; 
+  arg6 = (int)jarg6; 
+  result = (arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_turn_1symbol_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
@@ -14647,6 +15419,78 @@ SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_vibration_1symbol_1xml_1_1
   smartarg1 = *(std::shared_ptr<  mae::fl::laban::mv::vibration_symbol > **)&jarg1;
   arg1 = (mae::fl::laban::mv::vibration_symbol *)(smartarg1 ? smartarg1->get() : 0); 
   result = (arg1)->xml();
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_vibration_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4, jint jarg5, jint jarg6, jboolean jarg7) {
+  jstring jresult = 0 ;
+  mae::fl::laban::mv::vibration_symbol *arg1 = (mae::fl::laban::mv::vibration_symbol *) 0 ;
+  std::string arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  bool arg7 ;
+  std::shared_ptr< mae::fl::laban::mv::vibration_symbol > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::mv::vibration_symbol > **)&jarg1;
+  arg1 = (mae::fl::laban::mv::vibration_symbol *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (int)jarg3; 
+  arg4 = (int)jarg4; 
+  arg5 = (int)jarg5; 
+  arg6 = (int)jarg6; 
+  arg7 = jarg7 ? true : false; 
+  result = (arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_vibration_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3, jint jarg4, jint jarg5, jint jarg6) {
+  jstring jresult = 0 ;
+  mae::fl::laban::mv::vibration_symbol *arg1 = (mae::fl::laban::mv::vibration_symbol *) 0 ;
+  std::string arg2 ;
+  int arg3 ;
+  int arg4 ;
+  int arg5 ;
+  int arg6 ;
+  std::shared_ptr< mae::fl::laban::mv::vibration_symbol > *smartarg1 = 0 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::mv::vibration_symbol > **)&jarg1;
+  arg1 = (mae::fl::laban::mv::vibration_symbol *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (int)jarg3; 
+  arg4 = (int)jarg4; 
+  arg5 = (int)jarg5; 
+  arg6 = (int)jarg6; 
+  result = (arg1)->svg(arg2,arg3,arg4,arg5,arg6);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }

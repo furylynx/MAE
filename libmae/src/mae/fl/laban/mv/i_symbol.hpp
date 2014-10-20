@@ -53,6 +53,17 @@ namespace mae
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") = 0;
 
 						/**
+						 * Returns the SVG representation for this symbol.
+						 *
+						 * @param posx The x position.
+						 * @param posy The y position.
+						 * @param width The width.
+						 * @param height The height.
+						 * @return The SVG.
+						 */
+						virtual std::string svg(std::string identifier, int posx, int posy, int width, int height, bool left = false) = 0;
+
+						/**
 						 * Returns the string representation for this element.
 						 *
 						 * @return The string.

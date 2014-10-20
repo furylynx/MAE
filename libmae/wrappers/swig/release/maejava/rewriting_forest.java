@@ -55,20 +55,24 @@ public class rewriting_forest {
     this(w_e_boneJNI.new_rewriting_forest__SWIG_4(), true);
   }
 
+  public rewriting_forest(i_mov_vector_vector_dec_val_vector rules, long beats_per_measure, long beat_duration, e_time_unit time_unit, double tolerance) {
+    this(w_e_boneJNI.new_rewriting_forest__SWIG_5(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration, time_unit.swigValue(), tolerance), true);
+  }
+
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules, long beats_per_measure, long beat_duration, e_time_unit time_unit) {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_5(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration, time_unit.swigValue()), true);
+    this(w_e_boneJNI.new_rewriting_forest__SWIG_6(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration, time_unit.swigValue()), true);
   }
 
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules, long beats_per_measure, long beat_duration) {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_6(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration), true);
+    this(w_e_boneJNI.new_rewriting_forest__SWIG_7(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration), true);
   }
 
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules, long beats_per_measure) {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_7(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure), true);
+    this(w_e_boneJNI.new_rewriting_forest__SWIG_8(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure), true);
   }
 
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules) {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_8(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules), true);
+    this(w_e_boneJNI.new_rewriting_forest__SWIG_9(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules), true);
   }
 
   public double get_tolerance() {

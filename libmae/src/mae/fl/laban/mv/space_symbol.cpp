@@ -95,6 +95,15 @@ namespace mae
 					return sstr.str();
 				}
 
+				std::string space_symbol::svg(std::string identifier, int posx, int posy, int width, int height, bool left)
+				{
+					std::stringstream sstr;
+
+					//TODO
+
+					return sstr.str();
+				}
+
 				std::string space_symbol::str() const
 				{
 					return space_measurement_->str();

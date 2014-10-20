@@ -109,6 +109,14 @@ public class direction_symbol extends i_symbol {
     return w_e_boneJNI.direction_symbol_xml__SWIG_2(swigCPtr, this);
   }
 
+  public String svg(String identifier, int posx, int posy, int width, int height, boolean left) {
+    return w_e_boneJNI.direction_symbol_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+  }
+
+  public String svg(String identifier, int posx, int posy, int width, int height) {
+    return w_e_boneJNI.direction_symbol_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+  }
+
   public String str() {
     return w_e_boneJNI.direction_symbol_str(swigCPtr, this);
   }
