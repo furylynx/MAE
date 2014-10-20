@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
 {
 	int w = 1920;
 	int h = 1080;
+	bool svg = false;
 	std::vector<std::string> files_w_pattern;
 
 	// Declare the supported options.
@@ -54,7 +55,7 @@ int main(int argc, char *argv[])
 	desc.add_options()("help", "produce help message")
 			("w", boost::program_options::value<int>(), "the resulting image(s) width(s)")
 			("h", boost::program_options::value<int>(), "the resulting image(s) height(s)")
-//	    ("svg", "Set output to svg")
+			("svg", "Set output to svg")
 			;
 
 	boost::program_options::options_description hidden("Hidden options");
@@ -79,6 +80,11 @@ int main(int argc, char *argv[])
 	{
 		std::cout << desc << "\n";
 		return 1;
+	}
+
+	if (vm.count("svg"))
+	{
+		svg = true;
 	}
 
 	if (!vm.count("w"))
@@ -158,6 +164,12 @@ int main(int argc, char *argv[])
 		}
 	}
 
+	if (files.size() == 0)
+	{
+		std::cout << "Nothing do do." << std::endl;
+		return 0;
+	}
+
 	std::cout << "Converting sequence" << (files.size() > 0 ? "s" : "") << std::endl;
 
 	mae::demo::fl::laban_visualizer visualizer = mae::demo::fl::laban_visualizer();
@@ -169,8 +181,17 @@ int main(int argc, char *argv[])
 		std::shared_ptr<mae::fl::laban::laban_sequence> sequence = s_reader.read_sequence_file(file);
 
 		std::string outfile = file;
-		outfile.append(".bmp");
-		visualizer.png(outfile, sequence, w, h);
+
+		if (svg)
+		{
+			outfile.append(".svg");
+			sequence->svg_file(outfile, w, h);
+		}
+		else
+		{
+			outfile.append(".bmp");
+			visualizer.png(outfile, sequence, w, h);
+		}
 
 		std::cout << "generated " << outfile << std::endl;
 	}

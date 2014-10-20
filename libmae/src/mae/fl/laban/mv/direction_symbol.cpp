@@ -171,6 +171,108 @@ namespace mae
 					return sstr.str();
 				}
 
+				std::string direction_symbol::svg(std::string identifier, int posx, int posy, int width, int height, bool left)
+				{
+					std::stringstream sstr;
+
+					//TODO
+
+					if (horizontal_ == e_direction::PLACE)
+					{
+						sstr << "\t\t<rect" << std::endl;
+				        sstr << "\t\t\twidth=\"" << width <<  "\"" << std::endl;
+				        sstr << "\t\t\theight=\"" << height <<  "\"" << std::endl;
+				        sstr << "\t\t\tx=\"" << posx <<  "\"" << std::endl;
+				        sstr << "\t\t\ty=\"" << posy <<  "\"" << std::endl;
+					}
+					else if (horizontal_ == e_direction::LEFT)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx+width << "," << posy << " " << 0 << "," << height << " " << -width << "," << -height/2.0 << " " << width << "," << -height/2.0 << " z\"" << std::endl;
+					}
+					else if (horizontal_ == e_direction::RIGHT)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx << "," << posy << " " << 0 << "," << height << " " << width << "," << -height/2.0 << " " << -width << "," << -height/2.0 << " z\"" << std::endl;
+					}
+					else if (horizontal_ == e_direction::FORWARD && left)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx << "," << posy+height/3.0 << " " << width/2.0 << "," << 0 << " " << 0 << "," << -height/3.0 << " " << width/2.0 << "," << 0 << " " << 0 << "," << height << " " << -width << "," << 0 << " " << 0 << "," << -2*height/3.0 << " z\"" << std::endl;
+					}
+					else if (horizontal_ == e_direction::FORWARD && !left)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx+width << "," << posy+height/3.0 << " " << -width/2.0 << "," << 0 << " " << 0 << "," << -height/3.0 << " " << -width/2.0 << "," << 0 << " " << 0 << "," << height << " " << width << "," << 0 << " " << 0 << "," << -2*height/3.0 << " z\"" << std::endl;
+					}
+					else if (horizontal_ == e_direction::BACKWARD && left)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx << "," << posy+height-height/3.0 << " " << width/2.0 << "," << 0 << " " << 0 << "," << height/3.0 << " " << width/2.0 << "," << 0 << " " << 0 << "," << -height << " " << -width << "," << 0 << " " << 0 << "," << 2*height/3.0 << " z\"" << std::endl;
+					}
+					else if (horizontal_ == e_direction::BACKWARD && !left)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx+width << "," << posy+height-height/3.0 << " " << -width/2.0 << "," << 0 << " " << 0 << "," << height/3.0 << " " << -width/2.0 << "," << 0 << " " << 0 << "," << -height << " " << width << "," << 0 << " " << 0 << "," << 2*height/3.0 << " z\"" << std::endl;
+					}
+					else if (horizontal_ == e_direction::RIGHT_FORWARD)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx << "," << posy+height/3.0 << " " << width << "," << -height/3.0 << " " << 0 << "," << height << " " << -width << "," << 0 << " " << 0 << "," << -2*height/3.0 << " z\"" << std::endl;
+					}
+					else if (horizontal_ == e_direction::LEFT_FORWARD)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx+width << "," << posy+height/3.0 << " " << -width << "," << -height/3.0 << " " << 0 << "," << height << " " << width << "," << 0 << " " << 0 << "," << -2*height/3.0 << " z\"" << std::endl;
+					}
+					else if (horizontal_ == e_direction::RIGHT_BACKWARD)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx << "," << posy+height-height/3.0 << " " << width << "," << height/3.0 << " " << 0 << "," << -height << " " << -width << "," << 0 << " " << 0 << "," << 2*height/3.0 << " z\"" << std::endl;
+					}
+					else if (horizontal_ == e_direction::LEFT_BACKWARD)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx+width << "," << posy+height-height/3.0 << " " << -width << "," << height/3.0 << " " << 0 << "," << -height << " " << width << "," << 0 << " " << 0 << "," << 2*height/3.0 << " z\"" << std::endl;
+					}
+					else
+					{
+						return "";
+					}
+
+			        sstr << "\t\t\tid=\"" << identifier << "\"" << std::endl;
+
+					sstr << "\t\t\tstyle=\"";
+					if (vertical_ == e_level::HIGH)
+					{
+						sstr << "fill:url(#fillpattern);fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					}
+					else if (vertical_ == e_level::LOW)
+					{
+						sstr << "fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					}
+					else if (vertical_ == e_level::MIDDLE)
+					{
+						sstr << "fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					}
+					else
+					{
+						return "";
+					}
+					sstr << "\" />" << std::endl;
+
+					if (vertical_ == e_level::MIDDLE)
+					{
+						//draw circle
+					    sstr << "\t\t<path" << std::endl;
+					    sstr << "\t\t\td=\"m " << posx + width/2.0 + width/10.0 << "," << posy + height/2.0 << " a " << width/10.0 << "," << width/10.0 << " 0 1 1 -" << width/5.0 << ",0 " << width/10.0 << "," << width/10.0 << " 0 1 1 " << width/5.0 << ",0 z\"" << std::endl;
+					    sstr << "\t\t\tid=\"" << identifier << "-circle\"" << std::endl;
+					    sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:none\" />" << std::endl;
+					}
+
+					return sstr.str();
+				}
+
 				std::string direction_symbol::str() const
 				{
 					std::stringstream sstr;
