@@ -30,8 +30,7 @@ int main()
 	std::cout << "===============" << std::endl << std::endl;
 
 	std::vector<std::string> directories
-	{ //"bvhs/cut/", "bvhs/dontcare/" , "bvhs/indi/" , "bvhs/raise/" , "bvhs/sequential/" ,
-		"bvhs/wheel/"
+	{ "bvhs/cut/", "bvhs/dontcare/" , "bvhs/indi/" , "bvhs/raise/" , "bvhs/sequential/" , "bvhs/wheel/"
 	//"bvhs/cut_single/"
 		};
 
@@ -47,7 +46,7 @@ int main()
 
 	bool performance_check = false;
 	unsigned int buffer_size = 350;
-	double hysteresis_value = 27;
+	double hysteresis_value = 29;
 
 	std::string rw_rules_file = "rw_rules.xml";
 
@@ -166,12 +165,6 @@ int main()
 					}
 				}
 			}
-
-			//TODO remove
-			std::cout << movement_controller.get_laban_sequence_recognizer()->get_decision_forest()->str() << std::endl;
-
-			//TODO remove
-			return 1;
 
 
 			//handle each bvh - determine recognition rate
