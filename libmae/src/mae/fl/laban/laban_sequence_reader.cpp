@@ -564,9 +564,9 @@ namespace mae
 				xmlpp::NodeSet degree_node_set = node->find(mxml::get_xpath("degree", nsp), *namespace_map);
 				std::shared_ptr<mv::i_degree_sign> degree = nullptr;
 
-				if (dynamics_node_set.size() > 0)
+				if (degree_node_set.size() > 0)
 				{
-					xmlpp::NodeSet space_degree_node_set = node->find(mxml::get_xpath("spaceMeasurement", nsp), *namespace_map);
+					xmlpp::NodeSet space_degree_node_set = node->find(mxml::get_xpath("degree/qualitative/spaceMeasurement", nsp), *namespace_map);
 
 					if (space_degree_node_set.size() > 0)
 					{
@@ -574,7 +574,12 @@ namespace mae
 					}
 					else
 					{
-						degree = laban_sequence_reader::read_pin(degree_node_set.at(0), namespace_map, nsp);
+						xmlpp::NodeSet pin_degree_node_set = node->find(mxml::get_xpath("degree/quantitative", nsp), *namespace_map);
+
+						if (pin_degree_node_set.size() > 0)
+						{
+							degree = laban_sequence_reader::read_pin(pin_degree_node_set.at(0), namespace_map, nsp);
+						}
 					}
 				}
 

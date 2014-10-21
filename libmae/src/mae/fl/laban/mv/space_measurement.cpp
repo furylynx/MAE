@@ -32,22 +32,22 @@ namespace mae
 				{
 				}
 
-				e_space space_measurement::get_type()
+				e_space space_measurement::get_type() const
 				{
 					return type_;
 				}
 
-				unsigned int space_measurement::get_degree()
+				unsigned int space_measurement::get_degree() const
 				{
 					return degree_;
 				}
 
-				e_space_direction space_measurement::get_direction()
+				e_space_direction space_measurement::get_direction() const
 				{
 					return direction_;
 				}
 
-				bool space_measurement::equals(std::shared_ptr<i_degree_sign> a)
+				bool space_measurement::equals(std::shared_ptr<i_degree_sign> a) const
 				{
 					if (std::shared_ptr<space_measurement> a_space = std::dynamic_pointer_cast<space_measurement>(a))
 					{
@@ -61,7 +61,7 @@ namespace mae
 					return false;
 				}
 
-				std::string space_measurement::xml(unsigned int indent, std::string namesp)
+				std::string space_measurement::xml(unsigned int indent, std::string namesp, bool print_type) const
 				{
 					std::stringstream indent_stream;
 
@@ -77,6 +77,14 @@ namespace mae
 					}
 
 					std::stringstream sstr;
+
+					std::string type_indent = indent_stream.str();
+
+					if (print_type)
+					{
+						indent_stream << "\t";
+						sstr << type_indent << "<" << ns << "qualitative>" << std::endl;
+					}
 
 					//print accent sign
 					sstr << indent_stream.str() << "<" << ns << "spaceMeasurement>" << std::endl;
@@ -94,8 +102,22 @@ namespace mae
 
 					sstr << indent_stream.str() << "</" << ns << "spaceMeasurement>" << std::endl;
 
+					if (print_type)
+					{
+						sstr << type_indent << "</" << ns << "qualitative>" << std::endl;
+					}
+
 					return sstr.str();
 
+				}
+
+				std::string space_measurement::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
+				{
+					std::stringstream sstr;
+
+					//TODO
+
+					return sstr.str();
 				}
 
 				std::string space_measurement::str() const

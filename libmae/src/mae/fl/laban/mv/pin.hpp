@@ -49,7 +49,7 @@ namespace mae
 						 *
 						 * @return The level.
 						 */
-						e_level get_level();
+						e_level get_level() const;
 
 						/**
 						 * Returns the (horizontal) direction which is a value between -1 and 360.
@@ -59,7 +59,7 @@ namespace mae
 						 *
 						 * @return The direction.
 						 */
-						int get_horizontal();
+						int get_horizontal() const;
 
 						/**
 						 * Returns true if signs are equal.
@@ -67,7 +67,7 @@ namespace mae
 						 * @param a The sign to be compared to.
 						 * @return True if equal.
 						 */
-						virtual bool equals(std::shared_ptr<i_degree_sign> a);
+						virtual bool equals(std::shared_ptr<i_degree_sign> a) const;
 
 						/**
 						 * Returns the XML representation for this element.
@@ -77,7 +77,18 @@ namespace mae
 						 *
 						 * @return The XML string.
 						 */
-						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "", bool print_type = false) const;
+
+						/**
+						 * Returns the SVG representation for this symbol.
+						 *
+						 * @param posx The x position.
+						 * @param posy The y position.
+						 * @param width The width.
+						 * @param height The height.
+						 * @return The SVG.
+						 */
+						virtual std::string svg(std::string identifier, double posx, double posy, double width, double height, bool left = false) const;
 
 					private:
 						e_level level_;

@@ -100,10 +100,14 @@ namespace mae
 
 					sstr << indent_stream.str() << "\t" << "<" << ns << "direction>" << e_turn_direction_c::str(direction_) << "</" << ns << "direction>" << std::endl;
 
+
 					if (degree_ != nullptr)
 					{
-						sstr << degree_->xml(indent+1, namesp);
+						sstr << indent_stream.str() << "\t<" << ns << "degree>" << std::endl;
+						sstr << degree_->xml(indent+2, namesp, true);
+						sstr << indent_stream.str() << "\t</" << ns << "degree>" << std::endl;
 					}
+
 
 					sstr << indent_stream.str() << "</" << ns << "turn>" << std::endl;
 
@@ -111,11 +115,55 @@ namespace mae
 
 				}
 
-				std::string turn_symbol::svg(std::string identifier, int posx, int posy, int width, int height, bool left)
+				std::string turn_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left)
 				{
+					if (direction_ == e_turn_direction::NONE_TURN_DIRECTION)
+					{
+						return "";
+					}
+
 					std::stringstream sstr;
 
-					//TODO
+					if (direction_ == e_turn_direction::CLOCKWISE || direction_ == e_turn_direction::ANY)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx << "," << posy+height/3.0 << " " << width << "," << -height/3.0 << " " << 0 << "," << 2*height/3.0 << " " << -width << "," << height/3.0 << " " << 0 << "," << -2*height/3.0 << " z\"" << std::endl;
+				        sstr << "\t\t\tid=\"" << identifier << "-clockwise\"" << std::endl;
+						sstr << "\t\t\tstyle=\"";
+						sstr << "fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "\" />" << std::endl;
+					}
+
+					if (direction_ == e_turn_direction::COUNTER_CLOCKWISE || direction_ == e_turn_direction::ANY)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx+width << "," << posy+height/3.0 << " " << -width << "," << -height/3.0 << " " << 0 << "," << 2*height/3.0 << " " << width << "," << height/3.0 << " " << 0 << "," << -2*height/3.0 << " z\"" << std::endl;
+				        sstr << "\t\t\tid=\"" << identifier << "-counterclockwise\"" << std::endl;
+						sstr << "\t\t\tstyle=\"";
+						sstr << "fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "\" />" << std::endl;
+					}
+
+
+					if (degree_ != nullptr)
+					{
+						//draw the pin
+						double pin_x = posx+width/4.0;
+						double pin_y = posy-width/4.0;
+						double pin_w = width/2.0;
+						double pin_h = width/2.0;
+
+						if (height < width)
+						{
+							pin_h = height;
+						}
+
+						std::string pin_id = identifier;
+						pin_id.append("-pin");
+						degree_->svg(pin_id, pin_x, pin_y, pin_w, pin_h);
+					}
+
+					//TODO dynamics
 
 					return sstr.str();
 				}

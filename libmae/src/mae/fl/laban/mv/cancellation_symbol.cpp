@@ -76,7 +76,7 @@ namespace mae
 
 				}
 
-				std::string cancellation_symbol::svg(std::string identifier, int posx, int posy, int width, int height, bool left)
+				std::string cancellation_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left)
 				{
 					std::stringstream sstr;
 

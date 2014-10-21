@@ -50,14 +50,14 @@ namespace mae
 						 *
 						 * @return The type.
 						 */
-						e_space get_type();
+						e_space get_type() const;
 
 						/**
 						 * Returns the degree of the space measurement which is an integer between 1 and 6.
 						 *
 						 * @return The degree.
 						 */
-						unsigned int get_degree();
+						unsigned int get_degree() const;
 
 						/**
 						 * Returns the space direction which is a horizontal direction similar to the (horizontal) direction
@@ -65,7 +65,7 @@ namespace mae
 						 *
 						 * @return The space direction.
 						 */
-						e_space_direction get_direction();
+						e_space_direction get_direction() const;
 
 						/**
 						 * Compares this element to the given one and returns true if the elements are equal.
@@ -73,7 +73,7 @@ namespace mae
 						 * @param a The element to be compared to.
 						 * @return True if equal.
 						 */
-						virtual bool equals(std::shared_ptr<i_degree_sign> a);
+						virtual bool equals(std::shared_ptr<i_degree_sign> a) const;
 
 						/**
 						 * Returns the XML representation for this element.
@@ -83,7 +83,18 @@ namespace mae
 						 *
 						 * @return The XML string.
 						 */
-						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "", bool print_type = false) const;
+
+						/**
+						 * Returns the SVG representation for this symbol.
+						 *
+						 * @param posx The x position.
+						 * @param posy The y position.
+						 * @param width The width.
+						 * @param height The height.
+						 * @return The SVG.
+						 */
+						virtual std::string svg(std::string identifier, double posx, double posy, double width, double height, bool left = false) const;
 
 						/**
 						 * Returns the string representation for this element.

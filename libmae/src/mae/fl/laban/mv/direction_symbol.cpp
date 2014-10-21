@@ -171,11 +171,23 @@ namespace mae
 					return sstr.str();
 				}
 
-				std::string direction_symbol::svg(std::string identifier, int posx, int posy, int width, int height, bool left)
+				std::string direction_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left)
 				{
 					std::stringstream sstr;
 
-					//TODO
+					//TODO pins, dynamics, space measurement, contact hook
+
+					double orig_height = height;
+
+					if (space_measurement_ != nullptr)
+					{
+						height -= width;
+
+						if (height < 0)
+						{
+							height = 0.01;
+						}
+					}
 
 					if (horizontal_ == e_direction::PLACE)
 					{
@@ -269,6 +281,18 @@ namespace mae
 					    sstr << "\t\t\tid=\"" << identifier << "-circle\"" << std::endl;
 					    sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:none\" />" << std::endl;
 					}
+
+					if (space_measurement_ != nullptr)
+					{
+						//TODO draw space measurement
+						//double spm_y = posy + height;
+						//double spm_w = width;
+						//double spm_h = width;
+						//xpos is xpos
+					}
+
+					//TODO draw pin centered
+
 
 					return sstr.str();
 				}
