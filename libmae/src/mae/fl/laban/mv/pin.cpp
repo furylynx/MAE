@@ -121,16 +121,16 @@ namespace mae
 					{
 						//draw bullet
 					    sstr << "\t\t<path" << std::endl;
-					    sstr << "\t\t\td=\"m " << posx + width/2.0 + width/8.0 << "," << posy + height/2.0 << " a " << width/8.0 << "," << width/8.0 << " 0 1 1 -" << width/4.0 << ",0 " << width/8.0 << "," << width/8.0 << " 0 1 1 " << width/4.0 << ",0 z\"" << std::endl;
+					    sstr << "\t\t\td=\"m " << posx + width/2.0 + width/6.0 << "," << posy + height/2.0 << " a " << width/6.0 << "," << width/6.0 << " 0 1 1 -" << width/3.0 << ",0 " << width/6.0 << "," << width/6.0 << " 0 1 1 " << width/3.0 << ",0 z\"" << std::endl;
 					    sstr << "\t\t\tid=\"" << identifier << "-circle\"" << std::endl;
 
 					    if (level_ == e_level::HIGH)
 					    {
-					    	sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:none\" />" << std::endl;
+					    	sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
 					    }
 					    else
 					    {
-					    	sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:none\" />" << std::endl;
+					    	sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
 					    }
 					}
 					else
@@ -141,8 +141,8 @@ namespace mae
 						double c270 = std::cos(((ah+270)/360.0)*M_PI*2);
 						double s270 = std::sin(((ah+270)/360.0)*M_PI*2);
 
-						sstr << "\t<path d=\"m " << posx+width/2.0 + height/8.0 * s270  << "," << posy+height/2.0 - height/8.0 * c270 << " " << (- height/4.0 * s90) << ","
-								<< height/4.0 * c90 << "\" id=\"" << identifier << "-segment\"" << std::endl;
+						sstr << "\t<path d=\"m " << posx+width/2.0 - height/6.0 * s270  << "," << posy+height/2.0 + height/6.0 * c270 << " " << (- height/3.0 * s90) << ","
+								<< height/3.0 * c90 << "\" id=\"" << identifier << "-segment\"" << std::endl;
 						sstr
 								<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 								<< std::endl;
