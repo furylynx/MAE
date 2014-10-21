@@ -35,22 +35,22 @@ namespace mae
 				{
 				}
 
-				e_turn_direction turn_symbol::get_direction()
+				e_turn_direction turn_symbol::get_direction() const
 				{
 					return direction_;
 				}
 
-				std::shared_ptr<i_dynamics_sign> turn_symbol::get_dynamics()
+				std::shared_ptr<i_dynamics_sign> turn_symbol::get_dynamics() const
 				{
 					return dynamics_;
 				}
 
-				std::shared_ptr<i_degree_sign> turn_symbol::get_degree()
+				std::shared_ptr<i_degree_sign> turn_symbol::get_degree() const
 				{
 					return degree_;
 				}
 
-				bool turn_symbol::equals(std::shared_ptr<i_symbol> a)
+				bool turn_symbol::equals(std::shared_ptr<i_symbol> a) const
 				{
 					if (std::shared_ptr<turn_symbol> a_turn = std::dynamic_pointer_cast<turn_symbol>(a))
 					{
@@ -73,7 +73,7 @@ namespace mae
 					return false;
 				}
 
-				std::string turn_symbol::xml(unsigned int indent, std::string namesp)
+				std::string turn_symbol::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 
@@ -115,7 +115,7 @@ namespace mae
 
 				}
 
-				std::string turn_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left)
+				std::string turn_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
 					if (direction_ == e_turn_direction::NONE_TURN_DIRECTION)
 					{

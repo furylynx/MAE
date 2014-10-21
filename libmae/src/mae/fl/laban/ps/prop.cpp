@@ -7,7 +7,6 @@
 
 #include "prop.hpp"
 
-
 namespace mae
 {
 	namespace fl
@@ -24,8 +23,7 @@ namespace mae
 
 					if (name.size() == 0)
 					{
-						throw std::invalid_argument(
-								"A name must be defined.");
+						throw std::invalid_argument("A name must be defined.");
 					}
 				}
 
@@ -54,7 +52,7 @@ namespace mae
 					}
 
 					std::string ns = namesp;
-					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					if (ns.size() > 0 && ns.at(ns.size() - 1) != ':')
 					{
 						ns.push_back(':');
 					}
@@ -65,14 +63,36 @@ namespace mae
 					sstr << indent_stream.str() << "<" << ns << "preSign>" << std::endl;
 
 					sstr << indent_stream.str() << "\t" << "<" << ns << "prop>" << std::endl;
-					sstr << indent_stream.str() << "\t\t" << "<" << ns << "name>" << name_ << "</" << ns << "name>" << std::endl;
+					sstr << indent_stream.str() << "\t\t" << "<" << ns << "name>" << name_ << "</" << ns << "name>"
+							<< std::endl;
 					if (description_.size() > 0)
 					{
-						sstr << indent_stream.str() << "\t\t" << "<" << ns << "description>" << description_ << "</" << ns << "description>" << std::endl;
+						sstr << indent_stream.str() << "\t\t" << "<" << ns << "description>" << description_ << "</"
+								<< ns << "description>" << std::endl;
 					}
 					sstr << indent_stream.str() << "\t" << "</" << ns << "prop>" << std::endl;
 
 					sstr << indent_stream.str() << "</" << ns << "preSign>" << std::endl;
+
+					return sstr.str();
+				}
+
+				std::string prop::svg(std::string identifier, double posx, double posy, double width, double height,
+						bool left) const
+				{
+					std::stringstream sstr;
+
+					sstr << "\t\t<text" << std::endl;
+
+					sstr << "\t\tx=\"" << posx << "\"" << std::endl;
+					sstr << "\t\ty=\"" << posy << "\"" << std::endl;
+					sstr << "\t\tid=\"" << identifier << "text\"" << std::endl;
+					sstr << "\t\txml:space=\"preserve\"" << std::endl;
+					sstr
+							<< "\t\tstyle=\"font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif\">"
+							<< std::endl;
+					sstr << "prop: " << name_ << std::endl;
+					sstr << "\t\t</text>" << std::endl;
 
 					return sstr.str();
 				}

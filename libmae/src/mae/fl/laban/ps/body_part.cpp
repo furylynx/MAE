@@ -71,6 +71,15 @@ namespace mae
 					return sstr.str();
 				}
 
+				std::string body_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
+				{
+					std::stringstream sstr;
+
+					sstr << part_->svg(identifier, posx, posy, width, height, (side_ == e_side::LEFT));
+
+					return sstr.str();
+				}
+
 				bool body_part::equals(std::shared_ptr<i_pre_sign> a) const
 				{
 					if (std::shared_ptr<body_part> a_casted = std::dynamic_pointer_cast<body_part>(a))

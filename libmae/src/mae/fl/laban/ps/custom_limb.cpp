@@ -80,6 +80,16 @@ namespace mae
 					return sstr.str();
 				}
 
+				std::string custom_limb::svg(std::string identifier, double posx, double posy, double width,
+						double height, bool left) const
+				{
+					std::stringstream sstr;
+
+					//TODO
+
+					return sstr.str();
+				}
+
 				bool custom_limb::equals(std::shared_ptr<i_limb> a) const
 				{
 					if (std::shared_ptr<custom_limb> a_casted = std::dynamic_pointer_cast<custom_limb>(a))
@@ -89,8 +99,8 @@ namespace mae
 							return (fixed_end_ == nullptr && a_casted->get_fixed_end() == nullptr)
 									|| (fixed_end_ != nullptr
 											&& fixed_end_->equals(a_casted->get_extremity()->get_fixed_end()))
-											|| (a_casted->get_fixed_end() != nullptr
-													&& a_casted->get_fixed_end()->equals(extremity_->get_fixed_end()));
+									|| (a_casted->get_fixed_end() != nullptr
+											&& a_casted->get_fixed_end()->equals(extremity_->get_fixed_end()));
 						}
 					}
 
