@@ -193,7 +193,7 @@ namespace mae
 				for (unsigned int i = 0; i < column_definitions_vec_.size(); i++)
 				{
 					//TODO remove
-					std::cout << i+1 << "/" << column_definitions_vec_.size() << std::endl;
+					std::cout << i + 1 << "/" << column_definitions_vec_.size() << std::endl;
 					std::cout << " >> col index " << column_definitions_vec_.at(i)->get_column_index() << std::endl;
 
 					for (std::vector<int>::iterator it = result.begin(); it != result.end(); it++)
@@ -470,7 +470,7 @@ namespace mae
 				sstr << "\theight=\"" << im_height << "\"" << std::endl;
 				sstr << "\tid=\"svg3545\">" << std::endl;
 				sstr << "\t<defs id=\"defs3547\" >" << std::endl;
-				sstr << FILL_PATTERN << std::endl;
+				sstr << svg_fill_pattern("fillpattern", im_width, im_height) << std::endl;
 				sstr << "\t</defs>" << std::endl;
 
 				sstr << "\t<metadata id=\"metadata3550\">" << std::endl;
@@ -493,71 +493,97 @@ namespace mae
 				}
 
 				int total_beats = measures_ * beats_;
-				double beat_height = (im_height - 5) / total_beats;
-				double column_width = (im_width)/(max_index * 2.0);
+				double beat_height = (im_height*(0.85 - 0.01)) / total_beats;
+				double column_width = (im_width) / (max_index * 2.0);
 
 				//draw staff
-				int left_bound = (int)((im_width / 2.0) - (2.0*column_width));
-				int right_bound = (int)((im_width / 2.0) + (2.0*column_width));
-				int bottom_bound = (im_height);
+				int left_bound = (int) ((im_width / 2.0) - (2.0 * column_width));
+				int right_bound = (int) ((im_width / 2.0) + (2.0 * column_width));
+				int bottom_bound = (int)(im_height*0.85);
 				int top_bound = 0;
-				int center = (int)(im_width / 2.0);
+				int center = (int) (im_width / 2.0);
 
 				//bottom line
-				sstr << "\t<path d=\"m " <<left_bound << "," << bottom_bound << " " << right_bound-left_bound << "," << 0 << "\" id=\"bottomline\"" << std::endl;
-				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+				sstr << "\t<path d=\"m " << left_bound << "," << bottom_bound << " " << right_bound - left_bound << ","
+						<< 0 << "\" id=\"bottomline\"" << std::endl;
+				sstr
+						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< std::endl;
 
 				//top line
-				sstr << "\t<path d=\"m " <<left_bound << "," << 0 << " " << (im_width/ 2 + 2*column_width)-left_bound << "," << 0 << "\" id=\"topline\"" << std::endl;
-				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+				sstr << "\t<path d=\"m " << left_bound << "," << 0 << " "
+						<< (im_width / 2 + 2 * column_width) - left_bound << "," << 0 << "\" id=\"topline\""
+						<< std::endl;
+				sstr
+						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< std::endl;
 
 				//draw movement start lines
-				int start_line_y = (int)(im_height - (beat_height*beats_));
+				int start_line_y = (int) (im_height*(0.85) - (beat_height * beats_));
 
-				sstr << "\t<path d=\"m " << left_bound << "," << start_line_y << " " << right_bound-left_bound << "," << 0 << "\" id=\"upperstartline\"" << std::endl;
-				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+				sstr << "\t<path d=\"m " << left_bound << "," << start_line_y << " " << right_bound - left_bound << ","
+						<< 0 << "\" id=\"upperstartline\"" << std::endl;
+				sstr
+						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< std::endl;
 
-				sstr << "\t<path d=\"m " << left_bound << "," << start_line_y - 5 << " " << right_bound-left_bound << "," << 0 << "\" id=\"lowerstartline\"" << std::endl;
-				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+				sstr << "\t<path d=\"m " << left_bound << "," << start_line_y - im_height*(0.01) << " " << right_bound - left_bound
+						<< "," << 0 << "\" id=\"lowerstartline\"" << std::endl;
+				sstr
+						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< std::endl;
 
 				//draw center line
-				sstr << "\t<path d=\"m " << center << "," << top_bound << " " << 0 << "," << bottom_bound-top_bound << "\" id=\"centerline\"" << std::endl;
-				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+				sstr << "\t<path d=\"m " << center << "," << top_bound << " " << 0 << "," << bottom_bound - top_bound
+						<< "\" id=\"centerline\"" << std::endl;
+				sstr
+						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< std::endl;
 
 				//draw right and left line
-				sstr << "\t<path d=\"m " << left_bound << "," << top_bound << " " << 0 << "," << bottom_bound-top_bound << "\" id=\"leftline\"" << std::endl;
-				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+				sstr << "\t<path d=\"m " << left_bound << "," << top_bound << " " << 0 << ","
+						<< bottom_bound - top_bound << "\" id=\"leftline\"" << std::endl;
+				sstr
+						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< std::endl;
 
-				sstr << "\t<path d=\"m " << right_bound << "," << top_bound << " " << 0 << "," << bottom_bound-top_bound << "\" id=\"rightline\"" << std::endl;
-				sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+				sstr << "\t<path d=\"m " << right_bound << "," << top_bound << " " << 0 << ","
+						<< bottom_bound - top_bound << "\" id=\"rightline\"" << std::endl;
+				sstr
+						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< std::endl;
 
 				//draw beat and measure marks
-				for (unsigned int i = beats_ + 1 ; i < measures_ * beats_; i++)
+				for (unsigned int i = beats_ + 1; i < measures_ * beats_; i++)
 				{
-					int mark_pos_y = (int) (im_height - 5 - (i * beat_height));
+					int mark_pos_y = (int) (im_height*(0.85 - 0.01) - (i * beat_height));
 					if ((i % beats_) == 0)
 					{
 						//is a measure -> more width
-						sstr << "\t<path d=\"m " << left_bound << "," << mark_pos_y << " " << right_bound-left_bound << "," << 0 << "\" id=\"measuremark" << i/beats_ << "\"" << std::endl;
-						sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+						sstr << "\t<path d=\"m " << left_bound << "," << mark_pos_y << " " << right_bound - left_bound
+								<< "," << 0 << "\" id=\"measuremark" << i / beats_ << "\"" << std::endl;
+						sstr
+								<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+								<< std::endl;
 					}
 					else
 					{
 						//is a beat -> less width
-						sstr << "\t<path d=\"m " << center - (column_width/4) << "," << mark_pos_y << " " << (column_width/2) << "," << 0 << "\" id=\"beatmark" << i << "\"" << std::endl;
-						sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+						sstr << "\t<path d=\"m " << center - (column_width / 6.0) << "," << mark_pos_y << " "
+								<< (column_width / 3.0) << "," << 0 << "\" id=\"beatmark" << i << "\"" << std::endl;
+						sstr
+								<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+								<< std::endl;
 					}
 				}
 
 				//TODO coldefs...
-
 
 				//handle movements
 				for (unsigned int i = 0; i < movements_vec_.size(); i++)
 				{
 					sstr << movements_vec_.at(i)->svg(im_width, im_height, max_index, measures_, beats_);
 				}
-
 
 				sstr << "\t</g>" << std::endl;
 				sstr << "</svg>" << std::endl;
@@ -580,6 +606,40 @@ namespace mae
 				}
 			}
 
+			std::string laban_sequence::svg_fill_pattern(std::string pattern_name, unsigned int im_width,
+					unsigned int im_height) const
+			{
+				int step = std::ceil(im_height / 25.0);
+
+				std::stringstream sstr;
+
+				sstr << "\t\t<pattern" << std::endl;
+				sstr << "\t\t\t\tid=\" " << pattern_name << "\"" << std::endl;
+				sstr << "\t\t\t\tpatternTransform=\"translate(550.0,-750.0)\"" << std::endl;
+				sstr << "\t\t\t\theight=\"2195.3125\"" << std::endl;
+				sstr << "\t\t\t\twidth=\"2028.4062\"" << std::endl;
+				sstr << "\t\t\t\tpatternUnits=\"userSpaceOnUse\">" << std::endl;
+				sstr << "\t\t\t<g" << std::endl;
+				sstr << "\t\t\t\ttransform=\"translate(639.625,561.71875)\"" << std::endl;
+				sstr << "\t\t\t\tid=\"pattern-graphics\">" << std::endl;
+
+				for (unsigned int i = 0; i < im_height + (im_width * 3); i += step)
+				{
+					sstr << "\t\t\t\t<path" << std::endl;
+					sstr << "\t\t\t\t\tid=\"fillpattern-path" << i << "\"" << std::endl;
+					sstr << "\t\t\t\t\td=\"M " << -im_width << "," << i << " " << im_width * 3 << "," << im_width * 3
+							<< " z\"" << std::endl;
+					sstr
+							<< "\t\t\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+							<< std::endl;
+				}
+
+				sstr << "\t\t</g>" << std::endl;
+				sstr << "\t\t</pattern>";
+
+				return sstr.str();
+			}
+
 			std::string laban_sequence::str() const
 			{
 				return title_;
@@ -587,7 +647,6 @@ namespace mae
 
 			unsigned int laban_sequence::default_beat_duration()
 			{
-				//
 				return 200;
 			}
 

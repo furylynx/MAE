@@ -130,7 +130,7 @@ namespace mae
 						 * @param height The height.
 						 * @return The SVG.
 						 */
-						virtual std::string svg(std::string identifier, int posx, int posy, int width, int height, bool left = false);
+						virtual std::string svg(std::string identifier, double posx, double posy, double width, double height, bool left = false);
 
 						/**
 						 * Returns the string representation for this element.

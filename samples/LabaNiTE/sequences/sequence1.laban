@@ -14,6 +14,16 @@
             <laban:beats>2</laban:beats>
          </laban:measure>
       </laban:timing>
+      <laban:columns>
+         <laban:columnDefinition>
+            <laban:index>5</laban:index>
+            <laban:preSign>
+               <laban:prop>
+                  <laban:name>Prop</laban:name>
+               </laban:prop>
+            </laban:preSign>
+         </laban:columnDefinition>
+      </laban:columns>
       <laban:movements>
          <laban:movement>
             <laban:column>4</laban:column>
@@ -68,17 +78,35 @@
             <laban:direction>
                <laban:vertical>middle</laban:vertical>
                <laban:horizontal>right</laban:horizontal>
+               <laban:spaceMeasurement>
+                  <laban:type>narrow</laban:type>
+                  <laban:degree>1</laban:degree>
+               </laban:spaceMeasurement>
             </laban:direction>
          </laban:movement>
          <laban:movement>
             <laban:column>4</laban:column>
             <laban:measure>1</laban:measure>
-            <laban:beat>1.04</laban:beat>
-            <laban:duration>1.0</laban:duration>
-            <laban:hold>false</laban:hold>
+            <laban:beat>1.2</laban:beat>
+            <laban:duration>0.66</laban:duration>
+            <laban:preSign>
+            <laban:bodyPart>
+               <laban:limb>
+                  <laban:default>
+                     <laban:limb>neck</laban:limb>
+                  </laban:default>
+               </laban:limb>
+               <laban:side>none</laban:side>
+            </laban:bodyPart>
+            </laban:preSign>
+            <laban:hold>true</laban:hold>
             <laban:direction>
                <laban:vertical>middle</laban:vertical>
                <laban:horizontal>left-forward</laban:horizontal>
+               <laban:spaceMeasurement>
+                  <laban:type>unfolding</laban:type>
+                  <laban:degree>1</laban:degree>
+               </laban:spaceMeasurement>
             </laban:direction>
          </laban:movement>
          <laban:movement>
@@ -91,6 +119,120 @@
                <laban:vertical>low</laban:vertical>
                <laban:horizontal>left-forward</laban:horizontal>
             </laban:direction>
+         </laban:movement>
+         <laban:movement>
+            <laban:column>2</laban:column>
+            <laban:measure>1</laban:measure>
+            <laban:beat>0.1</laban:beat>
+            <laban:duration>1.88</laban:duration>
+            <laban:hold>false</laban:hold>
+            <laban:vibration>
+               <laban:displacement>
+                  <laban:vertical>low</laban:vertical>
+                  <laban:horizontal>-1</laban:horizontal>
+               </laban:displacement>
+               <laban:displacement>
+                  <laban:vertical>low</laban:vertical>
+                  <laban:horizontal>-1</laban:horizontal>
+               </laban:displacement>
+            </laban:vibration>
+         </laban:movement>
+         <laban:movement>
+            <laban:column>4</laban:column>
+            <laban:measure>2</laban:measure>
+            <laban:beat>0.13</laban:beat>
+            <laban:duration>0.0</laban:duration>
+            <laban:hold>false</laban:hold>
+            <laban:cancel>
+               <laban:cancel>back-normal</laban:cancel>
+            </laban:cancel>
+         </laban:movement>
+         <laban:movement>
+            <laban:column>4</laban:column>
+            <laban:measure>2</laban:measure>
+            <laban:beat>0.31</laban:beat>
+            <laban:duration>0.0</laban:duration>
+            <laban:hold>false</laban:hold>
+            <laban:cancel>
+               <laban:cancel>release-contact</laban:cancel>
+            </laban:cancel>
+         </laban:movement>
+         <laban:movement>
+            <laban:column>4</laban:column>
+            <laban:measure>2</laban:measure>
+            <laban:beat>0.41</laban:beat>
+            <laban:duration>1.0</laban:duration>
+            <laban:hold>false</laban:hold>
+            <laban:turn>
+               <laban:direction>clockwise</laban:direction>
+               <laban:degree>
+                  <laban:quantitative>
+                     <laban:vertical>low</laban:vertical>
+                     <laban:horizontal>15</laban:horizontal>
+                  </laban:quantitative>
+               </laban:degree>
+            </laban:turn>
+         </laban:movement>
+         <laban:movement>
+            <laban:column>-1</laban:column>
+            <laban:measure>1</laban:measure>
+            <laban:beat>0.05</laban:beat>
+            <laban:duration>1.0</laban:duration>
+            <laban:hold>false</laban:hold>
+            <laban:direction>
+               <laban:vertical>middle</laban:vertical>
+               <laban:horizontal>place</laban:horizontal>
+            </laban:direction>
+         </laban:movement>
+         <laban:movement>
+            <laban:column>-3</laban:column>
+            <laban:measure>1</laban:measure>
+            <laban:beat>0.01</laban:beat>
+            <laban:duration>1.0</laban:duration>
+            <laban:hold>false</laban:hold>
+            <laban:turn>
+               <laban:direction>clockwise</laban:direction>
+               <laban:degree>
+                  <laban:quantitative>
+                     <laban:vertical>low</laban:vertical>
+                     <laban:horizontal>90</laban:horizontal>
+                  </laban:quantitative>
+               </laban:degree>
+            </laban:turn>
+         </laban:movement>
+         <laban:relationship>
+            <laban:type>address</laban:type>
+            <laban:grasping>true</laban:grasping>
+            <laban:passing>false</laban:passing>
+            <laban:hold>false</laban:hold>
+            <laban:measure>2</laban:measure>
+            <laban:beat>1.5</laban:beat>
+            <laban:endPoints>
+               <laban:left>
+                  <laban:column>-2</laban:column>
+                  <laban:active>false</laban:active>
+               </laban:left>
+               <laban:right>
+                  <laban:column>-1</laban:column>
+                  <laban:active>false</laban:active>
+               </laban:right>
+            </laban:endPoints>
+         </laban:relationship>
+         <laban:movement>
+            <laban:column>-3</laban:column>
+            <laban:measure>1</laban:measure>
+            <laban:beat>1.4</laban:beat>
+            <laban:duration>1.0</laban:duration>
+            <laban:hold>false</laban:hold>
+            <laban:turn>
+               <laban:direction>clockwise</laban:direction>
+               <laban:degree>
+                  <laban:quantitative>
+                     <laban:vertical>low</laban:vertical>
+                     <laban:horizontal>0</laban:horizontal>
+                  </laban:quantitative>
+               </laban:degree>
+            </laban:turn>
          </laban:movement>
       </laban:movements>
    </laban:staff>

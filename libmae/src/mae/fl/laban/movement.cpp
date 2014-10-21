@@ -149,25 +149,55 @@ namespace mae
 
 				int total_beats = measures * beats_per_measure;
 				double column_width = (im_width)/(max_column * 2.0);
-				double beat_height = (im_height - 5) / total_beats;
+				double beat_height = (im_height*(0.85 - 0.01)) / total_beats;
 
-				int draw_w = (int)(column_width / 2);
-				int draw_x_pos = (int)((im_width / 2.0) + ((column_ - (mae::math::math::sign(column_)*0.5) - 0.25)*column_width));
+				double draw_w = column_width / 2.0;
+				double draw_x_pos = (im_width / 2.0) + ((column_ - (mae::math::math::sign(column_)*0.5) - 0.25)*column_width);
 
-				int draw_y_pos = 0;
-				int draw_h = 0;
+				double draw_y_pos = 0;
+				double draw_h = 0;
 
 				if (measure_ != 0)
 				{
-					draw_y_pos = (int) (im_height - (measure_ * beats_per_measure + beat_
-															+ duration_) * beat_height) - 5;
-					draw_h = (int) (beat_height * duration_);
+					draw_y_pos = im_height*(0.85 - 0.01) - (measure_ * beats_per_measure + beat_
+															+ duration_) * beat_height;
+					draw_h = beat_height * duration_;
 				}
 				else
 				{
-					draw_y_pos = (int) (im_height - (measure_ * beats_per_measure + beat_
-						+ beats_per_measure) * beat_height);
-					draw_h = (int) (beat_height * beats_per_measure);
+					draw_y_pos = im_height*(0.85) - (measure_ * beats_per_measure + beat_
+						+ beats_per_measure) * beat_height;
+					draw_h = beat_height * beats_per_measure;
+				}
+
+				double draw_hold_y = 0;
+				double draw_hold_h = im_height*0.05;
+
+				if (hold_)
+				{
+					draw_hold_y = draw_y_pos;
+
+					draw_y_pos += im_height*0.05;
+					draw_h -= im_height*0.05;
+
+					if (draw_h < 0)
+					{
+						draw_y_pos += draw_h;
+						draw_h = 0.01;
+					}
+				}
+
+				double draw_ps_h = im_height*0.05;
+				if (pre_sign_ != nullptr)
+				{
+					//reduce height
+					draw_h -= im_height*0.05;
+
+					if (draw_h < 0)
+					{
+						draw_h = 0.01;
+						draw_ps_h = 0.01;
+					}
 				}
 
 
@@ -176,6 +206,23 @@ namespace mae
 				std::string identifier = id_sstr.str();
 
 				sstr << symbol_->svg(identifier, draw_x_pos, draw_y_pos, draw_w, draw_h, (column_ < 0));
+
+				//draw hold sign
+				if (hold_)
+				{
+					//draw circle
+					sstr << "\t\t<path" << std::endl;
+					sstr << "\t\t\td=\"m " << draw_x_pos + draw_w/2.0 + draw_hold_h/2.0 << "," << draw_hold_y << " a " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 -" << draw_hold_h << ",0 " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 " << draw_hold_h << ",0 z\"" << std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-circle\"" << std::endl;
+					sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:none\" />" << std::endl;
+				}
+
+				if (pre_sign_ != nullptr)
+				{
+					//TODO pre sign
+					//draw_ps_h
+					//draw_ps_y = draw_y_pos + draw_h
+				}
 
 				return sstr.str();
 			}
