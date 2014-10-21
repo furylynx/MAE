@@ -192,22 +192,18 @@ namespace mae
 				//insert all defined columns too regarding the order of the vector
 				for (unsigned int i = 0; i < column_definitions_vec_.size(); i++)
 				{
-					//TODO remove
-					std::cout << i + 1 << "/" << column_definitions_vec_.size() << std::endl;
-					std::cout << " >> col index " << column_definitions_vec_.at(i)->get_column_index() << std::endl;
-
-					for (std::vector<int>::iterator it = result.begin(); it != result.end(); it++)
+					std::vector<int>::iterator it;
+					for (it = result.begin(); it != result.end(); it++)
 					{
 						if (*it > column_definitions_vec_.at(i)->get_column_index())
 						{
-							result.insert(it, column_definitions_vec_.at(i)->get_column_index());
 							break;
 						}
 					}
+					result.insert(it, column_definitions_vec_.at(i)->get_column_index());
 				}
 
 				return result;
-
 			}
 
 			void laban_sequence::set_movements(std::vector<std::shared_ptr<i_movement> > movements)
@@ -492,7 +488,7 @@ namespace mae
 					max_index = cols.back();
 				}
 
-				int total_beats = measures_ * beats_;
+				unsigned int total_beats = (measures_ + 1) * beats_;
 				double beat_height = (im_height*(0.85 - 0.01)) / total_beats;
 				double column_width = (im_width) / (max_index * 2.0);
 
@@ -554,7 +550,7 @@ namespace mae
 						<< std::endl;
 
 				//draw beat and measure marks
-				for (unsigned int i = beats_ + 1; i < measures_ * beats_; i++)
+				for (unsigned int i = beats_ + 1; i < total_beats; i++)
 				{
 					int mark_pos_y = (int) (im_height*(0.85 - 0.01) - (i * beat_height));
 					if ((i % beats_) == 0)
@@ -577,7 +573,11 @@ namespace mae
 					}
 				}
 
-				//TODO coldefs...
+				//handle column definitions
+				for (unsigned int i = 0; i < column_definitions_vec_.size(); i++)
+				{
+					sstr << column_definitions_vec_.at(i)->svg(im_width, im_height, max_index, measures_, beats_);
+				}
 
 				//handle movements
 				for (unsigned int i = 0; i < movements_vec_.size(); i++)
@@ -615,12 +615,12 @@ namespace mae
 
 				sstr << "\t\t<pattern" << std::endl;
 				sstr << "\t\t\t\tid=\"" << pattern_name << "\"" << std::endl;
-				sstr << "\t\t\t\tpatternTransform=\"translate(550.0,-750.0)\"" << std::endl;
-				sstr << "\t\t\t\theight=\"2195.3125\"" << std::endl;
-				sstr << "\t\t\t\twidth=\"2028.4062\"" << std::endl;
+//				sstr << "\t\t\t\tpatternTransform=\"translate(550.0,-750.0)\"" << std::endl;
+				sstr << "\t\t\t\theight=\"" << im_height << "\"" << std::endl;
+				sstr << "\t\t\t\twidth=\"" << im_width << "\"" << std::endl;
 				sstr << "\t\t\t\tpatternUnits=\"userSpaceOnUse\">" << std::endl;
 				sstr << "\t\t\t<g" << std::endl;
-				sstr << "\t\t\t\ttransform=\"translate(639.625,561.71875)\"" << std::endl;
+//				sstr << "\t\t\t\ttransform=\"translate(0.0,561.71875)\"" << std::endl;
 				sstr << "\t\t\t\tid=\"pattern-graphics\">" << std::endl;
 
 				for (unsigned int i = 0; i < im_height + (im_width * 3); i += step)

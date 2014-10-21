@@ -45,7 +45,7 @@ namespace mae
 					}
 
 					std::string ns = namesp;
-					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					if (ns.size() > 0 && ns.at(ns.size() - 1) != ':')
 					{
 						ns.push_back(':');
 					}
@@ -59,8 +59,8 @@ namespace mae
 					sstr << indent_stream.str() << "\t" << "<" << ns << "default>" << std::endl;
 
 					//print limb
-					sstr << indent_stream.str() << "\t\t" << "<" << ns << "limb>" << e_limb_c::str(limb_) << "</" << ns << "limb>"
-							<< std::endl;
+					sstr << indent_stream.str() << "\t\t" << "<" << ns << "limb>" << e_limb_c::str(limb_) << "</" << ns
+							<< "limb>" << std::endl;
 
 					sstr << indent_stream.str() << "\t" << "</" << ns << "default>" << std::endl;
 
@@ -69,7 +69,8 @@ namespace mae
 					return sstr.str();
 				}
 
-				std::string default_limb::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
+				std::string default_limb::svg(std::string identifier, double posx, double posy, double width,
+						double height, bool left) const
 				{
 					std::stringstream sstr;
 
@@ -77,42 +78,63 @@ namespace mae
 
 					if (limb_ == e_limb::UPPER_ARM)
 					{
-						sstr << "d=\"m " << posx << "," << posy << " " << 0 << "," << 2.0*height/3.0 << "  m  " << posx+width << "," << posy+height/3.0 << " " << -3*width/4.0 << "," << -height/3.0 << "  " << 0 << "," << 2*height/3.0 << " " << 3*width/4.0 << "," << height/3.0 << "\"" << std::endl;
+						sstr << "d=\"m " << posx << "," << posy << " " << 0 << "," << 3.0 * height / 4.0 << "  m  "
+								<< width << "," << -2 * height / 4.0 << " " << -3 * width / 4.0 << "," << -height / 4.0
+								<< "  " << 0 << "," << 3 * height / 4.0 << " " << 3 * width / 4.0 << "," << height / 4.0
+								<< "\"" << std::endl;
 					}
 					else if (limb_ == e_limb::LOWER_ARM)
 					{
-						sstr << "d=\"m " << posx << "," << posy << " " << 0 << "," << 2.0*height/3.0 << "  m  " << posx+width << "," << posy+height/3.0 << " " << -3*width/4.0 << "," << -height/3.0 << "  " << 0 << "," << 2*height/3.0 << " " << 3*width/4.0 << "," << height/3.0 << " m " << posx+width/4.0 << "," << posy+height/3.0 << " " << 3*width/4.0 << "," << height/3.0 << "\"" << std::endl;
+						sstr << "d=\"m " << posx << "," << posy << " " << 0 << "," << 3.0 * height / 4.0 << "  m  "
+								<< width << "," << -2 * height / 4.0 << " " << -3 * width / 4.0 << "," << -height / 4.0
+								<< "  " << 0 << "," << 3 * height / 4.0 << " " << 3 * width / 4.0 << "," << height / 4.0
+								<< " m " << -3 * width / 4.0 << "," << -2.5 * height / 4.0 << " " << 3 * width / 4.0
+								<< "," << height / 4.0 << "\"" << std::endl;
 					}
 					else if (limb_ == e_limb::ARM)
 					{
-
+						sstr << "d=\"m " << posx << "," << posy + height << " " << 0 << "," << -height << " " << width
+								<< "," << height / 4.0 << "  m " << -width / 3.0 << "," << -height / 12.0 << " " << 0
+								<< "," << 10 * height / 12.0 << "\"" << std::endl;
 					}
 					else if (limb_ == e_limb::THIGH)
 					{
-
+						sstr << "d=\"m " << posx << "," << posy << " " << 0 << "," << height << "  m  " << width / 2.0
+								<< "," << 0 << " " << 0 << "," << -height << " m " << 0 << "," << height / 3.0 << " "
+								<< width / 2.0 << "," << 0 << " m " << 0 << "," << height / 3.0 << " " << -width / 2.0
+								<< "," << 0 << "\"" << std::endl;
 					}
 					else if (limb_ == e_limb::LOWER_LEG)
 					{
-
+						sstr << "d=\"m " << posx << "," << posy << " " << 0 << "," << height << "  m  " << width / 2.0
+								<< "," << 0 << " " << 0 << "," << -height << " m " << 0 << "," << height / 4.0 << " "
+								<< width / 2.0 << "," << 0 << " m " << 0 << "," << height / 4.0 << " " << -width / 2.0
+								<< "," << 0 << " m " << 0 << "," << height / 4.0 << " " << width / 2.0 << "," << 0
+								<< "\"" << std::endl;
 					}
 					else if (limb_ == e_limb::LEG)
 					{
-
+						sstr << "d=\"m " << posx << "," << posy << " " << 0 << "," << height << "  m  " << 0 << ","
+								<< -3 * height / 4.0 << " " << width << "," << 0 << " m " << -width / 2.0 << ","
+								<< -height / 4.0 << " " << 0 << "," << height << "\"" << std::endl;
 					}
 					else if (limb_ == e_limb::NECK)
 					{
-
+						sstr << "d=\"m " << posx + width / 3.0 << "," << posy + 2 * height / 3.0 << " " << 0 << ","
+								<< height / 3.0 << " m " << width / 3.0 << "," << 0 << " " << 0 << "," << -height / 3.0
+								<< "  m " << width / 3.0 << "," << -height / 6.0 << " c " << -width * 1.5 << ","
+								<< width << " " << -width * 1.5 << "," << -width - height / 2.0 << " " << 0 << ","
+								<< -height / 2.0 << "\"" << std::endl;
 					}
 
-
-					if (left)
+					if (left && limb_ != e_limb::NECK)
 					{
-						sstr << "transform=\"translate(2000), scale(-1, 1)\"" << std::endl;
+						sstr << "transform=\"matrix(-1,0,0,1," << 2 * posx + width << ",0)\"" << std::endl; //transform=\"translate(" << -width << "), scale(-1, 1)
 					}
 
 					sstr << "\t\t\tid=\"" << identifier << "customlimb\"" << std::endl;
 					sstr
-							<< "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
+							<< "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:4pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
 							<< std::endl;
 					sstr << "\t\t\t/>" << std::endl;
 

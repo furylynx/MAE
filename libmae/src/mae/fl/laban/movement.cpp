@@ -147,7 +147,7 @@ namespace mae
 			{
 				std::stringstream sstr;
 
-				int total_beats = measures * beats_per_measure;
+				int total_beats = (measures + 1) * beats_per_measure;
 				double column_width = (im_width)/(max_column * 2.0);
 				double beat_height = (im_height*(0.85 - 0.01)) / total_beats;
 
@@ -171,14 +171,14 @@ namespace mae
 				}
 
 				double draw_hold_y = 0;
-				double draw_hold_h = im_height*0.05;
+				double draw_hold_h = im_height*0.03;
 
 				if (hold_)
 				{
 					draw_hold_y = draw_y_pos;
 
-					draw_y_pos += im_height*0.05;
-					draw_h -= im_height*0.05;
+					draw_y_pos += im_height*0.03;
+					draw_h -= im_height*0.03;
 
 					if (draw_h < 0)
 					{
@@ -214,14 +214,14 @@ namespace mae
 					sstr << "\t\t<path" << std::endl;
 					sstr << "\t\t\td=\"m " << draw_x_pos + draw_w/2.0 + draw_hold_h/2.0 << "," << draw_hold_y << " a " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 -" << draw_hold_h << ",0 " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 " << draw_hold_h << ",0 z\"" << std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-circle\"" << std::endl;
-					sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:none\" />" << std::endl;
+					sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
 				}
 
 				if (pre_sign_ != nullptr)
 				{
-					//TODO pre sign
-					//draw_ps_h
-					//draw_ps_y = draw_y_pos + draw_h
+					//pre sign
+					double draw_ps_y = draw_y_pos + draw_h;
+					sstr << pre_sign_->svg(identifier, draw_x_pos, draw_ps_y, draw_w, draw_ps_h);
 				}
 
 				return sstr.str();
