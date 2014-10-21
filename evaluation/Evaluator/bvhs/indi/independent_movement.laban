@@ -85,7 +85,7 @@
             <laban:column>4</laban:column>
             <laban:measure>1</laban:measure>
             <laban:beat>0.0</laban:beat>
-            <laban:duration>1.25</laban:duration>
+            <laban:duration>1.18</laban:duration>
             <laban:hold>false</laban:hold>
             <laban:direction>
                <laban:vertical>low</laban:vertical>
@@ -95,8 +95,8 @@
          <laban:movement>
             <laban:column>4</laban:column>
             <laban:measure>1</laban:measure>
-            <laban:beat>1.25</laban:beat>
-            <laban:duration>1.25</laban:duration>
+            <laban:beat>1.18</laban:beat>
+            <laban:duration>1.23</laban:duration>
             <laban:hold>false</laban:hold>
             <laban:direction>
                <laban:vertical>middle</laban:vertical>
@@ -106,8 +106,8 @@
          <laban:movement>
             <laban:column>4</laban:column>
             <laban:measure>1</laban:measure>
-            <laban:beat>2.5</laban:beat>
-            <laban:duration>1.25</laban:duration>
+            <laban:beat>2.42</laban:beat>
+            <laban:duration>1.29</laban:duration>
             <laban:hold>false</laban:hold>
             <laban:direction>
                <laban:vertical>high</laban:vertical>
@@ -117,8 +117,8 @@
          <laban:movement>
             <laban:column>4</laban:column>
             <laban:measure>1</laban:measure>
-            <laban:beat>3.75</laban:beat>
-            <laban:duration>1.25</laban:duration>
+            <laban:beat>3.72</laban:beat>
+            <laban:duration>1.26</laban:duration>
             <laban:hold>false</laban:hold>
             <laban:direction>
                <laban:vertical>high</laban:vertical>
