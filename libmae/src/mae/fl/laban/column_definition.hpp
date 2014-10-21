@@ -15,6 +15,8 @@
 #include "../../e_bone.hpp"
 #include "../../bone.hpp"
 
+#include "../../math/math.hpp"
+
 #include "ps/i_pre_sign.hpp"
 #include "ps/area_part.hpp"
 #include "ps/default_limb.hpp"
@@ -76,6 +78,17 @@ namespace mae
 				 * @return The XML string.
 				 */
 				virtual std::string xml(unsigned int indent = 0, std::string namesp = "") const;
+
+				/**
+				 * Returns the SVG representation for this element.
+				 *
+				 * @param posx The x pos.
+				 * @param posy The y pos.
+				 * @param width The width.
+				 * @param height The height.
+				 * @return The SVG.
+				 */
+				virtual std::string svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const;
 
 				/**
 				 * Returns true if signs are equal.

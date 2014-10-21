@@ -38,7 +38,7 @@ namespace mae
 						 * @param a The sign to be compared to.
 						 * @return True if equal.
 						 */
-						virtual bool equals(std::shared_ptr<i_dynamics_sign> a) = 0;
+						virtual bool equals(std::shared_ptr<i_dynamics_sign> a) const = 0;
 
 						/**
 						 * Returns the xml string representation for the sign.
@@ -47,7 +47,7 @@ namespace mae
 						 * @param namesp The namespace if any.
 						 * @return The xml string.
 						 */
-						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") = 0;
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") const = 0;
 				};
 
 			} // namespace mv

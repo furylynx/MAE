@@ -30,12 +30,12 @@ namespace mae
 				{
 				}
 
-				e_cancel cancellation_symbol::get_cancel()
+				e_cancel cancellation_symbol::get_cancel() const
 				{
 					return cancel_;
 				}
 
-				bool cancellation_symbol::equals(std::shared_ptr<i_symbol> a)
+				bool cancellation_symbol::equals(std::shared_ptr<i_symbol> a) const
 				{
 					if (std::shared_ptr<cancellation_symbol> a_c = std::dynamic_pointer_cast<cancellation_symbol>(a))
 					{
@@ -48,7 +48,7 @@ namespace mae
 					return false;
 				}
 
-				std::string cancellation_symbol::xml(unsigned int indent, std::string namesp)
+				std::string cancellation_symbol::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 
@@ -76,7 +76,7 @@ namespace mae
 
 				}
 
-				std::string cancellation_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left)
+				std::string cancellation_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
 					std::stringstream sstr;
 

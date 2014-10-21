@@ -45,7 +45,7 @@ namespace mae
 						 * Returns the accent.
 						 * @return
 						 */
-						unsigned int get_accent();
+						unsigned int get_accent() const;
 
 						/**
 						 * Returns true if signs are equal.
@@ -53,7 +53,7 @@ namespace mae
 						 * @param a The sign to be compared to.
 						 * @return True if equal.
 						 */
-						virtual bool equals(std::shared_ptr<i_dynamics_sign> a);
+						virtual bool equals(std::shared_ptr<i_dynamics_sign> a) const;
 
 						/**
 						 * Returns the XML representation for this element.
@@ -63,7 +63,7 @@ namespace mae
 						 *
 						 * @return The XML string.
 						 */
-						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") const;
 
 					private:
 						unsigned int accent_;

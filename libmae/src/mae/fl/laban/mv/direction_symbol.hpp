@@ -58,49 +58,49 @@ namespace mae
 						 *
 						 * @return The level.
 						 */
-						e_level get_vertical();
+						e_level get_vertical() const;
 
 						/**
 						 * Returns the (horizontal) direction of this symbol.
 						 *
 						 * @return The direction.
 						 */
-						e_direction get_horizontal();
+						e_direction get_horizontal() const;
 
 						/**
 						 * Returns the applied modification pin if any. Returns null otherwise.
 						 *
 						 * @return A shared pointer to the pin.
 						 */
-						std::shared_ptr<pin> get_modification_pin();
+						std::shared_ptr<pin> get_modification_pin() const;
 
 						/**
 						 * Returns the relationship pin if any. Returns null otherwise.
 						 *
 						 * @return A shared pointer to the pin.
 						 */
-						std::shared_ptr<pin> get_relationship_pin();
+						std::shared_ptr<pin> get_relationship_pin() const;
 
 						/**
 						 * Returns the dynamics sign if any. Returns null otherwise.
 						 *
 						 * @return A shared pointer to the dynamics sign.
 						 */
-						std::shared_ptr<i_dynamics_sign> get_dynamics();
+						std::shared_ptr<i_dynamics_sign> get_dynamics() const;
 
 						/**
 						 * Returns the space measurement sign if any. Returns null otherwise.
 						 *
 						 * @return A shared pointer to the space measurement.
 						 */
-						std::shared_ptr<space_measurement> get_space_measurement();
+						std::shared_ptr<space_measurement> get_space_measurement() const;
 
 						/**
 						 * Returns the contact hook. Contact hook is set to NONE if unused.
 						 *
 						 * @return The contact hook.
 						 */
-						e_contact_hook get_contact_hook();
+						e_contact_hook get_contact_hook() const;
 
 						/**
 						 * Returns true if signs are equal.
@@ -109,7 +109,7 @@ namespace mae
 						 * @return True if equal.
 						 */
 
-						virtual bool equals(std::shared_ptr<i_symbol> a);
+						virtual bool equals(std::shared_ptr<i_symbol> a) const;
 
 						/**
 						 * Returns the XML representation for this element.
@@ -119,7 +119,7 @@ namespace mae
 						 *
 						 * @return The XML string.
 						 */
-						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") const;
 
 						/**
 						 * Returns the SVG representation for this symbol.
@@ -130,7 +130,7 @@ namespace mae
 						 * @param height The height.
 						 * @return The SVG.
 						 */
-						virtual std::string svg(std::string identifier, double posx, double posy, double width, double height, bool left = false);
+						virtual std::string svg(std::string identifier, double posx, double posy, double width, double height, bool left = false) const;
 
 						/**
 						 * Returns the string representation for this element.

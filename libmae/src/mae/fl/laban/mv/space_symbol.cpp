@@ -32,17 +32,17 @@ namespace mae
 				{
 				}
 
-				std::shared_ptr<i_dynamics_sign> space_symbol::get_dynamics()
+				std::shared_ptr<i_dynamics_sign> space_symbol::get_dynamics() const
 				{
 					return dynamics_;
 				}
 
-				std::shared_ptr<space_measurement> space_symbol::get_space_measurement()
+				std::shared_ptr<space_measurement> space_symbol::get_space_measurement() const
 				{
 					return space_measurement_;
 				}
 
-				bool space_symbol::equals(std::shared_ptr<i_symbol> a)
+				bool space_symbol::equals(std::shared_ptr<i_symbol> a) const
 				{
 					if (std::shared_ptr<space_symbol> a_space = std::dynamic_pointer_cast<space_symbol>(a))
 					{
@@ -63,7 +63,7 @@ namespace mae
 					return false;
 				}
 
-				std::string space_symbol::xml(unsigned int indent, std::string namesp)
+				std::string space_symbol::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 
@@ -95,7 +95,7 @@ namespace mae
 					return sstr.str();
 				}
 
-				std::string space_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left)
+				std::string space_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
 					std::stringstream sstr;
 
