@@ -53,6 +53,15 @@ namespace mae
 					return sstr.str();
 				}
 
+				std::string area_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
+				{
+					std::stringstream sstr;
+
+					//TODO
+
+					return sstr.str();
+				}
+
 				std::shared_ptr<i_endpoint> area_part::get_fixed_end() const
 				{
 					std::shared_ptr<i_endpoint> result;

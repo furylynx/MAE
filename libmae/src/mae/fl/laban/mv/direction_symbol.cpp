@@ -39,42 +39,42 @@ namespace mae
 				{
 				}
 
-				e_level direction_symbol::get_vertical()
+				e_level direction_symbol::get_vertical() const
 				{
 					return vertical_;
 				}
 
-				e_direction direction_symbol::get_horizontal()
+				e_direction direction_symbol::get_horizontal() const
 				{
 					return horizontal_;
 				}
 
-				std::shared_ptr<pin> direction_symbol::get_modification_pin()
+				std::shared_ptr<pin> direction_symbol::get_modification_pin() const
 				{
 					return modification_pin_;
 				}
 
-				std::shared_ptr<pin> direction_symbol::get_relationship_pin()
+				std::shared_ptr<pin> direction_symbol::get_relationship_pin() const
 				{
 					return relationship_pin_;
 				}
 
-				std::shared_ptr<i_dynamics_sign> direction_symbol::get_dynamics()
+				std::shared_ptr<i_dynamics_sign> direction_symbol::get_dynamics() const
 				{
 					return dynamics_;
 				}
 
-				std::shared_ptr<space_measurement> direction_symbol::get_space_measurement()
+				std::shared_ptr<space_measurement> direction_symbol::get_space_measurement() const
 				{
 					return space_measurement_;
 				}
 
-				e_contact_hook direction_symbol::get_contact_hook()
+				e_contact_hook direction_symbol::get_contact_hook() const
 				{
 					return contact_hook_;
 				}
 
-				bool direction_symbol::equals(std::shared_ptr<i_symbol> a)
+				bool direction_symbol::equals(std::shared_ptr<i_symbol> a) const
 				{
 					if (std::shared_ptr<direction_symbol> a_dir = std::dynamic_pointer_cast<direction_symbol>(a))
 					{
@@ -111,7 +111,7 @@ namespace mae
 					return false;
 				}
 
-				std::string direction_symbol::xml(unsigned int indent, std::string namesp)
+				std::string direction_symbol::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 
@@ -171,7 +171,7 @@ namespace mae
 					return sstr.str();
 				}
 
-				std::string direction_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left)
+				std::string direction_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
 					std::stringstream sstr;
 

@@ -504,53 +504,53 @@ namespace mae
 				int center = (int) (im_width / 2.0);
 
 				//bottom line
-				sstr << "\t<path d=\"m " << left_bound << "," << bottom_bound << " " << right_bound - left_bound << ","
+				sstr << "\t\t<path d=\"m " << left_bound << "," << bottom_bound << " " << right_bound - left_bound << ","
 						<< 0 << "\" id=\"bottomline\"" << std::endl;
 				sstr
-						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
 				//top line
-				sstr << "\t<path d=\"m " << left_bound << "," << 0 << " "
+				sstr << "\t\t<path d=\"m " << left_bound << "," << 0 << " "
 						<< (im_width / 2 + 2 * column_width) - left_bound << "," << 0 << "\" id=\"topline\""
 						<< std::endl;
 				sstr
-						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
 				//draw movement start lines
 				int start_line_y = (int) (im_height*(0.85) - (beat_height * beats_));
 
-				sstr << "\t<path d=\"m " << left_bound << "," << start_line_y << " " << right_bound - left_bound << ","
+				sstr << "\t\t<path d=\"m " << left_bound << "," << start_line_y << " " << right_bound - left_bound << ","
 						<< 0 << "\" id=\"upperstartline\"" << std::endl;
 				sstr
-						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
-				sstr << "\t<path d=\"m " << left_bound << "," << start_line_y - im_height*(0.01) << " " << right_bound - left_bound
+				sstr << "\t\t<path d=\"m " << left_bound << "," << start_line_y - im_height*(0.01) << " " << right_bound - left_bound
 						<< "," << 0 << "\" id=\"lowerstartline\"" << std::endl;
 				sstr
-						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
 				//draw center line
-				sstr << "\t<path d=\"m " << center << "," << top_bound << " " << 0 << "," << bottom_bound - top_bound
+				sstr << "\t\t<path d=\"m " << center << "," << top_bound << " " << 0 << "," << bottom_bound - top_bound
 						<< "\" id=\"centerline\"" << std::endl;
 				sstr
-						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
 				//draw right and left line
-				sstr << "\t<path d=\"m " << left_bound << "," << top_bound << " " << 0 << ","
+				sstr << "\t\t<path d=\"m " << left_bound << "," << top_bound << " " << 0 << ","
 						<< bottom_bound - top_bound << "\" id=\"leftline\"" << std::endl;
 				sstr
-						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
-				sstr << "\t<path d=\"m " << right_bound << "," << top_bound << " " << 0 << ","
+				sstr << "\t\t<path d=\"m " << right_bound << "," << top_bound << " " << 0 << ","
 						<< bottom_bound - top_bound << "\" id=\"rightline\"" << std::endl;
 				sstr
-						<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
 				//draw beat and measure marks
@@ -560,19 +560,19 @@ namespace mae
 					if ((i % beats_) == 0)
 					{
 						//is a measure -> more width
-						sstr << "\t<path d=\"m " << left_bound << "," << mark_pos_y << " " << right_bound - left_bound
+						sstr << "\t\t<path d=\"m " << left_bound << "," << mark_pos_y << " " << right_bound - left_bound
 								<< "," << 0 << "\" id=\"measuremark" << i / beats_ << "\"" << std::endl;
 						sstr
-								<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+								<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 								<< std::endl;
 					}
 					else
 					{
 						//is a beat -> less width
-						sstr << "\t<path d=\"m " << center - (column_width / 6.0) << "," << mark_pos_y << " "
+						sstr << "\t\t<path d=\"m " << center - (column_width / 6.0) << "," << mark_pos_y << " "
 								<< (column_width / 3.0) << "," << 0 << "\" id=\"beatmark" << i << "\"" << std::endl;
 						sstr
-								<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+								<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 								<< std::endl;
 					}
 				}
@@ -614,7 +614,7 @@ namespace mae
 				std::stringstream sstr;
 
 				sstr << "\t\t<pattern" << std::endl;
-				sstr << "\t\t\t\tid=\" " << pattern_name << "\"" << std::endl;
+				sstr << "\t\t\t\tid=\"" << pattern_name << "\"" << std::endl;
 				sstr << "\t\t\t\tpatternTransform=\"translate(550.0,-750.0)\"" << std::endl;
 				sstr << "\t\t\t\theight=\"2195.3125\"" << std::endl;
 				sstr << "\t\t\t\twidth=\"2028.4062\"" << std::endl;
@@ -627,14 +627,14 @@ namespace mae
 				{
 					sstr << "\t\t\t\t<path" << std::endl;
 					sstr << "\t\t\t\t\tid=\"fillpattern-path" << i << "\"" << std::endl;
-					sstr << "\t\t\t\t\td=\"M " << -im_width << "," << i << " " << im_width * 3 << "," << im_width * 3
-							<< " z\"" << std::endl;
+					sstr << "\t\t\t\t\td=\"m " << -(int)im_width << "," << i << " " << im_width * 3.0 << "," << -(int)im_width * 3.0
+							<< "\"" << std::endl;
 					sstr
-							<< "\t\t\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+							<< "\t\t\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
 							<< std::endl;
 				}
 
-				sstr << "\t\t</g>" << std::endl;
+				sstr << "\t\t\t</g>" << std::endl;
 				sstr << "\t\t</pattern>";
 
 				return sstr.str();

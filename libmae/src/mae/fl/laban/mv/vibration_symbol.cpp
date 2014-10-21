@@ -35,22 +35,22 @@ namespace mae
 				{
 				}
 
-				std::shared_ptr<i_dynamics_sign> vibration_symbol::get_dynamics()
+				std::shared_ptr<i_dynamics_sign> vibration_symbol::get_dynamics() const
 				{
 					return dynamics_;
 				}
 
-				std::shared_ptr<pin> vibration_symbol::get_displacement1()
+				std::shared_ptr<pin> vibration_symbol::get_displacement1() const
 				{
 					return displacement1_;
 				}
 
-				std::shared_ptr<pin> vibration_symbol::get_displacement2()
+				std::shared_ptr<pin> vibration_symbol::get_displacement2() const
 				{
 					return displacement2_;
 				}
 
-				bool vibration_symbol::equals(std::shared_ptr<i_symbol> a)
+				bool vibration_symbol::equals(std::shared_ptr<i_symbol> a) const
 				{
 					if (std::shared_ptr<vibration_symbol> a_vib = std::dynamic_pointer_cast<vibration_symbol>(a))
 					{
@@ -72,7 +72,7 @@ namespace mae
 					return false;
 				}
 
-				std::string vibration_symbol::xml(unsigned int indent, std::string namesp)
+				std::string vibration_symbol::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 
@@ -112,7 +112,7 @@ namespace mae
 
 				}
 
-				std::string vibration_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left)
+				std::string vibration_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
 					std::stringstream sstr;
 

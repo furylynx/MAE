@@ -45,7 +45,7 @@ namespace mae
 						 *
 						 * @return The cancellation type.
 						 */
-						e_cancel get_cancel();
+						e_cancel get_cancel() const;
 
 						/**
 						 * Returns true if signs are equal.
@@ -53,7 +53,7 @@ namespace mae
 						 * @param a The sign to be compared to.
 						 * @return True if equal.
 						 */
-						virtual bool equals(std::shared_ptr<i_symbol> a);
+						virtual bool equals(std::shared_ptr<i_symbol> a) const;
 
 						/**
 						 * Returns the XML representation for this element.
@@ -63,7 +63,7 @@ namespace mae
 						 *
 						 * @return The XML string.
 						 */
-						virtual std::string xml(unsigned int indent = 0, std::string namesp = "");
+						virtual std::string xml(unsigned int indent = 0, std::string namesp = "") const;
 
 						/**
 						 * Returns the SVG representation for this symbol.
@@ -74,7 +74,7 @@ namespace mae
 						 * @param height The height.
 						 * @return The SVG.
 						 */
-						virtual std::string svg(std::string identifier, double posx, double posy, double width, double height, bool left = false);
+						virtual std::string svg(std::string identifier, double posx, double posy, double width, double height, bool left = false) const;
 
 						/**
 						 * Returns the string representation for this element.

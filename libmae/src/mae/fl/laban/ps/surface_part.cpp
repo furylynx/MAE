@@ -68,6 +68,15 @@ namespace mae
 
 				}
 
+				std::string surface_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
+				{
+					std::stringstream sstr;
+
+					//TODO
+
+					return sstr.str();
+				}
+
 				bool surface_part::equals(std::shared_ptr<i_part> a) const
 				{
 					if (std::shared_ptr<surface_part> a_casted = std::dynamic_pointer_cast<surface_part>(a))

@@ -156,6 +156,28 @@ namespace mae
 				return sstr.str();
 			}
 
+			std::string column_definition::svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const
+			{
+				std::stringstream sstr;
+
+				int total_beats = measures * beats_per_measure;
+				double column_width = (im_width)/(max_column * 2.0);
+
+				double draw_w = column_width / 2.0;
+				double draw_x_pos = (im_width / 2.0) + ((column_index_ - (mae::math::math::sign(column_index_)*0.5) - 0.25)*column_width);
+
+				double draw_y_pos = im_height*(0.9);;
+				double draw_h = 0.1;
+
+				std::stringstream id_sstr;
+				id_sstr << "column-definition-" << column_index_;
+				std::string identifier = id_sstr.str();
+
+				sstr << pre_sign_->svg(identifier, draw_x_pos, draw_y_pos, draw_w, draw_h, (column_index_ < 0));
+
+				return sstr.str();
+			}
+
 			bool column_definition::equals(std::shared_ptr<column_definition> a) const
 			{
 				return (column_index_ == a->get_column_index() && pre_sign_->equals(a->get_pre_sign()));

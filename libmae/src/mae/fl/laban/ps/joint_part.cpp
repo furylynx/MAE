@@ -58,6 +58,15 @@ namespace mae
 					return sstr.str();
 				}
 
+				std::string joint_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
+				{
+					std::stringstream sstr;
+
+					//TODO
+
+					return sstr.str();
+				}
+
 				bool joint_part::equals(std::shared_ptr<i_endpoint> a) const
 				{
 					if (std::shared_ptr<joint_part> a_casted = std::dynamic_pointer_cast<joint_part>(a))

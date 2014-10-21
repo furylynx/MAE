@@ -59,6 +59,17 @@ namespace mae
 						virtual std::string xml(unsigned int indent = 0, std::string namesp = "")  const;
 
 						/**
+						 * Returns the SVG representation for this symbol.
+						 *
+						 * @param posx The x position.
+						 * @param posy The y position.
+						 * @param width The width.
+						 * @param height The height.
+						 * @return The SVG.
+						 */
+						virtual std::string svg(std::string identifier, double posx, double posy, double width, double height, bool left = false) const;
+
+						/**
 						 * Returns the predecessor of the current endpoint (which is the default fixed endpoint). If the endpoint is the beginning of the extremity null is returned.
 						 *
 						 * @return The successor element.

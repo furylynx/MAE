@@ -30,12 +30,12 @@ namespace mae
 				{
 				}
 
-				e_dynamic dynamic_sign::get_dynamic()
+				e_dynamic dynamic_sign::get_dynamic() const
 				{
 					return dynamic_;
 				}
 
-				bool dynamic_sign::equals(std::shared_ptr<i_dynamics_sign> a)
+				bool dynamic_sign::equals(std::shared_ptr<i_dynamics_sign> a) const
 				{
 					if (std::shared_ptr<dynamic_sign> a_dyn = std::dynamic_pointer_cast<dynamic_sign>(a))
 					{
@@ -48,7 +48,7 @@ namespace mae
 					return false;
 				}
 
-				std::string dynamic_sign::xml(unsigned int indent, std::string namesp)
+				std::string dynamic_sign::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 

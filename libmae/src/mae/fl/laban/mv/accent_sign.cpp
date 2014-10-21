@@ -30,12 +30,12 @@ namespace mae
 				{
 				}
 
-				unsigned int accent_sign::get_accent()
+				unsigned int accent_sign::get_accent() const
 				{
 					return accent_;
 				}
 
-				bool accent_sign::equals(std::shared_ptr<i_dynamics_sign> a)
+				bool accent_sign::equals(std::shared_ptr<i_dynamics_sign> a) const
 				{
 					if (std::shared_ptr<accent_sign> a_dyn = std::dynamic_pointer_cast<accent_sign>(a))
 					{
@@ -48,7 +48,7 @@ namespace mae
 					return false;
 				}
 
-				std::string accent_sign::xml(unsigned int indent, std::string namesp)
+				std::string accent_sign::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 
