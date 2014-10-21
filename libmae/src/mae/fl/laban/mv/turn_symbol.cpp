@@ -148,10 +148,10 @@ namespace mae
 					if (degree_ != nullptr)
 					{
 						//draw the pin
-						double pin_x = posx+width/4.0;
-						double pin_y = posy-width/4.0;
-						double pin_w = width/2.0;
-						double pin_h = width/2.0;
+						double pin_x = posx+width/2.0-width/3.0;
+						double pin_y = posy+height/2.0-width/3.0;
+						double pin_w = width/1.5;
+						double pin_h = width/1.5;
 
 						if (height < width)
 						{
@@ -160,7 +160,7 @@ namespace mae
 
 						std::string pin_id = identifier;
 						pin_id.append("-pin");
-						degree_->svg(pin_id, pin_x, pin_y, pin_w, pin_h);
+						sstr << degree_->svg(pin_id, pin_x, pin_y, pin_w, pin_h);
 					}
 
 					//TODO dynamics

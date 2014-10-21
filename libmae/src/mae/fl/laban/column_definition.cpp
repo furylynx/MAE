@@ -160,14 +160,13 @@ namespace mae
 			{
 				std::stringstream sstr;
 
-				int total_beats = measures * beats_per_measure;
 				double column_width = (im_width)/(max_column * 2.0);
 
 				double draw_w = column_width / 2.0;
 				double draw_x_pos = (im_width / 2.0) + ((column_index_ - (mae::math::math::sign(column_index_)*0.5) - 0.25)*column_width);
 
-				double draw_y_pos = im_height*(0.9);;
-				double draw_h = 0.1;
+				double draw_y_pos = im_height*0.9;
+				double draw_h = im_height*0.1;
 
 				std::stringstream id_sstr;
 				id_sstr << "column-definition-" << column_index_;

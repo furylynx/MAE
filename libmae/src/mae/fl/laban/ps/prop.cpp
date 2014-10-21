@@ -82,16 +82,25 @@ namespace mae
 				{
 					std::stringstream sstr;
 
-					sstr << "\t\t<text" << std::endl;
+					//print line
+					sstr << "<path" << std::endl;
+					sstr << " d=\"m " << posx+width/2.0 << ","<< posy << "  " << 0 << "," << height/3.0 << "\"" << std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-prop-line\"" << std::endl;
+					sstr
+							<< "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:4pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
+							<< std::endl;
+					sstr << "\t\t\t/>" << std::endl;
 
+					//print name
+					sstr << "\t\t<text" << std::endl;
 					sstr << "\t\tx=\"" << posx << "\"" << std::endl;
-					sstr << "\t\ty=\"" << posy << "\"" << std::endl;
-					sstr << "\t\tid=\"" << identifier << "text\"" << std::endl;
+					sstr << "\t\ty=\"" << posy+2*height/3.0 << "\"" << std::endl;
+					sstr << "\t\tid=\"" << identifier << "-prop-text\"" << std::endl;
 					sstr << "\t\txml:space=\"preserve\"" << std::endl;
 					sstr
-							<< "\t\tstyle=\"font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif\">"
+							<< "\t\tstyle=\"font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif\">"
 							<< std::endl;
-					sstr << "prop: " << name_ << std::endl;
+					sstr << name_ << std::endl;
 					sstr << "\t\t</text>" << std::endl;
 
 					return sstr.str();
