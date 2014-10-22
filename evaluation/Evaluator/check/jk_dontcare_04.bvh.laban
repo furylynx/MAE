@@ -168,7 +168,7 @@
 				<laban:column>9</laban:column>
 				<laban:measure>1</laban:measure>
 				<laban:beat>4.33</laban:beat>
-				<laban:duration>2.33</laban:duration>
+				<laban:duration>2.00</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>middle</laban:vertical>
