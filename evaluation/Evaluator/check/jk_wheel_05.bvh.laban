@@ -244,12 +244,23 @@
 			<laban:movement>
 				<laban:column>8</laban:column>
 				<laban:measure>1</laban:measure>
-				<laban:beat>3.17</laban:beat>
-				<laban:duration>1.50</laban:duration>
+				<laban:beat>4.17</laban:beat>
+				<laban:duration>0.50</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>low</laban:vertical>
 					<laban:horizontal>right-forward</laban:horizontal>
+				</laban:direction>
+			</laban:movement>
+			<laban:movement>
+				<laban:column>8</laban:column>
+				<laban:measure>1</laban:measure>
+				<laban:beat>3.00</laban:beat>
+				<laban:duration>1.17</laban:duration>
+				<laban:hold>false</laban:hold>
+				<laban:direction>
+					<laban:vertical>low</laban:vertical>
+					<laban:horizontal>right</laban:horizontal>
 				</laban:direction>
 			</laban:movement>
 			<laban:movement>
