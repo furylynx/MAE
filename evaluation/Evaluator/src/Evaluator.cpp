@@ -46,7 +46,7 @@ int main()
 
 	bool performance_check = false;
 	unsigned int buffer_size = 350;
-	double hysteresis_value = 29;
+	double hysteresis_value = 30.5;
 
 	std::string rw_rules_file = "rw_rules.xml";
 
