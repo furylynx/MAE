@@ -23,6 +23,14 @@
                </laban:prop>
             </laban:preSign>
          </laban:columnDefinition>
+         <laban:columnDefinition>
+            <laban:index>-3</laban:index>
+            <laban:preSign>
+               <laban:prop>
+                  <laban:name>Prop</laban:name>
+               </laban:prop>
+            </laban:preSign>
+         </laban:columnDefinition>
       </laban:columns>
       <laban:movements>
          <laban:movement>
@@ -167,8 +175,8 @@
                <laban:direction>clockwise</laban:direction>
                <laban:degree>
                   <laban:quantitative>
-                     <laban:vertical>low</laban:vertical>
-                     <laban:horizontal>15</laban:horizontal>
+                     <laban:vertical>middle</laban:vertical>
+                     <laban:horizontal>45</laban:horizontal>
                   </laban:quantitative>
                </laban:degree>
             </laban:turn>
@@ -233,6 +241,16 @@
                   </laban:quantitative>
                </laban:degree>
             </laban:turn>
+         </laban:movement>
+         <laban:movement>
+            <laban:column>-4</laban:column>
+            <laban:measure>2</laban:measure>
+            <laban:beat>0.19</laban:beat>
+            <laban:duration>0.0</laban:duration>
+            <laban:hold>false</laban:hold>
+            <laban:cancel>
+               <laban:cancel>back-normal</laban:cancel>
+            </laban:cancel>
          </laban:movement>
       </laban:movements>
    </laban:staff>
