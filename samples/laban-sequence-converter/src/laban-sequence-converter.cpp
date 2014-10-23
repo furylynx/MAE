@@ -154,13 +154,13 @@ int main(int argc, char *argv[])
 		    boost::smatch what;
 
 		    // Skip if no match
-		    if( !boost::regex_match( entry.path().string(), what, my_filter ) )
+		    if( boost::regex_match( entry.path().string(), what, my_filter ) || entry.path().string() == files_w_pattern.at(i))
 			{
-		    	continue;
+			    // File matches, store it
+			    files.push_back( entry.path().string() );
 			}
 
-		    // File matches, store it
-		    files.push_back( entry.path().string() );
+
 		}
 	}
 

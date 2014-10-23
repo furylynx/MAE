@@ -31,17 +31,17 @@ int main()
 
 	std::vector<std::string> directories
 	{ "bvhs/cut/", "bvhs/dontcare/" , "bvhs/indi/" , "bvhs/raise/" , "bvhs/sequential/" , "bvhs/wheel/"
+
 	//"bvhs/cut_single/"
 		};
 
 	std::vector<double> tolerances
-	{ 0.5
-	, 1.0, 1.5, 2.0, 2.5
-	, 3.0
-	//, 3.5
-	, 4.0
-	//, 4.5
-	, 5.0
+	{ 0.5, 1.0, 1.5, 2.0, 2.5,
+	3.0,
+	//3.5,
+	4.0,
+	//4.5,
+	5.0,
 	};
 
 	bool performance_check = false;
@@ -166,6 +166,7 @@ int main()
 				}
 			}
 
+			//std::cout << movement_controller.get_laban_sequence_recognizer()->get_decision_forest()->str() << std::endl << std::endl;
 
 			//handle each bvh - determine recognition rate
 			for (boost::filesystem::directory_iterator file_it = boost::filesystem::directory_iterator(pp);
@@ -233,7 +234,8 @@ int main()
 								//print sequence
 								movement_controller.get_current_sequence()->xml_file(exp_path.str());
 								//draw png
-								vis.png(png_exp_path.str(), movement_controller.get_current_sequence(), 1280, 720);
+								movement_controller.get_current_sequence()->svg_file(png_exp_path.str());
+								//vis.png(png_exp_path.str(), movement_controller.get_current_sequence(), 1280, 720);
 							}
 
 							//clear buffer
@@ -247,8 +249,8 @@ int main()
 								recognized[tolerance_id]++;
 								directory_recognized.at(directory_id)[tolerance_id]++;
 
-								std::cout << " ++ " << file_path << " : was recognized with tolerance "
-										<< tolerances.at(tolerance_id) << " °° " << std::endl;
+//								std::cout << " ++ " << file_path << " : was recognized with tolerance "
+//										<< tolerances.at(tolerance_id) << " °° " << std::endl;
 							}
 							else
 							{
