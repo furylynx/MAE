@@ -245,24 +245,10 @@ int main()
 	std::cout << "Done recording. Print sequence to file." << std::endl;
 
 	std::shared_ptr<mae::fl::laban::laban_sequence> sequence = movement_controller.get_current_sequence();
-
-	std::ofstream outfile(sequence_path);
-	if (sequence != nullptr)
-	{
-		if (outfile.is_open())
-		{
-			outfile << sequence->xml();
-			outfile.close();
-		}
-		else
-		{
-			std::cerr << "Cannot write to the file " << sequence_title << std::endl;
-		}
-	}
-	else
-	{
-		std::cerr << "Cannot generate the sequence " << std::endl;
-	}
+	sequence->xml_file(sequence_path);
+	std::string svg_path = sequence_path;
+	svg_path.append(".svg");
+	sequence->svg_file(svg_path);
 
 	std::cout << "Print bvh to file (" << bvh_path << ")...";
 	mae::fl::bvh_controller bvh = mae::fl::bvh_controller();
