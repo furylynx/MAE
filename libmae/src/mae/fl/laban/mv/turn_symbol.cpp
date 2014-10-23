@@ -130,7 +130,7 @@ namespace mae
 						sstr << "\t\t\td=\"m " << posx << "," << posy+height/3.0 << " " << width << "," << -height/3.0 << " " << 0 << "," << 2*height/3.0 << " " << -width << "," << height/3.0 << " " << 0 << "," << -2*height/3.0 << " z\"" << std::endl;
 				        sstr << "\t\t\tid=\"" << identifier << "-clockwise\"" << std::endl;
 						sstr << "\t\t\tstyle=\"";
-						sstr << "fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 						sstr << "\" />" << std::endl;
 					}
 
@@ -140,7 +140,7 @@ namespace mae
 						sstr << "\t\t\td=\"m " << posx+width << "," << posy+height/3.0 << " " << -width << "," << -height/3.0 << " " << 0 << "," << 2*height/3.0 << " " << width << "," << height/3.0 << " " << 0 << "," << -2*height/3.0 << " z\"" << std::endl;
 				        sstr << "\t\t\tid=\"" << identifier << "-counterclockwise\"" << std::endl;
 						sstr << "\t\t\tstyle=\"";
-						sstr << "fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 						sstr << "\" />" << std::endl;
 					}
 
@@ -153,8 +153,9 @@ namespace mae
 						double pin_w = width/1.5;
 						double pin_h = width/1.5;
 
-						if (height < width)
+						if (height < pin_h)
 						{
+							pin_w = height;
 							pin_h = height;
 						}
 

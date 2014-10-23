@@ -110,8 +110,8 @@ namespace mae
 					double s = std::sin((ah/360.0)*M_PI*2);
 
 					//draw line
-					sstr << "\t<path d=\"m " << posx+width/2.0 << "," << posy+height/2.0 << " " << (- height/2.0 * s) << ","
-							<< height/2.0 * c << "\" id=\"" << identifier << "-pindir\"" << std::endl;
+					sstr << "\t<path d=\"m " << posx+width/2.0 << "," << posy+height/2.0 << " " << (height/2.0 * s) << ","
+							<< -height/2.0 * c << "\" id=\"" << identifier << "-pindir\"" << std::endl;
 					sstr
 							<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 							<< std::endl;
@@ -141,8 +141,8 @@ namespace mae
 						double c270 = std::cos(((ah+270)/360.0)*M_PI*2);
 						double s270 = std::sin(((ah+270)/360.0)*M_PI*2);
 
-						sstr << "\t<path d=\"m " << posx+width/2.0 - height/6.0 * s270  << "," << posy+height/2.0 + height/6.0 * c270 << " " << (- height/3.0 * s90) << ","
-								<< height/3.0 * c90 << "\" id=\"" << identifier << "-segment\"" << std::endl;
+						sstr << "\t<path d=\"m " << posx+width/2.0 + height/6.0 * s270  << "," << posy+height/2.0 - height/6.0 * c270 << " " << (height/3.0 * s90) << ","
+								<< -height/3.0 * c90 << "\" id=\"" << identifier << "-segment\"" << std::endl;
 						sstr
 								<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 								<< std::endl;

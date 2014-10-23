@@ -32,6 +32,258 @@
 			</rw:replacement>
 		</rw:rule>
 		
+		<!-- Turn on top is either direct or via high-right direction -->
+  		<rw:rule>
+			<rw:sequence>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right-backward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>right-backward</rw:horizontal>
+				</rw:element>
+			</rw:sequence>
+			<rw:replacement>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>right</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>right-backward</rw:horizontal>
+				</rw:element>
+			</rw:replacement>
+		</rw:rule>
+		
+		<!-- Turn on top is either direct or via high-right direction -->
+  		<rw:rule>
+			<rw:sequence>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right-backward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>right-backward</rw:horizontal>
+				</rw:element>
+			</rw:sequence>
+			<rw:replacement>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right-forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>right</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>right-backward</rw:horizontal>
+				</rw:element>
+			</rw:replacement>
+		</rw:rule>
+		
+		<!-- Turn on top is either direct or via high-right direction -->
+		<rw:rule>
+			<rw:sequence>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right-backward</rw:horizontal>
+				</rw:element>
+			</rw:sequence>
+			<rw:replacement>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>backward</rw:horizontal>
+				</rw:element>
+			</rw:replacement>
+		</rw:rule>
+
+		<!-- Turn on top is either direct or via high-right direction -->
+	  	<rw:rule>
+			<rw:sequence>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right-backward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>right-backward</rw:horizontal>
+				</rw:element>
+			</rw:sequence>
+			<rw:replacement>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>backward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>backward</rw:horizontal>
+				</rw:element>
+			</rw:replacement>
+		</rw:rule>
+		
+		<!-- Turn on top is either direct or via high-right direction -->
+		<rw:rule>
+			<rw:sequence>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+			</rw:sequence>
+			<rw:replacement>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right-forward</rw:horizontal>
+				</rw:element>
+			</rw:replacement>
+		</rw:rule>
+		
+		<!-- Turn on top is either direct or via high-right direction -->
+		<rw:rule>
+			<rw:sequence>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+			</rw:sequence>
+			<rw:replacement>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right-forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+			</rw:replacement>
+		</rw:rule>
+		
+		<!-- Turn on top is either direct or via high-right direction -->
+		<rw:rule>
+			<rw:sequence>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+			</rw:sequence>
+			<rw:replacement>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>right-forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+			</rw:replacement>
+		</rw:rule>
+	
+		<!-- Turn on top is either direct or via high-right direction -->
+		<rw:rule>
+			<rw:sequence>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+			</rw:sequence>
+			<rw:replacement>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>right-forward</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>forward</rw:horizontal>
+				</rw:element>
+			</rw:replacement>
+		</rw:rule>
+		
 		<!-- Deviation for raise arms allowed -->
 		<rw:rule>
 			<rw:sequence>
@@ -148,7 +400,7 @@
 			</rw:replacement>
 		</rw:rule>
 		
-				<!-- Deviation for raise arms allowed -->
+		<!-- Deviation for raise arms allowed -->
 		<rw:rule>
 			<rw:sequence>
 				<rw:element>
@@ -183,5 +435,123 @@
 				</rw:element>
 			</rw:replacement>
 		</rw:rule>
+			
+		<!-- Deviation for indipendent arms movement -->
+  		<rw:rule>
+			<rw:sequence>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+			</rw:sequence>
+			<rw:replacement>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>right-forward</rw:horizontal>
+				</rw:element>
+			    <rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+			</rw:replacement>
+		</rw:rule>
+		
+		<!-- Deviation for indipendent arms movement -->
+  		<rw:rule>
+			<rw:sequence>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>left</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+			</rw:sequence>
+			<rw:replacement>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>left</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>left-forward</rw:horizontal>
+				</rw:element>
+			    <rw:element>
+					<rw:vertical>high</rw:vertical>
+					<rw:horizontal>place</rw:horizontal>
+				</rw:element>
+			</rw:replacement>
+		</rw:rule>
+			
+	    <!-- Deviation for indipendent arms movement -->
+  		<rw:rule>
+			<rw:sequence>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>left</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>left</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>left-forward</rw:horizontal>
+				</rw:element>
+			</rw:sequence>
+			<rw:replacement>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>left</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>left-forward</rw:horizontal>
+				</rw:element>
+			</rw:replacement>
+		</rw:rule>
+		
+		<!-- Deviation for indipendent arms movement -->
+  		<rw:rule>
+			<rw:sequence>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>left</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>left</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>left-forward</rw:horizontal>
+				</rw:element>
+			</rw:sequence>
+			<rw:replacement>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>left</rw:horizontal>
+				</rw:element>
+				<rw:element>
+					<rw:vertical>low</rw:vertical>
+					<rw:horizontal>left-forward</rw:horizontal>
+				</rw:element>
+			    <rw:element>
+					<rw:vertical>middle</rw:vertical>
+					<rw:horizontal>left-forward</rw:horizontal>
+				</rw:element>
+			</rw:replacement>
+		</rw:rule>
+		
+		
 	</rw:rules>
 </rw:rewritingrules>

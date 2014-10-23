@@ -129,13 +129,9 @@ namespace mae
 														replacement_values.at(l)->get_value()->at(m), index,
 														index + replacement_values.at(l)->get_sequence().size() - 1));
 
-										indices.push_back(index + replacement_values.at(l)->get_value()->at(m).size() + 1);
-
-										return result;
+										indices.push_back(index + replacement_values.at(l)->get_value()->at(m).size() - 1);
 									}
 								}
-
-								break;
 							}
 						}
 					}
