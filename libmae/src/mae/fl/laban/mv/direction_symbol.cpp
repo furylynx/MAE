@@ -177,7 +177,7 @@ namespace mae
 
 					//TODO pins, dynamics, space measurement, contact hook
 
-					double orig_height = height;
+					//double orig_height = height;
 
 					if (space_measurement_ != nullptr)
 					{
@@ -257,15 +257,15 @@ namespace mae
 					sstr << "\t\t\tstyle=\"";
 					if (vertical_ == e_level::HIGH)
 					{
-						sstr << "fill:url(#fillpattern);fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "fill:url(#fillpattern);fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					}
 					else if (vertical_ == e_level::LOW)
 					{
-						sstr << "fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					}
 					else if (vertical_ == e_level::MIDDLE)
 					{
-						sstr << "fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					}
 					else
 					{
@@ -275,10 +275,37 @@ namespace mae
 
 					if (vertical_ == e_level::MIDDLE)
 					{
+						double circ_x = posx + width/2.0;
+						double circ_y = posy + height/2.0;
+						double circ_r = width/12.0;
+
+						if (horizontal_ == e_direction::RIGHT)
+						{
+							circ_x -= width/6.0;
+						}
+						else if (horizontal_ == e_direction::LEFT)
+						{
+							circ_x += width/6.0;
+						}
+						else if (horizontal_ == e_direction::FORWARD)
+						{
+							circ_y += height/6.0;
+						}
+						else if (horizontal_ == e_direction::BACKWARD)
+						{
+							circ_y -= height/6.0;
+						}
+
+						if (height < circ_r)
+						{
+							circ_r = height;
+						}
+
+
 						//draw circle
 					    sstr << "\t\t<path" << std::endl;
-					    sstr << "\t\t\td=\"m " << posx + width/2.0 + width/10.0 << "," << posy + height/2.0 << " a " << width/10.0 << "," << width/10.0 << " 0 1 1 -" << width/5.0 << ",0 " << width/10.0 << "," << width/10.0 << " 0 1 1 " << width/5.0 << ",0 z\"" << std::endl;
-					    sstr << "\t\t\tid=\"" << identifier << "-circle\"" << std::endl;
+					    sstr << "\t\t\td=\"m " << circ_x + circ_r << "," << circ_y << " a " << circ_r << "," << circ_r << " 0 1 1 -" << circ_r*2 << ",0 " << circ_r << "," << circ_r << " 0 1 1 " << circ_r*2 << ",0 z\"" << std::endl;
+					    sstr << "\t\t\tid=\"" << identifier << "-middot\"" << std::endl;
 					    sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:none\" />" << std::endl;
 					}
 

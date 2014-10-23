@@ -134,7 +134,7 @@ namespace mae
 
 					sstr << "\t\t\tid=\"" << identifier << "customlimb\"" << std::endl;
 					sstr
-							<< "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:4pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
+							<< "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
 							<< std::endl;
 					sstr << "\t\t\t/>" << std::endl;
 

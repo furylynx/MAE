@@ -145,6 +145,10 @@ namespace mae
 
 			std::string movement::svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const
 			{
+				std::stringstream id_sstr;
+				id_sstr << "movement-" << column_ << "-" << measure_ << "-" << beat_ ;
+				std::string identifier = id_sstr.str();
+
 				std::stringstream sstr;
 
 				int total_beats = (measures + 1) * beats_per_measure;
@@ -171,14 +175,14 @@ namespace mae
 				}
 
 				double draw_hold_y = 0;
-				double draw_hold_h = im_height*0.03;
+				double draw_hold_h = draw_w/3.0;
 
 				if (hold_)
 				{
 					draw_hold_y = draw_y_pos;
 
-					draw_y_pos += im_height*0.03;
-					draw_h -= im_height*0.03;
+					draw_y_pos += draw_hold_h;
+					draw_h -= draw_hold_h;
 
 					if (draw_h < 0)
 					{
@@ -187,11 +191,11 @@ namespace mae
 					}
 				}
 
-				double draw_ps_h = im_height*0.05;
+				double draw_ps_h = draw_w/2.0;
 				if (pre_sign_ != nullptr)
 				{
 					//reduce height
-					draw_h -= im_height*0.05;
+					draw_h -= draw_ps_h;
 
 					if (draw_h < 0)
 					{
@@ -200,11 +204,6 @@ namespace mae
 					}
 				}
 
-
-				std::stringstream id_sstr;
-				id_sstr << "movement-" << column_ << "-" << measure_ << "-" << beat_ ;
-				std::string identifier = id_sstr.str();
-
 				sstr << symbol_->svg(identifier, draw_x_pos, draw_y_pos, draw_w, draw_h, (column_ < 0));
 
 				//draw hold sign
@@ -212,16 +211,16 @@ namespace mae
 				{
 					//draw circle
 					sstr << "\t\t<path" << std::endl;
-					sstr << "\t\t\td=\"m " << draw_x_pos + draw_w/2.0 + draw_hold_h/2.0 << "," << draw_hold_y << " a " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 -" << draw_hold_h << ",0 " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 " << draw_hold_h << ",0 z\"" << std::endl;
-					sstr << "\t\t\tid=\"" << identifier << "-circle\"" << std::endl;
-					sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+					sstr << "\t\t\td=\"m " << draw_x_pos + draw_w/2.0 + draw_hold_h/2.0 << "," << draw_hold_y + draw_hold_h/2.0 << " a " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 -" << draw_hold_h << ",0 " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 " << draw_hold_h << ",0 z\"" << std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-hold\"" << std::endl;
+					sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
 				}
 
 				if (pre_sign_ != nullptr)
 				{
 					//pre sign
 					double draw_ps_y = draw_y_pos + draw_h;
-					sstr << pre_sign_->svg(identifier, draw_x_pos, draw_ps_y, draw_w, draw_ps_h);
+					sstr << pre_sign_->svg(identifier, draw_x_pos+draw_ps_h/2.0, draw_ps_y, draw_ps_h, draw_ps_h);
 				}
 
 				return sstr.str();
