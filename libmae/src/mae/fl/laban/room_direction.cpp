@@ -114,9 +114,45 @@ namespace mae
 
 			std::string room_direction::svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const
 			{
+				std::stringstream id_sstr;
+				id_sstr << "room_direction-" << measure_ << "-" << beat_ ;
+				std::string identifier = id_sstr.str();
+
 				std::stringstream sstr;
 
-				//TODO
+				int total_beats = (measures + 1) * beats_per_measure;
+				double column_width = (im_width)/(max_column * 2.0);
+				double beat_height = (im_height*(0.85 - 0.01)) / total_beats;
+
+				double draw_w = column_width / 2.0;
+				double draw_x_pos = (im_width / 2.0) + ((-max_column - (-0.5) - 0.25)*column_width);
+
+				double draw_y_pos = 0;
+				double draw_h = 0;
+
+				if (measure_ != 0)
+				{
+					draw_y_pos = im_height*(0.85 - 0.01) - (measure_ * beats_per_measure + beat_) * beat_height - draw_h;
+					draw_h = draw_w;
+				}
+				else
+				{
+					draw_h = draw_w;
+					draw_y_pos = im_height*(0.85) - (measure_ * beats_per_measure + beat_
+						+ beats_per_measure/2.0) * beat_height - draw_h;
+				}
+
+				//draw rect
+				sstr << "\t\t<rect" << std::endl;
+		        sstr << "\t\t\twidth=\"" << 2*draw_w/3.0 <<  "\"" << std::endl;
+		        sstr << "\t\t\theight=\"" << 2*draw_h/3.0 <<  "\"" << std::endl;
+		        sstr << "\t\t\tx=\"" << draw_x_pos+draw_w/6.0 <<  "\"" << std::endl;
+		        sstr << "\t\t\ty=\"" << draw_y_pos+draw_h/6.0 <<  "\"" << std::endl;
+		        sstr << "\t\t\tid=\"" << identifier << "-rect\"" << std::endl;
+				sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+				sstr << "\" />" << std::endl;
+
+				sstr << direction_->svg(identifier, draw_x_pos, draw_y_pos, draw_w, draw_h, true);
 
 				return sstr.str();
 			}

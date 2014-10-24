@@ -116,7 +116,29 @@ namespace mae
 					result->add_movement(read_movement(movs_node_set.at(i), namespace_map, nsp));
 				}
 
-				//TODO other i_movements like path, bow, or room dir
+				//paths
+				xmlpp::NodeSet paths_node_set = root_node->find(mxml::get_xpath("staff/movements/path", nsp), *namespace_map);
+
+				for (unsigned int i = 0; i < paths_node_set.size(); i++)
+				{
+					result->add_movement(read_path(paths_node_set.at(i), namespace_map, nsp));
+				}
+
+				//relationship
+				xmlpp::NodeSet relationship_node_set = root_node->find(mxml::get_xpath("staff/movements/relationship", nsp), *namespace_map);
+
+				for (unsigned int i = 0; i < relationship_node_set.size(); i++)
+				{
+					result->add_movement(read_path(relationship_node_set.at(i), namespace_map, nsp));
+				}
+
+				//roomDirections
+				xmlpp::NodeSet roomdir_node_set = root_node->find(mxml::get_xpath("staff/movements/roomDirection", nsp), *namespace_map);
+
+				for (unsigned int i = 0; i < roomdir_node_set.size(); i++)
+				{
+					result->add_movement(read_path(roomdir_node_set.at(i), namespace_map, nsp));
+				}
 
 				//done
 				return result;
