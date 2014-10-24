@@ -72,6 +72,17 @@ namespace mae
 				std::string default_limb::svg(std::string identifier, double posx, double posy, double width,
 						double height, bool left) const
 				{
+
+					if (width > height)
+					{
+						posx += width-height;
+						width = height;
+					}
+					else
+					{
+						height = width;
+					}
+
 					std::stringstream sstr;
 
 					sstr << "<path" << std::endl;

@@ -186,6 +186,9 @@ int main(int argc, char *argv[])
 		{
 			outfile.append(".svg");
 			sequence->svg_file(outfile, w, h);
+
+			outfile.append(".laban");
+			sequence->xml_file(outfile);
 		}
 		else
 		{

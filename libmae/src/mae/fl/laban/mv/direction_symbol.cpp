@@ -311,14 +311,16 @@ namespace mae
 
 					if (space_measurement_ != nullptr)
 					{
-						//TODO draw space measurement
-						//double spm_y = posy + height;
-						//double spm_w = width;
-						//double spm_h = width;
+						//draw space measurement
+						double spm_y = posy + height;
+						double spm_w = width;
+						double spm_h = width;
 						//xpos is xpos
+						sstr << space_measurement_->svg(identifier, posx, spm_y, spm_w, spm_h);
 					}
 
-					//TODO draw pin centered
+					//TODO draw pin ??
+
 
 
 					return sstr.str();

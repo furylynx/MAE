@@ -31,6 +31,15 @@
                </laban:prop>
             </laban:preSign>
          </laban:columnDefinition>
+         <laban:columnDefinition>
+            <laban:index>-5</laban:index>
+            <laban:preSign>
+               <laban:bodyPart>
+                  <laban:part>chest</laban:part>
+                  <laban:side>none</laban:side>
+               </laban:bodyPart>
+            </laban:preSign>
+         </laban:columnDefinition>
       </laban:columns>
       <laban:movements>
          <laban:movement>
@@ -252,6 +261,70 @@
                <laban:cancel>back-normal</laban:cancel>
             </laban:cancel>
          </laban:movement>
+         <laban:roomDirection>
+            <laban:measure>1</laban:measure>
+            <laban:beat>0.73</laban:beat>
+            <laban:direction>
+               <laban:vertical>middle</laban:vertical>
+               <laban:horizontal>0</laban:horizontal>
+            </laban:direction>
+         </laban:roomDirection>
+         <laban:roomDirection>
+            <laban:measure>1</laban:measure>
+            <laban:beat>0.95</laban:beat>
+            <laban:direction>
+               <laban:vertical>middle</laban:vertical>
+               <laban:horizontal>45</laban:horizontal>
+            </laban:direction>
+         </laban:roomDirection>
+         <laban:roomDirection>
+            <laban:measure>1</laban:measure>
+            <laban:beat>1.17</laban:beat>
+            <laban:direction>
+               <laban:vertical>middle</laban:vertical>
+               <laban:horizontal>90</laban:horizontal>
+            </laban:direction>
+         </laban:roomDirection>
+         <laban:roomDirection>
+            <laban:measure>1</laban:measure>
+            <laban:beat>1.38</laban:beat>
+            <laban:direction>
+               <laban:vertical>middle</laban:vertical>
+               <laban:horizontal>90</laban:horizontal>
+            </laban:direction>
+         </laban:roomDirection>
+         <laban:path>
+            <laban:type>straight</laban:type>
+            <laban:measure>1</laban:measure>
+            <laban:beat>0.61</laban:beat>
+            <laban:duration>1.0</laban:duration>
+         </laban:path>
+         <laban:path>
+            <laban:type>circularLeft</laban:type>
+            <laban:measure>1</laban:measure>
+            <laban:beat>1.63</laban:beat>
+            <laban:duration>1.0</laban:duration>
+         </laban:path>
+         <laban:path>
+            <laban:type>any</laban:type>
+            <laban:measure>2</laban:measure>
+            <laban:beat>0.66</laban:beat>
+            <laban:duration>1.0</laban:duration>
+         </laban:path>
+         <laban:path>
+            <laban:type>circularRight</laban:type>
+            <laban:measure>0</laban:measure>
+            <laban:beat>0.0</laban:beat>
+            <laban:duration>1.0</laban:duration>
+         </laban:path>
+         <laban:roomDirection>
+            <laban:measure>0</laban:measure>
+            <laban:beat>1.29</laban:beat>
+            <laban:direction>
+               <laban:vertical>middle</laban:vertical>
+               <laban:horizontal>225</laban:horizontal>
+            </laban:direction>
+         </laban:roomDirection>
       </laban:movements>
    </laban:staff>
 </laban:score>
