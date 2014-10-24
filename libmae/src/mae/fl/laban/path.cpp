@@ -146,9 +146,9 @@ namespace mae
 				if (type_ == e_path_type::STRAIGHT)
 				{
 					sstr << "\t\t<path" << std::endl;
-					sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width << "," << 0 << " m " << -width/2.0
-							<< "," << 0 << " " << 0 << "," << height << " m " << -width/2.0
-							<< "," << 0 << " " << width << "," << 0 << " z\"" << std::endl;
+					sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width << "," << 0 << " m " << -width / 2.0
+							<< "," << 0 << " " << 0 << "," << height << " m " << -width / 2.0 << "," << 0 << " "
+							<< width << "," << 0 << " z\"" << std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-path\"" << std::endl;
 					sstr
 							<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
@@ -157,9 +157,10 @@ namespace mae
 				else if (type_ == e_path_type::CIRCULAR_LEFT)
 				{
 					sstr << "\t\t<path" << std::endl;
-					sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width << "," << width << " m " << -width/2.0
-							<< "," << -width/2.0 << " " << 0 << "," << height-width << " m " << width/2.0
-							<< "," << width/2.0 << " " << -width << "," << -width << " z\"" << std::endl;
+					sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width << "," << width << " m "
+							<< -width / 2.0 << "," << -width / 2.0 << " " << 0 << "," << height - width << " m "
+							<< width / 2.0 << "," << width / 2.0 << " " << -width << "," << -width << " z\""
+							<< std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-path\"" << std::endl;
 					sstr
 							<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
@@ -168,9 +169,10 @@ namespace mae
 				else if (type_ == e_path_type::CIRCULAR_RIGHT)
 				{
 					sstr << "\t\t<path" << std::endl;
-					sstr << "\t\t\td=\"m " << posx << "," << posy+width << " " << width << "," << -width << " m " << -width/2.0
-							<< "," << width/2.0 << " " << 0 << "," << height-width << " m " << -width/2.0
-							<< "," << width/2.0 << " " << width << "," << -width << " z\"" << std::endl;
+					sstr << "\t\t\td=\"m " << posx << "," << posy + width << " " << width << "," << -width << " m "
+							<< -width / 2.0 << "," << width / 2.0 << " " << 0 << "," << height - width << " m "
+							<< -width / 2.0 << "," << width / 2.0 << " " << width << "," << -width << " z\""
+							<< std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-path\"" << std::endl;
 					sstr
 							<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
@@ -178,7 +180,20 @@ namespace mae
 				}
 				else if (type_ == e_path_type::ANY)
 				{
+					double circ_r = width / 4.0;
 
+					sstr << "\t\t<path" << std::endl;
+					sstr << "\t\t\td=\"m " << posx << "," << posy + circ_r << " a " << circ_r
+							<< "," << circ_r << " 0 1 1 " << circ_r * 2 << ",0 m " << circ_r*2.0 << "," << 0
+							<< "  a " << circ_r << "," << circ_r << " 0 1 1 -" << circ_r * 2 << ",0 m " << 0
+							<< "," << 0 << " " << 0 << "," << height - circ_r * 2.0 << " m " << circ_r*2.0 << "," << 0 << "  a "
+							<< circ_r << "," << circ_r << " 0 1 1 -" << circ_r * 2 << ",0 m " << -circ_r * 2.0 << ","
+							<< 0 << "  a " << circ_r << "," << circ_r << " 0 1 1 " << circ_r * 2 << ",0\""
+							<< std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-path\"" << std::endl;
+					sstr
+							<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\" />" << std::endl;
 				}
 
 				return sstr.str();

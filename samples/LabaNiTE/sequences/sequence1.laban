@@ -197,7 +197,7 @@
             <laban:duration>1.0</laban:duration>
             <laban:hold>false</laban:hold>
             <laban:direction>
-               <laban:vertical>middle</laban:vertical>
+               <laban:vertical>high</laban:vertical>
                <laban:horizontal>place</laban:horizontal>
             </laban:direction>
          </laban:movement>
@@ -303,13 +303,13 @@
             <laban:type>circularLeft</laban:type>
             <laban:measure>1</laban:measure>
             <laban:beat>1.63</laban:beat>
-            <laban:duration>1.0</laban:duration>
+            <laban:duration>0.99</laban:duration>
          </laban:path>
          <laban:path>
             <laban:type>any</laban:type>
             <laban:measure>2</laban:measure>
-            <laban:beat>0.66</laban:beat>
-            <laban:duration>1.0</laban:duration>
+            <laban:beat>0.7</laban:beat>
+            <laban:duration>1.13</laban:duration>
          </laban:path>
          <laban:path>
             <laban:type>circularRight</laban:type>
@@ -325,6 +325,78 @@
                <laban:horizontal>225</laban:horizontal>
             </laban:direction>
          </laban:roomDirection>
+         <laban:relationship>
+            <laban:type>near</laban:type>
+            <laban:grasping>false</laban:grasping>
+            <laban:passing>false</laban:passing>
+            <laban:hold>false</laban:hold>
+            <laban:measure>2</laban:measure>
+            <laban:beat>0.92</laban:beat>
+            <laban:endPoints>
+               <laban:left>
+                  <laban:column>-2</laban:column>
+                  <laban:active>false</laban:active>
+               </laban:left>
+               <laban:right>
+                  <laban:column>-1</laban:column>
+                  <laban:active>false</laban:active>
+               </laban:right>
+            </laban:endPoints>
+         </laban:relationship>
+         <laban:relationship>
+            <laban:type>touch</laban:type>
+            <laban:grasping>false</laban:grasping>
+            <laban:passing>false</laban:passing>
+            <laban:hold>false</laban:hold>
+            <laban:measure>2</laban:measure>
+            <laban:beat>1.2</laban:beat>
+            <laban:endPoints>
+               <laban:left>
+                  <laban:column>-4</laban:column>
+                  <laban:active>false</laban:active>
+               </laban:left>
+               <laban:right>
+                  <laban:column>-3</laban:column>
+                  <laban:active>false</laban:active>
+               </laban:right>
+            </laban:endPoints>
+         </laban:relationship>
+         <laban:relationship>
+            <laban:type>support</laban:type>
+            <laban:grasping>false</laban:grasping>
+            <laban:passing>false</laban:passing>
+            <laban:hold>false</laban:hold>
+            <laban:measure>2</laban:measure>
+            <laban:beat>0.76</laban:beat>
+            <laban:endPoints>
+               <laban:left>
+                  <laban:column>-5</laban:column>
+                  <laban:active>false</laban:active>
+               </laban:left>
+               <laban:right>
+                  <laban:column>-4</laban:column>
+                  <laban:active>false</laban:active>
+               </laban:right>
+            </laban:endPoints>
+         </laban:relationship>
+         <laban:relationship>
+            <laban:type>support</laban:type>
+            <laban:grasping>false</laban:grasping>
+            <laban:passing>false</laban:passing>
+            <laban:hold>false</laban:hold>
+            <laban:measure>0</laban:measure>
+            <laban:beat>0.0</laban:beat>
+            <laban:endPoints>
+               <laban:left>
+                  <laban:column>-2</laban:column>
+                  <laban:active>false</laban:active>
+               </laban:left>
+               <laban:right>
+                  <laban:column>-1</laban:column>
+                  <laban:active>false</laban:active>
+               </laban:right>
+            </laban:endPoints>
+         </laban:relationship>
       </laban:movements>
    </laban:staff>
 </laban:score>
