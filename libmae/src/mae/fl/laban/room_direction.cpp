@@ -125,29 +125,28 @@ namespace mae
 				double beat_height = (im_height*(0.85 - 0.01)) / total_beats;
 
 				double draw_w = column_width / 2.0;
-				double draw_x_pos = (im_width / 2.0) + ((-max_column - (-0.5) - 0.25)*column_width);
+				double draw_x_pos = (im_width / 2.0) - (max_column - 0.25)*column_width;
 
 				double draw_y_pos = 0;
 				double draw_h = 0;
 
 				if (measure_ != 0)
 				{
-					draw_y_pos = im_height*(0.85 - 0.01) - (measure_ * beats_per_measure + beat_) * beat_height - draw_h;
 					draw_h = draw_w;
+					draw_y_pos = im_height*(0.85 - 0.01) - (measure_ * beats_per_measure + beat_) * beat_height - draw_h;
 				}
 				else
 				{
 					draw_h = draw_w;
-					draw_y_pos = im_height*(0.85) - (measure_ * beats_per_measure + beat_
-						+ beats_per_measure/2.0) * beat_height - draw_h;
+					draw_y_pos = im_height*(0.85) - (beats_per_measure/2.0) * beat_height - draw_h/2.0;
 				}
 
 				//draw rect
 				sstr << "\t\t<rect" << std::endl;
-		        sstr << "\t\t\twidth=\"" << 2*draw_w/3.0 <<  "\"" << std::endl;
-		        sstr << "\t\t\theight=\"" << 2*draw_h/3.0 <<  "\"" << std::endl;
-		        sstr << "\t\t\tx=\"" << draw_x_pos+draw_w/6.0 <<  "\"" << std::endl;
-		        sstr << "\t\t\ty=\"" << draw_y_pos+draw_h/6.0 <<  "\"" << std::endl;
+		        sstr << "\t\t\twidth=\"" << draw_w/2.0 <<  "\"" << std::endl;
+		        sstr << "\t\t\theight=\"" << draw_h/2.0 <<  "\"" << std::endl;
+		        sstr << "\t\t\tx=\"" << draw_x_pos+draw_w/4.0 <<  "\"" << std::endl;
+		        sstr << "\t\t\ty=\"" << draw_y_pos+draw_h/4.0 <<  "\"" << std::endl;
 		        sstr << "\t\t\tid=\"" << identifier << "-rect\"" << std::endl;
 				sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 				sstr << "\" />" << std::endl;
