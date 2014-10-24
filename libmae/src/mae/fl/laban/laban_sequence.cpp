@@ -611,33 +611,44 @@ namespace mae
 			std::string laban_sequence::svg_fill_pattern(std::string pattern_name, unsigned int im_width,
 					unsigned int im_height) const
 			{
-				int step = std::ceil(im_height / 25.0);
+
+				int step = std::ceil(im_height / 40.0);
 
 				std::stringstream sstr;
 
-				sstr << "\t\t<pattern" << std::endl;
-				sstr << "\t\t\t\tid=\"" << pattern_name << "\"" << std::endl;
-//				sstr << "\t\t\t\tpatternTransform=\"translate(550.0,-750.0)\"" << std::endl;
-				sstr << "\t\t\t\theight=\"" << im_height << "\"" << std::endl;
-				sstr << "\t\t\t\twidth=\"" << im_width << "\"" << std::endl;
-				sstr << "\t\t\t\tpatternUnits=\"userSpaceOnUse\">" << std::endl;
-				sstr << "\t\t\t<g" << std::endl;
-//				sstr << "\t\t\t\ttransform=\"translate(0.0,561.71875)\"" << std::endl;
-				sstr << "\t\t\t\tid=\"pattern-graphics\">" << std::endl;
+//				sstr << "\t\t<pattern" << std::endl;
+//				sstr << "\t\t\t\tid=\"" << pattern_name << "\"" << std::endl;
+////				sstr << "\t\t\t\tpatternTransform=\"translate(550.0,-750.0)\"" << std::endl;
+//				sstr << "\t\t\t\theight=\"" << im_height << "\"" << std::endl;
+//				sstr << "\t\t\t\twidth=\"" << im_width << "\"" << std::endl;
+//				sstr << "\t\t\t\tpatternUnits=\"userSpaceOnUse\">" << std::endl;
+//				sstr << "\t\t\t<g" << std::endl;
+////				sstr << "\t\t\t\ttransform=\"translate(0.0,561.71875)\"" << std::endl;
+//				sstr << "\t\t\t\tid=\"pattern-graphics\">" << std::endl;
+//
+//				for (unsigned int i = 0; i < im_height + (im_width * 3); i += step)
+//				{
+//					sstr << "\t\t\t\t<path" << std::endl;
+//					sstr << "\t\t\t\t\tid=\"fillpattern-path" << i << "\"" << std::endl;
+//					sstr << "\t\t\t\t\td=\"m " << -(int)im_width << "," << i << " " << im_width * 3.0 << "," << -(int)im_width * 3.0
+//							<< "\"" << std::endl;
+//					sstr
+//							<< "\t\t\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+//							<< std::endl;
+//				}
+//
+//				sstr << "\t\t\t</g>" << std::endl;
+//				sstr << "\t\t</pattern>";
 
-				for (unsigned int i = 0; i < im_height + (im_width * 3); i += step)
-				{
-					sstr << "\t\t\t\t<path" << std::endl;
-					sstr << "\t\t\t\t\tid=\"fillpattern-path" << i << "\"" << std::endl;
-					sstr << "\t\t\t\t\td=\"m " << -(int)im_width << "," << i << " " << im_width * 3.0 << "," << -(int)im_width * 3.0
-							<< "\"" << std::endl;
-					sstr
-							<< "\t\t\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
-							<< std::endl;
-				}
+//				sstr << "\t\t<pattern id=\"" << pattern_name << "\" patternUnits=\"userSpaceOnUse\" width=\"" << step << "\" height=\"" << step << "\">" << std::endl;
+//				sstr << "\t\t\t <path d=\"M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2\" " << std::endl;
+//				sstr << "\t\t\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+//				sstr << "\t\t</pattern>" << std::endl;
 
-				sstr << "\t\t\t</g>" << std::endl;
-				sstr << "\t\t</pattern>";
+				sstr << "\t\t<pattern id=\"" << pattern_name << "\" patternUnits=\"userSpaceOnUse\" width=\"" << step << "\" height=\"" << step << "\" patternTransform=\"rotate(-45 0 0)\" >" << std::endl;
+				sstr << "\t\t\t<path d=\"m 0,0 " << step << ",0\"" << std::endl;
+				sstr << "style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+				sstr << "</pattern>" << std::endl;
 
 				return sstr.str();
 			}

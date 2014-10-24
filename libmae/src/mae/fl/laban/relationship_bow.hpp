@@ -16,6 +16,8 @@
 #include "e_relationship_type.hpp"
 #include "mv/relationship_endpoint.hpp"
 
+#include "../../math/math.hpp"
+
 //global includes
 #include <string>
 #include <memory>
