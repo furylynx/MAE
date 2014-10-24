@@ -112,43 +112,74 @@ namespace mae
 
 			}
 
-			std::string path::svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const
+			std::string path::svg(unsigned int im_width, unsigned int im_height, unsigned int max_column,
+					unsigned int measures, unsigned int beats_per_measure) const
 			{
 				std::stringstream id_sstr;
-				id_sstr << "path-" << measure_ << "-" << beat_ ;
+				id_sstr << "path-" << measure_ << "-" << beat_;
 				std::string identifier = id_sstr.str();
 
 				std::stringstream sstr;
 
 				int total_beats = (measures + 1) * beats_per_measure;
-				double column_width = (im_width)/(max_column * 2.0);
-				double beat_height = (im_height*(0.85 - 0.01)) / total_beats;
+				double column_width = (im_width) / (max_column * 2.0);
+				double beat_height = (im_height * (0.85 - 0.01)) / total_beats;
 
-				double draw_w = column_width / 2.0;
-				double draw_x_pos = (im_width / 2.0) + ((max_column - 0.5 - 0.25)*column_width);
+				double width = column_width / 2.0;
+				double posx = (im_width / 2.0) + ((max_column - 0.5 - 0.25) * column_width);
 
-				double draw_y_pos = 0;
-				double draw_h = 0;
+				double posy = 0;
+				double height = 0;
 
 				if (measure_ != 0)
 				{
-					draw_y_pos = im_height*(0.85 - 0.01) - (measure_ * beats_per_measure + beat_
-															+ duration_) * beat_height;
-					draw_h = beat_height * duration_;
+					posy = im_height * (0.85 - 0.01) - (measure_ * beats_per_measure + beat_ + duration_) * beat_height;
+					height = beat_height * duration_;
 				}
 				else
 				{
-					draw_y_pos = im_height*(0.85) - (measure_ * beats_per_measure + beat_
-						+ beats_per_measure) * beat_height;
-					draw_h = beat_height * beats_per_measure;
+					posy = im_height * (0.85)
+							- (measure_ * beats_per_measure + beat_ + beats_per_measure) * beat_height;
+					height = beat_height * beats_per_measure;
 				}
 
-//				sstr << "\t\t<path" << std::endl;
-//				sstr << "\t\t\td=\"m " << posx+width << "," << posy << " " << 0 << "," << height << " " << -width << "," << -height/2.0 << " " << width << "," << -height/2.0 << " z\"" << std::endl;
-//		        sstr << "\t\t\tid=\"" << identifier << "-rect\"" << std::endl;
-//				sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
-//				sstr << "\" />" << std::endl;
+				if (type_ == e_path_type::STRAIGHT)
+				{
+					sstr << "\t\t<path" << std::endl;
+					sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width << "," << 0 << " m " << -width/2.0
+							<< "," << 0 << " " << 0 << "," << height << " m " << -width/2.0
+							<< "," << 0 << " " << width << "," << 0 << " z\"" << std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-path\"" << std::endl;
+					sstr
+							<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\" />" << std::endl;
+				}
+				else if (type_ == e_path_type::CIRCULAR_LEFT)
+				{
+					sstr << "\t\t<path" << std::endl;
+					sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width << "," << width << " m " << -width/2.0
+							<< "," << -width/2.0 << " " << 0 << "," << height-width << " m " << width/2.0
+							<< "," << width/2.0 << " " << -width << "," << -width << " z\"" << std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-path\"" << std::endl;
+					sstr
+							<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\" />" << std::endl;
+				}
+				else if (type_ == e_path_type::CIRCULAR_RIGHT)
+				{
+					sstr << "\t\t<path" << std::endl;
+					sstr << "\t\t\td=\"m " << posx << "," << posy+width << " " << width << "," << -width << " m " << -width/2.0
+							<< "," << width/2.0 << " " << 0 << "," << height-width << " m " << -width/2.0
+							<< "," << width/2.0 << " " << width << "," << -width << " z\"" << std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-path\"" << std::endl;
+					sstr
+							<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\" />" << std::endl;
+				}
+				else if (type_ == e_path_type::ANY)
+				{
 
+				}
 
 				return sstr.str();
 			}
