@@ -487,6 +487,8 @@ namespace mae
 				{
 					max_index = cols.back();
 				}
+				//add one for room direction on the left and path symbols on the right side
+				max_index+=1;
 
 				unsigned int total_beats = (measures_ + 1) * beats_;
 				double beat_height = (im_height*(0.85 - 0.01)) / total_beats;
@@ -580,9 +582,9 @@ namespace mae
 				}
 
 				//handle movements
-				for (unsigned int i = 0; i < movements_vec_.size(); i++)
+				for (unsigned int i = 0; i < i_movements_vec_.size(); i++)
 				{
-					sstr << movements_vec_.at(i)->svg(im_width, im_height, max_index, measures_, beats_);
+					sstr << i_movements_vec_.at(i)->svg(im_width, im_height, max_index, measures_, beats_);
 				}
 
 				sstr << "\t</g>" << std::endl;
