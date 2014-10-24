@@ -129,7 +129,7 @@ namespace mae
 
 				for (unsigned int i = 0; i < relationship_node_set.size(); i++)
 				{
-					result->add_movement(read_path(relationship_node_set.at(i), namespace_map, nsp));
+					result->add_movement(read_relationship_bow(relationship_node_set.at(i), namespace_map, nsp));
 				}
 
 				//roomDirections
@@ -137,7 +137,7 @@ namespace mae
 
 				for (unsigned int i = 0; i < roomdir_node_set.size(); i++)
 				{
-					result->add_movement(read_path(roomdir_node_set.at(i), namespace_map, nsp));
+					result->add_movement(read_room_direction(roomdir_node_set.at(i), namespace_map, nsp));
 				}
 
 				//done
@@ -674,7 +674,7 @@ namespace mae
 				xmlpp::NodeSet direction_node_set = node->find(mxml::get_xpath("direction", nsp), *namespace_map);
 				std::shared_ptr<mv::pin> direction;
 
-				if (direction_node_set.size() > 1)
+				if (direction_node_set.size() > 0)
 				{
 					direction = read_pin(direction_node_set.at(0), namespace_map, nsp);
 				}
@@ -701,7 +701,7 @@ namespace mae
 				xmlpp::NodeSet left_relationship_endpoint_node_set = node->find(mxml::get_xpath("endPoints/left", nsp), *namespace_map);
 				std::shared_ptr<mv::relationship_endpoint> left;
 
-				if (left_relationship_endpoint_node_set.size() > 1)
+				if (left_relationship_endpoint_node_set.size() > 0)
 				{
 					left = read_relationship_endpoint(left_relationship_endpoint_node_set.at(0), namespace_map, nsp );
 				}
@@ -709,7 +709,7 @@ namespace mae
 				xmlpp::NodeSet right_relationship_endpoint_node_set = node->find(mxml::get_xpath("endPoints/right", nsp), *namespace_map);
 				std::shared_ptr<mv::relationship_endpoint> right;
 
-				if (right_relationship_endpoint_node_set.size() > 1)
+				if (right_relationship_endpoint_node_set.size() > 0)
 				{
 					right = read_relationship_endpoint(right_relationship_endpoint_node_set.at(0), namespace_map, nsp );
 				}
@@ -727,7 +727,7 @@ namespace mae
 				xmlpp::NodeSet pre_sign_node_set = node->find(mxml::get_xpath("preSign", nsp), *namespace_map);
 				std::shared_ptr<ps::i_pre_sign> pre_sign;
 
-				if (pre_sign_node_set.size() > 1)
+				if (pre_sign_node_set.size() > 0)
 				{
 					pre_sign = read_pre_sign(node, namespace_map, nsp);
 				}
@@ -735,7 +735,7 @@ namespace mae
 				xmlpp::NodeSet dynamics_node_set = node->find(mxml::get_xpath("dynamics", nsp), *namespace_map);
 				std::shared_ptr<mv::i_dynamics_sign> dynamics;
 
-				if (dynamics_node_set.size() > 1)
+				if (dynamics_node_set.size() > 0)
 				{
 					dynamics = read_dynamics(node, namespace_map, nsp);
 				}
