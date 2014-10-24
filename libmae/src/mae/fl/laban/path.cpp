@@ -143,15 +143,11 @@ namespace mae
 					draw_h = beat_height * beats_per_measure;
 				}
 
-				//TODO remove
-				sstr << "\t\t<rect" << std::endl;
-		        sstr << "\t\t\twidth=\"" << 2*draw_w/3.0 <<  "\"" << std::endl;
-		        sstr << "\t\t\theight=\"" << 2*draw_h/3.0 <<  "\"" << std::endl;
-		        sstr << "\t\t\tx=\"" << draw_x_pos+draw_w/6.0 <<  "\"" << std::endl;
-		        sstr << "\t\t\ty=\"" << draw_y_pos+draw_h/6.0 <<  "\"" << std::endl;
-		        sstr << "\t\t\tid=\"" << identifier << "-rect\"" << std::endl;
-				sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
-				sstr << "\" />" << std::endl;
+//				sstr << "\t\t<path" << std::endl;
+//				sstr << "\t\t\td=\"m " << posx+width << "," << posy << " " << 0 << "," << height << " " << -width << "," << -height/2.0 << " " << width << "," << -height/2.0 << " z\"" << std::endl;
+//		        sstr << "\t\t\tid=\"" << identifier << "-rect\"" << std::endl;
+//				sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+//				sstr << "\" />" << std::endl;
 
 
 				return sstr.str();
