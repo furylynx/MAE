@@ -23,7 +23,6 @@
 #include <memory>
 #include <stdexcept>
 
-
 namespace mae
 {
 	namespace fl
