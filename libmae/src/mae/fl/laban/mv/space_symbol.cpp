@@ -99,7 +99,7 @@ namespace mae
 				{
 					std::stringstream sstr;
 
-					//TODO
+					space_measurement_->svg(identifier, posx, posy, width, height, left);
 
 					return sstr.str();
 				}

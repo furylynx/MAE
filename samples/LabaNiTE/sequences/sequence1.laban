@@ -121,7 +121,7 @@
                <laban:vertical>middle</laban:vertical>
                <laban:horizontal>left-forward</laban:horizontal>
                <laban:spaceMeasurement>
-                  <laban:type>unfolding</laban:type>
+                  <laban:type>none</laban:type>
                   <laban:degree>1</laban:degree>
                </laban:spaceMeasurement>
             </laban:direction>
@@ -220,8 +220,8 @@
          <laban:relationship>
             <laban:type>address</laban:type>
             <laban:grasping>true</laban:grasping>
-            <laban:passing>false</laban:passing>
-            <laban:hold>false</laban:hold>
+            <laban:passing>true</laban:passing>
+            <laban:hold>true</laban:hold>
             <laban:measure>2</laban:measure>
             <laban:beat>1.5</laban:beat>
             <laban:endPoints>
@@ -328,8 +328,8 @@
          <laban:relationship>
             <laban:type>near</laban:type>
             <laban:grasping>false</laban:grasping>
-            <laban:passing>false</laban:passing>
-            <laban:hold>false</laban:hold>
+            <laban:passing>true</laban:passing>
+            <laban:hold>true</laban:hold>
             <laban:measure>2</laban:measure>
             <laban:beat>0.92</laban:beat>
             <laban:endPoints>
@@ -345,9 +345,9 @@
          </laban:relationship>
          <laban:relationship>
             <laban:type>touch</laban:type>
-            <laban:grasping>false</laban:grasping>
-            <laban:passing>false</laban:passing>
-            <laban:hold>false</laban:hold>
+            <laban:grasping>true</laban:grasping>
+            <laban:passing>true</laban:passing>
+            <laban:hold>true</laban:hold>
             <laban:measure>2</laban:measure>
             <laban:beat>1.2</laban:beat>
             <laban:endPoints>
@@ -364,8 +364,8 @@
          <laban:relationship>
             <laban:type>support</laban:type>
             <laban:grasping>false</laban:grasping>
-            <laban:passing>false</laban:passing>
-            <laban:hold>false</laban:hold>
+            <laban:passing>true</laban:passing>
+            <laban:hold>true</laban:hold>
             <laban:measure>2</laban:measure>
             <laban:beat>0.76</laban:beat>
             <laban:endPoints>
