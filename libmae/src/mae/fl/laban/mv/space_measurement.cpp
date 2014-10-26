@@ -22,10 +22,10 @@ namespace mae
 					degree_ = degree;
 					direction_ = direction;
 
-					if (type_ == e_space::NONE_SPACE)
-					{
-						throw std::invalid_argument("Type must not be NONE.");
-					}
+//					if (type_ == e_space::NONE_SPACE)
+//					{
+//						throw std::invalid_argument("Type must not be NONE.");
+//					}
 				}
 
 				space_measurement::~space_measurement()
@@ -113,7 +113,35 @@ namespace mae
 
 				std::string space_measurement::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
+					identifier.append("-spacemeasurement");
+
 					std::stringstream sstr;
+
+					if (width > height)
+					{
+						posx += (width-height)/2.0;
+						width = height;
+					}
+					else if (height > width)
+					{
+						posy += (height-width)/2.0;
+						height = width;
+					}
+
+
+					if (type_ == e_space::NONE_SPACE)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx << "," << posy << " " << 0 << "," << height << " " << width << "," << -height << " " << 0 << "," << height << " m  " << -width/4.0 << "," << -height/4.0 << " " << -width/2.0 << "," << -height/2.0 << "\""
+								<< std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "\" />" << std::endl;
+					}
+					else if (type_ == e_space::NARROW)
+					{
+
+					}
 
 					//TODO
 
