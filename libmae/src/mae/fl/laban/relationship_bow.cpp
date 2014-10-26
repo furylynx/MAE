@@ -193,48 +193,85 @@ namespace mae
 				double column_width = (im_width)/(max_column * 2.0);
 				double beat_height = (im_height*(0.85 - 0.01)) / total_beats;
 
-				double draw_w = (im_width / 2.0) + ((right_end - (mae::math::math::sign(right_end)*0.5) + 0.25)*column_width);
-				double draw_x_pos = (im_width / 2.0) + ((left_end - (mae::math::math::sign(left_end)*0.5) - 0.25)*column_width);
+				double width = (im_width / 2.0) + ((right_end - (mae::math::math::sign(right_end)*0.5) + 0.25)*column_width);
+				double posx = (im_width / 2.0) + ((left_end - (mae::math::math::sign(left_end)*0.5) - 0.25)*column_width);
 
-				double draw_y_pos = 0;
-				double draw_h = column_width/2.0;
+				double posy = 0;
+				double height = column_width/2.0;
 
 				if (measure_ != 0)
 				{
-					draw_y_pos = im_height*(0.85 - 0.01) - (measure_ * beats_per_measure + beat_) * beat_height + draw_h;
+					posy = im_height*(0.85 - 0.01) - (measure_ * beats_per_measure + beat_) * beat_height + height;
 				}
 				else
 				{
-					draw_y_pos = im_height*(0.85) - draw_h;
+					posy = im_height*(0.85) - height;
 				}
 
 				double draw_hold_y = 0;
-				double draw_hold_h = draw_h/3.0;
+				double draw_hold_h = height/3.0;
 
 				if (hold_)
 				{
-					draw_hold_y = draw_y_pos;
+					draw_hold_y = posy;
 
-					draw_y_pos += draw_hold_h;
-					draw_h -= draw_hold_h;
+					posy += draw_hold_h;
+					height -= draw_hold_h;
 
-					if (draw_h < 0)
+					if (height < 0)
 					{
-						draw_y_pos += draw_h;
-						draw_h = 0.01;
+						posy += height;
+						height = 0.01;
 					}
 				}
 
+				if (type_ == e_relationship_type::SUPPORT)
+				{
+					sstr << "\t\t<path" << std::endl;
+					sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width/3.0 << "," << height << " " << width/3.0 << "," << 0 << " " << width/3.0 << "," << -height << "\""
+							<< std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\" />" << std::endl;
+				}
+				else if (type_ == e_relationship_type::NEAR)
+				{
+					sstr << "\t\t<path" << std::endl;
+					sstr << "\t\t\td=\"m " << posx+width << "," << posy << "  a " << width/2.0
+							<< "," << height << " 0 1 1 -" << width << ",0 \""
+							<< std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5,10;stroke-dashoffset:0";
+					sstr << "\" />" << std::endl;
+				}
+				else if (type_ == e_relationship_type::TOUCH)
+				{
+					sstr << "\t\t<path" << std::endl;
+					sstr << "\t\t\td=\"m " << posx+width << "," << posy << "  a " << width/2.0
+							<< "," << height << " 0 1 1 -" << width << ",0 \""
+							<< std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\" />" << std::endl;
+				}
+				else if (type_ == e_relationship_type::ADDRESS)
+				{
+					sstr << "\t\t<path" << std::endl;
+					sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width-height << "," << 0 << " m " << height << "," << 0 << " a " << height/2.0
+							<< "," << height/2.0 << " 0 1 1 -" << height << ",0 \""
+							<< std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\" />" << std::endl;
+				}
 
-
-				//sstr << symbol_->svg(identifier, draw_x_pos, draw_y_pos, draw_w, draw_h, (column_ < 0));
 
 				//draw hold sign
 				if (hold_)
 				{
 					//draw circle
 					sstr << "\t\t<path" << std::endl;
-					sstr << "\t\t\td=\"m " << draw_x_pos + draw_w/2.0 + draw_hold_h/2.0 << "," << draw_hold_y + draw_hold_h/2.0 << " a " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 -" << draw_hold_h << ",0 " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 " << draw_hold_h << ",0 z\"" << std::endl;
+					sstr << "\t\t\td=\"m " << posx + width/2.0 + draw_hold_h/2.0 << "," << draw_hold_y + draw_hold_h/2.0 << " a " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 -" << draw_hold_h << ",0 " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 " << draw_hold_h << ",0 z\"" << std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-hold\"" << std::endl;
 					sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
 				}
