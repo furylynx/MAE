@@ -480,6 +480,16 @@ namespace mae
 				sstr << "\t</metadata>" << std::endl;
 				sstr << "\t<g id=\"layer1\">" << std::endl;
 
+				//print rect
+				sstr << "\t\t<rect" << std::endl;
+		        sstr << "\t\t\twidth=\"" << im_width <<  "\"" << std::endl;
+		        sstr << "\t\t\theight=\"" << im_height <<  "\"" << std::endl;
+		        sstr << "\t\t\tx=\"" << 0 <<  "\"" << std::endl;
+		        sstr << "\t\t\ty=\"" << 0 <<  "\"" << std::endl;
+		        sstr << "\t\t\tid=\"bg-rect\"" << std::endl;
+				sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+				sstr << "\" />" << std::endl;
+
 				//print staff
 				std::vector<int> cols = get_columns();
 				int max_index = std::abs(cols.at(0));

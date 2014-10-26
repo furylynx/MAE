@@ -175,7 +175,7 @@ namespace mae
 				{
 					std::stringstream sstr;
 
-					//TODO pins, dynamics, space measurement, contact hook
+					//TODO pins, dynamics, contact hook
 
 					//double orig_height = height;
 
@@ -312,16 +312,13 @@ namespace mae
 					if (space_measurement_ != nullptr)
 					{
 						//draw space measurement
-						double spm_y = posy + height;
-						double spm_w = width;
-						double spm_h = width;
-						//xpos is xpos
-						sstr << space_measurement_->svg(identifier, posx, spm_y, spm_w, spm_h);
+						double spm_y = posy + height + width*0.1;
+						double spm_w = width*0.8;
+						double spm_h = width*0.8;
+						double spm_x = posx + width*0.1;
+
+						sstr << space_measurement_->svg(identifier, spm_x, spm_y, spm_w, spm_h);
 					}
-
-					//TODO draw pin ??
-
-
 
 					return sstr.str();
 				}

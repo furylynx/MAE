@@ -193,7 +193,7 @@ namespace mae
 				double column_width = (im_width)/(max_column * 2.0);
 				double beat_height = (im_height*(0.85 - 0.01)) / total_beats;
 
-				double width = (im_width / 2.0) + ((right_end - (mae::math::math::sign(right_end)*0.5) + 0.25)*column_width);
+				double width = (right_end - left_end + 0.5)*column_width;
 				double posx = (im_width / 2.0) + ((left_end - (mae::math::math::sign(left_end)*0.5) - 0.25)*column_width);
 
 				double posy = 0;
@@ -225,6 +225,21 @@ namespace mae
 					}
 				}
 
+				double draw_passing_offset = height/5.0;
+				double draw_passing_y = posy;
+
+				if (passing_)
+				{
+					posy += draw_passing_offset;
+					height -= draw_passing_offset;
+
+					if (height < 0)
+					{
+						posy += height;
+						height = 0.01;
+					}
+				}
+
 				if (type_ == e_relationship_type::SUPPORT)
 				{
 					sstr << "\t\t<path" << std::endl;
@@ -233,9 +248,20 @@ namespace mae
 					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
 					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
+
+					if (passing_)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx << "," << draw_passing_y << " " << width/3.0 << "," << height << " " << width/3.0 << "," << 0 << " " << width/3.0 << "," << -height << "\""
+								<< std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-line2\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "\" />" << std::endl;
+					}
 				}
 				else if (type_ == e_relationship_type::NEAR)
 				{
+
 					sstr << "\t\t<path" << std::endl;
 					sstr << "\t\t\td=\"m " << posx+width << "," << posy << "  a " << width/2.0
 							<< "," << height << " 0 1 1 -" << width << ",0 \""
@@ -243,6 +269,20 @@ namespace mae
 					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
 					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5,10;stroke-dashoffset:0";
 					sstr << "\" />" << std::endl;
+
+					if (passing_)
+					{
+						double pwidth = width - (2*draw_passing_offset);
+						double pposx = posx + draw_passing_offset;
+
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << pposx + pwidth  << "," << draw_passing_y << "  a " << pwidth/2.0
+								<< "," << height << " 0 1 1 -" << pwidth << ",0 \""
+								<< std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-line2\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5,10;stroke-dashoffset:0";
+						sstr << "\" />" << std::endl;
+					}
 				}
 				else if (type_ == e_relationship_type::TOUCH)
 				{
@@ -253,16 +293,41 @@ namespace mae
 					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
 					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
+
+					if (passing_)
+					{
+						double pwidth = width - (2*draw_passing_offset);
+						double pposx = posx + draw_passing_offset;
+
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << pposx+pwidth << "," << draw_passing_y << "  a " << pwidth/2.0
+								<< "," << height << " 0 1 1 -" << pwidth << ",0 \""
+								<< std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-line2\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "\" />" << std::endl;
+					}
 				}
 				else if (type_ == e_relationship_type::ADDRESS)
 				{
 					sstr << "\t\t<path" << std::endl;
-					sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width-height << "," << 0 << " m " << height << "," << 0 << " a " << height/2.0
-							<< "," << height/2.0 << " 0 1 1 -" << height << ",0 \""
+					sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width/2.0 << "," << 0 << " m " << width/2.0 << "," << 0 << " a " << width/4.0
+							<< "," << height/2.0 << " 0 1 1 -" << width/2.0 << ",0 \""
 							<< std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
 					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
+
+					if (passing_)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx << "," << draw_passing_y << " " << width/2.0 + draw_passing_offset << "," << 0 << " m " << width/2.0 - (2*draw_passing_offset) << "," << 0 << " a " << (width/4.0) - (draw_passing_offset)
+								<< "," << height/2.0 << " 0 1 1 -" << width/2.0 - 2*draw_passing_offset << ",0 \""
+								<< std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-line2\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "\" />" << std::endl;
+					}
 				}
 
 
@@ -274,6 +339,26 @@ namespace mae
 					sstr << "\t\t\td=\"m " << posx + width/2.0 + draw_hold_h/2.0 << "," << draw_hold_y + draw_hold_h/2.0 << " a " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 -" << draw_hold_h << ",0 " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 " << draw_hold_h << ",0 z\"" << std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-hold\"" << std::endl;
 					sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+				}
+
+				if (grasping_)
+				{
+					//print rect
+					sstr << "\t\t<rect" << std::endl;
+			        sstr << "\t\t\twidth=\"" << height <<  "\"" << std::endl;
+			        sstr << "\t\t\theight=\"" << height <<  "\"" << std::endl;
+			        sstr << "\t\t\tx=\"" << posx+width/2.0-height/2.0 <<  "\"" << std::endl;
+			        sstr << "\t\t\ty=\"" << posy <<  "\"" << std::endl;
+			        sstr << "\t\t\tid=\"" << identifier << "-grasping-bg\"" << std::endl;
+					sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\" />" << std::endl;
+
+					sstr << "\t\t<path" << std::endl;
+					sstr << "\t\t\td=\"m " << posx+width/2.0-height/2.0 << "," << posy << " " << height << "," << height << " m " << -height << "," << 0 << " " << height << "," << -height << " \""
+							<< std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-grasping\"" << std::endl;
+					sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\" />" << std::endl;
 				}
 
 				return sstr.str();
