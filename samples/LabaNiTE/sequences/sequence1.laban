@@ -183,10 +183,10 @@
             <laban:turn>
                <laban:direction>clockwise</laban:direction>
                <laban:degree>
-                  <laban:quantitative>
-                     <laban:vertical>middle</laban:vertical>
-                     <laban:horizontal>45</laban:horizontal>
-                  </laban:quantitative>
+                  <laban:qualitative>
+                     <laban:type>spreading</laban:type>
+                     <laban:degree>1</laban:degree>
+                  </laban:qualitative>
                </laban:degree>
             </laban:turn>
          </laban:movement>
@@ -397,6 +397,45 @@
                </laban:right>
             </laban:endPoints>
          </laban:relationship>
+         <laban:movement>
+            <laban:column>2</laban:column>
+            <laban:measure>2</laban:measure>
+            <laban:beat>0.12</laban:beat>
+            <laban:duration>1.0</laban:duration>
+            <laban:hold>false</laban:hold>
+            <laban:space>
+               <laban:spaceMeasurement>
+                  <laban:type>narrow</laban:type>
+                  <laban:degree>3</laban:degree>
+               </laban:spaceMeasurement>
+            </laban:space>
+         </laban:movement>
+         <laban:movement>
+            <laban:column>1</laban:column>
+            <laban:measure>2</laban:measure>
+            <laban:beat>0.95</laban:beat>
+            <laban:duration>0.43</laban:duration>
+            <laban:hold>false</laban:hold>
+            <laban:space>
+               <laban:spaceMeasurement>
+                  <laban:type>unfolding</laban:type>
+                  <laban:degree>1</laban:degree>
+               </laban:spaceMeasurement>
+            </laban:space>
+         </laban:movement>
+         <laban:movement>
+            <laban:column>5</laban:column>
+            <laban:measure>2</laban:measure>
+            <laban:beat>0.64</laban:beat>
+            <laban:duration>1.0</laban:duration>
+            <laban:hold>false</laban:hold>
+            <laban:space>
+               <laban:spaceMeasurement>
+                  <laban:type>unfolding</laban:type>
+                  <laban:degree>1</laban:degree>
+               </laban:spaceMeasurement>
+            </laban:space>
+         </laban:movement>
       </laban:movements>
    </laban:staff>
 </laban:score>
