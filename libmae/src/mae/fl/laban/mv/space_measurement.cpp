@@ -138,9 +138,44 @@ namespace mae
 						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 						sstr << "\" />" << std::endl;
 					}
+					else if (type_ == e_space::UNFOLDING)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx << "," << posy+height << " " << width/2.0 << "," << -height << " " << width/2.0 << "," << height << " m " << 0 << "," << -height/3.0 << " " << -width << "," << 0 << "\""
+								<< std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "\" />" << std::endl;
+					}
 					else if (type_ == e_space::NARROW)
 					{
 
+					}
+					else if (type_ == e_space::WIDE)
+					{
+
+					}
+					else if (type_ == e_space::FOLDING)
+					{
+
+					}
+					else if (type_ == e_space::JOINING)
+					{
+
+					}
+					else if (type_ == e_space::SPREADING)
+					{
+
+					}
+
+					if (degree_ % 3 != 1)
+					{
+						//TODO draw upper dot
+					}
+
+					if (degree_ %3 == 0)
+					{
+						//TODO draw lower dot
 					}
 
 					//TODO

@@ -97,9 +97,27 @@ namespace mae
 
 				std::string space_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
+					identifier.append("-space_symbol");
+
 					std::stringstream sstr;
 
-					space_measurement_->svg(identifier, posx, posy, width, height, left);
+					double nheight = height-width;
+
+					if (nheight < 0)
+					{
+						nheight = 0.01;
+					}
+
+					//draw line
+					sstr << "\t\t<path" << std::endl;
+					sstr << "\t\t\td=\"m " << posx+width/2.0 << "," << posy << " " << 0 << "," << nheight << "\""
+							<< std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\" />" << std::endl;
+
+					//draw measurement
+					sstr << space_measurement_->svg(identifier, posx, posy+nheight, width, height, left);
 
 					return sstr.str();
 				}
