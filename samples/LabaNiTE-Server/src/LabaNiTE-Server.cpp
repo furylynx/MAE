@@ -125,6 +125,7 @@ int main()
 
 		//create the movement controller
 		std::cout << "initialize fl movement controller" << std::endl;
+		std::cout << "tolerance: " << tolerance << std::endl;
 
 		mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,
 				column_definitions, 0, mae::fl::laban::laban_sequence::default_beats_per_measure(),
