@@ -65,6 +65,14 @@ public class prop extends i_pre_sign {
     return w_e_boneJNI.prop_xml__SWIG_2(swigCPtr, this);
   }
 
+  public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
+    return w_e_boneJNI.prop_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+  }
+
+  public String svg(String identifier, double posx, double posy, double width, double height) {
+    return w_e_boneJNI.prop_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+  }
+
   public boolean equals(i_pre_sign a) {
     return w_e_boneJNI.prop_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a);
   }

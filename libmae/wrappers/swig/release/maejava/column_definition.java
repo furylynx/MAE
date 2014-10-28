@@ -64,8 +64,16 @@ public class column_definition {
     return w_e_boneJNI.column_definition_xml__SWIG_2(swigCPtr, this);
   }
 
+  public String svg(long im_width, long im_height, long max_column, long measures, long beats_per_measure) {
+    return w_e_boneJNI.column_definition_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
+  }
+
   public boolean equals(column_definition a) {
     return w_e_boneJNI.column_definition_equals(swigCPtr, this, column_definition.getCPtr(a), a);
+  }
+
+  public static coldef_vector default_definitions() {
+    return new coldef_vector(w_e_boneJNI.column_definition_default_definitions(), true);
   }
 
 }
