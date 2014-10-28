@@ -182,7 +182,7 @@ namespace mae
 				return (column_index_ == a->get_column_index() && pre_sign_->equals(a->get_pre_sign()));
 			}
 
-			std::vector<std::shared_ptr<column_definition> > default_definitions()
+			std::vector<std::shared_ptr<column_definition> > column_definition::default_definitions()
 			{
 				std::vector<std::shared_ptr<column_definition> > result;
 

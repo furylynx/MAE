@@ -13,6 +13,15 @@ src/mae/eventing/fl/laban_serializer.d: \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/math.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../fl/angular_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../fl/../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/vec3d.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/basis.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../general_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../math/vec3d.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/area_part.hpp \
@@ -213,6 +222,24 @@ src/mae/eventing/fl/laban_serializer.d: \
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_bone.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/math.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../fl/angular_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../fl/../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/vec3d.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/basis.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../general_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../math/vec3d.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp:
 

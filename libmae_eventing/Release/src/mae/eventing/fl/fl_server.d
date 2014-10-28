@@ -13,6 +13,15 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/math.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../fl/angular_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../fl/../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/vec3d.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/basis.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../general_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../math/vec3d.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/../../../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/area_part.hpp \
@@ -215,18 +224,12 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/general_skeleton.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/general_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/math/vec3d.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/math/../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/math/basis.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/math/vec3d.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/ini_reader.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/mxml.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/mos.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/math/math.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/math/../fl/angular_joint.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/math/../fl/../indexer_fix.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/math/basis.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/math/../general_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/angular_skeleton_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../indexer_fix.hpp \
@@ -249,11 +252,10 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_movement_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl_pose_detector.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_pose_detector.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/e_fl_direction.hpp \
+ /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_generator.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../e_fl_direction.hpp \
- /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../fl_movement_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../general_enriched_pose.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../i_sequence_generator.hpp \
  /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_recognizer.hpp \
@@ -322,6 +324,24 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_bone.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../e_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/math.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../fl/angular_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../fl/../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/vec3d.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/basis.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../general_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../math/../math/vec3d.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/ps/i_pre_sign.hpp:
 
@@ -753,11 +773,7 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/math/vec3d.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/math/../indexer_fix.hpp:
-
 /sda7/data/workspace-git/MAE/libmae/src/mae/math/basis.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/math/vec3d.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/ini_reader.hpp:
 
@@ -768,14 +784,6 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 /sda7/data/workspace-git/MAE/libmae/src/mae/mos.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/math/math.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/math/../fl/angular_joint.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/math/../fl/../indexer_fix.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/math/basis.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/math/../general_joint.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/fl.hpp:
 
@@ -821,15 +829,13 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/../i_pose_detector.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence.hpp:
-
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/e_fl_direction.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/laban_sequence_generator.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../e_fl_direction.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../fl_movement_controller.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/src/mae/fl/laban/../../general_enriched_pose.hpp:
 

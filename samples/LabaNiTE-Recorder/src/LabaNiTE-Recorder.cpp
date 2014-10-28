@@ -215,11 +215,14 @@ int main()
 
 					for(unsigned int i = 0; i < skel_pair.second.size(); i ++)
 					{
-						if (stored_unmerged_skeletons.size() <= i)
+						if (skel_pair.second.at(i).size() > 0)
 						{
-							stored_unmerged_skeletons.push_back(std::vector<std::shared_ptr<mae::general_skeleton> >());
+							while (stored_unmerged_skeletons.size() <= i)
+							{
+								stored_unmerged_skeletons.push_back(std::vector<std::shared_ptr<mae::general_skeleton> >());
+							}
+							stored_unmerged_skeletons.at(i).push_back(skel_pair.second.at(i).at(0));
 						}
-						stored_unmerged_skeletons.at(i).push_back(skel_pair.second.at(i).at(0));
 					}
 
 					stored_merged_skeletons.push_back(skeletons.at(0));
