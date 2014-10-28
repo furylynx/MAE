@@ -351,6 +351,7 @@ namespace mae
 		std::vector<std::shared_ptr<mae::general_skeleton> > nite_controller::wait_for_update(
 				unsigned int each_n_frames)
 		{
+
 			if (each_n_frames == 0)
 			{
 				each_n_frames = 1;

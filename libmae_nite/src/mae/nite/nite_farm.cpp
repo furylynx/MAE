@@ -138,14 +138,14 @@ namespace mae
 			//wait for an update on the first controller and use data present from all other controllers
 			skeleton_data_.at(0) = controllers_.front()->wait_for_update(each_n_frames);
 
-			for (unsigned int i = 0; i < mutexes_.size(); i++)
+			for (unsigned int i = 1; i < mutexes_.size(); i++)
 			{
 				mutexes_.at(i)->lock();
 			}
 
 			std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > result = skeleton_data_;
 
-			for (unsigned int i = 0; i < mutexes_.size(); i++)
+			for (unsigned int i = 1; i < mutexes_.size(); i++)
 			{
 				mutexes_.at(i)->unlock();
 			}
@@ -298,7 +298,7 @@ namespace mae
 
 		void nite_farm::nite_run(std::shared_ptr<nite_controller> controller, unsigned int id)
 		{
-			while (running_)
+			while (running_ && controller != nullptr)
 			{
 				std::vector<std::shared_ptr<mae::general_skeleton> > data = controller->wait_for_update();
 				mutexes_.at(id)->lock();
@@ -306,6 +306,7 @@ namespace mae
 				skeleton_data_.at(id) = data;
 
 				mutexes_.at(id)->unlock();
+
 			}
 		}
 
