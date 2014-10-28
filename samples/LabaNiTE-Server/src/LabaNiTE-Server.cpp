@@ -108,8 +108,6 @@ int main()
 		std::vector<mae::bone> body_parts;
 		std::vector<std::shared_ptr<mae::fl::laban::column_definition> > column_definitions;
 
-		std::shared_ptr<mae::fl::laban::ps::i_pre_sign>(new mae::fl::laban::ps::prop("ReverseLeftLeg"))
-
 		std::cout << "body parts to be regarded:" << std::endl;
 		for (unsigned int i = 0; i < bones_split.size(); i++)
 		{
@@ -216,7 +214,7 @@ int main()
 
 		std::cout << "Setting up the OpenNI/NiTE driver...";
 
-		mae::nite::nite_controller nitec = mae::nite::nite_controller(config_path, max_users, true);
+		mae::nite::nite_farm nitef = mae::nite::nite_farm(config_path, max_users, true);
 
 		std::cout << "done." << std::endl;
 
@@ -234,9 +232,9 @@ int main()
 		//process frames
 		//-----------------------
 		std::cout << "started processing..." << std::endl;
-		while (!nitec.was_keyboard_hit())
+		while (!nitef.was_keyboard_hit())
 		{
-			std::vector<std::shared_ptr<mae::general_skeleton> > skeletons = nitec.wait_for_update();
+			std::vector<std::shared_ptr<mae::general_skeleton> > skeletons = nitef.wait_for_update();
 			if (skeletons.size() > 0 && skeletons.at(0) != nullptr)
 			{
 				//std::cout << "LNiTE: next frame" << std::endl;
