@@ -98,6 +98,13 @@ namespace mae
 				 */
 				virtual bool equals(std::shared_ptr<column_definition> a) const;
 
+				/**
+				 * Returns the default column definitions.
+				 *
+				 * @return The default column definitions.
+				 */
+				static std::vector<std::shared_ptr<column_definition> > default_definitions();
+
 			private:
 				int column_index_;
 				std::shared_ptr<ps::i_pre_sign> pre_sign_;

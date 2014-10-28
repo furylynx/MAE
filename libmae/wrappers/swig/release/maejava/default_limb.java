@@ -57,6 +57,14 @@ public class default_limb extends i_limb {
     return w_e_boneJNI.default_limb_xml__SWIG_2(swigCPtr, this);
   }
 
+  public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
+    return w_e_boneJNI.default_limb_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+  }
+
+  public String svg(String identifier, double posx, double posy, double width, double height) {
+    return w_e_boneJNI.default_limb_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+  }
+
   public boolean equals(i_part a) {
     return w_e_boneJNI.default_limb_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }

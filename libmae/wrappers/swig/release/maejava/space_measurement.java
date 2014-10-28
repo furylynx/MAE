@@ -61,16 +61,28 @@ public class space_measurement extends i_degree_sign {
     return w_e_boneJNI.space_measurement_equals(swigCPtr, this, i_degree_sign.getCPtr(a), a);
   }
 
+  public String xml(long indent, String namesp, boolean print_type) {
+    return w_e_boneJNI.space_measurement_xml__SWIG_0(swigCPtr, this, indent, namesp, print_type);
+  }
+
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.space_measurement_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return w_e_boneJNI.space_measurement_xml__SWIG_1(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.space_measurement_xml__SWIG_1(swigCPtr, this, indent);
+    return w_e_boneJNI.space_measurement_xml__SWIG_2(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.space_measurement_xml__SWIG_2(swigCPtr, this);
+    return w_e_boneJNI.space_measurement_xml__SWIG_3(swigCPtr, this);
+  }
+
+  public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
+    return w_e_boneJNI.space_measurement_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+  }
+
+  public String svg(String identifier, double posx, double posy, double width, double height) {
+    return w_e_boneJNI.space_measurement_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public String str() {

@@ -61,6 +61,14 @@ public class digit_part extends i_endpoint {
     return w_e_boneJNI.digit_part_xml__SWIG_2(swigCPtr, this);
   }
 
+  public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
+    return w_e_boneJNI.digit_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+  }
+
+  public String svg(String identifier, double posx, double posy, double width, double height) {
+    return w_e_boneJNI.digit_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+  }
+
   public i_endpoint get_fixed_end() {
     long cPtr = w_e_boneJNI.digit_part_get_fixed_end(swigCPtr, this);
     return (cPtr == 0) ? null : new i_endpoint(cPtr, true);

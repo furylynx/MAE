@@ -34,7 +34,7 @@
 //templates
 %template (bone_vector) std::vector<mae::bone>;
 %template (fl_skel_laban_movement_controller) mae::movement_controller<mae::fl::fl_skeleton, mae::fl::laban::laban_sequence>;
-//TODO all other templates as given by the movement_controller...??
+%template (coldef_vector) std::vector<std::shared_ptr<mae::fl::laban::column_definition> >;
 
 // Parse the original header file
 %include "../../../src/mae/fl/fl_movement_controller.hpp"

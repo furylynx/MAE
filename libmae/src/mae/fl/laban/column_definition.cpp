@@ -182,6 +182,23 @@ namespace mae
 				return (column_index_ == a->get_column_index() && pre_sign_->equals(a->get_pre_sign()));
 			}
 
+			std::vector<std::shared_ptr<column_definition> > default_definitions()
+			{
+				std::vector<std::shared_ptr<column_definition> > result;
+
+				std::vector<mae::e_bone> ebones = mae::e_bone_c::vec();
+
+				for (unsigned int i = 0; i < ebones.size(); i++)
+				{
+					if (std::abs(mae::e_bone_c::to_int(ebones.at(i))) > 2 && std::abs(mae::e_bone_c::to_int(ebones.at(i))) != 4)
+					{
+						result.push_back(std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(ebones.at(i))));
+					}
+				}
+
+				return result;
+			}
+
 		} // namespace laban
 	} // namespace fl
 } // namespace mae

@@ -108,6 +108,8 @@ int main()
 		std::vector<mae::bone> body_parts;
 		std::vector<std::shared_ptr<mae::fl::laban::column_definition> > column_definitions;
 
+		std::shared_ptr<mae::fl::laban::ps::i_pre_sign>(new mae::fl::laban::ps::prop("ReverseLeftLeg"))
+
 		std::cout << "body parts to be regarded:" << std::endl;
 		for (unsigned int i = 0; i < bones_split.size(); i++)
 		{
