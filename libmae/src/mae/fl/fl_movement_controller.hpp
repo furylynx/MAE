@@ -43,6 +43,7 @@ namespace mae {
 				 * no column definition is given the default columns are the only ones that can be used.
 				 *
 				 * @param pose_buffer_size The buffer size for the movement detector (number of frames to process). Values <= 1 means calculating the buffer size from the registered sequences.
+				 * @param framerate The framerate for the stream.
 				 * @param debug True for debug console print.
 				 */
 				fl_movement_controller(unsigned int pose_buffer_size = 0, double framerate = 1.0/30.0, bool debug = false);
@@ -58,9 +59,30 @@ namespace mae {
 				 * 		Values <= 1 means calculating the buffer size from the registered sequences.
 				 * @param beats_per_measure The number of beats per measure.
 				 * @param beat_duration The duration of a single beat.
+				 * @param time_unit The time unit to be applied.
+				 * @param framerate The framerate for the stream.
 				 * @param debug True for debug console print.
 				 */
 				fl_movement_controller(std::vector<bone> body_parts, std::vector<std::shared_ptr<laban::column_definition> > column_definitions, unsigned int pose_buffer_size = 0, unsigned int beats_per_measure = laban::laban_sequence::default_beats_per_measure(), unsigned int beat_duration = laban::laban_sequence::default_beat_duration(), laban::e_time_unit time_unit = laban::laban_sequence::default_time_unit(), double framerate = 1.0/30.0, bool debug = false);
+
+				/**
+				 * Creates a new controller for movements analysis based on Labanotation and fl_skeletons
+				 * which handles the given body parts and uses the defined columns for the Labanotation
+				 * sequence.
+				 *
+				 * @param body_parts The body parts which shall be handled.
+				 * @param column_definitions The columns which shall be defined besides those that are defined by default.
+				 * @param sequence_generator
+				 * @param pose_buffer_size The buffer size for the movement detector (number of frames to process).
+				 * 		Values <= 1 means calculating the buffer size from the registered sequences.
+				 * @param beats_per_measure The number of beats per measure.
+				 * @param beat_duration The duration of a single beat.
+				 * @param time_unit The time unit to be applied.
+				 * @param framerate The framerate for the stream.
+				 * @param debug True for debug console print.
+				 */
+				fl_movement_controller(std::vector<bone> body_parts, std::vector<std::shared_ptr<laban::column_definition> > column_definitions, std::shared_ptr<mae::fl::laban::laban_sequence_generator> sequence_generator, unsigned int pose_buffer_size = 0, unsigned int beats_per_measure = laban::laban_sequence::default_beats_per_measure(), unsigned int beat_duration = laban::laban_sequence::default_beat_duration(), laban::e_time_unit time_unit = laban::laban_sequence::default_time_unit(), double framerate = 1.0/30.0, bool debug = false);
+
 
 				virtual ~fl_movement_controller();
 

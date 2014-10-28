@@ -23,7 +23,6 @@ namespace mae
 			debug_ = debug;
 
 			initialize();
-
 		}
 
 		fl_movement_controller::fl_movement_controller(std::vector<bone> body_parts,
@@ -44,8 +43,23 @@ namespace mae
 			debug_ = debug;
 
 			initialize();
-
 		}
+
+		fl_movement_controller::fl_movement_controller(std::vector<bone> body_parts, std::vector<std::shared_ptr<laban::column_definition> > column_definitions, std::shared_ptr<mae::fl::laban::laban_sequence_generator> sequence_generator, unsigned int pose_buffer_size, unsigned int beats_per_measure, unsigned int beat_duration, laban::e_time_unit time_unit, double framerate, bool debug)
+		: movement_controller(
+								std::shared_ptr<fl_pose_detector>(
+										new fl_pose_detector(fl_pose_detector::default_hysteresis_val(), debug)),
+								sequence_generator,
+								std::shared_ptr<laban::laban_sequence_recognizer>(
+										new laban::laban_sequence_recognizer(column_definitions, beats_per_measure,
+												beat_duration, time_unit, debug)), body_parts, pose_buffer_size, framerate,
+								debug)
+		{
+			debug_ = debug;
+
+			initialize();
+		}
+
 
 		fl_movement_controller::~fl_movement_controller()
 		{
