@@ -141,7 +141,7 @@ namespace mae
 					else if (type_ == e_space::UNFOLDING)
 					{
 						sstr << "\t\t<path" << std::endl;
-						sstr << "\t\t\td=\"m " << posx << "," << posy+height << " " << width/2.0 << "," << -height << " " << width/2.0 << "," << height << " m " << 0 << "," << -height/3.0 << " " << -width << "," << 0 << "\""
+						sstr << "\t\t\td=\"m " << posx+width/8.0 << "," << posy+height << " " << 3*width/8.0 << "," << -height << " " << 3*width/8.0 << "," << height << " m " << width/8.0 << "," << -height/6.0 << " " << -width << "," << 0 << "\""
 								<< std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
 						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
