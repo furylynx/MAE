@@ -85,10 +85,12 @@ namespace mae
 						indent_stream << "\t";
 						sstr << type_indent << "<" << ns << "qualitative>" << std::endl;
 					}
+					else
+					{
+						sstr << indent_stream.str() << "<" << ns << "spaceMeasurement>" << std::endl;
+					}
 
 					//print accent sign
-					sstr << indent_stream.str() << "<" << ns << "spaceMeasurement>" << std::endl;
-
 					sstr << indent_stream.str() << "\t" << "<" << ns << "type>" << e_space_c::str(type_) << "</" << ns
 							<< "type>" << std::endl;
 					sstr << indent_stream.str() << "\t" << "<" << ns << "degree>" << degree_ << "</" << ns << "degree>"
@@ -100,18 +102,20 @@ namespace mae
 								<< e_space_direction_c::str(direction_) << "</" << ns << "direction>" << std::endl;
 					}
 
-					sstr << indent_stream.str() << "</" << ns << "spaceMeasurement>" << std::endl;
-
 					if (print_type)
 					{
 						sstr << type_indent << "</" << ns << "qualitative>" << std::endl;
 					}
+					else
+					{
+						sstr << indent_stream.str() << "</" << ns << "spaceMeasurement>" << std::endl;
+					}
 
 					return sstr.str();
-
 				}
 
-				std::string space_measurement::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
+				std::string space_measurement::svg(std::string identifier, double posx, double posy, double width,
+						double height, bool left) const
 				{
 					identifier.append("-spacemeasurement");
 
@@ -119,37 +123,67 @@ namespace mae
 
 					if (width > height)
 					{
-						posx += (width-height)/2.0;
+						posx += (width - height) / 2.0;
 						width = height;
 					}
 					else if (height > width)
 					{
-						posy += (height-width)/2.0;
+						posy += (height - width) / 2.0;
 						height = width;
 					}
 
+					double udot_posx = posx + width / 2.0;
+					double udot_posy = posy + height * 0.1;
+					double ldot_posx = posx + width / 2.0;
+					double ldot_posy = posy + height * 0.9;
 
 					if (type_ == e_space::NONE_SPACE)
 					{
 						sstr << "\t\t<path" << std::endl;
-						sstr << "\t\t\td=\"m " << posx << "," << posy << " " << 0 << "," << height << " " << width << "," << -height << " " << 0 << "," << height << " m  " << -width/4.0 << "," << -height/4.0 << " " << -width/2.0 << "," << -height/2.0 << "\""
-								<< std::endl;
+						sstr << "\t\t\td=\"m " << posx << "," << posy << " " << 0 << "," << height << " " << width
+								<< "," << -height << " " << 0 << "," << height << " m  " << -width / 4.0 << ","
+								<< -height / 4.0 << " " << -width / 2.0 << "," << -height / 2.0 << "\"" << std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
-						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr
+								<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 						sstr << "\" />" << std::endl;
 					}
 					else if (type_ == e_space::UNFOLDING)
 					{
 						sstr << "\t\t<path" << std::endl;
-						sstr << "\t\t\td=\"m " << posx+width/8.0 << "," << posy+height << " " << 3*width/8.0 << "," << -height << " " << 3*width/8.0 << "," << height << " m " << width/8.0 << "," << -height/6.0 << " " << -width << "," << 0 << "\""
-								<< std::endl;
+						sstr << "\t\t\td=\"m " << posx + width / 8.0 << "," << posy + height << " " << 3 * width / 8.0
+								<< "," << -height << " " << 3 * width / 8.0 << "," << height << " m " << width / 8.0
+								<< "," << -height / 6.0 << " " << -width << "," << 0 << "\"" << std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
-						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr
+								<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 						sstr << "\" />" << std::endl;
 					}
 					else if (type_ == e_space::NARROW)
 					{
-
+						if (degree_ <= 3)
+						{
+							sstr << "\t\t<path" << std::endl;
+							sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width << "," << height << " m " << 0
+									<< "," << -height << "" << -width << "," << height << "\"" << std::endl;
+							sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+							sstr
+									<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							sstr << "\" />" << std::endl;
+						}
+						else
+						{
+							sstr << "\t\t<path" << std::endl;
+							sstr << "\t\t\td=\"m " << posx + 0.1 * width << "," << posy << " " << width * 0.9 << ","
+									<< height * 0.9 << " m " << -0.1 * width << "," << -height * 0.9 << ""
+									<< -width * 0.9 << "," << height * 0.9 << " m " << 0 << "," << -height * 0.8 << " "
+									<< width * 0.9 << "," << height * 0.9 << " m " << 0.1 * width << ","
+									<< -height * 0.9 << "" << -width * 0.9 << "," << height * 0.9 << "\"" << std::endl;
+							sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+							sstr
+									<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							sstr << "\" />" << std::endl;
+						}
 					}
 					else if (type_ == e_space::WIDE)
 					{
@@ -173,7 +207,7 @@ namespace mae
 						//TODO draw upper dot
 					}
 
-					if (degree_ %3 == 0)
+					if (degree_ % 3 == 0)
 					{
 						//TODO draw lower dot
 					}
