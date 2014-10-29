@@ -1,0 +1,236 @@
+\hypertarget{classmae_1_1math_1_1basis}{\section{mae\-:\-:math\-:\-:basis Class Reference}
+\label{classmae_1_1math_1_1basis}\index{mae\-::math\-::basis@{mae\-::math\-::basis}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1math_1_1basis_a20b328000b2a05065b2b3fd3f01dc1db}{basis} ()
+\item 
+\hyperlink{classmae_1_1math_1_1basis_a03cc7a891aee20d97b35773f3e0201a5}{basis} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ position\-\_\-vector, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ u, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ r, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ t)
+\item 
+virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ \hyperlink{classmae_1_1math_1_1basis_a31db97f8289074bcc274dbf626f3f9b6}{get\-\_\-u} () const 
+\item 
+virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ \hyperlink{classmae_1_1math_1_1basis_adeaf5ae18e066bd20ddcc4be8a844d80}{get\-\_\-r} () const 
+\item 
+virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ \hyperlink{classmae_1_1math_1_1basis_a3c9af401b04f96c4d765a43c207c3916}{get\-\_\-t} () const 
+\item 
+virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ \hyperlink{classmae_1_1math_1_1basis_a1343e0d24ce24d73d41d8ec316837b5f}{get\-\_\-position\-\_\-vector} () const 
+\item 
+virtual void \hyperlink{classmae_1_1math_1_1basis_a09ea870f8765b92d200c74893f554253}{set\-\_\-u} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ u)
+\item 
+virtual void \hyperlink{classmae_1_1math_1_1basis_a08992f887e7f7691f53fe31f4245deb9}{set\-\_\-r} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ r)
+\item 
+virtual void \hyperlink{classmae_1_1math_1_1basis_a0574f45a44b8fc1c38bf1ef603e621a9}{set\-\_\-t} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ t)
+\item 
+virtual void \hyperlink{classmae_1_1math_1_1basis_a89b97015efedce5e4c0b178ebae19e2f}{set\-\_\-position\-\_\-vector} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ position\-\_\-vector)
+\item 
+virtual std\-::string \hyperlink{classmae_1_1math_1_1basis_a070c4a1ad93988e38b1b47ef31bb6c7d}{str} () const 
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classmae_1_1math_1_1basis_a0daa15acafe29d2f46fdeba231948ff5}{operator$<$$<$} (std\-::ostream \&os, const std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1basis}{basis} $>$ \&obj)
+\item 
+std\-::ostream \& \hyperlink{classmae_1_1math_1_1basis_a53ed94899ec5639af128068432d09fde}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classmae_1_1math_1_1basis}{basis} \&obj)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1math_1_1basis_a20b328000b2a05065b2b3fd3f01dc1db}{\index{mae\-::math\-::basis@{mae\-::math\-::basis}!basis@{basis}}
+\index{basis@{basis}!mae::math::basis@{mae\-::math\-::basis}}
+\subsubsection[{basis}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::math\-::basis\-::basis (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1math_1_1basis_a20b328000b2a05065b2b3fd3f01dc1db}
+Creates a new basis with no vectors set. \hypertarget{classmae_1_1math_1_1basis_a03cc7a891aee20d97b35773f3e0201a5}{\index{mae\-::math\-::basis@{mae\-::math\-::basis}!basis@{basis}}
+\index{basis@{basis}!mae::math::basis@{mae\-::math\-::basis}}
+\subsubsection[{basis}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::math\-::basis\-::basis (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{position\-\_\-vector, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{u, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{r, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{t}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1math_1_1basis_a03cc7a891aee20d97b35773f3e0201a5}
+Creates a new coordinate basis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position\-\_\-vector} & The position vector of the basis. \\
+\hline
+{\em u} & The first direction. \\
+\hline
+{\em r} & The second direction. \\
+\hline
+{\em t} & The third direction. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1math_1_1basis_a1343e0d24ce24d73d41d8ec316837b5f}{\index{mae\-::math\-::basis@{mae\-::math\-::basis}!get\-\_\-position\-\_\-vector@{get\-\_\-position\-\_\-vector}}
+\index{get\-\_\-position\-\_\-vector@{get\-\_\-position\-\_\-vector}!mae::math::basis@{mae\-::math\-::basis}}
+\subsubsection[{get\-\_\-position\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$ mae\-::math\-::basis\-::get\-\_\-position\-\_\-vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1basis_a1343e0d24ce24d73d41d8ec316837b5f}
+Returns the position vector of the basis.
+
+\begin{DoxyReturn}{Returns}
+The position\-\_\-vector. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1basis_adeaf5ae18e066bd20ddcc4be8a844d80}{\index{mae\-::math\-::basis@{mae\-::math\-::basis}!get\-\_\-r@{get\-\_\-r}}
+\index{get\-\_\-r@{get\-\_\-r}!mae::math::basis@{mae\-::math\-::basis}}
+\subsubsection[{get\-\_\-r}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$ mae\-::math\-::basis\-::get\-\_\-r (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1basis_adeaf5ae18e066bd20ddcc4be8a844d80}
+Returns the second component of the basis.
+
+\begin{DoxyReturn}{Returns}
+The r. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1basis_a3c9af401b04f96c4d765a43c207c3916}{\index{mae\-::math\-::basis@{mae\-::math\-::basis}!get\-\_\-t@{get\-\_\-t}}
+\index{get\-\_\-t@{get\-\_\-t}!mae::math::basis@{mae\-::math\-::basis}}
+\subsubsection[{get\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$ mae\-::math\-::basis\-::get\-\_\-t (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1basis_a3c9af401b04f96c4d765a43c207c3916}
+Returns the third component of the basis.
+
+\begin{DoxyReturn}{Returns}
+The t. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1basis_a31db97f8289074bcc274dbf626f3f9b6}{\index{mae\-::math\-::basis@{mae\-::math\-::basis}!get\-\_\-u@{get\-\_\-u}}
+\index{get\-\_\-u@{get\-\_\-u}!mae::math::basis@{mae\-::math\-::basis}}
+\subsubsection[{get\-\_\-u}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$ mae\-::math\-::basis\-::get\-\_\-u (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1basis_a31db97f8289074bcc274dbf626f3f9b6}
+Returns the first component of the basis.
+
+\begin{DoxyReturn}{Returns}
+The u. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1basis_a89b97015efedce5e4c0b178ebae19e2f}{\index{mae\-::math\-::basis@{mae\-::math\-::basis}!set\-\_\-position\-\_\-vector@{set\-\_\-position\-\_\-vector}}
+\index{set\-\_\-position\-\_\-vector@{set\-\_\-position\-\_\-vector}!mae::math::basis@{mae\-::math\-::basis}}
+\subsubsection[{set\-\_\-position\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::math\-::basis\-::set\-\_\-position\-\_\-vector (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{position\-\_\-vector}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1basis_a89b97015efedce5e4c0b178ebae19e2f}
+Sets the position\-\_\-vector for the basis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position\-\_\-vector} & The t. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1math_1_1basis_a08992f887e7f7691f53fe31f4245deb9}{\index{mae\-::math\-::basis@{mae\-::math\-::basis}!set\-\_\-r@{set\-\_\-r}}
+\index{set\-\_\-r@{set\-\_\-r}!mae::math::basis@{mae\-::math\-::basis}}
+\subsubsection[{set\-\_\-r}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::math\-::basis\-::set\-\_\-r (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1basis_a08992f887e7f7691f53fe31f4245deb9}
+Sets the second component for the basis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The r. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1math_1_1basis_a0574f45a44b8fc1c38bf1ef603e621a9}{\index{mae\-::math\-::basis@{mae\-::math\-::basis}!set\-\_\-t@{set\-\_\-t}}
+\index{set\-\_\-t@{set\-\_\-t}!mae::math::basis@{mae\-::math\-::basis}}
+\subsubsection[{set\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::math\-::basis\-::set\-\_\-t (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1basis_a0574f45a44b8fc1c38bf1ef603e621a9}
+Sets the third component for the basis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The t. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1math_1_1basis_a09ea870f8765b92d200c74893f554253}{\index{mae\-::math\-::basis@{mae\-::math\-::basis}!set\-\_\-u@{set\-\_\-u}}
+\index{set\-\_\-u@{set\-\_\-u}!mae::math::basis@{mae\-::math\-::basis}}
+\subsubsection[{set\-\_\-u}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::math\-::basis\-::set\-\_\-u (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{u}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1basis_a09ea870f8765b92d200c74893f554253}
+Sets the first component for the basis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & The u. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1math_1_1basis_a070c4a1ad93988e38b1b47ef31bb6c7d}{\index{mae\-::math\-::basis@{mae\-::math\-::basis}!str@{str}}
+\index{str@{str}!mae::math::basis@{mae\-::math\-::basis}}
+\subsubsection[{str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::math\-::basis\-::str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1basis_a070c4a1ad93988e38b1b47ef31bb6c7d}
+Returns the string representation for this object.
+
+\begin{DoxyReturn}{Returns}
+The string. 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classmae_1_1math_1_1basis_a0daa15acafe29d2f46fdeba231948ff5}{\index{mae\-::math\-::basis@{mae\-::math\-::basis}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!mae::math::basis@{mae\-::math\-::basis}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const std\-::shared\-\_\-ptr$<$ {\bf basis} $>$ \&}]{obj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmae_1_1math_1_1basis_a0daa15acafe29d2f46fdeba231948ff5}
+Prints the object to the stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+{\em obj} & The object to be printed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1basis_a53ed94899ec5639af128068432d09fde}{\index{mae\-::math\-::basis@{mae\-::math\-::basis}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!mae::math::basis@{mae\-::math\-::basis}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf basis} \&}]{obj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmae_1_1math_1_1basis_a53ed94899ec5639af128068432d09fde}
+Prints the object to the stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+{\em obj} & The object to be printed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/math/basis.\-hpp\item 
+src/mae/math/basis.\-cpp\end{DoxyCompactItemize}

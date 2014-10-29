@@ -1,0 +1,296 @@
+\hypertarget{classmae_1_1fl_1_1laban_1_1path}{\section{mae\-:\-:fl\-:\-:laban\-:\-:path Class Reference}
+\label{classmae_1_1fl_1_1laban_1_1path}\index{mae\-::fl\-::laban\-::path@{mae\-::fl\-::laban\-::path}}
+}
+Inheritance diagram for mae\-:\-:fl\-:\-:laban\-:\-:path\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmae_1_1fl_1_1laban_1_1path}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1fl_1_1laban_1_1path_a68f460107949210973195837c9f1b33c}{path} (e\-\_\-path\-\_\-type type, unsigned int measure, double beat, double duration)
+\item 
+e\-\_\-path\-\_\-type \hyperlink{classmae_1_1fl_1_1laban_1_1path_ac9698b90c1d5dae5d2fbc09b0db79c8d}{get\-\_\-type} () const 
+\item 
+virtual int \hyperlink{classmae_1_1fl_1_1laban_1_1path_a6a842cc38fccadb4d9deca546fce3e63}{get\-\_\-column} () const 
+\item 
+virtual unsigned int \hyperlink{classmae_1_1fl_1_1laban_1_1path_a2f355b941253903aff22add92e00124f}{get\-\_\-measure} () const 
+\item 
+virtual double \hyperlink{classmae_1_1fl_1_1laban_1_1path_ad7f035766edfa9f6f9f2037c26fc3309}{get\-\_\-beat} () const 
+\item 
+virtual double \hyperlink{classmae_1_1fl_1_1laban_1_1path_a4f45bad78535e21149bdec9a48067113}{get\-\_\-duration} () const 
+\item 
+virtual bool \hyperlink{classmae_1_1fl_1_1laban_1_1path_ade22858a457d91a3faa2a3eee14d66be}{equals} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ a) const 
+\item 
+virtual bool \hyperlink{classmae_1_1fl_1_1laban_1_1path_a209b3fe2e8df9d2c98999684bed7f496}{symbol\-\_\-equals} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ a) const 
+\item 
+virtual std\-::string \hyperlink{classmae_1_1fl_1_1laban_1_1path_a20f5c424a4fc9036a66a7a6f806940f4}{xml} (unsigned int indent=0, std\-::string namesp=\char`\"{}\char`\"{}) const 
+\item 
+virtual std\-::string \hyperlink{classmae_1_1fl_1_1laban_1_1path_a5503bfcfc2a9461b48a3bd2232918d88}{svg} (unsigned int im\-\_\-width, unsigned int im\-\_\-height, unsigned int max\-\_\-column, unsigned int measures, unsigned int beats\-\_\-per\-\_\-measure) const 
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ \hyperlink{classmae_1_1fl_1_1laban_1_1path_a3454902829d0ae3a3e958d59cce9cd47}{recreate} (std\-::map$<$ int, int $>$ column\-\_\-mapping, unsigned int measure, double beat, double duration) const 
+\item 
+virtual std\-::string \hyperlink{classmae_1_1fl_1_1laban_1_1path_a4824d4b55eac3e255a64537be864fc24}{str} () const 
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_aceed710caa3bc637e9e6df7ba92b080e}{std\-::ostream \& {\bfseries operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classmae_1_1fl_1_1laban_1_1path}{path} \&obj)}\label{classmae_1_1fl_1_1laban_1_1path_aceed710caa3bc637e9e6df7ba92b080e}
+
+\item 
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_aa1a1a4bcea7af934506f3e3f1111af83}{std\-::ostream \& {\bfseries operator$<$$<$} (std\-::ostream \&os, const std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1path}{path} $>$ \&obj)}\label{classmae_1_1fl_1_1laban_1_1path_aa1a1a4bcea7af934506f3e3f1111af83}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_a68f460107949210973195837c9f1b33c}{\index{mae\-::fl\-::laban\-::path@{mae\-::fl\-::laban\-::path}!path@{path}}
+\index{path@{path}!mae::fl::laban::path@{mae\-::fl\-::laban\-::path}}
+\subsubsection[{path}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::fl\-::laban\-::path\-::path (
+\begin{DoxyParamCaption}
+\item[{e\-\_\-path\-\_\-type}]{type, }
+\item[{unsigned int}]{measure, }
+\item[{double}]{beat, }
+\item[{double}]{duration}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1fl_1_1laban_1_1path_a68f460107949210973195837c9f1b33c}
+Creates a path symbol.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of the path. \\
+\hline
+{\em measure} & The measure in which this symbol is placed. \\
+\hline
+{\em beat} & The beat mark of the measure where this symbol begins. \\
+\hline
+{\em duration} & The duration of the symbol (in beats). \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_ade22858a457d91a3faa2a3eee14d66be}{\index{mae\-::fl\-::laban\-::path@{mae\-::fl\-::laban\-::path}!equals@{equals}}
+\index{equals@{equals}!mae::fl::laban::path@{mae\-::fl\-::laban\-::path}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::fl\-::laban\-::path\-::equals (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$}]{a}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1path_ade22858a457d91a3faa2a3eee14d66be}
+Returns true if the \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} elements are equal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The movement to be compared to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if equal. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement_a29783771372283ff2cc7deded01b83b1}{mae\-::fl\-::laban\-::i\-\_\-movement}.
+
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_ad7f035766edfa9f6f9f2037c26fc3309}{\index{mae\-::fl\-::laban\-::path@{mae\-::fl\-::laban\-::path}!get\-\_\-beat@{get\-\_\-beat}}
+\index{get\-\_\-beat@{get\-\_\-beat}!mae::fl::laban::path@{mae\-::fl\-::laban\-::path}}
+\subsubsection[{get\-\_\-beat}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::fl\-::laban\-::path\-::get\-\_\-beat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1path_ad7f035766edfa9f6f9f2037c26fc3309}
+Returns the beat where this symbol starts. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement_a2b8ee7b4d5cb5be09be93ff049fbdc68}{mae\-::fl\-::laban\-::i\-\_\-movement}.
+
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_a6a842cc38fccadb4d9deca546fce3e63}{\index{mae\-::fl\-::laban\-::path@{mae\-::fl\-::laban\-::path}!get\-\_\-column@{get\-\_\-column}}
+\index{get\-\_\-column@{get\-\_\-column}!mae::fl::laban::path@{mae\-::fl\-::laban\-::path}}
+\subsubsection[{get\-\_\-column}]{\setlength{\rightskip}{0pt plus 5cm}int mae\-::fl\-::laban\-::path\-::get\-\_\-column (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1path_a6a842cc38fccadb4d9deca546fce3e63}
+Returns the column to which this symbol was added. Since a path symbol is placed in its own column zero is returned.
+
+\begin{DoxyReturn}{Returns}
+Zero. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement_a448424f76457ed1dfa28e5d2c774c311}{mae\-::fl\-::laban\-::i\-\_\-movement}.
+
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_a4f45bad78535e21149bdec9a48067113}{\index{mae\-::fl\-::laban\-::path@{mae\-::fl\-::laban\-::path}!get\-\_\-duration@{get\-\_\-duration}}
+\index{get\-\_\-duration@{get\-\_\-duration}!mae::fl::laban::path@{mae\-::fl\-::laban\-::path}}
+\subsubsection[{get\-\_\-duration}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::fl\-::laban\-::path\-::get\-\_\-duration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1path_a4f45bad78535e21149bdec9a48067113}
+Returns the duration of the symbol in beats.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement_ac83194ad9df8fed6c27199e83d35460d}{mae\-::fl\-::laban\-::i\-\_\-movement}.
+
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_a2f355b941253903aff22add92e00124f}{\index{mae\-::fl\-::laban\-::path@{mae\-::fl\-::laban\-::path}!get\-\_\-measure@{get\-\_\-measure}}
+\index{get\-\_\-measure@{get\-\_\-measure}!mae::fl::laban::path@{mae\-::fl\-::laban\-::path}}
+\subsubsection[{get\-\_\-measure}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int mae\-::fl\-::laban\-::path\-::get\-\_\-measure (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1path_a2f355b941253903aff22add92e00124f}
+Returns the measure in which this symbol is placed. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement_aa1b18a889adea3d1aa8a5a8af5de2de6}{mae\-::fl\-::laban\-::i\-\_\-movement}.
+
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_ac9698b90c1d5dae5d2fbc09b0db79c8d}{\index{mae\-::fl\-::laban\-::path@{mae\-::fl\-::laban\-::path}!get\-\_\-type@{get\-\_\-type}}
+\index{get\-\_\-type@{get\-\_\-type}!mae::fl::laban::path@{mae\-::fl\-::laban\-::path}}
+\subsubsection[{get\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}e\-\_\-path\-\_\-type mae\-::fl\-::laban\-::path\-::get\-\_\-type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classmae_1_1fl_1_1laban_1_1path_ac9698b90c1d5dae5d2fbc09b0db79c8d}
+Returns the type of the path.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_a3454902829d0ae3a3e958d59cce9cd47}{\index{mae\-::fl\-::laban\-::path@{mae\-::fl\-::laban\-::path}!recreate@{recreate}}
+\index{recreate@{recreate}!mae::fl::laban::path@{mae\-::fl\-::laban\-::path}}
+\subsubsection[{recreate}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$ mae\-::fl\-::laban\-::path\-::recreate (
+\begin{DoxyParamCaption}
+\item[{std\-::map$<$ int, int $>$}]{column\-\_\-mapping, }
+\item[{unsigned int}]{measure, }
+\item[{double}]{beat, }
+\item[{double}]{duration}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1path_a3454902829d0ae3a3e958d59cce9cd47}
+Recreates the movement by copying its members but changing the position in the staff.
+
+
+\begin{DoxyParams}{Parameters}
+{\em column} & The new column. \\
+\hline
+{\em measure} & The new measure. \\
+\hline
+{\em beat} & The new beat. \\
+\hline
+{\em duration} & The new duration. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new, recreated movement. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement_a28c8b00c68e291399281bda22e4f01f6}{mae\-::fl\-::laban\-::i\-\_\-movement}.
+
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_a4824d4b55eac3e255a64537be864fc24}{\index{mae\-::fl\-::laban\-::path@{mae\-::fl\-::laban\-::path}!str@{str}}
+\index{str@{str}!mae::fl::laban::path@{mae\-::fl\-::laban\-::path}}
+\subsubsection[{str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::fl\-::laban\-::path\-::str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1path_a4824d4b55eac3e255a64537be864fc24}
+Returns the string representation for this element.
+
+\begin{DoxyReturn}{Returns}
+The string. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement_a18322189d1851d3fd0f85c00b1051b57}{mae\-::fl\-::laban\-::i\-\_\-movement}.
+
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_a5503bfcfc2a9461b48a3bd2232918d88}{\index{mae\-::fl\-::laban\-::path@{mae\-::fl\-::laban\-::path}!svg@{svg}}
+\index{svg@{svg}!mae::fl::laban::path@{mae\-::fl\-::laban\-::path}}
+\subsubsection[{svg}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::fl\-::laban\-::path\-::svg (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{im\-\_\-width, }
+\item[{unsigned int}]{im\-\_\-height, }
+\item[{unsigned int}]{max\-\_\-column, }
+\item[{unsigned int}]{measures, }
+\item[{unsigned int}]{beats\-\_\-per\-\_\-measure}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1path_a5503bfcfc2a9461b48a3bd2232918d88}
+Returns the S\-V\-G representation for this element.
+
+
+\begin{DoxyParams}{Parameters}
+{\em posx} & The x pos. \\
+\hline
+{\em posy} & The y pos. \\
+\hline
+{\em width} & The width. \\
+\hline
+{\em height} & The height. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The S\-V\-G. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement_ab2b0225ae8237b8ae410c797a0319498}{mae\-::fl\-::laban\-::i\-\_\-movement}.
+
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_a209b3fe2e8df9d2c98999684bed7f496}{\index{mae\-::fl\-::laban\-::path@{mae\-::fl\-::laban\-::path}!symbol\-\_\-equals@{symbol\-\_\-equals}}
+\index{symbol\-\_\-equals@{symbol\-\_\-equals}!mae::fl::laban::path@{mae\-::fl\-::laban\-::path}}
+\subsubsection[{symbol\-\_\-equals}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::fl\-::laban\-::path\-::symbol\-\_\-equals (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$}]{a}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1path_a209b3fe2e8df9d2c98999684bed7f496}
+Returns true if the symbols are equal. The position and duration are not regarded.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The movement to be compared to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if symbols equal. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement_a7b682911356dd13497172280b268ec40}{mae\-::fl\-::laban\-::i\-\_\-movement}.
+
+\hypertarget{classmae_1_1fl_1_1laban_1_1path_a20f5c424a4fc9036a66a7a6f806940f4}{\index{mae\-::fl\-::laban\-::path@{mae\-::fl\-::laban\-::path}!xml@{xml}}
+\index{xml@{xml}!mae::fl::laban::path@{mae\-::fl\-::laban\-::path}}
+\subsubsection[{xml}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::fl\-::laban\-::path\-::xml (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{indent = {\ttfamily 0}, }
+\item[{std\-::string}]{namesp = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1path_a20f5c424a4fc9036a66a7a6f806940f4}
+Returns the X\-M\-L representation for this element.
+
+
+\begin{DoxyParams}{Parameters}
+{\em indent} & The applied indent. \\
+\hline
+{\em namesp} & The prefixed X\-M\-L namespace.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The X\-M\-L string. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement_acd832b2a6976bfe32eae4bece01ee8f3}{mae\-::fl\-::laban\-::i\-\_\-movement}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/fl/laban/path.\-hpp\item 
+src/mae/fl/laban/path.\-cpp\end{DoxyCompactItemize}

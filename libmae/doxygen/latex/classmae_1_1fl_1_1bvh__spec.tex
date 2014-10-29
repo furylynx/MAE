@@ -1,0 +1,156 @@
+\hypertarget{classmae_1_1fl_1_1bvh__spec}{\section{mae\-:\-:fl\-:\-:bvh\-\_\-spec Class Reference}
+\label{classmae_1_1fl_1_1bvh__spec}\index{mae\-::fl\-::bvh\-\_\-spec@{mae\-::fl\-::bvh\-\_\-spec}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1fl_1_1bvh__spec_a9ddaa4a47e11b35a954d3881d2d69aaf}{bvh\-\_\-spec} (std\-::string left\-\_\-anchor, std\-::string right\-\_\-anchor, std\-::string top\-\_\-anchor, std\-::string bottom\-\_\-anchor, std\-::map$<$ std\-::string, int $>$ string\-\_\-id\-\_\-map, std\-::map$<$ std\-::string, bool $>$ string\-\_\-torso\-\_\-map)
+\item 
+virtual std\-::map$<$ std\-::string, \\*
+int $>$ \hyperlink{classmae_1_1fl_1_1bvh__spec_aea992e05503ec167ce7cbaa88504b06d}{get\-\_\-id\-\_\-map} () const 
+\item 
+virtual std\-::map$<$ std\-::string, \\*
+bool $>$ \hyperlink{classmae_1_1fl_1_1bvh__spec_a2673984db6dc06733f5eafb1b8fa7bd6}{get\-\_\-torso\-\_\-map} () const 
+\item 
+virtual std\-::string \hyperlink{classmae_1_1fl_1_1bvh__spec_affe353bb36edce74bc7e1f6fe12150e8}{get\-\_\-left\-\_\-anchor} ()
+\item 
+virtual std\-::string \hyperlink{classmae_1_1fl_1_1bvh__spec_a3b18051079ab3ff64186bff1be7a1373}{get\-\_\-right\-\_\-anchor} ()
+\item 
+virtual std\-::string \hyperlink{classmae_1_1fl_1_1bvh__spec_abac832056f67a071725283d5490f3b89}{get\-\_\-top\-\_\-anchor} ()
+\item 
+virtual std\-::string \hyperlink{classmae_1_1fl_1_1bvh__spec_af39b51f8bcd88b92c14b694d98eb8aea}{get\-\_\-bottom\-\_\-anchor} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1bvh__spec}{bvh\-\_\-spec} $>$ \hyperlink{classmae_1_1fl_1_1bvh__spec_ad881d9668544d61445801949725a5484}{default\-\_\-spec} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1fl_1_1bvh__spec_a9ddaa4a47e11b35a954d3881d2d69aaf}{\index{mae\-::fl\-::bvh\-\_\-spec@{mae\-::fl\-::bvh\-\_\-spec}!bvh\-\_\-spec@{bvh\-\_\-spec}}
+\index{bvh\-\_\-spec@{bvh\-\_\-spec}!mae::fl::bvh_spec@{mae\-::fl\-::bvh\-\_\-spec}}
+\subsubsection[{bvh\-\_\-spec}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::fl\-::bvh\-\_\-spec\-::bvh\-\_\-spec (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{left\-\_\-anchor, }
+\item[{std\-::string}]{right\-\_\-anchor, }
+\item[{std\-::string}]{top\-\_\-anchor, }
+\item[{std\-::string}]{bottom\-\_\-anchor, }
+\item[{std\-::map$<$ std\-::string, int $>$}]{string\-\_\-id\-\_\-map, }
+\item[{std\-::map$<$ std\-::string, bool $>$}]{string\-\_\-torso\-\_\-map}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1fl_1_1bvh__spec_a9ddaa4a47e11b35a954d3881d2d69aaf}
+Creates a new specification for the bvh import. The specification defines the I\-Ds that are assigned to the read string values of the joints. If the id map is empty the position of occurrence in the bvh file is used by the reader. Additionally the torso joints can be defined by the torso map. If the torso map is empty a suffix sharp '\#' after the joint name is used to denote torso joints.
+
+The four anchor names are the names of the joints used for the left-\/right top-\/down direction.
+
+All strings should be present in lowercase!
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\-\_\-anchor} & \\
+\hline
+{\em right\-\_\-anchor} & \\
+\hline
+{\em top\-\_\-anchor} & \\
+\hline
+{\em bottom\-\_\-anchor} & \\
+\hline
+{\em string\-\_\-id\-\_\-map} & \\
+\hline
+{\em string\-\_\-torso\-\_\-map} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1fl_1_1bvh__spec_ad881d9668544d61445801949725a5484}{\index{mae\-::fl\-::bvh\-\_\-spec@{mae\-::fl\-::bvh\-\_\-spec}!default\-\_\-spec@{default\-\_\-spec}}
+\index{default\-\_\-spec@{default\-\_\-spec}!mae::fl::bvh_spec@{mae\-::fl\-::bvh\-\_\-spec}}
+\subsubsection[{default\-\_\-spec}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf bvh\-\_\-spec} $>$ mae\-::fl\-::bvh\-\_\-spec\-::default\-\_\-spec (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1fl_1_1bvh__spec_ad881d9668544d61445801949725a5484}
+Creates a default specification that fits the default hierarchy definition.
+
+\begin{DoxyReturn}{Returns}
+The default specification. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1bvh__spec_af39b51f8bcd88b92c14b694d98eb8aea}{\index{mae\-::fl\-::bvh\-\_\-spec@{mae\-::fl\-::bvh\-\_\-spec}!get\-\_\-bottom\-\_\-anchor@{get\-\_\-bottom\-\_\-anchor}}
+\index{get\-\_\-bottom\-\_\-anchor@{get\-\_\-bottom\-\_\-anchor}!mae::fl::bvh_spec@{mae\-::fl\-::bvh\-\_\-spec}}
+\subsubsection[{get\-\_\-bottom\-\_\-anchor}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::fl\-::bvh\-\_\-spec\-::get\-\_\-bottom\-\_\-anchor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1bvh__spec_af39b51f8bcd88b92c14b694d98eb8aea}
+Returns the anchor's joint name.
+
+\begin{DoxyReturn}{Returns}
+The name. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1bvh__spec_aea992e05503ec167ce7cbaa88504b06d}{\index{mae\-::fl\-::bvh\-\_\-spec@{mae\-::fl\-::bvh\-\_\-spec}!get\-\_\-id\-\_\-map@{get\-\_\-id\-\_\-map}}
+\index{get\-\_\-id\-\_\-map@{get\-\_\-id\-\_\-map}!mae::fl::bvh_spec@{mae\-::fl\-::bvh\-\_\-spec}}
+\subsubsection[{get\-\_\-id\-\_\-map}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$ std\-::string, int $>$ mae\-::fl\-::bvh\-\_\-spec\-::get\-\_\-id\-\_\-map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1bvh__spec_aea992e05503ec167ce7cbaa88504b06d}
+Returns the string to id map.
+
+\begin{DoxyReturn}{Returns}
+The string to id map. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1bvh__spec_affe353bb36edce74bc7e1f6fe12150e8}{\index{mae\-::fl\-::bvh\-\_\-spec@{mae\-::fl\-::bvh\-\_\-spec}!get\-\_\-left\-\_\-anchor@{get\-\_\-left\-\_\-anchor}}
+\index{get\-\_\-left\-\_\-anchor@{get\-\_\-left\-\_\-anchor}!mae::fl::bvh_spec@{mae\-::fl\-::bvh\-\_\-spec}}
+\subsubsection[{get\-\_\-left\-\_\-anchor}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::fl\-::bvh\-\_\-spec\-::get\-\_\-left\-\_\-anchor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1bvh__spec_affe353bb36edce74bc7e1f6fe12150e8}
+Returns the anchor's joint name.
+
+\begin{DoxyReturn}{Returns}
+The name. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1bvh__spec_a3b18051079ab3ff64186bff1be7a1373}{\index{mae\-::fl\-::bvh\-\_\-spec@{mae\-::fl\-::bvh\-\_\-spec}!get\-\_\-right\-\_\-anchor@{get\-\_\-right\-\_\-anchor}}
+\index{get\-\_\-right\-\_\-anchor@{get\-\_\-right\-\_\-anchor}!mae::fl::bvh_spec@{mae\-::fl\-::bvh\-\_\-spec}}
+\subsubsection[{get\-\_\-right\-\_\-anchor}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::fl\-::bvh\-\_\-spec\-::get\-\_\-right\-\_\-anchor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1bvh__spec_a3b18051079ab3ff64186bff1be7a1373}
+Returns the anchor's joint name.
+
+\begin{DoxyReturn}{Returns}
+The name. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1bvh__spec_abac832056f67a071725283d5490f3b89}{\index{mae\-::fl\-::bvh\-\_\-spec@{mae\-::fl\-::bvh\-\_\-spec}!get\-\_\-top\-\_\-anchor@{get\-\_\-top\-\_\-anchor}}
+\index{get\-\_\-top\-\_\-anchor@{get\-\_\-top\-\_\-anchor}!mae::fl::bvh_spec@{mae\-::fl\-::bvh\-\_\-spec}}
+\subsubsection[{get\-\_\-top\-\_\-anchor}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::fl\-::bvh\-\_\-spec\-::get\-\_\-top\-\_\-anchor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1bvh__spec_abac832056f67a071725283d5490f3b89}
+Returns the anchor's joint name.
+
+\begin{DoxyReturn}{Returns}
+The name. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1bvh__spec_a2673984db6dc06733f5eafb1b8fa7bd6}{\index{mae\-::fl\-::bvh\-\_\-spec@{mae\-::fl\-::bvh\-\_\-spec}!get\-\_\-torso\-\_\-map@{get\-\_\-torso\-\_\-map}}
+\index{get\-\_\-torso\-\_\-map@{get\-\_\-torso\-\_\-map}!mae::fl::bvh_spec@{mae\-::fl\-::bvh\-\_\-spec}}
+\subsubsection[{get\-\_\-torso\-\_\-map}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$ std\-::string, bool $>$ mae\-::fl\-::bvh\-\_\-spec\-::get\-\_\-torso\-\_\-map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1bvh__spec_a2673984db6dc06733f5eafb1b8fa7bd6}
+Returns the string to torso joint map.
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/fl/bvh\-\_\-spec.\-hpp\item 
+src/mae/fl/bvh\-\_\-spec.\-cpp\end{DoxyCompactItemize}

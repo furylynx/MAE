@@ -1,0 +1,50 @@
+\hypertarget{classmae_1_1i__kp__detector}{\section{mae\-:\-:i\-\_\-kp\-\_\-detector Class Reference}
+\label{classmae_1_1i__kp__detector}\index{mae\-::i\-\_\-kp\-\_\-detector@{mae\-::i\-\_\-kp\-\_\-detector}}
+}
+Inheritance diagram for mae\-:\-:i\-\_\-kp\-\_\-detector\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmae_1_1i__kp__detector}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1general__enriched__pose}{general\-\_\-enriched\-\_\-pose} $>$ \hyperlink{classmae_1_1i__kp__detector_a023a2719cd16be679c1101a9c27d21ac}{estimate\-\_\-frame} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ current\-Pose, std\-::list$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__enriched__pose}{general\-\_\-enriched\-\_\-pose} $>$ $>$ previous\-Sequence, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-Parts)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1i__kp__detector_a023a2719cd16be679c1101a9c27d21ac}{\index{mae\-::i\-\_\-kp\-\_\-detector@{mae\-::i\-\_\-kp\-\_\-detector}!estimate\-\_\-frame@{estimate\-\_\-frame}}
+\index{estimate\-\_\-frame@{estimate\-\_\-frame}!mae::i_kp_detector@{mae\-::i\-\_\-kp\-\_\-detector}}
+\subsubsection[{estimate\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\-::shared\-\_\-ptr$<${\bf general\-\_\-enriched\-\_\-pose}$>$ mae\-::i\-\_\-kp\-\_\-detector\-::estimate\-\_\-frame (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-pose} $>$}]{current\-Pose, }
+\item[{std\-::list$<$ std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-enriched\-\_\-pose} $>$ $>$}]{previous\-Sequence, }
+\item[{std\-::vector$<$ {\bf bone} $>$}]{body\-Parts}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1i__kp__detector_a023a2719cd16be679c1101a9c27d21ac}
+Estimates the current frame and returns an enriched pose. Edits the given enriched poses, (e.\-g. sets key pose to false) but does not append the new enriched pose to the vector. Instead the new enriched pose is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\-Pose} & The currently processed pose. \\
+\hline
+{\em previous\-Sequence} & The previous sequence which will be edited too. \\
+\hline
+{\em body\-Parts} & All body parts that shall be processed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The enriched pose. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classmae_1_1kp__detector_a7aa02dc662f0a0abbefb0051fa783787}{mae\-::kp\-\_\-detector}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/i\-\_\-kp\-\_\-detector.\-hpp\end{DoxyCompactItemize}

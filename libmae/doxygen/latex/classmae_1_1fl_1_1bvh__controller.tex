@@ -1,0 +1,173 @@
+\hypertarget{classmae_1_1fl_1_1bvh__controller}{\section{mae\-:\-:fl\-:\-:bvh\-\_\-controller Class Reference}
+\label{classmae_1_1fl_1_1bvh__controller}\index{mae\-::fl\-::bvh\-\_\-controller@{mae\-::fl\-::bvh\-\_\-controller}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1fl_1_1bvh__controller_a38904c7bed56dfef82deae0169b5f5de}{bvh\-\_\-controller} ()
+\item 
+virtual std\-::string \hyperlink{classmae_1_1fl_1_1bvh__controller_ae7fff0274ebbd9456df0055948710711}{bvh\-\_\-str} (std\-::vector$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__skeleton}{general\-\_\-skeleton} $>$ $>$ data)
+\item 
+virtual std\-::string \hyperlink{classmae_1_1fl_1_1bvh__controller_a7dc209cbe8853f013b7f797c6a079d35}{bvh\-\_\-str} (std\-::vector$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__skeleton}{general\-\_\-skeleton} $>$ $>$ data, double framerate)
+\item 
+virtual std\-::string \hyperlink{classmae_1_1fl_1_1bvh__controller_adcab54c1d405b841331d0a84680263a7}{bvh\-\_\-str} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__skeleton}{general\-\_\-skeleton} $>$ data)
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1bvh__controller_a0762584eb4f74834d1bde00d3c131100}{print\-\_\-bvh\-\_\-file} (std\-::vector$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__skeleton}{general\-\_\-skeleton} $>$ $>$ data, std\-::string filename)
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1bvh__controller_a633e933c666d3dbe85a596e8c9ad122e}{print\-\_\-bvh\-\_\-file} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__skeleton}{general\-\_\-skeleton} $>$ data, std\-::string filename)
+\item 
+virtual std\-::pair$<$ std\-::vector\\*
+$<$ std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1general__skeleton}{general\-\_\-skeleton} $>$ $>$, double $>$ \hyperlink{classmae_1_1fl_1_1bvh__controller_aba192edbbf023aa45a88c5bcf3f398a1}{read\-\_\-bvh\-\_\-str} (std\-::string \hyperlink{classmae_1_1fl_1_1bvh__controller_ae7fff0274ebbd9456df0055948710711}{bvh\-\_\-str}, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1bvh__spec}{bvh\-\_\-spec} $>$ spec)
+\item 
+virtual std\-::pair$<$ std\-::vector\\*
+$<$ std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1general__skeleton}{general\-\_\-skeleton} $>$ $>$, double $>$ \hyperlink{classmae_1_1fl_1_1bvh__controller_a2425453447ade4ab13bb21297084e015}{read\-\_\-bvh\-\_\-file} (std\-::string filename, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1bvh__spec}{bvh\-\_\-spec} $>$ spec)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1fl_1_1bvh__controller_a38904c7bed56dfef82deae0169b5f5de}{\index{mae\-::fl\-::bvh\-\_\-controller@{mae\-::fl\-::bvh\-\_\-controller}!bvh\-\_\-controller@{bvh\-\_\-controller}}
+\index{bvh\-\_\-controller@{bvh\-\_\-controller}!mae::fl::bvh_controller@{mae\-::fl\-::bvh\-\_\-controller}}
+\subsubsection[{bvh\-\_\-controller}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::fl\-::bvh\-\_\-controller\-::bvh\-\_\-controller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1fl_1_1bvh__controller_a38904c7bed56dfef82deae0169b5f5de}
+Creates a new B\-V\-H controller which is used to read and/or write B\-V\-H files. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1fl_1_1bvh__controller_ae7fff0274ebbd9456df0055948710711}{\index{mae\-::fl\-::bvh\-\_\-controller@{mae\-::fl\-::bvh\-\_\-controller}!bvh\-\_\-str@{bvh\-\_\-str}}
+\index{bvh\-\_\-str@{bvh\-\_\-str}!mae::fl::bvh_controller@{mae\-::fl\-::bvh\-\_\-controller}}
+\subsubsection[{bvh\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::fl\-::bvh\-\_\-controller\-::bvh\-\_\-str (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-skeleton} $>$ $>$}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1bvh__controller_ae7fff0274ebbd9456df0055948710711}
+Generates a B\-V\-H string from the skeleton data. The string contains the content which can be written to a B\-V\-H file. Assumes the frame rate to be 30 fps.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The skeleton data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The B\-V\-H string. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1bvh__controller_a7dc209cbe8853f013b7f797c6a079d35}{\index{mae\-::fl\-::bvh\-\_\-controller@{mae\-::fl\-::bvh\-\_\-controller}!bvh\-\_\-str@{bvh\-\_\-str}}
+\index{bvh\-\_\-str@{bvh\-\_\-str}!mae::fl::bvh_controller@{mae\-::fl\-::bvh\-\_\-controller}}
+\subsubsection[{bvh\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::fl\-::bvh\-\_\-controller\-::bvh\-\_\-str (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-skeleton} $>$ $>$}]{data, }
+\item[{double}]{framerate}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1bvh__controller_a7dc209cbe8853f013b7f797c6a079d35}
+Generates a B\-V\-H string from the skeleton data. The string contains the content which can be written to a B\-V\-H file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The skeleton data. \\
+\hline
+{\em framerate} & The frame rate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The B\-V\-H string. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1bvh__controller_adcab54c1d405b841331d0a84680263a7}{\index{mae\-::fl\-::bvh\-\_\-controller@{mae\-::fl\-::bvh\-\_\-controller}!bvh\-\_\-str@{bvh\-\_\-str}}
+\index{bvh\-\_\-str@{bvh\-\_\-str}!mae::fl::bvh_controller@{mae\-::fl\-::bvh\-\_\-controller}}
+\subsubsection[{bvh\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::fl\-::bvh\-\_\-controller\-::bvh\-\_\-str (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-skeleton} $>$}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1bvh__controller_adcab54c1d405b841331d0a84680263a7}
+Generates a B\-V\-H string from the one skeleton. The string contains the content which can be written to a B\-V\-H file. Sets the frame rate to 30 fps (which doesn't matter since one skeleton does not provide any motion).
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The skeleton. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The B\-V\-H string. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1bvh__controller_a0762584eb4f74834d1bde00d3c131100}{\index{mae\-::fl\-::bvh\-\_\-controller@{mae\-::fl\-::bvh\-\_\-controller}!print\-\_\-bvh\-\_\-file@{print\-\_\-bvh\-\_\-file}}
+\index{print\-\_\-bvh\-\_\-file@{print\-\_\-bvh\-\_\-file}!mae::fl::bvh_controller@{mae\-::fl\-::bvh\-\_\-controller}}
+\subsubsection[{print\-\_\-bvh\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::bvh\-\_\-controller\-::print\-\_\-bvh\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-skeleton} $>$ $>$}]{data, }
+\item[{std\-::string}]{filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1bvh__controller_a0762584eb4f74834d1bde00d3c131100}
+Prints the B\-V\-H file from the skeleton data using. Assumes the frame rate to be 30 fps.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The skeleton data. \\
+\hline
+{\em filename} & The file name. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1bvh__controller_a633e933c666d3dbe85a596e8c9ad122e}{\index{mae\-::fl\-::bvh\-\_\-controller@{mae\-::fl\-::bvh\-\_\-controller}!print\-\_\-bvh\-\_\-file@{print\-\_\-bvh\-\_\-file}}
+\index{print\-\_\-bvh\-\_\-file@{print\-\_\-bvh\-\_\-file}!mae::fl::bvh_controller@{mae\-::fl\-::bvh\-\_\-controller}}
+\subsubsection[{print\-\_\-bvh\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::bvh\-\_\-controller\-::print\-\_\-bvh\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-skeleton} $>$}]{data, }
+\item[{std\-::string}]{filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1bvh__controller_a633e933c666d3dbe85a596e8c9ad122e}
+Prints the B\-V\-H file from the one skeleton. Sets the frame rate to 30 fps (which doesn't matter since one skeleton does not provide any motion).
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The skeleton. \\
+\hline
+{\em filename} & The file name. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1bvh__controller_a2425453447ade4ab13bb21297084e015}{\index{mae\-::fl\-::bvh\-\_\-controller@{mae\-::fl\-::bvh\-\_\-controller}!read\-\_\-bvh\-\_\-file@{read\-\_\-bvh\-\_\-file}}
+\index{read\-\_\-bvh\-\_\-file@{read\-\_\-bvh\-\_\-file}!mae::fl::bvh_controller@{mae\-::fl\-::bvh\-\_\-controller}}
+\subsubsection[{read\-\_\-bvh\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}std\-::pair$<$ std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-skeleton} $>$ $>$, double $>$ mae\-::fl\-::bvh\-\_\-controller\-::read\-\_\-bvh\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{filename, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf bvh\-\_\-spec} $>$}]{spec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1bvh__controller_a2425453447ade4ab13bb21297084e015}
+Reads the B\-V\-H file. Uses a specification to define the I\-Ds of the joints as well as the right-\/left and top-\/down directions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The B\-V\-H file name \\
+\hline
+{\em spec} & The specification for the reader. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The skeleton data. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1bvh__controller_aba192edbbf023aa45a88c5bcf3f398a1}{\index{mae\-::fl\-::bvh\-\_\-controller@{mae\-::fl\-::bvh\-\_\-controller}!read\-\_\-bvh\-\_\-str@{read\-\_\-bvh\-\_\-str}}
+\index{read\-\_\-bvh\-\_\-str@{read\-\_\-bvh\-\_\-str}!mae::fl::bvh_controller@{mae\-::fl\-::bvh\-\_\-controller}}
+\subsubsection[{read\-\_\-bvh\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::pair$<$ std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-skeleton} $>$ $>$, double $>$ mae\-::fl\-::bvh\-\_\-controller\-::read\-\_\-bvh\-\_\-str (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{bvh\-\_\-str, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf bvh\-\_\-spec} $>$}]{spec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1bvh__controller_aba192edbbf023aa45a88c5bcf3f398a1}
+Reads the B\-V\-H string which is a string containing the content of a potential bvh file. Uses a specification to define the I\-Ds of the joints as well as the right-\/left and top-\/down directions..
+
+
+\begin{DoxyParams}{Parameters}
+{\em bvh\-\_\-str} & The B\-V\-H string. \\
+\hline
+{\em spec} & The specification for the reader. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The skeleton data. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/fl/bvh\-\_\-controller.\-hpp\item 
+src/mae/fl/bvh\-\_\-controller.\-cpp\end{DoxyCompactItemize}

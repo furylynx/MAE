@@ -1,0 +1,859 @@
+\hypertarget{classmae_1_1math_1_1math}{\section{mae\-:\-:math\-:\-:math Class Reference}
+\label{classmae_1_1math_1_1math}\index{mae\-::math\-::math@{mae\-::math\-::math}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_a69d06a0e584bf1d872d26a4fd2db37f0}{joint\-\_\-to\-\_\-vec} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__joint}{general\-\_\-joint} $>$ joint)
+\item 
+static std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1general__joint}{general\-\_\-joint} $>$ \hyperlink{classmae_1_1math_1_1math_a8a1e0a8ab6f487a3fa8ee69af6fc798b}{vec\-\_\-to\-\_\-joint} (cv\-::\-Vec3d vec)
+\item 
+static cv\-::\-Vec2d \hyperlink{classmae_1_1math_1_1math_a9c06acbeefcc43a217df33d0dd4f1611}{joint\-\_\-to\-\_\-vec\-\_\-fl} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1angular__joint}{mae\-::fl\-::angular\-\_\-joint} $>$ joint)
+\item 
+static std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1fl_1_1angular__joint}{mae\-::fl\-::angular\-\_\-joint} $>$ \hyperlink{classmae_1_1math_1_1math_aa56f27d38991dd723a80e61901c74c01}{vec\-\_\-to\-\_\-joint\-\_\-fl} (cv\-::\-Vec2d vec)
+\item 
+static std\-::vector$<$ double $>$ \hyperlink{classmae_1_1math_1_1math_a812f46b202aebc286d6c59adf0b2308c}{vec\-\_\-to\-\_\-stdvec} (cv\-::\-Vec3d vec)
+\item 
+static std\-::vector$<$ double $>$ \hyperlink{classmae_1_1math_1_1math_ab2267cd4acb9934ea4b429dd58feab72}{vec\-\_\-to\-\_\-stdvec} (cv\-::\-Vec2d vec)
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_ac800a14f5226f4d88cd7db0efe474a16}{stdvec\-\_\-to\-\_\-vec3d} (std\-::vector$<$ double $>$ vec)
+\item 
+static cv\-::\-Vec2d \hyperlink{classmae_1_1math_1_1math_a644e19eb8d84e63170bc9c7650e105e9}{stdvec\-\_\-to\-\_\-vec2d} (std\-::vector$<$ double $>$ vec)
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_a0d941a0b007c67fb64789e6813848465}{maevec\-\_\-to\-\_\-vec3d} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ vec)
+\item 
+static std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ \hyperlink{classmae_1_1math_1_1math_a42b4752057b831506e2ab128fe25cf36}{vec3d\-\_\-to\-\_\-maevec} (cv\-::\-Vec3d vec)
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_ac167e791fb84a8b70435e6f91b611515}{matrix\-\_\-mul} (cv\-::\-Mat m, cv\-::\-Vec3d vec)
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_a8a701ca325c85b0fd8aeb9fcf16ae831}{project\-\_\-to\-\_\-basis} (cv\-::\-Vec3d point, cv\-::\-Vec3d position\-\_\-vector, cv\-::\-Vec3d u, cv\-::\-Vec3d r, cv\-::\-Vec3d t)
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_a9bf43740b418313f18d8d8c7b8ba0208}{project\-\_\-to\-\_\-basis} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ point, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1basis}{basis} $>$ \hyperlink{classmae_1_1math_1_1basis}{basis}, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ position\-\_\-vector=nullptr)
+\item 
+static std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ \hyperlink{classmae_1_1math_1_1math_ad50e3118b3ea1b4ad1ffe3b52958c4b8}{project\-\_\-to\-\_\-basis\-\_\-maevec} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ point, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1basis}{basis} $>$ \hyperlink{classmae_1_1math_1_1basis}{basis}, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ position\-\_\-vector=nullptr)
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_a418176aa7d23e7d12c2d620dee771b5d}{project\-\_\-back\-\_\-to\-\_\-default} (cv\-::\-Vec3d point, cv\-::\-Vec3d position\-\_\-vector, cv\-::\-Vec3d u, cv\-::\-Vec3d r, cv\-::\-Vec3d t)
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_a8d1ab0d935ea2f9ae7c9a5aea6ad14e8}{project\-\_\-back\-\_\-to\-\_\-default} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ point, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1basis}{basis} $>$ \hyperlink{classmae_1_1math_1_1basis}{basis}, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ position\-\_\-vector=nullptr)
+\item 
+static std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ \hyperlink{classmae_1_1math_1_1math_a5c6a6f6cde0e3d90d3b6b453e2fe5da9}{project\-\_\-back\-\_\-to\-\_\-default\-\_\-maevec} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ point, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1basis}{basis} $>$ \hyperlink{classmae_1_1math_1_1basis}{basis}, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ position\-\_\-vector=nullptr)
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_a2c4227d6a43b7a45d4285a079d9d6e85}{project\-\_\-orthogonal} (cv\-::\-Vec3d point, cv\-::\-Vec3d position\-\_\-vector, cv\-::\-Vec3d plane\-\_\-u, cv\-::\-Vec3d plane\-\_\-v)
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_a957eca4941bff614fd36e02013091e59}{rotate\-\_\-around\-\_\-axis} (cv\-::\-Vec3d point, cv\-::\-Vec3d axis, double beta)
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_aff17eeb2d30632c7fa0dae6e4e4c85c4}{rotation\-\_\-angles\-\_\-zxy} (cv\-::\-Vec3d a, cv\-::\-Vec3d b)
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_af52aaef0bcb8e0000233d51eec68f7fb}{rotation\-\_\-angles\-\_\-yzx} (cv\-::\-Vec3d a, cv\-::\-Vec3d b)
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_a48444501fb7cce0eaf99aee4207f680c}{rotate\-\_\-zxy} (cv\-::\-Vec3d a, double zeta, double xi, double ypsilon)
+\item 
+static cv\-::\-Vec3d \hyperlink{classmae_1_1math_1_1math_a8400ff6d79fb7ff9675e0b6cbf53b7d1}{rotate\-\_\-yzx} (cv\-::\-Vec3d a, double ypsilon, double zeta, double xi)
+\item 
+static cv\-::\-Mat \hyperlink{classmae_1_1math_1_1math_af32162d01a4c9671f795413465653b8f}{matrix\-\_\-rot\-\_\-x} (double beta)
+\item 
+static cv\-::\-Mat \hyperlink{classmae_1_1math_1_1math_a4f4997976691b38222874d170bee59d5}{matrix\-\_\-rot\-\_\-y} (double beta)
+\item 
+static cv\-::\-Mat \hyperlink{classmae_1_1math_1_1math_a243d901ca79c76772d3c8cf975cab08e}{matrix\-\_\-rot\-\_\-z} (double beta)
+\item 
+static cv\-::\-Mat \hyperlink{classmae_1_1math_1_1math_a3b4c1beb6b911a7403b8c98ab4fb7460}{matrix\-\_\-rot\-\_\-zxy} (double zeta, double xi, double ypsilon)
+\item 
+static cv\-::\-Vec4d \hyperlink{classmae_1_1math_1_1math_aad30fcac6b0991bfb03b6a411058069b}{quaternion} (cv\-::\-Vec3d a, cv\-::\-Vec3d b)
+\item 
+static double \hyperlink{classmae_1_1math_1_1math_a37ab34ed5a6b7b7253dc7657e2b3a5ea}{rad\-\_\-to\-\_\-deg} (double val)
+\item 
+static double \hyperlink{classmae_1_1math_1_1math_a87dfc60d31b86942b9147377bef659f5}{deg\-\_\-to\-\_\-rad} (double val)
+\item 
+static bool \hyperlink{classmae_1_1math_1_1math_a984bd86c0be4371feaf29cad29441e9a}{are\-\_\-collinear} (cv\-::\-Vec3d a, cv\-::\-Vec3d b)
+\item 
+static double \hyperlink{classmae_1_1math_1_1math_a05bc001ecddb217442f3f63079f44a57}{calc\-\_\-angle\-\_\-plane} (cv\-::\-Vec3d a, cv\-::\-Vec3d b, cv\-::\-Vec3d normal)
+\item 
+static double \hyperlink{classmae_1_1math_1_1math_addca02a62d1356c3eafc19b0a2456cb8}{calc\-\_\-angle\-\_\-plane\-\_\-deg} (cv\-::\-Vec3d a, cv\-::\-Vec3d b, cv\-::\-Vec3d normal)
+\item 
+static double \hyperlink{classmae_1_1math_1_1math_acb683db46fd65151fce415f81e0e1eff}{calc\-\_\-angle\-\_\-half} (cv\-::\-Vec3d a, cv\-::\-Vec3d b)
+\item 
+static double \hyperlink{classmae_1_1math_1_1math_a0bd0b95f9a12a668fa53d0c235f0663c}{calc\-\_\-angle\-\_\-half\-\_\-deg} (cv\-::\-Vec3d a, cv\-::\-Vec3d b)
+\item 
+static double \hyperlink{classmae_1_1math_1_1math_a7e7a0068fe2cb5dd78f3df81cd082cb7}{fmod\-\_\-pos} (double a, double b)
+\item 
+static int \hyperlink{classmae_1_1math_1_1math_a80bbc1acd22c10f1fc69ea41f95304f3}{sign} (double x)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1math_1_1math_a984bd86c0be4371feaf29cad29441e9a}{\index{mae\-::math\-::math@{mae\-::math\-::math}!are\-\_\-collinear@{are\-\_\-collinear}}
+\index{are\-\_\-collinear@{are\-\_\-collinear}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{are\-\_\-collinear}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::math\-::math\-::are\-\_\-collinear (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{a, }
+\item[{cv\-::\-Vec3d}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a984bd86c0be4371feaf29cad29441e9a}
+Returns true if the vectors are approximately collinear.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The vector a. \\
+\hline
+{\em b} & The vector a. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if collinear. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_acb683db46fd65151fce415f81e0e1eff}{\index{mae\-::math\-::math@{mae\-::math\-::math}!calc\-\_\-angle\-\_\-half@{calc\-\_\-angle\-\_\-half}}
+\index{calc\-\_\-angle\-\_\-half@{calc\-\_\-angle\-\_\-half}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{calc\-\_\-angle\-\_\-half}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::math\-::math\-::calc\-\_\-angle\-\_\-half (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{a, }
+\item[{cv\-::\-Vec3d}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_acb683db46fd65151fce415f81e0e1eff}
+Calculates the angle in radian between the two vectors (0 to P\-I).
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The vector a. \\
+\hline
+{\em b} & The vector a. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a0bd0b95f9a12a668fa53d0c235f0663c}{\index{mae\-::math\-::math@{mae\-::math\-::math}!calc\-\_\-angle\-\_\-half\-\_\-deg@{calc\-\_\-angle\-\_\-half\-\_\-deg}}
+\index{calc\-\_\-angle\-\_\-half\-\_\-deg@{calc\-\_\-angle\-\_\-half\-\_\-deg}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{calc\-\_\-angle\-\_\-half\-\_\-deg}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::math\-::math\-::calc\-\_\-angle\-\_\-half\-\_\-deg (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{a, }
+\item[{cv\-::\-Vec3d}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a0bd0b95f9a12a668fa53d0c235f0663c}
+Calculates the angle in degree between the two vectors (0 to 180 degree).
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The vector a. \\
+\hline
+{\em b} & The vector a. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a05bc001ecddb217442f3f63079f44a57}{\index{mae\-::math\-::math@{mae\-::math\-::math}!calc\-\_\-angle\-\_\-plane@{calc\-\_\-angle\-\_\-plane}}
+\index{calc\-\_\-angle\-\_\-plane@{calc\-\_\-angle\-\_\-plane}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{calc\-\_\-angle\-\_\-plane}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::math\-::math\-::calc\-\_\-angle\-\_\-plane (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{a, }
+\item[{cv\-::\-Vec3d}]{b, }
+\item[{cv\-::\-Vec3d}]{normal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a05bc001ecddb217442f3f63079f44a57}
+Calculates the angle in radian between the two vectors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The vector a. \\
+\hline
+{\em b} & The vector a. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. Calculates the angle in degree between the two vectors.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The vector a. \\
+\hline
+{\em b} & The vector a. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. Calculates the angle in radian oriented to the plane whose normal is given (-\/\-P\-I to P\-I).
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The vector a. \\
+\hline
+{\em b} & The vector a. \\
+\hline
+{\em normal} & The normal to the plane. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_addca02a62d1356c3eafc19b0a2456cb8}{\index{mae\-::math\-::math@{mae\-::math\-::math}!calc\-\_\-angle\-\_\-plane\-\_\-deg@{calc\-\_\-angle\-\_\-plane\-\_\-deg}}
+\index{calc\-\_\-angle\-\_\-plane\-\_\-deg@{calc\-\_\-angle\-\_\-plane\-\_\-deg}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{calc\-\_\-angle\-\_\-plane\-\_\-deg}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::math\-::math\-::calc\-\_\-angle\-\_\-plane\-\_\-deg (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{a, }
+\item[{cv\-::\-Vec3d}]{b, }
+\item[{cv\-::\-Vec3d}]{normal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_addca02a62d1356c3eafc19b0a2456cb8}
+Calculates the angle in degree oriented to the plane whose normal is given (-\/180 to 180 degree).
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The vector a. \\
+\hline
+{\em b} & The vector a. \\
+\hline
+{\em normal} & The normal to the plane. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a87dfc60d31b86942b9147377bef659f5}{\index{mae\-::math\-::math@{mae\-::math\-::math}!deg\-\_\-to\-\_\-rad@{deg\-\_\-to\-\_\-rad}}
+\index{deg\-\_\-to\-\_\-rad@{deg\-\_\-to\-\_\-rad}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{deg\-\_\-to\-\_\-rad}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::math\-::math\-::deg\-\_\-to\-\_\-rad (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a87dfc60d31b86942b9147377bef659f5}
+Translates the angle in degree to radian.
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The angle in degree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angle in radian. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a7e7a0068fe2cb5dd78f3df81cd082cb7}{\index{mae\-::math\-::math@{mae\-::math\-::math}!fmod\-\_\-pos@{fmod\-\_\-pos}}
+\index{fmod\-\_\-pos@{fmod\-\_\-pos}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{fmod\-\_\-pos}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::math\-::math\-::fmod\-\_\-pos (
+\begin{DoxyParamCaption}
+\item[{double}]{a, }
+\item[{double}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a7e7a0068fe2cb5dd78f3df81cd082cb7}
+Returns x = a mod b, using the modulo operation for floating-\/point values. The result is positive only.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+x = a mod b on \mbox{[}0, b). 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a69d06a0e584bf1d872d26a4fd2db37f0}{\index{mae\-::math\-::math@{mae\-::math\-::math}!joint\-\_\-to\-\_\-vec@{joint\-\_\-to\-\_\-vec}}
+\index{joint\-\_\-to\-\_\-vec@{joint\-\_\-to\-\_\-vec}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{joint\-\_\-to\-\_\-vec}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::joint\-\_\-to\-\_\-vec (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-joint} $>$}]{joint}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a69d06a0e584bf1d872d26a4fd2db37f0}
+Translates the joint to a 3\-D vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint} & The joint. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a9c06acbeefcc43a217df33d0dd4f1611}{\index{mae\-::math\-::math@{mae\-::math\-::math}!joint\-\_\-to\-\_\-vec\-\_\-fl@{joint\-\_\-to\-\_\-vec\-\_\-fl}}
+\index{joint\-\_\-to\-\_\-vec\-\_\-fl@{joint\-\_\-to\-\_\-vec\-\_\-fl}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{joint\-\_\-to\-\_\-vec\-\_\-fl}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec2d mae\-::math\-::math\-::joint\-\_\-to\-\_\-vec\-\_\-fl (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf mae\-::fl\-::angular\-\_\-joint} $>$}]{joint}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a9c06acbeefcc43a217df33d0dd4f1611}
+Translates the fl\-\_\-joint to a 2\-D vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em joint} & The joint. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a0d941a0b007c67fb64789e6813848465}{\index{mae\-::math\-::math@{mae\-::math\-::math}!maevec\-\_\-to\-\_\-vec3d@{maevec\-\_\-to\-\_\-vec3d}}
+\index{maevec\-\_\-to\-\_\-vec3d@{maevec\-\_\-to\-\_\-vec3d}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{maevec\-\_\-to\-\_\-vec3d}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::maevec\-\_\-to\-\_\-vec3d (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{vec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a0d941a0b007c67fb64789e6813848465}
+Translates the \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} of mae to a 3\-D vector of cv.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_ac167e791fb84a8b70435e6f91b611515}{\index{mae\-::math\-::math@{mae\-::math\-::math}!matrix\-\_\-mul@{matrix\-\_\-mul}}
+\index{matrix\-\_\-mul@{matrix\-\_\-mul}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{matrix\-\_\-mul}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::matrix\-\_\-mul (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Mat}]{m, }
+\item[{cv\-::\-Vec3d}]{vec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_ac167e791fb84a8b70435e6f91b611515}
+Performs a matrix calculation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix. \\
+\hline
+{\em vec} & The vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_af32162d01a4c9671f795413465653b8f}{\index{mae\-::math\-::math@{mae\-::math\-::math}!matrix\-\_\-rot\-\_\-x@{matrix\-\_\-rot\-\_\-x}}
+\index{matrix\-\_\-rot\-\_\-x@{matrix\-\_\-rot\-\_\-x}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{matrix\-\_\-rot\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Mat mae\-::math\-::math\-::matrix\-\_\-rot\-\_\-x (
+\begin{DoxyParamCaption}
+\item[{double}]{beta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_af32162d01a4c9671f795413465653b8f}
+Returns the rotation matrix for the x-\/axis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em beta} & The angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The matrix. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a4f4997976691b38222874d170bee59d5}{\index{mae\-::math\-::math@{mae\-::math\-::math}!matrix\-\_\-rot\-\_\-y@{matrix\-\_\-rot\-\_\-y}}
+\index{matrix\-\_\-rot\-\_\-y@{matrix\-\_\-rot\-\_\-y}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{matrix\-\_\-rot\-\_\-y}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Mat mae\-::math\-::math\-::matrix\-\_\-rot\-\_\-y (
+\begin{DoxyParamCaption}
+\item[{double}]{beta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a4f4997976691b38222874d170bee59d5}
+Returns the rotation matrix for the y-\/axis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em beta} & The angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The matrix. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a243d901ca79c76772d3c8cf975cab08e}{\index{mae\-::math\-::math@{mae\-::math\-::math}!matrix\-\_\-rot\-\_\-z@{matrix\-\_\-rot\-\_\-z}}
+\index{matrix\-\_\-rot\-\_\-z@{matrix\-\_\-rot\-\_\-z}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{matrix\-\_\-rot\-\_\-z}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Mat mae\-::math\-::math\-::matrix\-\_\-rot\-\_\-z (
+\begin{DoxyParamCaption}
+\item[{double}]{beta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a243d901ca79c76772d3c8cf975cab08e}
+Returns the rotation matrix for the z-\/axis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em beta} & The angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The matrix. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a3b4c1beb6b911a7403b8c98ab4fb7460}{\index{mae\-::math\-::math@{mae\-::math\-::math}!matrix\-\_\-rot\-\_\-zxy@{matrix\-\_\-rot\-\_\-zxy}}
+\index{matrix\-\_\-rot\-\_\-zxy@{matrix\-\_\-rot\-\_\-zxy}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{matrix\-\_\-rot\-\_\-zxy}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Mat mae\-::math\-::math\-::matrix\-\_\-rot\-\_\-zxy (
+\begin{DoxyParamCaption}
+\item[{double}]{zeta, }
+\item[{double}]{xi, }
+\item[{double}]{ypsilon}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a3b4c1beb6b911a7403b8c98ab4fb7460}
+Returns the rotation matrix for a rotation in the zxy-\/order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em zeta} & \\
+\hline
+{\em xi} & \\
+\hline
+{\em ypsilon} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a418176aa7d23e7d12c2d620dee771b5d}{\index{mae\-::math\-::math@{mae\-::math\-::math}!project\-\_\-back\-\_\-to\-\_\-default@{project\-\_\-back\-\_\-to\-\_\-default}}
+\index{project\-\_\-back\-\_\-to\-\_\-default@{project\-\_\-back\-\_\-to\-\_\-default}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{project\-\_\-back\-\_\-to\-\_\-default}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::project\-\_\-back\-\_\-to\-\_\-default (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{point, }
+\item[{cv\-::\-Vec3d}]{position\-\_\-vector, }
+\item[{cv\-::\-Vec3d}]{u, }
+\item[{cv\-::\-Vec3d}]{r, }
+\item[{cv\-::\-Vec3d}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a418176aa7d23e7d12c2d620dee771b5d}
+Projects the point given by the basis to the default coordinate system.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to be translated. \\
+\hline
+{\em position\-\_\-vector} & The point of origin of the basis. \\
+\hline
+{\em u} & The basis' u vector. \\
+\hline
+{\em r} & The basis' r vector. \\
+\hline
+{\em t} & The basis' t vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a8d1ab0d935ea2f9ae7c9a5aea6ad14e8}{\index{mae\-::math\-::math@{mae\-::math\-::math}!project\-\_\-back\-\_\-to\-\_\-default@{project\-\_\-back\-\_\-to\-\_\-default}}
+\index{project\-\_\-back\-\_\-to\-\_\-default@{project\-\_\-back\-\_\-to\-\_\-default}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{project\-\_\-back\-\_\-to\-\_\-default}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::project\-\_\-back\-\_\-to\-\_\-default (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{point, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf basis} $>$}]{basis, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{position\-\_\-vector = {\ttfamily nullptr}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a8d1ab0d935ea2f9ae7c9a5aea6ad14e8}
+Projects the point given by the basis to the default coordinate system.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to be translated. \\
+\hline
+{\em basis} & The basis \\
+\hline
+{\em position\-\_\-vector} & The position vector. Null when using the one from the basis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a5c6a6f6cde0e3d90d3b6b453e2fe5da9}{\index{mae\-::math\-::math@{mae\-::math\-::math}!project\-\_\-back\-\_\-to\-\_\-default\-\_\-maevec@{project\-\_\-back\-\_\-to\-\_\-default\-\_\-maevec}}
+\index{project\-\_\-back\-\_\-to\-\_\-default\-\_\-maevec@{project\-\_\-back\-\_\-to\-\_\-default\-\_\-maevec}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{project\-\_\-back\-\_\-to\-\_\-default\-\_\-maevec}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$ mae\-::math\-::math\-::project\-\_\-back\-\_\-to\-\_\-default\-\_\-maevec (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{point, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf basis} $>$}]{basis, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{position\-\_\-vector = {\ttfamily nullptr}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a5c6a6f6cde0e3d90d3b6b453e2fe5da9}
+Projects the point given by the basis to the default coordinate system.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to be translated. \\
+\hline
+{\em basis} & The basis \\
+\hline
+{\em position\-\_\-vector} & The position vector. Null when using the one from the basis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a2c4227d6a43b7a45d4285a079d9d6e85}{\index{mae\-::math\-::math@{mae\-::math\-::math}!project\-\_\-orthogonal@{project\-\_\-orthogonal}}
+\index{project\-\_\-orthogonal@{project\-\_\-orthogonal}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{project\-\_\-orthogonal}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::project\-\_\-orthogonal (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{point, }
+\item[{cv\-::\-Vec3d}]{position\-\_\-vector, }
+\item[{cv\-::\-Vec3d}]{plane\-\_\-u, }
+\item[{cv\-::\-Vec3d}]{plane\-\_\-v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a2c4227d6a43b7a45d4285a079d9d6e85}
+Performs an orthogonal projection to the plane spanned by plane\-\_\-u and plane\-\_\-v positioned where the position vector points.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to be translated \\
+\hline
+{\em position\-\_\-vector} & The position vector of the plane. \\
+\hline
+{\em plane\-\_\-u} & The first direction vector of the plane which spans it. \\
+\hline
+{\em plane\-\_\-v} & The second direction vector of the plane which spans it. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a8a701ca325c85b0fd8aeb9fcf16ae831}{\index{mae\-::math\-::math@{mae\-::math\-::math}!project\-\_\-to\-\_\-basis@{project\-\_\-to\-\_\-basis}}
+\index{project\-\_\-to\-\_\-basis@{project\-\_\-to\-\_\-basis}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{project\-\_\-to\-\_\-basis}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::project\-\_\-to\-\_\-basis (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{point, }
+\item[{cv\-::\-Vec3d}]{position\-\_\-vector, }
+\item[{cv\-::\-Vec3d}]{u, }
+\item[{cv\-::\-Vec3d}]{r, }
+\item[{cv\-::\-Vec3d}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a8a701ca325c85b0fd8aeb9fcf16ae831}
+Projects the point to the new basis given in coordinates of the points current basis. 
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to be translated. \\
+\hline
+{\em position\-\_\-vector} & The point of origin of the new basis. \\
+\hline
+{\em u} & The new basis' u vector. \\
+\hline
+{\em r} & The new basis' r vector. \\
+\hline
+{\em t} & The new basis' t vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a9bf43740b418313f18d8d8c7b8ba0208}{\index{mae\-::math\-::math@{mae\-::math\-::math}!project\-\_\-to\-\_\-basis@{project\-\_\-to\-\_\-basis}}
+\index{project\-\_\-to\-\_\-basis@{project\-\_\-to\-\_\-basis}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{project\-\_\-to\-\_\-basis}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::project\-\_\-to\-\_\-basis (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{point, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf basis} $>$}]{basis, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{position\-\_\-vector = {\ttfamily nullptr}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a9bf43740b418313f18d8d8c7b8ba0208}
+Projects the point to the new basis given in coordinates of the points current basis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to be translated. \\
+\hline
+{\em basis} & The basis \\
+\hline
+{\em position\-\_\-vector} & The position vector. Null when using the one from the basis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_ad50e3118b3ea1b4ad1ffe3b52958c4b8}{\index{mae\-::math\-::math@{mae\-::math\-::math}!project\-\_\-to\-\_\-basis\-\_\-maevec@{project\-\_\-to\-\_\-basis\-\_\-maevec}}
+\index{project\-\_\-to\-\_\-basis\-\_\-maevec@{project\-\_\-to\-\_\-basis\-\_\-maevec}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{project\-\_\-to\-\_\-basis\-\_\-maevec}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$ mae\-::math\-::math\-::project\-\_\-to\-\_\-basis\-\_\-maevec (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{point, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf basis} $>$}]{basis, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{position\-\_\-vector = {\ttfamily nullptr}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_ad50e3118b3ea1b4ad1ffe3b52958c4b8}
+Projects the point to the new basis given in coordinates of the points current basis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to be translated. \\
+\hline
+{\em basis} & The basis \\
+\hline
+{\em position\-\_\-vector} & The position vector. Null when using the one from the basis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_aad30fcac6b0991bfb03b6a411058069b}{\index{mae\-::math\-::math@{mae\-::math\-::math}!quaternion@{quaternion}}
+\index{quaternion@{quaternion}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{quaternion}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec4d mae\-::math\-::math\-::quaternion (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{a, }
+\item[{cv\-::\-Vec3d}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_aad30fcac6b0991bfb03b6a411058069b}
+Returns the quaternion representing the rotation from a to b. The returned vector begins is ordered \mbox{[}qw, qx, qy, qz\mbox{]}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Vector to be rotated to b. \\
+\hline
+{\em b} & Target vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The quaternion as a four-\/dimensional vector. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a37ab34ed5a6b7b7253dc7657e2b3a5ea}{\index{mae\-::math\-::math@{mae\-::math\-::math}!rad\-\_\-to\-\_\-deg@{rad\-\_\-to\-\_\-deg}}
+\index{rad\-\_\-to\-\_\-deg@{rad\-\_\-to\-\_\-deg}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{rad\-\_\-to\-\_\-deg}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::math\-::math\-::rad\-\_\-to\-\_\-deg (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a37ab34ed5a6b7b7253dc7657e2b3a5ea}
+Translates the angle in radian to degree.
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & The angle in radian. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angle in degree. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a957eca4941bff614fd36e02013091e59}{\index{mae\-::math\-::math@{mae\-::math\-::math}!rotate\-\_\-around\-\_\-axis@{rotate\-\_\-around\-\_\-axis}}
+\index{rotate\-\_\-around\-\_\-axis@{rotate\-\_\-around\-\_\-axis}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{rotate\-\_\-around\-\_\-axis}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::rotate\-\_\-around\-\_\-axis (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{point, }
+\item[{cv\-::\-Vec3d}]{axis, }
+\item[{double}]{beta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a957eca4941bff614fd36e02013091e59}
+Rotates the point around the given axis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The point to be rotated. \\
+\hline
+{\em axis} & The axis \\
+\hline
+{\em beta} & The angle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a8400ff6d79fb7ff9675e0b6cbf53b7d1}{\index{mae\-::math\-::math@{mae\-::math\-::math}!rotate\-\_\-yzx@{rotate\-\_\-yzx}}
+\index{rotate\-\_\-yzx@{rotate\-\_\-yzx}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{rotate\-\_\-yzx}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::rotate\-\_\-yzx (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{a, }
+\item[{double}]{ypsilon, }
+\item[{double}]{zeta, }
+\item[{double}]{xi}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a8400ff6d79fb7ff9675e0b6cbf53b7d1}
+Rotates the vector a using the N\-A\-S\-A standard yaw, pitch, roll (also known as heading, attitude, bank).
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The vector to be rotated. \\
+\hline
+{\em ypsilon} & The angle for Ry. \\
+\hline
+{\em zeta} & The angle for Rz. \\
+\hline
+{\em xi} & The angle for Rx. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The rotated vector. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a48444501fb7cce0eaf99aee4207f680c}{\index{mae\-::math\-::math@{mae\-::math\-::math}!rotate\-\_\-zxy@{rotate\-\_\-zxy}}
+\index{rotate\-\_\-zxy@{rotate\-\_\-zxy}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{rotate\-\_\-zxy}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::rotate\-\_\-zxy (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{a, }
+\item[{double}]{zeta, }
+\item[{double}]{xi, }
+\item[{double}]{ypsilon}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a48444501fb7cce0eaf99aee4207f680c}
+Rotates in zxy order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The vector to be rotated. \\
+\hline
+{\em zeta} & The angle for Rz. \\
+\hline
+{\em xi} & The angle for Rx. \\
+\hline
+{\em ypsilon} & The angle for Ry. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The rotated vector. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_af52aaef0bcb8e0000233d51eec68f7fb}{\index{mae\-::math\-::math@{mae\-::math\-::math}!rotation\-\_\-angles\-\_\-yzx@{rotation\-\_\-angles\-\_\-yzx}}
+\index{rotation\-\_\-angles\-\_\-yzx@{rotation\-\_\-angles\-\_\-yzx}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{rotation\-\_\-angles\-\_\-yzx}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::rotation\-\_\-angles\-\_\-yzx (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{a, }
+\item[{cv\-::\-Vec3d}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_af52aaef0bcb8e0000233d51eec68f7fb}
+Returns the angles for the rotation matrices Ry, Rz, Rx which transform the point a to the point b. The rotation matrices are applied in y-\/z-\/x order which means that Ry\-Rz\-Rx$\ast$a = b.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The point a which is meant to be rotated to b. \\
+\hline
+{\em b} & The target point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angles alpha, beta and gamma that are applied by Ry(alpha), Rz(beta) and Rx(gamma). 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_aff17eeb2d30632c7fa0dae6e4e4c85c4}{\index{mae\-::math\-::math@{mae\-::math\-::math}!rotation\-\_\-angles\-\_\-zxy@{rotation\-\_\-angles\-\_\-zxy}}
+\index{rotation\-\_\-angles\-\_\-zxy@{rotation\-\_\-angles\-\_\-zxy}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{rotation\-\_\-angles\-\_\-zxy}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::rotation\-\_\-angles\-\_\-zxy (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{a, }
+\item[{cv\-::\-Vec3d}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_aff17eeb2d30632c7fa0dae6e4e4c85c4}
+Returns the angles for the rotation matrices Rz, Rx, Ry which transform the point a to the point b. The rotation matrices are applied in z-\/x-\/y order which means that Rz\-Rx\-Ry$\ast$a = b.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The point a which is meant to be rotated to b. \\
+\hline
+{\em b} & The target point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angles alpha, beta and gamma that are applied by Rz(alpha), Rx(beta) and Ry(gamma). 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a80bbc1acd22c10f1fc69ea41f95304f3}{\index{mae\-::math\-::math@{mae\-::math\-::math}!sign@{sign}}
+\index{sign@{sign}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{sign}]{\setlength{\rightskip}{0pt plus 5cm}int mae\-::math\-::math\-::sign (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a80bbc1acd22c10f1fc69ea41f95304f3}
+Returns the sign of a double value. Zero if x is zero, -\/1 if x is less than zero and 1 if x is greater than zero.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The double value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sign. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a644e19eb8d84e63170bc9c7650e105e9}{\index{mae\-::math\-::math@{mae\-::math\-::math}!stdvec\-\_\-to\-\_\-vec2d@{stdvec\-\_\-to\-\_\-vec2d}}
+\index{stdvec\-\_\-to\-\_\-vec2d@{stdvec\-\_\-to\-\_\-vec2d}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{stdvec\-\_\-to\-\_\-vec2d}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec2d mae\-::math\-::math\-::stdvec\-\_\-to\-\_\-vec2d (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ double $>$}]{vec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a644e19eb8d84e63170bc9c7650e105e9}
+Translates the std\-::vector to a 2\-D vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_ac800a14f5226f4d88cd7db0efe474a16}{\index{mae\-::math\-::math@{mae\-::math\-::math}!stdvec\-\_\-to\-\_\-vec3d@{stdvec\-\_\-to\-\_\-vec3d}}
+\index{stdvec\-\_\-to\-\_\-vec3d@{stdvec\-\_\-to\-\_\-vec3d}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{stdvec\-\_\-to\-\_\-vec3d}]{\setlength{\rightskip}{0pt plus 5cm}cv\-::\-Vec3d mae\-::math\-::math\-::stdvec\-\_\-to\-\_\-vec3d (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ double $>$}]{vec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_ac800a14f5226f4d88cd7db0efe474a16}
+Translates the std\-::vector to a 3\-D vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a42b4752057b831506e2ab128fe25cf36}{\index{mae\-::math\-::math@{mae\-::math\-::math}!vec3d\-\_\-to\-\_\-maevec@{vec3d\-\_\-to\-\_\-maevec}}
+\index{vec3d\-\_\-to\-\_\-maevec@{vec3d\-\_\-to\-\_\-maevec}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{vec3d\-\_\-to\-\_\-maevec}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$ mae\-::math\-::math\-::vec3d\-\_\-to\-\_\-maevec (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{vec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a42b4752057b831506e2ab128fe25cf36}
+Translates the 3\-D vector of cv to a \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} of mae.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a8a1e0a8ab6f487a3fa8ee69af6fc798b}{\index{mae\-::math\-::math@{mae\-::math\-::math}!vec\-\_\-to\-\_\-joint@{vec\-\_\-to\-\_\-joint}}
+\index{vec\-\_\-to\-\_\-joint@{vec\-\_\-to\-\_\-joint}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{vec\-\_\-to\-\_\-joint}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-joint} $>$ mae\-::math\-::math\-::vec\-\_\-to\-\_\-joint (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{vec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a8a1e0a8ab6f487a3fa8ee69af6fc798b}
+Translates the 3\-D vector to a joint.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_aa56f27d38991dd723a80e61901c74c01}{\index{mae\-::math\-::math@{mae\-::math\-::math}!vec\-\_\-to\-\_\-joint\-\_\-fl@{vec\-\_\-to\-\_\-joint\-\_\-fl}}
+\index{vec\-\_\-to\-\_\-joint\-\_\-fl@{vec\-\_\-to\-\_\-joint\-\_\-fl}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{vec\-\_\-to\-\_\-joint\-\_\-fl}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf mae\-::fl\-::angular\-\_\-joint} $>$ mae\-::math\-::math\-::vec\-\_\-to\-\_\-joint\-\_\-fl (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec2d}]{vec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_aa56f27d38991dd723a80e61901c74c01}
+Translates the 2\-D vector to a fl\-\_\-joint.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_a812f46b202aebc286d6c59adf0b2308c}{\index{mae\-::math\-::math@{mae\-::math\-::math}!vec\-\_\-to\-\_\-stdvec@{vec\-\_\-to\-\_\-stdvec}}
+\index{vec\-\_\-to\-\_\-stdvec@{vec\-\_\-to\-\_\-stdvec}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{vec\-\_\-to\-\_\-stdvec}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ double $>$ mae\-::math\-::math\-::vec\-\_\-to\-\_\-stdvec (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec3d}]{vec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_a812f46b202aebc286d6c59adf0b2308c}
+Translates the 3\-D vector to a std\-::vector. 
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1math_ab2267cd4acb9934ea4b429dd58feab72}{\index{mae\-::math\-::math@{mae\-::math\-::math}!vec\-\_\-to\-\_\-stdvec@{vec\-\_\-to\-\_\-stdvec}}
+\index{vec\-\_\-to\-\_\-stdvec@{vec\-\_\-to\-\_\-stdvec}!mae::math::math@{mae\-::math\-::math}}
+\subsubsection[{vec\-\_\-to\-\_\-stdvec}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ double $>$ mae\-::math\-::math\-::vec\-\_\-to\-\_\-stdvec (
+\begin{DoxyParamCaption}
+\item[{cv\-::\-Vec2d}]{vec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1math_1_1math_ab2267cd4acb9934ea4b429dd58feab72}
+Translates the 2\-D vector to a std\-::vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/math/math.\-hpp\item 
+src/mae/math/math.\-cpp\end{DoxyCompactItemize}
