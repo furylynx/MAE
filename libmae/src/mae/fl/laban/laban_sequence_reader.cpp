@@ -448,11 +448,11 @@ namespace mae
 			{
 				std::shared_ptr<mv::space_measurement> result = nullptr;
 
-				mv::e_space vertical = mv::e_space_c::parse(mxml::get_node_content(node, namespace_map, "spaceMeasurement/type", nsp, "NONE"));
+				mv::e_space vertical = mv::e_space_c::parse(mxml::get_node_content(node, namespace_map, "type", nsp, "NONE"));
 
-				unsigned int degree = static_cast<unsigned int>(std::stoul(mxml::get_node_content(node, namespace_map, "spaceMeasurement/degree", nsp, "0")));
+				unsigned int degree = static_cast<unsigned int>(std::stoul(mxml::get_node_content(node, namespace_map, "degree", nsp, "0")));
 
-				mv::e_space_direction direction = mv::e_space_direction_c::parse(mxml::get_node_content(node, namespace_map, "spaceMeasurement/direction", nsp, "NONE"));
+				mv::e_space_direction direction = mv::e_space_direction_c::parse(mxml::get_node_content(node, namespace_map, "direction", nsp, "NONE"));
 
 				result = std::shared_ptr<mv::space_measurement>(new mv::space_measurement(vertical, degree, direction));
 
@@ -519,7 +519,7 @@ namespace mae
 
 				if (space_measurement_node_set.size() > 0)
 				{
-					space_measurement = laban_sequence_reader::read_space_measurement(node, namespace_map, nsp);
+					space_measurement = laban_sequence_reader::read_space_measurement(space_measurement_node_set.at(0), namespace_map, nsp);
 				}
 
 				//dynamics
@@ -549,7 +549,7 @@ namespace mae
 
 				if (space_measurement_node_set.size() > 0)
 				{
-					space_measurement = laban_sequence_reader::read_space_measurement(node, namespace_map, nsp);
+					space_measurement = laban_sequence_reader::read_space_measurement(space_measurement_node_set.at(0), namespace_map, nsp);
 
 					//dynamics
 					xmlpp::NodeSet dynamics_node_set = node->find(mxml::get_xpath("dynamics", nsp), *namespace_map);
@@ -588,11 +588,11 @@ namespace mae
 
 				if (degree_node_set.size() > 0)
 				{
-					xmlpp::NodeSet space_degree_node_set = node->find(mxml::get_xpath("degree/qualitative/spaceMeasurement", nsp), *namespace_map);
+					xmlpp::NodeSet space_degree_node_set = node->find(mxml::get_xpath("degree/qualitative", nsp), *namespace_map);
 
 					if (space_degree_node_set.size() > 0)
 					{
-						degree = laban_sequence_reader::read_space_measurement(degree_node_set.at(0), namespace_map, nsp);
+						degree = laban_sequence_reader::read_space_measurement(space_degree_node_set.at(0), namespace_map, nsp);
 					}
 					else
 					{

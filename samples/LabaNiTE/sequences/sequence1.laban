@@ -184,8 +184,8 @@
                <laban:direction>clockwise</laban:direction>
                <laban:degree>
                   <laban:qualitative>
-                     <laban:type>spreading</laban:type>
-                     <laban:degree>1</laban:degree>
+                     <laban:type>narrow</laban:type>
+                     <laban:degree>5</laban:degree>
                   </laban:qualitative>
                </laban:degree>
             </laban:turn>
@@ -418,8 +418,8 @@
             <laban:hold>false</laban:hold>
             <laban:space>
                <laban:spaceMeasurement>
-                  <laban:type>unfolding</laban:type>
-                  <laban:degree>1</laban:degree>
+                  <laban:type>wide</laban:type>
+                  <laban:degree>6</laban:degree>
                </laban:spaceMeasurement>
             </laban:space>
          </laban:movement>
