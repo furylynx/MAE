@@ -1,0 +1,67 @@
+\hypertarget{classmae_1_1fl_1_1laban_1_1laban__sequence__reader}{\section{mae\-:\-:fl\-:\-:laban\-:\-:laban\-\_\-sequence\-\_\-reader Class Reference}
+\label{classmae_1_1fl_1_1laban_1_1laban__sequence__reader}\index{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader@{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence__reader_a5ec19277963cbbba23c8b9a0e7c46301}{laban\-\_\-sequence\-\_\-reader} ()
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence}{laban\-\_\-sequence} $>$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence__reader_ae9a04157746544a3b05f96ba42f5f4f7}{read\-\_\-sequence\-\_\-file} (std\-::string file\-\_\-name)
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence}{laban\-\_\-sequence} $>$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence__reader_a2a073416329826a3be64fdbcccf8ff53}{read\-\_\-sequence\-\_\-str} (std\-::string xml\-\_\-string)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1fl_1_1laban_1_1laban__sequence__reader_a5ec19277963cbbba23c8b9a0e7c46301}{\index{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader@{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader}!laban\-\_\-sequence\-\_\-reader@{laban\-\_\-sequence\-\_\-reader}}
+\index{laban\-\_\-sequence\-\_\-reader@{laban\-\_\-sequence\-\_\-reader}!mae::fl::laban::laban_sequence_reader@{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader}}
+\subsubsection[{laban\-\_\-sequence\-\_\-reader}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader\-::laban\-\_\-sequence\-\_\-reader (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1fl_1_1laban_1_1laban__sequence__reader_a5ec19277963cbbba23c8b9a0e7c46301}
+Creates a new laban sequence reader. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1fl_1_1laban_1_1laban__sequence__reader_ae9a04157746544a3b05f96ba42f5f4f7}{\index{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader@{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader}!read\-\_\-sequence\-\_\-file@{read\-\_\-sequence\-\_\-file}}
+\index{read\-\_\-sequence\-\_\-file@{read\-\_\-sequence\-\_\-file}!mae::fl::laban::laban_sequence_reader@{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader}}
+\subsubsection[{read\-\_\-sequence\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf laban\-\_\-sequence} $>$ mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader\-::read\-\_\-sequence\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{file\-\_\-name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1laban__sequence__reader_ae9a04157746544a3b05f96ba42f5f4f7}
+Reads the Labanotation X\-M\-L (which is defined by the Labanotation X\-M\-L schema v.\-0.\-5) file and generates a sequence of it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em xml\-\_\-string} & The path to the X\-M\-L file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the sequence. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1laban__sequence__reader_a2a073416329826a3be64fdbcccf8ff53}{\index{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader@{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader}!read\-\_\-sequence\-\_\-str@{read\-\_\-sequence\-\_\-str}}
+\index{read\-\_\-sequence\-\_\-str@{read\-\_\-sequence\-\_\-str}!mae::fl::laban::laban_sequence_reader@{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader}}
+\subsubsection[{read\-\_\-sequence\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf laban\-\_\-sequence} $>$ mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-reader\-::read\-\_\-sequence\-\_\-str (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{xml\-\_\-string}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1laban__sequence__reader_a2a073416329826a3be64fdbcccf8ff53}
+Reads the Labanotation X\-M\-L (which is defined by the Labanotation X\-M\-L schema v.\-0.\-5) string and generates a sequence of it. The string should contain the whole X\-M\-L part which is validated against the X\-M\-L schema.
+
+
+\begin{DoxyParams}{Parameters}
+{\em xml\-\_\-string} & The X\-M\-L string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the sequence. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/fl/laban/laban\-\_\-sequence\-\_\-reader.\-hpp\item 
+src/mae/fl/laban/laban\-\_\-sequence\-\_\-reader.\-cpp\end{DoxyCompactItemize}

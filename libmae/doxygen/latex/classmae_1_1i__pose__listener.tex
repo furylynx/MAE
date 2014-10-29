@@ -1,0 +1,40 @@
+\hypertarget{classmae_1_1i__pose__listener}{\section{mae\-:\-:i\-\_\-pose\-\_\-listener Class Reference}
+\label{classmae_1_1i__pose__listener}\index{mae\-::i\-\_\-pose\-\_\-listener@{mae\-::i\-\_\-pose\-\_\-listener}}
+}
+
+
+{\ttfamily \#include $<$i\-\_\-pose\-\_\-listener.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classmae_1_1i__pose__listener_a1b7584ba2ad90a2b862d779cb3cba6f5}{on\-\_\-pose} (long timestamp, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ pose)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Listener for poses. In notified each frame after the pose quantization. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1i__pose__listener_a1b7584ba2ad90a2b862d779cb3cba6f5}{\index{mae\-::i\-\_\-pose\-\_\-listener@{mae\-::i\-\_\-pose\-\_\-listener}!on\-\_\-pose@{on\-\_\-pose}}
+\index{on\-\_\-pose@{on\-\_\-pose}!mae::i_pose_listener@{mae\-::i\-\_\-pose\-\_\-listener}}
+\subsubsection[{on\-\_\-pose}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mae\-::i\-\_\-pose\-\_\-listener\-::on\-\_\-pose (
+\begin{DoxyParamCaption}
+\item[{long}]{timestamp, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-pose} $>$}]{pose}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1i__pose__listener_a1b7584ba2ad90a2b862d779cb3cba6f5}
+Is invoked each time a pose was quantized (which occurs on every frame).
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & The associated timestamp. \\
+\hline
+{\em pose} & The quantized pose. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/i\-\_\-pose\-\_\-listener.\-hpp\end{DoxyCompactItemize}

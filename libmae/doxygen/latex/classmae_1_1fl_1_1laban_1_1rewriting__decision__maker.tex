@@ -1,0 +1,189 @@
+\hypertarget{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker}{\section{mae\-:\-:fl\-:\-:laban\-:\-:rewriting\-\_\-decision\-\_\-maker Class Reference}
+\label{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker}\index{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}}
+}
+Inheritance diagram for mae\-:\-:fl\-:\-:laban\-:\-:rewriting\-\_\-decision\-\_\-maker\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_af1d9dbfca7df3e5219641e3c5ef4c8d1}{rewriting\-\_\-decision\-\_\-maker} ()
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_a2904cfea7637998087e5e387f077d9e9}{set\-\_\-recognition\-\_\-tolerance} (double tolerance)
+\item 
+virtual double \hyperlink{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_aa21cd4d1affba8c2e784565aee732456}{get\-\_\-recognition\-\_\-tolerance} ()
+\item 
+virtual bool \hyperlink{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_ae33a9f027e52bab0cc9be93eeb589d64}{decide\-\_\-match} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ stream\-\_\-item, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ stream\-\_\-item\-\_\-predecessor, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ tree\-\_\-item, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ tree\-\_\-item\-\_\-predecessor)
+\item 
+virtual bool \hyperlink{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_a01849dbcdda4878338a3cda18f7040a8}{decide\-\_\-insertion} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ add\-\_\-item, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ add\-\_\-item\-\_\-predecessor, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ tree\-\_\-item, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ tree\-\_\-item\-\_\-predecessor)
+\item 
+virtual bool \hyperlink{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_aee7c8ddde89262cc7a9c26ad041ea344}{position\-\_\-okay} (double dist\-\_\-to\-\_\-last, double set\-\_\-value, bool check\-\_\-startpose)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_a9cf4ad043611ae5bb95049e13cc4d184}{check\-\_\-type} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ a, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ b)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_af1d9dbfca7df3e5219641e3c5ef4c8d1}{\index{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}!rewriting\-\_\-decision\-\_\-maker@{rewriting\-\_\-decision\-\_\-maker}}
+\index{rewriting\-\_\-decision\-\_\-maker@{rewriting\-\_\-decision\-\_\-maker}!mae::fl::laban::rewriting_decision_maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}}
+\subsubsection[{rewriting\-\_\-decision\-\_\-maker}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker\-::rewriting\-\_\-decision\-\_\-maker (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_af1d9dbfca7df3e5219641e3c5ef4c8d1}
+Creates a new rewriting decision maker which is used to decide whether two movements are equal for sequences that are meant to be replaced. Therefore the timing does not matter but only the symbols. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_a9cf4ad043611ae5bb95049e13cc4d184}{\index{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}!check\-\_\-type@{check\-\_\-type}}
+\index{check\-\_\-type@{check\-\_\-type}!mae::fl::laban::rewriting_decision_maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}}
+\subsubsection[{check\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker\-::check\-\_\-type (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$}]{a, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_a9cf4ad043611ae5bb95049e13cc4d184}
+Checks whether the two movements are of the same type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first movement. \\
+\hline
+{\em b} & The second movement. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if matching. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_a01849dbcdda4878338a3cda18f7040a8}{\index{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}!decide\-\_\-insertion@{decide\-\_\-insertion}}
+\index{decide\-\_\-insertion@{decide\-\_\-insertion}!mae::fl::laban::rewriting_decision_maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}}
+\subsubsection[{decide\-\_\-insertion}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker\-::decide\-\_\-insertion (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$}]{add\-\_\-item, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$}]{add\-\_\-item\-\_\-predecessor, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$}]{tree\-\_\-item, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$}]{tree\-\_\-item\-\_\-predecessor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_a01849dbcdda4878338a3cda18f7040a8}
+Checks whether the two elements match in order to provide the decision result for an insertion. Their predecessors are provided in order to make more complex decisions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream\-\_\-item} & The element for the sequence to be added. \\
+\hline
+{\em stream\-\_\-item\-\_\-predecessor} & The predecessor element for the sequence to be added. \\
+\hline
+{\em tree\-\_\-item} & The decision tree's element. \\
+\hline
+{\em tree\-\_\-item\-\_\-predecessor} & The predecessor of the decision tree's element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__decision__maker_a728e6e706f54a6f8dfbeff9a267afbf4}{mae\-::fl\-::laban\-::i\-\_\-decision\-\_\-maker$<$ i\-\_\-movement $>$}.
+
+\hypertarget{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_ae33a9f027e52bab0cc9be93eeb589d64}{\index{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}!decide\-\_\-match@{decide\-\_\-match}}
+\index{decide\-\_\-match@{decide\-\_\-match}!mae::fl::laban::rewriting_decision_maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}}
+\subsubsection[{decide\-\_\-match}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker\-::decide\-\_\-match (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$}]{stream\-\_\-item, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$}]{stream\-\_\-item\-\_\-predecessor, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$}]{tree\-\_\-item, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$}]{tree\-\_\-item\-\_\-predecessor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_ae33a9f027e52bab0cc9be93eeb589d64}
+Checks whether the two elements match in order to provide the decision result for a match. Their predecessors are provided in order to make more complex decisions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream\-\_\-item} & The element for the sequence to be matched. \\
+\hline
+{\em stream\-\_\-item\-\_\-predecessor} & The predecessor element for the sequence to be matched. \\
+\hline
+{\em tree\-\_\-item} & The decision tree's element. \\
+\hline
+{\em tree\-\_\-item\-\_\-predecessor} & The predecessor of the decision tree's element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if elements match. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__decision__maker_ae1eb31ffcd38bcf0b207fee760ce98a6}{mae\-::fl\-::laban\-::i\-\_\-decision\-\_\-maker$<$ i\-\_\-movement $>$}.
+
+\hypertarget{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_aa21cd4d1affba8c2e784565aee732456}{\index{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}!get\-\_\-recognition\-\_\-tolerance@{get\-\_\-recognition\-\_\-tolerance}}
+\index{get\-\_\-recognition\-\_\-tolerance@{get\-\_\-recognition\-\_\-tolerance}!mae::fl::laban::rewriting_decision_maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}}
+\subsubsection[{get\-\_\-recognition\-\_\-tolerance}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker\-::get\-\_\-recognition\-\_\-tolerance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_aa21cd4d1affba8c2e784565aee732456}
+Returns the tolerance for the recognition. The tolerance is a value which represents the number of beats of the labanotation which are tolerated in deviation.
+
+\begin{DoxyReturn}{Returns}
+The tolerance. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__decision__maker_aa892f42c6407b3f8c9a67b71993103ea}{mae\-::fl\-::laban\-::i\-\_\-decision\-\_\-maker$<$ i\-\_\-movement $>$}.
+
+\hypertarget{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_aee7c8ddde89262cc7a9c26ad041ea344}{\index{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}!position\-\_\-okay@{position\-\_\-okay}}
+\index{position\-\_\-okay@{position\-\_\-okay}!mae::fl::laban::rewriting_decision_maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}}
+\subsubsection[{position\-\_\-okay}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker\-::position\-\_\-okay (
+\begin{DoxyParamCaption}
+\item[{double}]{dist\-\_\-to\-\_\-last, }
+\item[{double}]{set\-\_\-value, }
+\item[{bool}]{check\-\_\-startpose}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_aee7c8ddde89262cc7a9c26ad041ea344}
+Checks the distances of the last element in this column to the last element of all columns. The method takes care of start poses on the set value side, so that only minimum distance must match and not an interval.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dist\-\_\-to\-\_\-last} & The distance to the last element of all columns. \\
+\hline
+{\em set\-\_\-value} & The set value for the distance. \\
+\hline
+{\em check\-\_\-startpose} & True if set value is to start pose but dist is not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if accepted. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__decision__maker_aad9230ee447afc0d6cf70cd74c54cf41}{mae\-::fl\-::laban\-::i\-\_\-decision\-\_\-maker$<$ i\-\_\-movement $>$}.
+
+\hypertarget{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_a2904cfea7637998087e5e387f077d9e9}{\index{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}!set\-\_\-recognition\-\_\-tolerance@{set\-\_\-recognition\-\_\-tolerance}}
+\index{set\-\_\-recognition\-\_\-tolerance@{set\-\_\-recognition\-\_\-tolerance}!mae::fl::laban::rewriting_decision_maker@{mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker}}
+\subsubsection[{set\-\_\-recognition\-\_\-tolerance}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::laban\-::rewriting\-\_\-decision\-\_\-maker\-::set\-\_\-recognition\-\_\-tolerance (
+\begin{DoxyParamCaption}
+\item[{double}]{tolerance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1rewriting__decision__maker_a2904cfea7637998087e5e387f077d9e9}
+Sets the tolerance for the recognition. The tolerance is a value which represents the number of beats of the labanotation which are tolerated in deviation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tolerance} & The tolerance to be accepted. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classmae_1_1fl_1_1laban_1_1i__decision__maker_a63f05f6a3fb2a5f3b53f6555eada6243}{mae\-::fl\-::laban\-::i\-\_\-decision\-\_\-maker$<$ i\-\_\-movement $>$}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/fl/laban/rewriting\-\_\-decision\-\_\-maker.\-hpp\item 
+src/mae/fl/laban/rewriting\-\_\-decision\-\_\-maker.\-cpp\end{DoxyCompactItemize}

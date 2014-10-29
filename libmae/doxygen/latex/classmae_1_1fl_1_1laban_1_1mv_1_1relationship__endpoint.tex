@@ -1,0 +1,160 @@
+\hypertarget{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint}{\section{mae\-:\-:fl\-:\-:laban\-:\-:mv\-:\-:relationship\-\_\-endpoint Class Reference}
+\label{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint}\index{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a9b31b948e9fb840661903c204ca66a64}{relationship\-\_\-endpoint} (int column, bool active, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1ps_1_1i__pre__sign}{ps\-::i\-\_\-pre\-\_\-sign} $>$ pre\-\_\-sign=nullptr, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1mv_1_1i__dynamics__sign}{i\-\_\-dynamics\-\_\-sign} $>$ dynamics=nullptr)
+\item 
+int \hyperlink{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a6a5c40f2e3dd1958746e4bd270dcfaaa}{get\-\_\-column} () const 
+\item 
+std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1ps_1_1i__pre__sign}{ps\-::i\-\_\-pre\-\_\-sign} $>$ \hyperlink{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a7a74292855521a313350c9b6275f5359}{get\-\_\-pre\-\_\-sign} () const 
+\item 
+std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1mv_1_1i__dynamics__sign}{i\-\_\-dynamics\-\_\-sign} $>$ \hyperlink{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a0603b9d011cc510bd580ee3fdbdc73b0}{get\-\_\-dynamics} () const 
+\item 
+bool \hyperlink{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a8b433cd7e554c39d80db0859b02cb035}{get\-\_\-active} () const 
+\item 
+virtual std\-::string \hyperlink{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a2ef2cb10dbc0526ea825f30837ae7ee2}{xml} (unsigned int indent=0, std\-::string namesp=\char`\"{}\char`\"{}) const 
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint}{relationship\-\_\-endpoint} $>$ \hyperlink{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a3f091e5172040c86ec4fc7e18570426b}{recreate} (std\-::map$<$ int, int $>$ column\-\_\-mapping) const 
+\item 
+virtual bool \hyperlink{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a046002ba3bdff9a33ec5497b4987f655}{equals} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint}{relationship\-\_\-endpoint} $>$ a) const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a9b31b948e9fb840661903c204ca66a64}{\index{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}!relationship\-\_\-endpoint@{relationship\-\_\-endpoint}}
+\index{relationship\-\_\-endpoint@{relationship\-\_\-endpoint}!mae::fl::laban::mv::relationship_endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}}
+\subsubsection[{relationship\-\_\-endpoint}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint\-::relationship\-\_\-endpoint (
+\begin{DoxyParamCaption}
+\item[{int}]{column, }
+\item[{bool}]{active, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf ps\-::i\-\_\-pre\-\_\-sign} $>$}]{pre\-\_\-sign = {\ttfamily nullptr}, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-dynamics\-\_\-sign} $>$}]{dynamics = {\ttfamily nullptr}}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a9b31b948e9fb840661903c204ca66a64}
+Creates a new relationship end point.
+
+
+\begin{DoxyParams}{Parameters}
+{\em column} & The column to which this point is attached. \\
+\hline
+{\em active} & True for active. \\
+\hline
+{\em pre\-\_\-sign} & The pre sign for this end point. \\
+\hline
+{\em dynamics} & The dynamics sign. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a046002ba3bdff9a33ec5497b4987f655}{\index{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}!equals@{equals}}
+\index{equals@{equals}!mae::fl::laban::mv::relationship_endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint\-::equals (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf relationship\-\_\-endpoint} $>$}]{a}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a046002ba3bdff9a33ec5497b4987f655}
+Returns true if elements are equal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The element to be compared to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if equal. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a8b433cd7e554c39d80db0859b02cb035}{\index{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}!get\-\_\-active@{get\-\_\-active}}
+\index{get\-\_\-active@{get\-\_\-active}!mae::fl::laban::mv::relationship_endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}}
+\subsubsection[{get\-\_\-active}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint\-::get\-\_\-active (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a8b433cd7e554c39d80db0859b02cb035}
+Returns true if this end point is active. False otherwise.
+
+\begin{DoxyReturn}{Returns}
+True for active. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a6a5c40f2e3dd1958746e4bd270dcfaaa}{\index{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}!get\-\_\-column@{get\-\_\-column}}
+\index{get\-\_\-column@{get\-\_\-column}!mae::fl::laban::mv::relationship_endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}}
+\subsubsection[{get\-\_\-column}]{\setlength{\rightskip}{0pt plus 5cm}int mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint\-::get\-\_\-column (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a6a5c40f2e3dd1958746e4bd270dcfaaa}
+Returns the column to which this end point is attached.
+
+\begin{DoxyReturn}{Returns}
+The column. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a0603b9d011cc510bd580ee3fdbdc73b0}{\index{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}!get\-\_\-dynamics@{get\-\_\-dynamics}}
+\index{get\-\_\-dynamics@{get\-\_\-dynamics}!mae::fl::laban::mv::relationship_endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}}
+\subsubsection[{get\-\_\-dynamics}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-dynamics\-\_\-sign} $>$ mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint\-::get\-\_\-dynamics (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a0603b9d011cc510bd580ee3fdbdc73b0}
+Returns the dynamics sign for this symbol.
+
+\begin{DoxyReturn}{Returns}
+The dynamics sign. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a7a74292855521a313350c9b6275f5359}{\index{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}!get\-\_\-pre\-\_\-sign@{get\-\_\-pre\-\_\-sign}}
+\index{get\-\_\-pre\-\_\-sign@{get\-\_\-pre\-\_\-sign}!mae::fl::laban::mv::relationship_endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}}
+\subsubsection[{get\-\_\-pre\-\_\-sign}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf ps\-::i\-\_\-pre\-\_\-sign} $>$ mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint\-::get\-\_\-pre\-\_\-sign (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a7a74292855521a313350c9b6275f5359}
+Returns the pre sign for this symbol.
+
+\begin{DoxyReturn}{Returns}
+The pre sign. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a3f091e5172040c86ec4fc7e18570426b}{\index{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}!recreate@{recreate}}
+\index{recreate@{recreate}!mae::fl::laban::mv::relationship_endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}}
+\subsubsection[{recreate}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf relationship\-\_\-endpoint} $>$ mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint\-::recreate (
+\begin{DoxyParamCaption}
+\item[{std\-::map$<$ int, int $>$}]{column\-\_\-mapping}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a3f091e5172040c86ec4fc7e18570426b}
+Recreates the element using the column mapping for the new columns.
+
+
+\begin{DoxyParams}{Parameters}
+{\em column\-\_\-mapping} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new endpoint. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a2ef2cb10dbc0526ea825f30837ae7ee2}{\index{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}!xml@{xml}}
+\index{xml@{xml}!mae::fl::laban::mv::relationship_endpoint@{mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint}}
+\subsubsection[{xml}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::fl\-::laban\-::mv\-::relationship\-\_\-endpoint\-::xml (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{indent = {\ttfamily 0}, }
+\item[{std\-::string}]{namesp = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1mv_1_1relationship__endpoint_a2ef2cb10dbc0526ea825f30837ae7ee2}
+Returns the X\-M\-L representation for this element.
+
+
+\begin{DoxyParams}{Parameters}
+{\em indent} & The applied indent. \\
+\hline
+{\em namesp} & The prefixed X\-M\-L namespace.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The X\-M\-L string. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/fl/laban/mv/relationship\-\_\-endpoint.\-hpp\item 
+src/mae/fl/laban/mv/relationship\-\_\-endpoint.\-cpp\end{DoxyCompactItemize}

@@ -1,0 +1,142 @@
+\hypertarget{classmae_1_1fl_1_1fl__pose__detector}{\section{mae\-:\-:fl\-:\-:fl\-\_\-pose\-\_\-detector Class Reference}
+\label{classmae_1_1fl_1_1fl__pose__detector}\index{mae\-::fl\-::fl\-\_\-pose\-\_\-detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}}
+}
+Inheritance diagram for mae\-:\-:fl\-:\-:fl\-\_\-pose\-\_\-detector\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmae_1_1fl_1_1fl__pose__detector}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1fl_1_1fl__pose__detector_a3e52ce649f55340ebcd5a2fec804278b}{fl\-\_\-pose\-\_\-detector} (double hysteresis\-\_\-val=\hyperlink{classmae_1_1fl_1_1fl__pose__detector_adb2f046d501a87de9e5589b346ef3782}{fl\-\_\-pose\-\_\-detector\-::default\-\_\-hysteresis\-\_\-val}(), bool debug=false)
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1fl__pose__detector_a807c41e01fed7a729058b91ff4ff90f3}{set\-\_\-hysteresis\-\_\-val} (double hysteresis\-\_\-val)
+\item 
+virtual double \hyperlink{classmae_1_1fl_1_1fl__pose__detector_a5347e97f3685d7168a182e7e373f09cf}{get\-\_\-hysteresis\-\_\-val} () const 
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1general__pose}{mae\-::general\-\_\-pose} $>$ \hyperlink{classmae_1_1fl_1_1fl__pose__detector_af8283b9b73fcc1bf7ea5a4220c2ecd55}{pose} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1fl__skeleton}{fl\-\_\-skeleton} $>$ skeleton, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ previous\-\_\-pose)
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1general__pose}{mae\-::general\-\_\-pose} $>$ \hyperlink{classmae_1_1fl_1_1fl__pose__detector_ae7f558696efe7f55cf4895bffd234665}{vector\-\_\-pose} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1fl__skeleton}{fl\-\_\-skeleton} $>$ skeleton, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ previous\-\_\-pose)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{classmae_1_1fl_1_1fl__pose__detector_adb2f046d501a87de9e5589b346ef3782}{default\-\_\-hysteresis\-\_\-val} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1fl_1_1fl__pose__detector_a3e52ce649f55340ebcd5a2fec804278b}{\index{mae\-::fl\-::fl\-\_\-pose\-\_\-detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}!fl\-\_\-pose\-\_\-detector@{fl\-\_\-pose\-\_\-detector}}
+\index{fl\-\_\-pose\-\_\-detector@{fl\-\_\-pose\-\_\-detector}!mae::fl::fl_pose_detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}}
+\subsubsection[{fl\-\_\-pose\-\_\-detector}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::fl\-::fl\-\_\-pose\-\_\-detector\-::fl\-\_\-pose\-\_\-detector (
+\begin{DoxyParamCaption}
+\item[{double}]{hysteresis\-\_\-val = {\ttfamily {\bf fl\-\_\-pose\-\_\-detector\-::default\-\_\-hysteresis\-\_\-val}()}, }
+\item[{bool}]{debug = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1fl_1_1fl__pose__detector_a3e52ce649f55340ebcd5a2fec804278b}
+Creates a new pose detector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hysteresis\-\_\-val} & The value applied for the hysteris. 22.\-5 for no hysteresis. \\
+\hline
+{\em debug} & (optional) If true debug output on the console is done. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1fl_1_1fl__pose__detector_adb2f046d501a87de9e5589b346ef3782}{\index{mae\-::fl\-::fl\-\_\-pose\-\_\-detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}!default\-\_\-hysteresis\-\_\-val@{default\-\_\-hysteresis\-\_\-val}}
+\index{default\-\_\-hysteresis\-\_\-val@{default\-\_\-hysteresis\-\_\-val}!mae::fl::fl_pose_detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}}
+\subsubsection[{default\-\_\-hysteresis\-\_\-val}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::fl\-::fl\-\_\-pose\-\_\-detector\-::default\-\_\-hysteresis\-\_\-val (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1fl_1_1fl__pose__detector_adb2f046d501a87de9e5589b346ef3782}
+Returns the default hysteresis threshold value.
+
+\begin{DoxyReturn}{Returns}
+The default hysteresis threshold value. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1fl__pose__detector_a5347e97f3685d7168a182e7e373f09cf}{\index{mae\-::fl\-::fl\-\_\-pose\-\_\-detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}!get\-\_\-hysteresis\-\_\-val@{get\-\_\-hysteresis\-\_\-val}}
+\index{get\-\_\-hysteresis\-\_\-val@{get\-\_\-hysteresis\-\_\-val}!mae::fl::fl_pose_detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}}
+\subsubsection[{get\-\_\-hysteresis\-\_\-val}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::fl\-::fl\-\_\-pose\-\_\-detector\-::get\-\_\-hysteresis\-\_\-val (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__pose__detector_a5347e97f3685d7168a182e7e373f09cf}
+Returns the hysteresis threshold value.
+
+\begin{DoxyReturn}{Returns}
+The value. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1fl__pose__detector_af8283b9b73fcc1bf7ea5a4220c2ecd55}{\index{mae\-::fl\-::fl\-\_\-pose\-\_\-detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}!pose@{pose}}
+\index{pose@{pose}!mae::fl::fl_pose_detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}}
+\subsubsection[{pose}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-pose} $>$ mae\-::fl\-::fl\-\_\-pose\-\_\-detector\-::pose (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf fl\-\_\-skeleton} $>$}]{skeleton, }
+\item[{std\-::vector$<$ {\bf bone} $>$}]{body\-\_\-parts, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-pose} $>$}]{previous\-\_\-pose}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__pose__detector_af8283b9b73fcc1bf7ea5a4220c2ecd55}
+Processes the skeleton in order to return the pose for each body part.
+
+
+\begin{DoxyParams}{Parameters}
+{\em skeleton} & The skeleton. \\
+\hline
+{\em body\-\_\-parts} & The processed body parts. \\
+\hline
+{\em previous\-\_\-pose} & The previous pose that can be used for hysteresis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pose. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1fl__pose__detector_a807c41e01fed7a729058b91ff4ff90f3}{\index{mae\-::fl\-::fl\-\_\-pose\-\_\-detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}!set\-\_\-hysteresis\-\_\-val@{set\-\_\-hysteresis\-\_\-val}}
+\index{set\-\_\-hysteresis\-\_\-val@{set\-\_\-hysteresis\-\_\-val}!mae::fl::fl_pose_detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}}
+\subsubsection[{set\-\_\-hysteresis\-\_\-val}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::fl\-\_\-pose\-\_\-detector\-::set\-\_\-hysteresis\-\_\-val (
+\begin{DoxyParamCaption}
+\item[{double}]{hysteresis\-\_\-val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__pose__detector_a807c41e01fed7a729058b91ff4ff90f3}
+Sets the hysteresis threshold value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hysteresis\-\_\-val} & The value. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1fl__pose__detector_ae7f558696efe7f55cf4895bffd234665}{\index{mae\-::fl\-::fl\-\_\-pose\-\_\-detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}!vector\-\_\-pose@{vector\-\_\-pose}}
+\index{vector\-\_\-pose@{vector\-\_\-pose}!mae::fl::fl_pose_detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}}
+\subsubsection[{vector\-\_\-pose}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf mae\-::general\-\_\-pose} $>$ mae\-::fl\-::fl\-\_\-pose\-\_\-detector\-::vector\-\_\-pose (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf fl\-\_\-skeleton} $>$}]{skeleton, }
+\item[{std\-::vector$<$ {\bf bone} $>$}]{body\-\_\-parts, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-pose} $>$}]{previous\-\_\-pose}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__pose__detector_ae7f558696efe7f55cf4895bffd234665}
+Returns a vector pose which means calculating the pose from the vectors not from angles.
+
+
+\begin{DoxyParams}{Parameters}
+{\em skeleton} & The skeleton. \\
+\hline
+{\em body\-\_\-parts} & The processed body parts. \\
+\hline
+{\em previous\-\_\-pose} & The previous pose that can be used for hysteresis. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pose. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/fl/fl\-\_\-pose\-\_\-detector.\-hpp\item 
+src/mae/fl/fl\-\_\-pose\-\_\-detector.\-cpp\end{DoxyCompactItemize}

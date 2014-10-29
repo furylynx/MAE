@@ -1,0 +1,265 @@
+\hypertarget{classmae_1_1fl_1_1angular__skeleton}{\section{mae\-:\-:fl\-:\-:angular\-\_\-skeleton Class Reference}
+\label{classmae_1_1fl_1_1angular__skeleton}\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1fl_1_1angular__skeleton_a5b9dcc5e7582bdca3d18f14eec629156}{angular\-\_\-skeleton} ()
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1angular__skeleton_aa44853baa4576d65a2a1699d2ca10eff}{set\-\_\-joint} (int body\-\_\-part, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1angular__joint}{angular\-\_\-joint} $>$ joint)
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1fl_1_1angular__joint}{angular\-\_\-joint} $>$ \hyperlink{classmae_1_1fl_1_1angular__skeleton_ad8bd5bc24f4764df37ec334dc236c2a1}{get\-\_\-joint} (int body\-\_\-part) const 
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1hierarchy}{hierarchy} $>$ \hyperlink{classmae_1_1fl_1_1angular__skeleton_a5ce839e030dc0359334e8ba337401417}{get\-\_\-hierarchy} () const 
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1angular__skeleton_a4b3d02d386a84c89ba9bb9409a5aa173}{set\-\_\-hierarchy} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1hierarchy}{hierarchy} $>$ \hyperlink{classmae_1_1hierarchy}{hierarchy})
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1angular__skeleton_a9f1c654e0bf6aab498eeb623656fdf1b}{set\-\_\-torso\-\_\-basis} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1basis}{mae\-::math\-::basis} $>$ torso\-\_\-basis)
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1math_1_1basis}{mae\-::math\-::basis} $>$ \hyperlink{classmae_1_1fl_1_1angular__skeleton_a752ce57c7aacc53dfdfab0b096fc8e17}{get\-\_\-torso\-\_\-basis} () const 
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1angular__skeleton_ac869c6b0a431f2f3810d319e47986069}{set\-\_\-top\-\_\-down} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1bone}{bone} $>$ top\-\_\-down)
+\item 
+virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1bone}{bone} $>$ \hyperlink{classmae_1_1fl_1_1angular__skeleton_a138779503a2ab02bad8d15705adf3203}{get\-\_\-top\-\_\-down} () const 
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1angular__skeleton_a13eb821e9c93c218e4d34a9c02960ebc}{set\-\_\-right\-\_\-left} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1bone}{bone} $>$ right\-\_\-left)
+\item 
+virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1bone}{bone} $>$ \hyperlink{classmae_1_1fl_1_1angular__skeleton_ae91ef0dd87f4ed99c144fbcfadc59559}{get\-\_\-right\-\_\-left} () const 
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1angular__skeleton_a682bb661d0451ada678a49d5bfbab72e}{set\-\_\-weight} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{mae\-::math\-::vec3d} $>$ weight)
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1math_1_1vec3d}{mae\-::math\-::vec3d} $>$ \hyperlink{classmae_1_1fl_1_1angular__skeleton_a07633f191e91165035aeaacfcb553130}{get\-\_\-weight} () const 
+\item 
+virtual std\-::string \hyperlink{classmae_1_1fl_1_1angular__skeleton_a786a62157d68c11a223ab22755a6d326}{str} () const 
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classmae_1_1fl_1_1angular__skeleton_a34e41467f6fcab05252e8e28b2cbdd3e}{operator$<$$<$} (std\-::ostream \&os, const std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1angular__skeleton}{angular\-\_\-skeleton} $>$ \&obj)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_a5b9dcc5e7582bdca3d18f14eec629156}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!angular\-\_\-skeleton@{angular\-\_\-skeleton}}
+\index{angular\-\_\-skeleton@{angular\-\_\-skeleton}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{angular\-\_\-skeleton}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::fl\-::angular\-\_\-skeleton\-::angular\-\_\-skeleton (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1fl_1_1angular__skeleton_a5b9dcc5e7582bdca3d18f14eec629156}
+Creates a new angular skeleton with the joints represented by two angles T\-H\-E\-T\-A and P\-H\-I. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_a5ce839e030dc0359334e8ba337401417}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!get\-\_\-hierarchy@{get\-\_\-hierarchy}}
+\index{get\-\_\-hierarchy@{get\-\_\-hierarchy}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{get\-\_\-hierarchy}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf hierarchy} $>$ mae\-::fl\-::angular\-\_\-skeleton\-::get\-\_\-hierarchy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1angular__skeleton_a5ce839e030dc0359334e8ba337401417}
+Returns a shared pointer to the used hierarchy. If not hierarchy is set, a default hierarchy is assumed. \begin{DoxyReturn}{Returns}
+A shared pointer to the hierarchy. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_ad8bd5bc24f4764df37ec334dc236c2a1}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!get\-\_\-joint@{get\-\_\-joint}}
+\index{get\-\_\-joint@{get\-\_\-joint}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{get\-\_\-joint}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf angular\-\_\-joint} $>$ mae\-::fl\-::angular\-\_\-skeleton\-::get\-\_\-joint (
+\begin{DoxyParamCaption}
+\item[{int}]{body\-\_\-part}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1angular__skeleton_ad8bd5bc24f4764df37ec334dc236c2a1}
+Returns an angular joint.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-\_\-part} & The addressed body part. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A shared pointer to the joint. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_ae91ef0dd87f4ed99c144fbcfadc59559}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!get\-\_\-right\-\_\-left@{get\-\_\-right\-\_\-left}}
+\index{get\-\_\-right\-\_\-left@{get\-\_\-right\-\_\-left}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{get\-\_\-right\-\_\-left}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf bone} $>$ mae\-::fl\-::angular\-\_\-skeleton\-::get\-\_\-right\-\_\-left (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1angular__skeleton_ae91ef0dd87f4ed99c144fbcfadc59559}
+Returns the right-\/left direction of this skeleton by giving a bone. The bone ranges from one torso joint to another.
+
+
+\begin{DoxyParams}{Parameters}
+{\em top\-\_\-down} & A shared pointer to the bone. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_a138779503a2ab02bad8d15705adf3203}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!get\-\_\-top\-\_\-down@{get\-\_\-top\-\_\-down}}
+\index{get\-\_\-top\-\_\-down@{get\-\_\-top\-\_\-down}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{get\-\_\-top\-\_\-down}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf bone} $>$ mae\-::fl\-::angular\-\_\-skeleton\-::get\-\_\-top\-\_\-down (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1angular__skeleton_a138779503a2ab02bad8d15705adf3203}
+Returns the top-\/down direction of this skeleton by giving a bone. The bone ranges from one torso joint to another.
+
+
+\begin{DoxyParams}{Parameters}
+{\em top\-\_\-down} & A shared pointer to the bone. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_a752ce57c7aacc53dfdfab0b096fc8e17}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!get\-\_\-torso\-\_\-basis@{get\-\_\-torso\-\_\-basis}}
+\index{get\-\_\-torso\-\_\-basis@{get\-\_\-torso\-\_\-basis}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{get\-\_\-torso\-\_\-basis}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf mae\-::math\-::basis} $>$ mae\-::fl\-::angular\-\_\-skeleton\-::get\-\_\-torso\-\_\-basis (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1angular__skeleton_a752ce57c7aacc53dfdfab0b096fc8e17}
+Returns the torso basis.
+
+The directions are\-: u The top-\/down or weight direction. r The right-\/left direction. t The direction standing on u and r (pointing from torso to the front).
+
+\begin{DoxyReturn}{Returns}
+The torso basis. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_a07633f191e91165035aeaacfcb553130}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!get\-\_\-weight@{get\-\_\-weight}}
+\index{get\-\_\-weight@{get\-\_\-weight}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{get\-\_\-weight}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf mae\-::math\-::vec3d} $>$ mae\-::fl\-::angular\-\_\-skeleton\-::get\-\_\-weight (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1angular__skeleton_a07633f191e91165035aeaacfcb553130}
+Returns the weight vector for this skeleton. If none is set, a null pointer will be returned.
+
+\begin{DoxyReturn}{Returns}
+The weight or null. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_a4b3d02d386a84c89ba9bb9409a5aa173}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!set\-\_\-hierarchy@{set\-\_\-hierarchy}}
+\index{set\-\_\-hierarchy@{set\-\_\-hierarchy}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{set\-\_\-hierarchy}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::angular\-\_\-skeleton\-::set\-\_\-hierarchy (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf hierarchy} $>$}]{hierarchy}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1angular__skeleton_a4b3d02d386a84c89ba9bb9409a5aa173}
+Sets the hierarchy 
+\begin{DoxyParams}{Parameters}
+{\em hierarchy} & A smart pointer to the hierarchy. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_aa44853baa4576d65a2a1699d2ca10eff}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!set\-\_\-joint@{set\-\_\-joint}}
+\index{set\-\_\-joint@{set\-\_\-joint}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{set\-\_\-joint}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::angular\-\_\-skeleton\-::set\-\_\-joint (
+\begin{DoxyParamCaption}
+\item[{int}]{body\-\_\-part, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf angular\-\_\-joint} $>$}]{joint}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1angular__skeleton_aa44853baa4576d65a2a1699d2ca10eff}
+Sets an angular joint.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-\_\-part} & The addresses body part. \\
+\hline
+{\em joint} & A shared pointer to the joint. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_a13eb821e9c93c218e4d34a9c02960ebc}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!set\-\_\-right\-\_\-left@{set\-\_\-right\-\_\-left}}
+\index{set\-\_\-right\-\_\-left@{set\-\_\-right\-\_\-left}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{set\-\_\-right\-\_\-left}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::angular\-\_\-skeleton\-::set\-\_\-right\-\_\-left (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf bone} $>$}]{right\-\_\-left}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1angular__skeleton_a13eb821e9c93c218e4d34a9c02960ebc}
+Sets the right-\/left direction of this skeleton by defining a bone. The bone must range from one torso joint to another and need not to follow the hierarchy (but the id's must be defined).
+
+
+\begin{DoxyParams}{Parameters}
+{\em top\-\_\-down} & A shared pointer to the bone. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_ac869c6b0a431f2f3810d319e47986069}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!set\-\_\-top\-\_\-down@{set\-\_\-top\-\_\-down}}
+\index{set\-\_\-top\-\_\-down@{set\-\_\-top\-\_\-down}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{set\-\_\-top\-\_\-down}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::angular\-\_\-skeleton\-::set\-\_\-top\-\_\-down (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf bone} $>$}]{top\-\_\-down}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1angular__skeleton_ac869c6b0a431f2f3810d319e47986069}
+Sets the top-\/down direction of this skeleton by defining a bone. The bone must range from one torso joint to another and need not to follow the hierarchy (but the id's must be defined).
+
+
+\begin{DoxyParams}{Parameters}
+{\em top\-\_\-down} & A shared pointer to the bone. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_a9f1c654e0bf6aab498eeb623656fdf1b}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!set\-\_\-torso\-\_\-basis@{set\-\_\-torso\-\_\-basis}}
+\index{set\-\_\-torso\-\_\-basis@{set\-\_\-torso\-\_\-basis}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{set\-\_\-torso\-\_\-basis}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::angular\-\_\-skeleton\-::set\-\_\-torso\-\_\-basis (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf mae\-::math\-::basis} $>$}]{torso\-\_\-basis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1angular__skeleton_a9f1c654e0bf6aab498eeb623656fdf1b}
+Sets the torso basis.
+
+The directions are\-: u The top-\/down or weight direction. r The right-\/left direction. t The direction standing on u and r (pointing from torso to the front).
+
+
+\begin{DoxyParams}{Parameters}
+{\em torso\-\_\-basis} & The torso basis. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_a682bb661d0451ada678a49d5bfbab72e}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!set\-\_\-weight@{set\-\_\-weight}}
+\index{set\-\_\-weight@{set\-\_\-weight}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{set\-\_\-weight}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::angular\-\_\-skeleton\-::set\-\_\-weight (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf mae\-::math\-::vec3d} $>$}]{weight}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1angular__skeleton_a682bb661d0451ada678a49d5bfbab72e}
+Sets the weight vector for this skeleton.
+
+
+\begin{DoxyParams}{Parameters}
+{\em weight} & The weight vector. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_a786a62157d68c11a223ab22755a6d326}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!str@{str}}
+\index{str@{str}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::fl\-::angular\-\_\-skeleton\-::str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1angular__skeleton_a786a62157d68c11a223ab22755a6d326}
+Converts this object to a string.
+
+\begin{DoxyReturn}{Returns}
+This object as a string. 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classmae_1_1fl_1_1angular__skeleton_a34e41467f6fcab05252e8e28b2cbdd3e}{\index{mae\-::fl\-::angular\-\_\-skeleton@{mae\-::fl\-::angular\-\_\-skeleton}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!mae::fl::angular_skeleton@{mae\-::fl\-::angular\-\_\-skeleton}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const std\-::shared\-\_\-ptr$<$ {\bf angular\-\_\-skeleton} $>$ \&}]{obj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmae_1_1fl_1_1angular__skeleton_a34e41467f6fcab05252e8e28b2cbdd3e}
+Prints this object tot the stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+{\em obj} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/fl/angular\-\_\-skeleton.\-hpp\item 
+src/mae/fl/angular\-\_\-skeleton.\-cpp\end{DoxyCompactItemize}
