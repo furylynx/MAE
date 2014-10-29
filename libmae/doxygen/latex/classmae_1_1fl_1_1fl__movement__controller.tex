@@ -1,0 +1,203 @@
+\hypertarget{classmae_1_1fl_1_1fl__movement__controller}{\section{mae\-:\-:fl\-:\-:fl\-\_\-movement\-\_\-controller Class Reference}
+\label{classmae_1_1fl_1_1fl__movement__controller}\index{mae\-::fl\-::fl\-\_\-movement\-\_\-controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}}
+}
+Inheritance diagram for mae\-:\-:fl\-:\-:fl\-\_\-movement\-\_\-controller\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmae_1_1fl_1_1fl__movement__controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1fl_1_1fl__movement__controller_ab2be7883de1d85c282720633014e3ca2}{fl\-\_\-movement\-\_\-controller} (unsigned int pose\-\_\-buffer\-\_\-size=0, double framerate=1.\-0/30.\-0, bool debug=false)
+\item 
+\hyperlink{classmae_1_1fl_1_1fl__movement__controller_ac72d3642ed9580a6d0b2364aac1c75e4}{fl\-\_\-movement\-\_\-controller} (std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts, std\-::vector$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1column__definition}{laban\-::column\-\_\-definition} $>$ $>$ column\-\_\-definitions, unsigned int pose\-\_\-buffer\-\_\-size=0, unsigned int beats\-\_\-per\-\_\-measure=\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence_a2e64362d5cfeb89eb8545cb064e63170}{laban\-::laban\-\_\-sequence\-::default\-\_\-beats\-\_\-per\-\_\-measure}(), unsigned int beat\-\_\-duration=\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence_ac7bf04cdac0c3aed6b8ee4a887e561d9}{laban\-::laban\-\_\-sequence\-::default\-\_\-beat\-\_\-duration}(), laban\-::e\-\_\-time\-\_\-unit time\-\_\-unit=\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence_ada28215d43d85e983fe6129e9816eed2}{laban\-::laban\-\_\-sequence\-::default\-\_\-time\-\_\-unit}(), double framerate=1.\-0/30.\-0, bool debug=false)
+\item 
+\hyperlink{classmae_1_1fl_1_1fl__movement__controller_a98b3787f9a66bddd9296b05bc44d530d}{fl\-\_\-movement\-\_\-controller} (std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts, std\-::vector$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1column__definition}{laban\-::column\-\_\-definition} $>$ $>$ column\-\_\-definitions, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence__generator}{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-generator} $>$ sequence\-\_\-generator, unsigned int pose\-\_\-buffer\-\_\-size=0, unsigned int beats\-\_\-per\-\_\-measure=\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence_a2e64362d5cfeb89eb8545cb064e63170}{laban\-::laban\-\_\-sequence\-::default\-\_\-beats\-\_\-per\-\_\-measure}(), unsigned int beat\-\_\-duration=\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence_ac7bf04cdac0c3aed6b8ee4a887e561d9}{laban\-::laban\-\_\-sequence\-::default\-\_\-beat\-\_\-duration}(), laban\-::e\-\_\-time\-\_\-unit time\-\_\-unit=\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence_ada28215d43d85e983fe6129e9816eed2}{laban\-::laban\-\_\-sequence\-::default\-\_\-time\-\_\-unit}(), double framerate=1.\-0/30.\-0, bool debug=false)
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1fl__movement__controller_a3eafa33ebaf85a140bcafdd1670b368c}{next\-\_\-frame} (long timestamp, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__skeleton}{general\-\_\-skeleton} $>$ skeleton)
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1fl__movement__controller_a0bdd94f763b740c612475df629dc3bcf}{set\-\_\-recognition\-\_\-tolerance} (double tolerance)
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence__recognizer}{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-recognizer} $>$ \hyperlink{classmae_1_1fl_1_1fl__movement__controller_abaacf2be62b0194ee6ffcac844a09d22}{get\-\_\-laban\-\_\-sequence\-\_\-recognizer} () const 
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence__generator}{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-generator} $>$ \hyperlink{classmae_1_1fl_1_1fl__movement__controller_a4f4390073c34aa18b55a57c447c84542}{get\-\_\-laban\-\_\-sequence\-\_\-generator} () const 
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1fl_1_1fl__pose__detector}{fl\-\_\-pose\-\_\-detector} $>$ \hyperlink{classmae_1_1fl_1_1fl__movement__controller_a0d25a3e53c47e1cb1f0eb3cd7df07548}{get\-\_\-fl\-\_\-pose\-\_\-detector} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1fl_1_1fl__movement__controller_ab2be7883de1d85c282720633014e3ca2}{\index{mae\-::fl\-::fl\-\_\-movement\-\_\-controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}!fl\-\_\-movement\-\_\-controller@{fl\-\_\-movement\-\_\-controller}}
+\index{fl\-\_\-movement\-\_\-controller@{fl\-\_\-movement\-\_\-controller}!mae::fl::fl_movement_controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}}
+\subsubsection[{fl\-\_\-movement\-\_\-controller}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::fl\-::fl\-\_\-movement\-\_\-controller\-::fl\-\_\-movement\-\_\-controller (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{pose\-\_\-buffer\-\_\-size = {\ttfamily 0}, }
+\item[{double}]{framerate = {\ttfamily 1.0/30.0}, }
+\item[{bool}]{debug = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1fl_1_1fl__movement__controller_ab2be7883de1d85c282720633014e3ca2}
+Creates a new controller for movements analysis based on Labanotation and fl\-\_\-skeletons. The used body parts are assumed to be the default ones used by the N\-I\-T\-E skeleton. Since no column definition is given the default columns are the only ones that can be used.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose\-\_\-buffer\-\_\-size} & The buffer size for the movement detector (number of frames to process). Values $<$= 1 means calculating the buffer size from the registered sequences. \\
+\hline
+{\em framerate} & The framerate for the stream. \\
+\hline
+{\em debug} & True for debug console print. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1fl__movement__controller_ac72d3642ed9580a6d0b2364aac1c75e4}{\index{mae\-::fl\-::fl\-\_\-movement\-\_\-controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}!fl\-\_\-movement\-\_\-controller@{fl\-\_\-movement\-\_\-controller}}
+\index{fl\-\_\-movement\-\_\-controller@{fl\-\_\-movement\-\_\-controller}!mae::fl::fl_movement_controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}}
+\subsubsection[{fl\-\_\-movement\-\_\-controller}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::fl\-::fl\-\_\-movement\-\_\-controller\-::fl\-\_\-movement\-\_\-controller (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf bone} $>$}]{body\-\_\-parts, }
+\item[{std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf laban\-::column\-\_\-definition} $>$ $>$}]{column\-\_\-definitions, }
+\item[{unsigned int}]{pose\-\_\-buffer\-\_\-size = {\ttfamily 0}, }
+\item[{unsigned int}]{beats\-\_\-per\-\_\-measure = {\ttfamily {\bf laban\-::laban\-\_\-sequence\-::default\-\_\-beats\-\_\-per\-\_\-measure}()}, }
+\item[{unsigned int}]{beat\-\_\-duration = {\ttfamily {\bf laban\-::laban\-\_\-sequence\-::default\-\_\-beat\-\_\-duration}()}, }
+\item[{laban\-::e\-\_\-time\-\_\-unit}]{time\-\_\-unit = {\ttfamily {\bf laban\-::laban\-\_\-sequence\-::default\-\_\-time\-\_\-unit}()}, }
+\item[{double}]{framerate = {\ttfamily 1.0/30.0}, }
+\item[{bool}]{debug = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1fl_1_1fl__movement__controller_ac72d3642ed9580a6d0b2364aac1c75e4}
+Creates a new controller for movements analysis based on Labanotation and fl\-\_\-skeletons which handles the given body parts and uses the defined columns for the Labanotation sequence.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-\_\-parts} & The body parts which shall be handled. \\
+\hline
+{\em column\-\_\-definitions} & The columns which shall be defined besides those that are defined by default. \\
+\hline
+{\em pose\-\_\-buffer\-\_\-size} & The buffer size for the movement detector (number of frames to process). Values $<$= 1 means calculating the buffer size from the registered sequences. \\
+\hline
+{\em beats\-\_\-per\-\_\-measure} & The number of beats per measure. \\
+\hline
+{\em beat\-\_\-duration} & The duration of a single beat. \\
+\hline
+{\em time\-\_\-unit} & The time unit to be applied. \\
+\hline
+{\em framerate} & The framerate for the stream. \\
+\hline
+{\em debug} & True for debug console print. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1fl__movement__controller_a98b3787f9a66bddd9296b05bc44d530d}{\index{mae\-::fl\-::fl\-\_\-movement\-\_\-controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}!fl\-\_\-movement\-\_\-controller@{fl\-\_\-movement\-\_\-controller}}
+\index{fl\-\_\-movement\-\_\-controller@{fl\-\_\-movement\-\_\-controller}!mae::fl::fl_movement_controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}}
+\subsubsection[{fl\-\_\-movement\-\_\-controller}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::fl\-::fl\-\_\-movement\-\_\-controller\-::fl\-\_\-movement\-\_\-controller (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf bone} $>$}]{body\-\_\-parts, }
+\item[{std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf laban\-::column\-\_\-definition} $>$ $>$}]{column\-\_\-definitions, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-generator} $>$}]{sequence\-\_\-generator, }
+\item[{unsigned int}]{pose\-\_\-buffer\-\_\-size = {\ttfamily 0}, }
+\item[{unsigned int}]{beats\-\_\-per\-\_\-measure = {\ttfamily {\bf laban\-::laban\-\_\-sequence\-::default\-\_\-beats\-\_\-per\-\_\-measure}()}, }
+\item[{unsigned int}]{beat\-\_\-duration = {\ttfamily {\bf laban\-::laban\-\_\-sequence\-::default\-\_\-beat\-\_\-duration}()}, }
+\item[{laban\-::e\-\_\-time\-\_\-unit}]{time\-\_\-unit = {\ttfamily {\bf laban\-::laban\-\_\-sequence\-::default\-\_\-time\-\_\-unit}()}, }
+\item[{double}]{framerate = {\ttfamily 1.0/30.0}, }
+\item[{bool}]{debug = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1fl_1_1fl__movement__controller_a98b3787f9a66bddd9296b05bc44d530d}
+Creates a new controller for movements analysis based on Labanotation and fl\-\_\-skeletons which handles the given body parts and uses the defined columns for the Labanotation sequence.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-\_\-parts} & The body parts which shall be handled. \\
+\hline
+{\em column\-\_\-definitions} & The columns which shall be defined besides those that are defined by default. \\
+\hline
+{\em sequence\-\_\-generator} & \\
+\hline
+{\em pose\-\_\-buffer\-\_\-size} & The buffer size for the movement detector (number of frames to process). Values $<$= 1 means calculating the buffer size from the registered sequences. \\
+\hline
+{\em beats\-\_\-per\-\_\-measure} & The number of beats per measure. \\
+\hline
+{\em beat\-\_\-duration} & The duration of a single beat. \\
+\hline
+{\em time\-\_\-unit} & The time unit to be applied. \\
+\hline
+{\em framerate} & The framerate for the stream. \\
+\hline
+{\em debug} & True for debug console print. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1fl_1_1fl__movement__controller_a0d25a3e53c47e1cb1f0eb3cd7df07548}{\index{mae\-::fl\-::fl\-\_\-movement\-\_\-controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}!get\-\_\-fl\-\_\-pose\-\_\-detector@{get\-\_\-fl\-\_\-pose\-\_\-detector}}
+\index{get\-\_\-fl\-\_\-pose\-\_\-detector@{get\-\_\-fl\-\_\-pose\-\_\-detector}!mae::fl::fl_movement_controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}}
+\subsubsection[{get\-\_\-fl\-\_\-pose\-\_\-detector}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf fl\-\_\-pose\-\_\-detector} $>$ mae\-::fl\-::fl\-\_\-movement\-\_\-controller\-::get\-\_\-fl\-\_\-pose\-\_\-detector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__movement__controller_a0d25a3e53c47e1cb1f0eb3cd7df07548}
+Returns the fl pose detector.
+
+\begin{DoxyReturn}{Returns}
+The detector. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1fl__movement__controller_a4f4390073c34aa18b55a57c447c84542}{\index{mae\-::fl\-::fl\-\_\-movement\-\_\-controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}!get\-\_\-laban\-\_\-sequence\-\_\-generator@{get\-\_\-laban\-\_\-sequence\-\_\-generator}}
+\index{get\-\_\-laban\-\_\-sequence\-\_\-generator@{get\-\_\-laban\-\_\-sequence\-\_\-generator}!mae::fl::fl_movement_controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}}
+\subsubsection[{get\-\_\-laban\-\_\-sequence\-\_\-generator}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-generator} $>$ mae\-::fl\-::fl\-\_\-movement\-\_\-controller\-::get\-\_\-laban\-\_\-sequence\-\_\-generator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__movement__controller_a4f4390073c34aa18b55a57c447c84542}
+Returns the laban sequence generator.
+
+\begin{DoxyReturn}{Returns}
+The generator. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1fl__movement__controller_abaacf2be62b0194ee6ffcac844a09d22}{\index{mae\-::fl\-::fl\-\_\-movement\-\_\-controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}!get\-\_\-laban\-\_\-sequence\-\_\-recognizer@{get\-\_\-laban\-\_\-sequence\-\_\-recognizer}}
+\index{get\-\_\-laban\-\_\-sequence\-\_\-recognizer@{get\-\_\-laban\-\_\-sequence\-\_\-recognizer}!mae::fl::fl_movement_controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}}
+\subsubsection[{get\-\_\-laban\-\_\-sequence\-\_\-recognizer}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf laban\-::laban\-\_\-sequence\-\_\-recognizer} $>$ mae\-::fl\-::fl\-\_\-movement\-\_\-controller\-::get\-\_\-laban\-\_\-sequence\-\_\-recognizer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__movement__controller_abaacf2be62b0194ee6ffcac844a09d22}
+Returns the laban sequence recognizer.
+
+\begin{DoxyReturn}{Returns}
+The recognizer. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1fl__movement__controller_a3eafa33ebaf85a140bcafdd1670b368c}{\index{mae\-::fl\-::fl\-\_\-movement\-\_\-controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}!next\-\_\-frame@{next\-\_\-frame}}
+\index{next\-\_\-frame@{next\-\_\-frame}!mae::fl::fl_movement_controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}}
+\subsubsection[{next\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::fl\-\_\-movement\-\_\-controller\-::next\-\_\-frame (
+\begin{DoxyParamCaption}
+\item[{long}]{timestamp, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-skeleton} $>$}]{skeleton}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__movement__controller_a3eafa33ebaf85a140bcafdd1670b368c}
+Invokes the processing for a new frame. The skeleton provides the information which is the basis for any further calculations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & The timestamp on which the skeleton occured. \\
+\hline
+{\em skeleton} & The skeleton data for the frame. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1fl__movement__controller_a0bdd94f763b740c612475df629dc3bcf}{\index{mae\-::fl\-::fl\-\_\-movement\-\_\-controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}!set\-\_\-recognition\-\_\-tolerance@{set\-\_\-recognition\-\_\-tolerance}}
+\index{set\-\_\-recognition\-\_\-tolerance@{set\-\_\-recognition\-\_\-tolerance}!mae::fl::fl_movement_controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}}
+\subsubsection[{set\-\_\-recognition\-\_\-tolerance}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::fl\-\_\-movement\-\_\-controller\-::set\-\_\-recognition\-\_\-tolerance (
+\begin{DoxyParamCaption}
+\item[{double}]{tolerance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__movement__controller_a0bdd94f763b740c612475df629dc3bcf}
+Sets the tolerance for the recognition. The tolerance is a value which represents the number of beats of the labanotation which are tolerated in deviation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tolerance} & The tolerance to be accepted. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/fl/fl\-\_\-movement\-\_\-controller.\-hpp\item 
+src/mae/fl/fl\-\_\-movement\-\_\-controller.\-cpp\end{DoxyCompactItemize}

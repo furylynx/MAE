@@ -1,0 +1,239 @@
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__forest}{\section{mae\-:\-:fl\-:\-:laban\-:\-:decision\-\_\-forest Class Reference}
+\label{classmae_1_1fl_1_1laban_1_1decision__forest}\index{mae\-::fl\-::laban\-::decision\-\_\-forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1fl_1_1laban_1_1decision__forest_af04ed42b665c58b4ba3aa7248e0be0a8}{decision\-\_\-forest} (std\-::vector$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1column__definition}{column\-\_\-definition} $>$ $>$ column\-\_\-definitions=std\-::vector$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1column__definition}{column\-\_\-definition} $>$ $>$(), std\-::vector$<$ int $>$ reserved\-\_\-columns=\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence_adda43b657712484d90b4ef3927a81128}{laban\-\_\-sequence\-::default\-\_\-columns}(), unsigned int beats\-\_\-per\-\_\-measure=\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence_a2e64362d5cfeb89eb8545cb064e63170}{laban\-\_\-sequence\-::default\-\_\-beats\-\_\-per\-\_\-measure}(), unsigned int beat\-\_\-duration=\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence_ac7bf04cdac0c3aed6b8ee4a887e561d9}{laban\-\_\-sequence\-::default\-\_\-beat\-\_\-duration}(), e\-\_\-time\-\_\-unit time\-\_\-unit=\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence_ada28215d43d85e983fe6129e9816eed2}{laban\-\_\-sequence\-::default\-\_\-time\-\_\-unit}(), std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__decision__maker}{i\-\_\-decision\-\_\-maker}$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ $>$ dec\-\_\-maker=nullptr, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1rewriting__forest}{rewriting\-\_\-forest} $>$ rw=nullptr)
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1laban_1_1decision__forest_a7308f844dea15ccb31b7c85529388c04}{set\-\_\-recognition\-\_\-tolerance} (double tolerance)
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1laban_1_1decision__forest_a4794a8981cd0cfeb55a00ec6a5d01edf}{add\-\_\-sequence} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence}{laban\-\_\-sequence} $>$ sequence)
+\item 
+virtual bool \hyperlink{classmae_1_1fl_1_1laban_1_1decision__forest_a24a8f97645622dbd96543763821dc6e5}{remove\-\_\-sequence} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence}{laban\-\_\-sequence} $>$ sequence)
+\item 
+virtual bool \hyperlink{classmae_1_1fl_1_1laban_1_1decision__forest_a41951d257154b85832f3d6beea13d4e6}{remove\-\_\-sequence} (unsigned int list\-\_\-index)
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1laban_1_1decision__forest_aa623f14cda0e8d9566716be9bd6f74d4}{clear} ()
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1laban_1_1decision__forest_a639c688ff26b2ecf20f30ae731d7f44f}{add\-\_\-rewriting\-\_\-rule} (std\-::vector$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ $>$ sequence, std\-::shared\-\_\-ptr$<$ std\-::vector$<$ std\-::vector$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ $>$ $>$ $>$ replacements)
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1laban_1_1decision__forest_a967fa135b60859542d073b1df27e39c8}{add\-\_\-rewriting\-\_\-rule} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1decision__value}{decision\-\_\-value}$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement}, std\-::vector$<$ std\-::vector$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1i__movement}{i\-\_\-movement} $>$ $>$ $>$ $>$ $>$ rule)
+\item 
+std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence}{laban\-\_\-sequence} $>$ \hyperlink{classmae_1_1fl_1_1laban_1_1decision__forest_ab295e95474c126e9f61c67897bc456f5}{recreate\-\_\-sequence} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence}{laban\-\_\-sequence} $>$ sequence)
+\item 
+virtual std\-::list\\*
+$<$ std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence}{laban\-\_\-sequence} $>$ $>$ \hyperlink{classmae_1_1fl_1_1laban_1_1decision__forest_a023111c5a44a950677d99412b4bad7d2}{get\-\_\-sequences} ()
+\item 
+virtual std\-::vector\\*
+$<$ std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence}{laban\-\_\-sequence} $>$ $>$ \hyperlink{classmae_1_1fl_1_1laban_1_1decision__forest_a8516b4336ab69541927a9f2d2f4f0d85}{find\-\_\-submatches} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence}{laban\-\_\-sequence} $>$ whole\-\_\-sequence, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts)
+\item 
+virtual std\-::string \hyperlink{classmae_1_1fl_1_1laban_1_1decision__forest_a23977c20fd4923e0cb4da1ba380821c3}{str} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__forest_af04ed42b665c58b4ba3aa7248e0be0a8}{\index{mae\-::fl\-::laban\-::decision\-\_\-forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}!decision\-\_\-forest@{decision\-\_\-forest}}
+\index{decision\-\_\-forest@{decision\-\_\-forest}!mae::fl::laban::decision_forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}}
+\subsubsection[{decision\-\_\-forest}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::fl\-::laban\-::decision\-\_\-forest\-::decision\-\_\-forest (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf column\-\_\-definition} $>$ $>$}]{column\-\_\-definitions = {\ttfamily std\-:\-:vector$<$~std\-:\-:shared\-\_\-ptr$<${\bf column\-\_\-definition}$>$~$>$()}, }
+\item[{std\-::vector$<$ int $>$}]{reserved\-\_\-columns = {\ttfamily {\bf laban\-\_\-sequence\-::default\-\_\-columns}()}, }
+\item[{unsigned int}]{beats\-\_\-per\-\_\-measure = {\ttfamily {\bf laban\-\_\-sequence\-::default\-\_\-beats\-\_\-per\-\_\-measure}()}, }
+\item[{unsigned int}]{beat\-\_\-duration = {\ttfamily {\bf laban\-\_\-sequence\-::default\-\_\-beat\-\_\-duration}()}, }
+\item[{e\-\_\-time\-\_\-unit}]{time\-\_\-unit = {\ttfamily {\bf laban\-\_\-sequence\-::default\-\_\-time\-\_\-unit}()}, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-decision\-\_\-maker}$<$ {\bf i\-\_\-movement} $>$ $>$}]{dec\-\_\-maker = {\ttfamily nullptr}, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf rewriting\-\_\-forest} $>$}]{rw = {\ttfamily nullptr}}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1fl_1_1laban_1_1decision__forest_af04ed42b665c58b4ba3aa7248e0be0a8}
+Creates a new decision forest for laban\-\_\-sequences.
+
+
+\begin{DoxyParams}{Parameters}
+{\em column\-\_\-definitions} & The columns that are taken into account (besides the default ones). \\
+\hline
+{\em reserved\-\_\-columns} & The reserved columns used by the scores. \\
+\hline
+{\em beats\-\_\-per\-\_\-measure} & The number of beats per measure. \\
+\hline
+{\em beat\-\_\-duration} & The duration of a single beat. \\
+\hline
+{\em time\-\_\-unit} & The time unit used by the scores. \\
+\hline
+{\em dec\-\_\-maker} & The decision maker to compare movements. \\
+\hline
+{\em rw} & The rewriting forest. If not set not rewriting rules are applied. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__forest_a639c688ff26b2ecf20f30ae731d7f44f}{\index{mae\-::fl\-::laban\-::decision\-\_\-forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}!add\-\_\-rewriting\-\_\-rule@{add\-\_\-rewriting\-\_\-rule}}
+\index{add\-\_\-rewriting\-\_\-rule@{add\-\_\-rewriting\-\_\-rule}!mae::fl::laban::decision_forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}}
+\subsubsection[{add\-\_\-rewriting\-\_\-rule}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::laban\-::decision\-\_\-forest\-::add\-\_\-rewriting\-\_\-rule (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$ $>$}]{sequence, }
+\item[{std\-::shared\-\_\-ptr$<$ std\-::vector$<$ std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$ $>$ $>$ $>$}]{replacements}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1decision__forest_a639c688ff26b2ecf20f30ae731d7f44f}
+Adds a rewriting rule to the forest.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The sequence. \\
+\hline
+{\em replacements} & The replacement for the sequence. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__forest_a967fa135b60859542d073b1df27e39c8}{\index{mae\-::fl\-::laban\-::decision\-\_\-forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}!add\-\_\-rewriting\-\_\-rule@{add\-\_\-rewriting\-\_\-rule}}
+\index{add\-\_\-rewriting\-\_\-rule@{add\-\_\-rewriting\-\_\-rule}!mae::fl::laban::decision_forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}}
+\subsubsection[{add\-\_\-rewriting\-\_\-rule}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::laban\-::decision\-\_\-forest\-::add\-\_\-rewriting\-\_\-rule (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf decision\-\_\-value}$<$ {\bf i\-\_\-movement}, std\-::vector$<$ std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-movement} $>$ $>$ $>$ $>$ $>$}]{rule}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1decision__forest_a967fa135b60859542d073b1df27e39c8}
+Adds a rewriting rule to the forest.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rule} & The rule to be added. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__forest_a4794a8981cd0cfeb55a00ec6a5d01edf}{\index{mae\-::fl\-::laban\-::decision\-\_\-forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}!add\-\_\-sequence@{add\-\_\-sequence}}
+\index{add\-\_\-sequence@{add\-\_\-sequence}!mae::fl::laban::decision_forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}}
+\subsubsection[{add\-\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::laban\-::decision\-\_\-forest\-::add\-\_\-sequence (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf laban\-\_\-sequence} $>$}]{sequence}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1decision__forest_a4794a8981cd0cfeb55a00ec6a5d01edf}
+Adds a sequence to the forest. It will stored in different decision trees for each body part. Since body part I\-Ds are used to identify the columns, the column definition for all sequences should be the same.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The sequence to be registered. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__forest_aa623f14cda0e8d9566716be9bd6f74d4}{\index{mae\-::fl\-::laban\-::decision\-\_\-forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}!clear@{clear}}
+\index{clear@{clear}!mae::fl::laban::decision_forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::laban\-::decision\-\_\-forest\-::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1decision__forest_aa623f14cda0e8d9566716be9bd6f74d4}
+Removes all sequences from the forest. This removes all associated trees either. \hypertarget{classmae_1_1fl_1_1laban_1_1decision__forest_a8516b4336ab69541927a9f2d2f4f0d85}{\index{mae\-::fl\-::laban\-::decision\-\_\-forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}!find\-\_\-submatches@{find\-\_\-submatches}}
+\index{find\-\_\-submatches@{find\-\_\-submatches}!mae::fl::laban::decision_forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}}
+\subsubsection[{find\-\_\-submatches}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf laban\-\_\-sequence} $>$ $>$ mae\-::fl\-::laban\-::decision\-\_\-forest\-::find\-\_\-submatches (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf laban\-\_\-sequence} $>$}]{whole\-\_\-sequence, }
+\item[{std\-::vector$<$ {\bf bone} $>$}]{body\-\_\-parts}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1decision__forest_a8516b4336ab69541927a9f2d2f4f0d85}
+Searches the sequence for matches of subsequences (which are the registered ones).
+
+
+\begin{DoxyParams}{Parameters}
+{\em whole\-\_\-sequence} & The whole sequence to be processed. \\
+\hline
+{\em body\-\_\-parts} & All the body parts that are meant to be taken into account. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+All matching sequences. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__forest_a023111c5a44a950677d99412b4bad7d2}{\index{mae\-::fl\-::laban\-::decision\-\_\-forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}!get\-\_\-sequences@{get\-\_\-sequences}}
+\index{get\-\_\-sequences@{get\-\_\-sequences}!mae::fl::laban::decision_forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}}
+\subsubsection[{get\-\_\-sequences}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::shared\-\_\-ptr$<$ {\bf laban\-\_\-sequence} $>$ $>$ mae\-::fl\-::laban\-::decision\-\_\-forest\-::get\-\_\-sequences (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1decision__forest_a023111c5a44a950677d99412b4bad7d2}
+Returns all registered sequences.
+
+\begin{DoxyReturn}{Returns}
+All sequences. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__forest_ab295e95474c126e9f61c67897bc456f5}{\index{mae\-::fl\-::laban\-::decision\-\_\-forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}!recreate\-\_\-sequence@{recreate\-\_\-sequence}}
+\index{recreate\-\_\-sequence@{recreate\-\_\-sequence}!mae::fl::laban::decision_forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}}
+\subsubsection[{recreate\-\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf laban\-\_\-sequence} $>$ mae\-::fl\-::laban\-::decision\-\_\-forest\-::recreate\-\_\-sequence (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf laban\-\_\-sequence} $>$}]{sequence}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1fl_1_1laban_1_1decision__forest_ab295e95474c126e9f61c67897bc456f5}
+Recreates the sequence with adjusted beat duration, beats per measure and time unit. Additionally the column definitions are adjusted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The sequence to be recreated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new, adjusted sequence. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__forest_a24a8f97645622dbd96543763821dc6e5}{\index{mae\-::fl\-::laban\-::decision\-\_\-forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}!remove\-\_\-sequence@{remove\-\_\-sequence}}
+\index{remove\-\_\-sequence@{remove\-\_\-sequence}!mae::fl::laban::decision_forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}}
+\subsubsection[{remove\-\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::fl\-::laban\-::decision\-\_\-forest\-::remove\-\_\-sequence (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf laban\-\_\-sequence} $>$}]{sequence}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1decision__forest_a24a8f97645622dbd96543763821dc6e5}
+Removes the sequence from the forest. Processes all involved trees.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The sequence to be removed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if successful. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__forest_a41951d257154b85832f3d6beea13d4e6}{\index{mae\-::fl\-::laban\-::decision\-\_\-forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}!remove\-\_\-sequence@{remove\-\_\-sequence}}
+\index{remove\-\_\-sequence@{remove\-\_\-sequence}!mae::fl::laban::decision_forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}}
+\subsubsection[{remove\-\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::fl\-::laban\-::decision\-\_\-forest\-::remove\-\_\-sequence (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{list\-\_\-index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1decision__forest_a41951d257154b85832f3d6beea13d4e6}
+Removes the sequence with the given index in the sequence list (received by \hyperlink{classmae_1_1fl_1_1laban_1_1decision__forest_a023111c5a44a950677d99412b4bad7d2}{get\-\_\-sequences()}).
+
+
+\begin{DoxyParams}{Parameters}
+{\em list\-\_\-index} & The index of the sequence in the list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if successful. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__forest_a7308f844dea15ccb31b7c85529388c04}{\index{mae\-::fl\-::laban\-::decision\-\_\-forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}!set\-\_\-recognition\-\_\-tolerance@{set\-\_\-recognition\-\_\-tolerance}}
+\index{set\-\_\-recognition\-\_\-tolerance@{set\-\_\-recognition\-\_\-tolerance}!mae::fl::laban::decision_forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}}
+\subsubsection[{set\-\_\-recognition\-\_\-tolerance}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::laban\-::decision\-\_\-forest\-::set\-\_\-recognition\-\_\-tolerance (
+\begin{DoxyParamCaption}
+\item[{double}]{tolerance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1decision__forest_a7308f844dea15ccb31b7c85529388c04}
+Sets the tolerance for the recognition. The tolerance is a value which represents the number of beats of the labanotation which are tolerated in deviation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tolerance} & The tolerance to be accepted. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__forest_a23977c20fd4923e0cb4da1ba380821c3}{\index{mae\-::fl\-::laban\-::decision\-\_\-forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}!str@{str}}
+\index{str@{str}!mae::fl::laban::decision_forest@{mae\-::fl\-::laban\-::decision\-\_\-forest}}
+\subsubsection[{str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::fl\-::laban\-::decision\-\_\-forest\-::str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1decision__forest_a23977c20fd4923e0cb4da1ba380821c3}
+Returns the string representation for the decision forest.
+
+\begin{DoxyReturn}{Returns}
+The string. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/fl/laban/decision\-\_\-forest.\-hpp\item 
+src/mae/fl/laban/decision\-\_\-forest.\-cpp\end{DoxyCompactItemize}

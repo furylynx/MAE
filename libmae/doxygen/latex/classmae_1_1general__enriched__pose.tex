@@ -1,0 +1,125 @@
+\hypertarget{classmae_1_1general__enriched__pose}{\section{mae\-:\-:general\-\_\-enriched\-\_\-pose Class Reference}
+\label{classmae_1_1general__enriched__pose}\index{mae\-::general\-\_\-enriched\-\_\-pose@{mae\-::general\-\_\-enriched\-\_\-pose}}
+}
+Inheritance diagram for mae\-:\-:general\-\_\-enriched\-\_\-pose\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmae_1_1general__enriched__pose}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1general__enriched__pose_a3b4b9e81621a54059679e2746a760d74}{general\-\_\-enriched\-\_\-pose} ()
+\item 
+\hyperlink{classmae_1_1general__enriched__pose_ab0656b1482a47c43f1d04be2b457b8ca}{general\-\_\-enriched\-\_\-pose} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ pose)
+\item 
+virtual void \hyperlink{classmae_1_1general__enriched__pose_ac6dabf701b6a352b669bf11335827da2}{set\-\_\-key\-\_\-pose} (int body\-\_\-part, bool \hyperlink{classmae_1_1general__enriched__pose_aeb367ce952171488fb93c5bc84d1f0df}{is\-\_\-key\-\_\-pose})
+\item 
+virtual bool \hyperlink{classmae_1_1general__enriched__pose_aeb367ce952171488fb93c5bc84d1f0df}{is\-\_\-key\-\_\-pose} (int body\-\_\-part)
+\item 
+virtual void \hyperlink{classmae_1_1general__enriched__pose_a5247ebb0b3f6b2d83a19705c3748ce12}{set\-\_\-in\-\_\-motion} (int body\-\_\-part, bool \hyperlink{classmae_1_1general__enriched__pose_a7a5928c1984b86377dcf038cd550af04}{is\-\_\-in\-\_\-motion})
+\item 
+virtual bool \hyperlink{classmae_1_1general__enriched__pose_a7a5928c1984b86377dcf038cd550af04}{is\-\_\-in\-\_\-motion} (int body\-\_\-part)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1general__enriched__pose_a3b4b9e81621a54059679e2746a760d74}{\index{mae\-::general\-\_\-enriched\-\_\-pose@{mae\-::general\-\_\-enriched\-\_\-pose}!general\-\_\-enriched\-\_\-pose@{general\-\_\-enriched\-\_\-pose}}
+\index{general\-\_\-enriched\-\_\-pose@{general\-\_\-enriched\-\_\-pose}!mae::general_enriched_pose@{mae\-::general\-\_\-enriched\-\_\-pose}}
+\subsubsection[{general\-\_\-enriched\-\_\-pose}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::general\-\_\-enriched\-\_\-pose\-::general\-\_\-enriched\-\_\-pose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1general__enriched__pose_a3b4b9e81621a54059679e2746a760d74}
+Creates an enriched pose. \hypertarget{classmae_1_1general__enriched__pose_ab0656b1482a47c43f1d04be2b457b8ca}{\index{mae\-::general\-\_\-enriched\-\_\-pose@{mae\-::general\-\_\-enriched\-\_\-pose}!general\-\_\-enriched\-\_\-pose@{general\-\_\-enriched\-\_\-pose}}
+\index{general\-\_\-enriched\-\_\-pose@{general\-\_\-enriched\-\_\-pose}!mae::general_enriched_pose@{mae\-::general\-\_\-enriched\-\_\-pose}}
+\subsubsection[{general\-\_\-enriched\-\_\-pose}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::general\-\_\-enriched\-\_\-pose\-::general\-\_\-enriched\-\_\-pose (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-pose} $>$}]{pose}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1general__enriched__pose_ab0656b1482a47c43f1d04be2b457b8ca}
+Creates an enriched pose from the general pose.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose} & The general pose. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1general__enriched__pose_a7a5928c1984b86377dcf038cd550af04}{\index{mae\-::general\-\_\-enriched\-\_\-pose@{mae\-::general\-\_\-enriched\-\_\-pose}!is\-\_\-in\-\_\-motion@{is\-\_\-in\-\_\-motion}}
+\index{is\-\_\-in\-\_\-motion@{is\-\_\-in\-\_\-motion}!mae::general_enriched_pose@{mae\-::general\-\_\-enriched\-\_\-pose}}
+\subsubsection[{is\-\_\-in\-\_\-motion}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::general\-\_\-enriched\-\_\-pose\-::is\-\_\-in\-\_\-motion (
+\begin{DoxyParamCaption}
+\item[{int}]{body\-\_\-part}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1general__enriched__pose_a7a5928c1984b86377dcf038cd550af04}
+Returns true if this pose is the start of a new motion sequence on the body part..
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-\_\-part} & The addressed body part. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if motion begin. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1general__enriched__pose_aeb367ce952171488fb93c5bc84d1f0df}{\index{mae\-::general\-\_\-enriched\-\_\-pose@{mae\-::general\-\_\-enriched\-\_\-pose}!is\-\_\-key\-\_\-pose@{is\-\_\-key\-\_\-pose}}
+\index{is\-\_\-key\-\_\-pose@{is\-\_\-key\-\_\-pose}!mae::general_enriched_pose@{mae\-::general\-\_\-enriched\-\_\-pose}}
+\subsubsection[{is\-\_\-key\-\_\-pose}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::general\-\_\-enriched\-\_\-pose\-::is\-\_\-key\-\_\-pose (
+\begin{DoxyParamCaption}
+\item[{int}]{body\-\_\-part}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1general__enriched__pose_aeb367ce952171488fb93c5bc84d1f0df}
+Returns true if this pose is a key pose for the given body part.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-\_\-part} & The addressed body part. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if key pose. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1general__enriched__pose_a5247ebb0b3f6b2d83a19705c3748ce12}{\index{mae\-::general\-\_\-enriched\-\_\-pose@{mae\-::general\-\_\-enriched\-\_\-pose}!set\-\_\-in\-\_\-motion@{set\-\_\-in\-\_\-motion}}
+\index{set\-\_\-in\-\_\-motion@{set\-\_\-in\-\_\-motion}!mae::general_enriched_pose@{mae\-::general\-\_\-enriched\-\_\-pose}}
+\subsubsection[{set\-\_\-in\-\_\-motion}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::general\-\_\-enriched\-\_\-pose\-::set\-\_\-in\-\_\-motion (
+\begin{DoxyParamCaption}
+\item[{int}]{body\-\_\-part, }
+\item[{bool}]{is\-\_\-in\-\_\-motion}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1general__enriched__pose_a5247ebb0b3f6b2d83a19705c3748ce12}
+Sets the motion value for the given body part.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-\_\-part} & The addressed body part. \\
+\hline
+{\em is\-\_\-in\-\_\-motion} & The value for the motion. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1general__enriched__pose_ac6dabf701b6a352b669bf11335827da2}{\index{mae\-::general\-\_\-enriched\-\_\-pose@{mae\-::general\-\_\-enriched\-\_\-pose}!set\-\_\-key\-\_\-pose@{set\-\_\-key\-\_\-pose}}
+\index{set\-\_\-key\-\_\-pose@{set\-\_\-key\-\_\-pose}!mae::general_enriched_pose@{mae\-::general\-\_\-enriched\-\_\-pose}}
+\subsubsection[{set\-\_\-key\-\_\-pose}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::general\-\_\-enriched\-\_\-pose\-::set\-\_\-key\-\_\-pose (
+\begin{DoxyParamCaption}
+\item[{int}]{body\-\_\-part, }
+\item[{bool}]{is\-\_\-key\-\_\-pose}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1general__enriched__pose_ac6dabf701b6a352b669bf11335827da2}
+Sets this pose as a key pose for the given body part.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-Part} & The addressed body part. \\
+\hline
+{\em is\-Key\-Pose} & The value for the key pose \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/general\-\_\-enriched\-\_\-pose.\-hpp\item 
+src/mae/general\-\_\-enriched\-\_\-pose.\-cpp\end{DoxyCompactItemize}

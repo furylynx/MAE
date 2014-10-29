@@ -1,0 +1,189 @@
+\hypertarget{classmae_1_1general__pose}{\section{mae\-:\-:general\-\_\-pose Class Reference}
+\label{classmae_1_1general__pose}\index{mae\-::general\-\_\-pose@{mae\-::general\-\_\-pose}}
+}
+Inheritance diagram for mae\-:\-:general\-\_\-pose\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmae_1_1general__pose}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1general__pose_a62934816ae69c70ff428a9e387944fa3}{general\-\_\-pose} ()
+\item 
+virtual void \hyperlink{classmae_1_1general__pose_a8dccd4cce6e26b43945230ea3fef9b4e}{set\-\_\-direction} (int body\-\_\-part, int direction)
+\item 
+virtual int \hyperlink{classmae_1_1general__pose_abdd09dcb3a8fd89c814eab2434ac0420}{get\-\_\-direction} (int body\-\_\-part) const 
+\item 
+virtual void \hyperlink{classmae_1_1general__pose_a3167544d3cf9dbd740e001c4257d917b}{set\-\_\-distance} (int body\-\_\-part, int direction, double distance)
+\item 
+virtual double \hyperlink{classmae_1_1general__pose_ae057a89df3dac87b46416ac757c5a370}{get\-\_\-distance} (int body\-\_\-part, int direction) const 
+\item 
+virtual void \hyperlink{classmae_1_1general__pose_aa747f42741ed76afca30a4cd5afb7ad1}{set\-\_\-rotation} (int body\-\_\-part, double rotation)
+\item 
+virtual double \hyperlink{classmae_1_1general__pose_a28c802e3b1c6932bbe31836684ba0d14}{get\-\_\-rotation} (int body\-\_\-part) const 
+\item 
+virtual std\-::list$<$ int $>$ \hyperlink{classmae_1_1general__pose_a75701cd408c10156a55878d05bdd4316}{get\-\_\-body\-\_\-parts} () const 
+\item 
+virtual std\-::list$<$ int $>$ \hyperlink{classmae_1_1general__pose_ab1b7e20ab2498a07858294de4e3eba8b}{get\-\_\-directions} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1general__pose_a62934816ae69c70ff428a9e387944fa3}{\index{mae\-::general\-\_\-pose@{mae\-::general\-\_\-pose}!general\-\_\-pose@{general\-\_\-pose}}
+\index{general\-\_\-pose@{general\-\_\-pose}!mae::general_pose@{mae\-::general\-\_\-pose}}
+\subsubsection[{general\-\_\-pose}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::general\-\_\-pose\-::general\-\_\-pose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1general__pose_a62934816ae69c70ff428a9e387944fa3}
+Creates a new empty pose. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1general__pose_a75701cd408c10156a55878d05bdd4316}{\index{mae\-::general\-\_\-pose@{mae\-::general\-\_\-pose}!get\-\_\-body\-\_\-parts@{get\-\_\-body\-\_\-parts}}
+\index{get\-\_\-body\-\_\-parts@{get\-\_\-body\-\_\-parts}!mae::general_pose@{mae\-::general\-\_\-pose}}
+\subsubsection[{get\-\_\-body\-\_\-parts}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ int $>$ mae\-::general\-\_\-pose\-::get\-\_\-body\-\_\-parts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1general__pose_a75701cd408c10156a55878d05bdd4316}
+Returns all body parts that have a direction assigned to it.
+
+\begin{DoxyReturn}{Returns}
+All used body parts in this pose. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1general__pose_abdd09dcb3a8fd89c814eab2434ac0420}{\index{mae\-::general\-\_\-pose@{mae\-::general\-\_\-pose}!get\-\_\-direction@{get\-\_\-direction}}
+\index{get\-\_\-direction@{get\-\_\-direction}!mae::general_pose@{mae\-::general\-\_\-pose}}
+\subsubsection[{get\-\_\-direction}]{\setlength{\rightskip}{0pt plus 5cm}int mae\-::general\-\_\-pose\-::get\-\_\-direction (
+\begin{DoxyParamCaption}
+\item[{int}]{body\-\_\-part}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1general__pose_abdd09dcb3a8fd89c814eab2434ac0420}
+Returns the direction assigned to the body part with the id. If the body part is not listed in this pose zero will be returned indicating an invalid direction.
+
+See fl/fld.\-hpp for laban direction codes used by the fl\-\_\-movement\-\_\-controller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-\_\-part} & The id of the body part (e.\-g. for the left forearm). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The direction code. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1general__pose_ab1b7e20ab2498a07858294de4e3eba8b}{\index{mae\-::general\-\_\-pose@{mae\-::general\-\_\-pose}!get\-\_\-directions@{get\-\_\-directions}}
+\index{get\-\_\-directions@{get\-\_\-directions}!mae::general_pose@{mae\-::general\-\_\-pose}}
+\subsubsection[{get\-\_\-directions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ int $>$ mae\-::general\-\_\-pose\-::get\-\_\-directions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1general__pose_ab1b7e20ab2498a07858294de4e3eba8b}
+Returns all directions that have a distance assigned.
+
+\begin{DoxyReturn}{Returns}
+All directions. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1general__pose_ae057a89df3dac87b46416ac757c5a370}{\index{mae\-::general\-\_\-pose@{mae\-::general\-\_\-pose}!get\-\_\-distance@{get\-\_\-distance}}
+\index{get\-\_\-distance@{get\-\_\-distance}!mae::general_pose@{mae\-::general\-\_\-pose}}
+\subsubsection[{get\-\_\-distance}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::general\-\_\-pose\-::get\-\_\-distance (
+\begin{DoxyParamCaption}
+\item[{int}]{body\-\_\-part, }
+\item[{int}]{direction}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1general__pose_ae057a89df3dac87b46416ac757c5a370}
+Returns the distance of the actual pose to the requested direction for the specific body part. Returns -\/1 if the distance is invalid.
+
+See fl/fld.\-hpp for laban direction codes used by the fl\-\_\-movement\-\_\-controller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-\_\-part} & The id of the body part (e.\-g. for the left forearm). \\
+\hline
+{\em direction} & The direction code. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1general__pose_a28c802e3b1c6932bbe31836684ba0d14}{\index{mae\-::general\-\_\-pose@{mae\-::general\-\_\-pose}!get\-\_\-rotation@{get\-\_\-rotation}}
+\index{get\-\_\-rotation@{get\-\_\-rotation}!mae::general_pose@{mae\-::general\-\_\-pose}}
+\subsubsection[{get\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::general\-\_\-pose\-::get\-\_\-rotation (
+\begin{DoxyParamCaption}
+\item[{int}]{body\-\_\-part}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1general__pose_a28c802e3b1c6932bbe31836684ba0d14}
+Returns the rotation of the body part in the specific pose.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-\_\-part} & The body part. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The rotation. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1general__pose_a8dccd4cce6e26b43945230ea3fef9b4e}{\index{mae\-::general\-\_\-pose@{mae\-::general\-\_\-pose}!set\-\_\-direction@{set\-\_\-direction}}
+\index{set\-\_\-direction@{set\-\_\-direction}!mae::general_pose@{mae\-::general\-\_\-pose}}
+\subsubsection[{set\-\_\-direction}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::general\-\_\-pose\-::set\-\_\-direction (
+\begin{DoxyParamCaption}
+\item[{int}]{body\-\_\-part, }
+\item[{int}]{direction}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1general__pose_a8dccd4cce6e26b43945230ea3fef9b4e}
+Sets the direction for the given body part. The direction should not be zero unless the direction of the body part is meant to be invalidated.
+
+See fl/fld.\-hpp for laban direction codes used by the fl\-\_\-movement\-\_\-controller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-\_\-part} & The id of the body part (e.\-g. for the left forearm). \\
+\hline
+{\em direction} & The direction code. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1general__pose_a3167544d3cf9dbd740e001c4257d917b}{\index{mae\-::general\-\_\-pose@{mae\-::general\-\_\-pose}!set\-\_\-distance@{set\-\_\-distance}}
+\index{set\-\_\-distance@{set\-\_\-distance}!mae::general_pose@{mae\-::general\-\_\-pose}}
+\subsubsection[{set\-\_\-distance}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::general\-\_\-pose\-::set\-\_\-distance (
+\begin{DoxyParamCaption}
+\item[{int}]{body\-\_\-part, }
+\item[{int}]{direction, }
+\item[{double}]{distance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1general__pose_a3167544d3cf9dbd740e001c4257d917b}
+Sets the distance of a body part to a certain direction. These distances can be used to identify the beginning of a motion from one direction to another. The distance should be positive since -\/1 is used to indicate invalid distances.
+
+See fl/fld.\-hpp for laban direction codes used by the fl\-\_\-movement\-\_\-controller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-\_\-part} & The id of the body part (e.\-g. for the left forearm). \\
+\hline
+{\em direction} & The direction code. \\
+\hline
+{\em distance} & The distance. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1general__pose_aa747f42741ed76afca30a4cd5afb7ad1}{\index{mae\-::general\-\_\-pose@{mae\-::general\-\_\-pose}!set\-\_\-rotation@{set\-\_\-rotation}}
+\index{set\-\_\-rotation@{set\-\_\-rotation}!mae::general_pose@{mae\-::general\-\_\-pose}}
+\subsubsection[{set\-\_\-rotation}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::general\-\_\-pose\-::set\-\_\-rotation (
+\begin{DoxyParamCaption}
+\item[{int}]{body\-\_\-part, }
+\item[{double}]{rotation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1general__pose_aa747f42741ed76afca30a4cd5afb7ad1}
+Sets the rotation of the body part in the specific pose.
+
+
+\begin{DoxyParams}{Parameters}
+{\em body\-\_\-part} & The body part. \\
+\hline
+{\em rotation} & The rotation. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/general\-\_\-pose.\-hpp\item 
+src/mae/general\-\_\-pose.\-cpp\end{DoxyCompactItemize}

@@ -1,0 +1,190 @@
+\hypertarget{classmae_1_1hierarchy}{\section{mae\-:\-:hierarchy Class Reference}
+\label{classmae_1_1hierarchy}\index{mae\-::hierarchy@{mae\-::hierarchy}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1hierarchy_ad8006ba53f5228fa32e5040eba48a2ba}{hierarchy} ()
+\item 
+\hyperlink{classmae_1_1hierarchy_a078873a827d93987db7b149a698144f7}{hierarchy} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1hierarchy__element}{hierarchy\-\_\-element} $>$ root)
+\item 
+virtual \hyperlink{classmae_1_1hierarchy_a24cca85994f8bac7c078f0f2b63f37cd}{$\sim$hierarchy} ()
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1hierarchy__element}{hierarchy\-\_\-element} $>$ \hyperlink{classmae_1_1hierarchy_a67f50abac7cdceff6b2d4a2e5db80e1c}{get\-\_\-root} () const 
+\item 
+virtual void \hyperlink{classmae_1_1hierarchy_ab4f151f5e91d7078d41e9b0d65ea88df}{set\-\_\-root} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1hierarchy__element}{hierarchy\-\_\-element} $>$ root)
+\item 
+virtual std\-::vector\\*
+$<$ std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1hierarchy__element}{hierarchy\-\_\-element} $>$ $>$ \hyperlink{classmae_1_1hierarchy_a1f7df9e7e9d86e24a62359da3b8a72fe}{get\-\_\-element\-\_\-sequence} ()
+\item 
+virtual \hyperlink{classmae_1_1hierarchy__element}{hierarchy\-\_\-element} $\ast$const \hyperlink{classmae_1_1hierarchy_abc29a6cb37845624d40680f1c01ebd96}{at} (int element\-\_\-id) const 
+\item 
+virtual std\-::string \hyperlink{classmae_1_1hierarchy_a09756b507aa2fefb8e54f854333aa93d}{str} () const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1hierarchy}{hierarchy} $>$ \hyperlink{classmae_1_1hierarchy_a2d5a7b8af3c883a113bd3bf8756181e0}{default\-\_\-hierarchy} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classmae_1_1hierarchy_ae883a463039fe4fbcaa660e44e25c476}{add\-\_\-element} (\hyperlink{classmae_1_1hierarchy__element}{hierarchy\-\_\-element} $\ast$const element)
+\item 
+virtual void \hyperlink{classmae_1_1hierarchy_a430b470b34db741bb22552d2a534c733}{remove\-\_\-element} (\hyperlink{classmae_1_1hierarchy__element}{hierarchy\-\_\-element} $\ast$const element)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classmae_1_1hierarchy_a7ef536ecd89121e2f44377643ceda64e}{class {\bfseries hierarchy\-\_\-element}}\label{classmae_1_1hierarchy_a7ef536ecd89121e2f44377643ceda64e}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1hierarchy_ad8006ba53f5228fa32e5040eba48a2ba}{\index{mae\-::hierarchy@{mae\-::hierarchy}!hierarchy@{hierarchy}}
+\index{hierarchy@{hierarchy}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{hierarchy}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::hierarchy\-::hierarchy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1hierarchy_ad8006ba53f5228fa32e5040eba48a2ba}
+Creates a new empty hierarchy. \hypertarget{classmae_1_1hierarchy_a078873a827d93987db7b149a698144f7}{\index{mae\-::hierarchy@{mae\-::hierarchy}!hierarchy@{hierarchy}}
+\index{hierarchy@{hierarchy}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{hierarchy}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::hierarchy\-::hierarchy (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf hierarchy\-\_\-element} $>$}]{root}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1hierarchy_a078873a827d93987db7b149a698144f7}
+Creates a new hierarchy giving the root of elements.
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & The root which is (in-\/)direct parent of all elements. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1hierarchy_a24cca85994f8bac7c078f0f2b63f37cd}{\index{mae\-::hierarchy@{mae\-::hierarchy}!$\sim$hierarchy@{$\sim$hierarchy}}
+\index{$\sim$hierarchy@{$\sim$hierarchy}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{$\sim$hierarchy}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::hierarchy\-::$\sim$hierarchy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1hierarchy_a24cca85994f8bac7c078f0f2b63f37cd}
+Destructs this element and fixes the root (hierarchy). 
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1hierarchy_ae883a463039fe4fbcaa660e44e25c476}{\index{mae\-::hierarchy@{mae\-::hierarchy}!add\-\_\-element@{add\-\_\-element}}
+\index{add\-\_\-element@{add\-\_\-element}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{add\-\_\-element}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::hierarchy\-::add\-\_\-element (
+\begin{DoxyParamCaption}
+\item[{{\bf hierarchy\-\_\-element} $\ast$const}]{element}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1hierarchy_ae883a463039fe4fbcaa660e44e25c476}
+Adds a new element to the elements hashmap in order to provide fast access to the elements. This method is invoked automatically from the Hierarchy\-Element.
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & The element to be added. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1hierarchy_abc29a6cb37845624d40680f1c01ebd96}{\index{mae\-::hierarchy@{mae\-::hierarchy}!at@{at}}
+\index{at@{at}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{at}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hierarchy\-\_\-element} $\ast$const mae\-::hierarchy\-::at (
+\begin{DoxyParamCaption}
+\item[{int}]{element\-\_\-id}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1hierarchy_abc29a6cb37845624d40680f1c01ebd96}
+Returns the element with the given id. This is done in constant time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em element\-\_\-id} & The element's id. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A plain pointer to the element. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1hierarchy_a2d5a7b8af3c883a113bd3bf8756181e0}{\index{mae\-::hierarchy@{mae\-::hierarchy}!default\-\_\-hierarchy@{default\-\_\-hierarchy}}
+\index{default\-\_\-hierarchy@{default\-\_\-hierarchy}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{default\-\_\-hierarchy}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf hierarchy} $>$ mae\-::hierarchy\-::default\-\_\-hierarchy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1hierarchy_a2d5a7b8af3c883a113bd3bf8756181e0}
+Returns a default hierarchy that fits the needs of the Open\-N\-I/\-Ni\-T\-E skeletons. If the Open\-N\-I/\-Ni\-T\-E hierarchy is not sufficient and/or another hierarchy is needed it must be constructed manually.
+
+\begin{DoxyReturn}{Returns}
+The default hierarchy. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1hierarchy_a1f7df9e7e9d86e24a62359da3b8a72fe}{\index{mae\-::hierarchy@{mae\-::hierarchy}!get\-\_\-element\-\_\-sequence@{get\-\_\-element\-\_\-sequence}}
+\index{get\-\_\-element\-\_\-sequence@{get\-\_\-element\-\_\-sequence}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{get\-\_\-element\-\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf hierarchy\-\_\-element} $>$ $>$ mae\-::hierarchy\-::get\-\_\-element\-\_\-sequence (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1hierarchy_a1f7df9e7e9d86e24a62359da3b8a72fe}
+Returns the element sequence containing all elements of this hierarchy.
+
+\begin{DoxyReturn}{Returns}
+The sequence. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1hierarchy_a67f50abac7cdceff6b2d4a2e5db80e1c}{\index{mae\-::hierarchy@{mae\-::hierarchy}!get\-\_\-root@{get\-\_\-root}}
+\index{get\-\_\-root@{get\-\_\-root}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{get\-\_\-root}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf hierarchy\-\_\-element} $>$ mae\-::hierarchy\-::get\-\_\-root (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1hierarchy_a67f50abac7cdceff6b2d4a2e5db80e1c}
+Returns a shared pointer to the root element.
+
+\begin{DoxyReturn}{Returns}
+The root element. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1hierarchy_a430b470b34db741bb22552d2a534c733}{\index{mae\-::hierarchy@{mae\-::hierarchy}!remove\-\_\-element@{remove\-\_\-element}}
+\index{remove\-\_\-element@{remove\-\_\-element}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{remove\-\_\-element}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::hierarchy\-::remove\-\_\-element (
+\begin{DoxyParamCaption}
+\item[{{\bf hierarchy\-\_\-element} $\ast$const}]{element}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1hierarchy_a430b470b34db741bb22552d2a534c733}
+Removes an element from the elements hashmap in order to provide fast access to the elements. This method is invoked automatically from the Hierarchy\-Element.
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & The element to be removed \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1hierarchy_ab4f151f5e91d7078d41e9b0d65ea88df}{\index{mae\-::hierarchy@{mae\-::hierarchy}!set\-\_\-root@{set\-\_\-root}}
+\index{set\-\_\-root@{set\-\_\-root}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{set\-\_\-root}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::hierarchy\-::set\-\_\-root (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf hierarchy\-\_\-element} $>$}]{root}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1hierarchy_ab4f151f5e91d7078d41e9b0d65ea88df}
+Sets the root element. Fixes the former root's hierarchy if existing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & A shared pointer to new root element. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1hierarchy_a09756b507aa2fefb8e54f854333aa93d}{\index{mae\-::hierarchy@{mae\-::hierarchy}!str@{str}}
+\index{str@{str}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::hierarchy\-::str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1hierarchy_a09756b507aa2fefb8e54f854333aa93d}
+Returns a string that represents the hierarchy containing all elements.
+
+\begin{DoxyReturn}{Returns}
+The string representation. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/hierarchy.\-hpp\item 
+src/mae/hierarchy.\-cpp\end{DoxyCompactItemize}
