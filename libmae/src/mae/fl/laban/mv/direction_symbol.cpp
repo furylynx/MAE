@@ -175,7 +175,7 @@ namespace mae
 				{
 					std::stringstream sstr;
 
-					//TODO pins, dynamics, contact hook
+					//TODO relationship pin, dynamics, contact hook
 
 					//double orig_height = height;
 
@@ -323,7 +323,6 @@ namespace mae
 					if (modification_pin_ != nullptr)
 					{
 						//draw pin
-
 						double mpin_w = width*0.8;
 						double mpin_h = width*0.8;
 						double mpin_y = posy + height/2.0 - mpin_h/2.0;
