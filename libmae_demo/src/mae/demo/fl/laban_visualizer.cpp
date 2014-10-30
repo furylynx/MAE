@@ -71,7 +71,7 @@ namespace mae
 				//paint the Labanotation staff
 				paint_staff(graphics, sequence, window_width, window_height, max_index);
 
-				int total_beats = sequence->get_measures() * sequence->get_beats();
+				int total_beats = (sequence->get_measures()+1) * sequence->get_beats();
 				double beat_height = (window_height - 105) / total_beats;
 				double column_width = (window_width - 100.0)/(max_index * 2.0);
 
@@ -165,7 +165,7 @@ namespace mae
 					std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height,
 					int max_column_index)
 			{
-				int total_beats = sequence->get_measures() * sequence->get_beats();
+				int total_beats = (sequence->get_measures()+1) * sequence->get_beats();
 				double beat_height = (window_height - 105) / total_beats;
 				double column_width = (window_width - 100)/(max_column_index * 2.0);
 

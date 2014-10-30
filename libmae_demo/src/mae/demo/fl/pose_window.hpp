@@ -51,6 +51,14 @@ namespace mae
 				pose_window(std::string title, bool backgroundimage = false, int width = 1024, int height = 576, int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags = SDL_WINDOW_SHOWN);
 				virtual ~pose_window();
 
+				/**
+				 * Is invoked each time a pose was quantized (which occurs on every frame).
+				 *
+				 * @param timestamp The associated timestamp.
+				 * @param pose The quantized pose.
+				 */
+				virtual void on_pose(long timestamp, std::shared_ptr<general_pose> pose);
+
 			protected:
 				/**
 				 * Handles the given event.
@@ -83,14 +91,6 @@ namespace mae
 				 * Runs a cleanup which frees all allocated surfaces.
 				 */
 				virtual void cleanup();
-
-				/**
-				 * Is invoked each time a pose was quantized (which occurs on every frame).
-				 *
-				 * @param timestamp The associated timestamp.
-				 * @param pose The quantized pose.
-				 */
-				virtual void on_pose(long timestamp, std::shared_ptr<general_pose> pose);
 
 		};
 

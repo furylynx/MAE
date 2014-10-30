@@ -93,6 +93,22 @@ namespace mae
 				 */
 				virtual void register_sequence(std::shared_ptr<U> sequence);
 
+				/**
+				 * Is invoked each time sequences were recognized.
+				 *
+				 * @param timestamp The associated timestamp.
+				 * @param sequences The recognized sequences.
+				 */
+				virtual void on_recognition(long timestamp, std::vector<std::shared_ptr<U> > sequences);
+
+				/**
+				 * Is invoked each time sequences were recognized and only titles of the sequences are present.
+				 *
+				 * @param timestamp The associated timestamp.
+				 * @param sequences The recognized sequences.
+				 */
+				virtual void on_recognition(long timestamp, std::vector<std::string> title);
+
 			protected:
 
 				/**
@@ -232,21 +248,6 @@ namespace mae
 				 */
 				virtual void notify_registered_sequence(std::shared_ptr<U> sequence);
 
-				/**
-				 * Is invoked each time sequences were recognized.
-				 *
-				 * @param timestamp The associated timestamp.
-				 * @param sequences The recognized sequences.
-				 */
-				virtual void on_recognition(long timestamp, std::vector<std::shared_ptr<U> > sequences);
-
-				/**
-				 * Is invoked each time sequences were recognized and only titles of the sequences are present.
-				 *
-				 * @param timestamp The associated timestamp.
-				 * @param sequences The recognized sequences.
-				 */
-				virtual void on_recognition(long timestamp, std::vector<std::string> title);
 		};
 
 	} // namespace eventing

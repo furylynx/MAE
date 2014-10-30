@@ -110,7 +110,7 @@ namespace mae
 
 					//draw line
 					sstr << "\t\t<path" << std::endl;
-					sstr << "\t\t\td=\"m " << posx+width/2.0 << "," << posy << " " << 0 << "," << nheight*0.9 << "\""
+					sstr << "\t\t\td=\"m " << posx+width/2.0 << "," << posy << " " << 0 << "," << nheight*0.98 << "\""
 							<< std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
 					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
