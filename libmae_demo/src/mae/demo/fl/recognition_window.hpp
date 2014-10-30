@@ -53,6 +53,23 @@ namespace mae
 							int x_pos = SDL_WINDOWPOS_UNDEFINED, int y_pos = SDL_WINDOWPOS_UNDEFINED, Uint32 flags =
 									SDL_WINDOW_SHOWN);
 					virtual ~recognition_window();
+
+					/**
+					 * Is invoked each time sequences were recognized and the sequences are present.
+					 *
+					 * @param timestamp The associated timestamp.
+					 * @param sequences The recognized sequences.
+					 */
+					virtual void on_recognition(long timestamp, std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > sequences);
+
+					/**
+					 * Is invoked each time sequences were recognized and only titles of the sequences are present.
+					 *
+					 * @param timestamp The associated timestamp.
+					 * @param sequences The recognized sequences.
+					 */
+					virtual void on_recognition(long timestamp, std::vector<std::string> title);
+
 				protected:
 					/**
 					 * Handles the given event.
@@ -86,21 +103,6 @@ namespace mae
 					 */
 					virtual void cleanup();
 
-					/**
-					 * Is invoked each time sequences were recognized and the sequences are present.
-					 *
-					 * @param timestamp The associated timestamp.
-					 * @param sequences The recognized sequences.
-					 */
-					virtual void on_recognition(long timestamp, std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > sequences);
-
-					/**
-					 * Is invoked each time sequences were recognized and only titles of the sequences are present.
-					 *
-					 * @param timestamp The associated timestamp.
-					 * @param sequences The recognized sequences.
-					 */
-					virtual void on_recognition(long timestamp, std::vector<std::string> title);
 			};
 
 		} // namespace fl

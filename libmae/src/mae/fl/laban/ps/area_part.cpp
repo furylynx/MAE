@@ -55,9 +55,99 @@ namespace mae
 
 				std::string area_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
+					identifier.append("-areapart");
+
 					std::stringstream sstr;
 
-					//TODO
+					if (width > height)
+					{
+						posx += (width - height) / 2.0;
+						width = height;
+					}
+					else if (height > width)
+					{
+						posy += (height - width) / 2.0;
+						height = width;
+					}
+
+					double circ_r = width/3.0;
+
+					//print rect
+					if (area_ == e_area::TORSO)
+					{
+						circ_r = width/6.0;
+
+						sstr << "\t\t<rect" << std::endl;
+						sstr << "\t\t\twidth=\"" << width/2.0 <<  "\"" << std::endl;
+						sstr << "\t\t\theight=\"" << height <<  "\"" << std::endl;
+						sstr << "\t\t\tx=\"" << posx+width/4.0 <<  "\"" << std::endl;
+						sstr << "\t\t\ty=\"" << posy <<  "\"" << std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-rect\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "\" />" << std::endl;
+					}
+					else
+					{
+						sstr << "\t\t<rect" << std::endl;
+						sstr << "\t\t\twidth=\"" << width <<  "\"" << std::endl;
+						sstr << "\t\t\theight=\"" << height <<  "\"" << std::endl;
+						sstr << "\t\t\tx=\"" << posx <<  "\"" << std::endl;
+						sstr << "\t\t\ty=\"" << posy <<  "\"" << std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-rect\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "\" />" << std::endl;
+					}
+
+					if (area_ == e_area::CHEST)
+					{
+						//draw circle
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx + width/2.0 + circ_r << "," << posy + height/2.0 << " a " << circ_r << "," << circ_r << " 0 1 1 -" << 2*circ_r << ",0 " << circ_r << "," << circ_r << " 0 1 1 " << 2*circ_r << ",0 z\"" << std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-chest\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+					}
+					else if (area_ == e_area::HEAD)
+					{
+						//draw circle
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx + width*5/6.0 << "," << posy + height*3/4.0  << " c " << -width*5/6.0 << ","
+														<< width/2.0 << " " << -width*5/6.0 << "," << -width/2.0 - height / 2.0 << " " << 0 << ","
+														<< -height / 2.0 << "\"" << std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-head\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+					}
+					else if (area_ == e_area::PELVIS)
+					{
+						//draw circle
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx + width/2.0 + circ_r << "," << posy + height/2.0 << " a " << circ_r << "," << circ_r << " 0 1 1 -" << 2*circ_r << ",0 " << circ_r << "," << circ_r << " 0 1 1 " << 2*circ_r << ",0 z\"" << std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-pelvis\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+					}
+					else if (area_ == e_area::TORSO)
+					{
+						//draw circle
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx + width/2.0 + circ_r << "," << posy + height/4.0 << " a " << circ_r << "," << circ_r << " 0 1 1 -" << 2*circ_r << ",0 " << circ_r << "," << circ_r << " 0 1 1 " << 2*circ_r << ",0 z\"" << std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-torso1\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+
+						//draw circle
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx + width/2.0 + circ_r << "," << posy + 3*height/4.0 << " a " << circ_r << "," << circ_r << " 0 1 1 -" << 2*circ_r << ",0 " << circ_r << "," << circ_r << " 0 1 1 " << 2*circ_r << ",0 z\"" << std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-torso2\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+					}
+					else if (area_ == e_area::WAIST)
+					{
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx+width/6.0 << "," << posy+height/6.0 << " " << width*2/3.0 << "," << height*2/3.0 << " m " << 0
+								<< "," << -height*2/3.0 << "" << -width*2/3.0 << "," << height*2/3.0 << "\"" << std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-waist\"" << std::endl;
+						sstr
+								<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "\" />" << std::endl;
+					}
 
 					return sstr.str();
 				}

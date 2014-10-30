@@ -136,6 +136,7 @@ namespace mae
 					double udot_posy = posy + height * 0.1;
 					double ldot_posx = posx + width / 2.0;
 					double ldot_posy = posy + height * 0.9;
+					double circ_r = width/12.0;
 
 					if (type_ == e_space::NONE_SPACE)
 					{
@@ -187,32 +188,122 @@ namespace mae
 					}
 					else if (type_ == e_space::WIDE)
 					{
+						//dot positions are different here
+						udot_posx = posx + width / 3.0;
+						ldot_posx = posx + 2*width / 3.0;
 
+						if (degree_ <= 3)
+						{
+							sstr << "\t\t<path" << std::endl;
+							sstr << "\t\t\td=\"m " << posx << "," << posy << " " << 0 << "," << height << " " << width
+									<< "," << -height << " " << 0 << "," << height << "\"" << std::endl;
+							sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+							sstr
+									<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							sstr << "\" />" << std::endl;
+						}
+						else
+						{
+							sstr << "\t\t<path" << std::endl;
+							sstr << "\t\t\td=\"m " << posx << "," << posy << " " << 0 << "," << height << " " << width
+									<< "," << -height*0.8 << " " << 0 << "," << height*0.8 << " m " << -width << "," << -height*0.2 << " " << width << "," << -height*0.8 << " " << 0 << "," << height << "\"" << std::endl;
+							sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+							sstr
+									<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							sstr << "\" />" << std::endl;
+						}
 					}
 					else if (type_ == e_space::FOLDING)
 					{
-
+						if (degree_ <= 3)
+						{
+							sstr << "\t\t<path" << std::endl;
+							sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width/2.0 << "," << height*0.8 << " " << width/2.0
+									<< "," << -height*0.8 << " m " << 0 << "," << height*0.8 << " " << -width << "," << 0 << "\"" << std::endl;
+							sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+							sstr
+									<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							sstr << "\" />" << std::endl;
+						}
+						else
+						{
+							sstr << "\t\t<path" << std::endl;
+							sstr << "\t\t\td=\"m " << posx+width*0.1 << "," << posy << " " << width*0.4 << "," << height*0.8 << " " << width*0.4
+									<< "," << -height*0.8 << " m " << -width*0.9 << "," << height*0.1 << " " << width*0.35  << "," << height*0.7 << " " << width*0.3  << "," << 0 << " " << width*0.35 << "," << -height*0.7 << " m " << 0 << "," << height*0.7 << " " << -width << "," << 0 << "\"" << std::endl;
+							sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+							sstr
+									<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							sstr << "\" />" << std::endl;
+						}
 					}
 					else if (type_ == e_space::JOINING)
 					{
+						ldot_posy = posy + height * 0.8;
 
+						if (degree_ <= 3)
+						{
+							sstr << "\t\t<path" << std::endl;
+							sstr << "\t\t\td=\"m " << posx+width*0.2 << "," << posy << " " << -width*0.2 << "," << height*0.6 << " " << width
+									<< "," << 0 << " " << -width*0.2 << "," << -height*0.6  << "\"" << std::endl;
+							sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+							sstr
+									<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							sstr << "\" />" << std::endl;
+						}
+						else
+						{
+							sstr << "\t\t<path" << std::endl;
+							sstr << "\t\t\td=\"m " << posx+width*0.2 << "," << posy << " " << -width*0.2 << "," << height*0.6 << " " << width
+									<< "," << 0 << " " << -width*0.2 << "," << -height*0.6 << " m " << width*0.4/3.0  << "," << height*0.4 << " " << -width*(1-0.4/3.0)  << "," << 0 << "\"" << std::endl;
+							sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+							sstr
+									<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							sstr << "\" />" << std::endl;
+						}
 					}
 					else if (type_ == e_space::SPREADING)
 					{
+						ldot_posy = posy + height * 0.8;
 
+						if (degree_ <= 3)
+						{
+							sstr << "\t\t<path" << std::endl;
+							sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width*0.2 << "," << height*0.6 << " " << width*0.6
+									<< "," << 0 << " " << width*0.2 << "," << -height*0.6  << "\"" << std::endl;
+							sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+							sstr
+									<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							sstr << "\" />" << std::endl;
+						}
+						else
+						{
+							sstr << "\t\t<path" << std::endl;
+							sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width*0.2 << "," << height*0.6 << " " << width*0.6
+									<< "," << 0 << " " << width*0.2 << "," << -height*0.6 << " m " << -width*0.4/3.0  << "," << height*0.4 << " " << -width*(1-0.8/3.0)  << "," << 0 << "\"" << std::endl;
+							sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+							sstr
+									<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							sstr << "\" />" << std::endl;
+						}
 					}
 
 					if (degree_ % 3 != 1)
 					{
-						//TODO draw upper dot
+						//draw upper dot
+					    sstr << "\t\t<path" << std::endl;
+					    sstr << "\t\t\td=\"m " << udot_posx + circ_r << "," << udot_posy << " a " << circ_r << "," << circ_r << " 0 1 1 -" << circ_r*2 << ",0 " << circ_r << "," << circ_r << " 0 1 1 " << circ_r*2 << ",0 z\"" << std::endl;
+					    sstr << "\t\t\tid=\"" << identifier << "-middot\"" << std::endl;
+					    sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:none\" />" << std::endl;
 					}
 
 					if (degree_ % 3 == 0)
 					{
-						//TODO draw lower dot
+						//draw lower dot
+					    sstr << "\t\t<path" << std::endl;
+					    sstr << "\t\t\td=\"m " << ldot_posx + circ_r << "," << ldot_posy << " a " << circ_r << "," << circ_r << " 0 1 1 -" << circ_r*2 << ",0 " << circ_r << "," << circ_r << " 0 1 1 " << circ_r*2 << ",0 z\"" << std::endl;
+					    sstr << "\t\t\tid=\"" << identifier << "-middot\"" << std::endl;
+					    sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:none\" />" << std::endl;
 					}
-
-					//TODO
 
 					return sstr.str();
 				}

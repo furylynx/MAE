@@ -320,6 +320,18 @@ namespace mae
 						sstr << space_measurement_->svg(identifier, spm_x, spm_y, spm_w, spm_h);
 					}
 
+					if (modification_pin_ != nullptr)
+					{
+						//draw pin
+
+						double mpin_w = width*0.8;
+						double mpin_h = width*0.8;
+						double mpin_y = posy + height/2.0 - mpin_h/2.0;
+						double mpin_x = posx + width/2.0 - mpin_w/2.0;
+
+						sstr << space_measurement_->svg(identifier, mpin_x, mpin_y, mpin_w, mpin_h);
+					}
+
 					return sstr.str();
 				}
 
