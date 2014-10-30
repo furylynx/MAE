@@ -114,9 +114,45 @@ namespace mae
 
 				std::string vibration_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
+					identifier.append("-vibration");
+
 					std::stringstream sstr;
 
-					//TODO
+					unsigned int loops = 0;
+					double circ_r = width/4.0;
+					if (height-2*width > 0)
+					{
+						loops = (int)((height-2*width)/(width/2.0));
+					}
+
+					//draw vibration snake line
+					sstr << "\t\t<path" << std::endl;
+					sstr << "\t\t\td=\"m " << posx + width / 2.0 << "," << posy + height-2*width << "";
+
+					for (unsigned int i = 0; i < loops; i++)
+					{
+						if (i % 2 == 0)
+						{
+							sstr << " c " << -circ_r *1.25 << "," << 0 << " " << -circ_r *1.25 << "," << -circ_r*2.0 << " " << 0 << "," << -circ_r*2.0 << "";
+						}
+						else
+						{
+							sstr << " c " << circ_r *1.25 << "," << 0 << " " << circ_r *1.25 << "," << -circ_r*2.0 << " " << 0 << "," << -circ_r*2.0 << "";
+						}
+					}
+					sstr << "\"" << std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "-snake\"" << std::endl;
+					sstr
+							<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\" />" << std::endl;
+
+					std::string dsp1id = identifier;
+					dsp1id.append("-displacement1");
+					sstr << displacement1_->svg(dsp1id, posx, posy+height-2*width, width, width);
+
+					std::string dsp2id = identifier;
+					dsp2id.append("-displacement2");
+					sstr << displacement2_->svg(dsp2id, posx, posy+height-width, width, width);
 
 					return sstr.str();
 				}

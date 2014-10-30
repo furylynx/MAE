@@ -58,6 +58,14 @@ namespace mae
 					 */
 					virtual void clear_paint();
 
+					/**
+					 * Is invoked each time a sequence was generated (which occurs on every frame).
+					 *
+					 * @param timestamp The associated timestamp.
+					 * @param sequence The generated sequence.
+					 */
+					virtual void on_sequence(long timestamp, std::shared_ptr<mae::fl::laban::laban_sequence> sequence);
+
 				protected:
 					/**
 					 * Handles the given event.
@@ -99,13 +107,7 @@ namespace mae
 					 */
 					virtual void cleanup();
 
-					/**
-					 * Is invoked each time a sequence was generated (which occurs on every frame).
-					 *
-					 * @param timestamp The associated timestamp.
-					 * @param sequence The generated sequence.
-					 */
-					virtual void on_sequence(long timestamp, std::shared_ptr<mae::fl::laban::laban_sequence> sequence);
+
 			};
 
 		} // namespace fl
