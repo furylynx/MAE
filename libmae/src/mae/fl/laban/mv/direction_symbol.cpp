@@ -309,6 +309,7 @@ namespace mae
 					    sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:none\" />" << std::endl;
 					}
 
+
 					if (space_measurement_ != nullptr)
 					{
 						//draw space measurement
