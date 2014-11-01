@@ -91,7 +91,42 @@ namespace mae
 				{
 					std::shared_ptr<i_endpoint> result;
 
-					//TODO
+					if (joint_ == e_joint::FINGERS)
+					{
+						return std::shared_ptr(new joint_part(e_joint::HAND));
+					}
+					else if (joint_ == e_joint::HAND)
+					{
+						return std::shared_ptr(new joint_part(e_joint::WRIST));
+					}
+					else if (joint_ == e_joint::WRIST)
+					{
+						return std::shared_ptr(new joint_part(e_joint::ELBOW));
+					}
+					else if (joint_ == e_joint::ELBOW)
+					{
+						return std::shared_ptr(new joint_part(e_joint::SHOULDER));
+					}
+					else if (joint_ == e_joint::TOES)
+					{
+						return std::shared_ptr(new joint_part(e_joint::FOOT));
+					}
+					else if (joint_ == e_joint::FOOT)
+					{
+						return std::shared_ptr(new joint_part(e_joint::ANKLE));
+					}
+					else if (joint_ == e_joint::ANKLE)
+					{
+						return std::shared_ptr(new joint_part(e_joint::KNEE));
+					}
+					else if (joint_ == e_joint::KNEE)
+					{
+						return std::shared_ptr(new joint_part(e_joint::HIP));
+					}
+					else if (joint_ == e_joint::SHOULDER || joint_ == e_joint::HIP)
+					{
+						throw std:: invalid_argument("Shoulder or hip cannot be extremity joints.");
+					}
 
 					return result;
 				}
