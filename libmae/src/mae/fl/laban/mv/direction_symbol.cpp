@@ -301,7 +301,6 @@ namespace mae
 							circ_r = height;
 						}
 
-
 						//draw circle
 					    sstr << "\t\t<path" << std::endl;
 					    sstr << "\t\t\td=\"m " << circ_x + circ_r << "," << circ_y << " a " << circ_r << "," << circ_r << " 0 1 1 -" << circ_r*2 << ",0 " << circ_r << "," << circ_r << " 0 1 1 " << circ_r*2 << ",0 z\"" << std::endl;
