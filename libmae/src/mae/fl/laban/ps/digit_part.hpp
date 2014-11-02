@@ -14,6 +14,7 @@
 //custom includes
 #include "i_endpoint.hpp"
 #include "e_digit.hpp"
+#include "joint_part.hpp"
 
 //global includes
 #include <string>

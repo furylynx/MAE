@@ -58,7 +58,7 @@ namespace mae
 					return knuckle_;
 				}
 
-				std::string digit_part::xml(unsigned int indent, std::string namesp)  const
+				std::string digit_part::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
 
@@ -68,11 +68,10 @@ namespace mae
 					}
 
 					std::string ns = namesp;
-					if (ns.size() > 0 && ns.at(ns.size()-1) != ':')
+					if (ns.size() > 0 && ns.at(ns.size() - 1) != ':')
 					{
 						ns.push_back(':');
 					}
-
 
 					std::stringstream sstr;
 
@@ -80,18 +79,20 @@ namespace mae
 					sstr << indent_stream.str() << "<" << ns << "digit>" << std::endl;
 
 					//print digit
-					sstr << indent_stream.str() << "\t" << "<" << ns << "digit>" << e_digit_c::str(digit_) << "</" << ns << "digit>"
-							<< std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "digit>" << e_digit_c::str(digit_) << "</" << ns
+							<< "digit>" << std::endl;
 
 					//print joint
-					sstr << indent_stream.str() << "\t" << "<" << ns << "joint>" << knuckle_ << "</" << ns << "joint>" << std::endl;
+					sstr << indent_stream.str() << "\t" << "<" << ns << "joint>" << knuckle_ << "</" << ns << "joint>"
+							<< std::endl;
 
 					sstr << indent_stream.str() << "</" << ns << "digit>" << std::endl;
 
 					return sstr.str();
 				}
 
-				std::string digit_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
+				std::string digit_part::svg(std::string identifier, double posx, double posy, double width,
+						double height, bool left) const
 				{
 					std::stringstream sstr;
 
@@ -102,11 +103,23 @@ namespace mae
 
 				std::shared_ptr<i_endpoint> digit_part::get_fixed_end() const
 				{
-					std::shared_ptr<i_endpoint> result;
-
-					//TODO
-
-					return result;
+					if (knuckle_ == 0)
+					{
+						if (digit_ == e_digit::INDEXFINGER || digit_ == e_digit::LITTLEFINGER
+								|| digit_ == e_digit::MIDDLEFINGER || digit_ == e_digit::RINGFINGER
+								|| digit_ == e_digit::THUMB)
+						{
+							return std::shared_ptr<i_endpoint>(new joint_part(e_joint::HAND));
+						}
+						else
+						{
+							return std::shared_ptr<i_endpoint>(new joint_part(e_joint::FOOT));
+						}
+					}
+					else
+					{
+						return std::shared_ptr<i_endpoint>(new digit_part(digit_, knuckle_-1));
+					}
 				}
 
 				bool digit_part::equals(std::shared_ptr<i_endpoint> a) const
