@@ -181,9 +181,8 @@ namespace mae
 				 * Begins to read a message from the server.
 				 *
 				 * @param connection The server.
-				 * @param timeout The timeout.
 				 */
-				virtual void begin_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, long timeout = 0);
+				virtual void begin_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection);
 
 				/**
 				 * Async callback for read events. Checks whether the message is complete or another read is necessary.
@@ -280,7 +279,7 @@ namespace mae
 				if (state == 0)
 				{
 					//initial sequence written to server, now listen
-					begin_read(socket_, 0);
+					begin_read(socket_);
 				}
 				else
 				{
@@ -290,7 +289,7 @@ namespace mae
 		}
 
 		template <typename U>
-		void client<U>::begin_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, long timeout)
+		void client<U>::begin_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection)
 		{
 			//reset previously buffered messages
 			buffer_ = "";
@@ -340,14 +339,14 @@ namespace mae
 				}
 				std::cerr << "The message could not be read, because an error occurred: " << error.message() << std::endl;
 
-				begin_read(socket_, 0);
+				begin_read(socket_);
 			}
 			else
 			{
 				handle_recognition_message(message, short_sequences_);
 
 				//continue to read
-				begin_read(socket_, 0);
+				begin_read(socket_);
 			}
 		}
 
@@ -394,9 +393,6 @@ namespace mae
 					if (sequence != nullptr)
 					{
 						sequences.push_back(sequence);
-
-						//TODO remove
-						std::cout << "RECEIVED SEQUENCE >>>> \"" << serializer_->serialize(sequence, false) << "\"" << std::endl;
 					}
 				}
 
