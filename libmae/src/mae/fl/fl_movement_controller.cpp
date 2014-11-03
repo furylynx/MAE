@@ -17,7 +17,7 @@ namespace mae
 						std::shared_ptr<fl_pose_detector>(
 								new fl_pose_detector(fl_pose_detector::default_hysteresis_val(), debug)),
 						std::shared_ptr<laban::laban_sequence_generator>(new laban::laban_sequence_generator(debug)),
-						std::shared_ptr<laban::laban_sequence_recognizer>(new laban::laban_sequence_recognizer(debug)),
+						std::shared_ptr<laban::laban_sequence_recognizer>(new laban::laban_sequence_recognizer(framerate, debug)),
 						bone::default_bones(), pose_buffer_size, framerate, debug)
 		{
 			debug_ = debug;
@@ -37,7 +37,7 @@ namespace mae
 										beat_duration, time_unit, debug)),
 						std::shared_ptr<laban::laban_sequence_recognizer>(
 								new laban::laban_sequence_recognizer(column_definitions, beats_per_measure,
-										beat_duration, time_unit, debug)), body_parts, pose_buffer_size, framerate,
+										beat_duration, time_unit, framerate, debug)), body_parts, pose_buffer_size, framerate,
 						debug)
 		{
 			debug_ = debug;
@@ -52,7 +52,7 @@ namespace mae
 								sequence_generator,
 								std::shared_ptr<laban::laban_sequence_recognizer>(
 										new laban::laban_sequence_recognizer(column_definitions, beats_per_measure,
-												beat_duration, time_unit, debug)), body_parts, pose_buffer_size, framerate,
+												beat_duration, time_unit, framerate, debug)), body_parts, pose_buffer_size, framerate,
 								debug)
 		{
 			debug_ = debug;

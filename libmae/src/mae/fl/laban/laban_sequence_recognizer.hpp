@@ -40,7 +40,7 @@ namespace mae
 					 *
 					 * @param debug True for debug output on the terminal.
 					 */
-					laban_sequence_recognizer(bool debug = false);
+					laban_sequence_recognizer(double framerate = 1.0/30.0, bool debug = false);
 
 					/**
 					 * Creates a new recognizer for laban sequences.
@@ -54,7 +54,7 @@ namespace mae
 					laban_sequence_recognizer(std::vector<std::shared_ptr<column_definition> > column_definitions,
 							unsigned int beats_per_measure = laban_sequence::default_beats_per_measure(),
 							unsigned int beat_duration = laban_sequence::default_beat_duration(),
-							e_time_unit time_unit = laban_sequence::default_time_unit(), bool debug = false);
+							e_time_unit time_unit = laban_sequence::default_time_unit(), double framerate = 1.0/30.0, bool debug = false);
 
 					virtual ~laban_sequence_recognizer();
 
@@ -141,6 +141,8 @@ namespace mae
 					unsigned int beats_per_measure_;
 					unsigned int beat_duration_;
 					e_time_unit time_unit_;
+
+					double framerate_;
 
 					std::shared_ptr<decision_forest> decision_forest_;
 			};
