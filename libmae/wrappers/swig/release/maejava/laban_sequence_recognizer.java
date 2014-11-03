@@ -35,32 +35,40 @@ public class laban_sequence_recognizer extends laban_sequence_sequence_recognize
     super.delete();
   }
 
-  public laban_sequence_recognizer(boolean debug) {
-    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_0(debug), true);
+  public laban_sequence_recognizer(double framerate, boolean debug) {
+    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_0(framerate, debug), true);
+  }
+
+  public laban_sequence_recognizer(double framerate) {
+    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_1(framerate), true);
   }
 
   public laban_sequence_recognizer() {
-    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_1(), true);
+    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_2(), true);
   }
 
-  public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure, long beat_duration, e_time_unit time_unit, boolean debug) {
-    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_2(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue(), debug), true);
+  public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate, boolean debug) {
+    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_3(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, debug), true);
+  }
+
+  public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate) {
+    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_4(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue(), framerate), true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure, long beat_duration, e_time_unit time_unit) {
-    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_3(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue()), true);
+    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_5(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue()), true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure, long beat_duration) {
-    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_4(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration), true);
+    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_6(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration), true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure) {
-    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_5(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure), true);
+    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_7(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure), true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions) {
-    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_6(coldef_vector.getCPtr(column_definitions), column_definitions), true);
+    this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_8(coldef_vector.getCPtr(column_definitions), column_definitions), true);
   }
 
   public void set_recognition_tolerance(double tolerance) {
