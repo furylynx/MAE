@@ -53,7 +53,7 @@ namespace mae
 				decision_forest_->set_recognition_tolerance(tolerance);
 			}
 
-			std::shared_ptr<decision_forest> laban_sequence_recognizer::get_decision_forest()
+			std::shared_ptr<decision_forest> laban_sequence_recognizer::get_decision_forest() const
 			{
 				return decision_forest_;
 			}
@@ -78,28 +78,14 @@ namespace mae
 				decision_forest_->clear();
 			}
 
-			std::list<std::shared_ptr<laban_sequence> > laban_sequence_recognizer::get_registered_sequences()
+			std::list<std::shared_ptr<laban_sequence> > laban_sequence_recognizer::get_registered_sequences() const
 			{
 				return decision_forest_->get_sequences();
 			}
 
-			int laban_sequence_recognizer::get_sequence_length(std::shared_ptr<laban_sequence> sequence)
+			int laban_sequence_recognizer::get_sequence_length(std::shared_ptr<laban_sequence> sequence) const
 			{
-				//return sequence length in milliseconds
-				int time = 1;
-
-				if (sequence->get_time_unit() == e_time_unit::SECOND)
-				{
-					time = 1000;
-				}
-				else if (sequence->get_time_unit() == e_time_unit::MINUTE)
-				{
-					time = 60000;
-				}
-
-				int length = std::ceil(sequence->get_measures()*sequence->get_beats()*sequence->get_beat_duration()*time);
-
-				return length;
+				return decision_forest_->get_sequence_length(sequence);
 			}
 
 			std::vector<std::shared_ptr<laban_sequence> > laban_sequence_recognizer::recognize_sequence(std::shared_ptr<laban_sequence> sequence, std::vector<bone> body_parts)

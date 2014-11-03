@@ -15,20 +15,25 @@ namespace mae
 			decision_forest::decision_forest(std::vector<std::shared_ptr<column_definition> > column_definitions,
 					std::vector<int> reserved_columns, unsigned int beats_per_measure, unsigned int beat_duration,
 					e_time_unit time_unit, std::shared_ptr<i_decision_maker<i_movement> > dec_maker,
-					std::shared_ptr<rewriting_forest> rw)
+					std::shared_ptr<rewriting_forest> rw, bool cooldown)
 			{
 				column_definitions_ = column_definitions;
 				beats_per_measure_ = beats_per_measure;
 				beat_duration_ = beat_duration;
 				time_unit_ = time_unit;
+
+				cooldown_ = cooldown;
+
 				for (int reserved : reserved_columns)
 				{
 					column_ids_.push_back(reserved);
 				}
+
 				for (unsigned int i = 0; i < column_definitions_.size(); i++)
 				{
 					column_ids_.push_back(column_definitions_.at(i)->get_column_index());
 				}
+
 				if (dec_maker != nullptr)
 				{
 					decision_maker_ = dec_maker;
@@ -38,6 +43,7 @@ namespace mae
 					decision_maker_ = std::shared_ptr<i_decision_maker<i_movement> >(
 							new decision_maker(beats_per_measure_));
 				}
+
 				if (rw != nullptr)
 				{
 					rewriting_forest_ = rw;
@@ -58,6 +64,35 @@ namespace mae
 				{
 					decision_maker_->set_recognition_tolerance(tolerance);
 				}
+			}
+
+			void decision_forest::set_cooldown(bool cooldown)
+			{
+				cooldown_ = cooldown;
+			}
+
+			bool decision_forest::get_cooldown() const
+			{
+				return cooldown_;
+			}
+
+			int decision_forest::get_sequence_length(std::shared_ptr<laban_sequence> sequence) const
+			{
+				//return sequence length in milliseconds
+				int time = 1;
+
+				if (sequence->get_time_unit() == e_time_unit::SECOND)
+				{
+					time = 1000;
+				}
+				else if (sequence->get_time_unit() == e_time_unit::MINUTE)
+				{
+					time = 60000;
+				}
+
+				int length = std::ceil(sequence->get_measures()*sequence->get_beats()*sequence->get_beat_duration()*time);
+
+				return length;
 			}
 
 			void decision_forest::add_sequence(std::shared_ptr<laban_sequence> sequence)
@@ -329,7 +364,7 @@ namespace mae
 				rewriting_forest_->add_rule(rule);
 			}
 
-			std::list<std::shared_ptr<laban_sequence> > decision_forest::get_sequences()
+			std::list<std::shared_ptr<laban_sequence> > decision_forest::get_sequences() const
 			{
 				return sequences_;
 			}
@@ -337,6 +372,19 @@ namespace mae
 			std::vector<std::shared_ptr<laban_sequence> > decision_forest::find_submatches(
 					std::shared_ptr<laban_sequence> whole_sequence, std::vector<bone> body_parts)
 			{
+
+				if (cooldown_)
+				{
+					//update cooldown times
+					for (std::list<std::shared_ptr<laban_sequence> >::iterator it = sequences_.begin(); it != sequences_.end(); it++)
+					{
+						if (cooldown_times_.find(*it) != cooldown_times_.end() && cooldown_times_.at(*it) > 0)
+						{
+							cooldown_times_[*it]--;
+						}
+					}
+				}
+
 				std::vector<std::shared_ptr<laban_sequence> > result;
 				for (unsigned int i = 0; i < body_parts.size(); i++)
 				{
@@ -353,10 +401,13 @@ namespace mae
 					{
 						if ((*it)->get_column_movements(body_part).size() == 0)
 						{
-							tmp_seqs.push_back(
-									std::shared_ptr<decision_value<i_movement, laban_sequence> >(
-											new decision_value<i_movement, laban_sequence>(
-													(*it)->get_column_movements(body_part), *it)));
+							if (!cooldown_ || cooldown_times_.find(*it) == cooldown_times_.end() || cooldown_times_.at(*it) == 0)
+							{
+								tmp_seqs.push_back(
+										std::shared_ptr<decision_value<i_movement, laban_sequence> >(
+												new decision_value<i_movement, laban_sequence>(
+														(*it)->get_column_movements(body_part), *it)));
+							}
 						}
 					}
 
@@ -404,8 +455,11 @@ namespace mae
 
 									if (decision_maker_->position_okay(dist_to_last, set_dist, check_startpose))
 									{
-										//append to tmp_seqs
-										tmp_seqs.push_back(submatches.at(k));
+										if (!cooldown_ || cooldown_times_.find(submatches.at(k)->get_value()) == cooldown_times_.end() || cooldown_times_.at(submatches.at(k)->get_value()) == 0)
+										{
+											//append to tmp_seqs
+											tmp_seqs.push_back(submatches.at(k));
+										}
 									}
 								}
 							}
@@ -443,15 +497,32 @@ namespace mae
 					if (result.size() == 0)
 					{
 						//no match found therefore no further processing is done
-
-						return result;
+						return std::vector<std::shared_ptr<laban_sequence> >();
 					}
 
 				}
+
+				if (cooldown_)
+				{
+					//reset cooldowns for recognized sequences to max
+					for (unsigned int i=0; i <result.size(); i++)
+					{
+						if (cooldown_times_.find(result.at(i)) != cooldown_times_.end())
+						{
+							cooldown_times_[result.at(i)] = get_sequence_length(result.at(i));
+						}
+						else
+						{
+							cooldown_times_.insert(std::make_pair(result.at(i), get_sequence_length(result.at(i))));
+						}
+					}
+				}
+
+
 				return result;
 			}
 
-			std::string decision_forest::str()
+			std::string decision_forest::str() const
 			{
 				std::stringstream sstr;
 
