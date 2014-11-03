@@ -46,6 +46,7 @@ namespace mae
 					 * @param time_unit The time unit used by the scores.
 					 * @param dec_maker The decision maker to compare movements.
 					 * @param rw The rewriting forest. If not set not rewriting rules are applied.
+					 * @param cooldown True for applying a cooldown on the recognized sequences.
 					 */
 					decision_forest(
 							std::vector<std::shared_ptr<column_definition> > column_definitions = std::vector<
@@ -55,7 +56,8 @@ namespace mae
 									laban_sequence::default_beat_duration(), e_time_unit time_unit =
 									laban_sequence::default_time_unit(),
 							std::shared_ptr<i_decision_maker<i_movement> > dec_maker = nullptr,
-							std::shared_ptr<rewriting_forest> rw = nullptr);
+							std::shared_ptr<rewriting_forest> rw = nullptr,
+							bool cooldown = true);
 					virtual ~decision_forest();
 
 					/**
@@ -65,6 +67,28 @@ namespace mae
 					 * @param tolerance The tolerance to be accepted.
 					 */
 					virtual void set_recognition_tolerance(double tolerance);
+
+					/**
+					 * Turns the cooldown mechanism on or off.
+					 *
+					 * @param cooldown True to apply cooldown.
+					 */
+					virtual void set_cooldown(bool cooldown);
+
+					/**
+					 * Returns true if the cooldown mechanism is turned on. False otherwise.
+					 *
+					 * @return True when cooldown is applied.
+					 */
+					virtual bool get_cooldown() const;
+
+					/**
+					 * Returns the length of the sequence in milliseconds.
+					 *
+					 * @param sequence The sequence.
+					 * @return The length of the sequence.
+					 */
+					virtual int get_sequence_length(std::shared_ptr<laban_sequence> sequence) const;
 
 					/**
 					 * Adds a sequence to the forest. It will stored in different decision trees for each body part.
@@ -125,7 +149,7 @@ namespace mae
 					 *
 					 * @return All sequences.
 					 */
-					virtual std::list<std::shared_ptr<laban_sequence> > get_sequences();
+					virtual std::list<std::shared_ptr<laban_sequence> > get_sequences() const;
 
 					/**
 					 * Searches the sequence for matches of subsequences (which are the registered ones).
@@ -142,7 +166,7 @@ namespace mae
 					 *
 					 * @return The string.
 					 */
-					virtual std::string str();
+					virtual std::string str() const;
 
 				private:
 					std::vector<std::shared_ptr<column_definition> > column_definitions_;
@@ -151,6 +175,9 @@ namespace mae
 					unsigned int beats_per_measure_;
 					unsigned int beat_duration_;
 					e_time_unit time_unit_;
+
+					bool cooldown_;
+					std::unordered_map<std::shared_ptr<laban_sequence>, unsigned int> cooldown_times_;
 
 					std::shared_ptr<i_decision_maker<i_movement> > decision_maker_;
 					std::shared_ptr<rewriting_forest> rewriting_forest_;
