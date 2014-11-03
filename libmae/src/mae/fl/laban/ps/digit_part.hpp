@@ -83,7 +83,10 @@ namespace mae
 						virtual std::string svg(std::string identifier, double posx, double posy, double width, double height, bool left = false) const;
 
 						/**
-						 * Returns the predecessor of the current endpoint (which is the default fixed endpoint). If the endpoint is the beginning of the extremity null is returned.
+						 * Returns the predecessor of the current endpoint (which is the default fixed endpoint).
+						 * If the endpoint is the beginning of the extremity null is returned.
+						 *
+						 * If the base knuckle is zero, the hand or foot (joint part) is returned.
 						 *
 						 * @return The successor element.
 						 */
