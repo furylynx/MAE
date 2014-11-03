@@ -71,7 +71,7 @@ namespace mae
 					 *
 					 * @return The decision forest.
 					 */
-					virtual std::shared_ptr<decision_forest> get_decision_forest();
+					virtual std::shared_ptr<decision_forest> get_decision_forest() const;
 
 					/**
 					 * Registers a sequence to the recognizer.
@@ -106,7 +106,7 @@ namespace mae
 					 *
 					 * @return All sequences.
 					 */
-					virtual std::list<std::shared_ptr<laban_sequence> > get_registered_sequences();
+					virtual std::list<std::shared_ptr<laban_sequence> > get_registered_sequences() const;
 
 					/**
 					 * Returns the length of the sequence in milliseconds.
@@ -114,7 +114,7 @@ namespace mae
 					 * @param sequence The sequence.
 					 * @return The length of the sequence.
 					 */
-					virtual int get_sequence_length(std::shared_ptr<laban_sequence> sequence);
+					virtual int get_sequence_length(std::shared_ptr<laban_sequence> sequence) const;
 
 					/**
 					 * Recognized subsequences in the sequence for the given body parts.
