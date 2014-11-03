@@ -14,7 +14,7 @@ namespace mae
 		{
 			decision_forest::decision_forest(std::vector<std::shared_ptr<column_definition> > column_definitions,
 					std::vector<int> reserved_columns, unsigned int beats_per_measure, unsigned int beat_duration,
-					e_time_unit time_unit, std::shared_ptr<i_decision_maker<i_movement> > dec_maker,
+					e_time_unit time_unit, double framerate, std::shared_ptr<i_decision_maker<i_movement> > dec_maker,
 					std::shared_ptr<rewriting_forest> rw, bool cooldown)
 			{
 				column_definitions_ = column_definitions;
@@ -22,6 +22,7 @@ namespace mae
 				beat_duration_ = beat_duration;
 				time_unit_ = time_unit;
 
+				framerate_ = framerate;
 				cooldown_ = cooldown;
 
 				for (int reserved : reserved_columns)
@@ -509,7 +510,8 @@ namespace mae
 					{
 						if (cooldown_times_.find(result.at(i)) != cooldown_times_.end())
 						{
-							cooldown_times_[result.at(i)] = get_sequence_length(result.at(i));
+							int cooldown_frames = std::ceil(get_sequence_length(result.at(i))/(framerate_ * 1000.0));
+							cooldown_times_[result.at(i)] = cooldown_frames;
 						}
 						else
 						{

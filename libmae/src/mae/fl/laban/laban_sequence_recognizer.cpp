@@ -14,18 +14,19 @@ namespace mae
 		namespace laban
 		{
 
-			laban_sequence_recognizer::laban_sequence_recognizer(bool debug)
+			laban_sequence_recognizer::laban_sequence_recognizer(double framerate, bool debug)
 			{
 				debug_ = debug;
 				beats_per_measure_ = laban_sequence::default_beats_per_measure();
 				beat_duration_ = laban_sequence::default_beat_duration();
 				time_unit_ = laban_sequence::default_time_unit();
 				reserved_columns_ = laban_sequence::default_columns();
+				framerate_ = framerate;
 
-				decision_forest_ = std::shared_ptr<decision_forest>(new decision_forest(column_definitions_, reserved_columns_, beats_per_measure_, beat_duration_, time_unit_));
+				decision_forest_ = std::shared_ptr<decision_forest>(new decision_forest(column_definitions_, reserved_columns_, beats_per_measure_, beat_duration_, time_unit_, framerate_));
 			}
 
-			laban_sequence_recognizer::laban_sequence_recognizer(std::vector<std::shared_ptr<column_definition> > column_definitions, unsigned int beats_per_measure, unsigned int beat_duration, e_time_unit time_unit, bool debug)
+			laban_sequence_recognizer::laban_sequence_recognizer(std::vector<std::shared_ptr<column_definition> > column_definitions, unsigned int beats_per_measure, unsigned int beat_duration, e_time_unit time_unit, double framerate, bool debug)
 			{
 				if (debug)
 				{
@@ -38,9 +39,9 @@ namespace mae
 				beat_duration_ = beat_duration;
 				time_unit_ = time_unit;
 				reserved_columns_ = laban_sequence::default_columns();
+				framerate_ = framerate;
 
-				//TODO rewriting rules...
-				decision_forest_ = std::shared_ptr<decision_forest>(new decision_forest(column_definitions_, reserved_columns_, beats_per_measure_, beat_duration_, time_unit_));
+				decision_forest_ = std::shared_ptr<decision_forest>(new decision_forest(column_definitions_, reserved_columns_, beats_per_measure_, beat_duration_, time_unit_, framerate_));
 
 			}
 

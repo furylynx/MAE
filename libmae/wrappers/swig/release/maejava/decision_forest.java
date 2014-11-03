@@ -35,40 +35,44 @@ public class decision_forest {
     }
   }
 
-  public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration, e_time_unit time_unit, i_dec_maker dec_maker, rewriting_forest rw, boolean cooldown) {
-    this(w_e_boneJNI.new_decision_forest__SWIG_0(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), i_dec_maker.getCPtr(dec_maker), dec_maker, rewriting_forest.getCPtr(rw), rw, cooldown), true);
+  public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate, i_dec_maker dec_maker, rewriting_forest rw, boolean cooldown) {
+    this(w_e_boneJNI.new_decision_forest__SWIG_0(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, i_dec_maker.getCPtr(dec_maker), dec_maker, rewriting_forest.getCPtr(rw), rw, cooldown), true);
   }
 
-  public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration, e_time_unit time_unit, i_dec_maker dec_maker, rewriting_forest rw) {
-    this(w_e_boneJNI.new_decision_forest__SWIG_1(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), i_dec_maker.getCPtr(dec_maker), dec_maker, rewriting_forest.getCPtr(rw), rw), true);
+  public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate, i_dec_maker dec_maker, rewriting_forest rw) {
+    this(w_e_boneJNI.new_decision_forest__SWIG_1(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, i_dec_maker.getCPtr(dec_maker), dec_maker, rewriting_forest.getCPtr(rw), rw), true);
   }
 
-  public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration, e_time_unit time_unit, i_dec_maker dec_maker) {
-    this(w_e_boneJNI.new_decision_forest__SWIG_2(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), i_dec_maker.getCPtr(dec_maker), dec_maker), true);
+  public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate, i_dec_maker dec_maker) {
+    this(w_e_boneJNI.new_decision_forest__SWIG_2(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, i_dec_maker.getCPtr(dec_maker), dec_maker), true);
+  }
+
+  public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate) {
+    this(w_e_boneJNI.new_decision_forest__SWIG_3(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate), true);
   }
 
   public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration, e_time_unit time_unit) {
-    this(w_e_boneJNI.new_decision_forest__SWIG_3(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue()), true);
+    this(w_e_boneJNI.new_decision_forest__SWIG_4(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue()), true);
   }
 
   public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration) {
-    this(w_e_boneJNI.new_decision_forest__SWIG_4(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration), true);
+    this(w_e_boneJNI.new_decision_forest__SWIG_5(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration), true);
   }
 
   public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure) {
-    this(w_e_boneJNI.new_decision_forest__SWIG_5(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure), true);
+    this(w_e_boneJNI.new_decision_forest__SWIG_6(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure), true);
   }
 
   public decision_forest(coldef_vector column_definitions, int_vector reserved_columns) {
-    this(w_e_boneJNI.new_decision_forest__SWIG_6(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns), true);
+    this(w_e_boneJNI.new_decision_forest__SWIG_7(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns), true);
   }
 
   public decision_forest(coldef_vector column_definitions) {
-    this(w_e_boneJNI.new_decision_forest__SWIG_7(coldef_vector.getCPtr(column_definitions), column_definitions), true);
+    this(w_e_boneJNI.new_decision_forest__SWIG_8(coldef_vector.getCPtr(column_definitions), column_definitions), true);
   }
 
   public decision_forest() {
-    this(w_e_boneJNI.new_decision_forest__SWIG_8(), true);
+    this(w_e_boneJNI.new_decision_forest__SWIG_9(), true);
   }
 
   public void set_recognition_tolerance(double tolerance) {

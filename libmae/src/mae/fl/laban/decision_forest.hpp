@@ -44,6 +44,7 @@ namespace mae
 					 * @param beats_per_measure The number of beats per measure.
 					 * @param beat_duration The duration of a single beat.
 					 * @param time_unit The time unit used by the scores.
+					 * @param framerate The framerate.
 					 * @param dec_maker The decision maker to compare movements.
 					 * @param rw The rewriting forest. If not set not rewriting rules are applied.
 					 * @param cooldown True for applying a cooldown on the recognized sequences.
@@ -55,9 +56,11 @@ namespace mae
 									laban_sequence::default_beats_per_measure(), unsigned int beat_duration =
 									laban_sequence::default_beat_duration(), e_time_unit time_unit =
 									laban_sequence::default_time_unit(),
+									double framerate = 1.0/30.0,
 							std::shared_ptr<i_decision_maker<i_movement> > dec_maker = nullptr,
 							std::shared_ptr<rewriting_forest> rw = nullptr,
-							bool cooldown = true);
+							bool cooldown = true
+							);
 					virtual ~decision_forest();
 
 					/**
@@ -178,6 +181,7 @@ namespace mae
 
 					bool cooldown_;
 					std::unordered_map<std::shared_ptr<laban_sequence>, unsigned int> cooldown_times_;
+					double framerate_;
 
 					std::shared_ptr<i_decision_maker<i_movement> > decision_maker_;
 					std::shared_ptr<rewriting_forest> rewriting_forest_;
