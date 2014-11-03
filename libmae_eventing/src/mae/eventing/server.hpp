@@ -211,9 +211,8 @@ namespace mae
 				 *
 				 * @param connection The connection.
 				 * @param state The state.
-				 * @param timeout The timeout value.
 				 */
-				virtual void begin_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, int state, long timeout = 0);
+				virtual void begin_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, int state);
 
 				/**
 				 * Async callback for a read event. Checks whether the message is complete or reading must be continued.
@@ -309,7 +308,7 @@ namespace mae
 		{
 			if (!error)
 			{
-				begin_read(connection, 0, 30);
+				begin_read(connection, 0);
 			}
 			else
 			{
@@ -340,15 +339,10 @@ namespace mae
 
 				std::cerr << "An error has occurred during the write: " << error.message() << std::endl;
 			}
-			else
-			{
-				//TODO remove
-				std::cout << "Sequence written to client!" << std::endl;
-			}
 		}
 
 		template <typename T, typename U>
-		void server<T, U>::begin_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, int state, long timeout)
+		void server<T, U>::begin_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection, int state)
 		{
 			//reset previously buffered messages
 			if (msgs_.find(connection) != msgs_.end())
@@ -409,7 +403,7 @@ namespace mae
 
 				if (error == boost::asio::error::timed_out)
 				{
-					begin_read(connection, state, 0);
+					begin_read(connection, state);
 					return;
 				}
 
@@ -431,7 +425,7 @@ namespace mae
 				else
 				{
 					handle_further_message(connection, message);
-					begin_read(connection, state, 0);
+					begin_read(connection, state);
 				}
 			}
 		}
@@ -544,9 +538,6 @@ namespace mae
 
 			if (sequence != nullptr)
 			{
-				//TODO remove
-				std::cout << "received a sequence!" << std::endl;
-
 				register_sequence(sequence);
 			}
 		}
@@ -557,7 +548,7 @@ namespace mae
 			msg_types_.insert(std::make_pair(connection, short_message));
 			connections_.push_back(connection);
 
-			begin_read(connection, 1, 0);
+			begin_read(connection, 1);
 		}
 
 		template <typename T, typename U>
