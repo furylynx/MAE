@@ -145,7 +145,7 @@ namespace mae
 						std::stringstream sstr;
 						sstr << countdown_ << " s";
 
-						SDL_Surface* text = TTF_RenderText_Solid(font_, sstr.str().c_str(), text_color);
+						SDL_Surface* text = TTF_RenderText_Solid(font_, sstr.str().c_str(), TEXTCOLOR);
 						SDL_Surface* text_sur = SDL_ConvertSurface(text, get_surface()->format, 0);
 
 						//Get rid of old loaded surface
@@ -168,7 +168,7 @@ namespace mae
 					else
 					{
 						//print waiting for calibration or something
-						SDL_Surface* text = TTF_RenderText_Solid(font_, wait_str, text_color);
+						SDL_Surface* text = TTF_RenderText_Solid(font_, wait_str, TEXTCOLOR);
 						SDL_Surface* text_sur = SDL_ConvertSurface(text, get_surface()->format, 0);
 
 						//Get rid of old loaded surface
