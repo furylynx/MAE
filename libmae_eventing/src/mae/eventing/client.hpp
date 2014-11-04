@@ -401,7 +401,7 @@ namespace mae
 			}
 			else
 			{
-				std::vector<std::string> sequences_str = mae::mxml::get_node_contents(root_node, namespace_map, "sequences/title", nsp, "");
+				std::vector<std::string> sequences_str = mae::mxml::get_node_contents(root_node, namespace_map, "title", nsp, "");
 
 				std::vector<std::string> titles;
 				for (unsigned int i = 0; i < sequences_str.size(); i++)
@@ -410,7 +410,6 @@ namespace mae
 
 					titles.push_back(title);
 				}
-
 
 				//notify listeners
 				notify_listeners(timestamp, titles);

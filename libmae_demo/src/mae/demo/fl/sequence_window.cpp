@@ -83,8 +83,8 @@ namespace mae
 				SDL_Rect bg_os;
 				bg_os.x = 0;
 				bg_os.y = 0;
-				bg_os.w = (int) (background_->w * (double) get_width() / 1920.0);
-				bg_os.h = (int) (background_->h * (double) get_height() / 1080.0);
+				bg_os.w = get_width();
+				bg_os.h = get_height();
 
 				if (background_ != nullptr && backgroundimage_)
 				{

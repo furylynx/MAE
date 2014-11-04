@@ -597,9 +597,9 @@ namespace mae
 				}
 				else
 				{
-					sstr << "\t<maee:title>" << std::endl;
+					sstr << "\t<maee:title>";
 					sstr << mae::mstr::replace_esc(mae::mstr::replace_esc(serializer_->serialize(sequences.at(i), short_message, true, 2), "<", "&lt;"), ">","&gt;");
-					sstr << "\t</maee:title>" << std::endl;
+					sstr << "</maee:title>" << std::endl;
 				}
 			}
 
@@ -611,8 +611,6 @@ namespace mae
 		template <typename T, typename U>
 		void server<T, U>::notify_clients(long timestamp, std::vector<std::shared_ptr<U> > sequences)
 		{
-			std::cout << "\t\t ### sequence recognized - notifying clients" << std::endl;
-
 			//iterate all registered clients and notify them
 			for (unsigned int i = 0; i < connections_.size(); i++)
 			{
