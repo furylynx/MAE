@@ -27,7 +27,7 @@ namespace mae
 			std::string::size_type pos = 0;
 
 			std::string message_closer = "</message>";
-			std::string nsp = "=\"http://www.example.org/maeeventing\"";
+			std::string nsp = "=\"http://www.example.org/maeeventing";
 
 			while (!found_nsp && pos < message.length())
 			{
@@ -41,7 +41,7 @@ namespace mae
 						{
 							found_nsp = true;
 							std::stringstream sstr;
-							sstr << "</" << message.substr(pos + 6, i - pos + 6) << ":message>";
+							sstr << "</" << message.substr(pos + 6, i - (pos + 6)) << ":message>";
 							message_closer = sstr.str();
 							break;
 						}

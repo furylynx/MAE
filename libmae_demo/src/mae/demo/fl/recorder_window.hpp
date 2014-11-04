@@ -95,7 +95,7 @@ namespace mae
 					TTF_Font* font_;
 
 					const char* wait_str = "Waiting for user...";
-					const SDL_Color text_color = {0xe1, 0x71, 0x00, 0xff};
+					const SDL_Color TEXTCOLOR = {0xe1, 0x71, 0x00, 0xff};
 
 					/**
 					 * Initializes all required surfaces. May fail with an exception, but will release all surface before this.

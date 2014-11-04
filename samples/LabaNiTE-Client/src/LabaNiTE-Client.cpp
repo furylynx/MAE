@@ -24,15 +24,14 @@ int main()
 	std::cout << "LabaNiTE-Client started." << std::endl;
 
 	std::cout << "Setting up the client...";
-	mae::eventing::fl::fl_client client("localhost", mae::eventing::cs_base::get_default_port(), "BarneyGumble");
+	mae::eventing::fl::fl_client client("localhost", mae::eventing::cs_base::get_default_port(), "BarneyGumble", false);
 	std::cout << "done." << std::endl;
 
-	std::shared_ptr<mae::demo::fl::recognition_window> rwin = std::shared_ptr<mae::demo::fl::recognition_window>(new mae::demo::fl::recognition_window("LabaNiTE-Client"));
+	std::shared_ptr<mae::demo::fl::recognition_window> rwin = std::shared_ptr<mae::demo::fl::recognition_window>(new mae::demo::fl::recognition_window("LabaNiTE-Client - Recognition Window"));
 	client.add_listener(rwin);
 
 	//run while thread performs actions
-	while(true)
-		;
+	getchar();
 
 	return 0;
 }
