@@ -157,6 +157,50 @@ namespace mae
 						font = nullptr;
 					}
 				}
+				else
+				{
+					if (current_sequence_title_.length() > 0)
+					{
+						//TODO print title to window -> use sdl_ttf
+						TTF_Font* font = TTF_OpenFontRW(
+								SDL_RWFromConstMem(res::droidsans_ttf.data, res::droidsans_ttf.size), 1, 45);
+
+						if (font != nullptr)
+						{
+							SDL_Surface* tmp_surface = TTF_RenderText_Solid(font, current_sequence_title_.c_str(),
+									TEXTCOLOR);
+
+							if (tmp_surface != nullptr)
+							{
+								SDL_Surface* txt_surface = SDL_ConvertSurface(tmp_surface, get_surface()->format, 0);
+
+								if (txt_surface != nullptr)
+								{
+									SDL_Rect offset_scale;
+									offset_scale.w = get_width() / 3;
+									offset_scale.h = (int) (txt_surface->h * ((get_width() / 3.0) / txt_surface->w));
+
+									offset_scale.x = get_width() / 2 - offset_scale.w / 2;
+									offset_scale.y = get_height() / 2 - offset_scale.h / 2;
+
+									SDL_BlitScaled(txt_surface, NULL, graphics, &offset_scale);
+								}
+
+								//free text surface
+								SDL_FreeSurface(txt_surface);
+								txt_surface = nullptr;
+							}
+
+							//Get rid of old loaded surface
+							SDL_FreeSurface(tmp_surface);
+							tmp_surface = nullptr;
+
+						}
+
+						TTF_CloseFont(font);
+						font = nullptr;
+					}
+				}
 			}
 
 			void recognition_window::handle_event(SDL_Event& e)
