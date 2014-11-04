@@ -132,8 +132,6 @@ namespace mae
 		{
 			SDL_Surface* screen_surface = SDL_GetWindowSurface(window_);
 
-			//TODO if background defined, draw on surface here...
-
 			paint(screen_surface);
 
 			SDL_UpdateWindowSurface(window_);

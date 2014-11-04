@@ -36,7 +36,7 @@ namespace mae
 					{
 						sstr << "\t";
 					}
-					sstr << "<title>" << sequence->get_title() << "</title>";
+					sstr << sequence->get_title();
 
 					return sstr.str();
 				}

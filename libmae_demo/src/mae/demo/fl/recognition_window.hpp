@@ -26,6 +26,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 namespace mae
 {
@@ -89,9 +90,12 @@ namespace mae
 					std::shared_ptr<laban_visualizer> visualizer_;
 
 					std::shared_ptr<mae::fl::laban::laban_sequence> current_sequence_;
+					std::string current_sequence_title_;
 
 					SDL_Surface* background_;
 					bool backgroundimage_;
+
+					const SDL_Color TEXTCOLOR = {0xe1, 0x71, 0x00, 0xff};
 
 					/**
 					 * Initializes all required surfaces. May fail with an exception, but will release all surface before this.
