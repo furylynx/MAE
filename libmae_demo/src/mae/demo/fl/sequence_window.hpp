@@ -40,6 +40,8 @@ namespace mae
 					/**
 					 * Creates a new SDL window for generated laban_sequences with the given parameters.
 					 *
+					 * Must be invoked from the main thread.
+					 *
 					 * @param title The window title.
 					 * @param backgroundimage True if background image is desired.
 					 * @param width The window width.

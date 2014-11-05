@@ -30,8 +30,21 @@ int main()
 	std::shared_ptr<mae::demo::fl::recognition_window> rwin = std::shared_ptr<mae::demo::fl::recognition_window>(new mae::demo::fl::recognition_window("LabaNiTE-Client - Recognition Window"));
 	client.add_listener(rwin);
 
+//	mae::fl::laban::laban_sequence_reader sr = mae::fl::laban::laban_sequence_reader();
+//	std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > sevec;
+//	sevec.push_back(sr.read_sequence_file("/home/keks/mae/raise_arms.laban"));
+//	rwin->on_recognition(0, sevec);
+
+//	std::vector<std::string> tivec;
+//	tivec.push_back("TestTitel");
+//	rwin->on_recognition(0, tivec);
+
 	//run while thread performs actions
-	getchar();
+	while(true)
+	{
+		//update the windows (includes polling events and repainting)
+		mae::demo::sdl_window::update();
+	}
 
 	return 0;
 }
