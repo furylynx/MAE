@@ -18,6 +18,9 @@ namespace mae
 					int x_pos, int y_pos, Uint32 flags)
 					: sdl_window(title, width, height, x_pos, y_pos, flags)
 			{
+				//TODO
+				std::cout << "sequence window" << std::endl;
+
 				background_ = nullptr;
 				backgroundimage_ = backgroundimage;
 
