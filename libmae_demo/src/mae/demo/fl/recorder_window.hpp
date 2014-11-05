@@ -35,6 +35,8 @@ namespace mae
 					/**
 					 * Creates a new recorder window to print countdowns and the currently recorded sequence.
 					 *
+					 * Must be invoked from the main thread.
+					 *
 					 * @param title The window title.
 					 * @param backgroundimage True if background image is desired.
 					 * @param width The width.
