@@ -12,13 +12,15 @@
 #include "../indexer_fix.hpp"
 
 //custom includes
-
+#include "sdl_window_item.hpp"
 
 //global includes
+#include <iostream>
 #include <memory>
 #include <vector>
 #include <string>
 #include <thread>
+#include <mutex>
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
@@ -33,6 +35,8 @@ namespace mae
 			public:
 				/**
 				 * Creates a new SDL window.
+				 *
+				 * Must be invoked from the main thread.
 				 *
 				 * @param title The window title.
 				 * @param width The window's width.
@@ -56,7 +60,7 @@ namespace mae
 
 				 * @return The title.
 				 */
-				virtual std::string get_title();
+				virtual std::string get_title() const;
 
 				/**
 				 * Returns the window's width.
@@ -70,7 +74,7 @@ namespace mae
 				 *
 				 * @return The height.
 				 */
-				virtual int get_width();
+				virtual int get_width() const;
 
 				/**
 				 * Sets the window's height.
@@ -84,7 +88,7 @@ namespace mae
 				 *
 				 * @return The height.
 				 */
-				virtual int get_height();
+				virtual int get_height() const;
 
 				/**
 				 * Sets the window size.
@@ -100,17 +104,44 @@ namespace mae
 				virtual void repaint();
 
 				/**
+				 * Returns true if a repaint was requested recently.
+				 *
+				 * @return True if repaint was requested.
+				 */
+				virtual bool is_repaint_requested() const;
+
+				/**
 				 * Returns the pointer to the SDL_WINDOW which remains valid until this object gets destroyed.
 				 *
 				 * @return A pointer to the window.
 				 */
-				virtual SDL_Window* get();
+				virtual SDL_Window* get() const;
 
 				/**
 				 * Returns the pointer to the window's surface.
 				 * @return
 				 */
-				virtual SDL_Surface* get_surface();
+				virtual SDL_Surface* get_surface() const;
+
+				/**
+				 * Closes the window.
+				 */
+				virtual void close();
+
+				/**
+				 * Returns true if the window is closed.
+				 *
+				 * @return True if closed
+				 */
+				virtual bool is_closed() const;
+
+				/**
+				 * Updates all living windows. This includes polling events as well as repaint jobs.
+				 *
+				 * This method must be invoked from the main thread of the program.
+				 *
+				 */
+				static void update();
 
 			protected:
 				/**
@@ -127,19 +158,25 @@ namespace mae
 				 */
 				virtual void paint(SDL_Surface* graphics);
 
+
+				/**
+				 * Does the actual repainting job.
+				 *
+				 */
+				virtual void do_repaint();
+
 			private:
 				std::string title_;
 				SDL_Window* window_;
 
+				bool repaint_requested_;
 
 
 				//****************
 				// static
 				//****************
 				static std::vector<sdl_window*> windows_;
-				static std::thread thread_;
 				static bool initialized_;
-				static bool exception_;
 
 				/**
 				 * Clears the window.
@@ -148,10 +185,6 @@ namespace mae
 				 */
 				static void remove_window(sdl_window* window);
 
-				/**
-				 * The window thread.
-				 */
-				static void sdl_run();
 		};
 
 	} // namespace demo

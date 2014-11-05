@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/mae/demo/sdl_window.cpp 
+../src/mae/demo/sdl_window.cpp \
+../src/mae/demo/sdl_window_item.cpp 
 
 OBJS += \
-./src/mae/demo/sdl_window.o 
+./src/mae/demo/sdl_window.o \
+./src/mae/demo/sdl_window_item.o 
 
 CPP_DEPS += \
-./src/mae/demo/sdl_window.d 
+./src/mae/demo/sdl_window.d \
+./src/mae/demo/sdl_window_item.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
