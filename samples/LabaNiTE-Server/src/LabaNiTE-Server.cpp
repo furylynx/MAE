@@ -235,6 +235,9 @@ int main()
 		std::cout << "started processing..." << std::endl;
 		while (!nitef.was_keyboard_hit())
 		{
+			//update the windows (includes polling events and repainting)
+			mae::demo::sdl_window::update();
+
 			std::vector<std::shared_ptr<mae::general_skeleton> > skeletons = nitef.wait_for_update();
 			if (skeletons.size() > 0 && skeletons.at(0) != nullptr)
 			{
