@@ -1,0 +1,268 @@
+\hypertarget{classmae_1_1nite_1_1nite__controller}{\section{mae\-:\-:nite\-:\-:nite\-\_\-controller Class Reference}
+\label{classmae_1_1nite_1_1nite__controller}\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1nite_1_1nite__controller_a57102a75fb84fb61e2b984012cbb3e3d}{nite\-\_\-controller} (std\-::string config\-\_\-path, unsigned int max\-\_\-users=15, bool debug=false)
+\item 
+\hyperlink{classmae_1_1nite_1_1nite__controller_aa9893d8cef1710166e74680868864340}{nite\-\_\-controller} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1nite_1_1device__info}{device\-\_\-info} $>$ devi\-\_\-info, std\-::string config\-\_\-path, unsigned int max\-\_\-users=15, bool debug=false)
+\item 
+virtual std\-::vector\\*
+$<$ std\-::shared\-\_\-ptr\\*
+$<$ mae\-::general\-\_\-skeleton $>$ $>$ \hyperlink{classmae_1_1nite_1_1nite__controller_a1a421a0c7e3c85b1ad51bf02024a0621}{wait\-\_\-for\-\_\-update} (unsigned int each\-\_\-n\-\_\-frames=1)
+\item 
+virtual bool \hyperlink{classmae_1_1nite_1_1nite__controller_abce55c613c5ab51b839b89f40dba9564}{was\-\_\-keyboard\-\_\-hit} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classmae_1_1nite_1_1nite__controller_adb0221b3c31c8209450641ace0224c9d}{xn\-\_\-was\-\_\-keyboard\-\_\-hit} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classmae_1_1nite_1_1nite__controller_ae2c0271071c7395e21e16930e8b0f950}{initialize} ()
+\item 
+virtual bool \hyperlink{classmae_1_1nite_1_1nite__controller_a7b7f0f0a36813a535383d27638501a53}{file\-\_\-exists} (const char $\ast$file) const 
+\item 
+virtual void \hyperlink{classmae_1_1nite_1_1nite__controller_a33ad327be42da78a9fbf86bc85c970df}{check\-\_\-rc} (Xn\-Status n\-Ret\-Val, std\-::string what) const 
+\item 
+virtual void \hyperlink{classmae_1_1nite_1_1nite__controller_ab1d1249250dbff675ef6719d0651faf8}{cb\-\_\-user\-\_\-newuser} (xn\-::\-User\-Generator \&generator, Xn\-User\-I\-D new\-\_\-id)
+\item 
+virtual void \hyperlink{classmae_1_1nite_1_1nite__controller_a7bb1d6eb721bba6dae8d679cff75e2e5}{cb\-\_\-user\-\_\-lostuser} (xn\-::\-User\-Generator \&generator, Xn\-User\-I\-D new\-\_\-id)
+\item 
+virtual void \hyperlink{classmae_1_1nite_1_1nite__controller_a42d55d1d4c2094df70f4bd38944f73f5}{cb\-\_\-userpose\-\_\-posedetected} (xn\-::\-Pose\-Detection\-Capability \&capability, const Xn\-Char $\ast$str\-\_\-pose, Xn\-User\-I\-D new\-\_\-id)
+\item 
+virtual void \hyperlink{classmae_1_1nite_1_1nite__controller_a280e375f7105a9ab072a23c3ba14ad54}{cb\-\_\-usercalibration\-\_\-calibrationstart} (xn\-::\-Skeleton\-Capability \&capability, Xn\-User\-I\-D new\-\_\-id)
+\item 
+virtual void \hyperlink{classmae_1_1nite_1_1nite__controller_ac9b7019cbe960bd9ddd2f7a3479442ac}{cb\-\_\-usercalibration\-\_\-calibrationcomplete} (xn\-::\-Skeleton\-Capability \&capability, Xn\-User\-I\-D new\-\_\-id, Xn\-Calibration\-Status e\-\_\-status)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1nite_1_1nite__controller_a57102a75fb84fb61e2b984012cbb3e3d}{\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}!nite\-\_\-controller@{nite\-\_\-controller}}
+\index{nite\-\_\-controller@{nite\-\_\-controller}!mae::nite::nite_controller@{mae\-::nite\-::nite\-\_\-controller}}
+\subsubsection[{nite\-\_\-controller}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::nite\-::nite\-\_\-controller\-::nite\-\_\-controller (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{config\-\_\-path, }
+\item[{unsigned int}]{max\-\_\-users = {\ttfamily 15}, }
+\item[{bool}]{debug = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1nite_1_1nite__controller_a57102a75fb84fb61e2b984012cbb3e3d}
+Creates a new controller for an Open\-N\-I/\-Ni\-T\-E camera. The camera is selected by the configuration file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em config\-\_\-path} & The path to the X\-M\-L configuration for the camera. \\
+\hline
+{\em max\-\_\-users} & The maximal number of users. \\
+\hline
+{\em debug} & The debug flag. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1nite_1_1nite__controller_aa9893d8cef1710166e74680868864340}{\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}!nite\-\_\-controller@{nite\-\_\-controller}}
+\index{nite\-\_\-controller@{nite\-\_\-controller}!mae::nite::nite_controller@{mae\-::nite\-::nite\-\_\-controller}}
+\subsubsection[{nite\-\_\-controller}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::nite\-::nite\-\_\-controller\-::nite\-\_\-controller (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf device\-\_\-info} $>$}]{devi\-\_\-info, }
+\item[{std\-::string}]{config\-\_\-path, }
+\item[{unsigned int}]{max\-\_\-users = {\ttfamily 15}, }
+\item[{bool}]{debug = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1nite_1_1nite__controller_aa9893d8cef1710166e74680868864340}
+Creates a new controller for an Open\-N\-I/\-Ni\-T\-E camera. The camera is selected by the device information.
+
+
+\begin{DoxyParams}{Parameters}
+{\em devi\-\_\-info} & The device information. \\
+\hline
+{\em config\-\_\-path} & The path to the X\-M\-L configuration for the camera. \\
+\hline
+{\em max\-\_\-users} & The maximal number of users. \\
+\hline
+{\em debug} & The debug flag. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1nite_1_1nite__controller_a7bb1d6eb721bba6dae8d679cff75e2e5}{\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}!cb\-\_\-user\-\_\-lostuser@{cb\-\_\-user\-\_\-lostuser}}
+\index{cb\-\_\-user\-\_\-lostuser@{cb\-\_\-user\-\_\-lostuser}!mae::nite::nite_controller@{mae\-::nite\-::nite\-\_\-controller}}
+\subsubsection[{cb\-\_\-user\-\_\-lostuser}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::nite\-::nite\-\_\-controller\-::cb\-\_\-user\-\_\-lostuser (
+\begin{DoxyParamCaption}
+\item[{xn\-::\-User\-Generator \&}]{generator, }
+\item[{Xn\-User\-I\-D}]{new\-\_\-id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1nite__controller_a7bb1d6eb721bba6dae8d679cff75e2e5}
+Is invoked whenever a user is lost.
+
+
+\begin{DoxyParams}{Parameters}
+{\em generator} & The user generator. \\
+\hline
+{\em new\-\_\-id} & The user's id. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1nite_1_1nite__controller_ab1d1249250dbff675ef6719d0651faf8}{\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}!cb\-\_\-user\-\_\-newuser@{cb\-\_\-user\-\_\-newuser}}
+\index{cb\-\_\-user\-\_\-newuser@{cb\-\_\-user\-\_\-newuser}!mae::nite::nite_controller@{mae\-::nite\-::nite\-\_\-controller}}
+\subsubsection[{cb\-\_\-user\-\_\-newuser}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::nite\-::nite\-\_\-controller\-::cb\-\_\-user\-\_\-newuser (
+\begin{DoxyParamCaption}
+\item[{xn\-::\-User\-Generator \&}]{generator, }
+\item[{Xn\-User\-I\-D}]{new\-\_\-id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1nite__controller_ab1d1249250dbff675ef6719d0651faf8}
+Is invoked whenever a new user is detected.
+
+
+\begin{DoxyParams}{Parameters}
+{\em generator} & The user generator. \\
+\hline
+{\em new\-\_\-id} & The user's id. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1nite_1_1nite__controller_ac9b7019cbe960bd9ddd2f7a3479442ac}{\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}!cb\-\_\-usercalibration\-\_\-calibrationcomplete@{cb\-\_\-usercalibration\-\_\-calibrationcomplete}}
+\index{cb\-\_\-usercalibration\-\_\-calibrationcomplete@{cb\-\_\-usercalibration\-\_\-calibrationcomplete}!mae::nite::nite_controller@{mae\-::nite\-::nite\-\_\-controller}}
+\subsubsection[{cb\-\_\-usercalibration\-\_\-calibrationcomplete}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::nite\-::nite\-\_\-controller\-::cb\-\_\-usercalibration\-\_\-calibrationcomplete (
+\begin{DoxyParamCaption}
+\item[{xn\-::\-Skeleton\-Capability \&}]{capability, }
+\item[{Xn\-User\-I\-D}]{new\-\_\-id, }
+\item[{Xn\-Calibration\-Status}]{e\-\_\-status}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1nite__controller_ac9b7019cbe960bd9ddd2f7a3479442ac}
+Is invoked whenever the calibration for a user is complete.
+
+
+\begin{DoxyParams}{Parameters}
+{\em capability} & The detection capability. \\
+\hline
+{\em new\-\_\-id} & The user's id. \\
+\hline
+{\em e\-\_\-status} & The calibration status. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1nite_1_1nite__controller_a280e375f7105a9ab072a23c3ba14ad54}{\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}!cb\-\_\-usercalibration\-\_\-calibrationstart@{cb\-\_\-usercalibration\-\_\-calibrationstart}}
+\index{cb\-\_\-usercalibration\-\_\-calibrationstart@{cb\-\_\-usercalibration\-\_\-calibrationstart}!mae::nite::nite_controller@{mae\-::nite\-::nite\-\_\-controller}}
+\subsubsection[{cb\-\_\-usercalibration\-\_\-calibrationstart}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::nite\-::nite\-\_\-controller\-::cb\-\_\-usercalibration\-\_\-calibrationstart (
+\begin{DoxyParamCaption}
+\item[{xn\-::\-Skeleton\-Capability \&}]{capability, }
+\item[{Xn\-User\-I\-D}]{new\-\_\-id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1nite__controller_a280e375f7105a9ab072a23c3ba14ad54}
+Is invoked whenever the calibration for a user is started.
+
+
+\begin{DoxyParams}{Parameters}
+{\em capability} & The detection capability. \\
+\hline
+{\em new\-\_\-id} & The user's id. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1nite_1_1nite__controller_a42d55d1d4c2094df70f4bd38944f73f5}{\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}!cb\-\_\-userpose\-\_\-posedetected@{cb\-\_\-userpose\-\_\-posedetected}}
+\index{cb\-\_\-userpose\-\_\-posedetected@{cb\-\_\-userpose\-\_\-posedetected}!mae::nite::nite_controller@{mae\-::nite\-::nite\-\_\-controller}}
+\subsubsection[{cb\-\_\-userpose\-\_\-posedetected}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::nite\-::nite\-\_\-controller\-::cb\-\_\-userpose\-\_\-posedetected (
+\begin{DoxyParamCaption}
+\item[{xn\-::\-Pose\-Detection\-Capability \&}]{capability, }
+\item[{const Xn\-Char $\ast$}]{str\-\_\-pose, }
+\item[{Xn\-User\-I\-D}]{new\-\_\-id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1nite__controller_a42d55d1d4c2094df70f4bd38944f73f5}
+Is invoked whenever a pose is detected.
+
+
+\begin{DoxyParams}{Parameters}
+{\em capability} & The detection capability. \\
+\hline
+{\em str\-\_\-pose} & The pose char array. \\
+\hline
+{\em new\-\_\-id} & The user's id. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1nite_1_1nite__controller_a33ad327be42da78a9fbf86bc85c970df}{\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}!check\-\_\-rc@{check\-\_\-rc}}
+\index{check\-\_\-rc@{check\-\_\-rc}!mae::nite::nite_controller@{mae\-::nite\-::nite\-\_\-controller}}
+\subsubsection[{check\-\_\-rc}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::nite\-::nite\-\_\-controller\-::check\-\_\-rc (
+\begin{DoxyParamCaption}
+\item[{Xn\-Status}]{n\-Ret\-Val, }
+\item[{std\-::string}]{what}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1nite__controller_a33ad327be42da78a9fbf86bc85c970df}
+Checks the returned status for errors and throws an exception if any.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\-Ret\-Val} & The status to be checked. \\
+\hline
+{\em what} & The exception message to be sent. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1nite_1_1nite__controller_a7b7f0f0a36813a535383d27638501a53}{\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}!file\-\_\-exists@{file\-\_\-exists}}
+\index{file\-\_\-exists@{file\-\_\-exists}!mae::nite::nite_controller@{mae\-::nite\-::nite\-\_\-controller}}
+\subsubsection[{file\-\_\-exists}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::nite\-::nite\-\_\-controller\-::file\-\_\-exists (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{file}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1nite__controller_a7b7f0f0a36813a535383d27638501a53}
+Checks for existence of the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & The path to the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if existing. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1nite_1_1nite__controller_ae2c0271071c7395e21e16930e8b0f950}{\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}!initialize@{initialize}}
+\index{initialize@{initialize}!mae::nite::nite_controller@{mae\-::nite\-::nite\-\_\-controller}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::nite\-::nite\-\_\-controller\-::initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1nite__controller_ae2c0271071c7395e21e16930e8b0f950}
+Initializes the controller. \hypertarget{classmae_1_1nite_1_1nite__controller_a1a421a0c7e3c85b1ad51bf02024a0621}{\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}!wait\-\_\-for\-\_\-update@{wait\-\_\-for\-\_\-update}}
+\index{wait\-\_\-for\-\_\-update@{wait\-\_\-for\-\_\-update}!mae::nite::nite_controller@{mae\-::nite\-::nite\-\_\-controller}}
+\subsubsection[{wait\-\_\-for\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::shared\-\_\-ptr$<$ mae\-::general\-\_\-skeleton $>$ $>$ mae\-::nite\-::nite\-\_\-controller\-::wait\-\_\-for\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{each\-\_\-n\-\_\-frames = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1nite__controller_a1a421a0c7e3c85b1ad51bf02024a0621}
+Waits until the next (n-\/th) frame is processed and returns the skeleton data on that frame. This is a blocking method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em each\-\_\-n\-\_\-frames} & The n-\/th frame to be processed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The skeleton data. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1nite_1_1nite__controller_abce55c613c5ab51b839b89f40dba9564}{\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}!was\-\_\-keyboard\-\_\-hit@{was\-\_\-keyboard\-\_\-hit}}
+\index{was\-\_\-keyboard\-\_\-hit@{was\-\_\-keyboard\-\_\-hit}!mae::nite::nite_controller@{mae\-::nite\-::nite\-\_\-controller}}
+\subsubsection[{was\-\_\-keyboard\-\_\-hit}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::nite\-::nite\-\_\-controller\-::was\-\_\-keyboard\-\_\-hit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1nite__controller_abce55c613c5ab51b839b89f40dba9564}
+Returns true if the keyboard was hit since the start of the program.
+
+\begin{DoxyReturn}{Returns}
+True if keyboard was hit. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1nite_1_1nite__controller_adb0221b3c31c8209450641ace0224c9d}{\index{mae\-::nite\-::nite\-\_\-controller@{mae\-::nite\-::nite\-\_\-controller}!xn\-\_\-was\-\_\-keyboard\-\_\-hit@{xn\-\_\-was\-\_\-keyboard\-\_\-hit}}
+\index{xn\-\_\-was\-\_\-keyboard\-\_\-hit@{xn\-\_\-was\-\_\-keyboard\-\_\-hit}!mae::nite::nite_controller@{mae\-::nite\-::nite\-\_\-controller}}
+\subsubsection[{xn\-\_\-was\-\_\-keyboard\-\_\-hit}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::nite\-::nite\-\_\-controller\-::xn\-\_\-was\-\_\-keyboard\-\_\-hit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1nite_1_1nite__controller_adb0221b3c31c8209450641ace0224c9d}
+Returns true if the keyboard was hit since the start of the program.
+
+\begin{DoxyReturn}{Returns}
+True if keyboard was hit. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/nite/nite\-\_\-controller.\-hpp\item 
+src/mae/nite/nite\-\_\-controller.\-cpp\end{DoxyCompactItemize}
