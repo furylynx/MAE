@@ -1,0 +1,121 @@
+\hypertarget{classmae_1_1demo_1_1fl_1_1pose__window}{\section{mae\-:\-:demo\-:\-:fl\-:\-:pose\-\_\-window Class Reference}
+\label{classmae_1_1demo_1_1fl_1_1pose__window}\index{mae\-::demo\-::fl\-::pose\-\_\-window@{mae\-::demo\-::fl\-::pose\-\_\-window}}
+}
+Inheritance diagram for mae\-:\-:demo\-:\-:fl\-:\-:pose\-\_\-window\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmae_1_1demo_1_1fl_1_1pose__window}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1demo_1_1fl_1_1pose__window_a63d9c4c64ec9471438da845fa0d9b92b}{pose\-\_\-window} (std\-::string title, bool backgroundimage=false, int width=1024, int height=576, int x\-\_\-pos=S\-D\-L\-\_\-\-W\-I\-N\-D\-O\-W\-P\-O\-S\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D, int y\-\_\-pos=S\-D\-L\-\_\-\-W\-I\-N\-D\-O\-W\-P\-O\-S\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D, Uint32 flags=S\-D\-L\-\_\-\-W\-I\-N\-D\-O\-W\-\_\-\-S\-H\-O\-W\-N)
+\item 
+virtual void \hyperlink{classmae_1_1demo_1_1fl_1_1pose__window_adadc757a6ee3c70e3b3bf3500af6f60a}{on\-\_\-pose} (long timestamp, std\-::shared\-\_\-ptr$<$ general\-\_\-pose $>$ pose)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classmae_1_1demo_1_1fl_1_1pose__window_ab0677340d0c6b80216eb78467a02449d}{paint} (S\-D\-L\-\_\-\-Surface $\ast$graphics)
+\item 
+virtual void \hyperlink{classmae_1_1demo_1_1fl_1_1pose__window_af7734881adeb962b6119ae7548513541}{handle\-\_\-event} (S\-D\-L\-\_\-\-Event \&e)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1demo_1_1fl_1_1pose__window_a63d9c4c64ec9471438da845fa0d9b92b}{\index{mae\-::demo\-::fl\-::pose\-\_\-window@{mae\-::demo\-::fl\-::pose\-\_\-window}!pose\-\_\-window@{pose\-\_\-window}}
+\index{pose\-\_\-window@{pose\-\_\-window}!mae::demo::fl::pose_window@{mae\-::demo\-::fl\-::pose\-\_\-window}}
+\subsubsection[{pose\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::demo\-::fl\-::pose\-\_\-window\-::pose\-\_\-window (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{title, }
+\item[{bool}]{backgroundimage = {\ttfamily false}, }
+\item[{int}]{width = {\ttfamily 1024}, }
+\item[{int}]{height = {\ttfamily 576}, }
+\item[{int}]{x\-\_\-pos = {\ttfamily SDL\-\_\-WINDOWPOS\-\_\-UNDEFINED}, }
+\item[{int}]{y\-\_\-pos = {\ttfamily SDL\-\_\-WINDOWPOS\-\_\-UNDEFINED}, }
+\item[{Uint32}]{flags = {\ttfamily SDL\-\_\-WINDOW\-\_\-SHOWN}}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1demo_1_1fl_1_1pose__window_a63d9c4c64ec9471438da845fa0d9b92b}
+Creates a window which shows poses for the input stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The window title. \\
+\hline
+{\em backgroundimage} & True if background image is desired. \\
+\hline
+{\em width} & The window's width. \\
+\hline
+{\em height} & The window's height. \\
+\hline
+{\em x\-\_\-pos} & The x position. \\
+\hline
+{\em y\-\_\-pos} & The y position. \\
+\hline
+{\em flags} & The window flags. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1demo_1_1fl_1_1pose__window_af7734881adeb962b6119ae7548513541}{\index{mae\-::demo\-::fl\-::pose\-\_\-window@{mae\-::demo\-::fl\-::pose\-\_\-window}!handle\-\_\-event@{handle\-\_\-event}}
+\index{handle\-\_\-event@{handle\-\_\-event}!mae::demo::fl::pose_window@{mae\-::demo\-::fl\-::pose\-\_\-window}}
+\subsubsection[{handle\-\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::demo\-::fl\-::pose\-\_\-window\-::handle\-\_\-event (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Event \&}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1demo_1_1fl_1_1pose__window_af7734881adeb962b6119ae7548513541}
+Paints content to the graphics element.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graphics} & The graphics element. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classmae_1_1demo_1_1sdl__window_a2bef43a55045075ff42c23a038245a5c}{mae\-::demo\-::sdl\-\_\-window}.
+
+\hypertarget{classmae_1_1demo_1_1fl_1_1pose__window_adadc757a6ee3c70e3b3bf3500af6f60a}{\index{mae\-::demo\-::fl\-::pose\-\_\-window@{mae\-::demo\-::fl\-::pose\-\_\-window}!on\-\_\-pose@{on\-\_\-pose}}
+\index{on\-\_\-pose@{on\-\_\-pose}!mae::demo::fl::pose_window@{mae\-::demo\-::fl\-::pose\-\_\-window}}
+\subsubsection[{on\-\_\-pose}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::demo\-::fl\-::pose\-\_\-window\-::on\-\_\-pose (
+\begin{DoxyParamCaption}
+\item[{long}]{timestamp, }
+\item[{std\-::shared\-\_\-ptr$<$ general\-\_\-pose $>$}]{pose}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1demo_1_1fl_1_1pose__window_adadc757a6ee3c70e3b3bf3500af6f60a}
+Is invoked each time a pose was quantized (which occurs on every frame).
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & The associated timestamp. \\
+\hline
+{\em pose} & The quantized pose. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1demo_1_1fl_1_1pose__window_ab0677340d0c6b80216eb78467a02449d}{\index{mae\-::demo\-::fl\-::pose\-\_\-window@{mae\-::demo\-::fl\-::pose\-\_\-window}!paint@{paint}}
+\index{paint@{paint}!mae::demo::fl::pose_window@{mae\-::demo\-::fl\-::pose\-\_\-window}}
+\subsubsection[{paint}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::demo\-::fl\-::pose\-\_\-window\-::paint (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{graphics}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1demo_1_1fl_1_1pose__window_ab0677340d0c6b80216eb78467a02449d}
+Handles the given event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The event. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classmae_1_1demo_1_1sdl__window_a3e9093b89993ebd52acbbc5d247750b8}{mae\-::demo\-::sdl\-\_\-window}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/demo/fl/pose\-\_\-window.\-hpp\item 
+src/mae/demo/fl/pose\-\_\-window.\-cpp\end{DoxyCompactItemize}
