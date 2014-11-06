@@ -1,0 +1,277 @@
+\hypertarget{classmae_1_1eventing_1_1server}{\section{mae\-:\-:eventing\-:\-:server$<$ T, U $>$ Class Template Reference}
+\label{classmae_1_1eventing_1_1server}\index{mae\-::eventing\-::server$<$ T, U $>$@{mae\-::eventing\-::server$<$ T, U $>$}}
+}
+Inheritance diagram for mae\-:\-:eventing\-:\-:server$<$ T, U $>$\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmae_1_1eventing_1_1server}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1eventing_1_1server_a89b0bb290292f4acc84148b7018e172f}{server} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1eventing_1_1i__sequence__serializer}{i\-\_\-sequence\-\_\-serializer}$<$ U $>$ $>$ serializer, movement\-\_\-controller$<$ T, U $>$ $\ast$mov\-\_\-controller=nullptr, uint16\-\_\-t port=\hyperlink{classmae_1_1eventing_1_1cs__base_a5c068f50b548ec7299133976c00fa5a4}{cs\-\_\-base\-::get\-\_\-default\-\_\-port}(), std\-::string password=\char`\"{}\char`\"{})
+\item 
+virtual void \hyperlink{classmae_1_1eventing_1_1server_a94954a9ac22bbd73c36886815822fb8c}{notify\-\_\-clients} (long timestamp, std\-::vector$<$ std\-::shared\-\_\-ptr$<$ U $>$ $>$ sequences)
+\item 
+virtual std\-::list\\*
+$<$ std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1eventing_1_1i__registration__manager}{i\-\_\-registration\-\_\-manager}$<$ U $>$ $>$ $>$ \hyperlink{classmae_1_1eventing_1_1server_acc7baf90eabaf3b7da1892d1ae95217e}{get\-\_\-registration\-\_\-managers} ()
+\item 
+virtual void \hyperlink{classmae_1_1eventing_1_1server_a7605c3953ad60a1ead4bc74c3085dcb5}{add\-\_\-registration\-\_\-manager} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1eventing_1_1i__registration__manager}{i\-\_\-registration\-\_\-manager}$<$ U $>$ $>$ manager)
+\item 
+virtual bool \hyperlink{classmae_1_1eventing_1_1server_a95e6e7b3e36fe6aaba85bbd5f4ca923f}{remove\-\_\-registration\-\_\-manager} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1eventing_1_1i__registration__manager}{i\-\_\-registration\-\_\-manager}$<$ U $>$ $>$ manager)
+\item 
+virtual void \hyperlink{classmae_1_1eventing_1_1server_ad2d13686ace9b9edac090834f82ef1b4}{register\-\_\-sequence} (std\-::shared\-\_\-ptr$<$ U $>$ sequence)
+\item 
+virtual void \hyperlink{classmae_1_1eventing_1_1server_adb20e7fbaa2413ea1897f2d0687c4e16}{on\-\_\-recognition} (long timestamp, std\-::vector$<$ std\-::shared\-\_\-ptr$<$ U $>$ $>$ sequences)
+\item 
+virtual void \hyperlink{classmae_1_1eventing_1_1server_a52c97fd5f391c6b26625201eb5d58c48}{on\-\_\-recognition} (long timestamp, std\-::vector$<$ std\-::string $>$ title)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classmae_1_1eventing_1_1server_a528106bf5539bc426074dd74aa601b4a}{handle\-\_\-initial\-\_\-message} (std\-::shared\-\_\-ptr$<$ boost\-::asio\-::ip\-::tcp\-::socket $>$ \hyperlink{classmae_1_1eventing_1_1client}{client}, std\-::string message, std\-::string server\-\_\-password)
+\item 
+virtual void \hyperlink{classmae_1_1eventing_1_1server_ab866e35c548b06b5dd4b0353fda29537}{handle\-\_\-further\-\_\-message} (std\-::shared\-\_\-ptr$<$ boost\-::asio\-::ip\-::tcp\-::socket $>$ \hyperlink{classmae_1_1eventing_1_1client}{client}, std\-::string message)
+\item 
+virtual std\-::string \hyperlink{classmae_1_1eventing_1_1server_a7d764a75a113c9dbe41d7cc21300ae4f}{create\-\_\-recognition\-\_\-message} (long timestamp, std\-::vector$<$ std\-::shared\-\_\-ptr$<$ U $>$ $>$ sequences, bool short\-\_\-message)
+\item 
+virtual void \hyperlink{classmae_1_1eventing_1_1server_a244c1e9b84052e3e745b39a8195550fc}{accept\-\_\-client} (std\-::shared\-\_\-ptr$<$ boost\-::asio\-::ip\-::tcp\-::socket $>$ connection, bool short\-\_\-message)
+\item 
+virtual void \hyperlink{classmae_1_1eventing_1_1server_a1835468f4fadde7ccbf888a2604f0845}{remove\-\_\-client} (std\-::shared\-\_\-ptr$<$ boost\-::asio\-::ip\-::tcp\-::socket $>$ connection)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1eventing_1_1server_a89b0bb290292f4acc84148b7018e172f}{\index{mae\-::eventing\-::server@{mae\-::eventing\-::server}!server@{server}}
+\index{server@{server}!mae::eventing::server@{mae\-::eventing\-::server}}
+\subsubsection[{server}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename U$>$ {\bf mae\-::eventing\-::server}$<$ T, U $>$\-::{\bf server} (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-sequence\-\_\-serializer}$<$ U $>$ $>$}]{serializer, }
+\item[{movement\-\_\-controller$<$ T, U $>$ $\ast$}]{mov\-\_\-controller = {\ttfamily nullptr}, }
+\item[{uint16\-\_\-t}]{port = {\ttfamily {\bf cs\-\_\-base\-::get\-\_\-default\-\_\-port}()}, }
+\item[{std\-::string}]{password = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1eventing_1_1server_a89b0bb290292f4acc84148b7018e172f}
+Creates a new server based on boost sockets.
+
+
+\begin{DoxyParams}{Parameters}
+{\em serializer} & The serializer which is used to parse received sequences and serialize outgoing ones. \\
+\hline
+{\em mov\-\_\-controller} & The movement controller to which sequences are registered if any received from a client. \\
+\hline
+{\em port} & The port to be worked on. \\
+\hline
+{\em password} & The server password. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1eventing_1_1server_a244c1e9b84052e3e745b39a8195550fc}{\index{mae\-::eventing\-::server@{mae\-::eventing\-::server}!accept\-\_\-client@{accept\-\_\-client}}
+\index{accept\-\_\-client@{accept\-\_\-client}!mae::eventing::server@{mae\-::eventing\-::server}}
+\subsubsection[{accept\-\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ void {\bf mae\-::eventing\-::server}$<$ T, U $>$\-::accept\-\_\-client (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ boost\-::asio\-::ip\-::tcp\-::socket $>$}]{connection, }
+\item[{bool}]{short\-\_\-message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1eventing_1_1server_a244c1e9b84052e3e745b39a8195550fc}
+Accepts a client and registers the requested message format.
+
+
+\begin{DoxyParams}{Parameters}
+{\em connection} & The client. \\
+\hline
+{\em short\-\_\-message} & The message format. True for short messages. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1eventing_1_1server_a7605c3953ad60a1ead4bc74c3085dcb5}{\index{mae\-::eventing\-::server@{mae\-::eventing\-::server}!add\-\_\-registration\-\_\-manager@{add\-\_\-registration\-\_\-manager}}
+\index{add\-\_\-registration\-\_\-manager@{add\-\_\-registration\-\_\-manager}!mae::eventing::server@{mae\-::eventing\-::server}}
+\subsubsection[{add\-\_\-registration\-\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U$>$ void {\bf mae\-::eventing\-::server}$<$ T, U $>$\-::add\-\_\-registration\-\_\-manager (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-registration\-\_\-manager}$<$ U $>$ $>$}]{manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1eventing_1_1server_a7605c3953ad60a1ead4bc74c3085dcb5}
+Adds another registration manager to the server. The registered managers handle received sequences that are intended to be added to a movement controller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em manager} & The manager. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1eventing_1_1server_a7d764a75a113c9dbe41d7cc21300ae4f}{\index{mae\-::eventing\-::server@{mae\-::eventing\-::server}!create\-\_\-recognition\-\_\-message@{create\-\_\-recognition\-\_\-message}}
+\index{create\-\_\-recognition\-\_\-message@{create\-\_\-recognition\-\_\-message}!mae::eventing::server@{mae\-::eventing\-::server}}
+\subsubsection[{create\-\_\-recognition\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U$>$ std\-::string {\bf mae\-::eventing\-::server}$<$ T, U $>$\-::create\-\_\-recognition\-\_\-message (
+\begin{DoxyParamCaption}
+\item[{long}]{timestamp, }
+\item[{std\-::vector$<$ std\-::shared\-\_\-ptr$<$ U $>$ $>$}]{sequences, }
+\item[{bool}]{short\-\_\-message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1eventing_1_1server_a7d764a75a113c9dbe41d7cc21300ae4f}
+Creates a recognition message which informs the client on recognized sequences. This method is invoked for each client.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & The timestamp of the recognition event. \\
+\hline
+{\em sequences} & The recognized sequences. \\
+\hline
+{\em short\-\_\-message} & True if the message is intended to be short. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The message string. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1eventing_1_1server_acc7baf90eabaf3b7da1892d1ae95217e}{\index{mae\-::eventing\-::server@{mae\-::eventing\-::server}!get\-\_\-registration\-\_\-managers@{get\-\_\-registration\-\_\-managers}}
+\index{get\-\_\-registration\-\_\-managers@{get\-\_\-registration\-\_\-managers}!mae::eventing::server@{mae\-::eventing\-::server}}
+\subsubsection[{get\-\_\-registration\-\_\-managers}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ std\-::list$<$ std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-registration\-\_\-manager}$<$ U $>$ $>$ $>$ {\bf mae\-::eventing\-::server}$<$ T, U $>$\-::get\-\_\-registration\-\_\-managers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1eventing_1_1server_acc7baf90eabaf3b7da1892d1ae95217e}
+Returns all registered registration managers.
+
+\begin{DoxyReturn}{Returns}
+The managers. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1eventing_1_1server_ab866e35c548b06b5dd4b0353fda29537}{\index{mae\-::eventing\-::server@{mae\-::eventing\-::server}!handle\-\_\-further\-\_\-message@{handle\-\_\-further\-\_\-message}}
+\index{handle\-\_\-further\-\_\-message@{handle\-\_\-further\-\_\-message}!mae::eventing::server@{mae\-::eventing\-::server}}
+\subsubsection[{handle\-\_\-further\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ void {\bf mae\-::eventing\-::server}$<$ T, U $>$\-::handle\-\_\-further\-\_\-message (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ boost\-::asio\-::ip\-::tcp\-::socket $>$}]{client, }
+\item[{std\-::string}]{message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1eventing_1_1server_ab866e35c548b06b5dd4b0353fda29537}
+Handles any further message received from the client. This message is the sequence registration message and if the sequence is parsed the register\-\_\-sequence method is invoked.
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & The client. \\
+\hline
+{\em message} & The received message. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1eventing_1_1server_a528106bf5539bc426074dd74aa601b4a}{\index{mae\-::eventing\-::server@{mae\-::eventing\-::server}!handle\-\_\-initial\-\_\-message@{handle\-\_\-initial\-\_\-message}}
+\index{handle\-\_\-initial\-\_\-message@{handle\-\_\-initial\-\_\-message}!mae::eventing::server@{mae\-::eventing\-::server}}
+\subsubsection[{handle\-\_\-initial\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ void {\bf mae\-::eventing\-::server}$<$ T, U $>$\-::handle\-\_\-initial\-\_\-message (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ boost\-::asio\-::ip\-::tcp\-::socket $>$}]{client, }
+\item[{std\-::string}]{message, }
+\item[{std\-::string}]{server\-\_\-password}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1eventing_1_1server_a528106bf5539bc426074dd74aa601b4a}
+Handles the initial message received from a newly connected client. If password is fine, the client is accepted and the accept\-\_\-client method is invoked.
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & The newly connected client. \\
+\hline
+{\em message} & The received message. \\
+\hline
+{\em server\-\_\-password} & The password for the server. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1eventing_1_1server_a94954a9ac22bbd73c36886815822fb8c}{\index{mae\-::eventing\-::server@{mae\-::eventing\-::server}!notify\-\_\-clients@{notify\-\_\-clients}}
+\index{notify\-\_\-clients@{notify\-\_\-clients}!mae::eventing::server@{mae\-::eventing\-::server}}
+\subsubsection[{notify\-\_\-clients}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U$>$ void {\bf mae\-::eventing\-::server}$<$ T, U $>$\-::notify\-\_\-clients (
+\begin{DoxyParamCaption}
+\item[{long}]{timestamp, }
+\item[{std\-::vector$<$ std\-::shared\-\_\-ptr$<$ U $>$ $>$}]{sequences}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1eventing_1_1server_a94954a9ac22bbd73c36886815822fb8c}
+Notifies all connected clients on recognized sequences.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & The timestamp. \\
+\hline
+{\em sequences} & The recognized sequences. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1eventing_1_1server_adb20e7fbaa2413ea1897f2d0687c4e16}{\index{mae\-::eventing\-::server@{mae\-::eventing\-::server}!on\-\_\-recognition@{on\-\_\-recognition}}
+\index{on\-\_\-recognition@{on\-\_\-recognition}!mae::eventing::server@{mae\-::eventing\-::server}}
+\subsubsection[{on\-\_\-recognition}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U$>$ void {\bf mae\-::eventing\-::server}$<$ T, U $>$\-::on\-\_\-recognition (
+\begin{DoxyParamCaption}
+\item[{long}]{timestamp, }
+\item[{std\-::vector$<$ std\-::shared\-\_\-ptr$<$ U $>$ $>$}]{sequences}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1eventing_1_1server_adb20e7fbaa2413ea1897f2d0687c4e16}
+Is invoked each time sequences were recognized.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & The associated timestamp. \\
+\hline
+{\em sequences} & The recognized sequences. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1eventing_1_1server_a52c97fd5f391c6b26625201eb5d58c48}{\index{mae\-::eventing\-::server@{mae\-::eventing\-::server}!on\-\_\-recognition@{on\-\_\-recognition}}
+\index{on\-\_\-recognition@{on\-\_\-recognition}!mae::eventing::server@{mae\-::eventing\-::server}}
+\subsubsection[{on\-\_\-recognition}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U$>$ void {\bf mae\-::eventing\-::server}$<$ T, U $>$\-::on\-\_\-recognition (
+\begin{DoxyParamCaption}
+\item[{long}]{timestamp, }
+\item[{std\-::vector$<$ std\-::string $>$}]{title}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1eventing_1_1server_a52c97fd5f391c6b26625201eb5d58c48}
+Is invoked each time sequences were recognized and only titles of the sequences are present.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & The associated timestamp. \\
+\hline
+{\em sequences} & The recognized sequences. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1eventing_1_1server_ad2d13686ace9b9edac090834f82ef1b4}{\index{mae\-::eventing\-::server@{mae\-::eventing\-::server}!register\-\_\-sequence@{register\-\_\-sequence}}
+\index{register\-\_\-sequence@{register\-\_\-sequence}!mae::eventing::server@{mae\-::eventing\-::server}}
+\subsubsection[{register\-\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U$>$ void {\bf mae\-::eventing\-::server}$<$ T, U $>$\-::register\-\_\-sequence (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ U $>$}]{sequence}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1eventing_1_1server_ad2d13686ace9b9edac090834f82ef1b4}
+Registers a sequence to the connected controller if any.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The sequence to be registered. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1eventing_1_1server_a1835468f4fadde7ccbf888a2604f0845}{\index{mae\-::eventing\-::server@{mae\-::eventing\-::server}!remove\-\_\-client@{remove\-\_\-client}}
+\index{remove\-\_\-client@{remove\-\_\-client}!mae::eventing::server@{mae\-::eventing\-::server}}
+\subsubsection[{remove\-\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ void {\bf mae\-::eventing\-::server}$<$ T, U $>$\-::remove\-\_\-client (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ boost\-::asio\-::ip\-::tcp\-::socket $>$}]{connection}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1eventing_1_1server_a1835468f4fadde7ccbf888a2604f0845}
+Removes the client from the connection list and closes the connection to the client.
+
+
+\begin{DoxyParams}{Parameters}
+{\em connection} & The client. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1eventing_1_1server_a95e6e7b3e36fe6aaba85bbd5f4ca923f}{\index{mae\-::eventing\-::server@{mae\-::eventing\-::server}!remove\-\_\-registration\-\_\-manager@{remove\-\_\-registration\-\_\-manager}}
+\index{remove\-\_\-registration\-\_\-manager@{remove\-\_\-registration\-\_\-manager}!mae::eventing::server@{mae\-::eventing\-::server}}
+\subsubsection[{remove\-\_\-registration\-\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U$>$ bool {\bf mae\-::eventing\-::server}$<$ T, U $>$\-::remove\-\_\-registration\-\_\-manager (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf i\-\_\-registration\-\_\-manager}$<$ U $>$ $>$}]{manager}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1eventing_1_1server_a95e6e7b3e36fe6aaba85bbd5f4ca923f}
+Removes a registration manager from the controller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em manager} & The manager. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if successful. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/eventing/server.\-hpp\end{DoxyCompactItemize}

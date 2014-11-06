@@ -1,0 +1,123 @@
+\hypertarget{classmae_1_1demo_1_1fl_1_1sequence__window}{\section{mae\-:\-:demo\-:\-:fl\-:\-:sequence\-\_\-window Class Reference}
+\label{classmae_1_1demo_1_1fl_1_1sequence__window}\index{mae\-::demo\-::fl\-::sequence\-\_\-window@{mae\-::demo\-::fl\-::sequence\-\_\-window}}
+}
+Inheritance diagram for mae\-:\-:demo\-:\-:fl\-:\-:sequence\-\_\-window\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.573034cm]{classmae_1_1demo_1_1fl_1_1sequence__window}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1demo_1_1fl_1_1sequence__window_a0f686b60ca61a3a328cd69e01912db09}{sequence\-\_\-window} (std\-::string title, bool backgroundimage=false, int width=1024, int height=576, int x\-\_\-pos=S\-D\-L\-\_\-\-W\-I\-N\-D\-O\-W\-P\-O\-S\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D, int y\-\_\-pos=S\-D\-L\-\_\-\-W\-I\-N\-D\-O\-W\-P\-O\-S\-\_\-\-U\-N\-D\-E\-F\-I\-N\-E\-D, Uint32 flags=S\-D\-L\-\_\-\-W\-I\-N\-D\-O\-W\-\_\-\-S\-H\-O\-W\-N)
+\item 
+virtual void \hyperlink{classmae_1_1demo_1_1fl_1_1sequence__window_a392112be053c0f58e9d26cb5b1d4109a}{on\-\_\-sequence} (long timestamp, std\-::shared\-\_\-ptr$<$ mae\-::fl\-::laban\-::laban\-\_\-sequence $>$ sequence)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classmae_1_1demo_1_1fl_1_1sequence__window_ab70f1dfc88bf7c113f2b72f29bf9811d}{paint} (S\-D\-L\-\_\-\-Surface $\ast$graphics)
+\item 
+virtual void \hyperlink{classmae_1_1demo_1_1fl_1_1sequence__window_aa84337da46e012c45d49462641d61f55}{handle\-\_\-event} (S\-D\-L\-\_\-\-Event \&e)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1demo_1_1fl_1_1sequence__window_a0f686b60ca61a3a328cd69e01912db09}{\index{mae\-::demo\-::fl\-::sequence\-\_\-window@{mae\-::demo\-::fl\-::sequence\-\_\-window}!sequence\-\_\-window@{sequence\-\_\-window}}
+\index{sequence\-\_\-window@{sequence\-\_\-window}!mae::demo::fl::sequence_window@{mae\-::demo\-::fl\-::sequence\-\_\-window}}
+\subsubsection[{sequence\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::demo\-::fl\-::sequence\-\_\-window\-::sequence\-\_\-window (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{title, }
+\item[{bool}]{backgroundimage = {\ttfamily false}, }
+\item[{int}]{width = {\ttfamily 1024}, }
+\item[{int}]{height = {\ttfamily 576}, }
+\item[{int}]{x\-\_\-pos = {\ttfamily SDL\-\_\-WINDOWPOS\-\_\-UNDEFINED}, }
+\item[{int}]{y\-\_\-pos = {\ttfamily SDL\-\_\-WINDOWPOS\-\_\-UNDEFINED}, }
+\item[{Uint32}]{flags = {\ttfamily SDL\-\_\-WINDOW\-\_\-SHOWN}}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1demo_1_1fl_1_1sequence__window_a0f686b60ca61a3a328cd69e01912db09}
+Creates a new S\-D\-L window for generated laban\-\_\-sequences with the given parameters.
+
+Must be invoked from the main thread.
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The window title. \\
+\hline
+{\em backgroundimage} & True if background image is desired. \\
+\hline
+{\em width} & The window width. \\
+\hline
+{\em height} & The window height. \\
+\hline
+{\em x\-\_\-pos} & The window's x position. \\
+\hline
+{\em y\-\_\-pos} & The window's y position. \\
+\hline
+{\em flags} & The window flags. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1demo_1_1fl_1_1sequence__window_aa84337da46e012c45d49462641d61f55}{\index{mae\-::demo\-::fl\-::sequence\-\_\-window@{mae\-::demo\-::fl\-::sequence\-\_\-window}!handle\-\_\-event@{handle\-\_\-event}}
+\index{handle\-\_\-event@{handle\-\_\-event}!mae::demo::fl::sequence_window@{mae\-::demo\-::fl\-::sequence\-\_\-window}}
+\subsubsection[{handle\-\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::demo\-::fl\-::sequence\-\_\-window\-::handle\-\_\-event (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Event \&}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1demo_1_1fl_1_1sequence__window_aa84337da46e012c45d49462641d61f55}
+Paints content to the graphics element.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graphics} & The graphics element. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classmae_1_1demo_1_1sdl__window_a2bef43a55045075ff42c23a038245a5c}{mae\-::demo\-::sdl\-\_\-window}.
+
+\hypertarget{classmae_1_1demo_1_1fl_1_1sequence__window_a392112be053c0f58e9d26cb5b1d4109a}{\index{mae\-::demo\-::fl\-::sequence\-\_\-window@{mae\-::demo\-::fl\-::sequence\-\_\-window}!on\-\_\-sequence@{on\-\_\-sequence}}
+\index{on\-\_\-sequence@{on\-\_\-sequence}!mae::demo::fl::sequence_window@{mae\-::demo\-::fl\-::sequence\-\_\-window}}
+\subsubsection[{on\-\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::demo\-::fl\-::sequence\-\_\-window\-::on\-\_\-sequence (
+\begin{DoxyParamCaption}
+\item[{long}]{timestamp, }
+\item[{std\-::shared\-\_\-ptr$<$ mae\-::fl\-::laban\-::laban\-\_\-sequence $>$}]{sequence}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1demo_1_1fl_1_1sequence__window_a392112be053c0f58e9d26cb5b1d4109a}
+Is invoked each time a sequence was generated (which occurs on every frame).
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & The associated timestamp. \\
+\hline
+{\em sequence} & The generated sequence. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1demo_1_1fl_1_1sequence__window_ab70f1dfc88bf7c113f2b72f29bf9811d}{\index{mae\-::demo\-::fl\-::sequence\-\_\-window@{mae\-::demo\-::fl\-::sequence\-\_\-window}!paint@{paint}}
+\index{paint@{paint}!mae::demo::fl::sequence_window@{mae\-::demo\-::fl\-::sequence\-\_\-window}}
+\subsubsection[{paint}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::demo\-::fl\-::sequence\-\_\-window\-::paint (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{graphics}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classmae_1_1demo_1_1fl_1_1sequence__window_ab70f1dfc88bf7c113f2b72f29bf9811d}
+Handles the given event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The event. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classmae_1_1demo_1_1sdl__window_a3e9093b89993ebd52acbbc5d247750b8}{mae\-::demo\-::sdl\-\_\-window}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/demo/fl/sequence\-\_\-window.\-hpp\item 
+src/mae/demo/fl/sequence\-\_\-window.\-cpp\end{DoxyCompactItemize}
