@@ -43,3 +43,8 @@ See code comments for documentation. This project has no doxygen comments since 
 one main method.
 
 
+Configuration
+==================
+
+In order to configure the tool, the config.ini file can be used. It must be placed in the folder
+where the binary is executed. See the config.ini for more information.
