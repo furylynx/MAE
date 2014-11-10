@@ -37,8 +37,9 @@ namespace mae
 					 * @param mov_controller The movement controller to which sequences are registered if any received from a client.
 					 * @param port The port to be worked on.
 					 * @param password The server password.
+					 * @param debug True for debug output.
 					 */
-					fl_server(mae::fl::fl_movement_controller* mov_controller = nullptr, uint16_t port = cs_base::get_default_port(), std::string password = "");
+					fl_server(mae::fl::fl_movement_controller* mov_controller = nullptr, uint16_t port = cs_base::get_default_port(), std::string password = "", bool debug = false);
 					virtual ~fl_server();
 
 			};

@@ -50,6 +50,8 @@ namespace mae
 					 */
 					virtual std::shared_ptr<mae::fl::laban::laban_sequence> deserialize(std::string sequence);
 
+					virtual std::string get_title(std::shared_ptr<mae::fl::laban::laban_sequence> sequence) const;
+
 				private:
 					mae::fl::laban::laban_sequence_reader laban_reader_;
 
