@@ -47,6 +47,11 @@ namespace mae
 				return laban_reader_.read_sequence_str(sequence);
 			}
 
+			std::string laban_serializer::get_title(std::shared_ptr<mae::fl::laban::laban_sequence> sequence) const
+			{
+				return sequence->get_title();
+			}
+
 		} // namespace fl
 	} // namespace eventing
 } // namespace mae
