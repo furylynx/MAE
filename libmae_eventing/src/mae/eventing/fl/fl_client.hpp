@@ -35,8 +35,9 @@ namespace mae
 					 * @param port The port to be connected to.
 					 * @param password The server password.
 					 * @param short_sequences True if sequences shall be of short format (only sequence titles).
+					 * @param debug True for debug output.
 					 */
-					fl_client(std::string uri, uint16_t port = cs_base::get_default_port(), std::string password = "", bool short_sequences = false);
+					fl_client(std::string uri, uint16_t port = cs_base::get_default_port(), std::string password = "", bool short_sequences = false, bool debug = false);
 					virtual ~fl_client();
 			};
 

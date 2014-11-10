@@ -37,6 +37,8 @@ int main()
 	std::string port_str = "1300";
 	uint16_t port = mae::eventing::cs_base::get_default_port();
 	std::string password = "";
+	std::string short_messages_str = "true";
+	bool short_messages = true;
 
 	std::cout << "Loading the configuration...";
 	mae::ini_reader ini_reader = mae::ini_reader("config.ini");
@@ -59,6 +61,10 @@ int main()
 	}
 	ini_reader.get_value_nex("socket", "password", &password);
 
+	if (ini_reader.get_value_nex("socket", "short_messages", &short_messages_str))
+	{
+		short_messages = mae::mbool::parse(short_messages_str);
+	}
 
 	std::cout << "done." << std::endl;
 
@@ -72,7 +78,7 @@ int main()
 	std::cout << "Setting up the client...";
 	try
 	{
-		mae::eventing::fl::fl_client client(address, mae::eventing::cs_base::get_default_port(), "BarneyGumble", false);
+		mae::eventing::fl::fl_client client(address, port, password, short_messages, debug);
 		std::cout << "done." << std::endl;
 
 		if (recognition_window)
