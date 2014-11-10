@@ -7,6 +7,8 @@
 virtual std\-::string \hyperlink{classmae_1_1eventing_1_1i__sequence__serializer_a82204865ed1a9372dc67a3e67a8681e6}{serialize} (std\-::shared\-\_\-ptr$<$ U $>$ sequence, bool short\-\_\-type, bool no\-\_\-header=false, unsigned int indent=0, std\-::string namesp=\char`\"{}laban\char`\"{})=0
 \item 
 virtual std\-::shared\-\_\-ptr$<$ U $>$ \hyperlink{classmae_1_1eventing_1_1i__sequence__serializer_ad4b9b90fbaa232a0601956c93a4c407b}{deserialize} (std\-::string sequence)=0
+\item 
+virtual std\-::string \hyperlink{classmae_1_1eventing_1_1i__sequence__serializer_a8cb993c2ea78a5f7e467ea518eee333f}{get\-\_\-title} (std\-::shared\-\_\-ptr$<$ U $>$ sequence) const =0
 \end{DoxyCompactItemize}
 
 
@@ -31,6 +33,27 @@ The sequence object.
 
 
 Implemented in \hyperlink{classmae_1_1eventing_1_1fl_1_1laban__serializer_a67d675cf407100bfdb05375b27716674}{mae\-::eventing\-::fl\-::laban\-\_\-serializer}.
+
+\hypertarget{classmae_1_1eventing_1_1i__sequence__serializer_a8cb993c2ea78a5f7e467ea518eee333f}{\index{mae\-::eventing\-::i\-\_\-sequence\-\_\-serializer@{mae\-::eventing\-::i\-\_\-sequence\-\_\-serializer}!get\-\_\-title@{get\-\_\-title}}
+\index{get\-\_\-title@{get\-\_\-title}!mae::eventing::i_sequence_serializer@{mae\-::eventing\-::i\-\_\-sequence\-\_\-serializer}}
+\subsubsection[{get\-\_\-title}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename U$>$ virtual std\-::string {\bf mae\-::eventing\-::i\-\_\-sequence\-\_\-serializer}$<$ U $>$\-::get\-\_\-title (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ U $>$}]{sequence}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1eventing_1_1i__sequence__serializer_a8cb993c2ea78a5f7e467ea518eee333f}
+Returns the sequence title.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The sequence. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The title. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classmae_1_1eventing_1_1fl_1_1laban__serializer_a1a0154974e5fd20e82026320b27d945d}{mae\-::eventing\-::fl\-::laban\-\_\-serializer}.
 
 \hypertarget{classmae_1_1eventing_1_1i__sequence__serializer_a82204865ed1a9372dc67a3e67a8681e6}{\index{mae\-::eventing\-::i\-\_\-sequence\-\_\-serializer@{mae\-::eventing\-::i\-\_\-sequence\-\_\-serializer}!serialize@{serialize}}
 \index{serialize@{serialize}!mae::eventing::i_sequence_serializer@{mae\-::eventing\-::i\-\_\-sequence\-\_\-serializer}}

@@ -105,8 +105,8 @@ Inheritance diagram for mae::eventing::client&lt; U &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a373432ccb417f31d7e9d63bd7f85c315"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1eventing_1_1client.html#a373432ccb417f31d7e9d63bd7f85c315">client</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1eventing_1_1i__sequence__serializer.html">i_sequence_serializer</a>&lt; U &gt; &gt; serializer, std::string uri, uint16_t port=<a class="el" href="classmae_1_1eventing_1_1cs__base.html#a5c068f50b548ec7299133976c00fa5a4">cs_base::get_default_port</a>(), std::string password=&quot;&quot;, bool short_sequences=false)</td></tr>
-<tr class="separator:a373432ccb417f31d7e9d63bd7f85c315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa332e5c651789944e7871c1f3fd8cc8c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1eventing_1_1client.html#aa332e5c651789944e7871c1f3fd8cc8c">client</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1eventing_1_1i__sequence__serializer.html">i_sequence_serializer</a>&lt; U &gt; &gt; serializer, std::string uri, uint16_t port=<a class="el" href="classmae_1_1eventing_1_1cs__base.html#a5c068f50b548ec7299133976c00fa5a4">cs_base::get_default_port</a>(), std::string password=&quot;&quot;, bool short_sequences=false, bool debug=false)</td></tr>
+<tr class="separator:aa332e5c651789944e7871c1f3fd8cc8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d6b202397c1f209a7eb06f0270e26e7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1eventing_1_1client.html#a8d6b202397c1f209a7eb06f0270e26e7">register_sequence</a> (std::shared_ptr&lt; U &gt; sequence)</td></tr>
 <tr class="separator:a8d6b202397c1f209a7eb06f0270e26e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a386bcfe7d090b991ed4949856b092a67"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1eventing_1_1client.html#a386bcfe7d090b991ed4949856b092a67">add_listener</a> (std::shared_ptr&lt; i_recognition_listener&lt; U &gt; &gt; recognition_listener)</td></tr>
@@ -145,7 +145,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a5c068f50b548ec7299133976c00fa5a4 inherit pub_static_methods_classmae_1_1eventing_1_1cs__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a373432ccb417f31d7e9d63bd7f85c315"></a>
+<a class="anchor" id="aa332e5c651789944e7871c1f3fd8cc8c"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -179,7 +179,13 @@ template&lt;typename U&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>short_sequences</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>short_sequences</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>debug</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -196,6 +202,7 @@ template&lt;typename U&gt; </div>
     <tr><td class="paramname">port</td><td>The port on which the server operates. </td></tr>
     <tr><td class="paramname">password</td><td>The password for the server. </td></tr>
     <tr><td class="paramname">short_sequences</td><td>True for short sequences (e.g. only titles). </td></tr>
+    <tr><td class="paramname">debug</td><td>True for debug output. </td></tr>
   </table>
   </dd>
 </dl>
@@ -578,7 +585,7 @@ template&lt;typename U&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 6 2014 12:22:28 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 10 2014 12:21:33 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
