@@ -111,6 +111,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a67d675cf407100bfdb05375b27716674"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
 &lt; mae::fl::laban::laban_sequence &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1eventing_1_1fl_1_1laban__serializer.html#a67d675cf407100bfdb05375b27716674">deserialize</a> (std::string sequence)</td></tr>
 <tr class="separator:a67d675cf407100bfdb05375b27716674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a0154974e5fd20e82026320b27d945d"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1eventing_1_1fl_1_1laban__serializer.html#a1a0154974e5fd20e82026320b27d945d">get_title</a> (std::shared_ptr&lt; mae::fl::laban::laban_sequence &gt; sequence) const </td></tr>
+<tr class="separator:a1a0154974e5fd20e82026320b27d945d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a03724d2bfeb0bdd28b9ad471d07c1d98"></a>
@@ -161,6 +163,40 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The sequence object. </dd></dl>
 
 <p>Implements <a class="el" href="classmae_1_1eventing_1_1i__sequence__serializer.html#ad4b9b90fbaa232a0601956c93a4c407b">mae::eventing::i_sequence_serializer&lt; mae::fl::laban::laban_sequence &gt;</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a0154974e5fd20e82026320b27d945d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string mae::eventing::fl::laban_serializer::get_title </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; mae::fl::laban::laban_sequence &gt;&#160;</td>
+          <td class="paramname"><em>sequence</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the sequence title.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sequence</td><td>The sequence. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The title. </dd></dl>
+
+<p>Implements <a class="el" href="classmae_1_1eventing_1_1i__sequence__serializer.html#a8cb993c2ea78a5f7e467ea518eee333f">mae::eventing::i_sequence_serializer&lt; mae::fl::laban::laban_sequence &gt;</a>.</p>
 
 </div>
 </div>
@@ -233,7 +269,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 6 2014 12:22:30 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 10 2014 12:21:35 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

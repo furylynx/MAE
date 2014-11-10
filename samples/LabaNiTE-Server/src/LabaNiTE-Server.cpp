@@ -224,7 +224,7 @@ int main()
 		std::cout << "Setting up the server...";
 
 		std::shared_ptr<mae::eventing::fl::fl_server> server = std::shared_ptr<mae::eventing::fl::fl_server>(
-				new mae::eventing::fl::fl_server(&movement_controller, port, password));
+				new mae::eventing::fl::fl_server(&movement_controller, port, password, debug));
 		movement_controller.add_listener(server);
 
 		std::cout << "done." << std::endl;

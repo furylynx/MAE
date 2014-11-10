@@ -10,7 +10,7 @@ Inheritance diagram for mae\-:\-:eventing\-:\-:client$<$ U $>$\-:\begin{figure}[
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classmae_1_1eventing_1_1client_a373432ccb417f31d7e9d63bd7f85c315}{client} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1eventing_1_1i__sequence__serializer}{i\-\_\-sequence\-\_\-serializer}$<$ U $>$ $>$ serializer, std\-::string uri, uint16\-\_\-t port=\hyperlink{classmae_1_1eventing_1_1cs__base_a5c068f50b548ec7299133976c00fa5a4}{cs\-\_\-base\-::get\-\_\-default\-\_\-port}(), std\-::string password=\char`\"{}\char`\"{}, bool short\-\_\-sequences=false)
+\hyperlink{classmae_1_1eventing_1_1client_aa332e5c651789944e7871c1f3fd8cc8c}{client} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1eventing_1_1i__sequence__serializer}{i\-\_\-sequence\-\_\-serializer}$<$ U $>$ $>$ serializer, std\-::string uri, uint16\-\_\-t port=\hyperlink{classmae_1_1eventing_1_1cs__base_a5c068f50b548ec7299133976c00fa5a4}{cs\-\_\-base\-::get\-\_\-default\-\_\-port}(), std\-::string password=\char`\"{}\char`\"{}, bool short\-\_\-sequences=false, bool debug=false)
 \item 
 virtual void \hyperlink{classmae_1_1eventing_1_1client_a8d6b202397c1f209a7eb06f0270e26e7}{register\-\_\-sequence} (std\-::shared\-\_\-ptr$<$ U $>$ sequence)
 \item 
@@ -41,7 +41,7 @@ virtual void \hyperlink{classmae_1_1eventing_1_1client_a9b4b9b0cc974811fd4f2386c
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classmae_1_1eventing_1_1client_a373432ccb417f31d7e9d63bd7f85c315}{\index{mae\-::eventing\-::client@{mae\-::eventing\-::client}!client@{client}}
+\hypertarget{classmae_1_1eventing_1_1client_aa332e5c651789944e7871c1f3fd8cc8c}{\index{mae\-::eventing\-::client@{mae\-::eventing\-::client}!client@{client}}
 \index{client@{client}!mae::eventing::client@{mae\-::eventing\-::client}}
 \subsubsection[{client}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename U$>$ {\bf mae\-::eventing\-::client}$<$ U $>$\-::{\bf client} (
 \begin{DoxyParamCaption}
@@ -49,9 +49,10 @@ virtual void \hyperlink{classmae_1_1eventing_1_1client_a9b4b9b0cc974811fd4f2386c
 \item[{std\-::string}]{uri, }
 \item[{uint16\-\_\-t}]{port = {\ttfamily {\bf cs\-\_\-base\-::get\-\_\-default\-\_\-port}()}, }
 \item[{std\-::string}]{password = {\ttfamily \char`\"{}\char`\"{}}, }
-\item[{bool}]{short\-\_\-sequences = {\ttfamily false}}
+\item[{bool}]{short\-\_\-sequences = {\ttfamily false}, }
+\item[{bool}]{debug = {\ttfamily false}}
 \end{DoxyParamCaption}
-)}}\label{classmae_1_1eventing_1_1client_a373432ccb417f31d7e9d63bd7f85c315}
+)}}\label{classmae_1_1eventing_1_1client_aa332e5c651789944e7871c1f3fd8cc8c}
 Creates a new client that connects to the server.
 
 
@@ -65,6 +66,8 @@ Creates a new client that connects to the server.
 {\em password} & The password for the server. \\
 \hline
 {\em short\-\_\-sequences} & True for short sequences (e.\-g. only titles). \\
+\hline
+{\em debug} & True for debug output. \\
 \hline
 \end{DoxyParams}
 
