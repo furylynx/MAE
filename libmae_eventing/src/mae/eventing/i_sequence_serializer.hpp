@@ -44,6 +44,14 @@ namespace mae
 				 * @return The sequence object.
 				 */
 				virtual std::shared_ptr<U> deserialize(std::string sequence) = 0;
+
+				/**
+				 * Returns the sequence title.
+				 *
+				 * @param sequence The sequence.
+				 * @return The title.
+				 */
+				virtual std::string get_title(std::shared_ptr<U> sequence) const = 0;
 		};
 
 	} // namespace eventing
