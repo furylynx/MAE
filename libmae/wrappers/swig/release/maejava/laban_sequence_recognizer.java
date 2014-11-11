@@ -75,8 +75,9 @@ public class laban_sequence_recognizer extends laban_sequence_sequence_recognize
     w_e_boneJNI.laban_sequence_recognizer_set_recognition_tolerance(swigCPtr, this, tolerance);
   }
 
-  public SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__decision_forest_t get_decision_forest() {
-    return new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__decision_forest_t(w_e_boneJNI.laban_sequence_recognizer_get_decision_forest(swigCPtr, this), true);
+  public decision_forest get_decision_forest() {
+    long cPtr = w_e_boneJNI.laban_sequence_recognizer_get_decision_forest(swigCPtr, this);
+    return (cPtr == 0) ? null : new decision_forest(cPtr, true);
   }
 
   public void register_sequence(laban_sequence sequence) {

@@ -1,8 +1,13 @@
 package maejavasample;
 
-import maejava.general_joint;
+import maejava.bone;
+import maejava.bvh_controller;
+import maejava.bvh_spec;
+import maejava.column_definition;
+import maejava.fl_movement_controller;
 import maejava.general_skeleton;
-import maejava.i_pose_listener;
+import maejava.general_skeleton_vector;
+
 
 
 public class MAEJavaSample 
@@ -12,10 +17,19 @@ public class MAEJavaSample
 	{
 		System.loadLibrary("mae");
 		
-		general_skeleton skel = new general_skeleton();
-		skel.set_joint(1, new general_joint(1,2,3,0,1));
+		fl_movement_controller movementController = new fl_movement_controller(bone.default_bones(), column_definition.default_definitions());
+//		movementController.add_listener(new );
 		
+		bvh_controller bvhc = new bvh_controller();
 		
-		System.out.println(skel.str());
+		general_skeleton_vector data = bvhc.read_bvh_file("", bvh_spec.default_spec()).getFirst();
+
+		for (int i = 0; i < data.size(); i++)
+		{
+			general_skeleton skeleton = data.get(i);
+			
+			movementController.next_frame(i*30, skeleton);
+		}
+		
 	}
 }

@@ -10,7 +10,7 @@ package maejava;
 
 public class hierarchy {
   private long swigCPtr;
-  protected boolean swigCMemOwn;
+  private boolean swigCMemOwn;
 
   protected hierarchy(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -65,8 +65,9 @@ public class hierarchy {
     return w_e_boneJNI.hierarchy_str(swigCPtr, this);
   }
 
-  public static SWIGTYPE_p_std__shared_ptrT_mae__hierarchy_t default_hierarchy() {
-    return new SWIGTYPE_p_std__shared_ptrT_mae__hierarchy_t(w_e_boneJNI.hierarchy_default_hierarchy(), true);
+  public static hierarchy default_hierarchy() {
+    long cPtr = w_e_boneJNI.hierarchy_default_hierarchy();
+    return (cPtr == 0) ? null : new hierarchy(cPtr, true);
   }
 
 }

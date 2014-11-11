@@ -1584,6 +1584,28 @@ SWIGEXPORT jint JNICALL Java_maejava_w_1e_1boneJNI_bone_1RESERVED_1RIGHT_1LEFT_1
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1sequence_1listener(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *)new std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > >();
+  *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1laban_1sequence_1sequence_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *arg1 = (std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg1; 
+  delete arg1;
+}
+
+
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1string_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< std::string > *result = 0 ;
@@ -1760,6 +1782,28 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1string_1vector(JNIEnv
   (void)jenv;
   (void)jcls;
   arg1 = *(std::vector< std::string > **)&jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1recognition_1listener(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *)new std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > >();
+  *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1laban_1sequence_1recognition_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *arg1 = (std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg1; 
   delete arg1;
 }
 
@@ -2072,6 +2116,28 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_i_1pose_1listener_1on_1pose(J
   argp3 = *(std::shared_ptr< mae::general_pose > **)&jarg3; 
   if (argp3) arg3 = *argp3; 
   (arg1)->on_pose(arg2,arg3);
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1general_1skeleton_1pose_1detector(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::i_pose_detector< mae::general_skeleton > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (std::shared_ptr< mae::i_pose_detector< mae::general_skeleton > > *)new std::shared_ptr< mae::i_pose_detector< mae::general_skeleton > >();
+  *(std::shared_ptr< mae::i_pose_detector< mae::general_skeleton > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1general_1skeleton_1pose_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::shared_ptr< mae::i_pose_detector< mae::general_skeleton > > *arg1 = (std::shared_ptr< mae::i_pose_detector< mae::general_skeleton > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::shared_ptr< mae::i_pose_detector< mae::general_skeleton > > **)&jarg1; 
+  delete arg1;
 }
 
 
@@ -2474,7 +2540,9 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1hierarchy_1_1SWIG_10(JN
   (void)jenv;
   (void)jcls;
   result = (mae::hierarchy *)new mae::hierarchy();
-  *(mae::hierarchy **)&jresult = result; 
+  
+  *(std::shared_ptr<  mae::hierarchy > **)&jresult = result ? new std::shared_ptr<  mae::hierarchy >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
@@ -2491,30 +2559,38 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1hierarchy_1_1SWIG_11(JN
   argp1 = *(std::shared_ptr< mae::hierarchy_element > **)&jarg1; 
   if (argp1) arg1 = *argp1; 
   result = (mae::hierarchy *)new mae::hierarchy(arg1);
-  *(mae::hierarchy **)&jresult = result; 
+  
+  *(std::shared_ptr<  mae::hierarchy > **)&jresult = result ? new std::shared_ptr<  mae::hierarchy >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1hierarchy(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
+  std::shared_ptr< mae::hierarchy > *smartarg1 = 0 ;
   
   (void)jenv;
   (void)jcls;
-  arg1 = *(mae::hierarchy **)&jarg1; 
-  delete arg1;
+  
+  smartarg1 = *(std::shared_ptr<  mae::hierarchy > **)&jarg1;
+  arg1 = (mae::hierarchy *)(smartarg1 ? smartarg1->get() : 0); 
+  (void)arg1; delete smartarg1;
 }
 
 
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_hierarchy_1get_1root(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
+  std::shared_ptr< mae::hierarchy const > *smartarg1 = 0 ;
   std::shared_ptr< mae::hierarchy_element > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::hierarchy **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr< const mae::hierarchy > **)&jarg1;
+  arg1 = (mae::hierarchy *)(smartarg1 ? smartarg1->get() : 0); 
   result = ((mae::hierarchy const *)arg1)->get_root();
   *(std::shared_ptr< mae::hierarchy_element > **)&jresult = result ? new std::shared_ptr< mae::hierarchy_element >(result) : 0; 
   return jresult;
@@ -2524,13 +2600,16 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_hierarchy_1get_1root(JNIEnv 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_hierarchy_1set_1root(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
   std::shared_ptr< mae::hierarchy_element > arg2 ;
+  std::shared_ptr< mae::hierarchy > *smartarg1 = 0 ;
   std::shared_ptr< mae::hierarchy_element > *argp2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(mae::hierarchy **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr<  mae::hierarchy > **)&jarg1;
+  arg1 = (mae::hierarchy *)(smartarg1 ? smartarg1->get() : 0); 
   argp2 = *(std::shared_ptr< mae::hierarchy_element > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   (arg1)->set_root(arg2);
@@ -2540,12 +2619,15 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_hierarchy_1set_1root(JNIEnv *
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_hierarchy_1get_1element_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
+  std::shared_ptr< mae::hierarchy > *smartarg1 = 0 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::hierarchy **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr<  mae::hierarchy > **)&jarg1;
+  arg1 = (mae::hierarchy *)(smartarg1 ? smartarg1->get() : 0); 
   result = (arg1)->get_element_sequence();
   *(std::vector< std::shared_ptr< mae::hierarchy_element > > **)&jresult = new std::vector< std::shared_ptr< mae::hierarchy_element > >((const std::vector< std::shared_ptr< mae::hierarchy_element > > &)result); 
   return jresult;
@@ -2556,12 +2638,15 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_hierarchy_1at(JNIEnv *jenv, 
   jlong jresult = 0 ;
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
   int arg2 ;
+  std::shared_ptr< mae::hierarchy const > *smartarg1 = 0 ;
   mae::hierarchy_element *result = 0 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::hierarchy **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr< const mae::hierarchy > **)&jarg1;
+  arg1 = (mae::hierarchy *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (int)jarg2; 
   result = (mae::hierarchy_element *)((mae::hierarchy const *)arg1)->at(arg2);
   
@@ -2574,12 +2659,15 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_hierarchy_1at(JNIEnv *jenv, 
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_hierarchy_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
+  std::shared_ptr< mae::hierarchy const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::hierarchy **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr< const mae::hierarchy > **)&jarg1;
+  arg1 = (mae::hierarchy *)(smartarg1 ? smartarg1->get() : 0); 
   result = ((mae::hierarchy const *)arg1)->str();
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
@@ -2593,7 +2681,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_hierarchy_1default_1hierarch
   (void)jenv;
   (void)jcls;
   result = mae::hierarchy::default_hierarchy();
-  *(std::shared_ptr< mae::hierarchy > **)&jresult = new std::shared_ptr< mae::hierarchy >((const std::shared_ptr< mae::hierarchy > &)result); 
+  *(std::shared_ptr< mae::hierarchy > **)&jresult = result ? new std::shared_ptr< mae::hierarchy >(result) : 0; 
   return jresult;
 }
 
@@ -7473,7 +7561,9 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1decision_1forest_1_1SWI
   if (argp8) arg8 = *argp8; 
   arg9 = jarg9 ? true : false; 
   result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9);
-  *(mae::fl::laban::decision_forest **)&jresult = result; 
+  
+  *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::decision_forest >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
@@ -7521,7 +7611,9 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1decision_1forest_1_1SWI
   argp8 = *(std::shared_ptr< mae::fl::laban::rewriting_forest > **)&jarg8; 
   if (argp8) arg8 = *argp8; 
   result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
-  *(mae::fl::laban::decision_forest **)&jresult = result; 
+  
+  *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::decision_forest >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
@@ -7564,7 +7656,9 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1decision_1forest_1_1SWI
   argp7 = *(std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > **)&jarg7; 
   if (argp7) arg7 = *argp7; 
   result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
-  *(mae::fl::laban::decision_forest **)&jresult = result; 
+  
+  *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::decision_forest >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
@@ -7602,7 +7696,9 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1decision_1forest_1_1SWI
   arg5 = (mae::fl::laban::e_time_unit)jarg5; 
   arg6 = (double)jarg6; 
   result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4,arg5,arg6);
-  *(mae::fl::laban::decision_forest **)&jresult = result; 
+  
+  *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::decision_forest >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
@@ -7638,7 +7734,9 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1decision_1forest_1_1SWI
   arg4 = (unsigned int)jarg4; 
   arg5 = (mae::fl::laban::e_time_unit)jarg5; 
   result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4,arg5);
-  *(mae::fl::laban::decision_forest **)&jresult = result; 
+  
+  *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::decision_forest >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
@@ -7672,7 +7770,9 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1decision_1forest_1_1SWI
   arg3 = (unsigned int)jarg3; 
   arg4 = (unsigned int)jarg4; 
   result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4);
-  *(mae::fl::laban::decision_forest **)&jresult = result; 
+  
+  *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::decision_forest >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
@@ -7704,7 +7804,9 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1decision_1forest_1_1SWI
   arg2 = *argp2; 
   arg3 = (unsigned int)jarg3; 
   result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3);
-  *(mae::fl::laban::decision_forest **)&jresult = result; 
+  
+  *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::decision_forest >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
@@ -7734,7 +7836,9 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1decision_1forest_1_1SWI
   }
   arg2 = *argp2; 
   result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2);
-  *(mae::fl::laban::decision_forest **)&jresult = result; 
+  
+  *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::decision_forest >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
@@ -7755,7 +7859,9 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1decision_1forest_1_1SWI
   }
   arg1 = *argp1; 
   result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1);
-  *(mae::fl::laban::decision_forest **)&jresult = result; 
+  
+  *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::decision_forest >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
@@ -7767,29 +7873,37 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1decision_1forest_1_1SWI
   (void)jenv;
   (void)jcls;
   result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest();
-  *(mae::fl::laban::decision_forest **)&jresult = result; 
+  
+  *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::decision_forest >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
   return jresult;
 }
 
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1decision_1forest(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
+  std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
   
   (void)jenv;
   (void)jcls;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
-  delete arg1;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
+  (void)arg1; delete smartarg1;
 }
 
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1set_1recognition_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   double arg2 ;
+  std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (double)jarg2; 
   (arg1)->set_recognition_tolerance(arg2);
 }
@@ -7798,11 +7912,14 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1set_1recogn
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1set_1cooldown(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   bool arg2 ;
+  std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = jarg2 ? true : false; 
   (arg1)->set_cooldown(arg2);
 }
@@ -7811,12 +7928,15 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1set_1cooldo
 SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1get_1cooldown(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
+  std::shared_ptr< mae::fl::laban::decision_forest const > *smartarg1 = 0 ;
   bool result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   result = (bool)((mae::fl::laban::decision_forest const *)arg1)->get_cooldown();
   jresult = (jboolean)result; 
   return jresult;
@@ -7827,6 +7947,7 @@ SWIGEXPORT jint JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1get_1sequen
   jint jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
+  std::shared_ptr< mae::fl::laban::decision_forest const > *smartarg1 = 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
   int result;
   
@@ -7834,7 +7955,9 @@ SWIGEXPORT jint JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1get_1sequen
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   result = (int)((mae::fl::laban::decision_forest const *)arg1)->get_sequence_length(arg2);
@@ -7846,13 +7969,16 @@ SWIGEXPORT jint JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1get_1sequen
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1add_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
+  std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   (arg1)->add_sequence(arg2);
@@ -7863,6 +7989,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1remove_
   jboolean jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
+  std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
   bool result;
   
@@ -7870,7 +7997,9 @@ SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1remove_
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   result = (bool)(arg1)->remove_sequence(arg2);
@@ -7883,12 +8012,15 @@ SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1remove_
   jboolean jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   unsigned int arg2 ;
+  std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
   bool result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   arg2 = (unsigned int)jarg2; 
   result = (bool)(arg1)->remove_sequence(arg2);
   jresult = (jboolean)result; 
@@ -7898,11 +8030,14 @@ SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1remove_
 
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
+  std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   (arg1)->clear();
 }
 
@@ -7911,6 +8046,7 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1add_1rewrit
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > arg2 ;
   SwigValueWrapper< std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > arg3 ;
+  std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *argp2 ;
   std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *argp3 ;
   
@@ -7918,7 +8054,9 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1add_1rewrit
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   argp2 = *(std::vector< std::shared_ptr< mae::fl::laban::i_movement > > **)&jarg2; 
   if (!argp2) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::i_movement > >");
@@ -7938,12 +8076,15 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1add_1rewrit
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1add_1rewriting_1rule_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > arg2 ;
+  std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
   std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > *argp2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   argp2 = *(std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   (arg1)->add_rewriting_rule(arg2);
@@ -7954,6 +8095,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1recreate_1
   jlong jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
+  std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > result;
   
@@ -7961,7 +8103,9 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1recreate_1
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   result = (arg1)->recreate_sequence(arg2);
@@ -7973,12 +8117,15 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1recreate_1
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1get_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
+  std::shared_ptr< mae::fl::laban::decision_forest const > *smartarg1 = 0 ;
   SwigValueWrapper< std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   result = ((mae::fl::laban::decision_forest const *)arg1)->get_sequences();
   *(std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jresult = new std::list< std::shared_ptr< mae::fl::laban::laban_sequence > >((const std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > &)result); 
   return jresult;
@@ -7990,6 +8137,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1find_1subm
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
   std::vector< mae::bone > arg3 ;
+  std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
   std::vector< mae::bone > *argp3 ;
   SwigValueWrapper< std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > > result;
@@ -7999,7 +8147,9 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1find_1subm
   (void)jarg1_;
   (void)jarg2_;
   (void)jarg3_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   argp3 = *(std::vector< mae::bone > **)&jarg3; 
@@ -8017,12 +8167,15 @@ SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1find_1subm
 SWIGEXPORT jstring JNICALL Java_maejava_w_1e_1boneJNI_decision_1forest_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
+  std::shared_ptr< mae::fl::laban::decision_forest const > *smartarg1 = 0 ;
   std::string result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  arg1 = *(mae::fl::laban::decision_forest **)&jarg1; 
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
   result = ((mae::fl::laban::decision_forest const *)arg1)->str();
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
@@ -8376,14 +8529,14 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1recognizer_1
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1recognizer_1get_1decision_1forest(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
-  SwigValueWrapper< std::shared_ptr< mae::fl::laban::decision_forest > > result;
+  std::shared_ptr< mae::fl::laban::decision_forest > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   arg1 = *(mae::fl::laban::laban_sequence_recognizer **)&jarg1; 
   result = ((mae::fl::laban::laban_sequence_recognizer const *)arg1)->get_decision_forest();
-  *(std::shared_ptr< mae::fl::laban::decision_forest > **)&jresult = new std::shared_ptr< mae::fl::laban::decision_forest >((const std::shared_ptr< mae::fl::laban::decision_forest > &)result); 
+  *(std::shared_ptr< mae::fl::laban::decision_forest > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::decision_forest >(result) : 0; 
   return jresult;
 }
 
@@ -9266,14 +9419,15 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1co
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1add_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1add_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  SwigValueWrapper< std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > > arg2 ;
+  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
   std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
+  (void)jarg2_;
   arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
   argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
   if (!argp2) {
@@ -9285,14 +9439,15 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1co
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1remove_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1remove_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  SwigValueWrapper< std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > > arg2 ;
+  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
   std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
+  (void)jarg2_;
   arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
   argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
   if (!argp2) {
@@ -9304,14 +9459,15 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1co
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1add_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1add_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  SwigValueWrapper< std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > > arg2 ;
+  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
   std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
+  (void)jarg2_;
   arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
   argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
   if (!argp2) {
@@ -9323,14 +9479,15 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1co
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1remove_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1remove_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  SwigValueWrapper< std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > > arg2 ;
+  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
   std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
+  (void)jarg2_;
   arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
   argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
   if (!argp2) {
