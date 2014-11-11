@@ -104,20 +104,20 @@ public class fl_skel_laban_movement_controller {
     w_e_boneJNI.fl_skel_laban_movement_controller_remove_listener__SWIG_0(swigCPtr, this, i_pose_listener.getCPtr(pose_listener), pose_listener);
   }
 
-  public void add_listener(SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t sequence_listener) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_add_listener__SWIG_1(swigCPtr, this, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t.getCPtr(sequence_listener));
+  public void add_listener(laban_sequence_sequence_listener sequence_listener) {
+    w_e_boneJNI.fl_skel_laban_movement_controller_add_listener__SWIG_1(swigCPtr, this, laban_sequence_sequence_listener.getCPtr(sequence_listener), sequence_listener);
   }
 
-  public void remove_listener(SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t sequence_listener) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_remove_listener__SWIG_1(swigCPtr, this, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t.getCPtr(sequence_listener));
+  public void remove_listener(laban_sequence_sequence_listener sequence_listener) {
+    w_e_boneJNI.fl_skel_laban_movement_controller_remove_listener__SWIG_1(swigCPtr, this, laban_sequence_sequence_listener.getCPtr(sequence_listener), sequence_listener);
   }
 
-  public void add_listener(SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t recognition_listener) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_add_listener__SWIG_2(swigCPtr, this, SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t.getCPtr(recognition_listener));
+  public void add_listener(laban_sequence_recognition_listener recognition_listener) {
+    w_e_boneJNI.fl_skel_laban_movement_controller_add_listener__SWIG_2(swigCPtr, this, laban_sequence_recognition_listener.getCPtr(recognition_listener), recognition_listener);
   }
 
-  public void remove_listener(SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t recognition_listener) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_remove_listener__SWIG_2(swigCPtr, this, SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t.getCPtr(recognition_listener));
+  public void remove_listener(laban_sequence_recognition_listener recognition_listener) {
+    w_e_boneJNI.fl_skel_laban_movement_controller_remove_listener__SWIG_2(swigCPtr, this, laban_sequence_recognition_listener.getCPtr(recognition_listener), recognition_listener);
   }
 
   public void clear_listeners() {

@@ -10,7 +10,7 @@ package maejava;
 
 public class decision_forest {
   private long swigCPtr;
-  protected boolean swigCMemOwn;
+  private boolean swigCMemOwn;
 
   protected decision_forest(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;

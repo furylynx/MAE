@@ -21,6 +21,7 @@
 
 //templates
 %template (bone_vector) std::vector<mae::bone>;
+%template (general_skeleton_pose_detector) std::shared_ptr<mae::i_pose_detector<mae::general_skeleton> >;
 
 // Parse the original header file
 %include "../../../src/mae/i_pose_detector.hpp"
