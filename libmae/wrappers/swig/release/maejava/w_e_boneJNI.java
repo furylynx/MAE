@@ -65,6 +65,8 @@ public class w_e_boneJNI {
   public final static native long bone_default_bones();
   public final static native int bone_RESERVED_TOP_DOWN_get();
   public final static native int bone_RESERVED_RIGHT_LEFT_get();
+  public final static native long new_laban_sequence_sequence_listener();
+  public final static native void delete_laban_sequence_sequence_listener(long jarg1);
   public final static native long new_string_vector__SWIG_0();
   public final static native long new_string_vector__SWIG_1(long jarg1);
   public final static native long string_vector_size(long jarg1, string_vector jarg1_);
@@ -76,6 +78,8 @@ public class w_e_boneJNI {
   public final static native String string_vector_get(long jarg1, string_vector jarg1_, int jarg2);
   public final static native void string_vector_set(long jarg1, string_vector jarg1_, int jarg2, String jarg3);
   public final static native void delete_string_vector(long jarg1);
+  public final static native long new_laban_sequence_recognition_listener();
+  public final static native void delete_laban_sequence_recognition_listener(long jarg1);
   public final static native long new_int_list();
   public final static native long int_list_size(long jarg1, int_list jarg1_);
   public final static native boolean int_list_isEmpty(long jarg1, int_list jarg1_);
@@ -95,6 +99,8 @@ public class w_e_boneJNI {
   public final static native long general_pose_get_directions(long jarg1, general_pose jarg1_);
   public final static native void delete_i_pose_listener(long jarg1);
   public final static native void i_pose_listener_on_pose(long jarg1, i_pose_listener jarg1_, int jarg2, long jarg3, general_pose jarg3_);
+  public final static native long new_general_skeleton_pose_detector();
+  public final static native void delete_general_skeleton_pose_detector(long jarg1);
   public final static native long new_general_enriched_pose__SWIG_0();
   public final static native long new_general_enriched_pose__SWIG_1(long jarg1, general_pose jarg1_);
   public final static native void delete_general_enriched_pose(long jarg1);
@@ -484,10 +490,10 @@ public class w_e_boneJNI {
   public final static native long fl_skel_laban_movement_controller_get_current_sequence(long jarg1, fl_skel_laban_movement_controller jarg1_);
   public final static native void fl_skel_laban_movement_controller_add_listener__SWIG_0(long jarg1, fl_skel_laban_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
   public final static native void fl_skel_laban_movement_controller_remove_listener__SWIG_0(long jarg1, fl_skel_laban_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
-  public final static native void fl_skel_laban_movement_controller_add_listener__SWIG_1(long jarg1, fl_skel_laban_movement_controller jarg1_, long jarg2);
-  public final static native void fl_skel_laban_movement_controller_remove_listener__SWIG_1(long jarg1, fl_skel_laban_movement_controller jarg1_, long jarg2);
-  public final static native void fl_skel_laban_movement_controller_add_listener__SWIG_2(long jarg1, fl_skel_laban_movement_controller jarg1_, long jarg2);
-  public final static native void fl_skel_laban_movement_controller_remove_listener__SWIG_2(long jarg1, fl_skel_laban_movement_controller jarg1_, long jarg2);
+  public final static native void fl_skel_laban_movement_controller_add_listener__SWIG_1(long jarg1, fl_skel_laban_movement_controller jarg1_, long jarg2, laban_sequence_sequence_listener jarg2_);
+  public final static native void fl_skel_laban_movement_controller_remove_listener__SWIG_1(long jarg1, fl_skel_laban_movement_controller jarg1_, long jarg2, laban_sequence_sequence_listener jarg2_);
+  public final static native void fl_skel_laban_movement_controller_add_listener__SWIG_2(long jarg1, fl_skel_laban_movement_controller jarg1_, long jarg2, laban_sequence_recognition_listener jarg2_);
+  public final static native void fl_skel_laban_movement_controller_remove_listener__SWIG_2(long jarg1, fl_skel_laban_movement_controller jarg1_, long jarg2, laban_sequence_recognition_listener jarg2_);
   public final static native void fl_skel_laban_movement_controller_clear_listeners(long jarg1, fl_skel_laban_movement_controller jarg1_);
   public final static native void fl_skel_laban_movement_controller_notify_sequence_listeners(long jarg1, fl_skel_laban_movement_controller jarg1_, int jarg2, long jarg3, laban_sequence jarg3_);
   public final static native void fl_skel_laban_movement_controller_notify_recognition_listeners(long jarg1, fl_skel_laban_movement_controller jarg1_, int jarg2, long jarg3);

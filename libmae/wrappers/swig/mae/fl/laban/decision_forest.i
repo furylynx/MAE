@@ -25,6 +25,7 @@
 %}
 
 //shared_ptr
+%shared_ptr(mae::fl::laban::decision_forest);
 %shared_ptr(mae::fl::laban::laban_sequence);
 %shared_ptr(mae::fl::laban::column_definition);
 %shared_ptr(mae::fl::laban::decision_value<mae::fl::laban::i_movement, std::vector<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > >);

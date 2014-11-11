@@ -16,7 +16,7 @@
 
 //templates
 %template(string_vector) std::vector<std::string>;
-//TODO vector of sequences template arg
+%template (laban_sequence_recognition_listener) std::shared_ptr<mae::i_recognition_listener<mae::fl::laban::laban_sequence> >;
 
 // Parse the original header file
 %include "../../../src/mae/i_recognition_listener.hpp"

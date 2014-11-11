@@ -18,6 +18,7 @@
 //shared_ptr
 %shared_ptr(mae::hierarchy_element);
 
+
 //templates
 %template(hierarchy_element_vector) std::vector<std::shared_ptr<mae::hierarchy_element> >;
 

@@ -14,6 +14,7 @@
 //TODO sequence template arg
 
 //templates
+%template (laban_sequence_sequence_listener) std::shared_ptr<mae::i_sequence_listener<mae::fl::laban::laban_sequence> >;
 
 // Parse the original header file
 %include "../../../src/mae/i_sequence_listener.hpp"
