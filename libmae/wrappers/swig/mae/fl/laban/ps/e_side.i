@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_e_side
+%module(directors="1") w_e_side
 %{
 	#include "../../../src/mae/fl/laban/ps/e_side.hpp"
 %}

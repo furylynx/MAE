@@ -11,7 +11,7 @@
 
 
 //module definition
-%module w_pin
+%module(directors="1") w_pin
 %{
 	#include "../../../src/mae/fl/laban/mv/pin.hpp"
 %}

@@ -13,7 +13,7 @@
 
 
 //module definition
-%module w_relationship_bow
+%module(directors="1") w_relationship_bow
 %{
 	#include "../../../src/mae/fl/laban/relationship_bow.hpp"
 %}

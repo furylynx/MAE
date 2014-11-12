@@ -13,7 +13,7 @@
 
 
 //module definition
-%module w_room_direction
+%module(directors="1") w_room_direction
 %{
 	#include "../../../src/mae/fl/laban/room_direction.hpp"
 %}

@@ -9,7 +9,7 @@
 %include "exception.i"
 
 
-%module w_e_joint
+%module(directors="1") w_e_joint
 %{
  	#include "../../../src/mae/e_joint.hpp"
 %}

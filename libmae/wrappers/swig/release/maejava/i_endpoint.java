@@ -37,6 +37,21 @@ public class i_endpoint extends i_part {
     super.delete();
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.i_endpoint_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.i_endpoint_change_ownership(this, swigCPtr, true);
+  }
+
   public String xml(long indent, String namesp) {
     return w_e_boneJNI.i_endpoint_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
@@ -60,6 +75,11 @@ public class i_endpoint extends i_part {
 
   public boolean equals(i_endpoint a) {
     return w_e_boneJNI.i_endpoint_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
+  }
+
+  public i_endpoint() {
+    this(w_e_boneJNI.new_i_endpoint(), true);
+    w_e_boneJNI.i_endpoint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

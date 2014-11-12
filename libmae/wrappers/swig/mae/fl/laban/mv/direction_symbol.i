@@ -16,7 +16,7 @@
 
 
 //module definition
-%module w_direction_symbol
+%module(directors="1") w_direction_symbol
 %{
 	#include "../../../src/mae/fl/laban/mv/direction_symbol.hpp"
 %}

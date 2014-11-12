@@ -35,6 +35,21 @@ public class i_dec_maker {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.i_dec_maker_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.i_dec_maker_change_ownership(this, swigCPtr, true);
+  }
+
   public void set_recognition_tolerance(double tolerance) {
     w_e_boneJNI.i_dec_maker_set_recognition_tolerance(swigCPtr, this, tolerance);
   }
@@ -53,6 +68,11 @@ public class i_dec_maker {
 
   public boolean position_okay(double dist_to_last, double set_value, boolean check_startpose) {
     return w_e_boneJNI.i_dec_maker_position_okay(swigCPtr, this, dist_to_last, set_value, check_startpose);
+  }
+
+  public i_dec_maker() {
+    this(w_e_boneJNI.new_i_dec_maker(), true);
+    w_e_boneJNI.i_dec_maker_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

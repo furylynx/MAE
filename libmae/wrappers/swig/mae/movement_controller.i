@@ -18,7 +18,7 @@
 %include "exception.i"
 
 
-%module w_movement_controller
+%module(directors="1") w_movement_controller
 %{
 	#include "../../../src/mae/movement_controller.hpp"
 %}

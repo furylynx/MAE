@@ -35,6 +35,21 @@ public class i_pre_sign {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.i_pre_sign_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.i_pre_sign_change_ownership(this, swigCPtr, true);
+  }
+
   public String xml(long indent, String namesp) {
     return w_e_boneJNI.i_pre_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
@@ -57,6 +72,11 @@ public class i_pre_sign {
 
   public boolean equals(i_pre_sign a) {
     return w_e_boneJNI.i_pre_sign_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a);
+  }
+
+  public i_pre_sign() {
+    this(w_e_boneJNI.new_i_pre_sign(), true);
+    w_e_boneJNI.i_pre_sign_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

@@ -13,7 +13,7 @@
 
 
 //module definition
-%module w_turn_symbol
+%module(directors="1") w_turn_symbol
 %{
 	#include "../../../src/mae/fl/laban/mv/turn_symbol.hpp"
 %}

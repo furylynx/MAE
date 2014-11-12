@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_e_cancel
+%module(directors="1") w_e_cancel
 %{
 	#include "../../../src/mae/fl/laban/mv/e_cancel.hpp"
 %}

@@ -35,6 +35,21 @@ public class i_part {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.i_part_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.i_part_change_ownership(this, swigCPtr, true);
+  }
+
   public String xml(long indent, String namesp) {
     return w_e_boneJNI.i_part_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
@@ -57,6 +72,11 @@ public class i_part {
 
   public boolean equals(i_part a) {
     return w_e_boneJNI.i_part_equals(swigCPtr, this, i_part.getCPtr(a), a);
+  }
+
+  public i_part() {
+    this(w_e_boneJNI.new_i_part(), true);
+    w_e_boneJNI.i_part_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_e_turn_direction
+%module(directors="1") w_e_turn_direction
 %{
 	#include "../../../src/mae/fl/laban/mv/e_turn_direction.hpp"
 %}

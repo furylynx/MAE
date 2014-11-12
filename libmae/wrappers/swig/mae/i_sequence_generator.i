@@ -12,7 +12,7 @@
 %include "exception.i"
 
 
-%module w_i_sequence_generator
+%module(directors="1") w_i_sequence_generator
 %{
 	#include "../../../src/mae/i_sequence_generator.hpp"
 %}

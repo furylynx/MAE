@@ -12,7 +12,7 @@
 
 
 //module definition
-%module w_space_measurement
+%module(directors="1") w_space_measurement
 %{
 	#include "../../../src/mae/fl/laban/mv/space_measurement.hpp"
 %}

@@ -37,12 +37,29 @@ public class prop extends i_pre_sign {
     super.delete();
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.prop_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.prop_change_ownership(this, swigCPtr, true);
+  }
+
   public prop(String name, String description) {
     this(w_e_boneJNI.new_prop__SWIG_0(name, description), true);
+    w_e_boneJNI.prop_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public prop(String name) {
     this(w_e_boneJNI.new_prop__SWIG_1(name), true);
+    w_e_boneJNI.prop_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public String get_name() {
@@ -54,27 +71,27 @@ public class prop extends i_pre_sign {
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.prop_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == prop.class) ? w_e_boneJNI.prop_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.prop_xmlSwigExplicitprop__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.prop_xml__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == prop.class) ? w_e_boneJNI.prop_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.prop_xmlSwigExplicitprop__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.prop_xml__SWIG_2(swigCPtr, this);
+    return (getClass() == prop.class) ? w_e_boneJNI.prop_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.prop_xmlSwigExplicitprop__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return w_e_boneJNI.prop_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return (getClass() == prop.class) ? w_e_boneJNI.prop_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : w_e_boneJNI.prop_svgSwigExplicitprop__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return w_e_boneJNI.prop_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return (getClass() == prop.class) ? w_e_boneJNI.prop_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : w_e_boneJNI.prop_svgSwigExplicitprop__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public boolean equals(i_pre_sign a) {
-    return w_e_boneJNI.prop_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a);
+    return (getClass() == prop.class) ? w_e_boneJNI.prop_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a) : w_e_boneJNI.prop_equalsSwigExplicitprop(swigCPtr, this, i_pre_sign.getCPtr(a), a);
   }
 
 }

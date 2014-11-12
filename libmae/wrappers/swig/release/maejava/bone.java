@@ -35,44 +35,63 @@ public class bone {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.bone_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.bone_change_ownership(this, swigCPtr, true);
+  }
+
   public bone() {
     this(w_e_boneJNI.new_bone__SWIG_0(), true);
+    w_e_boneJNI.bone_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public bone(int id, String name, int from, int to) {
     this(w_e_boneJNI.new_bone__SWIG_1(id, name, from, to), true);
+    w_e_boneJNI.bone_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public bone(int id, String name, int from, int to, int middle_joint) {
     this(w_e_boneJNI.new_bone__SWIG_2(id, name, from, to, middle_joint), true);
+    w_e_boneJNI.bone_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public bone(e_bone eb) {
     this(w_e_boneJNI.new_bone__SWIG_3(eb.swigValue()), true);
+    w_e_boneJNI.bone_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public int get_id() {
-    return w_e_boneJNI.bone_get_id(swigCPtr, this);
+    return (getClass() == bone.class) ? w_e_boneJNI.bone_get_id(swigCPtr, this) : w_e_boneJNI.bone_get_idSwigExplicitbone(swigCPtr, this);
   }
 
   public String get_name() {
-    return w_e_boneJNI.bone_get_name(swigCPtr, this);
+    return (getClass() == bone.class) ? w_e_boneJNI.bone_get_name(swigCPtr, this) : w_e_boneJNI.bone_get_nameSwigExplicitbone(swigCPtr, this);
   }
 
   public int get_from() {
-    return w_e_boneJNI.bone_get_from(swigCPtr, this);
+    return (getClass() == bone.class) ? w_e_boneJNI.bone_get_from(swigCPtr, this) : w_e_boneJNI.bone_get_fromSwigExplicitbone(swigCPtr, this);
   }
 
   public int get_to() {
-    return w_e_boneJNI.bone_get_to(swigCPtr, this);
+    return (getClass() == bone.class) ? w_e_boneJNI.bone_get_to(swigCPtr, this) : w_e_boneJNI.bone_get_toSwigExplicitbone(swigCPtr, this);
   }
 
   public boolean has_middle_joint() {
-    return w_e_boneJNI.bone_has_middle_joint(swigCPtr, this);
+    return (getClass() == bone.class) ? w_e_boneJNI.bone_has_middle_joint(swigCPtr, this) : w_e_boneJNI.bone_has_middle_jointSwigExplicitbone(swigCPtr, this);
   }
 
   public int get_middle_joint() {
-    return w_e_boneJNI.bone_get_middle_joint(swigCPtr, this);
+    return (getClass() == bone.class) ? w_e_boneJNI.bone_get_middle_joint(swigCPtr, this) : w_e_boneJNI.bone_get_middle_jointSwigExplicitbone(swigCPtr, this);
   }
 
   public static bone_vector default_bones() {

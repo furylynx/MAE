@@ -12,7 +12,7 @@
 
 
 //module definition
-%module w_area_part
+%module(directors="1") w_area_part
 %{
 	#include "../../../src/mae/fl/laban/ps/area_part.hpp"
 %}

@@ -14,7 +14,7 @@
 
 
 //module definition
-%module w_fl_pose_detector
+%module(directors="1") w_fl_pose_detector
 %{
 	#include "../../../src/mae/fl/fl_pose_detector.hpp"
 %}
