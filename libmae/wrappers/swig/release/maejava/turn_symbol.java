@@ -37,16 +37,34 @@ public class turn_symbol extends i_symbol {
     super.delete();
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.turn_symbol_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.turn_symbol_change_ownership(this, swigCPtr, true);
+  }
+
   public turn_symbol(e_turn_direction direction, i_dynamics_sign dynamics, i_degree_sign degree) {
     this(w_e_boneJNI.new_turn_symbol__SWIG_0(direction.swigValue(), i_dynamics_sign.getCPtr(dynamics), dynamics, i_degree_sign.getCPtr(degree), degree), true);
+    w_e_boneJNI.turn_symbol_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public turn_symbol(e_turn_direction direction, i_dynamics_sign dynamics) {
     this(w_e_boneJNI.new_turn_symbol__SWIG_1(direction.swigValue(), i_dynamics_sign.getCPtr(dynamics), dynamics), true);
+    w_e_boneJNI.turn_symbol_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public turn_symbol(e_turn_direction direction) {
     this(w_e_boneJNI.new_turn_symbol__SWIG_2(direction.swigValue()), true);
+    w_e_boneJNI.turn_symbol_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public e_turn_direction get_direction() {
@@ -64,31 +82,31 @@ public class turn_symbol extends i_symbol {
   }
 
   public boolean equals(i_symbol a) {
-    return w_e_boneJNI.turn_symbol_equals(swigCPtr, this, i_symbol.getCPtr(a), a);
+    return (getClass() == turn_symbol.class) ? w_e_boneJNI.turn_symbol_equals(swigCPtr, this, i_symbol.getCPtr(a), a) : w_e_boneJNI.turn_symbol_equalsSwigExplicitturn_symbol(swigCPtr, this, i_symbol.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.turn_symbol_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == turn_symbol.class) ? w_e_boneJNI.turn_symbol_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.turn_symbol_xmlSwigExplicitturn_symbol__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.turn_symbol_xml__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == turn_symbol.class) ? w_e_boneJNI.turn_symbol_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.turn_symbol_xmlSwigExplicitturn_symbol__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.turn_symbol_xml__SWIG_2(swigCPtr, this);
+    return (getClass() == turn_symbol.class) ? w_e_boneJNI.turn_symbol_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.turn_symbol_xmlSwigExplicitturn_symbol__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return w_e_boneJNI.turn_symbol_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return (getClass() == turn_symbol.class) ? w_e_boneJNI.turn_symbol_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : w_e_boneJNI.turn_symbol_svgSwigExplicitturn_symbol__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return w_e_boneJNI.turn_symbol_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return (getClass() == turn_symbol.class) ? w_e_boneJNI.turn_symbol_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : w_e_boneJNI.turn_symbol_svgSwigExplicitturn_symbol__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public String str() {
-    return w_e_boneJNI.turn_symbol_str(swigCPtr, this);
+    return (getClass() == turn_symbol.class) ? w_e_boneJNI.turn_symbol_str(swigCPtr, this) : w_e_boneJNI.turn_symbol_strSwigExplicitturn_symbol(swigCPtr, this);
   }
 
 }

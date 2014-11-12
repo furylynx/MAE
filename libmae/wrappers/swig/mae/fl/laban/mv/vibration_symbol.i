@@ -12,7 +12,7 @@
 
 
 //module definition
-%module w_vibration_symbol
+%module(directors="1") w_vibration_symbol
 %{
 	#include "../../../src/mae/fl/laban/mv/vibration_symbol.hpp"
 %}

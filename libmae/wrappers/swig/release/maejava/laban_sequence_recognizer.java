@@ -35,81 +35,105 @@ public class laban_sequence_recognizer extends laban_sequence_sequence_recognize
     super.delete();
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.laban_sequence_recognizer_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.laban_sequence_recognizer_change_ownership(this, swigCPtr, true);
+  }
+
   public laban_sequence_recognizer(double framerate, boolean debug) {
     this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_0(framerate, debug), true);
+    w_e_boneJNI.laban_sequence_recognizer_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public laban_sequence_recognizer(double framerate) {
     this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_1(framerate), true);
+    w_e_boneJNI.laban_sequence_recognizer_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public laban_sequence_recognizer() {
     this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_2(), true);
+    w_e_boneJNI.laban_sequence_recognizer_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate, boolean debug) {
     this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_3(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, debug), true);
+    w_e_boneJNI.laban_sequence_recognizer_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate) {
     this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_4(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue(), framerate), true);
+    w_e_boneJNI.laban_sequence_recognizer_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure, long beat_duration, e_time_unit time_unit) {
     this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_5(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue()), true);
+    w_e_boneJNI.laban_sequence_recognizer_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure, long beat_duration) {
     this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_6(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration), true);
+    w_e_boneJNI.laban_sequence_recognizer_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure) {
     this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_7(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure), true);
+    w_e_boneJNI.laban_sequence_recognizer_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions) {
     this(w_e_boneJNI.new_laban_sequence_recognizer__SWIG_8(coldef_vector.getCPtr(column_definitions), column_definitions), true);
+    w_e_boneJNI.laban_sequence_recognizer_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public void set_recognition_tolerance(double tolerance) {
-    w_e_boneJNI.laban_sequence_recognizer_set_recognition_tolerance(swigCPtr, this, tolerance);
+    if (getClass() == laban_sequence_recognizer.class) w_e_boneJNI.laban_sequence_recognizer_set_recognition_tolerance(swigCPtr, this, tolerance); else w_e_boneJNI.laban_sequence_recognizer_set_recognition_toleranceSwigExplicitlaban_sequence_recognizer(swigCPtr, this, tolerance);
   }
 
   public decision_forest get_decision_forest() {
-    long cPtr = w_e_boneJNI.laban_sequence_recognizer_get_decision_forest(swigCPtr, this);
+    long cPtr = (getClass() == laban_sequence_recognizer.class) ? w_e_boneJNI.laban_sequence_recognizer_get_decision_forest(swigCPtr, this) : w_e_boneJNI.laban_sequence_recognizer_get_decision_forestSwigExplicitlaban_sequence_recognizer(swigCPtr, this);
     return (cPtr == 0) ? null : new decision_forest(cPtr, true);
   }
 
   public void register_sequence(laban_sequence sequence) {
-    w_e_boneJNI.laban_sequence_recognizer_register_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    if (getClass() == laban_sequence_recognizer.class) w_e_boneJNI.laban_sequence_recognizer_register_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence); else w_e_boneJNI.laban_sequence_recognizer_register_sequenceSwigExplicitlaban_sequence_recognizer(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public boolean deregister_sequence(laban_sequence sequence) {
-    return w_e_boneJNI.laban_sequence_recognizer_deregister_sequence__SWIG_0(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    return (getClass() == laban_sequence_recognizer.class) ? w_e_boneJNI.laban_sequence_recognizer_deregister_sequence__SWIG_0(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence) : w_e_boneJNI.laban_sequence_recognizer_deregister_sequenceSwigExplicitlaban_sequence_recognizer__SWIG_0(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public boolean deregister_sequence(long list_index) {
-    return w_e_boneJNI.laban_sequence_recognizer_deregister_sequence__SWIG_1(swigCPtr, this, list_index);
+    return (getClass() == laban_sequence_recognizer.class) ? w_e_boneJNI.laban_sequence_recognizer_deregister_sequence__SWIG_1(swigCPtr, this, list_index) : w_e_boneJNI.laban_sequence_recognizer_deregister_sequenceSwigExplicitlaban_sequence_recognizer__SWIG_1(swigCPtr, this, list_index);
   }
 
   public void clear_registered_sequences() {
-    w_e_boneJNI.laban_sequence_recognizer_clear_registered_sequences(swigCPtr, this);
+    if (getClass() == laban_sequence_recognizer.class) w_e_boneJNI.laban_sequence_recognizer_clear_registered_sequences(swigCPtr, this); else w_e_boneJNI.laban_sequence_recognizer_clear_registered_sequencesSwigExplicitlaban_sequence_recognizer(swigCPtr, this);
   }
 
   public SWIGTYPE_p_std__listT_std__shared_ptrT_mae__fl__laban__laban_sequence_t_t get_registered_sequences() {
-    return new SWIGTYPE_p_std__listT_std__shared_ptrT_mae__fl__laban__laban_sequence_t_t(w_e_boneJNI.laban_sequence_recognizer_get_registered_sequences(swigCPtr, this), true);
+    return new SWIGTYPE_p_std__listT_std__shared_ptrT_mae__fl__laban__laban_sequence_t_t((getClass() == laban_sequence_recognizer.class) ? w_e_boneJNI.laban_sequence_recognizer_get_registered_sequences(swigCPtr, this) : w_e_boneJNI.laban_sequence_recognizer_get_registered_sequencesSwigExplicitlaban_sequence_recognizer(swigCPtr, this), true);
   }
 
   public int get_sequence_length(laban_sequence sequence) {
-    return w_e_boneJNI.laban_sequence_recognizer_get_sequence_length(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    return (getClass() == laban_sequence_recognizer.class) ? w_e_boneJNI.laban_sequence_recognizer_get_sequence_length(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence) : w_e_boneJNI.laban_sequence_recognizer_get_sequence_lengthSwigExplicitlaban_sequence_recognizer(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public SWIGTYPE_p_std__vectorT_std__shared_ptrT_mae__fl__laban__laban_sequence_t_t recognize_sequence(laban_sequence sequence, bone_vector body_parts) {
-    return new SWIGTYPE_p_std__vectorT_std__shared_ptrT_mae__fl__laban__laban_sequence_t_t(w_e_boneJNI.laban_sequence_recognizer_recognize_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence, bone_vector.getCPtr(body_parts), body_parts), true);
+    return new SWIGTYPE_p_std__vectorT_std__shared_ptrT_mae__fl__laban__laban_sequence_t_t((getClass() == laban_sequence_recognizer.class) ? w_e_boneJNI.laban_sequence_recognizer_recognize_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence, bone_vector.getCPtr(body_parts), body_parts) : w_e_boneJNI.laban_sequence_recognizer_recognize_sequenceSwigExplicitlaban_sequence_recognizer(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence, bone_vector.getCPtr(body_parts), body_parts), true);
   }
 
   public String str() {
-    return w_e_boneJNI.laban_sequence_recognizer_str(swigCPtr, this);
+    return (getClass() == laban_sequence_recognizer.class) ? w_e_boneJNI.laban_sequence_recognizer_str(swigCPtr, this) : w_e_boneJNI.laban_sequence_recognizer_strSwigExplicitlaban_sequence_recognizer(swigCPtr, this);
   }
 
 }

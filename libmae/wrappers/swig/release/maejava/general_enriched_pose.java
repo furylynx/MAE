@@ -37,28 +37,45 @@ public class general_enriched_pose extends general_pose {
     super.delete();
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.general_enriched_pose_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.general_enriched_pose_change_ownership(this, swigCPtr, true);
+  }
+
   public general_enriched_pose() {
     this(w_e_boneJNI.new_general_enriched_pose__SWIG_0(), true);
+    w_e_boneJNI.general_enriched_pose_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public general_enriched_pose(general_pose pose) {
     this(w_e_boneJNI.new_general_enriched_pose__SWIG_1(general_pose.getCPtr(pose), pose), true);
+    w_e_boneJNI.general_enriched_pose_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public void set_key_pose(int body_part, boolean is_key_pose) {
-    w_e_boneJNI.general_enriched_pose_set_key_pose(swigCPtr, this, body_part, is_key_pose);
+    if (getClass() == general_enriched_pose.class) w_e_boneJNI.general_enriched_pose_set_key_pose(swigCPtr, this, body_part, is_key_pose); else w_e_boneJNI.general_enriched_pose_set_key_poseSwigExplicitgeneral_enriched_pose(swigCPtr, this, body_part, is_key_pose);
   }
 
   public boolean is_key_pose(int body_part) {
-    return w_e_boneJNI.general_enriched_pose_is_key_pose(swigCPtr, this, body_part);
+    return (getClass() == general_enriched_pose.class) ? w_e_boneJNI.general_enriched_pose_is_key_pose(swigCPtr, this, body_part) : w_e_boneJNI.general_enriched_pose_is_key_poseSwigExplicitgeneral_enriched_pose(swigCPtr, this, body_part);
   }
 
   public void set_in_motion(int body_part, boolean is_in_motion) {
-    w_e_boneJNI.general_enriched_pose_set_in_motion(swigCPtr, this, body_part, is_in_motion);
+    if (getClass() == general_enriched_pose.class) w_e_boneJNI.general_enriched_pose_set_in_motion(swigCPtr, this, body_part, is_in_motion); else w_e_boneJNI.general_enriched_pose_set_in_motionSwigExplicitgeneral_enriched_pose(swigCPtr, this, body_part, is_in_motion);
   }
 
   public boolean is_in_motion(int body_part) {
-    return w_e_boneJNI.general_enriched_pose_is_in_motion(swigCPtr, this, body_part);
+    return (getClass() == general_enriched_pose.class) ? w_e_boneJNI.general_enriched_pose_is_in_motion(swigCPtr, this, body_part) : w_e_boneJNI.general_enriched_pose_is_in_motionSwigExplicitgeneral_enriched_pose(swigCPtr, this, body_part);
   }
 
 }

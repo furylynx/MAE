@@ -11,7 +11,7 @@
 %include "exception.i"
 
 
-%module w_i_movement_detector
+%module(directors="1") w_i_movement_detector
 %{
 	#include "../../../src/mae/i_movement_detector.hpp"
 %}

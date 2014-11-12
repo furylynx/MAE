@@ -19,7 +19,7 @@
 
 
 //module definition
-%module w_decision_forest
+%module(directors="1") w_decision_forest
 %{
 	#include "../../../src/mae/fl/laban/decision_forest.hpp"
 %}

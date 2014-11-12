@@ -13,7 +13,7 @@
 
 
 //module definition
-%module w_column_definition
+%module(directors="1") w_column_definition
 %{
 	#include "../../../src/mae/fl/laban/column_definition.hpp"
 %}

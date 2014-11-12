@@ -35,96 +35,118 @@ public class general_joint {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.general_joint_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.general_joint_change_ownership(this, swigCPtr, true);
+  }
+
   public general_joint() {
     this(w_e_boneJNI.new_general_joint__SWIG_0(), true);
+    w_e_boneJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public general_joint(double x, double y, double z, double rotation, double confidence) {
     this(w_e_boneJNI.new_general_joint__SWIG_1(x, y, z, rotation, confidence), true);
+    w_e_boneJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public general_joint(double x, double y, double z, double rotation) {
     this(w_e_boneJNI.new_general_joint__SWIG_2(x, y, z, rotation), true);
+    w_e_boneJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public general_joint(double x, double y, double z) {
     this(w_e_boneJNI.new_general_joint__SWIG_3(x, y, z), true);
+    w_e_boneJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public general_joint(SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t pos, double rotation, double confidence) {
     this(w_e_boneJNI.new_general_joint__SWIG_4(SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t.getCPtr(pos), rotation, confidence), true);
+    w_e_boneJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public general_joint(SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t pos, double rotation) {
     this(w_e_boneJNI.new_general_joint__SWIG_5(SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t.getCPtr(pos), rotation), true);
+    w_e_boneJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public general_joint(SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t pos) {
     this(w_e_boneJNI.new_general_joint__SWIG_6(SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t.getCPtr(pos)), true);
+    w_e_boneJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public void set_x(double x) {
-    w_e_boneJNI.general_joint_set_x(swigCPtr, this, x);
+    if (getClass() == general_joint.class) w_e_boneJNI.general_joint_set_x(swigCPtr, this, x); else w_e_boneJNI.general_joint_set_xSwigExplicitgeneral_joint(swigCPtr, this, x);
   }
 
   public double get_x() {
-    return w_e_boneJNI.general_joint_get_x(swigCPtr, this);
+    return (getClass() == general_joint.class) ? w_e_boneJNI.general_joint_get_x(swigCPtr, this) : w_e_boneJNI.general_joint_get_xSwigExplicitgeneral_joint(swigCPtr, this);
   }
 
   public void set_y(double y) {
-    w_e_boneJNI.general_joint_set_y(swigCPtr, this, y);
+    if (getClass() == general_joint.class) w_e_boneJNI.general_joint_set_y(swigCPtr, this, y); else w_e_boneJNI.general_joint_set_ySwigExplicitgeneral_joint(swigCPtr, this, y);
   }
 
   public double get_y() {
-    return w_e_boneJNI.general_joint_get_y(swigCPtr, this);
+    return (getClass() == general_joint.class) ? w_e_boneJNI.general_joint_get_y(swigCPtr, this) : w_e_boneJNI.general_joint_get_ySwigExplicitgeneral_joint(swigCPtr, this);
   }
 
   public void set_z(double z) {
-    w_e_boneJNI.general_joint_set_z(swigCPtr, this, z);
+    if (getClass() == general_joint.class) w_e_boneJNI.general_joint_set_z(swigCPtr, this, z); else w_e_boneJNI.general_joint_set_zSwigExplicitgeneral_joint(swigCPtr, this, z);
   }
 
   public double get_z() {
-    return w_e_boneJNI.general_joint_get_z(swigCPtr, this);
+    return (getClass() == general_joint.class) ? w_e_boneJNI.general_joint_get_z(swigCPtr, this) : w_e_boneJNI.general_joint_get_zSwigExplicitgeneral_joint(swigCPtr, this);
   }
 
   public void set_valid(boolean is_valid) {
-    w_e_boneJNI.general_joint_set_valid(swigCPtr, this, is_valid);
+    if (getClass() == general_joint.class) w_e_boneJNI.general_joint_set_valid(swigCPtr, this, is_valid); else w_e_boneJNI.general_joint_set_validSwigExplicitgeneral_joint(swigCPtr, this, is_valid);
   }
 
   public boolean is_valid() {
-    return w_e_boneJNI.general_joint_is_valid(swigCPtr, this);
+    return (getClass() == general_joint.class) ? w_e_boneJNI.general_joint_is_valid(swigCPtr, this) : w_e_boneJNI.general_joint_is_validSwigExplicitgeneral_joint(swigCPtr, this);
   }
 
   public void set_confidence(double confidence) {
-    w_e_boneJNI.general_joint_set_confidence(swigCPtr, this, confidence);
+    if (getClass() == general_joint.class) w_e_boneJNI.general_joint_set_confidence(swigCPtr, this, confidence); else w_e_boneJNI.general_joint_set_confidenceSwigExplicitgeneral_joint(swigCPtr, this, confidence);
   }
 
   public double get_confidence() {
-    return w_e_boneJNI.general_joint_get_confidence(swigCPtr, this);
+    return (getClass() == general_joint.class) ? w_e_boneJNI.general_joint_get_confidence(swigCPtr, this) : w_e_boneJNI.general_joint_get_confidenceSwigExplicitgeneral_joint(swigCPtr, this);
   }
 
   public void set_rotation(double rotation) {
-    w_e_boneJNI.general_joint_set_rotation(swigCPtr, this, rotation);
+    if (getClass() == general_joint.class) w_e_boneJNI.general_joint_set_rotation(swigCPtr, this, rotation); else w_e_boneJNI.general_joint_set_rotationSwigExplicitgeneral_joint(swigCPtr, this, rotation);
   }
 
   public double get_rotation() {
-    return w_e_boneJNI.general_joint_get_rotation(swigCPtr, this);
+    return (getClass() == general_joint.class) ? w_e_boneJNI.general_joint_get_rotation(swigCPtr, this) : w_e_boneJNI.general_joint_get_rotationSwigExplicitgeneral_joint(swigCPtr, this);
   }
 
   public SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t vec() {
-    return new SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t(w_e_boneJNI.general_joint_vec(swigCPtr, this), true);
+    return new SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t((getClass() == general_joint.class) ? w_e_boneJNI.general_joint_vec(swigCPtr, this) : w_e_boneJNI.general_joint_vecSwigExplicitgeneral_joint(swigCPtr, this), true);
   }
 
   public boolean equals_val(general_joint joint) {
-    return w_e_boneJNI.general_joint_equals_val(swigCPtr, this, general_joint.getCPtr(joint), joint);
+    return (getClass() == general_joint.class) ? w_e_boneJNI.general_joint_equals_val(swigCPtr, this, general_joint.getCPtr(joint), joint) : w_e_boneJNI.general_joint_equals_valSwigExplicitgeneral_joint(swigCPtr, this, general_joint.getCPtr(joint), joint);
   }
 
   public boolean equals(general_joint joint) {
-    return w_e_boneJNI.general_joint_equals(swigCPtr, this, general_joint.getCPtr(joint), joint);
+    return (getClass() == general_joint.class) ? w_e_boneJNI.general_joint_equals(swigCPtr, this, general_joint.getCPtr(joint), joint) : w_e_boneJNI.general_joint_equalsSwigExplicitgeneral_joint(swigCPtr, this, general_joint.getCPtr(joint), joint);
   }
 
   public String str() {
-    return w_e_boneJNI.general_joint_str(swigCPtr, this);
+    return (getClass() == general_joint.class) ? w_e_boneJNI.general_joint_str(swigCPtr, this) : w_e_boneJNI.general_joint_strSwigExplicitgeneral_joint(swigCPtr, this);
   }
 
 }

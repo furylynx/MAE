@@ -37,8 +37,24 @@ public class surface_part extends i_part {
     super.delete();
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.surface_part_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.surface_part_change_ownership(this, swigCPtr, true);
+  }
+
   public surface_part(e_limb_side lside, i_limb limb) {
     this(w_e_boneJNI.new_surface_part(lside.swigValue(), i_limb.getCPtr(limb), limb), true);
+    w_e_boneJNI.surface_part_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public e_limb_side get_limb_side() {
@@ -51,27 +67,27 @@ public class surface_part extends i_part {
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.surface_part_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == surface_part.class) ? w_e_boneJNI.surface_part_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.surface_part_xmlSwigExplicitsurface_part__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.surface_part_xml__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == surface_part.class) ? w_e_boneJNI.surface_part_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.surface_part_xmlSwigExplicitsurface_part__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.surface_part_xml__SWIG_2(swigCPtr, this);
+    return (getClass() == surface_part.class) ? w_e_boneJNI.surface_part_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.surface_part_xmlSwigExplicitsurface_part__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return w_e_boneJNI.surface_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return (getClass() == surface_part.class) ? w_e_boneJNI.surface_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : w_e_boneJNI.surface_part_svgSwigExplicitsurface_part__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return w_e_boneJNI.surface_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return (getClass() == surface_part.class) ? w_e_boneJNI.surface_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : w_e_boneJNI.surface_part_svgSwigExplicitsurface_part__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public boolean equals(i_part a) {
-    return w_e_boneJNI.surface_part_equals(swigCPtr, this, i_part.getCPtr(a), a);
+    return (getClass() == surface_part.class) ? w_e_boneJNI.surface_part_equals(swigCPtr, this, i_part.getCPtr(a), a) : w_e_boneJNI.surface_part_equalsSwigExplicitsurface_part(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
 }

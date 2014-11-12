@@ -12,7 +12,7 @@
 
 
 //module definition
-%module w_joint_part
+%module(directors="1") w_joint_part
 %{
 	#include "../../../src/mae/fl/laban/ps/joint_part.hpp"
 %}

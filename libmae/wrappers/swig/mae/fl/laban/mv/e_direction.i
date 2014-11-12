@@ -10,7 +10,7 @@
 
 
 //module definition
-%module w_e_direction
+%module(directors="1") w_e_direction
 %{
 	#include "../../../src/mae/fl/laban/mv/e_direction.hpp"
 %}

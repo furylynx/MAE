@@ -35,16 +35,34 @@ public class relationship_endpoint {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.relationship_endpoint_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.relationship_endpoint_change_ownership(this, swigCPtr, true);
+  }
+
   public relationship_endpoint(int column, boolean active, i_pre_sign pre_sign, i_dynamics_sign dynamics) {
     this(w_e_boneJNI.new_relationship_endpoint__SWIG_0(column, active, i_pre_sign.getCPtr(pre_sign), pre_sign, i_dynamics_sign.getCPtr(dynamics), dynamics), true);
+    w_e_boneJNI.relationship_endpoint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public relationship_endpoint(int column, boolean active, i_pre_sign pre_sign) {
     this(w_e_boneJNI.new_relationship_endpoint__SWIG_1(column, active, i_pre_sign.getCPtr(pre_sign), pre_sign), true);
+    w_e_boneJNI.relationship_endpoint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public relationship_endpoint(int column, boolean active) {
     this(w_e_boneJNI.new_relationship_endpoint__SWIG_2(column, active), true);
+    w_e_boneJNI.relationship_endpoint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public int get_column() {
@@ -66,24 +84,24 @@ public class relationship_endpoint {
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.relationship_endpoint_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == relationship_endpoint.class) ? w_e_boneJNI.relationship_endpoint_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.relationship_endpoint_xmlSwigExplicitrelationship_endpoint__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.relationship_endpoint_xml__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == relationship_endpoint.class) ? w_e_boneJNI.relationship_endpoint_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.relationship_endpoint_xmlSwigExplicitrelationship_endpoint__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.relationship_endpoint_xml__SWIG_2(swigCPtr, this);
+    return (getClass() == relationship_endpoint.class) ? w_e_boneJNI.relationship_endpoint_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.relationship_endpoint_xmlSwigExplicitrelationship_endpoint__SWIG_2(swigCPtr, this);
   }
 
   public relationship_endpoint recreate(int_int_map column_mapping) {
-    long cPtr = w_e_boneJNI.relationship_endpoint_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping);
+    long cPtr = (getClass() == relationship_endpoint.class) ? w_e_boneJNI.relationship_endpoint_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping) : w_e_boneJNI.relationship_endpoint_recreateSwigExplicitrelationship_endpoint(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping);
     return (cPtr == 0) ? null : new relationship_endpoint(cPtr, true);
   }
 
   public boolean equals(relationship_endpoint a) {
-    return w_e_boneJNI.relationship_endpoint_equals(swigCPtr, this, relationship_endpoint.getCPtr(a), a);
+    return (getClass() == relationship_endpoint.class) ? w_e_boneJNI.relationship_endpoint_equals(swigCPtr, this, relationship_endpoint.getCPtr(a), a) : w_e_boneJNI.relationship_endpoint_equalsSwigExplicitrelationship_endpoint(swigCPtr, this, relationship_endpoint.getCPtr(a), a);
   }
 
 }

@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_e_space
+%module(directors="1") w_e_space
 %{
 	#include "../../../src/mae/fl/laban/mv/e_space.hpp"
 %}

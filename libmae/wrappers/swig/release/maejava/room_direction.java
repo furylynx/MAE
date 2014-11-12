@@ -37,24 +37,40 @@ public class room_direction extends i_movement {
     super.delete();
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.room_direction_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.room_direction_change_ownership(this, swigCPtr, true);
+  }
+
   public room_direction(long measure, double beat, pin direction) {
     this(w_e_boneJNI.new_room_direction(measure, beat, pin.getCPtr(direction), direction), true);
+    w_e_boneJNI.room_direction_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public int get_column() {
-    return w_e_boneJNI.room_direction_get_column(swigCPtr, this);
+    return (getClass() == room_direction.class) ? w_e_boneJNI.room_direction_get_column(swigCPtr, this) : w_e_boneJNI.room_direction_get_columnSwigExplicitroom_direction(swigCPtr, this);
   }
 
   public long get_measure() {
-    return w_e_boneJNI.room_direction_get_measure(swigCPtr, this);
+    return (getClass() == room_direction.class) ? w_e_boneJNI.room_direction_get_measure(swigCPtr, this) : w_e_boneJNI.room_direction_get_measureSwigExplicitroom_direction(swigCPtr, this);
   }
 
   public double get_beat() {
-    return w_e_boneJNI.room_direction_get_beat(swigCPtr, this);
+    return (getClass() == room_direction.class) ? w_e_boneJNI.room_direction_get_beat(swigCPtr, this) : w_e_boneJNI.room_direction_get_beatSwigExplicitroom_direction(swigCPtr, this);
   }
 
   public double get_duration() {
-    return w_e_boneJNI.room_direction_get_duration(swigCPtr, this);
+    return (getClass() == room_direction.class) ? w_e_boneJNI.room_direction_get_duration(swigCPtr, this) : w_e_boneJNI.room_direction_get_durationSwigExplicitroom_direction(swigCPtr, this);
   }
 
   public pin get_direction() {
@@ -63,36 +79,36 @@ public class room_direction extends i_movement {
   }
 
   public boolean equals(i_movement a) {
-    return w_e_boneJNI.room_direction_equals(swigCPtr, this, i_movement.getCPtr(a), a);
+    return (getClass() == room_direction.class) ? w_e_boneJNI.room_direction_equals(swigCPtr, this, i_movement.getCPtr(a), a) : w_e_boneJNI.room_direction_equalsSwigExplicitroom_direction(swigCPtr, this, i_movement.getCPtr(a), a);
   }
 
   public boolean symbol_equals(i_movement a) {
-    return w_e_boneJNI.room_direction_symbol_equals(swigCPtr, this, i_movement.getCPtr(a), a);
+    return (getClass() == room_direction.class) ? w_e_boneJNI.room_direction_symbol_equals(swigCPtr, this, i_movement.getCPtr(a), a) : w_e_boneJNI.room_direction_symbol_equalsSwigExplicitroom_direction(swigCPtr, this, i_movement.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.room_direction_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == room_direction.class) ? w_e_boneJNI.room_direction_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.room_direction_xmlSwigExplicitroom_direction__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.room_direction_xml__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == room_direction.class) ? w_e_boneJNI.room_direction_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.room_direction_xmlSwigExplicitroom_direction__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.room_direction_xml__SWIG_2(swigCPtr, this);
+    return (getClass() == room_direction.class) ? w_e_boneJNI.room_direction_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.room_direction_xmlSwigExplicitroom_direction__SWIG_2(swigCPtr, this);
   }
 
   public String svg(long im_width, long im_height, long max_column, long measures, long beats_per_measure) {
-    return w_e_boneJNI.room_direction_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
+    return (getClass() == room_direction.class) ? w_e_boneJNI.room_direction_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure) : w_e_boneJNI.room_direction_svgSwigExplicitroom_direction(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
   }
 
   public i_movement recreate(int_int_map column_mapping, long measure, double beat, double duration) {
-    long cPtr = w_e_boneJNI.room_direction_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration);
+    long cPtr = (getClass() == room_direction.class) ? w_e_boneJNI.room_direction_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration) : w_e_boneJNI.room_direction_recreateSwigExplicitroom_direction(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration);
     return (cPtr == 0) ? null : new i_movement(cPtr, true);
   }
 
   public String str() {
-    return w_e_boneJNI.room_direction_str(swigCPtr, this);
+    return (getClass() == room_direction.class) ? w_e_boneJNI.room_direction_str(swigCPtr, this) : w_e_boneJNI.room_direction_strSwigExplicitroom_direction(swigCPtr, this);
   }
 
 }

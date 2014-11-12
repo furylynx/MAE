@@ -11,7 +11,7 @@
 
 
 //module definition
-%module w_dynamic_sign
+%module(directors="1") w_dynamic_sign
 %{
 	#include "../../../src/mae/fl/laban/mv/dynamic_sign.hpp"
 %}

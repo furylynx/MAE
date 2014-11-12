@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_e_limb_side
+%module(directors="1") w_e_limb_side
 %{
 	#include "../../../src/mae/fl/laban/ps/e_limb_side.hpp"
 %}

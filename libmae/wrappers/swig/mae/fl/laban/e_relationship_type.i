@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_e_relationship_type
+%module(directors="1") w_e_relationship_type
 %{
 	#include "../../../src/mae/fl/laban/e_relationship_type.hpp"
 %}

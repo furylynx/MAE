@@ -16,6 +16,9 @@
 	#include "../../../src/mae/hierarchy.hpp"
 %}
 
+//director
+%feature("nodirector") mae::hierarchy;
+
 //shared_ptr
 %shared_ptr(mae::hierarchy_element);
 %shared_ptr(mae::hierarchy);

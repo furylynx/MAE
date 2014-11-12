@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_i_degree_sign
+%module(directors="1") w_i_degree_sign
 %{
 	#include "../../../src/mae/fl/laban/mv/i_degree_sign.hpp"
 %}
