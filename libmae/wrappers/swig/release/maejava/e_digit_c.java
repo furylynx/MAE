@@ -39,8 +39,8 @@ public class e_digit_c {
     return w_e_boneJNI.e_digit_c_str(digit.swigValue());
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__fl__laban__ps__e_digit_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__fl__laban__ps__e_digit_t(w_e_boneJNI.e_digit_c_vec(), true);
+  public static e_digit_vector vec() {
+    return new e_digit_vector(w_e_boneJNI.e_digit_c_vec(), true);
   }
 
   public static e_digit parse(String str) {

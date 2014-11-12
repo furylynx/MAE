@@ -39,8 +39,8 @@ public class e_joint_c {
     return w_e_boneJNI.e_joint_c_str(joint.swigValue());
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__fl__laban__ps__e_joint_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__fl__laban__ps__e_joint_t(w_e_boneJNI.e_joint_c_vec(), true);
+  public static e_joint_vector vec() {
+    return new e_joint_vector(w_e_boneJNI.e_joint_c_vec(), true);
   }
 
   public static e_joint parse(String str) {

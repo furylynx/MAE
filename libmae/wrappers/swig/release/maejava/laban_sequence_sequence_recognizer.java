@@ -10,7 +10,7 @@ package maejava;
 
 public class laban_sequence_sequence_recognizer {
   private long swigCPtr;
-  protected boolean swigCMemOwn;
+  private boolean swigCMemOwn;
 
   protected laban_sequence_sequence_recognizer(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -70,8 +70,8 @@ public class laban_sequence_sequence_recognizer {
     return w_e_boneJNI.laban_sequence_sequence_recognizer_get_sequence_length(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
-  public SWIGTYPE_p_std__vectorT_std__shared_ptrT_mae__fl__laban__laban_sequence_t_t recognize_sequence(laban_sequence sequence, bone_vector body_parts) {
-    return new SWIGTYPE_p_std__vectorT_std__shared_ptrT_mae__fl__laban__laban_sequence_t_t(w_e_boneJNI.laban_sequence_sequence_recognizer_recognize_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence, bone_vector.getCPtr(body_parts), body_parts), true);
+  public laban_sequence_vector recognize_sequence(laban_sequence sequence, bone_vector body_parts) {
+    return new laban_sequence_vector(w_e_boneJNI.laban_sequence_sequence_recognizer_recognize_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence, bone_vector.getCPtr(body_parts), body_parts), true);
   }
 
   public laban_sequence_sequence_recognizer() {

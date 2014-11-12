@@ -12,11 +12,12 @@
 %{
 	#include "../../../src/mae/i_pose_listener.hpp"
 %}
- 
+
 //shared_ptr 
 %shared_ptr(mae::general_pose)
 
+// Parse the original header file
+%include "../../../src/mae/i_pose_listener.hpp"
+
 //templates
- 
- // Parse the original header file
- %include "../../../src/mae/i_pose_listener.hpp"
+//...

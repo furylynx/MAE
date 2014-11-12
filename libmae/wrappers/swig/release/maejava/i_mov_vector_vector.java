@@ -10,7 +10,7 @@ package maejava;
 
 public class i_mov_vector_vector {
   private long swigCPtr;
-  protected boolean swigCMemOwn;
+  private boolean swigCMemOwn;
 
   protected i_mov_vector_vector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;

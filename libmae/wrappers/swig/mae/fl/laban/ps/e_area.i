@@ -15,9 +15,13 @@
 %}
 
 //shared_ptr
-
-//templates
-%template(int_vector) std::vector<int>;
+//...
 
 // Parse the original header file
 %include "../../../src/mae/fl/laban/ps/e_area.hpp"
+
+//templates
+%template(int_vector) std::vector<int>;
+%template(e_area_vector) std::vector<mae::fl::laban::ps::e_area>;
+
+

@@ -22,8 +22,10 @@
 %shared_ptr(mae::fl::laban::ps::i_pre_sign);
 %shared_ptr(mae::fl::laban::column_definition);
 
+// Parse the original header file
+%include "../../../src/mae/fl/laban/column_definition.hpp"
+
 //templates
 %template (coldef_vector) std::vector<std::shared_ptr<mae::fl::laban::column_definition> >;
 
-// Parse the original header file
-%include "../../../src/mae/fl/laban/column_definition.hpp"
+

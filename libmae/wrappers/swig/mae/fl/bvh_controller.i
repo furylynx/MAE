@@ -21,10 +21,13 @@
 //shared_ptr
 %shared_ptr(mae::general_skeleton);
 %shared_ptr(mae::fl::bvh_spec);
+%shared_ptr(mae::fl::bvh_controller);
+
+// Parse the original header file
+%include "../../../src/mae/fl/bvh_controller.hpp"
 
 //templates
 %template (general_skeleton_vector) std::vector<std::shared_ptr<mae::general_skeleton> >;
 %template (general_skeleton_vector_double_pair) std::pair<std::vector<std::shared_ptr<mae::general_skeleton> >, double>;
 
-// Parse the original header file
-%include "../../../src/mae/fl/bvh_controller.hpp"
+

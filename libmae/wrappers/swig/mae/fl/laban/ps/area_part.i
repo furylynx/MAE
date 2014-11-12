@@ -22,7 +22,9 @@
 %shared_ptr(mae::fl::laban::ps::i_endpoint);
 %shared_ptr(mae::fl::laban::ps::area_part);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/ps/area_part.hpp"
+
+//templates
+//...
+

@@ -19,7 +19,8 @@
 %shared_ptr(mae::fl::laban::mv::i_dynamics_sign);
 %shared_ptr(mae::fl::laban::mv::accent_sign);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/mv/accent_sign.hpp"
+
+//templates
+//...

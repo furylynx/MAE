@@ -23,7 +23,9 @@
 %shared_ptr(mae::fl::laban::ps::i_endpoint);
 %shared_ptr(mae::fl::laban::ps::custom_limb);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/ps/custom_limb.hpp"
+
+//templates
+//...
+

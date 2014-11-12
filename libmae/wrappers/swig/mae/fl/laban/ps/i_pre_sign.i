@@ -17,7 +17,9 @@
 //shared_ptr
 %shared_ptr(mae::fl::laban::ps::i_pre_sign);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/ps/i_pre_sign.hpp"
+
+//templates
+//...
+

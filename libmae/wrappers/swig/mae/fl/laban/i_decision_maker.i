@@ -16,10 +16,13 @@
 %}
 
 //shared_ptr
-
-
-//templates
-
+%shared_ptr(mae::fl::laban::i_decision_maker<mae::fl::laban::i_movement>);
+%shared_ptr(mae::fl::laban::i_movement);
 
 // Parse the original header file
 %include "../../../src/mae/fl/laban/i_decision_maker.hpp"
+
+//templates
+%template (i_movement_decision_maker) mae::fl::laban::i_decision_maker<mae::fl::laban::i_movement>;
+
+

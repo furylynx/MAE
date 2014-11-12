@@ -19,11 +19,14 @@
 //shared_ptr
 %shared_ptr(mae::i_pose_listener)
 %shared_ptr(mae::general_pose)
-//TODO shared_ptr to skeleton however template arg is...
-
-//templates
-%template(bone_vector) std::vector<mae::bone>;
-
+%shared_ptr(mae::i_movement_detector<mae::fl::fl_skeleton, mae::fl::laban::laban_sequence>);
 
 // Parse the original header file
 %include "../../../src/mae/i_movement_detector.hpp"
+
+//templates
+%template(bone_vector) std::vector<mae::bone>;
+%template (fl_skeleton_laban_sequence_movement_detector) mae::i_movement_detector<mae::fl::fl_skeleton, mae::fl::laban::laban_sequence>;
+
+
+

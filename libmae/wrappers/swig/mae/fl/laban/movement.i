@@ -25,8 +25,10 @@
 %shared_ptr(mae::fl::laban::ps::i_pre_sign);
 %shared_ptr(mae::fl::laban::movement);
 
+// Parse the original header file
+%include "../../../src/mae/fl/laban/movement.hpp"
+
 //templates
 %template (int_int_map) std::map<int, int>;
 
-// Parse the original header file
-%include "../../../src/mae/fl/laban/movement.hpp"
+

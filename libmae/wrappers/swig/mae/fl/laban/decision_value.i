@@ -17,8 +17,11 @@
 %}
 
 //shared_ptr
-
-//templates
+//...
 
 // Parse the original header file
 %include "../../../src/mae/fl/laban/decision_value.hpp"
+
+//templates
+//...
+

@@ -14,6 +14,7 @@
 //global includes
 %include "std_shared_ptr.i"
 %include "std_string.i"
+%include "std_list.i"
 %include "std_vector.i"
 %include "exception.i"
 
@@ -31,6 +32,10 @@
 %shared_ptr(mae::fl::laban::decision_value<mae::fl::laban::i_movement, std::vector<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > >);
 %shared_ptr(mae::fl::laban::rewriting_forest);
 %shared_ptr(mae::fl::laban::i_decision_maker<mae::fl::laban::i_movement>);
+%shared_ptr(std::vector<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > >);
+
+// Parse the original header file
+%include "../../../src/mae/fl/laban/decision_forest.hpp"
 
 //templates
 %template (bone_vector) std::vector<mae::bone>;
@@ -39,6 +44,6 @@
 %template (i_mov_vector_vector_dec_val) mae::fl::laban::decision_value<mae::fl::laban::i_movement, std::vector<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > >;
 %template (i_dec_maker) mae::fl::laban::i_decision_maker<mae::fl::laban::i_movement>;
 %template (coldef_vector) std::vector<std::shared_ptr<mae::fl::laban::column_definition> >;
+%template (laban_sequence_vector) std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> >;
+%template (laban_sequence_list) std::list<std::shared_ptr<mae::fl::laban::laban_sequence> >;
 
-// Parse the original header file
-%include "../../../src/mae/fl/laban/decision_forest.hpp"

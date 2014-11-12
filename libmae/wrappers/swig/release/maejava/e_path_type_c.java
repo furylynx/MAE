@@ -39,8 +39,8 @@ public class e_path_type_c {
     return w_e_boneJNI.e_path_type_c_str(type.swigValue());
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__fl__laban__e_path_type_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__fl__laban__e_path_type_t(w_e_boneJNI.e_path_type_c_vec(), true);
+  public static e_path_type_vector vec() {
+    return new e_path_type_vector(w_e_boneJNI.e_path_type_c_vec(), true);
   }
 
   public static e_path_type parse(String str) {

@@ -18,7 +18,9 @@
 //shared_ptr
 %shared_ptr(mae::fl::laban::laban_sequence);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/laban_sequence_reader.hpp"
+
+//templates
+//...
+

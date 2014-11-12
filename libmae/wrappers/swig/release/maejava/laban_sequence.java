@@ -10,7 +10,7 @@ package maejava;
 
 public class laban_sequence {
   private long swigCPtr;
-  protected boolean swigCMemOwn;
+  private boolean swigCMemOwn;
 
   protected laban_sequence(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;

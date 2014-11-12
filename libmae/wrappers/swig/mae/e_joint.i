@@ -13,12 +13,14 @@
 %{
  	#include "../../../src/mae/e_joint.hpp"
 %}
- 
+
 //shared_ptr
+//...
+  
+// Parse the original header file
+%include "../../../src/mae/e_joint.hpp"
  
 //templates
 %template(int_vector) std::vector<int>;
-//%template(e_bone_vector) std::vector<mae::e_joint>;
+%template(e_joint_vector) std::vector<mae::e_joint>;
  
-// Parse the original header file
-%include "../../../src/mae/e_joint.hpp"

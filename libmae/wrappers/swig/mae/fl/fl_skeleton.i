@@ -18,10 +18,17 @@
 %}
 
 //shared_ptr
-%shared_ptr(mae::general_skeleton);
+%shared_ptr(mae::bone);
+%shared_ptr(mae::math::vec3d);
 %shared_ptr(mae::math::basis);
+%shared_ptr(mae::hierarchy);
+%shared_ptr(mae::general_skeleton);
+%shared_ptr(mae::fl::fl_skeleton);
 
-//templates
 
 // Parse the original header file
 %include "../../../src/mae/fl/fl_skeleton.hpp"
+
+//templates
+//...
+

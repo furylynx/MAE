@@ -17,7 +17,9 @@
 //shared_ptr
 %shared_ptr(mae::fl::laban::mv::i_dynamics_sign);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/mv/i_dynamics_sign.hpp"
+
+//templates
+//...
+

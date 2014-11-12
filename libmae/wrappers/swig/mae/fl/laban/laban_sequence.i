@@ -22,6 +22,10 @@
 //shared_ptr
 %shared_ptr(mae::fl::laban::column_definition);
 %shared_ptr(mae::fl::laban::i_movement);
+%shared_ptr(mae::fl::laban::laban_sequence);
+
+// Parse the original header file
+%include "../../../src/mae/fl/laban/laban_sequence.hpp"
 
 //templates
 %template (string_vector) std::vector<std::string>;
@@ -30,5 +34,4 @@
 %template (int_vector) std::vector<int>;
 
 
-// Parse the original header file
-%include "../../../src/mae/fl/laban/laban_sequence.hpp"
+

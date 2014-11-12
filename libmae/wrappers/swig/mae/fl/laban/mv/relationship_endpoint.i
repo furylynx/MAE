@@ -22,8 +22,9 @@
 %shared_ptr(mae::fl::laban::mv::i_dynamics_sign);
 %shared_ptr(mae::fl::laban::ps::i_pre_sign);
 
+// Parse the original header file
+%include "../../../src/mae/fl/laban/mv/relationship_endpoint.hpp"
+
 //templates
 %template (int_int_map) std::map<int, int>;
 
-// Parse the original header file
-%include "../../../src/mae/fl/laban/mv/relationship_endpoint.hpp"

@@ -10,9 +10,11 @@ package maejava;
 
 public class fl_skeleton extends general_skeleton {
   private long swigCPtr;
+  private boolean swigCMemOwnDerived;
 
   protected fl_skeleton(long cPtr, boolean cMemoryOwn) {
-    super(w_e_boneJNI.fl_skeleton_SWIGUpcast(cPtr), cMemoryOwn);
+    super(w_e_boneJNI.fl_skeleton_SWIGSmartPtrUpcast(cPtr), true);
+    swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
@@ -26,8 +28,8 @@ public class fl_skeleton extends general_skeleton {
 
   public synchronized void delete() {
     if (swigCPtr != 0) {
-      if (swigCMemOwn) {
-        swigCMemOwn = false;
+      if (swigCMemOwnDerived) {
+        swigCMemOwnDerived = false;
         w_e_boneJNI.delete_fl_skeleton(swigCPtr);
       }
       swigCPtr = 0;
