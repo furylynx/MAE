@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_e_joint
+%module(directors="1") w_e_joint
 %{
 	#include "../../../src/mae/fl/laban/ps/e_joint.hpp"
 %}

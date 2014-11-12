@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_i_part
+%module(directors="1") w_i_part
 %{
 	#include "../../../src/mae/fl/laban/ps/i_part.hpp"
 %}

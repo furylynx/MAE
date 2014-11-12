@@ -17,7 +17,7 @@
 
 
 //module definition
-%module w_laban_sequence_recognizer
+%module(directors="1") w_laban_sequence_recognizer
 %{
 	#include "../../../src/mae/fl/laban/laban_sequence_recognizer.hpp"
 %}

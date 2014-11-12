@@ -35,6 +35,21 @@ public class i_degree_sign {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.i_degree_sign_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.i_degree_sign_change_ownership(this, swigCPtr, true);
+  }
+
   public boolean equals(i_degree_sign a) {
     return w_e_boneJNI.i_degree_sign_equals(swigCPtr, this, i_degree_sign.getCPtr(a), a);
   }
@@ -61,6 +76,11 @@ public class i_degree_sign {
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
     return w_e_boneJNI.i_degree_sign_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+  }
+
+  public i_degree_sign() {
+    this(w_e_boneJNI.new_i_degree_sign(), true);
+    w_e_boneJNI.i_degree_sign_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

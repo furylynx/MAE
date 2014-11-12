@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_e_area
+%module(directors="1") w_e_area
 %{
 	#include "../../../src/mae/fl/laban/ps/e_area.hpp"
 %}

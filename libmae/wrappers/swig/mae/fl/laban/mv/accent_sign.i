@@ -10,7 +10,7 @@
 
 
 //module definition
-%module w_accent_sign
+%module(directors="1") w_accent_sign
 %{
 	#include "../../../src/mae/fl/laban/mv/accent_sign.hpp"
 %}

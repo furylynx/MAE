@@ -6,7 +6,7 @@
 %include "std_shared_ptr.i"
 %include "std_string.i"
 
-%module w_i_recognition_listener
+%module(directors="1") w_i_recognition_listener
 %{
 	#include "../../../src/mae/i_recognition_listener.hpp"
 %}

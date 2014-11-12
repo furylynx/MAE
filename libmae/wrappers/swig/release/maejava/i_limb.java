@@ -37,6 +37,21 @@ public class i_limb extends i_part {
     super.delete();
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.i_limb_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.i_limb_change_ownership(this, swigCPtr, true);
+  }
+
   public String xml(long indent, String namesp) {
     return w_e_boneJNI.i_limb_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
@@ -55,6 +70,11 @@ public class i_limb extends i_part {
 
   public boolean equals(i_limb a) {
     return w_e_boneJNI.i_limb_equals__SWIG_1(swigCPtr, this, i_limb.getCPtr(a), a);
+  }
+
+  public i_limb() {
+    this(w_e_boneJNI.new_i_limb(), true);
+    w_e_boneJNI.i_limb_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_e_contact_hook
+%module(directors="1") w_e_contact_hook
 %{
 	#include "../../../src/mae/fl/laban/mv/e_contact_hook.hpp"
 %}

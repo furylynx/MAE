@@ -10,7 +10,7 @@
 
 
 //module definition
-%module w_general_joint
+%module(directors="1") w_general_joint
 %{
 	#include "../../../src/mae/general_joint.hpp"
 %}

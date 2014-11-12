@@ -12,7 +12,7 @@
 
 
 //module definition
-%module w_digit_part
+%module(directors="1") w_digit_part
 %{
 	#include "../../../src/mae/fl/laban/ps/digit_part.hpp"
 %}

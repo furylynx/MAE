@@ -35,12 +35,29 @@ public class column_definition {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.column_definition_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.column_definition_change_ownership(this, swigCPtr, true);
+  }
+
   public column_definition(int column_index, i_pre_sign pre_sign) {
     this(w_e_boneJNI.new_column_definition__SWIG_0(column_index, i_pre_sign.getCPtr(pre_sign), pre_sign), true);
+    w_e_boneJNI.column_definition_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public column_definition(e_bone eb) {
     this(w_e_boneJNI.new_column_definition__SWIG_1(eb.swigValue()), true);
+    w_e_boneJNI.column_definition_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public int get_column_index() {
@@ -53,23 +70,23 @@ public class column_definition {
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.column_definition_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == column_definition.class) ? w_e_boneJNI.column_definition_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.column_definition_xmlSwigExplicitcolumn_definition__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.column_definition_xml__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == column_definition.class) ? w_e_boneJNI.column_definition_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.column_definition_xmlSwigExplicitcolumn_definition__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.column_definition_xml__SWIG_2(swigCPtr, this);
+    return (getClass() == column_definition.class) ? w_e_boneJNI.column_definition_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.column_definition_xmlSwigExplicitcolumn_definition__SWIG_2(swigCPtr, this);
   }
 
   public String svg(long im_width, long im_height, long max_column, long measures, long beats_per_measure) {
-    return w_e_boneJNI.column_definition_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
+    return (getClass() == column_definition.class) ? w_e_boneJNI.column_definition_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure) : w_e_boneJNI.column_definition_svgSwigExplicitcolumn_definition(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
   }
 
   public boolean equals(column_definition a) {
-    return w_e_boneJNI.column_definition_equals(swigCPtr, this, column_definition.getCPtr(a), a);
+    return (getClass() == column_definition.class) ? w_e_boneJNI.column_definition_equals(swigCPtr, this, column_definition.getCPtr(a), a) : w_e_boneJNI.column_definition_equalsSwigExplicitcolumn_definition(swigCPtr, this, column_definition.getCPtr(a), a);
   }
 
   public static coldef_vector default_definitions() {

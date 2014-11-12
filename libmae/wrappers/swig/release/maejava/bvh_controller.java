@@ -35,36 +35,52 @@ public class bvh_controller {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.bvh_controller_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.bvh_controller_change_ownership(this, swigCPtr, true);
+  }
+
   public bvh_controller() {
     this(w_e_boneJNI.new_bvh_controller(), true);
+    w_e_boneJNI.bvh_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public String bvh_str(general_skeleton_vector data) {
-    return w_e_boneJNI.bvh_controller_bvh_str__SWIG_0(swigCPtr, this, general_skeleton_vector.getCPtr(data), data);
+    return (getClass() == bvh_controller.class) ? w_e_boneJNI.bvh_controller_bvh_str__SWIG_0(swigCPtr, this, general_skeleton_vector.getCPtr(data), data) : w_e_boneJNI.bvh_controller_bvh_strSwigExplicitbvh_controller__SWIG_0(swigCPtr, this, general_skeleton_vector.getCPtr(data), data);
   }
 
   public String bvh_str(general_skeleton_vector data, double framerate) {
-    return w_e_boneJNI.bvh_controller_bvh_str__SWIG_1(swigCPtr, this, general_skeleton_vector.getCPtr(data), data, framerate);
+    return (getClass() == bvh_controller.class) ? w_e_boneJNI.bvh_controller_bvh_str__SWIG_1(swigCPtr, this, general_skeleton_vector.getCPtr(data), data, framerate) : w_e_boneJNI.bvh_controller_bvh_strSwigExplicitbvh_controller__SWIG_1(swigCPtr, this, general_skeleton_vector.getCPtr(data), data, framerate);
   }
 
   public String bvh_str(general_skeleton data) {
-    return w_e_boneJNI.bvh_controller_bvh_str__SWIG_2(swigCPtr, this, general_skeleton.getCPtr(data), data);
+    return (getClass() == bvh_controller.class) ? w_e_boneJNI.bvh_controller_bvh_str__SWIG_2(swigCPtr, this, general_skeleton.getCPtr(data), data) : w_e_boneJNI.bvh_controller_bvh_strSwigExplicitbvh_controller__SWIG_2(swigCPtr, this, general_skeleton.getCPtr(data), data);
   }
 
   public void print_bvh_file(general_skeleton_vector data, String filename) {
-    w_e_boneJNI.bvh_controller_print_bvh_file__SWIG_0(swigCPtr, this, general_skeleton_vector.getCPtr(data), data, filename);
+    if (getClass() == bvh_controller.class) w_e_boneJNI.bvh_controller_print_bvh_file__SWIG_0(swigCPtr, this, general_skeleton_vector.getCPtr(data), data, filename); else w_e_boneJNI.bvh_controller_print_bvh_fileSwigExplicitbvh_controller__SWIG_0(swigCPtr, this, general_skeleton_vector.getCPtr(data), data, filename);
   }
 
   public void print_bvh_file(general_skeleton data, String filename) {
-    w_e_boneJNI.bvh_controller_print_bvh_file__SWIG_1(swigCPtr, this, general_skeleton.getCPtr(data), data, filename);
+    if (getClass() == bvh_controller.class) w_e_boneJNI.bvh_controller_print_bvh_file__SWIG_1(swigCPtr, this, general_skeleton.getCPtr(data), data, filename); else w_e_boneJNI.bvh_controller_print_bvh_fileSwigExplicitbvh_controller__SWIG_1(swigCPtr, this, general_skeleton.getCPtr(data), data, filename);
   }
 
   public general_skeleton_vector_double_pair read_bvh_str(String bvh_str, bvh_spec spec) {
-    return new general_skeleton_vector_double_pair(w_e_boneJNI.bvh_controller_read_bvh_str(swigCPtr, this, bvh_str, bvh_spec.getCPtr(spec), spec), true);
+    return new general_skeleton_vector_double_pair((getClass() == bvh_controller.class) ? w_e_boneJNI.bvh_controller_read_bvh_str(swigCPtr, this, bvh_str, bvh_spec.getCPtr(spec), spec) : w_e_boneJNI.bvh_controller_read_bvh_strSwigExplicitbvh_controller(swigCPtr, this, bvh_str, bvh_spec.getCPtr(spec), spec), true);
   }
 
   public general_skeleton_vector_double_pair read_bvh_file(String filename, bvh_spec spec) {
-    return new general_skeleton_vector_double_pair(w_e_boneJNI.bvh_controller_read_bvh_file(swigCPtr, this, filename, bvh_spec.getCPtr(spec), spec), true);
+    return new general_skeleton_vector_double_pair((getClass() == bvh_controller.class) ? w_e_boneJNI.bvh_controller_read_bvh_file(swigCPtr, this, filename, bvh_spec.getCPtr(spec), spec) : w_e_boneJNI.bvh_controller_read_bvh_fileSwigExplicitbvh_controller(swigCPtr, this, filename, bvh_spec.getCPtr(spec), spec), true);
   }
 
 }

@@ -9,7 +9,7 @@
 %include "exception.i"
 
 
-%module w_i_sequence_recognizer
+%module(directors="1") w_i_sequence_recognizer
 %{
 	#include "../../../src/mae/i_sequence_recognizer.hpp"
 %}

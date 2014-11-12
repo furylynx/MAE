@@ -9,7 +9,7 @@
 %include "exception.i"
 
 
-%module w_general_pose
+%module(directors="1") w_general_pose
 %{
 	#include "../../../src/mae/general_pose.hpp"
 %}

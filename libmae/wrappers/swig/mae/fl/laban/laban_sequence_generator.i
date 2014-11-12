@@ -16,7 +16,7 @@
 
 
 //module definition
-%module w_laban_sequence_generator
+%module(directors="1") w_laban_sequence_generator
 %{
 	#include "../../../src/mae/fl/laban/laban_sequence_generator.hpp"
 %}
