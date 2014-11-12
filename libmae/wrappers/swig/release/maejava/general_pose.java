@@ -35,40 +35,56 @@ public class general_pose {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.general_pose_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.general_pose_change_ownership(this, swigCPtr, true);
+  }
+
   public general_pose() {
     this(w_e_boneJNI.new_general_pose(), true);
+    w_e_boneJNI.general_pose_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public void set_direction(int body_part, int direction) {
-    w_e_boneJNI.general_pose_set_direction(swigCPtr, this, body_part, direction);
+    if (getClass() == general_pose.class) w_e_boneJNI.general_pose_set_direction(swigCPtr, this, body_part, direction); else w_e_boneJNI.general_pose_set_directionSwigExplicitgeneral_pose(swigCPtr, this, body_part, direction);
   }
 
   public int get_direction(int body_part) {
-    return w_e_boneJNI.general_pose_get_direction(swigCPtr, this, body_part);
+    return (getClass() == general_pose.class) ? w_e_boneJNI.general_pose_get_direction(swigCPtr, this, body_part) : w_e_boneJNI.general_pose_get_directionSwigExplicitgeneral_pose(swigCPtr, this, body_part);
   }
 
   public void set_distance(int body_part, int direction, double distance) {
-    w_e_boneJNI.general_pose_set_distance(swigCPtr, this, body_part, direction, distance);
+    if (getClass() == general_pose.class) w_e_boneJNI.general_pose_set_distance(swigCPtr, this, body_part, direction, distance); else w_e_boneJNI.general_pose_set_distanceSwigExplicitgeneral_pose(swigCPtr, this, body_part, direction, distance);
   }
 
   public double get_distance(int body_part, int direction) {
-    return w_e_boneJNI.general_pose_get_distance(swigCPtr, this, body_part, direction);
+    return (getClass() == general_pose.class) ? w_e_boneJNI.general_pose_get_distance(swigCPtr, this, body_part, direction) : w_e_boneJNI.general_pose_get_distanceSwigExplicitgeneral_pose(swigCPtr, this, body_part, direction);
   }
 
   public void set_rotation(int body_part, double rotation) {
-    w_e_boneJNI.general_pose_set_rotation(swigCPtr, this, body_part, rotation);
+    if (getClass() == general_pose.class) w_e_boneJNI.general_pose_set_rotation(swigCPtr, this, body_part, rotation); else w_e_boneJNI.general_pose_set_rotationSwigExplicitgeneral_pose(swigCPtr, this, body_part, rotation);
   }
 
   public double get_rotation(int body_part) {
-    return w_e_boneJNI.general_pose_get_rotation(swigCPtr, this, body_part);
+    return (getClass() == general_pose.class) ? w_e_boneJNI.general_pose_get_rotation(swigCPtr, this, body_part) : w_e_boneJNI.general_pose_get_rotationSwigExplicitgeneral_pose(swigCPtr, this, body_part);
   }
 
   public int_list get_body_parts() {
-    return new int_list(w_e_boneJNI.general_pose_get_body_parts(swigCPtr, this), true);
+    return new int_list((getClass() == general_pose.class) ? w_e_boneJNI.general_pose_get_body_parts(swigCPtr, this) : w_e_boneJNI.general_pose_get_body_partsSwigExplicitgeneral_pose(swigCPtr, this), true);
   }
 
   public int_list get_directions() {
-    return new int_list(w_e_boneJNI.general_pose_get_directions(swigCPtr, this), true);
+    return new int_list((getClass() == general_pose.class) ? w_e_boneJNI.general_pose_get_directions(swigCPtr, this) : w_e_boneJNI.general_pose_get_directionsSwigExplicitgeneral_pose(swigCPtr, this), true);
   }
 
 }

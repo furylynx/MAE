@@ -10,7 +10,7 @@
 
 
 //module definition
-%module w_prop
+%module(directors="1") w_prop
 %{
 	#include "../../../src/mae/fl/laban/ps/prop.hpp"
 %}

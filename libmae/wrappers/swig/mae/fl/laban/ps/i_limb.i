@@ -10,7 +10,7 @@
 
 
 //module definition
-%module w_i_limb
+%module(directors="1") w_i_limb
 %{
 	#include "../../../src/mae/fl/laban/ps/i_limb.hpp"
 %}

@@ -10,7 +10,7 @@
 
 
 //module definition
-%module w_bvh_spec
+%module(directors="1") w_bvh_spec
 %{
 	#include "../../../src/mae/fl/bvh_spec.hpp"
 %}

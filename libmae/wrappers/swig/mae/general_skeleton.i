@@ -15,7 +15,7 @@
 
 
 //module definition
-%module w_general_skeleton
+%module(directors="1") w_general_skeleton
 %{
 	#include "../../../src/mae/general_skeleton.hpp"
 %}

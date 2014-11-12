@@ -12,7 +12,7 @@
 
 
 //module definition
-%module w_e_level
+%module(directors="1") w_e_level
 %{
 	#include "../../../src/mae/fl/laban/mv/e_level.hpp"
 %}

@@ -10,7 +10,7 @@
 
 
 //module definition
-%module w_i_movement
+%module(directors="1") w_i_movement
 %{
 	#include "../../../src/mae/fl/laban/i_movement.hpp"
 %}

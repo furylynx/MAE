@@ -37,8 +37,24 @@ public class accent_sign extends i_dynamics_sign {
     super.delete();
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.accent_sign_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.accent_sign_change_ownership(this, swigCPtr, true);
+  }
+
   public accent_sign(long accent) {
     this(w_e_boneJNI.new_accent_sign(accent), true);
+    w_e_boneJNI.accent_sign_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public long get_accent() {
@@ -46,19 +62,19 @@ public class accent_sign extends i_dynamics_sign {
   }
 
   public boolean equals(i_dynamics_sign a) {
-    return w_e_boneJNI.accent_sign_equals(swigCPtr, this, i_dynamics_sign.getCPtr(a), a);
+    return (getClass() == accent_sign.class) ? w_e_boneJNI.accent_sign_equals(swigCPtr, this, i_dynamics_sign.getCPtr(a), a) : w_e_boneJNI.accent_sign_equalsSwigExplicitaccent_sign(swigCPtr, this, i_dynamics_sign.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.accent_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == accent_sign.class) ? w_e_boneJNI.accent_sign_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.accent_sign_xmlSwigExplicitaccent_sign__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.accent_sign_xml__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == accent_sign.class) ? w_e_boneJNI.accent_sign_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.accent_sign_xmlSwigExplicitaccent_sign__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.accent_sign_xml__SWIG_2(swigCPtr, this);
+    return (getClass() == accent_sign.class) ? w_e_boneJNI.accent_sign_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.accent_sign_xmlSwigExplicitaccent_sign__SWIG_2(swigCPtr, this);
   }
 
 }

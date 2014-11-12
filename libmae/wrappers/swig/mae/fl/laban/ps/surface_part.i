@@ -12,7 +12,7 @@
 
 
 //module definition
-%module w_surface_part
+%module(directors="1") w_surface_part
 %{
 	#include "../../../src/mae/fl/laban/ps/surface_part.hpp"
 %}

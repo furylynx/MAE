@@ -12,7 +12,7 @@
 
 
 //module definition
-%module w_relationship_endpoint
+%module(directors="1") w_relationship_endpoint
 %{
 	#include "../../../src/mae/fl/laban/mv/relationship_endpoint.hpp"
 %}

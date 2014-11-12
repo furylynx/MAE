@@ -10,7 +10,7 @@
 %include "exception.i"
 
  
-%module w_i_pose_detector
+%module(directors="1") w_i_pose_detector
 %{
 	#include "../../../src/mae/i_pose_detector.hpp"
 %}

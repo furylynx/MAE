@@ -9,7 +9,7 @@
 %include "exception.i"
 
 
-%module w_e_bone
+%module(directors="1") w_e_bone
 %{
  	#include "../../../src/mae/e_bone.hpp"
 %}

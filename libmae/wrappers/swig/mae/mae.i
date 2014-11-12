@@ -1,6 +1,7 @@
  // mae.i - SWIG interface
 
 %ignore operator<<;
+%feature("director");   
 
 %include "fl/fl.i"
 

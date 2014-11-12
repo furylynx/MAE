@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_i_symbol
+%module(directors="1") w_i_symbol
 %{
 	#include "../../../src/mae/fl/laban/mv/i_symbol.hpp"
 %}
