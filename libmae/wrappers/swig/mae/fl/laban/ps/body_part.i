@@ -12,7 +12,7 @@
 
 
 //module definition
-%module w_body_part
+%module(directors="1") w_body_part
 %{
 	#include "../../../src/mae/fl/laban/ps/body_part.hpp"
 %}

@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_e_dynamic
+%module(directors="1") w_e_dynamic
 %{
 	#include "../../../src/mae/fl/laban/mv/e_dynamic.hpp"
 %}

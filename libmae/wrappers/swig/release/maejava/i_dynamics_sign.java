@@ -35,6 +35,21 @@ public class i_dynamics_sign {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.i_dynamics_sign_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.i_dynamics_sign_change_ownership(this, swigCPtr, true);
+  }
+
   public boolean equals(i_dynamics_sign a) {
     return w_e_boneJNI.i_dynamics_sign_equals(swigCPtr, this, i_dynamics_sign.getCPtr(a), a);
   }
@@ -49,6 +64,11 @@ public class i_dynamics_sign {
 
   public String xml() {
     return w_e_boneJNI.i_dynamics_sign_xml__SWIG_2(swigCPtr, this);
+  }
+
+  public i_dynamics_sign() {
+    this(w_e_boneJNI.new_i_dynamics_sign(), true);
+    w_e_boneJNI.i_dynamics_sign_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

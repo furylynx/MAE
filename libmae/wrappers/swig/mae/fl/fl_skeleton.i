@@ -12,7 +12,7 @@
 
 
 //module definition
-%module w_fl_skeleton
+%module(directors="1") w_fl_skeleton
 %{
 	#include "../../../src/mae/fl/fl_skeleton.hpp"
 %}

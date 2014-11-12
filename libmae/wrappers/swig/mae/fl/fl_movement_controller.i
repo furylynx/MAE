@@ -20,7 +20,7 @@
 
 
 //module definition
-%module w_fl_movement_controller
+%module(directors="1") w_fl_movement_controller
 %{
 	#include "../../../src/mae/fl/fl_movement_controller.hpp"
 %}

@@ -37,8 +37,24 @@ public class pin extends i_degree_sign {
     super.delete();
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.pin_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.pin_change_ownership(this, swigCPtr, true);
+  }
+
   public pin(e_level level, int horizontal) {
     this(w_e_boneJNI.new_pin(level.swigValue(), horizontal), true);
+    w_e_boneJNI.pin_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public e_level get_level() {
@@ -50,31 +66,31 @@ public class pin extends i_degree_sign {
   }
 
   public boolean equals(i_degree_sign a) {
-    return w_e_boneJNI.pin_equals(swigCPtr, this, i_degree_sign.getCPtr(a), a);
+    return (getClass() == pin.class) ? w_e_boneJNI.pin_equals(swigCPtr, this, i_degree_sign.getCPtr(a), a) : w_e_boneJNI.pin_equalsSwigExplicitpin(swigCPtr, this, i_degree_sign.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp, boolean print_type) {
-    return w_e_boneJNI.pin_xml__SWIG_0(swigCPtr, this, indent, namesp, print_type);
+    return (getClass() == pin.class) ? w_e_boneJNI.pin_xml__SWIG_0(swigCPtr, this, indent, namesp, print_type) : w_e_boneJNI.pin_xmlSwigExplicitpin__SWIG_0(swigCPtr, this, indent, namesp, print_type);
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.pin_xml__SWIG_1(swigCPtr, this, indent, namesp);
+    return (getClass() == pin.class) ? w_e_boneJNI.pin_xml__SWIG_1(swigCPtr, this, indent, namesp) : w_e_boneJNI.pin_xmlSwigExplicitpin__SWIG_1(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.pin_xml__SWIG_2(swigCPtr, this, indent);
+    return (getClass() == pin.class) ? w_e_boneJNI.pin_xml__SWIG_2(swigCPtr, this, indent) : w_e_boneJNI.pin_xmlSwigExplicitpin__SWIG_2(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.pin_xml__SWIG_3(swigCPtr, this);
+    return (getClass() == pin.class) ? w_e_boneJNI.pin_xml__SWIG_3(swigCPtr, this) : w_e_boneJNI.pin_xmlSwigExplicitpin__SWIG_3(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return w_e_boneJNI.pin_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return (getClass() == pin.class) ? w_e_boneJNI.pin_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : w_e_boneJNI.pin_svgSwigExplicitpin__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return w_e_boneJNI.pin_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return (getClass() == pin.class) ? w_e_boneJNI.pin_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : w_e_boneJNI.pin_svgSwigExplicitpin__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
 }

@@ -12,7 +12,7 @@
 
 
 //module definition
-%module w_default_limb
+%module(directors="1") w_default_limb
 %{
 	#include "../../../src/mae/fl/laban/ps/default_limb.hpp"
 %}

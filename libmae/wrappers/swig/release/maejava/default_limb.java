@@ -37,8 +37,24 @@ public class default_limb extends i_limb {
     super.delete();
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.default_limb_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.default_limb_change_ownership(this, swigCPtr, true);
+  }
+
   public default_limb(e_limb limb) {
     this(w_e_boneJNI.new_default_limb(limb.swigValue()), true);
+    w_e_boneJNI.default_limb_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public e_limb get_limb() {
@@ -46,31 +62,31 @@ public class default_limb extends i_limb {
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.default_limb_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == default_limb.class) ? w_e_boneJNI.default_limb_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.default_limb_xmlSwigExplicitdefault_limb__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.default_limb_xml__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == default_limb.class) ? w_e_boneJNI.default_limb_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.default_limb_xmlSwigExplicitdefault_limb__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.default_limb_xml__SWIG_2(swigCPtr, this);
+    return (getClass() == default_limb.class) ? w_e_boneJNI.default_limb_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.default_limb_xmlSwigExplicitdefault_limb__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return w_e_boneJNI.default_limb_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return (getClass() == default_limb.class) ? w_e_boneJNI.default_limb_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : w_e_boneJNI.default_limb_svgSwigExplicitdefault_limb__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return w_e_boneJNI.default_limb_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return (getClass() == default_limb.class) ? w_e_boneJNI.default_limb_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : w_e_boneJNI.default_limb_svgSwigExplicitdefault_limb__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public boolean equals(i_part a) {
-    return w_e_boneJNI.default_limb_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
+    return (getClass() == default_limb.class) ? w_e_boneJNI.default_limb_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a) : w_e_boneJNI.default_limb_equalsSwigExplicitdefault_limb__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
   public boolean equals(i_limb a) {
-    return w_e_boneJNI.default_limb_equals__SWIG_1(swigCPtr, this, i_limb.getCPtr(a), a);
+    return (getClass() == default_limb.class) ? w_e_boneJNI.default_limb_equals__SWIG_1(swigCPtr, this, i_limb.getCPtr(a), a) : w_e_boneJNI.default_limb_equalsSwigExplicitdefault_limb__SWIG_1(swigCPtr, this, i_limb.getCPtr(a), a);
   }
 
 }

@@ -10,7 +10,7 @@
 
 
 //module definition
-%module w_i_endpoint
+%module(directors="1") w_i_endpoint
 %{
 	#include "../../../src/mae/fl/laban/ps/i_endpoint.hpp"
 %}

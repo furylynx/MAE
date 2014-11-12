@@ -11,7 +11,7 @@
 
 
 //module definition
-%module w_cancellation_symbol
+%module(directors="1") w_cancellation_symbol
 %{
 	#include "../../../src/mae/fl/laban/mv/cancellation_symbol.hpp"
 %}

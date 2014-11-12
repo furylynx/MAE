@@ -11,7 +11,7 @@
 
 
 //module definition
-%module w_e_fl_direction
+%module(directors="1") w_e_fl_direction
 %{
 	#include "../../../src/mae/fl/e_fl_direction.hpp"
 %}

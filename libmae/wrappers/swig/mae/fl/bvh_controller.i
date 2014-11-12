@@ -13,7 +13,7 @@
 
 
 //module definition
-%module w_bvh_controller
+%module(directors="1") w_bvh_controller
 %{
 	#include "../../../src/mae/fl/bvh_controller.hpp"
 %}

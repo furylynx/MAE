@@ -35,8 +35,28 @@ public class i_pose_listener {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.i_pose_listener_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.i_pose_listener_change_ownership(this, swigCPtr, true);
+  }
+
   public void on_pose(int timestamp, general_pose pose) {
     w_e_boneJNI.i_pose_listener_on_pose(swigCPtr, this, timestamp, general_pose.getCPtr(pose), pose);
+  }
+
+  public i_pose_listener() {
+    this(w_e_boneJNI.new_i_pose_listener(), true);
+    w_e_boneJNI.i_pose_listener_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

@@ -13,7 +13,7 @@
 
 
 //module definition
-%module w_path
+%module(directors="1") w_path
 %{
 	#include "../../../src/mae/fl/laban/path.hpp"
 %}
