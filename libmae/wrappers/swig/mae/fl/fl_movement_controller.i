@@ -28,13 +28,16 @@
 //shared_ptr
 %shared_ptr(mae::general_skeleton);
 %shared_ptr(mae::fl::fl_pose_detector);
+%shared_ptr(mae::fl::laban::column_definition);
 %shared_ptr(mae::fl::laban::laban_sequence_generator);
 %shared_ptr(mae::fl::laban::laban_sequence_recognizer);
+
+// Parse the original header file
+%include "../../../src/mae/fl/fl_movement_controller.hpp"
 
 //templates
 %template (bone_vector) std::vector<mae::bone>;
 %template (fl_skel_laban_movement_controller) mae::movement_controller<mae::fl::fl_skeleton, mae::fl::laban::laban_sequence>;
 %template (coldef_vector) std::vector<std::shared_ptr<mae::fl::laban::column_definition> >;
 
-// Parse the original header file
-%include "../../../src/mae/fl/fl_movement_controller.hpp"
+

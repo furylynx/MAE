@@ -19,8 +19,10 @@
 %shared_ptr(mae::general_pose);
 %shared_ptr(mae::general_enriched_pose);
 
+// Parse the original header file
+%include "../../../src/mae/general_enriched_pose.hpp"
+
 //templates
 
 
-// Parse the original header file
-%include "../../../src/mae/general_enriched_pose.hpp"
+

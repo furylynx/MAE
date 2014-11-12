@@ -1,7 +1,8 @@
  // mae.i - SWIG interface
 
 %ignore operator<<;
-%feature("director");   
+%feature("director"); 
+#pragma SWIG nowarn=302  
 
 %include "fl/fl.i"
 

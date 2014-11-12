@@ -43,8 +43,8 @@ public class e_bone_c {
     return w_e_boneJNI.e_bone_c_to_int(bone.swigValue());
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__e_bone_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__e_bone_t(w_e_boneJNI.e_bone_c_vec(), true);
+  public static e_bone_vector vec() {
+    return new e_bone_vector(w_e_boneJNI.e_bone_c_vec(), true);
   }
 
   public static e_bone parse(String str) {

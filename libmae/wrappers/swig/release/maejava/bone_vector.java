@@ -68,7 +68,7 @@ public class bone_vector {
   }
 
   public bone get(int i) {
-    return new bone(w_e_boneJNI.bone_vector_get(swigCPtr, this, i), false);
+    return new bone(w_e_boneJNI.bone_vector_get(swigCPtr, this, i), true);
   }
 
   public void set(int i, bone val) {

@@ -10,7 +10,7 @@ package maejava;
 
 public class bvh_controller {
   private long swigCPtr;
-  protected boolean swigCMemOwn;
+  private boolean swigCMemOwn;
 
   protected bvh_controller(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;

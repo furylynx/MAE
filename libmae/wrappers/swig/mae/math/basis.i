@@ -14,11 +14,11 @@
 	#include "../../../src/mae/math/basis.hpp"
 %}
 
-//templates
-
-
 //shared_ptr
 %shared_ptr(mae::math::vec3d);
 
 // Parse the original header file
 %include "../../../src/mae/math/basis.hpp"
+
+//templates
+//...

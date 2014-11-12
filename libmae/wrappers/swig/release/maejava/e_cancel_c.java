@@ -39,8 +39,8 @@ public class e_cancel_c {
     return w_e_boneJNI.e_cancel_c_str(cancel.swigValue());
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_cancel_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_cancel_t(w_e_boneJNI.e_cancel_c_vec(), true);
+  public static e_cancel_vector vec() {
+    return new e_cancel_vector(w_e_boneJNI.e_cancel_c_vec(), true);
   }
 
   public static e_cancel parse(String str) {

@@ -18,9 +18,11 @@
 //shared_ptr
 %shared_ptr(mae::fl::bvh_spec);
 
+// Parse the original header file
+%include "../../../src/mae/fl/bvh_spec.hpp"
+
 //templates
 %template (string_int_map) std::map<std::string, int>;
 %template (string_bool_map) std::map<std::string, bool>;
 
-// Parse the original header file
-%include "../../../src/mae/fl/bvh_spec.hpp"
+

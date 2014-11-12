@@ -14,12 +14,18 @@
 	#include "../../../src/mae/i_sequence_recognizer.hpp"
 %}
 
-//shared_ptr
-//TODO sequence template arg
 
-//templates
-%template (bone_vector) std::vector<mae::bone>;
-//TODO vector of sequences template arg
+
+//shared_ptr
+%shared_ptr(mae::i_sequence_recognizer);
+%shared_ptr(mae::i_sequence_recognizer<mae::fl::laban::laban_sequence>);
+%shared_ptr(mae::fl::laban::laban_sequence);
 
 // Parse the original header file
 %include "../../../src/mae/i_sequence_recognizer.hpp"
+
+//templates
+%template (bone_vector) std::vector<mae::bone>;
+%template (laban_sequence_vector) std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> >;
+%template (laban_sequence_sequence_recognizer) mae::i_sequence_recognizer<mae::fl::laban::laban_sequence>;
+

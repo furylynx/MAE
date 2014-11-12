@@ -17,7 +17,9 @@
 //shared_ptr
 %shared_ptr(mae::fl::laban::ps::i_part);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/ps/i_part.hpp"
+
+//templates
+//...
+

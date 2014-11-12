@@ -25,13 +25,11 @@
 
 //shared_ptr
 %shared_ptr(mae::i_pose_listener)
-//TODO interfaces with template args
-//TODO skeleton template arg
-//TODO sequence template arg
+
+// Parse the original header file
+%include "../../../src/mae/movement_controller.hpp"
 
 //templates
 %template (bone_vector) std::vector<mae::bone>;
-//TODO 
+%template (fl_skeleton_laban_sequence_movement_controller) mae::movement_controller<mae::fl::fl_skeleton, mae::fl::laban::laban_sequence>;
  
-// Parse the original header file
-%include "../../../src/mae/movement_controller.hpp"

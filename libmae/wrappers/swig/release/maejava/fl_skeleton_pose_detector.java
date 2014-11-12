@@ -10,7 +10,7 @@ package maejava;
 
 public class fl_skeleton_pose_detector {
   private long swigCPtr;
-  protected boolean swigCMemOwn;
+  private boolean swigCMemOwn;
 
   protected fl_skeleton_pose_detector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -50,8 +50,8 @@ public class fl_skeleton_pose_detector {
     w_e_boneJNI.fl_skeleton_pose_detector_change_ownership(this, swigCPtr, true);
   }
 
-  public general_pose pose(fl_skeleton skeleton, bone_vector body_parts, general_pose previous_pose) {
-    long cPtr = w_e_boneJNI.fl_skeleton_pose_detector_pose(swigCPtr, this, fl_skeleton.getCPtr(skeleton), skeleton, bone_vector.getCPtr(body_parts), body_parts, general_pose.getCPtr(previous_pose), previous_pose);
+  public general_pose pose(SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t skeleton, bone_vector body_parts, general_pose previous_pose) {
+    long cPtr = w_e_boneJNI.fl_skeleton_pose_detector_pose(swigCPtr, this, SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t.getCPtr(skeleton), bone_vector.getCPtr(body_parts), body_parts, general_pose.getCPtr(previous_pose), previous_pose);
     return (cPtr == 0) ? null : new general_pose(cPtr, true);
   }
 

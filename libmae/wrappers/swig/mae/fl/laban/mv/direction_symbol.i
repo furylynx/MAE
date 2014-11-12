@@ -28,7 +28,8 @@
 %shared_ptr(mae::fl::laban::mv::i_dynamics_sign);
 %shared_ptr(mae::fl::laban::mv::direction_symbol);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/mv/direction_symbol.hpp"
+
+//templates
+//...

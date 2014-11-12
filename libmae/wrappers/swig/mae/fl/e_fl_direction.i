@@ -17,9 +17,13 @@
 %}
 
 //shared_ptr
-
-//templates
-%template(int_vector) std::vector<int>;
+//...
 
 // Parse the original header file
 %include "../../../src/mae/fl/e_fl_direction.hpp"
+
+//templates
+%template(int_vector) std::vector<int>;
+%template(e_fl_direction_vector) std::vector<mae::fl::e_fl_direction>;
+
+

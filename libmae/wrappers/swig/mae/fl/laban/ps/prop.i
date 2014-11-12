@@ -19,7 +19,9 @@
 %shared_ptr(mae::fl::laban::ps::i_pre_sign);
 %shared_ptr(mae::fl::laban::ps::prop);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/ps/prop.hpp"
+
+//templates
+//...
+

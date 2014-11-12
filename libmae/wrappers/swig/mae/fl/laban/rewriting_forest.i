@@ -27,6 +27,11 @@
 //shared_ptr
 %shared_ptr(mae::fl::laban::decision_value<mae::fl::laban::i_movement, std::vector<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > >);
 %shared_ptr(mae::fl::laban::i_movement);
+%shared_ptr(mae::fl::laban::rewriting_forest);
+%shared_ptr(std::vector<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > >);
+
+// Parse the original header file
+%include "../../../src/mae/fl/laban/rewriting_forest.hpp"
 
 //templates
 %template (i_mov_vector_vector) std::vector<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > >;
@@ -34,5 +39,4 @@
 %template (i_mov_vector_vector_dec_val) mae::fl::laban::decision_value<mae::fl::laban::i_movement, std::vector<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > >;
 %template (i_mov_vector_vector_dec_val_vector) std::vector<std::shared_ptr<mae::fl::laban::decision_value<mae::fl::laban::i_movement, std::vector<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > > > >;
 
-// Parse the original header file
-%include "../../../src/mae/fl/laban/rewriting_forest.hpp"
+

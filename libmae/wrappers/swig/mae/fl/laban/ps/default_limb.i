@@ -22,7 +22,9 @@
 %shared_ptr(mae::fl::laban::ps::i_limb);
 %shared_ptr(mae::fl::laban::ps::default_limb);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/ps/default_limb.hpp"
+
+//templates
+//...
+

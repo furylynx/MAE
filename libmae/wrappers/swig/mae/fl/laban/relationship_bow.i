@@ -23,8 +23,10 @@
 %shared_ptr(mae::fl::laban::mv::relationship_endpoint);
 %shared_ptr(mae::fl::laban::relationship_bow);
 
+// Parse the original header file
+%include "../../../src/mae/fl/laban/relationship_bow.hpp"
+
 //templates
 %template (int_int_map) std::map<int, int>;
 
-// Parse the original header file
-%include "../../../src/mae/fl/laban/relationship_bow.hpp"
+

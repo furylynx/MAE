@@ -21,9 +21,10 @@
 //shared_ptr
 %shared_ptr(mae::hierarchy_element);
 
+// Parse the original header file
+%include "../../../src/mae/hierarchy_element.hpp"
 
 //templates
 %template(hierarchy_element_vector) std::vector<std::shared_ptr<mae::hierarchy_element> >;
 
-// Parse the original header file
-%include "../../../src/mae/hierarchy_element.hpp"
+

@@ -10,7 +10,7 @@ package maejava;
 
 public class rewriting_forest {
   private long swigCPtr;
-  protected boolean swigCMemOwn;
+  private boolean swigCMemOwn;
 
   protected rewriting_forest(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -112,8 +112,8 @@ public class rewriting_forest {
     return new i_mov_vector_vector((getClass() == rewriting_forest.class) ? w_e_boneJNI.rewriting_forest_replacements(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence) : w_e_boneJNI.rewriting_forest_replacementsSwigExplicitrewriting_forest(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence), true);
   }
 
-  public void add_rule(i_mov_vector sequence, SWIGTYPE_p_std__shared_ptrT_std__vectorT_std__vectorT_std__shared_ptrT_mae__fl__laban__i_movement_t_t_t_t replacements) {
-    if (getClass() == rewriting_forest.class) w_e_boneJNI.rewriting_forest_add_rule__SWIG_0(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence, SWIGTYPE_p_std__shared_ptrT_std__vectorT_std__vectorT_std__shared_ptrT_mae__fl__laban__i_movement_t_t_t_t.getCPtr(replacements)); else w_e_boneJNI.rewriting_forest_add_ruleSwigExplicitrewriting_forest__SWIG_0(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence, SWIGTYPE_p_std__shared_ptrT_std__vectorT_std__vectorT_std__shared_ptrT_mae__fl__laban__i_movement_t_t_t_t.getCPtr(replacements));
+  public void add_rule(i_mov_vector sequence, i_mov_vector_vector replacements) {
+    if (getClass() == rewriting_forest.class) w_e_boneJNI.rewriting_forest_add_rule__SWIG_0(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence, i_mov_vector_vector.getCPtr(replacements)); else w_e_boneJNI.rewriting_forest_add_ruleSwigExplicitrewriting_forest__SWIG_0(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence, i_mov_vector_vector.getCPtr(replacements));
   }
 
   public void add_rule(i_mov_vector_vector_dec_val rule) {

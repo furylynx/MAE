@@ -39,8 +39,8 @@ public class e_space_c {
     return w_e_boneJNI.e_space_c_str(space.swigValue());
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_space_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_space_t(w_e_boneJNI.e_space_c_vec(), true);
+  public static e_space_vector vec() {
+    return new e_space_vector(w_e_boneJNI.e_space_c_vec(), true);
   }
 
   public static e_space parse(String str) {
