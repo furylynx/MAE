@@ -23,7 +23,9 @@
 %shared_ptr(mae::fl::laban::mv::i_dynamics_sign);
 %shared_ptr(mae::fl::laban::mv::vibration_symbol);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/mv/vibration_symbol.hpp"
+
+//templates
+//...
+

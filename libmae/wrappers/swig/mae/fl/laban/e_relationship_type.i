@@ -15,9 +15,12 @@
 %}
 
 //shared_ptr
-
-//templates
-%template(int_vector) std::vector<int>;
+//...
 
 // Parse the original header file
 %include "../../../src/mae/fl/laban/e_relationship_type.hpp"
+
+//templates
+%template(int_vector) std::vector<int>;
+%template(e_relationship_type_vector) std::vector<mae::fl::laban::e_relationship_type>;
+

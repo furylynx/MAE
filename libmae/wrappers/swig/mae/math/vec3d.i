@@ -14,11 +14,13 @@
 %}
 
 //shared_ptr
-
-//templates
-
-//rename
-//%rename (Vec3d) vec3d;
+//...
 
 // Parse the original header file
 %include "../../../src/mae/math/vec3d.hpp"
+
+//templates
+//...
+
+//rename
+//%rename (Vec3d) vec3d;

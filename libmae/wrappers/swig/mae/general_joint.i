@@ -18,7 +18,9 @@
 //shared_ptr
 %shared_ptr(mae::general_joint)
  
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/general_joint.hpp"
+ 
+//templates
+
+

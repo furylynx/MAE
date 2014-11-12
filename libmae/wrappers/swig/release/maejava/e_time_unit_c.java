@@ -39,8 +39,8 @@ public class e_time_unit_c {
     return w_e_boneJNI.e_time_unit_c_str(unit.swigValue());
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__fl__laban__e_time_unit_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__fl__laban__e_time_unit_t(w_e_boneJNI.e_time_unit_c_vec(), true);
+  public static e_time_unit_vector vec() {
+    return new e_time_unit_vector(w_e_boneJNI.e_time_unit_c_vec(), true);
   }
 
   public static e_time_unit parse(String str) {

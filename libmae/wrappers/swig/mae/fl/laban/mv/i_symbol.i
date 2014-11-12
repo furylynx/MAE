@@ -17,7 +17,9 @@
 //shared_ptr
 %shared_ptr(mae::fl::laban::mv::i_symbol);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/mv/i_symbol.hpp"
+
+//templates
+//...
+

@@ -43,8 +43,8 @@ public class e_direction_c {
     return e_direction.swigToEnum(w_e_boneJNI.e_direction_c_dir(direction.swigValue()));
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_direction_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_direction_t(w_e_boneJNI.e_direction_c_vec(), true);
+  public static e_direction_vector vec() {
+    return new e_direction_vector(w_e_boneJNI.e_direction_c_vec(), true);
   }
 
   public static e_direction parse(String str) {

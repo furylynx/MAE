@@ -18,9 +18,11 @@
 %}
 
 //shared_ptr
-
-//templates
-%template(int_vector) std::vector<int>;
+//...
 
 // Parse the original header file
 %include "../../../src/mae/fl/laban/mv/e_level.hpp"
+
+//templates
+%template(int_vector) std::vector<int>;
+%template(e_level_vector) std::vector<mae::fl::laban::mv::e_level>;

@@ -39,8 +39,8 @@ public class e_dynamic_c {
     return w_e_boneJNI.e_dynamic_c_str(dynamic.swigValue());
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_dynamic_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_dynamic_t(w_e_boneJNI.e_dynamic_c_vec(), true);
+  public static e_dynamic_vector vec() {
+    return new e_dynamic_vector(w_e_boneJNI.e_dynamic_c_vec(), true);
   }
 
   public static e_dynamic parse(String str) {

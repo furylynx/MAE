@@ -15,9 +15,13 @@
 %}
 
 //shared_ptr
-
-//templates
-%template(int_vector) std::vector<int>;
+//...
 
 // Parse the original header file
 %include "../../../src/mae/fl/laban/ps/e_digit.hpp"
+
+//templates
+%template(int_vector) std::vector<int>;
+%template(e_digit_vector) std::vector<mae::fl::laban::ps::e_digit>;
+
+

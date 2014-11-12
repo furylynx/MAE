@@ -10,9 +10,11 @@ package maejava;
 
 public class fl_pose_detector extends fl_skeleton_pose_detector {
   private long swigCPtr;
+  private boolean swigCMemOwnDerived;
 
   protected fl_pose_detector(long cPtr, boolean cMemoryOwn) {
-    super(w_e_boneJNI.fl_pose_detector_SWIGUpcast(cPtr), cMemoryOwn);
+    super(w_e_boneJNI.fl_pose_detector_SWIGSmartPtrUpcast(cPtr), true);
+    swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
@@ -26,8 +28,8 @@ public class fl_pose_detector extends fl_skeleton_pose_detector {
 
   public synchronized void delete() {
     if (swigCPtr != 0) {
-      if (swigCMemOwn) {
-        swigCMemOwn = false;
+      if (swigCMemOwnDerived) {
+        swigCMemOwnDerived = false;
         w_e_boneJNI.delete_fl_pose_detector(swigCPtr);
       }
       swigCPtr = 0;

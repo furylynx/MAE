@@ -22,7 +22,9 @@
 %shared_ptr(mae::fl::laban::ps::i_pre_sign);
 %shared_ptr(mae::fl::laban::ps::body_part);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/ps/body_part.hpp"
+
+//templates
+//...
+

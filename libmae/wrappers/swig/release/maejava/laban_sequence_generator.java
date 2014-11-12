@@ -10,9 +10,11 @@ package maejava;
 
 public class laban_sequence_generator extends laban_sequence_sequence_generator {
   private long swigCPtr;
+  private boolean swigCMemOwnDerived;
 
   protected laban_sequence_generator(long cPtr, boolean cMemoryOwn) {
-    super(w_e_boneJNI.laban_sequence_generator_SWIGUpcast(cPtr), cMemoryOwn);
+    super(w_e_boneJNI.laban_sequence_generator_SWIGSmartPtrUpcast(cPtr), true);
+    swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
@@ -26,8 +28,8 @@ public class laban_sequence_generator extends laban_sequence_sequence_generator 
 
   public synchronized void delete() {
     if (swigCPtr != 0) {
-      if (swigCMemOwn) {
-        swigCMemOwn = false;
+      if (swigCMemOwnDerived) {
+        swigCMemOwnDerived = false;
         w_e_boneJNI.delete_laban_sequence_generator(swigCPtr);
       }
       swigCPtr = 0;

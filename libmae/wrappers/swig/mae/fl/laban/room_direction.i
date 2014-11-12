@@ -23,8 +23,10 @@
 %shared_ptr(mae::fl::laban::mv::pin);
 %shared_ptr(mae::fl::laban::room_direction);
 
+// Parse the original header file
+%include "../../../src/mae/fl/laban/room_direction.hpp"
+
 //templates
 %template (int_int_map) std::map<int, int>;
 
-// Parse the original header file
-%include "../../../src/mae/fl/laban/room_direction.hpp"
+

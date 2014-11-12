@@ -24,9 +24,11 @@
 %shared_ptr(mae::bone);
 %shared_ptr(mae::hierarchy);
 %shared_ptr(mae::math::vec3d);
+%shared_ptr(mae::math::basis);
+%shared_ptr(mae::general_skeleton);
+
+// Parse the original header file
+%include "../../../src/mae/general_skeleton.hpp"
 
 //templates
-
- 
- // Parse the original header file
- %include "../../../src/mae/general_skeleton.hpp"
+//...

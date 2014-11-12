@@ -34,6 +34,37 @@ protected:
     bool swig_override[6];
 };
 
+class SwigDirector_laban_sequence_sequence_listener : public mae::i_sequence_listener< mae::fl::laban::laban_sequence >, public Swig::Director {
+
+public:
+    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
+    SwigDirector_laban_sequence_sequence_listener(JNIEnv *jenv);
+    virtual ~SwigDirector_laban_sequence_sequence_listener();
+    virtual void on_sequence(long timestamp, std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
+public:
+    bool swig_overrides(int n) {
+      return (n < 1 ? swig_override[n] : false);
+    }
+protected:
+    bool swig_override[1];
+};
+
+class SwigDirector_laban_sequence_recognition_listener : public mae::i_recognition_listener< mae::fl::laban::laban_sequence >, public Swig::Director {
+
+public:
+    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
+    SwigDirector_laban_sequence_recognition_listener(JNIEnv *jenv);
+    virtual ~SwigDirector_laban_sequence_recognition_listener();
+    virtual void on_recognition(long timestamp, std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > sequences);
+    virtual void on_recognition(long timestamp, std::vector< std::string > title);
+public:
+    bool swig_overrides(int n) {
+      return (n < 2 ? swig_override[n] : false);
+    }
+protected:
+    bool swig_override[2];
+};
+
 class SwigDirector_general_pose : public mae::general_pose, public Swig::Director {
 
 public:
@@ -71,6 +102,77 @@ protected:
     bool swig_override[1];
 };
 
+class SwigDirector_fl_skeleton_laban_sequence_movement_detector : public mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >, public Swig::Director {
+
+public:
+    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
+    SwigDirector_fl_skeleton_laban_sequence_movement_detector(JNIEnv *jenv);
+    virtual ~SwigDirector_fl_skeleton_laban_sequence_movement_detector();
+    virtual std::shared_ptr< mae::fl::laban::laban_sequence > detect_movement(long timestamp, double framerate, std::shared_ptr< mae::fl::fl_skeleton > skeleton, std::vector< mae::bone > body_parts);
+    virtual void set_buffer(int size);
+    virtual void clear_buffer();
+    virtual void add_listener(std::shared_ptr< mae::i_pose_listener > listener);
+    virtual void remove_listener(std::shared_ptr< mae::i_pose_listener > listener);
+    virtual void clear_listeners();
+    virtual void notify_listeners(long timestamp, std::shared_ptr< mae::general_pose > pose);
+public:
+    bool swig_overrides(int n) {
+      return (n < 7 ? swig_override[n] : false);
+    }
+protected:
+    bool swig_override[7];
+};
+
+class SwigDirector_laban_sequence_sequence_recognizer : public mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >, public Swig::Director {
+
+public:
+    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
+    SwigDirector_laban_sequence_sequence_recognizer(JNIEnv *jenv);
+    virtual ~SwigDirector_laban_sequence_sequence_recognizer();
+    virtual void register_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
+    virtual bool deregister_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
+    virtual bool deregister_sequence(unsigned int list_index);
+    virtual void clear_registered_sequences();
+    virtual int get_sequence_length(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) const;
+    virtual std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > recognize_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence, std::vector< mae::bone > body_parts);
+public:
+    bool swig_overrides(int n) {
+      return (n < 6 ? swig_override[n] : false);
+    }
+protected:
+    bool swig_override[6];
+};
+
+class SwigDirector_general_skeleton_pose_detector : public mae::i_pose_detector< mae::general_skeleton >, public Swig::Director {
+
+public:
+    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
+    SwigDirector_general_skeleton_pose_detector(JNIEnv *jenv);
+    virtual ~SwigDirector_general_skeleton_pose_detector();
+    virtual std::shared_ptr< mae::general_pose > pose(std::shared_ptr< mae::general_skeleton > skeleton, std::vector< mae::bone > body_parts, std::shared_ptr< mae::general_pose > previous_pose);
+public:
+    bool swig_overrides(int n) {
+      return (n < 1 ? swig_override[n] : false);
+    }
+protected:
+    bool swig_override[1];
+};
+
+class SwigDirector_fl_skeleton_pose_detector : public mae::i_pose_detector< mae::fl::fl_skeleton >, public Swig::Director {
+
+public:
+    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
+    SwigDirector_fl_skeleton_pose_detector(JNIEnv *jenv);
+    virtual ~SwigDirector_fl_skeleton_pose_detector();
+    virtual std::shared_ptr< mae::general_pose > pose(std::shared_ptr< mae::fl::fl_skeleton > skeleton, std::vector< mae::bone > body_parts, std::shared_ptr< mae::general_pose > previous_pose);
+public:
+    bool swig_overrides(int n) {
+      return (n < 1 ? swig_override[n] : false);
+    }
+protected:
+    bool swig_override[1];
+};
+
 class SwigDirector_general_enriched_pose : public mae::general_enriched_pose, public Swig::Director {
 
 public:
@@ -96,6 +198,54 @@ public:
     }
 protected:
     bool swig_override[12];
+};
+
+class SwigDirector_laban_sequence_sequence_generator : public mae::i_sequence_generator< mae::fl::laban::laban_sequence >, public Swig::Director {
+
+public:
+    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
+    SwigDirector_laban_sequence_sequence_generator(JNIEnv *jenv);
+    virtual ~SwigDirector_laban_sequence_sequence_generator();
+    virtual std::shared_ptr< mae::fl::laban::laban_sequence > generate_sequence(double framerate, std::list< std::shared_ptr< mae::general_enriched_pose > > keyPoses, std::vector< mae::bone > bodyParts);
+public:
+    bool swig_overrides(int n) {
+      return (n < 1 ? swig_override[n] : false);
+    }
+protected:
+    bool swig_override[1];
+};
+
+class SwigDirector_fl_skeleton_laban_sequence_movement_controller : public mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >, public Swig::Director {
+
+public:
+    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
+    SwigDirector_fl_skeleton_laban_sequence_movement_controller(JNIEnv *jenv, std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > imd, std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > isr, std::vector< mae::bone > body_parts, int pose_buffer_size = 0, double framerate = 1.0/30.0, bool debug = false);
+    SwigDirector_fl_skeleton_laban_sequence_movement_controller(JNIEnv *jenv, std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > ipd, std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > isg, std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > isr, std::vector< mae::bone > body_parts, int pose_buffer_size = 0, double framerate = 1.0/30.0, bool debug = false);
+    virtual ~SwigDirector_fl_skeleton_laban_sequence_movement_controller();
+    virtual void next_frame(long timestamp, std::shared_ptr< mae::fl::fl_skeleton > skeleton);
+    virtual void register_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
+    virtual void deregister_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
+    virtual void clear_registered_sequences();
+    virtual void set_no_buffer_size_update(bool updates);
+    virtual void clear_buffer();
+    virtual std::shared_ptr< mae::fl::laban::laban_sequence > get_current_sequence();
+    virtual void add_listener(std::shared_ptr< mae::i_pose_listener > pose_listener);
+    virtual void remove_listener(std::shared_ptr< mae::i_pose_listener > pose_listener);
+    virtual void add_listener(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > sequence_listener);
+    virtual void remove_listener(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > sequence_listener);
+    virtual void add_listener(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > recognition_listener);
+    virtual void remove_listener(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > recognition_listener);
+    virtual void clear_listeners();
+    virtual void notify_sequence_listeners(long timestamp, std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
+    virtual void notify_recognition_listeners(long timestamp, std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > sequences);
+    virtual std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > get_movement_detector();
+    virtual std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > get_sequence_recognizer();
+public:
+    bool swig_overrides(int n) {
+      return (n < 18 ? swig_override[n] : false);
+    }
+protected:
+    bool swig_override[18];
 };
 
 class SwigDirector_vec3d : public mae::math::vec3d, public Swig::Director {
@@ -235,21 +385,6 @@ protected:
     bool swig_override[17];
 };
 
-class SwigDirector_fl_skeleton_pose_detector : public mae::i_pose_detector< mae::fl::fl_skeleton >, public Swig::Director {
-
-public:
-    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
-    SwigDirector_fl_skeleton_pose_detector(JNIEnv *jenv);
-    virtual ~SwigDirector_fl_skeleton_pose_detector();
-    virtual std::shared_ptr< mae::general_pose > pose(std::shared_ptr< mae::fl::fl_skeleton > skeleton, std::vector< mae::bone > body_parts, std::shared_ptr< mae::general_pose > previous_pose);
-public:
-    bool swig_overrides(int n) {
-      return (n < 1 ? swig_override[n] : false);
-    }
-protected:
-    bool swig_override[1];
-};
-
 class SwigDirector_fl_pose_detector : public mae::fl::fl_pose_detector, public Swig::Director {
 
 public:
@@ -382,21 +517,23 @@ protected:
     bool swig_override[43];
 };
 
-class SwigDirector_i_mov_vector_vector_dec_val : public mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > >, public Swig::Director {
+class SwigDirector_i_movement_decision_maker : public mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement >, public Swig::Director {
 
 public:
     void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
-    SwigDirector_i_mov_vector_vector_dec_val(JNIEnv *jenv, std::vector< std::shared_ptr< mae::fl::laban::i_movement > > sequence, std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > value);
-    SwigDirector_i_mov_vector_vector_dec_val(JNIEnv *jenv, std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > value);
-    virtual ~SwigDirector_i_mov_vector_vector_dec_val();
-    virtual std::vector< std::shared_ptr< mae::fl::laban::i_movement > > get_sequence();
-    virtual std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > get_value();
+    SwigDirector_i_movement_decision_maker(JNIEnv *jenv);
+    virtual ~SwigDirector_i_movement_decision_maker();
+    virtual void set_recognition_tolerance(double tolerance);
+    virtual double get_recognition_tolerance();
+    virtual bool decide_match(std::shared_ptr< mae::fl::laban::i_movement > stream_item, std::shared_ptr< mae::fl::laban::i_movement > stream_item_predecessor, std::shared_ptr< mae::fl::laban::i_movement > tree_item, std::shared_ptr< mae::fl::laban::i_movement > tree_item_predecessor);
+    virtual bool decide_insertion(std::shared_ptr< mae::fl::laban::i_movement > add_item, std::shared_ptr< mae::fl::laban::i_movement > add_item_predecessor, std::shared_ptr< mae::fl::laban::i_movement > tree_item, std::shared_ptr< mae::fl::laban::i_movement > tree_item_predecessor);
+    virtual bool position_okay(double dist_to_last, double set_value, bool check_startpose);
 public:
     bool swig_overrides(int n) {
-      return (n < 2 ? swig_override[n] : false);
+      return (n < 5 ? swig_override[n] : false);
     }
 protected:
-    bool swig_override[2];
+    bool swig_override[5];
 };
 
 class SwigDirector_rewriting_forest : public mae::fl::laban::rewriting_forest, public Swig::Director {
@@ -420,23 +557,21 @@ protected:
     bool swig_override[6];
 };
 
-class SwigDirector_i_dec_maker : public mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement >, public Swig::Director {
+class SwigDirector_i_mov_vector_vector_dec_val : public mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > >, public Swig::Director {
 
 public:
     void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
-    SwigDirector_i_dec_maker(JNIEnv *jenv);
-    virtual ~SwigDirector_i_dec_maker();
-    virtual void set_recognition_tolerance(double tolerance);
-    virtual double get_recognition_tolerance();
-    virtual bool decide_match(std::shared_ptr< mae::fl::laban::i_movement > stream_item, std::shared_ptr< mae::fl::laban::i_movement > stream_item_predecessor, std::shared_ptr< mae::fl::laban::i_movement > tree_item, std::shared_ptr< mae::fl::laban::i_movement > tree_item_predecessor);
-    virtual bool decide_insertion(std::shared_ptr< mae::fl::laban::i_movement > add_item, std::shared_ptr< mae::fl::laban::i_movement > add_item_predecessor, std::shared_ptr< mae::fl::laban::i_movement > tree_item, std::shared_ptr< mae::fl::laban::i_movement > tree_item_predecessor);
-    virtual bool position_okay(double dist_to_last, double set_value, bool check_startpose);
+    SwigDirector_i_mov_vector_vector_dec_val(JNIEnv *jenv, std::vector< std::shared_ptr< mae::fl::laban::i_movement > > sequence, std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > value);
+    SwigDirector_i_mov_vector_vector_dec_val(JNIEnv *jenv, std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > value);
+    virtual ~SwigDirector_i_mov_vector_vector_dec_val();
+    virtual std::vector< std::shared_ptr< mae::fl::laban::i_movement > > get_sequence();
+    virtual std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > get_value();
 public:
     bool swig_overrides(int n) {
-      return (n < 5 ? swig_override[n] : false);
+      return (n < 2 ? swig_override[n] : false);
     }
 protected:
-    bool swig_override[5];
+    bool swig_override[2];
 };
 
 class SwigDirector_decision_forest : public mae::fl::laban::decision_forest, public Swig::Director {
@@ -466,24 +601,23 @@ protected:
     bool swig_override[13];
 };
 
-class SwigDirector_laban_sequence_sequence_recognizer : public mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >, public Swig::Director {
+class SwigDirector_i_dec_maker : public mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement >, public Swig::Director {
 
 public:
     void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
-    SwigDirector_laban_sequence_sequence_recognizer(JNIEnv *jenv);
-    virtual ~SwigDirector_laban_sequence_sequence_recognizer();
-    virtual void register_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
-    virtual bool deregister_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
-    virtual bool deregister_sequence(unsigned int list_index);
-    virtual void clear_registered_sequences();
-    virtual int get_sequence_length(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) const;
-    virtual std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > recognize_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence, std::vector< mae::bone > body_parts);
+    SwigDirector_i_dec_maker(JNIEnv *jenv);
+    virtual ~SwigDirector_i_dec_maker();
+    virtual void set_recognition_tolerance(double tolerance);
+    virtual double get_recognition_tolerance();
+    virtual bool decide_match(std::shared_ptr< mae::fl::laban::i_movement > stream_item, std::shared_ptr< mae::fl::laban::i_movement > stream_item_predecessor, std::shared_ptr< mae::fl::laban::i_movement > tree_item, std::shared_ptr< mae::fl::laban::i_movement > tree_item_predecessor);
+    virtual bool decide_insertion(std::shared_ptr< mae::fl::laban::i_movement > add_item, std::shared_ptr< mae::fl::laban::i_movement > add_item_predecessor, std::shared_ptr< mae::fl::laban::i_movement > tree_item, std::shared_ptr< mae::fl::laban::i_movement > tree_item_predecessor);
+    virtual bool position_okay(double dist_to_last, double set_value, bool check_startpose);
 public:
     bool swig_overrides(int n) {
-      return (n < 6 ? swig_override[n] : false);
+      return (n < 5 ? swig_override[n] : false);
     }
 protected:
-    bool swig_override[6];
+    bool swig_override[5];
 };
 
 class SwigDirector_laban_sequence_recognizer : public mae::fl::laban::laban_sequence_recognizer, public Swig::Director {
@@ -511,21 +645,6 @@ protected:
     bool swig_override[10];
 };
 
-class SwigDirector_laban_sequence_sequence_generator : public mae::i_sequence_generator< mae::fl::laban::laban_sequence >, public Swig::Director {
-
-public:
-    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
-    SwigDirector_laban_sequence_sequence_generator(JNIEnv *jenv);
-    virtual ~SwigDirector_laban_sequence_sequence_generator();
-    virtual std::shared_ptr< mae::fl::laban::laban_sequence > generate_sequence(double framerate, std::list< std::shared_ptr< mae::general_enriched_pose > > keyPoses, std::vector< mae::bone > bodyParts);
-public:
-    bool swig_overrides(int n) {
-      return (n < 1 ? swig_override[n] : false);
-    }
-protected:
-    bool swig_override[1];
-};
-
 class SwigDirector_laban_sequence_generator : public mae::fl::laban::laban_sequence_generator, public Swig::Director {
 
 public:
@@ -540,39 +659,6 @@ public:
     }
 protected:
     bool swig_override[1];
-};
-
-class SwigDirector_fl_skel_laban_movement_controller : public mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >, public Swig::Director {
-
-public:
-    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
-    SwigDirector_fl_skel_laban_movement_controller(JNIEnv *jenv, std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > imd, std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > isr, std::vector< mae::bone > body_parts, int pose_buffer_size = 0, double framerate = 1.0/30.0, bool debug = false);
-    SwigDirector_fl_skel_laban_movement_controller(JNIEnv *jenv, std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > ipd, std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > isg, std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > isr, std::vector< mae::bone > body_parts, int pose_buffer_size = 0, double framerate = 1.0/30.0, bool debug = false);
-    virtual ~SwigDirector_fl_skel_laban_movement_controller();
-    virtual void next_frame(long timestamp, std::shared_ptr< mae::fl::fl_skeleton > skeleton);
-    virtual void register_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
-    virtual void deregister_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
-    virtual void clear_registered_sequences();
-    virtual void set_no_buffer_size_update(bool updates);
-    virtual void clear_buffer();
-    virtual std::shared_ptr< mae::fl::laban::laban_sequence > get_current_sequence();
-    virtual void add_listener(std::shared_ptr< mae::i_pose_listener > pose_listener);
-    virtual void remove_listener(std::shared_ptr< mae::i_pose_listener > pose_listener);
-    virtual void add_listener(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > sequence_listener);
-    virtual void remove_listener(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > sequence_listener);
-    virtual void add_listener(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > recognition_listener);
-    virtual void remove_listener(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > recognition_listener);
-    virtual void clear_listeners();
-    virtual void notify_sequence_listeners(long timestamp, std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
-    virtual void notify_recognition_listeners(long timestamp, std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > sequences);
-    virtual std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > get_movement_detector();
-    virtual std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > get_sequence_recognizer();
-public:
-    bool swig_overrides(int n) {
-      return (n < 18 ? swig_override[n] : false);
-    }
-protected:
-    bool swig_override[18];
 };
 
 class SwigDirector_fl_movement_controller : public mae::fl::fl_movement_controller, public Swig::Director {
@@ -612,6 +698,39 @@ public:
     }
 protected:
     bool swig_override[23];
+};
+
+class SwigDirector_fl_skel_laban_movement_controller : public mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >, public Swig::Director {
+
+public:
+    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
+    SwigDirector_fl_skel_laban_movement_controller(JNIEnv *jenv, std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > imd, std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > isr, std::vector< mae::bone > body_parts, int pose_buffer_size = 0, double framerate = 1.0/30.0, bool debug = false);
+    SwigDirector_fl_skel_laban_movement_controller(JNIEnv *jenv, std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > ipd, std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > isg, std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > isr, std::vector< mae::bone > body_parts, int pose_buffer_size = 0, double framerate = 1.0/30.0, bool debug = false);
+    virtual ~SwigDirector_fl_skel_laban_movement_controller();
+    virtual void next_frame(long timestamp, std::shared_ptr< mae::fl::fl_skeleton > skeleton);
+    virtual void register_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
+    virtual void deregister_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
+    virtual void clear_registered_sequences();
+    virtual void set_no_buffer_size_update(bool updates);
+    virtual void clear_buffer();
+    virtual std::shared_ptr< mae::fl::laban::laban_sequence > get_current_sequence();
+    virtual void add_listener(std::shared_ptr< mae::i_pose_listener > pose_listener);
+    virtual void remove_listener(std::shared_ptr< mae::i_pose_listener > pose_listener);
+    virtual void add_listener(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > sequence_listener);
+    virtual void remove_listener(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > sequence_listener);
+    virtual void add_listener(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > recognition_listener);
+    virtual void remove_listener(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > recognition_listener);
+    virtual void clear_listeners();
+    virtual void notify_sequence_listeners(long timestamp, std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
+    virtual void notify_recognition_listeners(long timestamp, std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > sequences);
+    virtual std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > get_movement_detector();
+    virtual std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > get_sequence_recognizer();
+public:
+    bool swig_overrides(int n) {
+      return (n < 18 ? swig_override[n] : false);
+    }
+protected:
+    bool swig_override[18];
 };
 
 class SwigDirector_bvh_spec : public mae::fl::bvh_spec, public Swig::Director {

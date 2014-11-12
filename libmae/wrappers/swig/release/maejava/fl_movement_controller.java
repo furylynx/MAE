@@ -8,7 +8,7 @@
 
 package maejava;
 
-public class fl_movement_controller extends fl_skel_laban_movement_controller {
+public class fl_movement_controller extends fl_skeleton_laban_sequence_movement_controller {
   private long swigCPtr;
 
   protected fl_movement_controller(long cPtr, boolean cMemoryOwn) {

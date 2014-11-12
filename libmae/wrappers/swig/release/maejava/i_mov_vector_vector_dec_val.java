@@ -50,13 +50,13 @@ public class i_mov_vector_vector_dec_val {
     w_e_boneJNI.i_mov_vector_vector_dec_val_change_ownership(this, swigCPtr, true);
   }
 
-  public i_mov_vector_vector_dec_val(i_mov_vector sequence, SWIGTYPE_p_std__shared_ptrT_std__vectorT_std__vectorT_std__shared_ptrT_mae__fl__laban__i_movement_t_t_t_t value) {
-    this(w_e_boneJNI.new_i_mov_vector_vector_dec_val__SWIG_0(i_mov_vector.getCPtr(sequence), sequence, SWIGTYPE_p_std__shared_ptrT_std__vectorT_std__vectorT_std__shared_ptrT_mae__fl__laban__i_movement_t_t_t_t.getCPtr(value)), true);
+  public i_mov_vector_vector_dec_val(i_mov_vector sequence, i_mov_vector_vector value) {
+    this(w_e_boneJNI.new_i_mov_vector_vector_dec_val__SWIG_0(i_mov_vector.getCPtr(sequence), sequence, i_mov_vector_vector.getCPtr(value)), true);
     w_e_boneJNI.i_mov_vector_vector_dec_val_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
-  public i_mov_vector_vector_dec_val(SWIGTYPE_p_std__shared_ptrT_std__vectorT_std__vectorT_std__shared_ptrT_mae__fl__laban__i_movement_t_t_t_t value) {
-    this(w_e_boneJNI.new_i_mov_vector_vector_dec_val__SWIG_1(SWIGTYPE_p_std__shared_ptrT_std__vectorT_std__vectorT_std__shared_ptrT_mae__fl__laban__i_movement_t_t_t_t.getCPtr(value)), true);
+  public i_mov_vector_vector_dec_val(i_mov_vector_vector value) {
+    this(w_e_boneJNI.new_i_mov_vector_vector_dec_val__SWIG_1(i_mov_vector_vector.getCPtr(value)), true);
     w_e_boneJNI.i_mov_vector_vector_dec_val_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
@@ -64,8 +64,9 @@ public class i_mov_vector_vector_dec_val {
     return new i_mov_vector((getClass() == i_mov_vector_vector_dec_val.class) ? w_e_boneJNI.i_mov_vector_vector_dec_val_get_sequence(swigCPtr, this) : w_e_boneJNI.i_mov_vector_vector_dec_val_get_sequenceSwigExpliciti_mov_vector_vector_dec_val(swigCPtr, this), true);
   }
 
-  public SWIGTYPE_p_std__shared_ptrT_std__vectorT_std__vectorT_std__shared_ptrT_mae__fl__laban__i_movement_t_t_t_t get_value() {
-    return new SWIGTYPE_p_std__shared_ptrT_std__vectorT_std__vectorT_std__shared_ptrT_mae__fl__laban__i_movement_t_t_t_t((getClass() == i_mov_vector_vector_dec_val.class) ? w_e_boneJNI.i_mov_vector_vector_dec_val_get_value(swigCPtr, this) : w_e_boneJNI.i_mov_vector_vector_dec_val_get_valueSwigExpliciti_mov_vector_vector_dec_val(swigCPtr, this), true);
+  public i_mov_vector_vector get_value() {
+    long cPtr = (getClass() == i_mov_vector_vector_dec_val.class) ? w_e_boneJNI.i_mov_vector_vector_dec_val_get_value(swigCPtr, this) : w_e_boneJNI.i_mov_vector_vector_dec_val_get_valueSwigExpliciti_mov_vector_vector_dec_val(swigCPtr, this);
+    return (cPtr == 0) ? null : new i_mov_vector_vector(cPtr, true);
   }
 
 }

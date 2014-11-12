@@ -43,8 +43,8 @@ public class e_level_c {
     return e_level.swigToEnum(w_e_boneJNI.e_level_c_lvl(direction.swigValue()));
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_level_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_level_t(w_e_boneJNI.e_level_c_vec(), true);
+  public static e_level_vector vec() {
+    return new e_level_vector(w_e_boneJNI.e_level_c_vec(), true);
   }
 
   public static e_level parse(String str) {

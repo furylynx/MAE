@@ -8,18 +8,18 @@
 
 package maejava;
 
-public class SWIGTYPE_p_std__vectorT_mae__e_bone_t {
+public class SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t {
   private long swigCPtr;
 
-  protected SWIGTYPE_p_std__vectorT_mae__e_bone_t(long cPtr, boolean futureUse) {
+  protected SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t(long cPtr, boolean futureUse) {
     swigCPtr = cPtr;
   }
 
-  protected SWIGTYPE_p_std__vectorT_mae__e_bone_t() {
+  protected SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t() {
     swigCPtr = 0;
   }
 
-  protected static long getCPtr(SWIGTYPE_p_std__vectorT_mae__e_bone_t obj) {
+  protected static long getCPtr(SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 }

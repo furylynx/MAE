@@ -17,8 +17,10 @@
 //shared_ptr
 %shared_ptr(mae::general_pose);
 
+// Parse the original header file
+%include "../../../src/mae/general_pose.hpp"
+
 //templates
 %template (int_list) std::list<int>;
- 
- // Parse the original header file
- %include "../../../src/mae/general_pose.hpp"
+
+

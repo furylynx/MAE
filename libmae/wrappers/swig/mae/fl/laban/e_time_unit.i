@@ -15,9 +15,13 @@
 %}
 
 //shared_ptr
-
-//templates
-%template(int_vector) std::vector<int>;
+//...
 
 // Parse the original header file
 %include "../../../src/mae/fl/laban/e_time_unit.hpp"
+
+//templates
+%template(int_vector) std::vector<int>;
+%template(e_time_unit_vector) std::vector<mae::fl::laban::e_time_unit>;
+
+

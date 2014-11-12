@@ -39,8 +39,8 @@ public class e_limb_side_c {
     return w_e_boneJNI.e_limb_side_c_str(lside.swigValue());
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__fl__laban__ps__e_limb_side_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__fl__laban__ps__e_limb_side_t(w_e_boneJNI.e_limb_side_c_vec(), true);
+  public static e_limb_side_vector vec() {
+    return new e_limb_side_vector(w_e_boneJNI.e_limb_side_c_vec(), true);
   }
 
   public static e_limb_side parse(String str) {

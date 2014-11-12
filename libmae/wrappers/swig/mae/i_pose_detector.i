@@ -14,14 +14,16 @@
 %{
 	#include "../../../src/mae/i_pose_detector.hpp"
 %}
- 
+
 //shared_ptr
 %shared_ptr(mae::general_pose)
-//TODO shared_ptr skeleton template
-
-//templates
-%template (bone_vector) std::vector<mae::bone>;
-%template (general_skeleton_pose_detector) std::shared_ptr<mae::i_pose_detector<mae::general_skeleton> >;
+%shared_ptr(mae::i_pose_detector<mae::general_skeleton>);
+%shared_ptr(mae::i_pose_detector<mae::fl::fl_skeleton>);
 
 // Parse the original header file
 %include "../../../src/mae/i_pose_detector.hpp"
+
+//templates
+%template (bone_vector) std::vector<mae::bone>;
+%template (general_skeleton_pose_detector) mae::i_pose_detector<mae::general_skeleton>;
+%template (fl_skeleton_pose_detector) mae::i_pose_detector<mae::fl::fl_skeleton>;

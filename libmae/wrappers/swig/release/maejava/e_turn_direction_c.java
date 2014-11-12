@@ -39,8 +39,8 @@ public class e_turn_direction_c {
     return w_e_boneJNI.e_turn_direction_c_str(turn.swigValue());
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_turn_direction_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_turn_direction_t(w_e_boneJNI.e_turn_direction_c_vec(), true);
+  public static e_turn_direction_vector vec() {
+    return new e_turn_direction_vector(w_e_boneJNI.e_turn_direction_c_vec(), true);
   }
 
   public static e_turn_direction parse(String str) {

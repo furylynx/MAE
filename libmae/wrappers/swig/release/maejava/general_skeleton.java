@@ -10,7 +10,7 @@ package maejava;
 
 public class general_skeleton {
   private long swigCPtr;
-  protected boolean swigCMemOwn;
+  private boolean swigCMemOwn;
 
   protected general_skeleton(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;

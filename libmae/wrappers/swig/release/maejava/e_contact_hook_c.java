@@ -39,8 +39,8 @@ public class e_contact_hook_c {
     return w_e_boneJNI.e_contact_hook_c_str(hook.swigValue());
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_contact_hook_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__fl__laban__mv__e_contact_hook_t(w_e_boneJNI.e_contact_hook_c_vec(), true);
+  public static e_contact_hook_vector vec() {
+    return new e_contact_hook_vector(w_e_boneJNI.e_contact_hook_c_vec(), true);
   }
 
   public static e_contact_hook parse(String str) {

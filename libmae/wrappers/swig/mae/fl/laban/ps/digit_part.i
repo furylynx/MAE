@@ -22,7 +22,9 @@
 %shared_ptr(mae::fl::laban::ps::i_endpoint);
 %shared_ptr(mae::fl::laban::ps::digit_part);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/ps/digit_part.hpp"
+
+//templates
+//...
+

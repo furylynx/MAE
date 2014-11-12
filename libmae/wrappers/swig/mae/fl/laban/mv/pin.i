@@ -20,7 +20,9 @@
 %shared_ptr(mae::fl::laban::mv::i_degree_sign);
 %shared_ptr(mae::fl::laban::mv::pin);
 
-//templates
-
 // Parse the original header file
 %include "../../../src/mae/fl/laban/mv/pin.hpp"
+
+//templates
+//...
+

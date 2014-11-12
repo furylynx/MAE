@@ -39,8 +39,8 @@ public class e_area_c {
     return w_e_boneJNI.e_area_c_str(area.swigValue());
   }
 
-  public static SWIGTYPE_p_std__vectorT_mae__fl__laban__ps__e_area_t vec() {
-    return new SWIGTYPE_p_std__vectorT_mae__fl__laban__ps__e_area_t(w_e_boneJNI.e_area_c_vec(), true);
+  public static e_area_vector vec() {
+    return new e_area_vector(w_e_boneJNI.e_area_c_vec(), true);
   }
 
   public static e_area parse(String str) {
