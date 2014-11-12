@@ -37,8 +37,24 @@ public class cancellation_symbol extends i_symbol {
     super.delete();
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.cancellation_symbol_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.cancellation_symbol_change_ownership(this, swigCPtr, true);
+  }
+
   public cancellation_symbol(e_cancel cancel) {
     this(w_e_boneJNI.new_cancellation_symbol(cancel.swigValue()), true);
+    w_e_boneJNI.cancellation_symbol_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public e_cancel get_cancel() {
@@ -46,31 +62,31 @@ public class cancellation_symbol extends i_symbol {
   }
 
   public boolean equals(i_symbol a) {
-    return w_e_boneJNI.cancellation_symbol_equals(swigCPtr, this, i_symbol.getCPtr(a), a);
+    return (getClass() == cancellation_symbol.class) ? w_e_boneJNI.cancellation_symbol_equals(swigCPtr, this, i_symbol.getCPtr(a), a) : w_e_boneJNI.cancellation_symbol_equalsSwigExplicitcancellation_symbol(swigCPtr, this, i_symbol.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.cancellation_symbol_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == cancellation_symbol.class) ? w_e_boneJNI.cancellation_symbol_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.cancellation_symbol_xmlSwigExplicitcancellation_symbol__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.cancellation_symbol_xml__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == cancellation_symbol.class) ? w_e_boneJNI.cancellation_symbol_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.cancellation_symbol_xmlSwigExplicitcancellation_symbol__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.cancellation_symbol_xml__SWIG_2(swigCPtr, this);
+    return (getClass() == cancellation_symbol.class) ? w_e_boneJNI.cancellation_symbol_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.cancellation_symbol_xmlSwigExplicitcancellation_symbol__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return w_e_boneJNI.cancellation_symbol_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return (getClass() == cancellation_symbol.class) ? w_e_boneJNI.cancellation_symbol_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : w_e_boneJNI.cancellation_symbol_svgSwigExplicitcancellation_symbol__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return w_e_boneJNI.cancellation_symbol_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return (getClass() == cancellation_symbol.class) ? w_e_boneJNI.cancellation_symbol_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : w_e_boneJNI.cancellation_symbol_svgSwigExplicitcancellation_symbol__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public String str() {
-    return w_e_boneJNI.cancellation_symbol_str(swigCPtr, this);
+    return (getClass() == cancellation_symbol.class) ? w_e_boneJNI.cancellation_symbol_str(swigCPtr, this) : w_e_boneJNI.cancellation_symbol_strSwigExplicitcancellation_symbol(swigCPtr, this);
   }
 
 }

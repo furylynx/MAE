@@ -8,7 +8,7 @@
 %include "std_vector.i"
 %include "exception.i"
 
-%module w_bone
+%module(directors="1") w_bone
 %{
 	#include "../../../src/mae/bone.hpp"
 %}

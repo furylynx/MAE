@@ -14,7 +14,7 @@
 
 
 //module definition
-%module w_laban_sequence
+%module(directors="1") w_laban_sequence
 %{
 	#include "../../../src/mae/fl/laban/laban_sequence.hpp"
 %}

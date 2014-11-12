@@ -5,7 +5,7 @@
 //global includes
 %include "std_shared_ptr.i"
  
-%module w_i_sequence_listener
+%module(directors="1") w_i_sequence_listener
 %{
 	#include "../../../src/mae/i_sequence_listener.hpp"
 %}

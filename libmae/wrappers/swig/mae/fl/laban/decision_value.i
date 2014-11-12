@@ -11,7 +11,7 @@
 
 
 //module definition
-%module w_decision_value
+%module(directors="1") w_decision_value
 %{
 	#include "../../../src/mae/fl/laban/decision_value.hpp"
 %}

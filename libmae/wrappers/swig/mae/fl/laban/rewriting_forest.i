@@ -19,7 +19,7 @@
 
 
 //module definition
-%module w_rewriting_forest
+%module(directors="1") w_rewriting_forest
 %{
 	#include "../../../src/mae/fl/laban/rewriting_forest.hpp"
 %}

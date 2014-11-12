@@ -8,7 +8,7 @@
 
 
 //module definition
-%module w_vec3d
+%module(directors="1") w_vec3d
 %{
 	#include "../../../src/mae/math/vec3d.hpp"
 %}

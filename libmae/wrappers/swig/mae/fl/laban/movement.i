@@ -14,7 +14,7 @@
 
 
 //module definition
-%module w_movement
+%module(directors="1") w_movement
 %{
 	#include "../../../src/mae/fl/laban/movement.hpp"
 %}

@@ -10,7 +10,7 @@
 %include "exception.i"
 
 
-%module w_general_enriched_pose
+%module(directors="1") w_general_enriched_pose
 %{
 	#include "../../../src/mae/general_enriched_pose.hpp"
 %}

@@ -37,8 +37,24 @@ public class digit_part extends i_endpoint {
     super.delete();
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.digit_part_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.digit_part_change_ownership(this, swigCPtr, true);
+  }
+
   public digit_part(e_digit digit, long knuckle) {
     this(w_e_boneJNI.new_digit_part(digit.swigValue(), knuckle), true);
+    w_e_boneJNI.digit_part_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public e_digit get_digit() {
@@ -50,36 +66,36 @@ public class digit_part extends i_endpoint {
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.digit_part_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == digit_part.class) ? w_e_boneJNI.digit_part_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.digit_part_xmlSwigExplicitdigit_part__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.digit_part_xml__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == digit_part.class) ? w_e_boneJNI.digit_part_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.digit_part_xmlSwigExplicitdigit_part__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.digit_part_xml__SWIG_2(swigCPtr, this);
+    return (getClass() == digit_part.class) ? w_e_boneJNI.digit_part_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.digit_part_xmlSwigExplicitdigit_part__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return w_e_boneJNI.digit_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return (getClass() == digit_part.class) ? w_e_boneJNI.digit_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : w_e_boneJNI.digit_part_svgSwigExplicitdigit_part__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return w_e_boneJNI.digit_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return (getClass() == digit_part.class) ? w_e_boneJNI.digit_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : w_e_boneJNI.digit_part_svgSwigExplicitdigit_part__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public i_endpoint get_fixed_end() {
-    long cPtr = w_e_boneJNI.digit_part_get_fixed_end(swigCPtr, this);
+    long cPtr = (getClass() == digit_part.class) ? w_e_boneJNI.digit_part_get_fixed_end(swigCPtr, this) : w_e_boneJNI.digit_part_get_fixed_endSwigExplicitdigit_part(swigCPtr, this);
     return (cPtr == 0) ? null : new i_endpoint(cPtr, true);
   }
 
   public boolean equals(i_part a) {
-    return w_e_boneJNI.digit_part_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
+    return (getClass() == digit_part.class) ? w_e_boneJNI.digit_part_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a) : w_e_boneJNI.digit_part_equalsSwigExplicitdigit_part__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
   public boolean equals(i_endpoint a) {
-    return w_e_boneJNI.digit_part_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
+    return (getClass() == digit_part.class) ? w_e_boneJNI.digit_part_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a) : w_e_boneJNI.digit_part_equalsSwigExplicitdigit_part__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
   }
 
 }

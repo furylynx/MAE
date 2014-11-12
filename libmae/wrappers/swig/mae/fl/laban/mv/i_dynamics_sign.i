@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_i_dynamics_sign
+%module(directors="1") w_i_dynamics_sign
 %{
 	#include "../../../src/mae/fl/laban/mv/i_dynamics_sign.hpp"
 %}

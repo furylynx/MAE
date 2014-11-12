@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_e_time_unit
+%module(directors="1") w_e_time_unit
 %{
 	#include "../../../src/mae/fl/laban/e_time_unit.hpp"
 %}

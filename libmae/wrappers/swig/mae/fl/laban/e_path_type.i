@@ -9,7 +9,7 @@
 
 
 //module definition
-%module w_e_path_type
+%module(directors="1") w_e_path_type
 %{
 	#include "../../../src/mae/fl/laban/e_path_type.hpp"
 %}

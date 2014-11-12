@@ -12,7 +12,7 @@
 
 
 //module definition
-%module w_space_symbol
+%module(directors="1") w_space_symbol
 %{
 	#include "../../../src/mae/fl/laban/mv/space_symbol.hpp"
 %}

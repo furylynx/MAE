@@ -10,7 +10,7 @@
 
 
 //module definition
-%module w_laban_sequence_reader
+%module(directors="1") w_laban_sequence_reader
 %{
 	#include "../../../src/mae/fl/laban/laban_sequence_reader.hpp"
 %}

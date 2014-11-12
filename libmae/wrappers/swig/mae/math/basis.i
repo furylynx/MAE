@@ -9,7 +9,7 @@
 %include "exception.i"
 
 //module definition
-%module w_basis
+%module(directors="1") w_basis
 %{
 	#include "../../../src/mae/math/basis.hpp"
 %}

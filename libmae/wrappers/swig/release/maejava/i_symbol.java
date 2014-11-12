@@ -35,6 +35,21 @@ public class i_symbol {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.i_symbol_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.i_symbol_change_ownership(this, swigCPtr, true);
+  }
+
   public boolean equals(i_symbol a) {
     return w_e_boneJNI.i_symbol_equals(swigCPtr, this, i_symbol.getCPtr(a), a);
   }
@@ -61,6 +76,11 @@ public class i_symbol {
 
   public String str() {
     return w_e_boneJNI.i_symbol_str(swigCPtr, this);
+  }
+
+  public i_symbol() {
+    this(w_e_boneJNI.new_i_symbol(), true);
+    w_e_boneJNI.i_symbol_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

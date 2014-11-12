@@ -35,109 +35,132 @@ public class fl_skel_laban_movement_controller {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    w_e_boneJNI.fl_skel_laban_movement_controller_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    w_e_boneJNI.fl_skel_laban_movement_controller_change_ownership(this, swigCPtr, true);
+  }
+
   public fl_skel_laban_movement_controller(SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t imd, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t isr, bone_vector body_parts, int pose_buffer_size, double framerate, boolean debug) {
     this(w_e_boneJNI.new_fl_skel_laban_movement_controller__SWIG_0(SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t.getCPtr(imd), SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t.getCPtr(isr), bone_vector.getCPtr(body_parts), body_parts, pose_buffer_size, framerate, debug), true);
+    w_e_boneJNI.fl_skel_laban_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public fl_skel_laban_movement_controller(SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t imd, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t isr, bone_vector body_parts, int pose_buffer_size, double framerate) {
     this(w_e_boneJNI.new_fl_skel_laban_movement_controller__SWIG_1(SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t.getCPtr(imd), SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t.getCPtr(isr), bone_vector.getCPtr(body_parts), body_parts, pose_buffer_size, framerate), true);
+    w_e_boneJNI.fl_skel_laban_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public fl_skel_laban_movement_controller(SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t imd, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t isr, bone_vector body_parts, int pose_buffer_size) {
     this(w_e_boneJNI.new_fl_skel_laban_movement_controller__SWIG_2(SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t.getCPtr(imd), SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t.getCPtr(isr), bone_vector.getCPtr(body_parts), body_parts, pose_buffer_size), true);
+    w_e_boneJNI.fl_skel_laban_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public fl_skel_laban_movement_controller(SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t imd, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t isr, bone_vector body_parts) {
     this(w_e_boneJNI.new_fl_skel_laban_movement_controller__SWIG_3(SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t.getCPtr(imd), SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t.getCPtr(isr), bone_vector.getCPtr(body_parts), body_parts), true);
+    w_e_boneJNI.fl_skel_laban_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public fl_skel_laban_movement_controller(SWIGTYPE_p_std__shared_ptrT_mae__i_pose_detectorT_mae__fl__fl_skeleton_t_t ipd, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_generatorT_mae__fl__laban__laban_sequence_t_t isg, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t isr, bone_vector body_parts, int pose_buffer_size, double framerate, boolean debug) {
     this(w_e_boneJNI.new_fl_skel_laban_movement_controller__SWIG_4(SWIGTYPE_p_std__shared_ptrT_mae__i_pose_detectorT_mae__fl__fl_skeleton_t_t.getCPtr(ipd), SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_generatorT_mae__fl__laban__laban_sequence_t_t.getCPtr(isg), SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t.getCPtr(isr), bone_vector.getCPtr(body_parts), body_parts, pose_buffer_size, framerate, debug), true);
+    w_e_boneJNI.fl_skel_laban_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public fl_skel_laban_movement_controller(SWIGTYPE_p_std__shared_ptrT_mae__i_pose_detectorT_mae__fl__fl_skeleton_t_t ipd, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_generatorT_mae__fl__laban__laban_sequence_t_t isg, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t isr, bone_vector body_parts, int pose_buffer_size, double framerate) {
     this(w_e_boneJNI.new_fl_skel_laban_movement_controller__SWIG_5(SWIGTYPE_p_std__shared_ptrT_mae__i_pose_detectorT_mae__fl__fl_skeleton_t_t.getCPtr(ipd), SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_generatorT_mae__fl__laban__laban_sequence_t_t.getCPtr(isg), SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t.getCPtr(isr), bone_vector.getCPtr(body_parts), body_parts, pose_buffer_size, framerate), true);
+    w_e_boneJNI.fl_skel_laban_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public fl_skel_laban_movement_controller(SWIGTYPE_p_std__shared_ptrT_mae__i_pose_detectorT_mae__fl__fl_skeleton_t_t ipd, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_generatorT_mae__fl__laban__laban_sequence_t_t isg, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t isr, bone_vector body_parts, int pose_buffer_size) {
     this(w_e_boneJNI.new_fl_skel_laban_movement_controller__SWIG_6(SWIGTYPE_p_std__shared_ptrT_mae__i_pose_detectorT_mae__fl__fl_skeleton_t_t.getCPtr(ipd), SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_generatorT_mae__fl__laban__laban_sequence_t_t.getCPtr(isg), SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t.getCPtr(isr), bone_vector.getCPtr(body_parts), body_parts, pose_buffer_size), true);
+    w_e_boneJNI.fl_skel_laban_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public fl_skel_laban_movement_controller(SWIGTYPE_p_std__shared_ptrT_mae__i_pose_detectorT_mae__fl__fl_skeleton_t_t ipd, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_generatorT_mae__fl__laban__laban_sequence_t_t isg, SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t isr, bone_vector body_parts) {
     this(w_e_boneJNI.new_fl_skel_laban_movement_controller__SWIG_7(SWIGTYPE_p_std__shared_ptrT_mae__i_pose_detectorT_mae__fl__fl_skeleton_t_t.getCPtr(ipd), SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_generatorT_mae__fl__laban__laban_sequence_t_t.getCPtr(isg), SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t.getCPtr(isr), bone_vector.getCPtr(body_parts), body_parts), true);
+    w_e_boneJNI.fl_skel_laban_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public void next_frame(int timestamp, fl_skeleton skeleton) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_next_frame(swigCPtr, this, timestamp, fl_skeleton.getCPtr(skeleton), skeleton);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_next_frame(swigCPtr, this, timestamp, fl_skeleton.getCPtr(skeleton), skeleton); else w_e_boneJNI.fl_skel_laban_movement_controller_next_frameSwigExplicitfl_skel_laban_movement_controller(swigCPtr, this, timestamp, fl_skeleton.getCPtr(skeleton), skeleton);
   }
 
   public void register_sequence(laban_sequence sequence) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_register_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_register_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence); else w_e_boneJNI.fl_skel_laban_movement_controller_register_sequenceSwigExplicitfl_skel_laban_movement_controller(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public void deregister_sequence(laban_sequence sequence) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_deregister_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_deregister_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence); else w_e_boneJNI.fl_skel_laban_movement_controller_deregister_sequenceSwigExplicitfl_skel_laban_movement_controller(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public void clear_registered_sequences() {
-    w_e_boneJNI.fl_skel_laban_movement_controller_clear_registered_sequences(swigCPtr, this);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_clear_registered_sequences(swigCPtr, this); else w_e_boneJNI.fl_skel_laban_movement_controller_clear_registered_sequencesSwigExplicitfl_skel_laban_movement_controller(swigCPtr, this);
   }
 
   public void set_no_buffer_size_update(boolean updates) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_set_no_buffer_size_update(swigCPtr, this, updates);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_set_no_buffer_size_update(swigCPtr, this, updates); else w_e_boneJNI.fl_skel_laban_movement_controller_set_no_buffer_size_updateSwigExplicitfl_skel_laban_movement_controller(swigCPtr, this, updates);
   }
 
   public void clear_buffer() {
-    w_e_boneJNI.fl_skel_laban_movement_controller_clear_buffer(swigCPtr, this);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_clear_buffer(swigCPtr, this); else w_e_boneJNI.fl_skel_laban_movement_controller_clear_bufferSwigExplicitfl_skel_laban_movement_controller(swigCPtr, this);
   }
 
   public laban_sequence get_current_sequence() {
-    long cPtr = w_e_boneJNI.fl_skel_laban_movement_controller_get_current_sequence(swigCPtr, this);
+    long cPtr = (getClass() == fl_skel_laban_movement_controller.class) ? w_e_boneJNI.fl_skel_laban_movement_controller_get_current_sequence(swigCPtr, this) : w_e_boneJNI.fl_skel_laban_movement_controller_get_current_sequenceSwigExplicitfl_skel_laban_movement_controller(swigCPtr, this);
     return (cPtr == 0) ? null : new laban_sequence(cPtr, true);
   }
 
   public void add_listener(i_pose_listener pose_listener) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_add_listener__SWIG_0(swigCPtr, this, i_pose_listener.getCPtr(pose_listener), pose_listener);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_add_listener__SWIG_0(swigCPtr, this, i_pose_listener.getCPtr(pose_listener), pose_listener); else w_e_boneJNI.fl_skel_laban_movement_controller_add_listenerSwigExplicitfl_skel_laban_movement_controller__SWIG_0(swigCPtr, this, i_pose_listener.getCPtr(pose_listener), pose_listener);
   }
 
   public void remove_listener(i_pose_listener pose_listener) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_remove_listener__SWIG_0(swigCPtr, this, i_pose_listener.getCPtr(pose_listener), pose_listener);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_remove_listener__SWIG_0(swigCPtr, this, i_pose_listener.getCPtr(pose_listener), pose_listener); else w_e_boneJNI.fl_skel_laban_movement_controller_remove_listenerSwigExplicitfl_skel_laban_movement_controller__SWIG_0(swigCPtr, this, i_pose_listener.getCPtr(pose_listener), pose_listener);
   }
 
   public void add_listener(laban_sequence_sequence_listener sequence_listener) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_add_listener__SWIG_1(swigCPtr, this, laban_sequence_sequence_listener.getCPtr(sequence_listener), sequence_listener);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_add_listener__SWIG_1(swigCPtr, this, laban_sequence_sequence_listener.getCPtr(sequence_listener), sequence_listener); else w_e_boneJNI.fl_skel_laban_movement_controller_add_listenerSwigExplicitfl_skel_laban_movement_controller__SWIG_1(swigCPtr, this, laban_sequence_sequence_listener.getCPtr(sequence_listener), sequence_listener);
   }
 
   public void remove_listener(laban_sequence_sequence_listener sequence_listener) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_remove_listener__SWIG_1(swigCPtr, this, laban_sequence_sequence_listener.getCPtr(sequence_listener), sequence_listener);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_remove_listener__SWIG_1(swigCPtr, this, laban_sequence_sequence_listener.getCPtr(sequence_listener), sequence_listener); else w_e_boneJNI.fl_skel_laban_movement_controller_remove_listenerSwigExplicitfl_skel_laban_movement_controller__SWIG_1(swigCPtr, this, laban_sequence_sequence_listener.getCPtr(sequence_listener), sequence_listener);
   }
 
   public void add_listener(laban_sequence_recognition_listener recognition_listener) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_add_listener__SWIG_2(swigCPtr, this, laban_sequence_recognition_listener.getCPtr(recognition_listener), recognition_listener);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_add_listener__SWIG_2(swigCPtr, this, laban_sequence_recognition_listener.getCPtr(recognition_listener), recognition_listener); else w_e_boneJNI.fl_skel_laban_movement_controller_add_listenerSwigExplicitfl_skel_laban_movement_controller__SWIG_2(swigCPtr, this, laban_sequence_recognition_listener.getCPtr(recognition_listener), recognition_listener);
   }
 
   public void remove_listener(laban_sequence_recognition_listener recognition_listener) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_remove_listener__SWIG_2(swigCPtr, this, laban_sequence_recognition_listener.getCPtr(recognition_listener), recognition_listener);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_remove_listener__SWIG_2(swigCPtr, this, laban_sequence_recognition_listener.getCPtr(recognition_listener), recognition_listener); else w_e_boneJNI.fl_skel_laban_movement_controller_remove_listenerSwigExplicitfl_skel_laban_movement_controller__SWIG_2(swigCPtr, this, laban_sequence_recognition_listener.getCPtr(recognition_listener), recognition_listener);
   }
 
   public void clear_listeners() {
-    w_e_boneJNI.fl_skel_laban_movement_controller_clear_listeners(swigCPtr, this);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_clear_listeners(swigCPtr, this); else w_e_boneJNI.fl_skel_laban_movement_controller_clear_listenersSwigExplicitfl_skel_laban_movement_controller(swigCPtr, this);
   }
 
   public void notify_sequence_listeners(int timestamp, laban_sequence sequence) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_notify_sequence_listeners(swigCPtr, this, timestamp, laban_sequence.getCPtr(sequence), sequence);
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_notify_sequence_listeners(swigCPtr, this, timestamp, laban_sequence.getCPtr(sequence), sequence); else w_e_boneJNI.fl_skel_laban_movement_controller_notify_sequence_listenersSwigExplicitfl_skel_laban_movement_controller(swigCPtr, this, timestamp, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public void notify_recognition_listeners(int timestamp, SWIGTYPE_p_std__vectorT_std__shared_ptrT_mae__fl__laban__laban_sequence_t_t sequences) {
-    w_e_boneJNI.fl_skel_laban_movement_controller_notify_recognition_listeners(swigCPtr, this, timestamp, SWIGTYPE_p_std__vectorT_std__shared_ptrT_mae__fl__laban__laban_sequence_t_t.getCPtr(sequences));
+    if (getClass() == fl_skel_laban_movement_controller.class) w_e_boneJNI.fl_skel_laban_movement_controller_notify_recognition_listeners(swigCPtr, this, timestamp, SWIGTYPE_p_std__vectorT_std__shared_ptrT_mae__fl__laban__laban_sequence_t_t.getCPtr(sequences)); else w_e_boneJNI.fl_skel_laban_movement_controller_notify_recognition_listenersSwigExplicitfl_skel_laban_movement_controller(swigCPtr, this, timestamp, SWIGTYPE_p_std__vectorT_std__shared_ptrT_mae__fl__laban__laban_sequence_t_t.getCPtr(sequences));
   }
 
   public SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t get_movement_detector() {
-    return new SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t(w_e_boneJNI.fl_skel_laban_movement_controller_get_movement_detector(swigCPtr, this), true);
+    return new SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t((getClass() == fl_skel_laban_movement_controller.class) ? w_e_boneJNI.fl_skel_laban_movement_controller_get_movement_detector(swigCPtr, this) : w_e_boneJNI.fl_skel_laban_movement_controller_get_movement_detectorSwigExplicitfl_skel_laban_movement_controller(swigCPtr, this), true);
   }
 
   public SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t get_sequence_recognizer() {
-    return new SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t(w_e_boneJNI.fl_skel_laban_movement_controller_get_sequence_recognizer(swigCPtr, this), true);
+    return new SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t((getClass() == fl_skel_laban_movement_controller.class) ? w_e_boneJNI.fl_skel_laban_movement_controller_get_sequence_recognizer(swigCPtr, this) : w_e_boneJNI.fl_skel_laban_movement_controller_get_sequence_recognizerSwigExplicitfl_skel_laban_movement_controller(swigCPtr, this), true);
   }
 
 }
