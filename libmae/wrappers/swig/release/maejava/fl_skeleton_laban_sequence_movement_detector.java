@@ -10,7 +10,7 @@ package maejava;
 
 public class fl_skeleton_laban_sequence_movement_detector {
   private long swigCPtr;
-  protected boolean swigCMemOwn;
+  private boolean swigCMemOwn;
 
   protected fl_skeleton_laban_sequence_movement_detector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
