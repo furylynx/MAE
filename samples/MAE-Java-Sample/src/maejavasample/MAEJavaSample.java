@@ -18,14 +18,17 @@ public class MAEJavaSample
 		System.loadLibrary("mae");
 		
 		fl_movement_controller movementController = new fl_movement_controller(bone.default_bones(), column_definition.default_definitions());
-//		movementController.add_listener(new );
+		movementController.add_listener(new SequenceListener());
+
 		
 		bvh_controller bvhc = new bvh_controller();
 		
-		general_skeleton_vector data = bvhc.read_bvh_file("", bvh_spec.default_spec()).getFirst();
+		general_skeleton_vector data = bvhc.read_bvh_file("/home/keks/mae/eval/boerge/dontcare01/next_sequence.bvh", bvh_spec.default_spec()).getFirst();
 
 		for (int i = 0; i < data.size(); i++)
 		{
+			System.out.println(i);
+			
 			general_skeleton skeleton = data.get(i);
 			
 			movementController.next_frame(i*30, skeleton);

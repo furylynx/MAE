@@ -84,22 +84,6 @@ public class w_e_boneJNI {
   public final static native long bone_vector_get(long jarg1, bone_vector jarg1_, int jarg2);
   public final static native void bone_vector_set(long jarg1, bone_vector jarg1_, int jarg2, long jarg3, bone jarg3_);
   public final static native void delete_bone_vector(long jarg1);
-  public final static native void delete_laban_sequence_sequence_listener(long jarg1);
-  public final static native void laban_sequence_sequence_listener_on_sequence(long jarg1, laban_sequence_sequence_listener jarg1_, int jarg2, long jarg3);
-  public final static native long new_laban_sequence_sequence_listener();
-  public final static native void laban_sequence_sequence_listener_director_connect(laban_sequence_sequence_listener obj, long cptr, boolean mem_own, boolean weak_global);
-  public final static native void laban_sequence_sequence_listener_change_ownership(laban_sequence_sequence_listener obj, long cptr, boolean take_or_release);
-  public final static native long new_laban_sequence_vector__SWIG_0();
-  public final static native long new_laban_sequence_vector__SWIG_1(long jarg1);
-  public final static native long laban_sequence_vector_size(long jarg1, laban_sequence_vector jarg1_);
-  public final static native long laban_sequence_vector_capacity(long jarg1, laban_sequence_vector jarg1_);
-  public final static native void laban_sequence_vector_reserve(long jarg1, laban_sequence_vector jarg1_, long jarg2);
-  public final static native boolean laban_sequence_vector_isEmpty(long jarg1, laban_sequence_vector jarg1_);
-  public final static native void laban_sequence_vector_clear(long jarg1, laban_sequence_vector jarg1_);
-  public final static native void laban_sequence_vector_add(long jarg1, laban_sequence_vector jarg1_, long jarg2);
-  public final static native long laban_sequence_vector_get(long jarg1, laban_sequence_vector jarg1_, int jarg2);
-  public final static native void laban_sequence_vector_set(long jarg1, laban_sequence_vector jarg1_, int jarg2, long jarg3);
-  public final static native void delete_laban_sequence_vector(long jarg1);
   public final static native long new_string_vector__SWIG_0();
   public final static native long new_string_vector__SWIG_1(long jarg1);
   public final static native long string_vector_size(long jarg1, string_vector jarg1_);
@@ -111,12 +95,6 @@ public class w_e_boneJNI {
   public final static native String string_vector_get(long jarg1, string_vector jarg1_, int jarg2);
   public final static native void string_vector_set(long jarg1, string_vector jarg1_, int jarg2, String jarg3);
   public final static native void delete_string_vector(long jarg1);
-  public final static native void delete_laban_sequence_recognition_listener(long jarg1);
-  public final static native void laban_sequence_recognition_listener_on_recognition__SWIG_0(long jarg1, laban_sequence_recognition_listener jarg1_, int jarg2, long jarg3, laban_sequence_vector jarg3_);
-  public final static native void laban_sequence_recognition_listener_on_recognition__SWIG_1(long jarg1, laban_sequence_recognition_listener jarg1_, int jarg2, long jarg3, string_vector jarg3_);
-  public final static native long new_laban_sequence_recognition_listener();
-  public final static native void laban_sequence_recognition_listener_director_connect(laban_sequence_recognition_listener obj, long cptr, boolean mem_own, boolean weak_global);
-  public final static native void laban_sequence_recognition_listener_change_ownership(laban_sequence_recognition_listener obj, long cptr, boolean take_or_release);
   public final static native long new_general_pose();
   public final static native void delete_general_pose(long jarg1);
   public final static native void general_pose_set_direction(long jarg1, general_pose jarg1_, int jarg2, int jarg3);
@@ -149,37 +127,6 @@ public class w_e_boneJNI {
   public final static native long new_i_pose_listener();
   public final static native void i_pose_listener_director_connect(i_pose_listener obj, long cptr, boolean mem_own, boolean weak_global);
   public final static native void i_pose_listener_change_ownership(i_pose_listener obj, long cptr, boolean take_or_release);
-  public final static native void delete_fl_skeleton_laban_sequence_movement_detector(long jarg1);
-  public final static native long fl_skeleton_laban_sequence_movement_detector_detect_movement(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, int jarg2, double jarg3, long jarg4, long jarg5, bone_vector jarg5_);
-  public final static native void fl_skeleton_laban_sequence_movement_detector_set_buffer(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, int jarg2);
-  public final static native void fl_skeleton_laban_sequence_movement_detector_clear_buffer(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_);
-  public final static native void fl_skeleton_laban_sequence_movement_detector_add_listener(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, i_pose_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_detector_remove_listener(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, i_pose_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_detector_clear_listeners(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_);
-  public final static native void fl_skeleton_laban_sequence_movement_detector_notify_listeners(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, int jarg2, long jarg3, general_pose jarg3_);
-  public final static native long new_fl_skeleton_laban_sequence_movement_detector();
-  public final static native void fl_skeleton_laban_sequence_movement_detector_director_connect(fl_skeleton_laban_sequence_movement_detector obj, long cptr, boolean mem_own, boolean weak_global);
-  public final static native void fl_skeleton_laban_sequence_movement_detector_change_ownership(fl_skeleton_laban_sequence_movement_detector obj, long cptr, boolean take_or_release);
-  public final static native void delete_laban_sequence_sequence_recognizer(long jarg1);
-  public final static native void laban_sequence_sequence_recognizer_register_sequence(long jarg1, laban_sequence_sequence_recognizer jarg1_, long jarg2, laban_sequence jarg2_);
-  public final static native boolean laban_sequence_sequence_recognizer_deregister_sequence__SWIG_0(long jarg1, laban_sequence_sequence_recognizer jarg1_, long jarg2, laban_sequence jarg2_);
-  public final static native boolean laban_sequence_sequence_recognizer_deregister_sequence__SWIG_1(long jarg1, laban_sequence_sequence_recognizer jarg1_, long jarg2);
-  public final static native void laban_sequence_sequence_recognizer_clear_registered_sequences(long jarg1, laban_sequence_sequence_recognizer jarg1_);
-  public final static native int laban_sequence_sequence_recognizer_get_sequence_length(long jarg1, laban_sequence_sequence_recognizer jarg1_, long jarg2, laban_sequence jarg2_);
-  public final static native long laban_sequence_sequence_recognizer_recognize_sequence(long jarg1, laban_sequence_sequence_recognizer jarg1_, long jarg2, laban_sequence jarg2_, long jarg3, bone_vector jarg3_);
-  public final static native long new_laban_sequence_sequence_recognizer();
-  public final static native void laban_sequence_sequence_recognizer_director_connect(laban_sequence_sequence_recognizer obj, long cptr, boolean mem_own, boolean weak_global);
-  public final static native void laban_sequence_sequence_recognizer_change_ownership(laban_sequence_sequence_recognizer obj, long cptr, boolean take_or_release);
-  public final static native void delete_general_skeleton_pose_detector(long jarg1);
-  public final static native long general_skeleton_pose_detector_pose(long jarg1, general_skeleton_pose_detector jarg1_, long jarg2, long jarg3, bone_vector jarg3_, long jarg4, general_pose jarg4_);
-  public final static native long new_general_skeleton_pose_detector();
-  public final static native void general_skeleton_pose_detector_director_connect(general_skeleton_pose_detector obj, long cptr, boolean mem_own, boolean weak_global);
-  public final static native void general_skeleton_pose_detector_change_ownership(general_skeleton_pose_detector obj, long cptr, boolean take_or_release);
-  public final static native void delete_fl_skeleton_pose_detector(long jarg1);
-  public final static native long fl_skeleton_pose_detector_pose(long jarg1, fl_skeleton_pose_detector jarg1_, long jarg2, long jarg3, bone_vector jarg3_, long jarg4, general_pose jarg4_);
-  public final static native long new_fl_skeleton_pose_detector();
-  public final static native void fl_skeleton_pose_detector_director_connect(fl_skeleton_pose_detector obj, long cptr, boolean mem_own, boolean weak_global);
-  public final static native void fl_skeleton_pose_detector_change_ownership(fl_skeleton_pose_detector obj, long cptr, boolean take_or_release);
   public final static native long new_general_enriched_pose__SWIG_0();
   public final static native long new_general_enriched_pose__SWIG_1(long jarg1, general_pose jarg1_);
   public final static native void delete_general_enriched_pose(long jarg1);
@@ -200,58 +147,6 @@ public class w_e_boneJNI {
   public final static native void enriched_pose_list_add(long jarg1, enriched_pose_list jarg1_, long jarg2, general_enriched_pose jarg2_);
   public final static native long enriched_pose_list_get(long jarg1, enriched_pose_list jarg1_, int jarg2);
   public final static native void delete_enriched_pose_list(long jarg1);
-  public final static native void delete_laban_sequence_sequence_generator(long jarg1);
-  public final static native long laban_sequence_sequence_generator_generate_sequence(long jarg1, laban_sequence_sequence_generator jarg1_, double jarg2, long jarg3, enriched_pose_list jarg3_, long jarg4, bone_vector jarg4_);
-  public final static native long new_laban_sequence_sequence_generator();
-  public final static native void laban_sequence_sequence_generator_director_connect(laban_sequence_sequence_generator obj, long cptr, boolean mem_own, boolean weak_global);
-  public final static native void laban_sequence_sequence_generator_change_ownership(laban_sequence_sequence_generator obj, long cptr, boolean take_or_release);
-  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, long jarg3, bone_vector jarg3_, int jarg4, double jarg5, boolean jarg6);
-  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, long jarg3, bone_vector jarg3_, int jarg4, double jarg5);
-  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, long jarg3, bone_vector jarg3_, int jarg4);
-  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_3(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, long jarg3, bone_vector jarg3_);
-  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_4(long jarg1, long jarg2, long jarg3, long jarg4, bone_vector jarg4_, int jarg5, double jarg6, boolean jarg7);
-  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_5(long jarg1, long jarg2, long jarg3, long jarg4, bone_vector jarg4_, int jarg5, double jarg6);
-  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_6(long jarg1, long jarg2, long jarg3, long jarg4, bone_vector jarg4_, int jarg5);
-  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_7(long jarg1, long jarg2, long jarg3, long jarg4, bone_vector jarg4_);
-  public final static native void delete_fl_skeleton_laban_sequence_movement_controller(long jarg1);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_next_frame(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_next_frameSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_register_sequence(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_register_sequenceSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_deregister_sequence(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_deregister_sequenceSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_clear_registered_sequences(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_clear_registered_sequencesSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_set_no_buffer_size_update(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, boolean jarg2);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_set_no_buffer_size_updateSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, boolean jarg2);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_clear_buffer(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_clear_bufferSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native long fl_skeleton_laban_sequence_movement_controller_get_current_sequence(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native long fl_skeleton_laban_sequence_movement_controller_get_current_sequenceSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_add_listenerSwigExplicitfl_skeleton_laban_sequence_movement_controller__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_remove_listenerSwigExplicitfl_skeleton_laban_sequence_movement_controller__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_sequence_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_add_listenerSwigExplicitfl_skeleton_laban_sequence_movement_controller__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_sequence_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_sequence_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_remove_listenerSwigExplicitfl_skeleton_laban_sequence_movement_controller__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_sequence_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_recognition_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_add_listenerSwigExplicitfl_skeleton_laban_sequence_movement_controller__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_recognition_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_recognition_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_remove_listenerSwigExplicitfl_skeleton_laban_sequence_movement_controller__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_recognition_listener jarg2_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_clear_listeners(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_clear_listenersSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_notify_sequence_listeners(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, laban_sequence jarg3_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_notify_sequence_listenersSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, laban_sequence jarg3_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_notify_recognition_listeners(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, laban_sequence_vector jarg3_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_notify_recognition_listenersSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, laban_sequence_vector jarg3_);
-  public final static native long fl_skeleton_laban_sequence_movement_controller_get_movement_detector(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native long fl_skeleton_laban_sequence_movement_controller_get_movement_detectorSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native long fl_skeleton_laban_sequence_movement_controller_get_sequence_recognizer(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native long fl_skeleton_laban_sequence_movement_controller_get_sequence_recognizerSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_director_connect(fl_skeleton_laban_sequence_movement_controller obj, long cptr, boolean mem_own, boolean weak_global);
-  public final static native void fl_skeleton_laban_sequence_movement_controller_change_ownership(fl_skeleton_laban_sequence_movement_controller obj, long cptr, boolean take_or_release);
   public final static native long new_hierarchy__SWIG_0();
   public final static native long new_hierarchy__SWIG_1(long jarg1, hierarchy_element jarg1_);
   public final static native void delete_hierarchy(long jarg1);
@@ -428,6 +323,11 @@ public class w_e_boneJNI {
   public final static native String fl_skeleton_strSwigExplicitfl_skeleton(long jarg1, fl_skeleton jarg1_);
   public final static native void fl_skeleton_director_connect(fl_skeleton obj, long cptr, boolean mem_own, boolean weak_global);
   public final static native void fl_skeleton_change_ownership(fl_skeleton obj, long cptr, boolean take_or_release);
+  public final static native void delete_fl_skeleton_pose_detector(long jarg1);
+  public final static native long fl_skeleton_pose_detector_pose(long jarg1, fl_skeleton_pose_detector jarg1_, long jarg2, fl_skeleton jarg2_, long jarg3, bone_vector jarg3_, long jarg4, general_pose jarg4_);
+  public final static native long new_fl_skeleton_pose_detector();
+  public final static native void fl_skeleton_pose_detector_director_connect(fl_skeleton_pose_detector obj, long cptr, boolean mem_own, boolean weak_global);
+  public final static native void fl_skeleton_pose_detector_change_ownership(fl_skeleton_pose_detector obj, long cptr, boolean take_or_release);
   public final static native long new_fl_pose_detector__SWIG_0(double jarg1, boolean jarg2);
   public final static native long new_fl_pose_detector__SWIG_1(double jarg1);
   public final static native long new_fl_pose_detector__SWIG_2();
@@ -744,6 +644,17 @@ public class w_e_boneJNI {
   public final static native long new_i_dec_maker();
   public final static native void i_dec_maker_director_connect(i_dec_maker obj, long cptr, boolean mem_own, boolean weak_global);
   public final static native void i_dec_maker_change_ownership(i_dec_maker obj, long cptr, boolean take_or_release);
+  public final static native long new_laban_sequence_vector__SWIG_0();
+  public final static native long new_laban_sequence_vector__SWIG_1(long jarg1);
+  public final static native long laban_sequence_vector_size(long jarg1, laban_sequence_vector jarg1_);
+  public final static native long laban_sequence_vector_capacity(long jarg1, laban_sequence_vector jarg1_);
+  public final static native void laban_sequence_vector_reserve(long jarg1, laban_sequence_vector jarg1_, long jarg2);
+  public final static native boolean laban_sequence_vector_isEmpty(long jarg1, laban_sequence_vector jarg1_);
+  public final static native void laban_sequence_vector_clear(long jarg1, laban_sequence_vector jarg1_);
+  public final static native void laban_sequence_vector_add(long jarg1, laban_sequence_vector jarg1_, long jarg2, laban_sequence jarg2_);
+  public final static native long laban_sequence_vector_get(long jarg1, laban_sequence_vector jarg1_, int jarg2);
+  public final static native void laban_sequence_vector_set(long jarg1, laban_sequence_vector jarg1_, int jarg2, long jarg3, laban_sequence jarg3_);
+  public final static native void delete_laban_sequence_vector(long jarg1);
   public final static native long new_laban_sequence_list();
   public final static native long laban_sequence_list_size(long jarg1, laban_sequence_list jarg1_);
   public final static native boolean laban_sequence_list_isEmpty(long jarg1, laban_sequence_list jarg1_);
@@ -751,6 +662,16 @@ public class w_e_boneJNI {
   public final static native void laban_sequence_list_add(long jarg1, laban_sequence_list jarg1_, long jarg2, laban_sequence jarg2_);
   public final static native long laban_sequence_list_get(long jarg1, laban_sequence_list jarg1_, int jarg2);
   public final static native void delete_laban_sequence_list(long jarg1);
+  public final static native void delete_laban_sequence_sequence_recognizer(long jarg1);
+  public final static native void laban_sequence_sequence_recognizer_register_sequence(long jarg1, laban_sequence_sequence_recognizer jarg1_, long jarg2, laban_sequence jarg2_);
+  public final static native boolean laban_sequence_sequence_recognizer_deregister_sequence__SWIG_0(long jarg1, laban_sequence_sequence_recognizer jarg1_, long jarg2, laban_sequence jarg2_);
+  public final static native boolean laban_sequence_sequence_recognizer_deregister_sequence__SWIG_1(long jarg1, laban_sequence_sequence_recognizer jarg1_, long jarg2);
+  public final static native void laban_sequence_sequence_recognizer_clear_registered_sequences(long jarg1, laban_sequence_sequence_recognizer jarg1_);
+  public final static native int laban_sequence_sequence_recognizer_get_sequence_length(long jarg1, laban_sequence_sequence_recognizer jarg1_, long jarg2, laban_sequence jarg2_);
+  public final static native long laban_sequence_sequence_recognizer_recognize_sequence(long jarg1, laban_sequence_sequence_recognizer jarg1_, long jarg2, laban_sequence jarg2_, long jarg3, bone_vector jarg3_);
+  public final static native long new_laban_sequence_sequence_recognizer();
+  public final static native void laban_sequence_sequence_recognizer_director_connect(laban_sequence_sequence_recognizer obj, long cptr, boolean mem_own, boolean weak_global);
+  public final static native void laban_sequence_sequence_recognizer_change_ownership(laban_sequence_sequence_recognizer obj, long cptr, boolean take_or_release);
   public final static native long new_laban_sequence_recognizer__SWIG_0(double jarg1, boolean jarg2);
   public final static native long new_laban_sequence_recognizer__SWIG_1(double jarg1);
   public final static native long new_laban_sequence_recognizer__SWIG_2();
@@ -783,6 +704,11 @@ public class w_e_boneJNI {
   public final static native String laban_sequence_recognizer_strSwigExplicitlaban_sequence_recognizer(long jarg1, laban_sequence_recognizer jarg1_);
   public final static native void laban_sequence_recognizer_director_connect(laban_sequence_recognizer obj, long cptr, boolean mem_own, boolean weak_global);
   public final static native void laban_sequence_recognizer_change_ownership(laban_sequence_recognizer obj, long cptr, boolean take_or_release);
+  public final static native void delete_laban_sequence_sequence_generator(long jarg1);
+  public final static native long laban_sequence_sequence_generator_generate_sequence(long jarg1, laban_sequence_sequence_generator jarg1_, double jarg2, long jarg3, enriched_pose_list jarg3_, long jarg4, bone_vector jarg4_);
+  public final static native long new_laban_sequence_sequence_generator();
+  public final static native void laban_sequence_sequence_generator_director_connect(laban_sequence_sequence_generator obj, long cptr, boolean mem_own, boolean weak_global);
+  public final static native void laban_sequence_sequence_generator_change_ownership(laban_sequence_sequence_generator obj, long cptr, boolean take_or_release);
   public final static native long new_laban_sequence_generator__SWIG_0(boolean jarg1);
   public final static native long new_laban_sequence_generator__SWIG_1();
   public final static native long new_laban_sequence_generator__SWIG_2(long jarg1, coldef_vector jarg1_, long jarg2, long jarg3, int jarg4, boolean jarg5);
@@ -795,6 +721,75 @@ public class w_e_boneJNI {
   public final static native long laban_sequence_generator_generate_sequenceSwigExplicitlaban_sequence_generator(long jarg1, laban_sequence_generator jarg1_, double jarg2, long jarg3, enriched_pose_list jarg3_, long jarg4, bone_vector jarg4_);
   public final static native void laban_sequence_generator_director_connect(laban_sequence_generator obj, long cptr, boolean mem_own, boolean weak_global);
   public final static native void laban_sequence_generator_change_ownership(laban_sequence_generator obj, long cptr, boolean take_or_release);
+  public final static native void delete_laban_sequence_sequence_listener(long jarg1);
+  public final static native void laban_sequence_sequence_listener_on_sequence(long jarg1, laban_sequence_sequence_listener jarg1_, int jarg2, long jarg3, laban_sequence jarg3_);
+  public final static native long new_laban_sequence_sequence_listener();
+  public final static native void laban_sequence_sequence_listener_director_connect(laban_sequence_sequence_listener obj, long cptr, boolean mem_own, boolean weak_global);
+  public final static native void laban_sequence_sequence_listener_change_ownership(laban_sequence_sequence_listener obj, long cptr, boolean take_or_release);
+  public final static native void delete_laban_sequence_recognition_listener(long jarg1);
+  public final static native void laban_sequence_recognition_listener_on_recognition__SWIG_0(long jarg1, laban_sequence_recognition_listener jarg1_, int jarg2, long jarg3, laban_sequence_vector jarg3_);
+  public final static native void laban_sequence_recognition_listener_on_recognition__SWIG_1(long jarg1, laban_sequence_recognition_listener jarg1_, int jarg2, long jarg3, string_vector jarg3_);
+  public final static native long new_laban_sequence_recognition_listener();
+  public final static native void laban_sequence_recognition_listener_director_connect(laban_sequence_recognition_listener obj, long cptr, boolean mem_own, boolean weak_global);
+  public final static native void laban_sequence_recognition_listener_change_ownership(laban_sequence_recognition_listener obj, long cptr, boolean take_or_release);
+  public final static native void delete_fl_skeleton_laban_sequence_movement_detector(long jarg1);
+  public final static native long fl_skeleton_laban_sequence_movement_detector_detect_movement(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, int jarg2, double jarg3, long jarg4, fl_skeleton jarg4_, long jarg5, bone_vector jarg5_);
+  public final static native void fl_skeleton_laban_sequence_movement_detector_set_buffer(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, int jarg2);
+  public final static native void fl_skeleton_laban_sequence_movement_detector_clear_buffer(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_);
+  public final static native void fl_skeleton_laban_sequence_movement_detector_add_listener(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, i_pose_listener jarg2_);
+  public final static native void fl_skeleton_laban_sequence_movement_detector_remove_listener(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, i_pose_listener jarg2_);
+  public final static native void fl_skeleton_laban_sequence_movement_detector_clear_listeners(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_);
+  public final static native void fl_skeleton_laban_sequence_movement_detector_notify_listeners(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, int jarg2, long jarg3, general_pose jarg3_);
+  public final static native long new_fl_skeleton_laban_sequence_movement_detector();
+  public final static native void fl_skeleton_laban_sequence_movement_detector_director_connect(fl_skeleton_laban_sequence_movement_detector obj, long cptr, boolean mem_own, boolean weak_global);
+  public final static native void fl_skeleton_laban_sequence_movement_detector_change_ownership(fl_skeleton_laban_sequence_movement_detector obj, long cptr, boolean take_or_release);
+  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_0(long jarg1, long jarg2, long jarg3, bone_vector jarg3_, int jarg4, double jarg5, boolean jarg6);
+  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_1(long jarg1, long jarg2, long jarg3, bone_vector jarg3_, int jarg4, double jarg5);
+  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_2(long jarg1, long jarg2, long jarg3, bone_vector jarg3_, int jarg4);
+  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_3(long jarg1, long jarg2, long jarg3, bone_vector jarg3_);
+  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_4(long jarg1, long jarg2, long jarg3, long jarg4, bone_vector jarg4_, int jarg5, double jarg6, boolean jarg7);
+  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_5(long jarg1, long jarg2, long jarg3, long jarg4, bone_vector jarg4_, int jarg5, double jarg6);
+  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_6(long jarg1, long jarg2, long jarg3, long jarg4, bone_vector jarg4_, int jarg5);
+  public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_7(long jarg1, long jarg2, long jarg3, long jarg4, bone_vector jarg4_);
+  public final static native void delete_fl_skeleton_laban_sequence_movement_controller(long jarg1);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_next_frame(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, fl_skeleton jarg3_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_next_frameSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, fl_skeleton jarg3_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_register_sequence(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence jarg2_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_register_sequenceSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence jarg2_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_deregister_sequence(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence jarg2_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_deregister_sequenceSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence jarg2_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_clear_registered_sequences(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_clear_registered_sequencesSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_set_no_buffer_size_update(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, boolean jarg2);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_set_no_buffer_size_updateSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, boolean jarg2);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_clear_buffer(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_clear_bufferSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native long fl_skeleton_laban_sequence_movement_controller_get_current_sequence(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native long fl_skeleton_laban_sequence_movement_controller_get_current_sequenceSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_add_listenerSwigExplicitfl_skeleton_laban_sequence_movement_controller__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_remove_listenerSwigExplicitfl_skeleton_laban_sequence_movement_controller__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_add_listenerSwigExplicitfl_skeleton_laban_sequence_movement_controller__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_remove_listenerSwigExplicitfl_skeleton_laban_sequence_movement_controller__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_add_listenerSwigExplicitfl_skeleton_laban_sequence_movement_controller__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_remove_listenerSwigExplicitfl_skeleton_laban_sequence_movement_controller__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_clear_listeners(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_clear_listenersSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_notify_sequence_listeners(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, laban_sequence jarg3_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_notify_sequence_listenersSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, laban_sequence jarg3_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_notify_recognition_listeners(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, laban_sequence_vector jarg3_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_notify_recognition_listenersSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, laban_sequence_vector jarg3_);
+  public final static native long fl_skeleton_laban_sequence_movement_controller_get_movement_detector(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native long fl_skeleton_laban_sequence_movement_controller_get_movement_detectorSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native long fl_skeleton_laban_sequence_movement_controller_get_sequence_recognizer(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native long fl_skeleton_laban_sequence_movement_controller_get_sequence_recognizerSwigExplicitfl_skeleton_laban_sequence_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_director_connect(fl_skeleton_laban_sequence_movement_controller obj, long cptr, boolean mem_own, boolean weak_global);
+  public final static native void fl_skeleton_laban_sequence_movement_controller_change_ownership(fl_skeleton_laban_sequence_movement_controller obj, long cptr, boolean take_or_release);
   public final static native long new_fl_movement_controller__SWIG_0(long jarg1, double jarg2, boolean jarg3);
   public final static native long new_fl_movement_controller__SWIG_1(long jarg1, double jarg2);
   public final static native long new_fl_movement_controller__SWIG_2(long jarg1);
@@ -826,53 +821,6 @@ public class w_e_boneJNI {
   public final static native long fl_movement_controller_get_fl_pose_detectorSwigExplicitfl_movement_controller(long jarg1, fl_movement_controller jarg1_);
   public final static native void fl_movement_controller_director_connect(fl_movement_controller obj, long cptr, boolean mem_own, boolean weak_global);
   public final static native void fl_movement_controller_change_ownership(fl_movement_controller obj, long cptr, boolean take_or_release);
-  public final static native long new_fl_skel_laban_movement_controller__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, long jarg3, bone_vector jarg3_, int jarg4, double jarg5, boolean jarg6);
-  public final static native long new_fl_skel_laban_movement_controller__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, long jarg3, bone_vector jarg3_, int jarg4, double jarg5);
-  public final static native long new_fl_skel_laban_movement_controller__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, long jarg3, bone_vector jarg3_, int jarg4);
-  public final static native long new_fl_skel_laban_movement_controller__SWIG_3(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, long jarg3, bone_vector jarg3_);
-  public final static native long new_fl_skel_laban_movement_controller__SWIG_4(long jarg1, long jarg2, long jarg3, long jarg4, bone_vector jarg4_, int jarg5, double jarg6, boolean jarg7);
-  public final static native long new_fl_skel_laban_movement_controller__SWIG_5(long jarg1, long jarg2, long jarg3, long jarg4, bone_vector jarg4_, int jarg5, double jarg6);
-  public final static native long new_fl_skel_laban_movement_controller__SWIG_6(long jarg1, long jarg2, long jarg3, long jarg4, bone_vector jarg4_, int jarg5);
-  public final static native long new_fl_skel_laban_movement_controller__SWIG_7(long jarg1, long jarg2, long jarg3, long jarg4, bone_vector jarg4_);
-  public final static native void delete_fl_skel_laban_movement_controller(long jarg1);
-  public final static native void fl_skel_laban_movement_controller_next_frame(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, fl_skeleton jarg3_);
-  public final static native void fl_skel_laban_movement_controller_next_frameSwigExplicitfl_skel_laban_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, fl_skeleton jarg3_);
-  public final static native void fl_skel_laban_movement_controller_register_sequence(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence jarg2_);
-  public final static native void fl_skel_laban_movement_controller_register_sequenceSwigExplicitfl_skel_laban_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence jarg2_);
-  public final static native void fl_skel_laban_movement_controller_deregister_sequence(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence jarg2_);
-  public final static native void fl_skel_laban_movement_controller_deregister_sequenceSwigExplicitfl_skel_laban_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence jarg2_);
-  public final static native void fl_skel_laban_movement_controller_clear_registered_sequences(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skel_laban_movement_controller_clear_registered_sequencesSwigExplicitfl_skel_laban_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skel_laban_movement_controller_set_no_buffer_size_update(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, boolean jarg2);
-  public final static native void fl_skel_laban_movement_controller_set_no_buffer_size_updateSwigExplicitfl_skel_laban_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, boolean jarg2);
-  public final static native void fl_skel_laban_movement_controller_clear_buffer(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skel_laban_movement_controller_clear_bufferSwigExplicitfl_skel_laban_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native long fl_skel_laban_movement_controller_get_current_sequence(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native long fl_skel_laban_movement_controller_get_current_sequenceSwigExplicitfl_skel_laban_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skel_laban_movement_controller_add_listener__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
-  public final static native void fl_skel_laban_movement_controller_add_listenerSwigExplicitfl_skel_laban_movement_controller__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
-  public final static native void fl_skel_laban_movement_controller_remove_listener__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
-  public final static native void fl_skel_laban_movement_controller_remove_listenerSwigExplicitfl_skel_laban_movement_controller__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
-  public final static native void fl_skel_laban_movement_controller_add_listener__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_sequence_listener jarg2_);
-  public final static native void fl_skel_laban_movement_controller_add_listenerSwigExplicitfl_skel_laban_movement_controller__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_sequence_listener jarg2_);
-  public final static native void fl_skel_laban_movement_controller_remove_listener__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_sequence_listener jarg2_);
-  public final static native void fl_skel_laban_movement_controller_remove_listenerSwigExplicitfl_skel_laban_movement_controller__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_sequence_listener jarg2_);
-  public final static native void fl_skel_laban_movement_controller_add_listener__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_recognition_listener jarg2_);
-  public final static native void fl_skel_laban_movement_controller_add_listenerSwigExplicitfl_skel_laban_movement_controller__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_recognition_listener jarg2_);
-  public final static native void fl_skel_laban_movement_controller_remove_listener__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_recognition_listener jarg2_);
-  public final static native void fl_skel_laban_movement_controller_remove_listenerSwigExplicitfl_skel_laban_movement_controller__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_recognition_listener jarg2_);
-  public final static native void fl_skel_laban_movement_controller_clear_listeners(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skel_laban_movement_controller_clear_listenersSwigExplicitfl_skel_laban_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skel_laban_movement_controller_notify_sequence_listeners(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, laban_sequence jarg3_);
-  public final static native void fl_skel_laban_movement_controller_notify_sequence_listenersSwigExplicitfl_skel_laban_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, laban_sequence jarg3_);
-  public final static native void fl_skel_laban_movement_controller_notify_recognition_listeners(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, laban_sequence_vector jarg3_);
-  public final static native void fl_skel_laban_movement_controller_notify_recognition_listenersSwigExplicitfl_skel_laban_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, int jarg2, long jarg3, laban_sequence_vector jarg3_);
-  public final static native long fl_skel_laban_movement_controller_get_movement_detector(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native long fl_skel_laban_movement_controller_get_movement_detectorSwigExplicitfl_skel_laban_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native long fl_skel_laban_movement_controller_get_sequence_recognizer(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native long fl_skel_laban_movement_controller_get_sequence_recognizerSwigExplicitfl_skel_laban_movement_controller(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
-  public final static native void fl_skel_laban_movement_controller_director_connect(fl_skel_laban_movement_controller obj, long cptr, boolean mem_own, boolean weak_global);
-  public final static native void fl_skel_laban_movement_controller_change_ownership(fl_skel_laban_movement_controller obj, long cptr, boolean take_or_release);
   public final static native long new_bvh_spec(String jarg1, String jarg2, String jarg3, String jarg4, long jarg5, string_int_map jarg5_, long jarg6, string_bool_map jarg6_);
   public final static native void delete_bvh_spec(long jarg1);
   public final static native long bvh_spec_get_id_map(long jarg1, bvh_spec jarg1_);
@@ -1787,15 +1735,6 @@ public class w_e_boneJNI {
   public static int SwigDirector_bone_get_middle_joint(bone self) {
     return self.get_middle_joint();
   }
-  public static void SwigDirector_laban_sequence_sequence_listener_on_sequence(laban_sequence_sequence_listener self, int timestamp, long sequence) {
-    self.on_sequence(timestamp, new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
-  }
-  public static void SwigDirector_laban_sequence_recognition_listener_on_recognition__SWIG_0(laban_sequence_recognition_listener self, int timestamp, long sequences) {
-    self.on_recognition(timestamp, new laban_sequence_vector(sequences, false));
-  }
-  public static void SwigDirector_laban_sequence_recognition_listener_on_recognition__SWIG_1(laban_sequence_recognition_listener self, int timestamp, long title) {
-    self.on_recognition(timestamp, new string_vector(title, false));
-  }
   public static void SwigDirector_general_pose_set_direction(general_pose self, int body_part, int direction) {
     self.set_direction(body_part, direction);
   }
@@ -1822,51 +1761,6 @@ public class w_e_boneJNI {
   }
   public static void SwigDirector_i_pose_listener_on_pose(i_pose_listener self, int timestamp, long pose) {
     self.on_pose(timestamp, new SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t(pose, false));
-  }
-  public static long SwigDirector_fl_skeleton_laban_sequence_movement_detector_detect_movement(fl_skeleton_laban_sequence_movement_detector self, int timestamp, double framerate, long skeleton, long body_parts) {
-    return SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t.getCPtr(self.detect_movement(timestamp, framerate, new SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t(skeleton, false), new bone_vector(body_parts, false)));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_detector_set_buffer(fl_skeleton_laban_sequence_movement_detector self, int size) {
-    self.set_buffer(size);
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_detector_clear_buffer(fl_skeleton_laban_sequence_movement_detector self) {
-    self.clear_buffer();
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_detector_add_listener(fl_skeleton_laban_sequence_movement_detector self, long listener) {
-    self.add_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t(listener, false));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_detector_remove_listener(fl_skeleton_laban_sequence_movement_detector self, long listener) {
-    self.remove_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t(listener, false));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_detector_clear_listeners(fl_skeleton_laban_sequence_movement_detector self) {
-    self.clear_listeners();
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_detector_notify_listeners(fl_skeleton_laban_sequence_movement_detector self, int timestamp, long pose) {
-    self.notify_listeners(timestamp, new SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t(pose, false));
-  }
-  public static void SwigDirector_laban_sequence_sequence_recognizer_register_sequence(laban_sequence_sequence_recognizer self, long sequence) {
-    self.register_sequence(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
-  }
-  public static boolean SwigDirector_laban_sequence_sequence_recognizer_deregister_sequence__SWIG_0(laban_sequence_sequence_recognizer self, long sequence) {
-    return self.deregister_sequence(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
-  }
-  public static boolean SwigDirector_laban_sequence_sequence_recognizer_deregister_sequence__SWIG_1(laban_sequence_sequence_recognizer self, long list_index) {
-    return self.deregister_sequence(list_index);
-  }
-  public static void SwigDirector_laban_sequence_sequence_recognizer_clear_registered_sequences(laban_sequence_sequence_recognizer self) {
-    self.clear_registered_sequences();
-  }
-  public static int SwigDirector_laban_sequence_sequence_recognizer_get_sequence_length(laban_sequence_sequence_recognizer self, long sequence) {
-    return self.get_sequence_length(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
-  }
-  public static long SwigDirector_laban_sequence_sequence_recognizer_recognize_sequence(laban_sequence_sequence_recognizer self, long sequence, long body_parts) {
-    return laban_sequence_vector.getCPtr(self.recognize_sequence(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false), new bone_vector(body_parts, false)));
-  }
-  public static long SwigDirector_general_skeleton_pose_detector_pose(general_skeleton_pose_detector self, long skeleton, long body_parts, long previous_pose) {
-    return SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t.getCPtr(self.pose(new SWIGTYPE_p_std__shared_ptrT_mae__general_skeleton_t(skeleton, false), new bone_vector(body_parts, false), new SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t(previous_pose, false)));
-  }
-  public static long SwigDirector_fl_skeleton_pose_detector_pose(fl_skeleton_pose_detector self, long skeleton, long body_parts, long previous_pose) {
-    return SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t.getCPtr(self.pose(new SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t(skeleton, false), new bone_vector(body_parts, false), new SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t(previous_pose, false)));
   }
   public static void SwigDirector_general_enriched_pose_set_direction(general_enriched_pose self, int body_part, int direction) {
     self.set_direction(body_part, direction);
@@ -1903,63 +1797,6 @@ public class w_e_boneJNI {
   }
   public static boolean SwigDirector_general_enriched_pose_is_in_motion(general_enriched_pose self, int body_part) {
     return self.is_in_motion(body_part);
-  }
-  public static long SwigDirector_laban_sequence_sequence_generator_generate_sequence(laban_sequence_sequence_generator self, double framerate, long keyPoses, long bodyParts) {
-    return SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t.getCPtr(self.generate_sequence(framerate, new enriched_pose_list(keyPoses, false), new bone_vector(bodyParts, false)));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_next_frame(fl_skeleton_laban_sequence_movement_controller self, int timestamp, long skeleton) {
-    self.next_frame(timestamp, new SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t(skeleton, false));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_register_sequence(fl_skeleton_laban_sequence_movement_controller self, long sequence) {
-    self.register_sequence(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_deregister_sequence(fl_skeleton_laban_sequence_movement_controller self, long sequence) {
-    self.deregister_sequence(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_clear_registered_sequences(fl_skeleton_laban_sequence_movement_controller self) {
-    self.clear_registered_sequences();
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_set_no_buffer_size_update(fl_skeleton_laban_sequence_movement_controller self, boolean updates) {
-    self.set_no_buffer_size_update(updates);
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_clear_buffer(fl_skeleton_laban_sequence_movement_controller self) {
-    self.clear_buffer();
-  }
-  public static long SwigDirector_fl_skeleton_laban_sequence_movement_controller_get_current_sequence(fl_skeleton_laban_sequence_movement_controller self) {
-    return SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t.getCPtr(self.get_current_sequence());
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_0(fl_skeleton_laban_sequence_movement_controller self, long pose_listener) {
-    self.add_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t(pose_listener, false));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_0(fl_skeleton_laban_sequence_movement_controller self, long pose_listener) {
-    self.remove_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t(pose_listener, false));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_1(fl_skeleton_laban_sequence_movement_controller self, long sequence_listener) {
-    self.add_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t(sequence_listener, false));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_1(fl_skeleton_laban_sequence_movement_controller self, long sequence_listener) {
-    self.remove_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t(sequence_listener, false));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_2(fl_skeleton_laban_sequence_movement_controller self, long recognition_listener) {
-    self.add_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t(recognition_listener, false));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_2(fl_skeleton_laban_sequence_movement_controller self, long recognition_listener) {
-    self.remove_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t(recognition_listener, false));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_clear_listeners(fl_skeleton_laban_sequence_movement_controller self) {
-    self.clear_listeners();
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_notify_sequence_listeners(fl_skeleton_laban_sequence_movement_controller self, int timestamp, long sequence) {
-    self.notify_sequence_listeners(timestamp, new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
-  }
-  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_notify_recognition_listeners(fl_skeleton_laban_sequence_movement_controller self, int timestamp, long sequences) {
-    self.notify_recognition_listeners(timestamp, new laban_sequence_vector(sequences, false));
-  }
-  public static long SwigDirector_fl_skeleton_laban_sequence_movement_controller_get_movement_detector(fl_skeleton_laban_sequence_movement_controller self) {
-    return SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t.getCPtr(self.get_movement_detector());
-  }
-  public static long SwigDirector_fl_skeleton_laban_sequence_movement_controller_get_sequence_recognizer(fl_skeleton_laban_sequence_movement_controller self) {
-    return SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t.getCPtr(self.get_sequence_recognizer());
   }
   public static void SwigDirector_vec3d_set_x(vec3d self, double x) {
     self.set_x(x);
@@ -2146,6 +1983,9 @@ public class w_e_boneJNI {
   }
   public static long SwigDirector_fl_skeleton_get_orig_skeleton(fl_skeleton self) {
     return SWIGTYPE_p_std__shared_ptrT_mae__general_skeleton_t.getCPtr(self.get_orig_skeleton());
+  }
+  public static long SwigDirector_fl_skeleton_pose_detector_pose(fl_skeleton_pose_detector self, long skeleton, long body_parts, long previous_pose) {
+    return SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t.getCPtr(self.pose(new SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t(skeleton, false), new bone_vector(body_parts, false), new SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t(previous_pose, false)));
   }
   public static long SwigDirector_fl_pose_detector_pose(fl_pose_detector self, long skeleton, long body_parts, long previous_pose) {
     return SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t.getCPtr(self.pose(new SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t(skeleton, false), new bone_vector(body_parts, false), new SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t(previous_pose, false)));
@@ -2450,6 +2290,24 @@ public class w_e_boneJNI {
   public static boolean SwigDirector_i_dec_maker_position_okay(i_dec_maker self, double dist_to_last, double set_value, boolean check_startpose) {
     return self.position_okay(dist_to_last, set_value, check_startpose);
   }
+  public static void SwigDirector_laban_sequence_sequence_recognizer_register_sequence(laban_sequence_sequence_recognizer self, long sequence) {
+    self.register_sequence(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
+  }
+  public static boolean SwigDirector_laban_sequence_sequence_recognizer_deregister_sequence__SWIG_0(laban_sequence_sequence_recognizer self, long sequence) {
+    return self.deregister_sequence(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
+  }
+  public static boolean SwigDirector_laban_sequence_sequence_recognizer_deregister_sequence__SWIG_1(laban_sequence_sequence_recognizer self, long list_index) {
+    return self.deregister_sequence(list_index);
+  }
+  public static void SwigDirector_laban_sequence_sequence_recognizer_clear_registered_sequences(laban_sequence_sequence_recognizer self) {
+    self.clear_registered_sequences();
+  }
+  public static int SwigDirector_laban_sequence_sequence_recognizer_get_sequence_length(laban_sequence_sequence_recognizer self, long sequence) {
+    return self.get_sequence_length(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
+  }
+  public static long SwigDirector_laban_sequence_sequence_recognizer_recognize_sequence(laban_sequence_sequence_recognizer self, long sequence, long body_parts) {
+    return laban_sequence_vector.getCPtr(self.recognize_sequence(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false), new bone_vector(body_parts, false)));
+  }
   public static void SwigDirector_laban_sequence_recognizer_register_sequence(laban_sequence_recognizer self, long sequence) {
     self.register_sequence(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
   }
@@ -2480,8 +2338,95 @@ public class w_e_boneJNI {
   public static String SwigDirector_laban_sequence_recognizer_str(laban_sequence_recognizer self) {
     return self.str();
   }
+  public static long SwigDirector_laban_sequence_sequence_generator_generate_sequence(laban_sequence_sequence_generator self, double framerate, long keyPoses, long bodyParts) {
+    return SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t.getCPtr(self.generate_sequence(framerate, new enriched_pose_list(keyPoses, false), new bone_vector(bodyParts, false)));
+  }
   public static long SwigDirector_laban_sequence_generator_generate_sequence(laban_sequence_generator self, double framerate, long key_poses, long body_parts) {
     return SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t.getCPtr(self.generate_sequence(framerate, new enriched_pose_list(key_poses, false), new bone_vector(body_parts, false)));
+  }
+  public static void SwigDirector_laban_sequence_sequence_listener_on_sequence(laban_sequence_sequence_listener self, int timestamp, long sequence) {
+    self.on_sequence(timestamp, new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
+  }
+  public static void SwigDirector_laban_sequence_recognition_listener_on_recognition__SWIG_0(laban_sequence_recognition_listener self, int timestamp, long sequences) {
+    self.on_recognition(timestamp, new laban_sequence_vector(sequences, false));
+  }
+  public static void SwigDirector_laban_sequence_recognition_listener_on_recognition__SWIG_1(laban_sequence_recognition_listener self, int timestamp, long title) {
+    self.on_recognition(timestamp, new string_vector(title, false));
+  }
+  public static long SwigDirector_fl_skeleton_laban_sequence_movement_detector_detect_movement(fl_skeleton_laban_sequence_movement_detector self, int timestamp, double framerate, long skeleton, long body_parts) {
+    return SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t.getCPtr(self.detect_movement(timestamp, framerate, new SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t(skeleton, false), new bone_vector(body_parts, false)));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_detector_set_buffer(fl_skeleton_laban_sequence_movement_detector self, int size) {
+    self.set_buffer(size);
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_detector_clear_buffer(fl_skeleton_laban_sequence_movement_detector self) {
+    self.clear_buffer();
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_detector_add_listener(fl_skeleton_laban_sequence_movement_detector self, long listener) {
+    self.add_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t(listener, false));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_detector_remove_listener(fl_skeleton_laban_sequence_movement_detector self, long listener) {
+    self.remove_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t(listener, false));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_detector_clear_listeners(fl_skeleton_laban_sequence_movement_detector self) {
+    self.clear_listeners();
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_detector_notify_listeners(fl_skeleton_laban_sequence_movement_detector self, int timestamp, long pose) {
+    self.notify_listeners(timestamp, new SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t(pose, false));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_next_frame(fl_skeleton_laban_sequence_movement_controller self, int timestamp, long skeleton) {
+    self.next_frame(timestamp, new SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t(skeleton, false));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_register_sequence(fl_skeleton_laban_sequence_movement_controller self, long sequence) {
+    self.register_sequence(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_deregister_sequence(fl_skeleton_laban_sequence_movement_controller self, long sequence) {
+    self.deregister_sequence(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_clear_registered_sequences(fl_skeleton_laban_sequence_movement_controller self) {
+    self.clear_registered_sequences();
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_set_no_buffer_size_update(fl_skeleton_laban_sequence_movement_controller self, boolean updates) {
+    self.set_no_buffer_size_update(updates);
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_clear_buffer(fl_skeleton_laban_sequence_movement_controller self) {
+    self.clear_buffer();
+  }
+  public static long SwigDirector_fl_skeleton_laban_sequence_movement_controller_get_current_sequence(fl_skeleton_laban_sequence_movement_controller self) {
+    return SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t.getCPtr(self.get_current_sequence());
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_0(fl_skeleton_laban_sequence_movement_controller self, long pose_listener) {
+    self.add_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t(pose_listener, false));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_0(fl_skeleton_laban_sequence_movement_controller self, long pose_listener) {
+    self.remove_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t(pose_listener, false));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_1(fl_skeleton_laban_sequence_movement_controller self, long sequence_listener) {
+    self.add_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t(sequence_listener, false));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_1(fl_skeleton_laban_sequence_movement_controller self, long sequence_listener) {
+    self.remove_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t(sequence_listener, false));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_2(fl_skeleton_laban_sequence_movement_controller self, long recognition_listener) {
+    self.add_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t(recognition_listener, false));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_2(fl_skeleton_laban_sequence_movement_controller self, long recognition_listener) {
+    self.remove_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t(recognition_listener, false));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_clear_listeners(fl_skeleton_laban_sequence_movement_controller self) {
+    self.clear_listeners();
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_notify_sequence_listeners(fl_skeleton_laban_sequence_movement_controller self, int timestamp, long sequence) {
+    self.notify_sequence_listeners(timestamp, new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
+  }
+  public static void SwigDirector_fl_skeleton_laban_sequence_movement_controller_notify_recognition_listeners(fl_skeleton_laban_sequence_movement_controller self, int timestamp, long sequences) {
+    self.notify_recognition_listeners(timestamp, new laban_sequence_vector(sequences, false));
+  }
+  public static long SwigDirector_fl_skeleton_laban_sequence_movement_controller_get_movement_detector(fl_skeleton_laban_sequence_movement_controller self) {
+    return SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t.getCPtr(self.get_movement_detector());
+  }
+  public static long SwigDirector_fl_skeleton_laban_sequence_movement_controller_get_sequence_recognizer(fl_skeleton_laban_sequence_movement_controller self) {
+    return SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t.getCPtr(self.get_sequence_recognizer());
   }
   public static void SwigDirector_fl_movement_controller_next_frame(fl_movement_controller self, int timestamp, long skeleton) {
     self.next_frame(timestamp, new SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t(skeleton, false));
@@ -2551,60 +2496,6 @@ public class w_e_boneJNI {
   }
   public static long SwigDirector_fl_movement_controller_get_fl_pose_detector(fl_movement_controller self) {
     return SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_pose_detector_t.getCPtr(self.get_fl_pose_detector());
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_next_frame(fl_skel_laban_movement_controller self, int timestamp, long skeleton) {
-    self.next_frame(timestamp, new SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t(skeleton, false));
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_register_sequence(fl_skel_laban_movement_controller self, long sequence) {
-    self.register_sequence(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_deregister_sequence(fl_skel_laban_movement_controller self, long sequence) {
-    self.deregister_sequence(new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_clear_registered_sequences(fl_skel_laban_movement_controller self) {
-    self.clear_registered_sequences();
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_set_no_buffer_size_update(fl_skel_laban_movement_controller self, boolean updates) {
-    self.set_no_buffer_size_update(updates);
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_clear_buffer(fl_skel_laban_movement_controller self) {
-    self.clear_buffer();
-  }
-  public static long SwigDirector_fl_skel_laban_movement_controller_get_current_sequence(fl_skel_laban_movement_controller self) {
-    return SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t.getCPtr(self.get_current_sequence());
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_add_listener__SWIG_0(fl_skel_laban_movement_controller self, long pose_listener) {
-    self.add_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t(pose_listener, false));
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_remove_listener__SWIG_0(fl_skel_laban_movement_controller self, long pose_listener) {
-    self.remove_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t(pose_listener, false));
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_add_listener__SWIG_1(fl_skel_laban_movement_controller self, long sequence_listener) {
-    self.add_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t(sequence_listener, false));
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_remove_listener__SWIG_1(fl_skel_laban_movement_controller self, long sequence_listener) {
-    self.remove_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t(sequence_listener, false));
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_add_listener__SWIG_2(fl_skel_laban_movement_controller self, long recognition_listener) {
-    self.add_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t(recognition_listener, false));
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_remove_listener__SWIG_2(fl_skel_laban_movement_controller self, long recognition_listener) {
-    self.remove_listener(new SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t(recognition_listener, false));
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_clear_listeners(fl_skel_laban_movement_controller self) {
-    self.clear_listeners();
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_notify_sequence_listeners(fl_skel_laban_movement_controller self, int timestamp, long sequence) {
-    self.notify_sequence_listeners(timestamp, new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(sequence, false));
-  }
-  public static void SwigDirector_fl_skel_laban_movement_controller_notify_recognition_listeners(fl_skel_laban_movement_controller self, int timestamp, long sequences) {
-    self.notify_recognition_listeners(timestamp, new laban_sequence_vector(sequences, false));
-  }
-  public static long SwigDirector_fl_skel_laban_movement_controller_get_movement_detector(fl_skel_laban_movement_controller self) {
-    return SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t.getCPtr(self.get_movement_detector());
-  }
-  public static long SwigDirector_fl_skel_laban_movement_controller_get_sequence_recognizer(fl_skel_laban_movement_controller self) {
-    return SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t.getCPtr(self.get_sequence_recognizer());
   }
   public static long SwigDirector_bvh_spec_get_id_map(bvh_spec self) {
     return string_int_map.getCPtr(self.get_id_map());

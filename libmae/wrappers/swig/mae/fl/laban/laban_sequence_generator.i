@@ -14,6 +14,9 @@
 %include "std_vector.i"
 %include "exception.i"
 
+//pre-definitions for templates
+%shared_ptr(mae::i_sequence_generator<mae::fl::laban::laban_sequence>);
+%template (laban_sequence_sequence_generator) mae::i_sequence_generator<mae::fl::laban::laban_sequence>;
 
 //module definition
 %module(directors="1") w_laban_sequence_generator
@@ -34,5 +37,4 @@
 
 //templates
 %template (bone_vector) std::vector<mae::bone>;
-%template (laban_sequence_sequence_generator) mae::i_sequence_generator<mae::fl::laban::laban_sequence>;
 %template (coldef_vector) std::vector<std::shared_ptr<mae::fl::laban::column_definition> >;

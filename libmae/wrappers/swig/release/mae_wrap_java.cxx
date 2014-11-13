@@ -615,7 +615,7 @@ namespace Swig {
 namespace Swig {
   namespace {
     jclass jclass_w_e_boneJNI = NULL;
-    jmethodID director_methids[493];
+    jmethodID director_methids[474];
   }
 }
 
@@ -726,20 +726,6 @@ SWIGINTERN void std_vector_Sl_mae_bone_Sg__set(std::vector< mae::bone > *self,in
 
 	#include "../../../src/mae/i_sequence_listener.hpp"
 
-SWIGINTERN std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::const_reference std_vector_Sl_std_shared_ptr_Sl_mae_fl_laban_laban_sequence_Sg__Sg__get(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *self,int i){
-                int size = int(self->size());
-                if (i>=0 && i<size)
-                    return (*self)[i];
-                else
-                    throw std::out_of_range("vector index out of range");
-            }
-SWIGINTERN void std_vector_Sl_std_shared_ptr_Sl_mae_fl_laban_laban_sequence_Sg__Sg__set(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *self,int i,std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type const &val){
-                int size = int(self->size());
-                if (i>=0 && i<size)
-                    (*self)[i] = val;
-                else
-                    throw std::out_of_range("vector index out of range");
-            }
 
 	#include "../../../src/mae/i_recognition_listener.hpp"
 
@@ -986,6 +972,20 @@ SWIGINTERN void std_vector_Sl_std_shared_ptr_Sl_mae_fl_laban_decision_value_Sl_m
 
 	#include "../../../src/mae/fl/laban/decision_forest.hpp"
 
+SWIGINTERN std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::const_reference std_vector_Sl_std_shared_ptr_Sl_mae_fl_laban_laban_sequence_Sg__Sg__get(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *self,int i){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    return (*self)[i];
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+SWIGINTERN void std_vector_Sl_std_shared_ptr_Sl_mae_fl_laban_laban_sequence_Sg__Sg__set(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *self,int i,std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type const &val){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    (*self)[i] = val;
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
 SWIGINTERN std::list< std::shared_ptr< mae::fl::laban::laban_sequence > >::const_reference std_list_Sl_std_shared_ptr_Sl_mae_fl_laban_laban_sequence_Sg__Sg__get(std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *self,int i){
                 int size = int(self->size());
                 int j;
@@ -1688,184 +1688,6 @@ void SwigDirector_bone::swig_connect_director(JNIEnv *jenv, jobject jself, jclas
 }
 
 
-SwigDirector_laban_sequence_sequence_listener::SwigDirector_laban_sequence_sequence_listener(JNIEnv *jenv) : mae::i_sequence_listener< mae::fl::laban::laban_sequence >(), Swig::Director(jenv) {
-}
-
-SwigDirector_laban_sequence_sequence_listener::~SwigDirector_laban_sequence_sequence_listener() {
-  swig_disconnect_director_self("swigDirectorDisconnect");
-}
-
-
-void SwigDirector_laban_sequence_sequence_listener::on_sequence(long timestamp, std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jtimestamp  ;
-  jlong jsequence  ;
-  
-  if (!swig_override[0]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_listener< mae::fl::laban::laban_sequence >::on_sequence.");
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jtimestamp = (jint) timestamp;
-    jsequence = 0;
-    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[6], swigjobj, jtimestamp, jsequence);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_listener< mae::fl::laban::laban_sequence >::on_sequence ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_laban_sequence_sequence_listener::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
-  static struct {
-    const char *mname;
-    const char *mdesc;
-    jmethodID base_methid;
-  } methods[] = {
-    {
-      "on_sequence", "(ILmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
-    }
-  };
-  
-  static jclass baseclass = 0 ;
-  
-  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
-    if (!baseclass) {
-      baseclass = jenv->FindClass("maejava/laban_sequence_sequence_listener");
-      if (!baseclass) return;
-      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
-    }
-    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
-    for (int i = 0; i < 1; ++i) {
-      if (!methods[i].base_methid) {
-        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
-        if (!methods[i].base_methid) return;
-      }
-      swig_override[i] = false;
-      if (derived) {
-        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
-        swig_override[i] = (methid != methods[i].base_methid);
-        jenv->ExceptionClear();
-      }
-    }
-  }
-}
-
-
-SwigDirector_laban_sequence_recognition_listener::SwigDirector_laban_sequence_recognition_listener(JNIEnv *jenv) : mae::i_recognition_listener< mae::fl::laban::laban_sequence >(), Swig::Director(jenv) {
-}
-
-SwigDirector_laban_sequence_recognition_listener::~SwigDirector_laban_sequence_recognition_listener() {
-  swig_disconnect_director_self("swigDirectorDisconnect");
-}
-
-
-void SwigDirector_laban_sequence_recognition_listener::on_recognition(long timestamp, std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > sequences) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jtimestamp  ;
-  jlong jsequences  ;
-  
-  if (!swig_override[0]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_recognition_listener< mae::fl::laban::laban_sequence >::on_recognition.");
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jtimestamp = (jint) timestamp;
-    jsequences = 0;
-    *((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jsequences) = &sequences; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[7], swigjobj, jtimestamp, jsequences);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_recognition_listener< mae::fl::laban::laban_sequence >::on_recognition ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_laban_sequence_recognition_listener::on_recognition(long timestamp, std::vector< std::string > title) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jtimestamp  ;
-  jlong jtitle  ;
-  
-  if (!swig_override[1]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_recognition_listener< mae::fl::laban::laban_sequence >::on_recognition.");
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jtimestamp = (jint) timestamp;
-    jtitle = 0;
-    *((std::vector< std::string > **)&jtitle) = &title; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[8], swigjobj, jtimestamp, jtitle);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_recognition_listener< mae::fl::laban::laban_sequence >::on_recognition ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_laban_sequence_recognition_listener::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
-  static struct {
-    const char *mname;
-    const char *mdesc;
-    jmethodID base_methid;
-  } methods[] = {
-    {
-      "on_recognition", "(ILmaejava/laban_sequence_vector;)V", NULL 
-    },
-    {
-      "on_recognition", "(ILmaejava/string_vector;)V", NULL 
-    }
-  };
-  
-  static jclass baseclass = 0 ;
-  
-  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
-    if (!baseclass) {
-      baseclass = jenv->FindClass("maejava/laban_sequence_recognition_listener");
-      if (!baseclass) return;
-      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
-    }
-    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
-    for (int i = 0; i < 2; ++i) {
-      if (!methods[i].base_methid) {
-        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
-        if (!methods[i].base_methid) return;
-      }
-      swig_override[i] = false;
-      if (derived) {
-        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
-        swig_override[i] = (methid != methods[i].base_methid);
-        jenv->ExceptionClear();
-      }
-    }
-  }
-}
-
-
 SwigDirector_general_pose::SwigDirector_general_pose(JNIEnv *jenv) : mae::general_pose(), Swig::Director(jenv) {
 }
 
@@ -1889,7 +1711,7 @@ void SwigDirector_general_pose::set_direction(int body_part, int direction) {
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
     jdirection = (jint) direction;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[9], swigjobj, jbody_part, jdirection);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[6], swigjobj, jbody_part, jdirection);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -1916,7 +1738,7 @@ int SwigDirector_general_pose::get_direction(int body_part) const {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
-    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[10], swigjobj, jbody_part);
+    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[7], swigjobj, jbody_part);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -1948,7 +1770,7 @@ void SwigDirector_general_pose::set_distance(int body_part, int direction, doubl
     jbody_part = (jint) body_part;
     jdirection = (jint) direction;
     jdistance = (jdouble) distance;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[11], swigjobj, jbody_part, jdirection, jdistance);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[8], swigjobj, jbody_part, jdirection, jdistance);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -1977,7 +1799,7 @@ double SwigDirector_general_pose::get_distance(int body_part, int direction) con
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
     jdirection = (jint) direction;
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[12], swigjobj, jbody_part, jdirection);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[9], swigjobj, jbody_part, jdirection);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -2007,7 +1829,7 @@ void SwigDirector_general_pose::set_rotation(int body_part, double rotation) {
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
     jrotation = (jdouble) rotation;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[13], swigjobj, jbody_part, jrotation);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[10], swigjobj, jbody_part, jrotation);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -2034,7 +1856,7 @@ double SwigDirector_general_pose::get_rotation(int body_part) const {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[14], swigjobj, jbody_part);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[11], swigjobj, jbody_part);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -2062,7 +1884,7 @@ std::list< int > SwigDirector_general_pose::get_body_parts() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[15], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[12], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -2095,7 +1917,7 @@ std::list< int > SwigDirector_general_pose::get_directions() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[16], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[13], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -2196,7 +2018,7 @@ void SwigDirector_i_pose_listener::on_pose(long timestamp, std::shared_ptr< mae:
     jtimestamp = (jint) timestamp;
     jpose = 0;
     *((std::shared_ptr< mae::general_pose > **)&jpose) = &pose; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[17], swigjobj, jtimestamp, jpose);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[14], swigjobj, jtimestamp, jpose);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -2245,685 +2067,6 @@ void SwigDirector_i_pose_listener::swig_connect_director(JNIEnv *jenv, jobject j
 }
 
 
-SwigDirector_fl_skeleton_laban_sequence_movement_detector::SwigDirector_fl_skeleton_laban_sequence_movement_detector(JNIEnv *jenv) : mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(), Swig::Director(jenv) {
-}
-
-SwigDirector_fl_skeleton_laban_sequence_movement_detector::~SwigDirector_fl_skeleton_laban_sequence_movement_detector() {
-  swig_disconnect_director_self("swigDirectorDisconnect");
-}
-
-
-std::shared_ptr< mae::fl::laban::laban_sequence > SwigDirector_fl_skeleton_laban_sequence_movement_detector::detect_movement(long timestamp, double framerate, std::shared_ptr< mae::fl::fl_skeleton > skeleton, std::vector< mae::bone > body_parts) {
-  std::shared_ptr< mae::fl::laban::laban_sequence > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jtimestamp  ;
-  jdouble jframerate  ;
-  jlong jskeleton  ;
-  jlong jbody_parts  ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp ;
-  
-  if (!swig_override[0]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::detect_movement.");
-    return c_result;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jtimestamp = (jint) timestamp;
-    jframerate = (jdouble) framerate;
-    jskeleton = 0;
-    *((std::shared_ptr< mae::fl::fl_skeleton > **)&jskeleton) = &skeleton; 
-    jbody_parts = 0;
-    *((std::vector< mae::bone > **)&jbody_parts) = &body_parts; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[18], swigjobj, jtimestamp, jframerate, jskeleton, jbody_parts);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::fl::laban::laban_sequence >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::detect_movement ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_detector::set_buffer(int size) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jsize  ;
-  
-  if (!swig_override[1]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::set_buffer.");
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jsize = (jint) size;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[19], swigjobj, jsize);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::set_buffer ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_detector::clear_buffer() {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  
-  if (!swig_override[2]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_buffer.");
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[20], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_buffer ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_detector::add_listener(std::shared_ptr< mae::i_pose_listener > listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jlistener  ;
-  
-  if (!swig_override[3]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener.");
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jlistener = 0;
-    *((std::shared_ptr< mae::i_pose_listener > **)&jlistener) = &listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[21], swigjobj, jlistener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_detector::remove_listener(std::shared_ptr< mae::i_pose_listener > listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jlistener  ;
-  
-  if (!swig_override[4]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener.");
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jlistener = 0;
-    *((std::shared_ptr< mae::i_pose_listener > **)&jlistener) = &listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[22], swigjobj, jlistener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_detector::clear_listeners() {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  
-  if (!swig_override[5]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_listeners.");
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[23], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_listeners ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_detector::notify_listeners(long timestamp, std::shared_ptr< mae::general_pose > pose) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jtimestamp  ;
-  jlong jpose  ;
-  
-  if (!swig_override[6]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_listeners.");
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jtimestamp = (jint) timestamp;
-    jpose = 0;
-    *((std::shared_ptr< mae::general_pose > **)&jpose) = &pose; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[24], swigjobj, jtimestamp, jpose);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_listeners ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_detector::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
-  static struct {
-    const char *mname;
-    const char *mdesc;
-    jmethodID base_methid;
-  } methods[] = {
-    {
-      "detect_movement", "(IDLmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t;Lmaejava/bone_vector;)Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;", NULL 
-    },
-    {
-      "set_buffer", "(I)V", NULL 
-    },
-    {
-      "clear_buffer", "()V", NULL 
-    },
-    {
-      "add_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t;)V", NULL 
-    },
-    {
-      "remove_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t;)V", NULL 
-    },
-    {
-      "clear_listeners", "()V", NULL 
-    },
-    {
-      "notify_listeners", "(ILmaejava/SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t;)V", NULL 
-    }
-  };
-  
-  static jclass baseclass = 0 ;
-  
-  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
-    if (!baseclass) {
-      baseclass = jenv->FindClass("maejava/fl_skeleton_laban_sequence_movement_detector");
-      if (!baseclass) return;
-      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
-    }
-    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
-    for (int i = 0; i < 7; ++i) {
-      if (!methods[i].base_methid) {
-        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
-        if (!methods[i].base_methid) return;
-      }
-      swig_override[i] = false;
-      if (derived) {
-        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
-        swig_override[i] = (methid != methods[i].base_methid);
-        jenv->ExceptionClear();
-      }
-    }
-  }
-}
-
-
-SwigDirector_laban_sequence_sequence_recognizer::SwigDirector_laban_sequence_sequence_recognizer(JNIEnv *jenv) : mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >(), Swig::Director(jenv) {
-}
-
-SwigDirector_laban_sequence_sequence_recognizer::~SwigDirector_laban_sequence_sequence_recognizer() {
-  swig_disconnect_director_self("swigDirectorDisconnect");
-}
-
-
-void SwigDirector_laban_sequence_sequence_recognizer::register_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jsequence  ;
-  
-  if (!swig_override[0]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::register_sequence.");
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jsequence = 0;
-    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[25], swigjobj, jsequence);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::register_sequence ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-bool SwigDirector_laban_sequence_sequence_recognizer::deregister_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
-  bool c_result = SwigValueInit< bool >() ;
-  jboolean jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jsequence  ;
-  
-  if (!swig_override[1]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::deregister_sequence.");
-    return c_result;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jsequence = 0;
-    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[26], swigjobj, jsequence);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    c_result = jresult ? true : false; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::deregister_sequence ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-bool SwigDirector_laban_sequence_sequence_recognizer::deregister_sequence(unsigned int list_index) {
-  bool c_result = SwigValueInit< bool >() ;
-  jboolean jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jlist_index  ;
-  
-  if (!swig_override[2]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::deregister_sequence.");
-    return c_result;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jlist_index = (jlong) list_index;
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[27], swigjobj, jlist_index);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    c_result = jresult ? true : false; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::deregister_sequence ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-void SwigDirector_laban_sequence_sequence_recognizer::clear_registered_sequences() {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  
-  if (!swig_override[3]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::clear_registered_sequences.");
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[28], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::clear_registered_sequences ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-int SwigDirector_laban_sequence_sequence_recognizer::get_sequence_length(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) const {
-  int c_result = SwigValueInit< int >() ;
-  jint jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jsequence  ;
-  
-  if (!swig_override[4]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::get_sequence_length.");
-    return c_result;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jsequence = 0;
-    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[29], swigjobj, jsequence);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    c_result = (int)jresult; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::get_sequence_length ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > SwigDirector_laban_sequence_sequence_recognizer::recognize_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence, std::vector< mae::bone > body_parts) {
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jsequence  ;
-  jlong jbody_parts  ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *argp ;
-  
-  if (!swig_override[5]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::recognize_sequence.");
-    return c_result;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jsequence = 0;
-    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jbody_parts = 0;
-    *((std::vector< mae::bone > **)&jbody_parts) = &body_parts; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[30], swigjobj, jsequence, jbody_parts);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::recognize_sequence ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-void SwigDirector_laban_sequence_sequence_recognizer::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
-  static struct {
-    const char *mname;
-    const char *mdesc;
-    jmethodID base_methid;
-  } methods[] = {
-    {
-      "register_sequence", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
-    },
-    {
-      "deregister_sequence", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)Z", NULL 
-    },
-    {
-      "deregister_sequence", "(J)Z", NULL 
-    },
-    {
-      "clear_registered_sequences", "()V", NULL 
-    },
-    {
-      "get_sequence_length", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)I", NULL 
-    },
-    {
-      "recognize_sequence", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;Lmaejava/bone_vector;)Lmaejava/laban_sequence_vector;", NULL 
-    }
-  };
-  
-  static jclass baseclass = 0 ;
-  
-  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
-    if (!baseclass) {
-      baseclass = jenv->FindClass("maejava/laban_sequence_sequence_recognizer");
-      if (!baseclass) return;
-      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
-    }
-    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
-    for (int i = 0; i < 6; ++i) {
-      if (!methods[i].base_methid) {
-        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
-        if (!methods[i].base_methid) return;
-      }
-      swig_override[i] = false;
-      if (derived) {
-        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
-        swig_override[i] = (methid != methods[i].base_methid);
-        jenv->ExceptionClear();
-      }
-    }
-  }
-}
-
-
-SwigDirector_general_skeleton_pose_detector::SwigDirector_general_skeleton_pose_detector(JNIEnv *jenv) : mae::i_pose_detector< mae::general_skeleton >(), Swig::Director(jenv) {
-}
-
-SwigDirector_general_skeleton_pose_detector::~SwigDirector_general_skeleton_pose_detector() {
-  swig_disconnect_director_self("swigDirectorDisconnect");
-}
-
-
-std::shared_ptr< mae::general_pose > SwigDirector_general_skeleton_pose_detector::pose(std::shared_ptr< mae::general_skeleton > skeleton, std::vector< mae::bone > body_parts, std::shared_ptr< mae::general_pose > previous_pose) {
-  std::shared_ptr< mae::general_pose > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jskeleton  ;
-  jlong jbody_parts  ;
-  jlong jprevious_pose  ;
-  std::shared_ptr< mae::general_pose > *argp ;
-  
-  if (!swig_override[0]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_pose_detector< mae::general_skeleton >::pose.");
-    return c_result;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jskeleton = 0;
-    *((std::shared_ptr< mae::general_skeleton > **)&jskeleton) = &skeleton; 
-    jbody_parts = 0;
-    *((std::vector< mae::bone > **)&jbody_parts) = &body_parts; 
-    jprevious_pose = 0;
-    *((std::shared_ptr< mae::general_pose > **)&jprevious_pose) = &previous_pose; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[31], swigjobj, jskeleton, jbody_parts, jprevious_pose);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::shared_ptr< mae::general_pose > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::general_pose >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_pose_detector< mae::general_skeleton >::pose ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-void SwigDirector_general_skeleton_pose_detector::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
-  static struct {
-    const char *mname;
-    const char *mdesc;
-    jmethodID base_methid;
-  } methods[] = {
-    {
-      "pose", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__general_skeleton_t;Lmaejava/bone_vector;Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t;)Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t;", NULL 
-    }
-  };
-  
-  static jclass baseclass = 0 ;
-  
-  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
-    if (!baseclass) {
-      baseclass = jenv->FindClass("maejava/general_skeleton_pose_detector");
-      if (!baseclass) return;
-      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
-    }
-    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
-    for (int i = 0; i < 1; ++i) {
-      if (!methods[i].base_methid) {
-        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
-        if (!methods[i].base_methid) return;
-      }
-      swig_override[i] = false;
-      if (derived) {
-        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
-        swig_override[i] = (methid != methods[i].base_methid);
-        jenv->ExceptionClear();
-      }
-    }
-  }
-}
-
-
-SwigDirector_fl_skeleton_pose_detector::SwigDirector_fl_skeleton_pose_detector(JNIEnv *jenv) : mae::i_pose_detector< mae::fl::fl_skeleton >(), Swig::Director(jenv) {
-}
-
-SwigDirector_fl_skeleton_pose_detector::~SwigDirector_fl_skeleton_pose_detector() {
-  swig_disconnect_director_self("swigDirectorDisconnect");
-}
-
-
-std::shared_ptr< mae::general_pose > SwigDirector_fl_skeleton_pose_detector::pose(std::shared_ptr< mae::fl::fl_skeleton > skeleton, std::vector< mae::bone > body_parts, std::shared_ptr< mae::general_pose > previous_pose) {
-  std::shared_ptr< mae::general_pose > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jskeleton  ;
-  jlong jbody_parts  ;
-  jlong jprevious_pose  ;
-  std::shared_ptr< mae::general_pose > *argp ;
-  
-  if (!swig_override[0]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_pose_detector< mae::fl::fl_skeleton >::pose.");
-    return c_result;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jskeleton = 0;
-    *((std::shared_ptr< mae::fl::fl_skeleton > **)&jskeleton) = &skeleton; 
-    jbody_parts = 0;
-    *((std::vector< mae::bone > **)&jbody_parts) = &body_parts; 
-    jprevious_pose = 0;
-    *((std::shared_ptr< mae::general_pose > **)&jprevious_pose) = &previous_pose; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[32], swigjobj, jskeleton, jbody_parts, jprevious_pose);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::shared_ptr< mae::general_pose > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::general_pose >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_pose_detector< mae::fl::fl_skeleton >::pose ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-void SwigDirector_fl_skeleton_pose_detector::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
-  static struct {
-    const char *mname;
-    const char *mdesc;
-    jmethodID base_methid;
-  } methods[] = {
-    {
-      "pose", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t;Lmaejava/bone_vector;Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t;)Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t;", NULL 
-    }
-  };
-  
-  static jclass baseclass = 0 ;
-  
-  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
-    if (!baseclass) {
-      baseclass = jenv->FindClass("maejava/fl_skeleton_pose_detector");
-      if (!baseclass) return;
-      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
-    }
-    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
-    for (int i = 0; i < 1; ++i) {
-      if (!methods[i].base_methid) {
-        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
-        if (!methods[i].base_methid) return;
-      }
-      swig_override[i] = false;
-      if (derived) {
-        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
-        swig_override[i] = (methid != methods[i].base_methid);
-        jenv->ExceptionClear();
-      }
-    }
-  }
-}
-
-
 SwigDirector_general_enriched_pose::SwigDirector_general_enriched_pose(JNIEnv *jenv) : mae::general_enriched_pose(), Swig::Director(jenv) {
 }
 
@@ -2950,7 +2093,7 @@ void SwigDirector_general_enriched_pose::set_direction(int body_part, int direct
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
     jdirection = (jint) direction;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[33], swigjobj, jbody_part, jdirection);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[15], swigjobj, jbody_part, jdirection);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -2977,7 +2120,7 @@ int SwigDirector_general_enriched_pose::get_direction(int body_part) const {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
-    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[34], swigjobj, jbody_part);
+    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[16], swigjobj, jbody_part);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -3009,7 +2152,7 @@ void SwigDirector_general_enriched_pose::set_distance(int body_part, int directi
     jbody_part = (jint) body_part;
     jdirection = (jint) direction;
     jdistance = (jdouble) distance;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[35], swigjobj, jbody_part, jdirection, jdistance);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[17], swigjobj, jbody_part, jdirection, jdistance);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -3038,7 +2181,7 @@ double SwigDirector_general_enriched_pose::get_distance(int body_part, int direc
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
     jdirection = (jint) direction;
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[36], swigjobj, jbody_part, jdirection);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[18], swigjobj, jbody_part, jdirection);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -3068,7 +2211,7 @@ void SwigDirector_general_enriched_pose::set_rotation(int body_part, double rota
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
     jrotation = (jdouble) rotation;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[37], swigjobj, jbody_part, jrotation);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[19], swigjobj, jbody_part, jrotation);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -3095,7 +2238,7 @@ double SwigDirector_general_enriched_pose::get_rotation(int body_part) const {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[38], swigjobj, jbody_part);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[20], swigjobj, jbody_part);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -3123,7 +2266,7 @@ std::list< int > SwigDirector_general_enriched_pose::get_body_parts() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[39], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[21], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -3156,7 +2299,7 @@ std::list< int > SwigDirector_general_enriched_pose::get_directions() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[40], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[22], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -3191,7 +2334,7 @@ void SwigDirector_general_enriched_pose::set_key_pose(int body_part, bool is_key
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
     jis_key_pose = (jboolean) is_key_pose;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[41], swigjobj, jbody_part, jis_key_pose);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[23], swigjobj, jbody_part, jis_key_pose);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -3218,7 +2361,7 @@ bool SwigDirector_general_enriched_pose::is_key_pose(int body_part) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[42], swigjobj, jbody_part);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[24], swigjobj, jbody_part);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -3248,7 +2391,7 @@ void SwigDirector_general_enriched_pose::set_in_motion(int body_part, bool is_in
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
     jis_in_motion = (jboolean) is_in_motion;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[43], swigjobj, jbody_part, jis_in_motion);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[25], swigjobj, jbody_part, jis_in_motion);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -3275,7 +2418,7 @@ bool SwigDirector_general_enriched_pose::is_in_motion(int body_part) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[44], swigjobj, jbody_part);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[26], swigjobj, jbody_part);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -3359,690 +2502,6 @@ void SwigDirector_general_enriched_pose::swig_connect_director(JNIEnv *jenv, job
 }
 
 
-SwigDirector_laban_sequence_sequence_generator::SwigDirector_laban_sequence_sequence_generator(JNIEnv *jenv) : mae::i_sequence_generator< mae::fl::laban::laban_sequence >(), Swig::Director(jenv) {
-}
-
-SwigDirector_laban_sequence_sequence_generator::~SwigDirector_laban_sequence_sequence_generator() {
-  swig_disconnect_director_self("swigDirectorDisconnect");
-}
-
-
-std::shared_ptr< mae::fl::laban::laban_sequence > SwigDirector_laban_sequence_sequence_generator::generate_sequence(double framerate, std::list< std::shared_ptr< mae::general_enriched_pose > > keyPoses, std::vector< mae::bone > bodyParts) {
-  std::shared_ptr< mae::fl::laban::laban_sequence > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jdouble jframerate  ;
-  jlong jkeyPoses  ;
-  jlong jbodyParts  ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp ;
-  
-  if (!swig_override[0]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_generator< mae::fl::laban::laban_sequence >::generate_sequence.");
-    return c_result;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jframerate = (jdouble) framerate;
-    jkeyPoses = 0;
-    *((std::list< std::shared_ptr< mae::general_enriched_pose > > **)&jkeyPoses) = &keyPoses; 
-    jbodyParts = 0;
-    *((std::vector< mae::bone > **)&jbodyParts) = &bodyParts; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[45], swigjobj, jframerate, jkeyPoses, jbodyParts);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::fl::laban::laban_sequence >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_generator< mae::fl::laban::laban_sequence >::generate_sequence ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-void SwigDirector_laban_sequence_sequence_generator::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
-  static struct {
-    const char *mname;
-    const char *mdesc;
-    jmethodID base_methid;
-  } methods[] = {
-    {
-      "generate_sequence", "(DLmaejava/enriched_pose_list;Lmaejava/bone_vector;)Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;", NULL 
-    }
-  };
-  
-  static jclass baseclass = 0 ;
-  
-  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
-    if (!baseclass) {
-      baseclass = jenv->FindClass("maejava/laban_sequence_sequence_generator");
-      if (!baseclass) return;
-      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
-    }
-    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
-    for (int i = 0; i < 1; ++i) {
-      if (!methods[i].base_methid) {
-        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
-        if (!methods[i].base_methid) return;
-      }
-      swig_override[i] = false;
-      if (derived) {
-        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
-        swig_override[i] = (methid != methods[i].base_methid);
-        jenv->ExceptionClear();
-      }
-    }
-  }
-}
-
-
-SwigDirector_fl_skeleton_laban_sequence_movement_controller::SwigDirector_fl_skeleton_laban_sequence_movement_controller(JNIEnv *jenv, std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > imd, std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > isr, std::vector< mae::bone > body_parts, int pose_buffer_size, double framerate, bool debug) : mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(imd, isr, body_parts, pose_buffer_size, framerate, debug), Swig::Director(jenv) {
-}
-
-SwigDirector_fl_skeleton_laban_sequence_movement_controller::SwigDirector_fl_skeleton_laban_sequence_movement_controller(JNIEnv *jenv, std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > ipd, std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > isg, std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > isr, std::vector< mae::bone > body_parts, int pose_buffer_size, double framerate, bool debug) : mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(ipd, isg, isr, body_parts, pose_buffer_size, framerate, debug), Swig::Director(jenv) {
-}
-
-SwigDirector_fl_skeleton_laban_sequence_movement_controller::~SwigDirector_fl_skeleton_laban_sequence_movement_controller() {
-  swig_disconnect_director_self("swigDirectorDisconnect");
-}
-
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::next_frame(long timestamp, std::shared_ptr< mae::fl::fl_skeleton > skeleton) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jtimestamp  ;
-  jlong jskeleton  ;
-  
-  if (!swig_override[0]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::next_frame(timestamp,skeleton);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jtimestamp = (jint) timestamp;
-    jskeleton = 0;
-    *((std::shared_ptr< mae::fl::fl_skeleton > **)&jskeleton) = &skeleton; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[46], swigjobj, jtimestamp, jskeleton);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::next_frame ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::register_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jsequence  ;
-  
-  if (!swig_override[1]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::register_sequence(sequence);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jsequence = 0;
-    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[47], swigjobj, jsequence);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::register_sequence ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::deregister_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jsequence  ;
-  
-  if (!swig_override[2]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::deregister_sequence(sequence);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jsequence = 0;
-    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[48], swigjobj, jsequence);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::deregister_sequence ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::clear_registered_sequences() {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  
-  if (!swig_override[3]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_registered_sequences();
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[49], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_registered_sequences ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::set_no_buffer_size_update(bool updates) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jboolean jupdates  ;
-  
-  if (!swig_override[4]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::set_no_buffer_size_update(updates);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jupdates = (jboolean) updates;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[50], swigjobj, jupdates);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::set_no_buffer_size_update ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::clear_buffer() {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  
-  if (!swig_override[5]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_buffer();
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[51], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_buffer ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-std::shared_ptr< mae::fl::laban::laban_sequence > SwigDirector_fl_skeleton_laban_sequence_movement_controller::get_current_sequence() {
-  std::shared_ptr< mae::fl::laban::laban_sequence > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp ;
-  
-  if (!swig_override[6]) {
-    return mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_current_sequence();
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[52], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::fl::laban::laban_sequence >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_current_sequence ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::add_listener(std::shared_ptr< mae::i_pose_listener > pose_listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jpose_listener  ;
-  
-  if (!swig_override[7]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(pose_listener);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jpose_listener = 0;
-    *((std::shared_ptr< mae::i_pose_listener > **)&jpose_listener) = &pose_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[53], swigjobj, jpose_listener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::remove_listener(std::shared_ptr< mae::i_pose_listener > pose_listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jpose_listener  ;
-  
-  if (!swig_override[8]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(pose_listener);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jpose_listener = 0;
-    *((std::shared_ptr< mae::i_pose_listener > **)&jpose_listener) = &pose_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[54], swigjobj, jpose_listener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::add_listener(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > sequence_listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jsequence_listener  ;
-  
-  if (!swig_override[9]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(sequence_listener);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jsequence_listener = 0;
-    *((std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jsequence_listener) = &sequence_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[55], swigjobj, jsequence_listener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::remove_listener(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > sequence_listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jsequence_listener  ;
-  
-  if (!swig_override[10]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(sequence_listener);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jsequence_listener = 0;
-    *((std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jsequence_listener) = &sequence_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[56], swigjobj, jsequence_listener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::add_listener(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > recognition_listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jrecognition_listener  ;
-  
-  if (!swig_override[11]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(recognition_listener);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jrecognition_listener = 0;
-    *((std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jrecognition_listener) = &recognition_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[57], swigjobj, jrecognition_listener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::remove_listener(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > recognition_listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jrecognition_listener  ;
-  
-  if (!swig_override[12]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(recognition_listener);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jrecognition_listener = 0;
-    *((std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jrecognition_listener) = &recognition_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[58], swigjobj, jrecognition_listener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::clear_listeners() {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  
-  if (!swig_override[13]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_listeners();
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[59], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_listeners ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::notify_sequence_listeners(long timestamp, std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jtimestamp  ;
-  jlong jsequence  ;
-  
-  if (!swig_override[14]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_sequence_listeners(timestamp,sequence);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jtimestamp = (jint) timestamp;
-    jsequence = 0;
-    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[60], swigjobj, jtimestamp, jsequence);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_sequence_listeners ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::notify_recognition_listeners(long timestamp, std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > sequences) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jtimestamp  ;
-  jlong jsequences  ;
-  
-  if (!swig_override[15]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_recognition_listeners(timestamp,sequences);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jtimestamp = (jint) timestamp;
-    jsequences = 0;
-    *((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jsequences) = &sequences; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[61], swigjobj, jtimestamp, jsequences);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_recognition_listeners ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > SwigDirector_fl_skeleton_laban_sequence_movement_controller::get_movement_detector() {
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp ;
-  
-  if (!swig_override[16]) {
-    return mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_movement_detector();
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[62], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_movement_detector ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > SwigDirector_fl_skeleton_laban_sequence_movement_controller::get_sequence_recognizer() {
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp ;
-  
-  if (!swig_override[17]) {
-    return mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_sequence_recognizer();
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[63], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_sequence_recognizer ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-void SwigDirector_fl_skeleton_laban_sequence_movement_controller::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
-  static struct {
-    const char *mname;
-    const char *mdesc;
-    jmethodID base_methid;
-  } methods[] = {
-    {
-      "next_frame", "(ILmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t;)V", NULL 
-    },
-    {
-      "register_sequence", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
-    },
-    {
-      "deregister_sequence", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
-    },
-    {
-      "clear_registered_sequences", "()V", NULL 
-    },
-    {
-      "set_no_buffer_size_update", "(Z)V", NULL 
-    },
-    {
-      "clear_buffer", "()V", NULL 
-    },
-    {
-      "get_current_sequence", "()Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;", NULL 
-    },
-    {
-      "add_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t;)V", NULL 
-    },
-    {
-      "remove_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t;)V", NULL 
-    },
-    {
-      "add_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t;)V", NULL 
-    },
-    {
-      "remove_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t;)V", NULL 
-    },
-    {
-      "add_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t;)V", NULL 
-    },
-    {
-      "remove_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t;)V", NULL 
-    },
-    {
-      "clear_listeners", "()V", NULL 
-    },
-    {
-      "notify_sequence_listeners", "(ILmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
-    },
-    {
-      "notify_recognition_listeners", "(ILmaejava/laban_sequence_vector;)V", NULL 
-    },
-    {
-      "get_movement_detector", "()Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t;", NULL 
-    },
-    {
-      "get_sequence_recognizer", "()Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t;", NULL 
-    }
-  };
-  
-  static jclass baseclass = 0 ;
-  
-  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
-    if (!baseclass) {
-      baseclass = jenv->FindClass("maejava/fl_skeleton_laban_sequence_movement_controller");
-      if (!baseclass) return;
-      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
-    }
-    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
-    for (int i = 0; i < 18; ++i) {
-      if (!methods[i].base_methid) {
-        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
-        if (!methods[i].base_methid) return;
-      }
-      swig_override[i] = false;
-      if (derived) {
-        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
-        swig_override[i] = (methid != methods[i].base_methid);
-        jenv->ExceptionClear();
-      }
-    }
-  }
-}
-
-
 SwigDirector_vec3d::SwigDirector_vec3d(JNIEnv *jenv) : mae::math::vec3d(), Swig::Director(jenv) {
 }
 
@@ -4067,7 +2526,7 @@ void SwigDirector_vec3d::set_x(double x) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jx = (jdouble) x;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[64], swigjobj, jx);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[27], swigjobj, jx);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4092,7 +2551,7 @@ double SwigDirector_vec3d::get_x() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[65], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[28], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4120,7 +2579,7 @@ void SwigDirector_vec3d::set_y(double y) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jy = (jdouble) y;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[66], swigjobj, jy);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[29], swigjobj, jy);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4145,7 +2604,7 @@ double SwigDirector_vec3d::get_y() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[67], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[30], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4173,7 +2632,7 @@ void SwigDirector_vec3d::set_z(double z) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jz = (jdouble) z;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[68], swigjobj, jz);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[31], swigjobj, jz);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4198,7 +2657,7 @@ double SwigDirector_vec3d::get_z() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[69], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[32], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4225,7 +2684,7 @@ std::string SwigDirector_vec3d::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[70], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[33], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4330,7 +2789,7 @@ void SwigDirector_general_joint::set_x(double x) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jx = (jdouble) x;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[71], swigjobj, jx);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[34], swigjobj, jx);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4355,7 +2814,7 @@ double SwigDirector_general_joint::get_x() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[72], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[35], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4383,7 +2842,7 @@ void SwigDirector_general_joint::set_y(double y) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jy = (jdouble) y;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[73], swigjobj, jy);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[36], swigjobj, jy);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4408,7 +2867,7 @@ double SwigDirector_general_joint::get_y() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[74], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[37], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4436,7 +2895,7 @@ void SwigDirector_general_joint::set_z(double z) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jz = (jdouble) z;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[75], swigjobj, jz);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[38], swigjobj, jz);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4461,7 +2920,7 @@ double SwigDirector_general_joint::get_z() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[76], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[39], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4489,7 +2948,7 @@ void SwigDirector_general_joint::set_valid(bool is_valid) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jis_valid = (jboolean) is_valid;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[77], swigjobj, jis_valid);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[40], swigjobj, jis_valid);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4514,7 +2973,7 @@ bool SwigDirector_general_joint::is_valid() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[78], swigjobj);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[41], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4542,7 +3001,7 @@ void SwigDirector_general_joint::set_confidence(double confidence) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jconfidence = (jdouble) confidence;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[79], swigjobj, jconfidence);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[42], swigjobj, jconfidence);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4567,7 +3026,7 @@ double SwigDirector_general_joint::get_confidence() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[80], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[43], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4595,7 +3054,7 @@ void SwigDirector_general_joint::set_rotation(double rotation) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jrotation = (jdouble) rotation;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[81], swigjobj, jrotation);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[44], swigjobj, jrotation);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4620,7 +3079,7 @@ double SwigDirector_general_joint::get_rotation() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[82], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[45], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4648,7 +3107,7 @@ std::shared_ptr< mae::math::vec3d > SwigDirector_general_joint::vec() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[83], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[46], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4683,7 +3142,7 @@ bool SwigDirector_general_joint::equals_val(mae::general_joint joint) const {
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jjoint = 0;
     *((mae::general_joint **)&jjoint) = &joint; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[84], swigjobj, jjoint);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[47], swigjobj, jjoint);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4713,7 +3172,7 @@ bool SwigDirector_general_joint::equals(std::shared_ptr< mae::general_joint > jo
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jjoint = 0;
     *((std::shared_ptr< mae::general_joint > **)&jjoint) = &joint; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[85], swigjobj, jjoint);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[48], swigjobj, jjoint);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4740,7 +3199,7 @@ std::string SwigDirector_general_joint::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[86], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[49], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4869,7 +3328,7 @@ std::shared_ptr< mae::math::vec3d > SwigDirector_basis::get_u() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[87], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[50], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4902,7 +3361,7 @@ std::shared_ptr< mae::math::vec3d > SwigDirector_basis::get_r() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[88], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[51], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4935,7 +3394,7 @@ std::shared_ptr< mae::math::vec3d > SwigDirector_basis::get_t() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[89], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[52], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -4968,7 +3427,7 @@ std::shared_ptr< mae::math::vec3d > SwigDirector_basis::get_position_vector() co
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[90], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[53], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5002,7 +3461,7 @@ void SwigDirector_basis::set_u(std::shared_ptr< mae::math::vec3d > u) {
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ju = 0;
     *((std::shared_ptr< mae::math::vec3d > **)&ju) = &u; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[91], swigjobj, ju);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[54], swigjobj, ju);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5029,7 +3488,7 @@ void SwigDirector_basis::set_r(std::shared_ptr< mae::math::vec3d > r) {
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jr = 0;
     *((std::shared_ptr< mae::math::vec3d > **)&jr) = &r; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[92], swigjobj, jr);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[55], swigjobj, jr);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5056,7 +3515,7 @@ void SwigDirector_basis::set_t(std::shared_ptr< mae::math::vec3d > t) {
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jt = 0;
     *((std::shared_ptr< mae::math::vec3d > **)&jt) = &t; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[93], swigjobj, jt);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[56], swigjobj, jt);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5083,7 +3542,7 @@ void SwigDirector_basis::set_position_vector(std::shared_ptr< mae::math::vec3d >
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jposition_vector = 0;
     *((std::shared_ptr< mae::math::vec3d > **)&jposition_vector) = &position_vector; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[94], swigjobj, jposition_vector);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[57], swigjobj, jposition_vector);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5108,7 +3567,7 @@ std::string SwigDirector_basis::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[95], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[58], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5219,7 +3678,7 @@ void SwigDirector_general_skeleton::set_joint(int body_part, std::shared_ptr< ma
     jbody_part = (jint) body_part;
     jjoint = 0;
     *((std::shared_ptr< mae::general_joint > **)&jjoint) = &joint; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[96], swigjobj, jbody_part, jjoint);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[59], swigjobj, jbody_part, jjoint);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5247,7 +3706,7 @@ std::shared_ptr< mae::general_joint > SwigDirector_general_skeleton::get_joint(i
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[97], swigjobj, jbody_part);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[60], swigjobj, jbody_part);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5280,7 +3739,7 @@ std::shared_ptr< mae::hierarchy > SwigDirector_general_skeleton::get_hierarchy()
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[98], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[61], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5314,7 +3773,7 @@ void SwigDirector_general_skeleton::set_hierarchy(std::shared_ptr< mae::hierarch
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jhierarchy = 0;
     *((std::shared_ptr< mae::hierarchy > **)&jhierarchy) = &hierarchy; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[99], swigjobj, jhierarchy);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[62], swigjobj, jhierarchy);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5341,7 +3800,7 @@ void SwigDirector_general_skeleton::set_top_down(std::shared_ptr< mae::bone > to
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jtop_down = 0;
     *((std::shared_ptr< mae::bone > **)&jtop_down) = &top_down; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[100], swigjobj, jtop_down);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[63], swigjobj, jtop_down);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5367,7 +3826,7 @@ std::shared_ptr< mae::bone > SwigDirector_general_skeleton::get_top_down() const
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[101], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[64], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5401,7 +3860,7 @@ void SwigDirector_general_skeleton::set_right_left(std::shared_ptr< mae::bone > 
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jright_left = 0;
     *((std::shared_ptr< mae::bone > **)&jright_left) = &right_left; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[102], swigjobj, jright_left);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[65], swigjobj, jright_left);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5427,7 +3886,7 @@ std::shared_ptr< mae::bone > SwigDirector_general_skeleton::get_right_left() con
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[103], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[66], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5461,7 +3920,7 @@ void SwigDirector_general_skeleton::set_weight(std::shared_ptr< mae::math::vec3d
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jweight = 0;
     *((std::shared_ptr< mae::math::vec3d > **)&jweight) = &weight; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[104], swigjobj, jweight);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[67], swigjobj, jweight);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5487,7 +3946,7 @@ std::shared_ptr< mae::math::vec3d > SwigDirector_general_skeleton::get_weight() 
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[105], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[68], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5519,7 +3978,7 @@ std::string SwigDirector_general_skeleton::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[106], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[69], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5555,7 +4014,7 @@ std::string SwigDirector_general_skeleton::ply_str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[107], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[70], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5592,7 +4051,7 @@ void SwigDirector_general_skeleton::ply_file(std::string filename) const {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jfilename = jenv->NewStringUTF((&filename)->c_str()); 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[108], swigjobj, jfilename);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[71], swigjobj, jfilename);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5701,7 +4160,7 @@ void SwigDirector_fl_skeleton::set_joint(int body_part, std::shared_ptr< mae::ge
     jbody_part = (jint) body_part;
     jjoint = 0;
     *((std::shared_ptr< mae::general_joint > **)&jjoint) = &joint; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[109], swigjobj, jbody_part, jjoint);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[72], swigjobj, jbody_part, jjoint);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5729,7 +4188,7 @@ std::shared_ptr< mae::general_joint > SwigDirector_fl_skeleton::get_joint(int bo
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbody_part = (jint) body_part;
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[110], swigjobj, jbody_part);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[73], swigjobj, jbody_part);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5762,7 +4221,7 @@ std::shared_ptr< mae::hierarchy > SwigDirector_fl_skeleton::get_hierarchy() cons
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[111], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[74], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5796,7 +4255,7 @@ void SwigDirector_fl_skeleton::set_hierarchy(std::shared_ptr< mae::hierarchy > h
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jhierarchy = 0;
     *((std::shared_ptr< mae::hierarchy > **)&jhierarchy) = &hierarchy; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[112], swigjobj, jhierarchy);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[75], swigjobj, jhierarchy);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5823,7 +4282,7 @@ void SwigDirector_fl_skeleton::set_top_down(std::shared_ptr< mae::bone > top_dow
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jtop_down = 0;
     *((std::shared_ptr< mae::bone > **)&jtop_down) = &top_down; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[113], swigjobj, jtop_down);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[76], swigjobj, jtop_down);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5849,7 +4308,7 @@ std::shared_ptr< mae::bone > SwigDirector_fl_skeleton::get_top_down() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[114], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[77], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5883,7 +4342,7 @@ void SwigDirector_fl_skeleton::set_right_left(std::shared_ptr< mae::bone > right
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jright_left = 0;
     *((std::shared_ptr< mae::bone > **)&jright_left) = &right_left; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[115], swigjobj, jright_left);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[78], swigjobj, jright_left);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5909,7 +4368,7 @@ std::shared_ptr< mae::bone > SwigDirector_fl_skeleton::get_right_left() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[116], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[79], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5943,7 +4402,7 @@ void SwigDirector_fl_skeleton::set_weight(std::shared_ptr< mae::math::vec3d > we
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jweight = 0;
     *((std::shared_ptr< mae::math::vec3d > **)&jweight) = &weight; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[117], swigjobj, jweight);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[80], swigjobj, jweight);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -5969,7 +4428,7 @@ std::shared_ptr< mae::math::vec3d > SwigDirector_fl_skeleton::get_weight() const
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[118], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[81], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6001,7 +4460,7 @@ std::string SwigDirector_fl_skeleton::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[119], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[82], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6037,7 +4496,7 @@ std::string SwigDirector_fl_skeleton::ply_str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[120], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[83], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6074,7 +4533,7 @@ void SwigDirector_fl_skeleton::ply_file(std::string filename) const {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jfilename = jenv->NewStringUTF((&filename)->c_str()); 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[121], swigjobj, jfilename);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[84], swigjobj, jfilename);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6101,7 +4560,7 @@ void SwigDirector_fl_skeleton::set_torso_basis(std::shared_ptr< mae::math::basis
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jtorso_basis = 0;
     *((std::shared_ptr< mae::math::basis > **)&jtorso_basis) = &torso_basis; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[122], swigjobj, jtorso_basis);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[85], swigjobj, jtorso_basis);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6127,7 +4586,7 @@ std::shared_ptr< mae::math::basis > SwigDirector_fl_skeleton::get_torso_basis() 
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[123], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[86], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6161,7 +4620,7 @@ void SwigDirector_fl_skeleton::set_orig_skeleton(std::shared_ptr< mae::general_s
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     joffset_skeleton = 0;
     *((std::shared_ptr< mae::general_skeleton > **)&joffset_skeleton) = &offset_skeleton; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[124], swigjobj, joffset_skeleton);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[87], swigjobj, joffset_skeleton);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6187,7 +4646,7 @@ std::shared_ptr< mae::general_skeleton > SwigDirector_fl_skeleton::get_orig_skel
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[125], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[88], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6291,6 +4750,93 @@ void SwigDirector_fl_skeleton::swig_connect_director(JNIEnv *jenv, jobject jself
 }
 
 
+SwigDirector_fl_skeleton_pose_detector::SwigDirector_fl_skeleton_pose_detector(JNIEnv *jenv) : mae::i_pose_detector< mae::fl::fl_skeleton >(), Swig::Director(jenv) {
+}
+
+SwigDirector_fl_skeleton_pose_detector::~SwigDirector_fl_skeleton_pose_detector() {
+  swig_disconnect_director_self("swigDirectorDisconnect");
+}
+
+
+std::shared_ptr< mae::general_pose > SwigDirector_fl_skeleton_pose_detector::pose(std::shared_ptr< mae::fl::fl_skeleton > skeleton, std::vector< mae::bone > body_parts, std::shared_ptr< mae::general_pose > previous_pose) {
+  std::shared_ptr< mae::general_pose > c_result ;
+  jlong jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jskeleton  ;
+  jlong jbody_parts  ;
+  jlong jprevious_pose  ;
+  std::shared_ptr< mae::general_pose > *argp ;
+  
+  if (!swig_override[0]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_pose_detector< mae::fl::fl_skeleton >::pose.");
+    return c_result;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jskeleton = 0;
+    *((std::shared_ptr< mae::fl::fl_skeleton > **)&jskeleton) = &skeleton; 
+    jbody_parts = 0;
+    *((std::vector< mae::bone > **)&jbody_parts) = &body_parts; 
+    jprevious_pose = 0;
+    *((std::shared_ptr< mae::general_pose > **)&jprevious_pose) = &previous_pose; 
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[89], swigjobj, jskeleton, jbody_parts, jprevious_pose);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    argp = *(std::shared_ptr< mae::general_pose > **)&jresult; 
+    if (!argp) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::general_pose >");
+      return c_result;
+    }
+    c_result = *argp; 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_pose_detector< mae::fl::fl_skeleton >::pose ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+void SwigDirector_fl_skeleton_pose_detector::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
+  static struct {
+    const char *mname;
+    const char *mdesc;
+    jmethodID base_methid;
+  } methods[] = {
+    {
+      "pose", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t;Lmaejava/bone_vector;Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t;)Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t;", NULL 
+    }
+  };
+  
+  static jclass baseclass = 0 ;
+  
+  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
+    if (!baseclass) {
+      baseclass = jenv->FindClass("maejava/fl_skeleton_pose_detector");
+      if (!baseclass) return;
+      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
+    }
+    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
+    for (int i = 0; i < 1; ++i) {
+      if (!methods[i].base_methid) {
+        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
+        if (!methods[i].base_methid) return;
+      }
+      swig_override[i] = false;
+      if (derived) {
+        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
+        swig_override[i] = (methid != methods[i].base_methid);
+        jenv->ExceptionClear();
+      }
+    }
+  }
+}
+
+
 SwigDirector_fl_pose_detector::SwigDirector_fl_pose_detector(JNIEnv *jenv, double hysteresis_val, bool debug) : mae::fl::fl_pose_detector(hysteresis_val, debug), Swig::Director(jenv) {
 }
 
@@ -6321,7 +4867,7 @@ std::shared_ptr< mae::general_pose > SwigDirector_fl_pose_detector::pose(std::sh
     *((std::vector< mae::bone > **)&jbody_parts) = &body_parts; 
     jprevious_pose = 0;
     *((std::shared_ptr< mae::general_pose > **)&jprevious_pose) = &previous_pose; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[126], swigjobj, jskeleton, jbody_parts, jprevious_pose);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[90], swigjobj, jskeleton, jbody_parts, jprevious_pose);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6354,7 +4900,7 @@ void SwigDirector_fl_pose_detector::set_hysteresis_val(double hysteresis_val) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jhysteresis_val = (jdouble) hysteresis_val;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[127], swigjobj, jhysteresis_val);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[91], swigjobj, jhysteresis_val);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6379,7 +4925,7 @@ double SwigDirector_fl_pose_detector::get_hysteresis_val() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[128], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[92], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6416,7 +4962,7 @@ std::shared_ptr< mae::general_pose > SwigDirector_fl_pose_detector::vector_pose(
     *((std::vector< mae::bone > **)&jbody_parts) = &body_parts; 
     jprevious_pose = 0;
     *((std::shared_ptr< mae::general_pose > **)&jprevious_pose) = &previous_pose; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[129], swigjobj, jskeleton, jbody_parts, jprevious_pose);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[93], swigjobj, jskeleton, jbody_parts, jprevious_pose);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6506,7 +5052,7 @@ std::string SwigDirector_i_pre_sign::xml(unsigned int indent, std::string namesp
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[130], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[94], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6555,7 +5101,7 @@ std::string SwigDirector_i_pre_sign::svg(std::string identifier, double posx, do
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[133], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[97], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6595,7 +5141,7 @@ bool SwigDirector_i_pre_sign::equals(std::shared_ptr< mae::fl::laban::ps::i_pre_
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_pre_sign > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[135], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[99], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6688,7 +5234,7 @@ std::string SwigDirector_column_definition::xml(unsigned int indent, std::string
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[136], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[100], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6734,7 +5280,7 @@ std::string SwigDirector_column_definition::svg(unsigned int im_width, unsigned 
     jmax_column = (jlong) max_column;
     jmeasures = (jlong) measures;
     jbeats_per_measure = (jlong) beats_per_measure;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[139], swigjobj, jim_width, jim_height, jmax_column, jmeasures, jbeats_per_measure);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[103], swigjobj, jim_width, jim_height, jmax_column, jmeasures, jbeats_per_measure);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6773,7 +5319,7 @@ bool SwigDirector_column_definition::equals(std::shared_ptr< mae::fl::laban::col
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::column_definition > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[140], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[104], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6857,7 +5403,7 @@ int SwigDirector_i_movement::get_column() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[141], swigjobj);
+    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[105], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6885,7 +5431,7 @@ unsigned int SwigDirector_i_movement::get_measure() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[142], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[106], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6913,7 +5459,7 @@ double SwigDirector_i_movement::get_beat() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[143], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[107], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6941,7 +5487,7 @@ double SwigDirector_i_movement::get_duration() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[144], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[108], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -6972,7 +5518,7 @@ bool SwigDirector_i_movement::equals(std::shared_ptr< mae::fl::laban::i_movement
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[145], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[109], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7003,7 +5549,7 @@ bool SwigDirector_i_movement::symbol_equals(std::shared_ptr< mae::fl::laban::i_m
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[146], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[110], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7035,7 +5581,7 @@ std::string SwigDirector_i_movement::xml(unsigned int indent, std::string namesp
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[147], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[111], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7082,7 +5628,7 @@ std::string SwigDirector_i_movement::svg(unsigned int im_width, unsigned int im_
     jmax_column = (jlong) max_column;
     jmeasures = (jlong) measures;
     jbeats_per_measure = (jlong) beats_per_measure;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[150], swigjobj, jim_width, jim_height, jmax_column, jmeasures, jbeats_per_measure);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[114], swigjobj, jim_width, jim_height, jmax_column, jmeasures, jbeats_per_measure);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7129,7 +5675,7 @@ std::shared_ptr< mae::fl::laban::i_movement > SwigDirector_i_movement::recreate(
     jmeasure = (jlong) measure;
     jbeat = (jdouble) beat;
     jduration = (jdouble) duration;
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[151], swigjobj, jcolumn_mapping, jmeasure, jbeat, jduration);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[115], swigjobj, jcolumn_mapping, jmeasure, jbeat, jduration);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7162,7 +5708,7 @@ std::string SwigDirector_i_movement::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[152], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[116], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7278,7 +5824,7 @@ std::string SwigDirector_laban_sequence::get_version() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[153], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[117], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7316,7 +5862,7 @@ void SwigDirector_laban_sequence::set_authors(std::vector< std::string > authors
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jauthors = 0;
     *((std::vector< std::string > **)&jauthors) = &authors; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[154], swigjobj, jauthors);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[118], swigjobj, jauthors);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7342,7 +5888,7 @@ void SwigDirector_laban_sequence::add_author(std::string author) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jauthor = jenv->NewStringUTF((&author)->c_str()); 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[155], swigjobj, jauthor);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[119], swigjobj, jauthor);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7368,7 +5914,7 @@ std::vector< std::string > SwigDirector_laban_sequence::get_authors() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[156], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[120], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7401,7 +5947,7 @@ void SwigDirector_laban_sequence::set_title(std::string title) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jtitle = jenv->NewStringUTF((&title)->c_str()); 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[157], swigjobj, jtitle);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[121], swigjobj, jtitle);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7426,7 +5972,7 @@ std::string SwigDirector_laban_sequence::get_title() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[158], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[122], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7463,7 +6009,7 @@ void SwigDirector_laban_sequence::set_description(std::string description) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jdescription = jenv->NewStringUTF((&description)->c_str()); 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[159], swigjobj, jdescription);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[123], swigjobj, jdescription);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7488,7 +6034,7 @@ std::string SwigDirector_laban_sequence::get_description() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[160], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[124], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7525,7 +6071,7 @@ void SwigDirector_laban_sequence::set_measures(unsigned int measures) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jmeasures = (jlong) measures;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[161], swigjobj, jmeasures);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[125], swigjobj, jmeasures);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7550,7 +6096,7 @@ unsigned int SwigDirector_laban_sequence::get_measures() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[162], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[126], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7578,7 +6124,7 @@ void SwigDirector_laban_sequence::set_time_unit(mae::fl::laban::e_time_unit time
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jtime_unit = (jint) time_unit;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[163], swigjobj, jtime_unit);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[127], swigjobj, jtime_unit);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7603,7 +6149,7 @@ mae::fl::laban::e_time_unit SwigDirector_laban_sequence::get_time_unit() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[164], swigjobj);
+    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[128], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7631,7 +6177,7 @@ void SwigDirector_laban_sequence::set_beat_duration(unsigned int beat_duration) 
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbeat_duration = (jlong) beat_duration;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[165], swigjobj, jbeat_duration);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[129], swigjobj, jbeat_duration);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7656,7 +6202,7 @@ unsigned int SwigDirector_laban_sequence::get_beat_duration() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[166], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[130], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7684,7 +6230,7 @@ void SwigDirector_laban_sequence::set_beats(unsigned int beats) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jbeats = (jlong) beats;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[167], swigjobj, jbeats);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[131], swigjobj, jbeats);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7709,7 +6255,7 @@ unsigned int SwigDirector_laban_sequence::get_beats() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[168], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[132], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7738,7 +6284,7 @@ void SwigDirector_laban_sequence::set_column_definitions(std::vector< std::share
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jcol_defs = 0;
     *((std::vector< std::shared_ptr< mae::fl::laban::column_definition > > **)&jcol_defs) = &col_defs; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[169], swigjobj, jcol_defs);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[133], swigjobj, jcol_defs);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7765,7 +6311,7 @@ void SwigDirector_laban_sequence::add_column_definition(std::shared_ptr< mae::fl
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jcol_def = 0;
     *((std::shared_ptr< mae::fl::laban::column_definition > **)&jcol_def) = &col_def; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[170], swigjobj, jcol_def);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[134], swigjobj, jcol_def);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7791,7 +6337,7 @@ std::vector< std::shared_ptr< mae::fl::laban::column_definition > > SwigDirector
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[171], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[135], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7826,7 +6372,7 @@ std::shared_ptr< mae::fl::laban::column_definition > SwigDirector_laban_sequence
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jcolumn_index = (jint) column_index;
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[172], swigjobj, jcolumn_index);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[136], swigjobj, jcolumn_index);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7857,7 +6403,7 @@ void SwigDirector_laban_sequence::clear_column_definitions() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[173], swigjobj);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[137], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7883,7 +6429,7 @@ std::vector< int > SwigDirector_laban_sequence::get_columns() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[174], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[138], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7917,7 +6463,7 @@ void SwigDirector_laban_sequence::set_movements(std::vector< std::shared_ptr< ma
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jmovements = 0;
     *((std::vector< std::shared_ptr< mae::fl::laban::i_movement > > **)&jmovements) = &movements; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[175], swigjobj, jmovements);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[139], swigjobj, jmovements);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7943,7 +6489,7 @@ std::vector< std::shared_ptr< mae::fl::laban::i_movement > > SwigDirector_laban_
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[176], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[140], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -7977,7 +6523,7 @@ void SwigDirector_laban_sequence::add_movement(std::shared_ptr< mae::fl::laban::
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ji_mov = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&ji_mov) = &i_mov; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[177], swigjobj, ji_mov);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[141], swigjobj, ji_mov);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8005,7 +6551,7 @@ std::vector< std::shared_ptr< mae::fl::laban::i_movement > > SwigDirector_laban_
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jcolumn = (jint) column;
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[178], swigjobj, jcolumn);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[142], swigjobj, jcolumn);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8038,7 +6584,7 @@ std::shared_ptr< mae::fl::laban::i_movement > SwigDirector_laban_sequence::get_l
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[179], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[143], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8069,7 +6615,7 @@ void SwigDirector_laban_sequence::clear_movements() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[180], swigjobj);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[144], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8100,7 +6646,7 @@ std::string SwigDirector_laban_sequence::xml(bool no_header, unsigned int indent
     jno_header = (jboolean) no_header;
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[181], swigjobj, jno_header, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[145], swigjobj, jno_header, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8138,7 +6684,7 @@ std::string SwigDirector_laban_sequence::xml_namespace_header(std::string namesp
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[185], swigjobj, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[149], swigjobj, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8174,7 +6720,7 @@ std::string SwigDirector_laban_sequence::xml_schema_location() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[187], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[151], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8210,7 +6756,7 @@ std::string SwigDirector_laban_sequence::xml_namespace_uri() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[188], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[152], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8247,7 +6793,7 @@ void SwigDirector_laban_sequence::xml_file(std::string path) const {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jpath = jenv->NewStringUTF((&path)->c_str()); 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[189], swigjobj, jpath);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[153], swigjobj, jpath);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8276,7 +6822,7 @@ std::string SwigDirector_laban_sequence::svg(unsigned int im_width, unsigned int
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jim_width = (jlong) im_width;
     jim_height = (jlong) im_height;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[190], swigjobj, jim_width, jim_height);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[154], swigjobj, jim_width, jim_height);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8317,7 +6863,7 @@ void SwigDirector_laban_sequence::svg_file(std::string path, unsigned int im_wid
     jpath = jenv->NewStringUTF((&path)->c_str()); 
     jim_width = (jlong) im_width;
     jim_height = (jlong) im_height;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[191], swigjobj, jpath, jim_width, jim_height);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[155], swigjobj, jpath, jim_width, jim_height);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8342,7 +6888,7 @@ std::string SwigDirector_laban_sequence::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[194], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[158], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8384,7 +6930,7 @@ std::string SwigDirector_laban_sequence::svg_fill_pattern(std::string pattern_na
     jpattern_name = jenv->NewStringUTF((&pattern_name)->c_str()); 
     jim_width = (jlong) im_width;
     jim_height = (jlong) im_height;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[195], swigjobj, jpattern_name, jim_width, jim_height);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[159], swigjobj, jpattern_name, jim_width, jim_height);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8591,7 +7137,7 @@ void SwigDirector_i_movement_decision_maker::set_recognition_tolerance(double to
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jtolerance = (jdouble) tolerance;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[196], swigjobj, jtolerance);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[160], swigjobj, jtolerance);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8617,7 +7163,7 @@ double SwigDirector_i_movement_decision_maker::get_recognition_tolerance() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[197], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[161], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8657,7 +7203,7 @@ bool SwigDirector_i_movement_decision_maker::decide_match(std::shared_ptr< mae::
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&jtree_item) = &tree_item; 
     jtree_item_predecessor = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&jtree_item_predecessor) = &tree_item_predecessor; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[198], swigjobj, jstream_item, jstream_item_predecessor, jtree_item, jtree_item_predecessor);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[162], swigjobj, jstream_item, jstream_item_predecessor, jtree_item, jtree_item_predecessor);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8697,7 +7243,7 @@ bool SwigDirector_i_movement_decision_maker::decide_insertion(std::shared_ptr< m
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&jtree_item) = &tree_item; 
     jtree_item_predecessor = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&jtree_item_predecessor) = &tree_item_predecessor; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[199], swigjobj, jadd_item, jadd_item_predecessor, jtree_item, jtree_item_predecessor);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[163], swigjobj, jadd_item, jadd_item_predecessor, jtree_item, jtree_item_predecessor);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8731,7 +7277,7 @@ bool SwigDirector_i_movement_decision_maker::position_okay(double dist_to_last, 
     jdist_to_last = (jdouble) dist_to_last;
     jset_value = (jdouble) set_value;
     jcheck_startpose = (jboolean) check_startpose;
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[200], swigjobj, jdist_to_last, jset_value, jcheck_startpose);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[164], swigjobj, jdist_to_last, jset_value, jcheck_startpose);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8817,7 +7363,7 @@ double SwigDirector_rewriting_forest::get_tolerance() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[201], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[165], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8845,7 +7391,7 @@ void SwigDirector_rewriting_forest::set_tolerance(double tolerance) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jtolerance = (jdouble) tolerance;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[202], swigjobj, jtolerance);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[166], swigjobj, jtolerance);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8874,7 +7420,7 @@ std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > Swig
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jsequence = 0;
     *((std::vector< std::shared_ptr< mae::fl::laban::i_movement > > **)&jsequence) = &sequence; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[203], swigjobj, jsequence);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[167], swigjobj, jsequence);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8911,7 +7457,7 @@ void SwigDirector_rewriting_forest::add_rule(std::vector< std::shared_ptr< mae::
     *((std::vector< std::shared_ptr< mae::fl::laban::i_movement > > **)&jsequence) = &sequence; 
     jreplacements = 0;
     *((std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > **)&jreplacements) = &replacements; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[204], swigjobj, jsequence, jreplacements);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[168], swigjobj, jsequence, jreplacements);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8938,7 +7484,7 @@ void SwigDirector_rewriting_forest::add_rule(std::shared_ptr< mae::fl::laban::de
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jrule = 0;
     *((std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > **)&jrule) = &rule; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[205], swigjobj, jrule);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[169], swigjobj, jrule);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -8963,7 +7509,7 @@ std::string SwigDirector_rewriting_forest::str() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[206], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[170], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9062,7 +7608,7 @@ std::vector< std::shared_ptr< mae::fl::laban::i_movement > > SwigDirector_i_mov_
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[207], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[171], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9095,7 +7641,7 @@ std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_mo
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[208], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[172], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9175,7 +7721,7 @@ void SwigDirector_decision_forest::set_recognition_tolerance(double tolerance) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jtolerance = (jdouble) tolerance;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[209], swigjobj, jtolerance);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[173], swigjobj, jtolerance);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9201,7 +7747,7 @@ void SwigDirector_decision_forest::set_cooldown(bool cooldown) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jcooldown = (jboolean) cooldown;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[210], swigjobj, jcooldown);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[174], swigjobj, jcooldown);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9226,7 +7772,7 @@ bool SwigDirector_decision_forest::get_cooldown() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[211], swigjobj);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[175], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9256,7 +7802,7 @@ int SwigDirector_decision_forest::get_sequence_length(std::shared_ptr< mae::fl::
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jsequence = 0;
     *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[212], swigjobj, jsequence);
+    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[176], swigjobj, jsequence);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9285,7 +7831,7 @@ void SwigDirector_decision_forest::add_sequence(std::shared_ptr< mae::fl::laban:
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jsequence = 0;
     *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[213], swigjobj, jsequence);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[177], swigjobj, jsequence);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9313,7 +7859,7 @@ bool SwigDirector_decision_forest::remove_sequence(std::shared_ptr< mae::fl::lab
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jsequence = 0;
     *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[214], swigjobj, jsequence);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[178], swigjobj, jsequence);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9342,7 +7888,7 @@ bool SwigDirector_decision_forest::remove_sequence(unsigned int list_index) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jlist_index = (jlong) list_index;
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[215], swigjobj, jlist_index);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[179], swigjobj, jlist_index);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9368,7 +7914,7 @@ void SwigDirector_decision_forest::clear() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[216], swigjobj);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[180], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9398,7 +7944,7 @@ void SwigDirector_decision_forest::add_rewriting_rule(std::vector< std::shared_p
     *((std::vector< std::shared_ptr< mae::fl::laban::i_movement > > **)&jsequence) = &sequence; 
     jreplacements = 0;
     *((std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > **)&jreplacements) = &replacements; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[217], swigjobj, jsequence, jreplacements);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[181], swigjobj, jsequence, jreplacements);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9425,7 +7971,7 @@ void SwigDirector_decision_forest::add_rewriting_rule(std::shared_ptr< mae::fl::
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jrule = 0;
     *((std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > **)&jrule) = &rule; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[218], swigjobj, jrule);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[182], swigjobj, jrule);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9451,7 +7997,7 @@ std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > SwigDirector_deci
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[219], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[183], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9490,7 +8036,7 @@ std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > SwigDirector_de
     *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jwhole_sequence) = &whole_sequence; 
     jbody_parts = 0;
     *((std::vector< mae::bone > **)&jbody_parts) = &body_parts; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[220], swigjobj, jwhole_sequence, jbody_parts);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[184], swigjobj, jwhole_sequence, jbody_parts);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9522,7 +8068,7 @@ std::string SwigDirector_decision_forest::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[221], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[185], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9639,7 +8185,7 @@ void SwigDirector_i_dec_maker::set_recognition_tolerance(double tolerance) {
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jtolerance = (jdouble) tolerance;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[222], swigjobj, jtolerance);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[186], swigjobj, jtolerance);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9665,7 +8211,7 @@ double SwigDirector_i_dec_maker::get_recognition_tolerance() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[223], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[187], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9705,7 +8251,7 @@ bool SwigDirector_i_dec_maker::decide_match(std::shared_ptr< mae::fl::laban::i_m
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&jtree_item) = &tree_item; 
     jtree_item_predecessor = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&jtree_item_predecessor) = &tree_item_predecessor; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[224], swigjobj, jstream_item, jstream_item_predecessor, jtree_item, jtree_item_predecessor);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[188], swigjobj, jstream_item, jstream_item_predecessor, jtree_item, jtree_item_predecessor);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9745,7 +8291,7 @@ bool SwigDirector_i_dec_maker::decide_insertion(std::shared_ptr< mae::fl::laban:
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&jtree_item) = &tree_item; 
     jtree_item_predecessor = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&jtree_item_predecessor) = &tree_item_predecessor; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[225], swigjobj, jadd_item, jadd_item_predecessor, jtree_item, jtree_item_predecessor);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[189], swigjobj, jadd_item, jadd_item_predecessor, jtree_item, jtree_item_predecessor);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9779,7 +8325,7 @@ bool SwigDirector_i_dec_maker::position_okay(double dist_to_last, double set_val
     jdist_to_last = (jdouble) dist_to_last;
     jset_value = (jdouble) set_value;
     jcheck_startpose = (jboolean) check_startpose;
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[226], swigjobj, jdist_to_last, jset_value, jcheck_startpose);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[190], swigjobj, jdist_to_last, jset_value, jcheck_startpose);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9842,6 +8388,248 @@ void SwigDirector_i_dec_maker::swig_connect_director(JNIEnv *jenv, jobject jself
 }
 
 
+SwigDirector_laban_sequence_sequence_recognizer::SwigDirector_laban_sequence_sequence_recognizer(JNIEnv *jenv) : mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >(), Swig::Director(jenv) {
+}
+
+SwigDirector_laban_sequence_sequence_recognizer::~SwigDirector_laban_sequence_sequence_recognizer() {
+  swig_disconnect_director_self("swigDirectorDisconnect");
+}
+
+
+void SwigDirector_laban_sequence_sequence_recognizer::register_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jsequence  ;
+  
+  if (!swig_override[0]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::register_sequence.");
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jsequence = 0;
+    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[191], swigjobj, jsequence);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::register_sequence ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+bool SwigDirector_laban_sequence_sequence_recognizer::deregister_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
+  bool c_result = SwigValueInit< bool >() ;
+  jboolean jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jsequence  ;
+  
+  if (!swig_override[1]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::deregister_sequence.");
+    return c_result;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jsequence = 0;
+    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[192], swigjobj, jsequence);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    c_result = jresult ? true : false; 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::deregister_sequence ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+bool SwigDirector_laban_sequence_sequence_recognizer::deregister_sequence(unsigned int list_index) {
+  bool c_result = SwigValueInit< bool >() ;
+  jboolean jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jlist_index  ;
+  
+  if (!swig_override[2]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::deregister_sequence.");
+    return c_result;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jlist_index = (jlong) list_index;
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[193], swigjobj, jlist_index);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    c_result = jresult ? true : false; 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::deregister_sequence ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+void SwigDirector_laban_sequence_sequence_recognizer::clear_registered_sequences() {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  
+  if (!swig_override[3]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::clear_registered_sequences.");
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[194], swigjobj);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::clear_registered_sequences ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+int SwigDirector_laban_sequence_sequence_recognizer::get_sequence_length(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) const {
+  int c_result = SwigValueInit< int >() ;
+  jint jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jsequence  ;
+  
+  if (!swig_override[4]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::get_sequence_length.");
+    return c_result;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jsequence = 0;
+    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
+    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[195], swigjobj, jsequence);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    c_result = (int)jresult; 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::get_sequence_length ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > SwigDirector_laban_sequence_sequence_recognizer::recognize_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence, std::vector< mae::bone > body_parts) {
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > c_result ;
+  jlong jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jsequence  ;
+  jlong jbody_parts  ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *argp ;
+  
+  if (!swig_override[5]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::recognize_sequence.");
+    return c_result;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jsequence = 0;
+    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
+    jbody_parts = 0;
+    *((std::vector< mae::bone > **)&jbody_parts) = &body_parts; 
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[196], swigjobj, jsequence, jbody_parts);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    argp = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jresult; 
+    if (!argp) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >");
+      return c_result;
+    }
+    c_result = *argp; 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_recognizer< mae::fl::laban::laban_sequence >::recognize_sequence ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+void SwigDirector_laban_sequence_sequence_recognizer::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
+  static struct {
+    const char *mname;
+    const char *mdesc;
+    jmethodID base_methid;
+  } methods[] = {
+    {
+      "register_sequence", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
+    },
+    {
+      "deregister_sequence", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)Z", NULL 
+    },
+    {
+      "deregister_sequence", "(J)Z", NULL 
+    },
+    {
+      "clear_registered_sequences", "()V", NULL 
+    },
+    {
+      "get_sequence_length", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)I", NULL 
+    },
+    {
+      "recognize_sequence", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;Lmaejava/bone_vector;)Lmaejava/laban_sequence_vector;", NULL 
+    }
+  };
+  
+  static jclass baseclass = 0 ;
+  
+  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
+    if (!baseclass) {
+      baseclass = jenv->FindClass("maejava/laban_sequence_sequence_recognizer");
+      if (!baseclass) return;
+      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
+    }
+    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
+    for (int i = 0; i < 6; ++i) {
+      if (!methods[i].base_methid) {
+        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
+        if (!methods[i].base_methid) return;
+      }
+      swig_override[i] = false;
+      if (derived) {
+        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
+        swig_override[i] = (methid != methods[i].base_methid);
+        jenv->ExceptionClear();
+      }
+    }
+  }
+}
+
+
 SwigDirector_laban_sequence_recognizer::SwigDirector_laban_sequence_recognizer(JNIEnv *jenv, double framerate, bool debug) : mae::fl::laban::laban_sequence_recognizer(framerate, debug), Swig::Director(jenv) {
 }
 
@@ -9867,7 +8655,7 @@ void SwigDirector_laban_sequence_recognizer::register_sequence(std::shared_ptr< 
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jsequence = 0;
     *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[227], swigjobj, jsequence);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[197], swigjobj, jsequence);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9895,7 +8683,7 @@ bool SwigDirector_laban_sequence_recognizer::deregister_sequence(std::shared_ptr
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jsequence = 0;
     *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[228], swigjobj, jsequence);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[198], swigjobj, jsequence);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9924,7 +8712,7 @@ bool SwigDirector_laban_sequence_recognizer::deregister_sequence(unsigned int li
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jlist_index = (jlong) list_index;
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[229], swigjobj, jlist_index);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[199], swigjobj, jlist_index);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9950,7 +8738,7 @@ void SwigDirector_laban_sequence_recognizer::clear_registered_sequences() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[230], swigjobj);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[200], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -9978,7 +8766,7 @@ int SwigDirector_laban_sequence_recognizer::get_sequence_length(std::shared_ptr<
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jsequence = 0;
     *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[231], swigjobj, jsequence);
+    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[201], swigjobj, jsequence);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10012,7 +8800,7 @@ std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > SwigDirector_la
     *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
     jbody_parts = 0;
     *((std::vector< mae::bone > **)&jbody_parts) = &body_parts; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[232], swigjobj, jsequence, jbody_parts);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[202], swigjobj, jsequence, jbody_parts);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10045,7 +8833,7 @@ void SwigDirector_laban_sequence_recognizer::set_recognition_tolerance(double to
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jtolerance = (jdouble) tolerance;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[233], swigjobj, jtolerance);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[203], swigjobj, jtolerance);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10071,7 +8859,7 @@ std::shared_ptr< mae::fl::laban::decision_forest > SwigDirector_laban_sequence_r
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[234], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[204], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10104,7 +8892,7 @@ std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > SwigDirector_laba
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[235], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[205], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10136,7 +8924,7 @@ std::string SwigDirector_laban_sequence_recognizer::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[236], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[206], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10223,6 +9011,92 @@ void SwigDirector_laban_sequence_recognizer::swig_connect_director(JNIEnv *jenv,
 }
 
 
+SwigDirector_laban_sequence_sequence_generator::SwigDirector_laban_sequence_sequence_generator(JNIEnv *jenv) : mae::i_sequence_generator< mae::fl::laban::laban_sequence >(), Swig::Director(jenv) {
+}
+
+SwigDirector_laban_sequence_sequence_generator::~SwigDirector_laban_sequence_sequence_generator() {
+  swig_disconnect_director_self("swigDirectorDisconnect");
+}
+
+
+std::shared_ptr< mae::fl::laban::laban_sequence > SwigDirector_laban_sequence_sequence_generator::generate_sequence(double framerate, std::list< std::shared_ptr< mae::general_enriched_pose > > keyPoses, std::vector< mae::bone > bodyParts) {
+  std::shared_ptr< mae::fl::laban::laban_sequence > c_result ;
+  jlong jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jdouble jframerate  ;
+  jlong jkeyPoses  ;
+  jlong jbodyParts  ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp ;
+  
+  if (!swig_override[0]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_generator< mae::fl::laban::laban_sequence >::generate_sequence.");
+    return c_result;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jframerate = (jdouble) framerate;
+    jkeyPoses = 0;
+    *((std::list< std::shared_ptr< mae::general_enriched_pose > > **)&jkeyPoses) = &keyPoses; 
+    jbodyParts = 0;
+    *((std::vector< mae::bone > **)&jbodyParts) = &bodyParts; 
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[207], swigjobj, jframerate, jkeyPoses, jbodyParts);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    argp = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult; 
+    if (!argp) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::fl::laban::laban_sequence >");
+      return c_result;
+    }
+    c_result = *argp; 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_generator< mae::fl::laban::laban_sequence >::generate_sequence ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+void SwigDirector_laban_sequence_sequence_generator::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
+  static struct {
+    const char *mname;
+    const char *mdesc;
+    jmethodID base_methid;
+  } methods[] = {
+    {
+      "generate_sequence", "(DLmaejava/enriched_pose_list;Lmaejava/bone_vector;)Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;", NULL 
+    }
+  };
+  
+  static jclass baseclass = 0 ;
+  
+  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
+    if (!baseclass) {
+      baseclass = jenv->FindClass("maejava/laban_sequence_sequence_generator");
+      if (!baseclass) return;
+      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
+    }
+    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
+    for (int i = 0; i < 1; ++i) {
+      if (!methods[i].base_methid) {
+        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
+        if (!methods[i].base_methid) return;
+      }
+      swig_override[i] = false;
+      if (derived) {
+        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
+        swig_override[i] = (methid != methods[i].base_methid);
+        jenv->ExceptionClear();
+      }
+    }
+  }
+}
+
+
 SwigDirector_laban_sequence_generator::SwigDirector_laban_sequence_generator(JNIEnv *jenv, bool debug) : mae::fl::laban::laban_sequence_generator(debug), Swig::Director(jenv) {
 }
 
@@ -10255,7 +9129,7 @@ std::shared_ptr< mae::fl::laban::laban_sequence > SwigDirector_laban_sequence_ge
     *((std::list< std::shared_ptr< mae::general_enriched_pose > > **)&jkey_poses) = &key_poses; 
     jbody_parts = 0;
     *((std::vector< mae::bone > **)&jbody_parts) = &body_parts; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[237], swigjobj, jframerate, jkey_poses, jbody_parts);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[208], swigjobj, jframerate, jkey_poses, jbody_parts);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10311,6 +9185,1045 @@ void SwigDirector_laban_sequence_generator::swig_connect_director(JNIEnv *jenv, 
 }
 
 
+SwigDirector_laban_sequence_sequence_listener::SwigDirector_laban_sequence_sequence_listener(JNIEnv *jenv) : mae::i_sequence_listener< mae::fl::laban::laban_sequence >(), Swig::Director(jenv) {
+}
+
+SwigDirector_laban_sequence_sequence_listener::~SwigDirector_laban_sequence_sequence_listener() {
+  swig_disconnect_director_self("swigDirectorDisconnect");
+}
+
+
+void SwigDirector_laban_sequence_sequence_listener::on_sequence(long timestamp, std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jint jtimestamp  ;
+  jlong jsequence  ;
+  
+  if (!swig_override[0]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_listener< mae::fl::laban::laban_sequence >::on_sequence.");
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jtimestamp = (jint) timestamp;
+    jsequence = 0;
+    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[209], swigjobj, jtimestamp, jsequence);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_listener< mae::fl::laban::laban_sequence >::on_sequence ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_laban_sequence_sequence_listener::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
+  static struct {
+    const char *mname;
+    const char *mdesc;
+    jmethodID base_methid;
+  } methods[] = {
+    {
+      "on_sequence", "(ILmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
+    }
+  };
+  
+  static jclass baseclass = 0 ;
+  
+  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
+    if (!baseclass) {
+      baseclass = jenv->FindClass("maejava/laban_sequence_sequence_listener");
+      if (!baseclass) return;
+      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
+    }
+    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
+    for (int i = 0; i < 1; ++i) {
+      if (!methods[i].base_methid) {
+        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
+        if (!methods[i].base_methid) return;
+      }
+      swig_override[i] = false;
+      if (derived) {
+        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
+        swig_override[i] = (methid != methods[i].base_methid);
+        jenv->ExceptionClear();
+      }
+    }
+  }
+}
+
+
+SwigDirector_laban_sequence_recognition_listener::SwigDirector_laban_sequence_recognition_listener(JNIEnv *jenv) : mae::i_recognition_listener< mae::fl::laban::laban_sequence >(), Swig::Director(jenv) {
+}
+
+SwigDirector_laban_sequence_recognition_listener::~SwigDirector_laban_sequence_recognition_listener() {
+  swig_disconnect_director_self("swigDirectorDisconnect");
+}
+
+
+void SwigDirector_laban_sequence_recognition_listener::on_recognition(long timestamp, std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > sequences) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jint jtimestamp  ;
+  jlong jsequences  ;
+  
+  if (!swig_override[0]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_recognition_listener< mae::fl::laban::laban_sequence >::on_recognition.");
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jtimestamp = (jint) timestamp;
+    jsequences = 0;
+    *((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jsequences) = &sequences; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[210], swigjobj, jtimestamp, jsequences);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_recognition_listener< mae::fl::laban::laban_sequence >::on_recognition ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_laban_sequence_recognition_listener::on_recognition(long timestamp, std::vector< std::string > title) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jint jtimestamp  ;
+  jlong jtitle  ;
+  
+  if (!swig_override[1]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_recognition_listener< mae::fl::laban::laban_sequence >::on_recognition.");
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jtimestamp = (jint) timestamp;
+    jtitle = 0;
+    *((std::vector< std::string > **)&jtitle) = &title; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[211], swigjobj, jtimestamp, jtitle);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_recognition_listener< mae::fl::laban::laban_sequence >::on_recognition ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_laban_sequence_recognition_listener::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
+  static struct {
+    const char *mname;
+    const char *mdesc;
+    jmethodID base_methid;
+  } methods[] = {
+    {
+      "on_recognition", "(ILmaejava/laban_sequence_vector;)V", NULL 
+    },
+    {
+      "on_recognition", "(ILmaejava/string_vector;)V", NULL 
+    }
+  };
+  
+  static jclass baseclass = 0 ;
+  
+  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
+    if (!baseclass) {
+      baseclass = jenv->FindClass("maejava/laban_sequence_recognition_listener");
+      if (!baseclass) return;
+      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
+    }
+    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
+    for (int i = 0; i < 2; ++i) {
+      if (!methods[i].base_methid) {
+        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
+        if (!methods[i].base_methid) return;
+      }
+      swig_override[i] = false;
+      if (derived) {
+        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
+        swig_override[i] = (methid != methods[i].base_methid);
+        jenv->ExceptionClear();
+      }
+    }
+  }
+}
+
+
+SwigDirector_fl_skeleton_laban_sequence_movement_detector::SwigDirector_fl_skeleton_laban_sequence_movement_detector(JNIEnv *jenv) : mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(), Swig::Director(jenv) {
+}
+
+SwigDirector_fl_skeleton_laban_sequence_movement_detector::~SwigDirector_fl_skeleton_laban_sequence_movement_detector() {
+  swig_disconnect_director_self("swigDirectorDisconnect");
+}
+
+
+std::shared_ptr< mae::fl::laban::laban_sequence > SwigDirector_fl_skeleton_laban_sequence_movement_detector::detect_movement(long timestamp, double framerate, std::shared_ptr< mae::fl::fl_skeleton > skeleton, std::vector< mae::bone > body_parts) {
+  std::shared_ptr< mae::fl::laban::laban_sequence > c_result ;
+  jlong jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jint jtimestamp  ;
+  jdouble jframerate  ;
+  jlong jskeleton  ;
+  jlong jbody_parts  ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp ;
+  
+  if (!swig_override[0]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::detect_movement.");
+    return c_result;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jtimestamp = (jint) timestamp;
+    jframerate = (jdouble) framerate;
+    jskeleton = 0;
+    *((std::shared_ptr< mae::fl::fl_skeleton > **)&jskeleton) = &skeleton; 
+    jbody_parts = 0;
+    *((std::vector< mae::bone > **)&jbody_parts) = &body_parts; 
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[212], swigjobj, jtimestamp, jframerate, jskeleton, jbody_parts);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    argp = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult; 
+    if (!argp) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::fl::laban::laban_sequence >");
+      return c_result;
+    }
+    c_result = *argp; 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::detect_movement ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_detector::set_buffer(int size) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jint jsize  ;
+  
+  if (!swig_override[1]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::set_buffer.");
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jsize = (jint) size;
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[213], swigjobj, jsize);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::set_buffer ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_detector::clear_buffer() {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  
+  if (!swig_override[2]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_buffer.");
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[214], swigjobj);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_buffer ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_detector::add_listener(std::shared_ptr< mae::i_pose_listener > listener) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jlistener  ;
+  
+  if (!swig_override[3]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener.");
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jlistener = 0;
+    *((std::shared_ptr< mae::i_pose_listener > **)&jlistener) = &listener; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[215], swigjobj, jlistener);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_detector::remove_listener(std::shared_ptr< mae::i_pose_listener > listener) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jlistener  ;
+  
+  if (!swig_override[4]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener.");
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jlistener = 0;
+    *((std::shared_ptr< mae::i_pose_listener > **)&jlistener) = &listener; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[216], swigjobj, jlistener);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_detector::clear_listeners() {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  
+  if (!swig_override[5]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_listeners.");
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[217], swigjobj);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_listeners ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_detector::notify_listeners(long timestamp, std::shared_ptr< mae::general_pose > pose) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jint jtimestamp  ;
+  jlong jpose  ;
+  
+  if (!swig_override[6]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_listeners.");
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jtimestamp = (jint) timestamp;
+    jpose = 0;
+    *((std::shared_ptr< mae::general_pose > **)&jpose) = &pose; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[218], swigjobj, jtimestamp, jpose);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_listeners ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_detector::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
+  static struct {
+    const char *mname;
+    const char *mdesc;
+    jmethodID base_methid;
+  } methods[] = {
+    {
+      "detect_movement", "(IDLmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t;Lmaejava/bone_vector;)Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;", NULL 
+    },
+    {
+      "set_buffer", "(I)V", NULL 
+    },
+    {
+      "clear_buffer", "()V", NULL 
+    },
+    {
+      "add_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t;)V", NULL 
+    },
+    {
+      "remove_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t;)V", NULL 
+    },
+    {
+      "clear_listeners", "()V", NULL 
+    },
+    {
+      "notify_listeners", "(ILmaejava/SWIGTYPE_p_std__shared_ptrT_mae__general_pose_t;)V", NULL 
+    }
+  };
+  
+  static jclass baseclass = 0 ;
+  
+  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
+    if (!baseclass) {
+      baseclass = jenv->FindClass("maejava/fl_skeleton_laban_sequence_movement_detector");
+      if (!baseclass) return;
+      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
+    }
+    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
+    for (int i = 0; i < 7; ++i) {
+      if (!methods[i].base_methid) {
+        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
+        if (!methods[i].base_methid) return;
+      }
+      swig_override[i] = false;
+      if (derived) {
+        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
+        swig_override[i] = (methid != methods[i].base_methid);
+        jenv->ExceptionClear();
+      }
+    }
+  }
+}
+
+
+SwigDirector_fl_skeleton_laban_sequence_movement_controller::SwigDirector_fl_skeleton_laban_sequence_movement_controller(JNIEnv *jenv, std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > imd, std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > isr, std::vector< mae::bone > body_parts, int pose_buffer_size, double framerate, bool debug) : mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(imd, isr, body_parts, pose_buffer_size, framerate, debug), Swig::Director(jenv) {
+}
+
+SwigDirector_fl_skeleton_laban_sequence_movement_controller::SwigDirector_fl_skeleton_laban_sequence_movement_controller(JNIEnv *jenv, std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > ipd, std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > isg, std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > isr, std::vector< mae::bone > body_parts, int pose_buffer_size, double framerate, bool debug) : mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(ipd, isg, isr, body_parts, pose_buffer_size, framerate, debug), Swig::Director(jenv) {
+}
+
+SwigDirector_fl_skeleton_laban_sequence_movement_controller::~SwigDirector_fl_skeleton_laban_sequence_movement_controller() {
+  swig_disconnect_director_self("swigDirectorDisconnect");
+}
+
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::next_frame(long timestamp, std::shared_ptr< mae::fl::fl_skeleton > skeleton) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jint jtimestamp  ;
+  jlong jskeleton  ;
+  
+  if (!swig_override[0]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::next_frame(timestamp,skeleton);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jtimestamp = (jint) timestamp;
+    jskeleton = 0;
+    *((std::shared_ptr< mae::fl::fl_skeleton > **)&jskeleton) = &skeleton; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[219], swigjobj, jtimestamp, jskeleton);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::next_frame ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::register_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jsequence  ;
+  
+  if (!swig_override[1]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::register_sequence(sequence);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jsequence = 0;
+    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[220], swigjobj, jsequence);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::register_sequence ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::deregister_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jsequence  ;
+  
+  if (!swig_override[2]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::deregister_sequence(sequence);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jsequence = 0;
+    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[221], swigjobj, jsequence);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::deregister_sequence ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::clear_registered_sequences() {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  
+  if (!swig_override[3]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_registered_sequences();
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[222], swigjobj);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_registered_sequences ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::set_no_buffer_size_update(bool updates) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jboolean jupdates  ;
+  
+  if (!swig_override[4]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::set_no_buffer_size_update(updates);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jupdates = (jboolean) updates;
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[223], swigjobj, jupdates);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::set_no_buffer_size_update ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::clear_buffer() {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  
+  if (!swig_override[5]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_buffer();
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[224], swigjobj);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_buffer ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+std::shared_ptr< mae::fl::laban::laban_sequence > SwigDirector_fl_skeleton_laban_sequence_movement_controller::get_current_sequence() {
+  std::shared_ptr< mae::fl::laban::laban_sequence > c_result ;
+  jlong jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp ;
+  
+  if (!swig_override[6]) {
+    return mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_current_sequence();
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[225], swigjobj);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    argp = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult; 
+    if (!argp) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::fl::laban::laban_sequence >");
+      return c_result;
+    }
+    c_result = *argp; 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_current_sequence ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::add_listener(std::shared_ptr< mae::i_pose_listener > pose_listener) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jpose_listener  ;
+  
+  if (!swig_override[7]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(pose_listener);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jpose_listener = 0;
+    *((std::shared_ptr< mae::i_pose_listener > **)&jpose_listener) = &pose_listener; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[226], swigjobj, jpose_listener);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::remove_listener(std::shared_ptr< mae::i_pose_listener > pose_listener) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jpose_listener  ;
+  
+  if (!swig_override[8]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(pose_listener);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jpose_listener = 0;
+    *((std::shared_ptr< mae::i_pose_listener > **)&jpose_listener) = &pose_listener; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[227], swigjobj, jpose_listener);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::add_listener(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > sequence_listener) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jsequence_listener  ;
+  
+  if (!swig_override[9]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(sequence_listener);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jsequence_listener = 0;
+    *((std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jsequence_listener) = &sequence_listener; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[228], swigjobj, jsequence_listener);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::remove_listener(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > sequence_listener) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jsequence_listener  ;
+  
+  if (!swig_override[10]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(sequence_listener);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jsequence_listener = 0;
+    *((std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jsequence_listener) = &sequence_listener; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[229], swigjobj, jsequence_listener);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::add_listener(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > recognition_listener) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jrecognition_listener  ;
+  
+  if (!swig_override[11]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(recognition_listener);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jrecognition_listener = 0;
+    *((std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jrecognition_listener) = &recognition_listener; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[230], swigjobj, jrecognition_listener);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::remove_listener(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > recognition_listener) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jrecognition_listener  ;
+  
+  if (!swig_override[12]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(recognition_listener);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jrecognition_listener = 0;
+    *((std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jrecognition_listener) = &recognition_listener; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[231], swigjobj, jrecognition_listener);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::clear_listeners() {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  
+  if (!swig_override[13]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_listeners();
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[232], swigjobj);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_listeners ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::notify_sequence_listeners(long timestamp, std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jint jtimestamp  ;
+  jlong jsequence  ;
+  
+  if (!swig_override[14]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_sequence_listeners(timestamp,sequence);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jtimestamp = (jint) timestamp;
+    jsequence = 0;
+    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[233], swigjobj, jtimestamp, jsequence);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_sequence_listeners ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::notify_recognition_listeners(long timestamp, std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > sequences) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jint jtimestamp  ;
+  jlong jsequences  ;
+  
+  if (!swig_override[15]) {
+    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_recognition_listeners(timestamp,sequences);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jtimestamp = (jint) timestamp;
+    jsequences = 0;
+    *((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jsequences) = &sequences; 
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[234], swigjobj, jtimestamp, jsequences);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_recognition_listeners ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > SwigDirector_fl_skeleton_laban_sequence_movement_controller::get_movement_detector() {
+  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > c_result ;
+  jlong jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp ;
+  
+  if (!swig_override[16]) {
+    return mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_movement_detector();
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[235], swigjobj);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    argp = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jresult; 
+    if (!argp) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >");
+      return c_result;
+    }
+    c_result = *argp; 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_movement_detector ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > SwigDirector_fl_skeleton_laban_sequence_movement_controller::get_sequence_recognizer() {
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > c_result ;
+  jlong jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp ;
+  
+  if (!swig_override[17]) {
+    return mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_sequence_recognizer();
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[236], swigjobj);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    argp = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jresult; 
+    if (!argp) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > >");
+      return c_result;
+    }
+    c_result = *argp; 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_sequence_recognizer ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+void SwigDirector_fl_skeleton_laban_sequence_movement_controller::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
+  static struct {
+    const char *mname;
+    const char *mdesc;
+    jmethodID base_methid;
+  } methods[] = {
+    {
+      "next_frame", "(ILmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t;)V", NULL 
+    },
+    {
+      "register_sequence", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
+    },
+    {
+      "deregister_sequence", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
+    },
+    {
+      "clear_registered_sequences", "()V", NULL 
+    },
+    {
+      "set_no_buffer_size_update", "(Z)V", NULL 
+    },
+    {
+      "clear_buffer", "()V", NULL 
+    },
+    {
+      "get_current_sequence", "()Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;", NULL 
+    },
+    {
+      "add_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t;)V", NULL 
+    },
+    {
+      "remove_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t;)V", NULL 
+    },
+    {
+      "add_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t;)V", NULL 
+    },
+    {
+      "remove_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t;)V", NULL 
+    },
+    {
+      "add_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t;)V", NULL 
+    },
+    {
+      "remove_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t;)V", NULL 
+    },
+    {
+      "clear_listeners", "()V", NULL 
+    },
+    {
+      "notify_sequence_listeners", "(ILmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
+    },
+    {
+      "notify_recognition_listeners", "(ILmaejava/laban_sequence_vector;)V", NULL 
+    },
+    {
+      "get_movement_detector", "()Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t;", NULL 
+    },
+    {
+      "get_sequence_recognizer", "()Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t;", NULL 
+    }
+  };
+  
+  static jclass baseclass = 0 ;
+  
+  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
+    if (!baseclass) {
+      baseclass = jenv->FindClass("maejava/fl_skeleton_laban_sequence_movement_controller");
+      if (!baseclass) return;
+      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
+    }
+    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
+    for (int i = 0; i < 18; ++i) {
+      if (!methods[i].base_methid) {
+        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
+        if (!methods[i].base_methid) return;
+      }
+      swig_override[i] = false;
+      if (derived) {
+        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
+        swig_override[i] = (methid != methods[i].base_methid);
+        jenv->ExceptionClear();
+      }
+    }
+  }
+}
+
+
 SwigDirector_fl_movement_controller::SwigDirector_fl_movement_controller(JNIEnv *jenv, unsigned int pose_buffer_size, double framerate, bool debug) : mae::fl::fl_movement_controller(pose_buffer_size, framerate, debug), Swig::Director(jenv) {
 }
 
@@ -10341,7 +10254,7 @@ void SwigDirector_fl_movement_controller::next_frame(long timestamp, std::shared
     jtimestamp = (jint) timestamp;
     jskeleton = 0;
     *((std::shared_ptr< mae::fl::fl_skeleton > **)&jskeleton) = &skeleton; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[238], swigjobj, jtimestamp, jskeleton);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[237], swigjobj, jtimestamp, jskeleton);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10368,7 +10281,7 @@ void SwigDirector_fl_movement_controller::register_sequence(std::shared_ptr< mae
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jsequence = 0;
     *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[239], swigjobj, jsequence);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[238], swigjobj, jsequence);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10395,7 +10308,7 @@ void SwigDirector_fl_movement_controller::deregister_sequence(std::shared_ptr< m
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jsequence = 0;
     *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[240], swigjobj, jsequence);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[239], swigjobj, jsequence);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10419,7 +10332,7 @@ void SwigDirector_fl_movement_controller::clear_registered_sequences() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[241], swigjobj);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[240], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10445,7 +10358,7 @@ void SwigDirector_fl_movement_controller::set_no_buffer_size_update(bool updates
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jupdates = (jboolean) updates;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[242], swigjobj, jupdates);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[241], swigjobj, jupdates);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10469,7 +10382,7 @@ void SwigDirector_fl_movement_controller::clear_buffer() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[243], swigjobj);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[242], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10495,7 +10408,7 @@ std::shared_ptr< mae::fl::laban::laban_sequence > SwigDirector_fl_movement_contr
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[244], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[243], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10529,7 +10442,7 @@ void SwigDirector_fl_movement_controller::add_listener(std::shared_ptr< mae::i_p
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jpose_listener = 0;
     *((std::shared_ptr< mae::i_pose_listener > **)&jpose_listener) = &pose_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[245], swigjobj, jpose_listener);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[244], swigjobj, jpose_listener);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10556,7 +10469,7 @@ void SwigDirector_fl_movement_controller::remove_listener(std::shared_ptr< mae::
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jpose_listener = 0;
     *((std::shared_ptr< mae::i_pose_listener > **)&jpose_listener) = &pose_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[246], swigjobj, jpose_listener);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[245], swigjobj, jpose_listener);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10583,7 +10496,7 @@ void SwigDirector_fl_movement_controller::add_listener(std::shared_ptr< mae::i_s
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jsequence_listener = 0;
     *((std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jsequence_listener) = &sequence_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[247], swigjobj, jsequence_listener);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[246], swigjobj, jsequence_listener);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10610,7 +10523,7 @@ void SwigDirector_fl_movement_controller::remove_listener(std::shared_ptr< mae::
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jsequence_listener = 0;
     *((std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jsequence_listener) = &sequence_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[248], swigjobj, jsequence_listener);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[247], swigjobj, jsequence_listener);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10637,7 +10550,7 @@ void SwigDirector_fl_movement_controller::add_listener(std::shared_ptr< mae::i_r
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jrecognition_listener = 0;
     *((std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jrecognition_listener) = &recognition_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[249], swigjobj, jrecognition_listener);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[248], swigjobj, jrecognition_listener);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10664,7 +10577,7 @@ void SwigDirector_fl_movement_controller::remove_listener(std::shared_ptr< mae::
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jrecognition_listener = 0;
     *((std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jrecognition_listener) = &recognition_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[250], swigjobj, jrecognition_listener);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[249], swigjobj, jrecognition_listener);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10688,7 +10601,7 @@ void SwigDirector_fl_movement_controller::clear_listeners() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[251], swigjobj);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[250], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10717,7 +10630,7 @@ void SwigDirector_fl_movement_controller::notify_sequence_listeners(long timesta
     jtimestamp = (jint) timestamp;
     jsequence = 0;
     *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[252], swigjobj, jtimestamp, jsequence);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[251], swigjobj, jtimestamp, jsequence);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10746,7 +10659,7 @@ void SwigDirector_fl_movement_controller::notify_recognition_listeners(long time
     jtimestamp = (jint) timestamp;
     jsequences = 0;
     *((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jsequences) = &sequences; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[253], swigjobj, jtimestamp, jsequences);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[252], swigjobj, jtimestamp, jsequences);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10772,7 +10685,7 @@ std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[254], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[253], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10805,7 +10718,7 @@ std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > 
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[255], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[254], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10841,7 +10754,7 @@ void SwigDirector_fl_movement_controller::next_frame(long timestamp, std::shared
     jtimestamp = (jint) timestamp;
     jskeleton = 0;
     *((std::shared_ptr< mae::general_skeleton > **)&jskeleton) = &skeleton; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[256], swigjobj, jtimestamp, jskeleton);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[255], swigjobj, jtimestamp, jskeleton);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10867,7 +10780,7 @@ void SwigDirector_fl_movement_controller::set_recognition_tolerance(double toler
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jtolerance = (jdouble) tolerance;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[257], swigjobj, jtolerance);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[256], swigjobj, jtolerance);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10893,7 +10806,7 @@ std::shared_ptr< mae::fl::laban::laban_sequence_recognizer > SwigDirector_fl_mov
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[258], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[257], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10926,7 +10839,7 @@ std::shared_ptr< mae::fl::laban::laban_sequence_generator > SwigDirector_fl_move
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[259], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[258], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -10959,7 +10872,7 @@ std::shared_ptr< mae::fl::fl_pose_detector > SwigDirector_fl_movement_controller
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[260], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[259], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -11081,604 +10994,6 @@ void SwigDirector_fl_movement_controller::swig_connect_director(JNIEnv *jenv, jo
 }
 
 
-SwigDirector_fl_skel_laban_movement_controller::SwigDirector_fl_skel_laban_movement_controller(JNIEnv *jenv, std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > imd, std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > isr, std::vector< mae::bone > body_parts, int pose_buffer_size, double framerate, bool debug) : mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(imd, isr, body_parts, pose_buffer_size, framerate, debug), Swig::Director(jenv) {
-}
-
-SwigDirector_fl_skel_laban_movement_controller::SwigDirector_fl_skel_laban_movement_controller(JNIEnv *jenv, std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > ipd, std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > isg, std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > isr, std::vector< mae::bone > body_parts, int pose_buffer_size, double framerate, bool debug) : mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(ipd, isg, isr, body_parts, pose_buffer_size, framerate, debug), Swig::Director(jenv) {
-}
-
-SwigDirector_fl_skel_laban_movement_controller::~SwigDirector_fl_skel_laban_movement_controller() {
-  swig_disconnect_director_self("swigDirectorDisconnect");
-}
-
-
-void SwigDirector_fl_skel_laban_movement_controller::next_frame(long timestamp, std::shared_ptr< mae::fl::fl_skeleton > skeleton) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jtimestamp  ;
-  jlong jskeleton  ;
-  
-  if (!swig_override[0]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::next_frame(timestamp,skeleton);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jtimestamp = (jint) timestamp;
-    jskeleton = 0;
-    *((std::shared_ptr< mae::fl::fl_skeleton > **)&jskeleton) = &skeleton; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[261], swigjobj, jtimestamp, jskeleton);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::next_frame ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::register_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jsequence  ;
-  
-  if (!swig_override[1]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::register_sequence(sequence);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jsequence = 0;
-    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[262], swigjobj, jsequence);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::register_sequence ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::deregister_sequence(std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jsequence  ;
-  
-  if (!swig_override[2]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::deregister_sequence(sequence);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jsequence = 0;
-    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[263], swigjobj, jsequence);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::deregister_sequence ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::clear_registered_sequences() {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  
-  if (!swig_override[3]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_registered_sequences();
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[264], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_registered_sequences ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::set_no_buffer_size_update(bool updates) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jboolean jupdates  ;
-  
-  if (!swig_override[4]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::set_no_buffer_size_update(updates);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jupdates = (jboolean) updates;
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[265], swigjobj, jupdates);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::set_no_buffer_size_update ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::clear_buffer() {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  
-  if (!swig_override[5]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_buffer();
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[266], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_buffer ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-std::shared_ptr< mae::fl::laban::laban_sequence > SwigDirector_fl_skel_laban_movement_controller::get_current_sequence() {
-  std::shared_ptr< mae::fl::laban::laban_sequence > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp ;
-  
-  if (!swig_override[6]) {
-    return mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_current_sequence();
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[267], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::fl::laban::laban_sequence >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_current_sequence ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::add_listener(std::shared_ptr< mae::i_pose_listener > pose_listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jpose_listener  ;
-  
-  if (!swig_override[7]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(pose_listener);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jpose_listener = 0;
-    *((std::shared_ptr< mae::i_pose_listener > **)&jpose_listener) = &pose_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[268], swigjobj, jpose_listener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::remove_listener(std::shared_ptr< mae::i_pose_listener > pose_listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jpose_listener  ;
-  
-  if (!swig_override[8]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(pose_listener);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jpose_listener = 0;
-    *((std::shared_ptr< mae::i_pose_listener > **)&jpose_listener) = &pose_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[269], swigjobj, jpose_listener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::add_listener(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > sequence_listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jsequence_listener  ;
-  
-  if (!swig_override[9]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(sequence_listener);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jsequence_listener = 0;
-    *((std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jsequence_listener) = &sequence_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[270], swigjobj, jsequence_listener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::remove_listener(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > sequence_listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jsequence_listener  ;
-  
-  if (!swig_override[10]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(sequence_listener);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jsequence_listener = 0;
-    *((std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jsequence_listener) = &sequence_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[271], swigjobj, jsequence_listener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::add_listener(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > recognition_listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jrecognition_listener  ;
-  
-  if (!swig_override[11]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(recognition_listener);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jrecognition_listener = 0;
-    *((std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jrecognition_listener) = &recognition_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[272], swigjobj, jrecognition_listener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::remove_listener(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > recognition_listener) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jrecognition_listener  ;
-  
-  if (!swig_override[12]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(recognition_listener);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jrecognition_listener = 0;
-    *((std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jrecognition_listener) = &recognition_listener; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[273], swigjobj, jrecognition_listener);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::clear_listeners() {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  
-  if (!swig_override[13]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_listeners();
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[274], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_listeners ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::notify_sequence_listeners(long timestamp, std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jtimestamp  ;
-  jlong jsequence  ;
-  
-  if (!swig_override[14]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_sequence_listeners(timestamp,sequence);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jtimestamp = (jint) timestamp;
-    jsequence = 0;
-    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[275], swigjobj, jtimestamp, jsequence);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_sequence_listeners ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::notify_recognition_listeners(long timestamp, std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > sequences) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jtimestamp  ;
-  jlong jsequences  ;
-  
-  if (!swig_override[15]) {
-    mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_recognition_listeners(timestamp,sequences);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jtimestamp = (jint) timestamp;
-    jsequences = 0;
-    *((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jsequences) = &sequences; 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[276], swigjobj, jtimestamp, jsequences);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_recognition_listeners ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > SwigDirector_fl_skel_laban_movement_controller::get_movement_detector() {
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp ;
-  
-  if (!swig_override[16]) {
-    return mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_movement_detector();
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[277], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_movement_detector ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > SwigDirector_fl_skel_laban_movement_controller::get_sequence_recognizer() {
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp ;
-  
-  if (!swig_override[17]) {
-    return mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_sequence_recognizer();
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[278], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_sequence_recognizer ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-void SwigDirector_fl_skel_laban_movement_controller::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
-  static struct {
-    const char *mname;
-    const char *mdesc;
-    jmethodID base_methid;
-  } methods[] = {
-    {
-      "next_frame", "(ILmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t;)V", NULL 
-    },
-    {
-      "register_sequence", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
-    },
-    {
-      "deregister_sequence", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
-    },
-    {
-      "clear_registered_sequences", "()V", NULL 
-    },
-    {
-      "set_no_buffer_size_update", "(Z)V", NULL 
-    },
-    {
-      "clear_buffer", "()V", NULL 
-    },
-    {
-      "get_current_sequence", "()Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;", NULL 
-    },
-    {
-      "add_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t;)V", NULL 
-    },
-    {
-      "remove_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_pose_listener_t;)V", NULL 
-    },
-    {
-      "add_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t;)V", NULL 
-    },
-    {
-      "remove_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_listenerT_mae__fl__laban__laban_sequence_t_t;)V", NULL 
-    },
-    {
-      "add_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t;)V", NULL 
-    },
-    {
-      "remove_listener", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_recognition_listenerT_mae__fl__laban__laban_sequence_t_t;)V", NULL 
-    },
-    {
-      "clear_listeners", "()V", NULL 
-    },
-    {
-      "notify_sequence_listeners", "(ILmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
-    },
-    {
-      "notify_recognition_listeners", "(ILmaejava/laban_sequence_vector;)V", NULL 
-    },
-    {
-      "get_movement_detector", "()Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_movement_detectorT_mae__fl__fl_skeleton_mae__fl__laban__laban_sequence_t_t;", NULL 
-    },
-    {
-      "get_sequence_recognizer", "()Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__i_sequence_recognizerT_mae__fl__laban__laban_sequence_t_t;", NULL 
-    }
-  };
-  
-  static jclass baseclass = 0 ;
-  
-  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
-    if (!baseclass) {
-      baseclass = jenv->FindClass("maejava/fl_skel_laban_movement_controller");
-      if (!baseclass) return;
-      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
-    }
-    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
-    for (int i = 0; i < 18; ++i) {
-      if (!methods[i].base_methid) {
-        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
-        if (!methods[i].base_methid) return;
-      }
-      swig_override[i] = false;
-      if (derived) {
-        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
-        swig_override[i] = (methid != methods[i].base_methid);
-        jenv->ExceptionClear();
-      }
-    }
-  }
-}
-
-
 SwigDirector_bvh_spec::SwigDirector_bvh_spec(JNIEnv *jenv, std::string left_anchor, std::string right_anchor, std::string top_anchor, std::string bottom_anchor, std::map< std::string,int > string_id_map, std::map< std::string,bool > string_torso_map) : mae::fl::bvh_spec(left_anchor, right_anchor, top_anchor, bottom_anchor, string_id_map, string_torso_map), Swig::Director(jenv) {
 }
 
@@ -11700,7 +11015,7 @@ std::map< std::string,int > SwigDirector_bvh_spec::get_id_map() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[279], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[260], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -11733,7 +11048,7 @@ std::map< std::string,bool > SwigDirector_bvh_spec::get_torso_map() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[280], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[261], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -11765,7 +11080,7 @@ std::string SwigDirector_bvh_spec::get_left_anchor() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[281], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[262], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -11801,7 +11116,7 @@ std::string SwigDirector_bvh_spec::get_right_anchor() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[282], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[263], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -11837,7 +11152,7 @@ std::string SwigDirector_bvh_spec::get_top_anchor() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[283], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[264], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -11873,7 +11188,7 @@ std::string SwigDirector_bvh_spec::get_bottom_anchor() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[284], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[265], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -11971,7 +11286,7 @@ std::string SwigDirector_bvh_controller::bvh_str(std::vector< std::shared_ptr< m
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jdata = 0;
     *((std::vector< std::shared_ptr< mae::general_skeleton > > **)&jdata) = &data; 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[285], swigjobj, jdata);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[266], swigjobj, jdata);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12012,7 +11327,7 @@ std::string SwigDirector_bvh_controller::bvh_str(std::vector< std::shared_ptr< m
     jdata = 0;
     *((std::vector< std::shared_ptr< mae::general_skeleton > > **)&jdata) = &data; 
     jframerate = (jdouble) framerate;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[286], swigjobj, jdata, jframerate);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[267], swigjobj, jdata, jframerate);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12051,7 +11366,7 @@ std::string SwigDirector_bvh_controller::bvh_str(std::shared_ptr< mae::general_s
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jdata = 0;
     *((std::shared_ptr< mae::general_skeleton > **)&jdata) = &data; 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[287], swigjobj, jdata);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[268], swigjobj, jdata);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12091,7 +11406,7 @@ void SwigDirector_bvh_controller::print_bvh_file(std::vector< std::shared_ptr< m
     jdata = 0;
     *((std::vector< std::shared_ptr< mae::general_skeleton > > **)&jdata) = &data; 
     jfilename = jenv->NewStringUTF((&filename)->c_str()); 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[288], swigjobj, jdata, jfilename);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[269], swigjobj, jdata, jfilename);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12120,7 +11435,7 @@ void SwigDirector_bvh_controller::print_bvh_file(std::shared_ptr< mae::general_s
     jdata = 0;
     *((std::shared_ptr< mae::general_skeleton > **)&jdata) = &data; 
     jfilename = jenv->NewStringUTF((&filename)->c_str()); 
-    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[289], swigjobj, jdata, jfilename);
+    jenv->CallStaticVoidMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[270], swigjobj, jdata, jfilename);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12151,7 +11466,7 @@ std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > Swig
     jbvh_str = jenv->NewStringUTF((&bvh_str)->c_str()); 
     jspec = 0;
     *((std::shared_ptr< mae::fl::bvh_spec > **)&jspec) = &spec; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[290], swigjobj, jbvh_str, jspec);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[271], swigjobj, jbvh_str, jspec);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12189,7 +11504,7 @@ std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > Swig
     jfilename = jenv->NewStringUTF((&filename)->c_str()); 
     jspec = 0;
     *((std::shared_ptr< mae::fl::bvh_spec > **)&jspec) = &spec; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[291], swigjobj, jfilename, jspec);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[272], swigjobj, jfilename, jspec);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12286,7 +11601,7 @@ std::shared_ptr< mae::fl::laban::laban_sequence > SwigDirector_laban_sequence_re
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jfile_name = jenv->NewStringUTF((&file_name)->c_str()); 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[292], swigjobj, jfile_name);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[273], swigjobj, jfile_name);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12321,7 +11636,7 @@ std::shared_ptr< mae::fl::laban::laban_sequence > SwigDirector_laban_sequence_re
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jxml_string = jenv->NewStringUTF((&xml_string)->c_str()); 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[293], swigjobj, jxml_string);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[274], swigjobj, jxml_string);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12404,7 +11719,7 @@ bool SwigDirector_i_symbol::equals(std::shared_ptr< mae::fl::laban::mv::i_symbol
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::mv::i_symbol > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[294], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[275], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12436,7 +11751,7 @@ std::string SwigDirector_i_symbol::xml(unsigned int indent, std::string namesp) 
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[295], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[276], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12485,7 +11800,7 @@ std::string SwigDirector_i_symbol::svg(std::string identifier, double posx, doub
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[298], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[279], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12522,7 +11837,7 @@ std::string SwigDirector_i_symbol::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[300], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[281], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12620,7 +11935,7 @@ int SwigDirector_movement::get_column() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[301], swigjobj);
+    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[282], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12647,7 +11962,7 @@ unsigned int SwigDirector_movement::get_measure() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[302], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[283], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12674,7 +11989,7 @@ double SwigDirector_movement::get_beat() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[303], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[284], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12701,7 +12016,7 @@ double SwigDirector_movement::get_duration() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[304], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[285], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12731,7 +12046,7 @@ bool SwigDirector_movement::equals(std::shared_ptr< mae::fl::laban::i_movement >
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[305], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[286], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12761,7 +12076,7 @@ bool SwigDirector_movement::symbol_equals(std::shared_ptr< mae::fl::laban::i_mov
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[306], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[287], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12792,7 +12107,7 @@ std::string SwigDirector_movement::xml(unsigned int indent, std::string namesp) 
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[307], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[288], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12838,7 +12153,7 @@ std::string SwigDirector_movement::svg(unsigned int im_width, unsigned int im_he
     jmax_column = (jlong) max_column;
     jmeasures = (jlong) measures;
     jbeats_per_measure = (jlong) beats_per_measure;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[310], swigjobj, jim_width, jim_height, jmax_column, jmeasures, jbeats_per_measure);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[291], swigjobj, jim_width, jim_height, jmax_column, jmeasures, jbeats_per_measure);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12884,7 +12199,7 @@ std::shared_ptr< mae::fl::laban::i_movement > SwigDirector_movement::recreate(st
     jmeasure = (jlong) measure;
     jbeat = (jdouble) beat;
     jduration = (jdouble) duration;
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[311], swigjobj, jcolumn_mapping, jmeasure, jbeat, jduration);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[292], swigjobj, jcolumn_mapping, jmeasure, jbeat, jduration);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -12916,7 +12231,7 @@ std::string SwigDirector_movement::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[312], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[293], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13029,7 +12344,7 @@ int SwigDirector_path::get_column() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[313], swigjobj);
+    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[294], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13056,7 +12371,7 @@ unsigned int SwigDirector_path::get_measure() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[314], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[295], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13083,7 +12398,7 @@ double SwigDirector_path::get_beat() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[315], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[296], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13110,7 +12425,7 @@ double SwigDirector_path::get_duration() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[316], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[297], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13140,7 +12455,7 @@ bool SwigDirector_path::equals(std::shared_ptr< mae::fl::laban::i_movement > a) 
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[317], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[298], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13170,7 +12485,7 @@ bool SwigDirector_path::symbol_equals(std::shared_ptr< mae::fl::laban::i_movemen
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[318], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[299], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13201,7 +12516,7 @@ std::string SwigDirector_path::xml(unsigned int indent, std::string namesp) cons
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[319], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[300], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13247,7 +12562,7 @@ std::string SwigDirector_path::svg(unsigned int im_width, unsigned int im_height
     jmax_column = (jlong) max_column;
     jmeasures = (jlong) measures;
     jbeats_per_measure = (jlong) beats_per_measure;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[322], swigjobj, jim_width, jim_height, jmax_column, jmeasures, jbeats_per_measure);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[303], swigjobj, jim_width, jim_height, jmax_column, jmeasures, jbeats_per_measure);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13293,7 +12608,7 @@ std::shared_ptr< mae::fl::laban::i_movement > SwigDirector_path::recreate(std::m
     jmeasure = (jlong) measure;
     jbeat = (jdouble) beat;
     jduration = (jdouble) duration;
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[323], swigjobj, jcolumn_mapping, jmeasure, jbeat, jduration);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[304], swigjobj, jcolumn_mapping, jmeasure, jbeat, jduration);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13325,7 +12640,7 @@ std::string SwigDirector_path::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[324], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[305], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13442,7 +12757,7 @@ bool SwigDirector_i_dynamics_sign::equals(std::shared_ptr< mae::fl::laban::mv::i
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[325], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[306], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13474,7 +12789,7 @@ std::string SwigDirector_i_dynamics_sign::xml(unsigned int indent, std::string n
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[326], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[307], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13567,7 +12882,7 @@ std::string SwigDirector_relationship_endpoint::xml(unsigned int indent, std::st
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[329], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[310], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13607,7 +12922,7 @@ std::shared_ptr< mae::fl::laban::mv::relationship_endpoint > SwigDirector_relati
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jcolumn_mapping = 0;
     *((std::map< int,int > **)&jcolumn_mapping) = &column_mapping; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[332], swigjobj, jcolumn_mapping);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[313], swigjobj, jcolumn_mapping);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13642,7 +12957,7 @@ bool SwigDirector_relationship_endpoint::equals(std::shared_ptr< mae::fl::laban:
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::mv::relationship_endpoint > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[333], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[314], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13725,7 +13040,7 @@ int SwigDirector_relationship_bow::get_column() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[334], swigjobj);
+    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[315], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13752,7 +13067,7 @@ unsigned int SwigDirector_relationship_bow::get_measure() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[335], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[316], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13779,7 +13094,7 @@ double SwigDirector_relationship_bow::get_beat() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[336], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[317], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13806,7 +13121,7 @@ double SwigDirector_relationship_bow::get_duration() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[337], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[318], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13836,7 +13151,7 @@ bool SwigDirector_relationship_bow::equals(std::shared_ptr< mae::fl::laban::i_mo
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[338], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[319], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13866,7 +13181,7 @@ bool SwigDirector_relationship_bow::symbol_equals(std::shared_ptr< mae::fl::laba
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[339], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[320], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13897,7 +13212,7 @@ std::string SwigDirector_relationship_bow::xml(unsigned int indent, std::string 
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[340], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[321], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13943,7 +13258,7 @@ std::string SwigDirector_relationship_bow::svg(unsigned int im_width, unsigned i
     jmax_column = (jlong) max_column;
     jmeasures = (jlong) measures;
     jbeats_per_measure = (jlong) beats_per_measure;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[343], swigjobj, jim_width, jim_height, jmax_column, jmeasures, jbeats_per_measure);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[324], swigjobj, jim_width, jim_height, jmax_column, jmeasures, jbeats_per_measure);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -13989,7 +13304,7 @@ std::shared_ptr< mae::fl::laban::i_movement > SwigDirector_relationship_bow::rec
     jmeasure = (jlong) measure;
     jbeat = (jdouble) beat;
     jduration = (jdouble) duration;
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[344], swigjobj, jcolumn_mapping, jmeasure, jbeat, jduration);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[325], swigjobj, jcolumn_mapping, jmeasure, jbeat, jduration);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14021,7 +13336,7 @@ std::string SwigDirector_relationship_bow::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[345], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[326], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14138,7 +13453,7 @@ bool SwigDirector_i_degree_sign::equals(std::shared_ptr< mae::fl::laban::mv::i_d
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::mv::i_degree_sign > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[346], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[327], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14172,7 +13487,7 @@ std::string SwigDirector_i_degree_sign::xml(unsigned int indent, std::string nam
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
     jprint_type = (jboolean) print_type;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[347], swigjobj, jindent, jnamesp, jprint_type);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[328], swigjobj, jindent, jnamesp, jprint_type);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14221,7 +13536,7 @@ std::string SwigDirector_i_degree_sign::svg(std::string identifier, double posx,
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[351], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[332], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14322,7 +13637,7 @@ bool SwigDirector_pin::equals(std::shared_ptr< mae::fl::laban::mv::i_degree_sign
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::mv::i_degree_sign > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[353], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[334], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14355,7 +13670,7 @@ std::string SwigDirector_pin::xml(unsigned int indent, std::string namesp, bool 
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
     jprint_type = (jboolean) print_type;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[354], swigjobj, jindent, jnamesp, jprint_type);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[335], swigjobj, jindent, jnamesp, jprint_type);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14403,7 +13718,7 @@ std::string SwigDirector_pin::svg(std::string identifier, double posx, double po
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[358], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[339], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14501,7 +13816,7 @@ int SwigDirector_room_direction::get_column() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[360], swigjobj);
+    jresult = (jint) jenv->CallStaticIntMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[341], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14528,7 +13843,7 @@ unsigned int SwigDirector_room_direction::get_measure() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[361], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[342], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14555,7 +13870,7 @@ double SwigDirector_room_direction::get_beat() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[362], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[343], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14582,7 +13897,7 @@ double SwigDirector_room_direction::get_duration() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[363], swigjobj);
+    jresult = (jdouble) jenv->CallStaticDoubleMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[344], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14612,7 +13927,7 @@ bool SwigDirector_room_direction::equals(std::shared_ptr< mae::fl::laban::i_move
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[364], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[345], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14642,7 +13957,7 @@ bool SwigDirector_room_direction::symbol_equals(std::shared_ptr< mae::fl::laban:
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::i_movement > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[365], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[346], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14673,7 +13988,7 @@ std::string SwigDirector_room_direction::xml(unsigned int indent, std::string na
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[366], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[347], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14719,7 +14034,7 @@ std::string SwigDirector_room_direction::svg(unsigned int im_width, unsigned int
     jmax_column = (jlong) max_column;
     jmeasures = (jlong) measures;
     jbeats_per_measure = (jlong) beats_per_measure;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[369], swigjobj, jim_width, jim_height, jmax_column, jmeasures, jbeats_per_measure);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[350], swigjobj, jim_width, jim_height, jmax_column, jmeasures, jbeats_per_measure);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14765,7 +14080,7 @@ std::shared_ptr< mae::fl::laban::i_movement > SwigDirector_room_direction::recre
     jmeasure = (jlong) measure;
     jbeat = (jdouble) beat;
     jduration = (jdouble) duration;
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[370], swigjobj, jcolumn_mapping, jmeasure, jbeat, jduration);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[351], swigjobj, jcolumn_mapping, jmeasure, jbeat, jduration);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14797,7 +14112,7 @@ std::string SwigDirector_room_direction::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[371], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[352], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14913,7 +14228,7 @@ bool SwigDirector_accent_sign::equals(std::shared_ptr< mae::fl::laban::mv::i_dyn
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[372], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[353], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -14944,7 +14259,7 @@ std::string SwigDirector_accent_sign::xml(unsigned int indent, std::string names
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[373], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[354], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15036,7 +14351,7 @@ bool SwigDirector_dynamic_sign::equals(std::shared_ptr< mae::fl::laban::mv::i_dy
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[376], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[357], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15067,7 +14382,7 @@ std::string SwigDirector_dynamic_sign::xml(unsigned int indent, std::string name
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[377], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[358], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15159,7 +14474,7 @@ bool SwigDirector_cancellation_symbol::equals(std::shared_ptr< mae::fl::laban::m
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::mv::i_symbol > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[380], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[361], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15190,7 +14505,7 @@ std::string SwigDirector_cancellation_symbol::xml(unsigned int indent, std::stri
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[381], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[362], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15238,7 +14553,7 @@ std::string SwigDirector_cancellation_symbol::svg(std::string identifier, double
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[384], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[365], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15274,7 +14589,7 @@ std::string SwigDirector_cancellation_symbol::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[386], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[367], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15375,7 +14690,7 @@ bool SwigDirector_space_measurement::equals(std::shared_ptr< mae::fl::laban::mv:
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::mv::i_degree_sign > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[387], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[368], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15408,7 +14723,7 @@ std::string SwigDirector_space_measurement::xml(unsigned int indent, std::string
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
     jprint_type = (jboolean) print_type;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[388], swigjobj, jindent, jnamesp, jprint_type);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[369], swigjobj, jindent, jnamesp, jprint_type);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15456,7 +14771,7 @@ std::string SwigDirector_space_measurement::svg(std::string identifier, double p
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[392], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[373], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15492,7 +14807,7 @@ std::string SwigDirector_space_measurement::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[394], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[375], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15596,7 +14911,7 @@ bool SwigDirector_direction_symbol::equals(std::shared_ptr< mae::fl::laban::mv::
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::mv::i_symbol > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[395], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[376], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15627,7 +14942,7 @@ std::string SwigDirector_direction_symbol::xml(unsigned int indent, std::string 
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[396], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[377], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15675,7 +14990,7 @@ std::string SwigDirector_direction_symbol::svg(std::string identifier, double po
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[399], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[380], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15711,7 +15026,7 @@ std::string SwigDirector_direction_symbol::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[401], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[382], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15812,7 +15127,7 @@ bool SwigDirector_turn_symbol::equals(std::shared_ptr< mae::fl::laban::mv::i_sym
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::mv::i_symbol > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[402], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[383], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15843,7 +15158,7 @@ std::string SwigDirector_turn_symbol::xml(unsigned int indent, std::string names
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[403], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[384], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15891,7 +15206,7 @@ std::string SwigDirector_turn_symbol::svg(std::string identifier, double posx, d
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[406], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[387], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -15927,7 +15242,7 @@ std::string SwigDirector_turn_symbol::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[408], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[389], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16028,7 +15343,7 @@ bool SwigDirector_vibration_symbol::equals(std::shared_ptr< mae::fl::laban::mv::
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::mv::i_symbol > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[409], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[390], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16059,7 +15374,7 @@ std::string SwigDirector_vibration_symbol::xml(unsigned int indent, std::string 
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[410], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[391], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16107,7 +15422,7 @@ std::string SwigDirector_vibration_symbol::svg(std::string identifier, double po
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[413], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[394], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16143,7 +15458,7 @@ std::string SwigDirector_vibration_symbol::str() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[415], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[396], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16246,7 +15561,7 @@ std::string SwigDirector_i_part::xml(unsigned int indent, std::string namesp) co
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[416], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[397], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16295,7 +15610,7 @@ std::string SwigDirector_i_part::svg(std::string identifier, double posx, double
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[419], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[400], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16335,7 +15650,7 @@ bool SwigDirector_i_part::equals(std::shared_ptr< mae::fl::laban::ps::i_part > a
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_part > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[421], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[402], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16426,7 +15741,7 @@ std::string SwigDirector_i_endpoint::xml(unsigned int indent, std::string namesp
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[422], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[403], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16475,7 +15790,7 @@ std::string SwigDirector_i_endpoint::svg(std::string identifier, double posx, do
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[425], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[406], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16515,7 +15830,7 @@ bool SwigDirector_i_endpoint::equals(std::shared_ptr< mae::fl::laban::ps::i_part
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_part > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[427], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[408], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16544,7 +15859,7 @@ std::shared_ptr< mae::fl::laban::ps::i_endpoint > SwigDirector_i_endpoint::get_f
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[428], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[409], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16580,7 +15895,7 @@ bool SwigDirector_i_endpoint::equals(std::shared_ptr< mae::fl::laban::ps::i_endp
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_endpoint > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[429], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[410], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16676,7 +15991,7 @@ std::string SwigDirector_area_part::xml(unsigned int indent, std::string namesp)
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[430], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[411], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16724,7 +16039,7 @@ std::string SwigDirector_area_part::svg(std::string identifier, double posx, dou
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[433], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[414], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16763,7 +16078,7 @@ bool SwigDirector_area_part::equals(std::shared_ptr< mae::fl::laban::ps::i_part 
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_part > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[435], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[416], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16791,7 +16106,7 @@ std::shared_ptr< mae::fl::laban::ps::i_endpoint > SwigDirector_area_part::get_fi
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[436], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[417], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16826,7 +16141,7 @@ bool SwigDirector_area_part::equals(std::shared_ptr< mae::fl::laban::ps::i_endpo
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_endpoint > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[437], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[418], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16922,7 +16237,7 @@ std::string SwigDirector_body_part::xml(unsigned int indent, std::string namesp)
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[438], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[419], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -16970,7 +16285,7 @@ std::string SwigDirector_body_part::svg(std::string identifier, double posx, dou
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[441], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[422], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17009,7 +16324,7 @@ bool SwigDirector_body_part::equals(std::shared_ptr< mae::fl::laban::ps::i_pre_s
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_pre_sign > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[443], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[424], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17100,7 +16415,7 @@ std::string SwigDirector_i_limb::xml(unsigned int indent, std::string namesp) co
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[444], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[425], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17149,7 +16464,7 @@ std::string SwigDirector_i_limb::svg(std::string identifier, double posx, double
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[447], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[428], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17189,7 +16504,7 @@ bool SwigDirector_i_limb::equals(std::shared_ptr< mae::fl::laban::ps::i_part > a
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_part > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[449], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[430], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17220,7 +16535,7 @@ bool SwigDirector_i_limb::equals(std::shared_ptr< mae::fl::laban::ps::i_limb > a
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_limb > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[450], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[431], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17313,7 +16628,7 @@ std::string SwigDirector_custom_limb::xml(unsigned int indent, std::string names
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[451], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[432], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17361,7 +16676,7 @@ std::string SwigDirector_custom_limb::svg(std::string identifier, double posx, d
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[454], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[435], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17400,7 +16715,7 @@ bool SwigDirector_custom_limb::equals(std::shared_ptr< mae::fl::laban::ps::i_par
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_part > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[456], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[437], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17430,7 +16745,7 @@ bool SwigDirector_custom_limb::equals(std::shared_ptr< mae::fl::laban::ps::i_lim
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_limb > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[457], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[438], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17523,7 +16838,7 @@ std::string SwigDirector_default_limb::xml(unsigned int indent, std::string name
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[458], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[439], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17571,7 +16886,7 @@ std::string SwigDirector_default_limb::svg(std::string identifier, double posx, 
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[461], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[442], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17610,7 +16925,7 @@ bool SwigDirector_default_limb::equals(std::shared_ptr< mae::fl::laban::ps::i_pa
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_part > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[463], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[444], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17640,7 +16955,7 @@ bool SwigDirector_default_limb::equals(std::shared_ptr< mae::fl::laban::ps::i_li
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_limb > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[464], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[445], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17733,7 +17048,7 @@ std::string SwigDirector_digit_part::xml(unsigned int indent, std::string namesp
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[465], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[446], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17781,7 +17096,7 @@ std::string SwigDirector_digit_part::svg(std::string identifier, double posx, do
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[468], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[449], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17820,7 +17135,7 @@ bool SwigDirector_digit_part::equals(std::shared_ptr< mae::fl::laban::ps::i_part
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_part > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[470], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[451], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17848,7 +17163,7 @@ std::shared_ptr< mae::fl::laban::ps::i_endpoint > SwigDirector_digit_part::get_f
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[471], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[452], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17883,7 +17198,7 @@ bool SwigDirector_digit_part::equals(std::shared_ptr< mae::fl::laban::ps::i_endp
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_endpoint > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[472], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[453], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -17979,7 +17294,7 @@ std::string SwigDirector_surface_part::xml(unsigned int indent, std::string name
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[473], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[454], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -18027,7 +17342,7 @@ std::string SwigDirector_surface_part::svg(std::string identifier, double posx, 
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[476], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[457], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -18066,7 +17381,7 @@ bool SwigDirector_surface_part::equals(std::shared_ptr< mae::fl::laban::ps::i_pa
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_part > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[478], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[459], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -18156,7 +17471,7 @@ std::string SwigDirector_joint_part::xml(unsigned int indent, std::string namesp
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[479], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[460], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -18204,7 +17519,7 @@ std::string SwigDirector_joint_part::svg(std::string identifier, double posx, do
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[482], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[463], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -18243,7 +17558,7 @@ bool SwigDirector_joint_part::equals(std::shared_ptr< mae::fl::laban::ps::i_part
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_part > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[484], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[465], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -18271,7 +17586,7 @@ std::shared_ptr< mae::fl::laban::ps::i_endpoint > SwigDirector_joint_part::get_f
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[485], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[466], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -18306,7 +17621,7 @@ bool SwigDirector_joint_part::equals(std::shared_ptr< mae::fl::laban::ps::i_endp
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_endpoint > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[486], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[467], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -18402,7 +17717,7 @@ std::string SwigDirector_prop::xml(unsigned int indent, std::string namesp) cons
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     jindent = (jlong) indent;
     jnamesp = jenv->NewStringUTF((&namesp)->c_str()); 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[487], swigjobj, jindent, jnamesp);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[468], swigjobj, jindent, jnamesp);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -18450,7 +17765,7 @@ std::string SwigDirector_prop::svg(std::string identifier, double posx, double p
     jwidth = (jdouble) width;
     jheight = (jdouble) height;
     jleft = (jboolean) left;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[490], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[471], swigjobj, jidentifier, jposx, jposy, jwidth, jheight, jleft);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -18489,7 +17804,7 @@ bool SwigDirector_prop::equals(std::shared_ptr< mae::fl::laban::ps::i_pre_sign >
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
     ja = 0;
     *((std::shared_ptr< mae::fl::laban::ps::i_pre_sign > **)&ja) = &a; 
-    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[492], swigjobj, ja);
+    jresult = (jboolean) jenv->CallStaticBooleanMethod(Swig::jclass_w_e_boneJNI, Swig::director_methids[473], swigjobj, ja);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -19700,251 +19015,6 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1bone_1vector(JNIEnv *
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1laban_1sequence_1sequence_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mae::i_sequence_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_listener< mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_sequence_listener<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_sequence_listener<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  (void)arg1; delete smartarg1;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1listener_1on_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
-  mae::i_sequence_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_listener< mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_sequence_listener<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_sequence_listener<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::fl::laban::laban_sequence >");
-    return ;
-  }
-  arg3 = *argp3; 
-  (arg1)->on_sequence(arg2,arg3);
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1sequence_1listener(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  mae::i_sequence_listener< mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (mae::i_sequence_listener< mae::fl::laban::laban_sequence > *)new SwigDirector_laban_sequence_sequence_listener(jenv);
-  
-  *(std::shared_ptr<  mae::i_sequence_listener<mae::fl::laban::laban_sequence> > **)&jresult = result ? new std::shared_ptr<  mae::i_sequence_listener<mae::fl::laban::laban_sequence> >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1listener_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
-  std::shared_ptr< mae::i_sequence_listener<mae::fl::laban::laban_sequence> > *obj = *((std::shared_ptr< mae::i_sequence_listener<mae::fl::laban::laban_sequence> > **)&objarg);
-  (void)jcls;
-  // Keep a local instance of the smart pointer around while we are using the raw pointer
-  // Avoids using smart pointer specific API.
-  SwigDirector_laban_sequence_sequence_listener *director = dynamic_cast<SwigDirector_laban_sequence_sequence_listener *>(obj->operator->());
-  if (director) {
-    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1listener_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
-  mae::i_sequence_listener< mae::fl::laban::laban_sequence > *obj = *((mae::i_sequence_listener< mae::fl::laban::laban_sequence > **)&objarg);
-  SwigDirector_laban_sequence_sequence_listener *director = dynamic_cast<SwigDirector_laban_sequence_sequence_listener *>(obj);
-  (void)jcls;
-  if (director) {
-    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
-  }
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *)new std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >();
-  *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type arg1 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type)jarg1; 
-  result = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *)new std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >(arg1);
-  *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
-  result = ((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > const *)arg1)->size();
-  jresult = (jlong)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
-  result = ((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > const *)arg1)->capacity();
-  jresult = (jlong)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type arg2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
-  arg2 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type)jarg2; 
-  (arg1)->reserve(arg2);
-}
-
-
-SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
-  bool result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
-  result = (bool)((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > const *)arg1)->empty();
-  jresult = (jboolean)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
-  (arg1)->clear();
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type *arg2 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
-  arg2 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type **)&jarg2;
-  if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type const & reference is null");
-    return ;
-  } 
-  (arg1)->push_back((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type const &)*arg2);
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
-  int arg2 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
-  arg2 = (int)jarg2; 
-  try {
-    result = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type *) &std_vector_Sl_std_shared_ptr_Sl_mae_fl_laban_laban_sequence_Sg__Sg__get(arg1,arg2);
-  }
-  catch(std::out_of_range &_e) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
-    return 0;
-  }
-  
-  *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
-  int arg2 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type *arg3 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
-  arg2 = (int)jarg2; 
-  arg3 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type **)&jarg3;
-  if (!arg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type const & reference is null");
-    return ;
-  } 
-  try {
-    std_vector_Sl_std_shared_ptr_Sl_mae_fl_laban_laban_sequence_Sg__Sg__set(arg1,arg2,(std::shared_ptr< mae::fl::laban::laban_sequence > const &)*arg3);
-  }
-  catch(std::out_of_range &_e) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
-    return ;
-  }
-  
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1laban_1sequence_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
-  delete arg1;
-}
-
-
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1string_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< std::string > *result = 0 ;
@@ -20122,105 +19192,6 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1string_1vector(JNIEnv
   (void)jcls;
   arg1 = *(std::vector< std::string > **)&jarg1; 
   delete arg1;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1laban_1sequence_1recognition_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mae::i_recognition_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_recognition_listener<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_recognition_listener<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  (void)arg1; delete smartarg1;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1recognition_1listener_1on_1recognition_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  mae::i_recognition_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > arg3 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_recognition_listener<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_recognition_listener<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >");
-    return ;
-  }
-  arg3 = *argp3; 
-  (arg1)->on_recognition(arg2,arg3);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1recognition_1listener_1on_1recognition_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  mae::i_recognition_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::vector< std::string > arg3 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  std::vector< std::string > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_recognition_listener<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_recognition_listener<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::vector< std::string > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::string >");
-    return ;
-  }
-  arg3 = *argp3; 
-  (arg1)->on_recognition(arg2,arg3);
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1recognition_1listener(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  mae::i_recognition_listener< mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *)new SwigDirector_laban_sequence_recognition_listener(jenv);
-  
-  *(std::shared_ptr<  mae::i_recognition_listener<mae::fl::laban::laban_sequence> > **)&jresult = result ? new std::shared_ptr<  mae::i_recognition_listener<mae::fl::laban::laban_sequence> >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1recognition_1listener_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
-  std::shared_ptr< mae::i_recognition_listener<mae::fl::laban::laban_sequence> > *obj = *((std::shared_ptr< mae::i_recognition_listener<mae::fl::laban::laban_sequence> > **)&objarg);
-  (void)jcls;
-  // Keep a local instance of the smart pointer around while we are using the raw pointer
-  // Avoids using smart pointer specific API.
-  SwigDirector_laban_sequence_recognition_listener *director = dynamic_cast<SwigDirector_laban_sequence_recognition_listener *>(obj->operator->());
-  if (director) {
-    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1recognition_1listener_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
-  mae::i_recognition_listener< mae::fl::laban::laban_sequence > *obj = *((mae::i_recognition_listener< mae::fl::laban::laban_sequence > **)&objarg);
-  SwigDirector_laban_sequence_recognition_listener *director = dynamic_cast<SwigDirector_laban_sequence_recognition_listener *>(obj);
-  (void)jcls;
-  if (director) {
-    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
-  }
 }
 
 
@@ -20743,555 +19714,6 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_i_1pose_1listener_1change_1ow
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1fl_1skeleton_1laban_1sequence_1movement_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  (void)arg1; delete smartarg1;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1detect_1movement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jdouble jarg3, jlong jarg4, jlong jarg5, jobject jarg5_) {
-  jlong jresult = 0 ;
-  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  double arg3 ;
-  std::shared_ptr< mae::fl::fl_skeleton > arg4 ;
-  std::vector< mae::bone > arg5 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::fl_skeleton > *argp4 ;
-  std::vector< mae::bone > *argp5 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg5_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (long)jarg2; 
-  arg3 = (double)jarg3; 
-  argp4 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg4; 
-  if (!argp4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::fl::fl_skeleton >");
-    return 0;
-  }
-  arg4 = *argp4; 
-  argp5 = *(std::vector< mae::bone > **)&jarg5; 
-  if (!argp5) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg5 = *argp5; 
-  result = (arg1)->detect_movement(arg2,arg3,arg4,arg5);
-  *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1set_1buffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  int arg2 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (int)jarg2; 
-  (arg1)->set_buffer(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1clear_1buffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  (arg1)->clear_buffer();
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1add_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_pose_listener > arg2 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  std::shared_ptr< mae::i_pose_listener > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->add_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1remove_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_pose_listener > arg2 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  std::shared_ptr< mae::i_pose_listener > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->remove_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1clear_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  (arg1)->clear_listeners();
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1notify_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::shared_ptr< mae::general_pose > arg3 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  std::shared_ptr< mae::general_pose > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::shared_ptr< mae::general_pose > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  (arg1)->notify_listeners(arg2,arg3);
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1detector(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_detector(jenv);
-  
-  *(std::shared_ptr<  mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > **)&jresult = result ? new std::shared_ptr<  mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
-  std::shared_ptr< mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > *obj = *((std::shared_ptr< mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > **)&objarg);
-  (void)jcls;
-  // Keep a local instance of the smart pointer around while we are using the raw pointer
-  // Avoids using smart pointer specific API.
-  SwigDirector_fl_skeleton_laban_sequence_movement_detector *director = dynamic_cast<SwigDirector_fl_skeleton_laban_sequence_movement_detector *>(obj->operator->());
-  if (director) {
-    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
-  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *obj = *((mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&objarg);
-  SwigDirector_fl_skeleton_laban_sequence_movement_detector *director = dynamic_cast<SwigDirector_fl_skeleton_laban_sequence_movement_detector *>(obj);
-  (void)jcls;
-  if (director) {
-    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1laban_1sequence_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  (void)arg1; delete smartarg1;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1register_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->register_sequence(arg2);
-}
-
-
-SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1deregister_1sequence_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jboolean jresult = 0 ;
-  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  bool result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  result = (bool)(arg1)->deregister_sequence(arg2);
-  jresult = (jboolean)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1deregister_1sequence_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  jboolean jresult = 0 ;
-  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
-  unsigned int arg2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  bool result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (unsigned int)jarg2; 
-  result = (bool)(arg1)->deregister_sequence(arg2);
-  jresult = (jboolean)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1clear_1registered_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  (arg1)->clear_registered_sequences();
-}
-
-
-SWIGEXPORT jint JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1get_1sequence_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jint jresult = 0 ;
-  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > const > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  int result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  
-  smartarg1 = *(std::shared_ptr< const mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  result = (int)((mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > const *)arg1)->get_sequence_length(arg2);
-  jresult = (jint)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1recognize_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
-  jlong jresult = 0 ;
-  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::vector< mae::bone > arg3 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  (void)jarg3_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg3 = *argp3; 
-  result = (arg1)->recognize_sequence(arg2,arg3);
-  *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jresult = new std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >((const std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > &)result); 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1sequence_1recognizer(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *)new SwigDirector_laban_sequence_sequence_recognizer(jenv);
-  
-  *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jresult = result ? new std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
-  std::shared_ptr< mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > *obj = *((std::shared_ptr< mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&objarg);
-  (void)jcls;
-  // Keep a local instance of the smart pointer around while we are using the raw pointer
-  // Avoids using smart pointer specific API.
-  SwigDirector_laban_sequence_sequence_recognizer *director = dynamic_cast<SwigDirector_laban_sequence_sequence_recognizer *>(obj->operator->());
-  if (director) {
-    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
-  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *obj = *((mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > **)&objarg);
-  SwigDirector_laban_sequence_sequence_recognizer *director = dynamic_cast<SwigDirector_laban_sequence_sequence_recognizer *>(obj);
-  (void)jcls;
-  if (director) {
-    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1general_1skeleton_1pose_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mae::i_pose_detector< mae::general_skeleton > *arg1 = (mae::i_pose_detector< mae::general_skeleton > *) 0 ;
-  std::shared_ptr< mae::i_pose_detector< mae::general_skeleton > > *smartarg1 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_pose_detector<mae::general_skeleton> > **)&jarg1;
-  arg1 = (mae::i_pose_detector<mae::general_skeleton> *)(smartarg1 ? smartarg1->get() : 0); 
-  (void)arg1; delete smartarg1;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_general_1skeleton_1pose_1detector_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
-  jlong jresult = 0 ;
-  mae::i_pose_detector< mae::general_skeleton > *arg1 = (mae::i_pose_detector< mae::general_skeleton > *) 0 ;
-  std::shared_ptr< mae::general_skeleton > arg2 ;
-  std::vector< mae::bone > arg3 ;
-  std::shared_ptr< mae::general_pose > arg4 ;
-  std::shared_ptr< mae::i_pose_detector< mae::general_skeleton > > *smartarg1 = 0 ;
-  std::shared_ptr< mae::general_skeleton > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
-  std::shared_ptr< mae::general_pose > *argp4 ;
-  std::shared_ptr< mae::general_pose > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  (void)jarg4_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_pose_detector<mae::general_skeleton> > **)&jarg1;
-  arg1 = (mae::i_pose_detector<mae::general_skeleton> *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::general_skeleton > **)&jarg2; 
-  if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::general_skeleton >");
-    return 0;
-  }
-  arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg3 = *argp3; 
-  argp4 = *(std::shared_ptr< mae::general_pose > **)&jarg4; 
-  if (argp4) arg4 = *argp4; 
-  result = (arg1)->pose(arg2,arg3,arg4);
-  *(std::shared_ptr< mae::general_pose > **)&jresult = result ? new std::shared_ptr< mae::general_pose >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1general_1skeleton_1pose_1detector(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  mae::i_pose_detector< mae::general_skeleton > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (mae::i_pose_detector< mae::general_skeleton > *)new SwigDirector_general_skeleton_pose_detector(jenv);
-  
-  *(std::shared_ptr<  mae::i_pose_detector<mae::general_skeleton> > **)&jresult = result ? new std::shared_ptr<  mae::i_pose_detector<mae::general_skeleton> >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_general_1skeleton_1pose_1detector_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
-  std::shared_ptr< mae::i_pose_detector<mae::general_skeleton> > *obj = *((std::shared_ptr< mae::i_pose_detector<mae::general_skeleton> > **)&objarg);
-  (void)jcls;
-  // Keep a local instance of the smart pointer around while we are using the raw pointer
-  // Avoids using smart pointer specific API.
-  SwigDirector_general_skeleton_pose_detector *director = dynamic_cast<SwigDirector_general_skeleton_pose_detector *>(obj->operator->());
-  if (director) {
-    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_general_1skeleton_1pose_1detector_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
-  mae::i_pose_detector< mae::general_skeleton > *obj = *((mae::i_pose_detector< mae::general_skeleton > **)&objarg);
-  SwigDirector_general_skeleton_pose_detector *director = dynamic_cast<SwigDirector_general_skeleton_pose_detector *>(obj);
-  (void)jcls;
-  if (director) {
-    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1fl_1skeleton_1pose_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mae::i_pose_detector< mae::fl::fl_skeleton > *arg1 = (mae::i_pose_detector< mae::fl::fl_skeleton > *) 0 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *smartarg1 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_pose_detector<mae::fl::fl_skeleton> > **)&jarg1;
-  arg1 = (mae::i_pose_detector<mae::fl::fl_skeleton> *)(smartarg1 ? smartarg1->get() : 0); 
-  (void)arg1; delete smartarg1;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1pose_1detector_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
-  jlong jresult = 0 ;
-  mae::i_pose_detector< mae::fl::fl_skeleton > *arg1 = (mae::i_pose_detector< mae::fl::fl_skeleton > *) 0 ;
-  std::shared_ptr< mae::fl::fl_skeleton > arg2 ;
-  std::vector< mae::bone > arg3 ;
-  std::shared_ptr< mae::general_pose > arg4 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::fl_skeleton > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
-  std::shared_ptr< mae::general_pose > *argp4 ;
-  std::shared_ptr< mae::general_pose > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  (void)jarg4_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_pose_detector<mae::fl::fl_skeleton> > **)&jarg1;
-  arg1 = (mae::i_pose_detector<mae::fl::fl_skeleton> *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg2; 
-  if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::fl::fl_skeleton >");
-    return 0;
-  }
-  arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg3 = *argp3; 
-  argp4 = *(std::shared_ptr< mae::general_pose > **)&jarg4; 
-  if (argp4) arg4 = *argp4; 
-  result = (arg1)->pose(arg2,arg3,arg4);
-  *(std::shared_ptr< mae::general_pose > **)&jresult = result ? new std::shared_ptr< mae::general_pose >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1pose_1detector(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  mae::i_pose_detector< mae::fl::fl_skeleton > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (mae::i_pose_detector< mae::fl::fl_skeleton > *)new SwigDirector_fl_skeleton_pose_detector(jenv);
-  
-  *(std::shared_ptr<  mae::i_pose_detector<mae::fl::fl_skeleton> > **)&jresult = result ? new std::shared_ptr<  mae::i_pose_detector<mae::fl::fl_skeleton> >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1pose_1detector_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
-  std::shared_ptr< mae::i_pose_detector<mae::fl::fl_skeleton> > *obj = *((std::shared_ptr< mae::i_pose_detector<mae::fl::fl_skeleton> > **)&objarg);
-  (void)jcls;
-  // Keep a local instance of the smart pointer around while we are using the raw pointer
-  // Avoids using smart pointer specific API.
-  SwigDirector_fl_skeleton_pose_detector *director = dynamic_cast<SwigDirector_fl_skeleton_pose_detector *>(obj->operator->());
-  if (director) {
-    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1pose_1detector_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
-  mae::i_pose_detector< mae::fl::fl_skeleton > *obj = *((mae::i_pose_detector< mae::fl::fl_skeleton > **)&objarg);
-  SwigDirector_fl_skeleton_pose_detector *director = dynamic_cast<SwigDirector_fl_skeleton_pose_detector *>(obj);
-  (void)jcls;
-  if (director) {
-    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
-  }
-}
-
-
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1general_1enriched_1pose_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::general_enriched_pose *result = 0 ;
@@ -21611,959 +20033,6 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1enriched_1pose_1list(
   (void)jcls;
   arg1 = *(std::list< std::shared_ptr< mae::general_enriched_pose > > **)&jarg1; 
   delete arg1;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1laban_1sequence_1sequence_1generator(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mae::i_sequence_generator< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_generator< mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_sequence_generator<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_sequence_generator<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  (void)arg1; delete smartarg1;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1generator_1generate_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
-  jlong jresult = 0 ;
-  mae::i_sequence_generator< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_generator< mae::fl::laban::laban_sequence > *) 0 ;
-  double arg2 ;
-  std::list< std::shared_ptr< mae::general_enriched_pose > > arg3 ;
-  std::vector< mae::bone > arg4 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  std::list< std::shared_ptr< mae::general_enriched_pose > > *argp3 ;
-  std::vector< mae::bone > *argp4 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  (void)jarg4_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::i_sequence_generator<mae::fl::laban::laban_sequence> > **)&jarg1;
-  arg1 = (mae::i_sequence_generator<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (double)jarg2; 
-  argp3 = *(std::list< std::shared_ptr< mae::general_enriched_pose > > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::list< std::shared_ptr< mae::general_enriched_pose > >");
-    return 0;
-  }
-  arg3 = *argp3; 
-  argp4 = *(std::vector< mae::bone > **)&jarg4; 
-  if (!argp4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg4 = *argp4; 
-  result = (arg1)->generate_sequence(arg2,arg3,arg4);
-  *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1sequence_1generator(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  mae::i_sequence_generator< mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (mae::i_sequence_generator< mae::fl::laban::laban_sequence > *)new SwigDirector_laban_sequence_sequence_generator(jenv);
-  
-  *(std::shared_ptr<  mae::i_sequence_generator<mae::fl::laban::laban_sequence> > **)&jresult = result ? new std::shared_ptr<  mae::i_sequence_generator<mae::fl::laban::laban_sequence> >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1generator_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
-  std::shared_ptr< mae::i_sequence_generator<mae::fl::laban::laban_sequence> > *obj = *((std::shared_ptr< mae::i_sequence_generator<mae::fl::laban::laban_sequence> > **)&objarg);
-  (void)jcls;
-  // Keep a local instance of the smart pointer around while we are using the raw pointer
-  // Avoids using smart pointer specific API.
-  SwigDirector_laban_sequence_sequence_generator *director = dynamic_cast<SwigDirector_laban_sequence_sequence_generator *>(obj->operator->());
-  if (director) {
-    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1generator_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
-  mae::i_sequence_generator< mae::fl::laban::laban_sequence > *obj = *((mae::i_sequence_generator< mae::fl::laban::laban_sequence > **)&objarg);
-  SwigDirector_laban_sequence_sequence_generator *director = dynamic_cast<SwigDirector_laban_sequence_sequence_generator *>(obj);
-  (void)jcls;
-  if (director) {
-    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
-  }
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jdouble jarg5, jboolean jarg6) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
-  std::vector< mae::bone > arg3 ;
-  int arg4 ;
-  double arg5 ;
-  bool arg6 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  argp1 = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg3 = *argp3; 
-  arg4 = (int)jarg4; 
-  arg5 = (double)jarg5; 
-  arg6 = jarg6 ? true : false; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5,arg6);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jdouble jarg5) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
-  std::vector< mae::bone > arg3 ;
-  int arg4 ;
-  double arg5 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  argp1 = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg3 = *argp3; 
-  arg4 = (int)jarg4; 
-  arg5 = (double)jarg5; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
-  std::vector< mae::bone > arg3 ;
-  int arg4 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  argp1 = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg3 = *argp3; 
-  arg4 = (int)jarg4; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
-  std::vector< mae::bone > arg3 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  argp1 = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg3 = *argp3; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5, jdouble jarg6, jboolean jarg7) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg3 ;
-  std::vector< mae::bone > arg4 ;
-  int arg5 ;
-  double arg6 ;
-  bool arg7 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp3 ;
-  std::vector< mae::bone > *argp4 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg4_;
-  argp1 = *(std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  argp4 = *(std::vector< mae::bone > **)&jarg4; 
-  if (!argp4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg4 = *argp4; 
-  arg5 = (int)jarg5; 
-  arg6 = (double)jarg6; 
-  arg7 = jarg7 ? true : false; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5,arg6,arg7);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5, jdouble jarg6) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg3 ;
-  std::vector< mae::bone > arg4 ;
-  int arg5 ;
-  double arg6 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp3 ;
-  std::vector< mae::bone > *argp4 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg4_;
-  argp1 = *(std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  argp4 = *(std::vector< mae::bone > **)&jarg4; 
-  if (!argp4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg4 = *argp4; 
-  arg5 = (int)jarg5; 
-  arg6 = (double)jarg6; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5,arg6);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg3 ;
-  std::vector< mae::bone > arg4 ;
-  int arg5 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp3 ;
-  std::vector< mae::bone > *argp4 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg4_;
-  argp1 = *(std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  argp4 = *(std::vector< mae::bone > **)&jarg4; 
-  if (!argp4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg4 = *argp4; 
-  arg5 = (int)jarg5; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg3 ;
-  std::vector< mae::bone > arg4 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp3 ;
-  std::vector< mae::bone > *argp4 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg4_;
-  argp1 = *(std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  argp4 = *(std::vector< mae::bone > **)&jarg4; 
-  if (!argp4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg4 = *argp4; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1fl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  delete arg1;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1next_1frame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::shared_ptr< mae::fl::fl_skeleton > arg3 ;
-  std::shared_ptr< mae::fl::fl_skeleton > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::fl::fl_skeleton >");
-    return ;
-  }
-  arg3 = *argp3; 
-  (arg1)->next_frame(arg2,arg3);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1next_1frameSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::shared_ptr< mae::fl::fl_skeleton > arg3 ;
-  std::shared_ptr< mae::fl::fl_skeleton > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::fl::fl_skeleton >");
-    return ;
-  }
-  arg3 = *argp3; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::next_frame(arg2,arg3);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1register_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->register_sequence(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1register_1sequenceSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::register_sequence(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1deregister_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->deregister_sequence(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1deregister_1sequenceSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::deregister_sequence(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1registered_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  (arg1)->clear_registered_sequences();
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1registered_1sequencesSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_registered_sequences();
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1set_1no_1buffer_1size_1update(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  bool arg2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = jarg2 ? true : false; 
-  (arg1)->set_no_buffer_size_update(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1set_1no_1buffer_1size_1updateSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  bool arg2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = jarg2 ? true : false; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::set_no_buffer_size_update(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1buffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  (arg1)->clear_buffer();
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1bufferSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_buffer();
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1current_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  result = (arg1)->get_current_sequence();
-  *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1current_1sequenceSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  result = (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_current_sequence();
-  *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listener_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_pose_listener > arg2 ;
-  std::shared_ptr< mae::i_pose_listener > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->add_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listenerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_pose_listener > arg2 ;
-  std::shared_ptr< mae::i_pose_listener > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listener_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_pose_listener > arg2 ;
-  std::shared_ptr< mae::i_pose_listener > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->remove_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listenerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_pose_listener > arg2 ;
-  std::shared_ptr< mae::i_pose_listener > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->add_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listenerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->remove_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listenerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->add_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listenerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->remove_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listenerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  (arg1)->clear_listeners();
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1listenersSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_listeners();
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1notify_1sequence_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  (arg1)->notify_sequence_listeners(arg2,arg3);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1notify_1sequence_1listenersSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_sequence_listeners(arg2,arg3);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1notify_1recognition_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > arg3 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >");
-    return ;
-  }
-  arg3 = *argp3; 
-  (arg1)->notify_recognition_listeners(arg2,arg3);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1notify_1recognition_1listenersSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > arg3 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >");
-    return ;
-  }
-  arg3 = *argp3; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_recognition_listeners(arg2,arg3);
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1movement_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  result = (arg1)->get_movement_detector();
-  *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jresult = result ? new std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1movement_1detectorSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  result = (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_movement_detector();
-  *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jresult = result ? new std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  result = (arg1)->get_sequence_recognizer();
-  *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jresult = result ? new std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1sequence_1recognizerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  result = (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_sequence_recognizer();
-  *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jresult = result ? new std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *obj = *((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&objarg);
-  (void)jcls;
-  SwigDirector_fl_skeleton_laban_sequence_movement_controller *director = dynamic_cast<SwigDirector_fl_skeleton_laban_sequence_movement_controller *>(obj);
-  if (director) {
-    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *obj = *((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&objarg);
-  SwigDirector_fl_skeleton_laban_sequence_movement_controller *director = dynamic_cast<SwigDirector_fl_skeleton_laban_sequence_movement_controller *>(obj);
-  (void)jcls;
-  if (director) {
-    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
-  }
 }
 
 
@@ -25577,6 +23046,92 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1director_1conne
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
   mae::fl::fl_skeleton *obj = *((mae::fl::fl_skeleton **)&objarg);
   SwigDirector_fl_skeleton *director = dynamic_cast<SwigDirector_fl_skeleton *>(obj);
+  (void)jcls;
+  if (director) {
+    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1fl_1skeleton_1pose_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  mae::i_pose_detector< mae::fl::fl_skeleton > *arg1 = (mae::i_pose_detector< mae::fl::fl_skeleton > *) 0 ;
+  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  
+  smartarg1 = *(std::shared_ptr<  mae::i_pose_detector<mae::fl::fl_skeleton> > **)&jarg1;
+  arg1 = (mae::i_pose_detector<mae::fl::fl_skeleton> *)(smartarg1 ? smartarg1->get() : 0); 
+  (void)arg1; delete smartarg1;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1pose_1detector_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
+  jlong jresult = 0 ;
+  mae::i_pose_detector< mae::fl::fl_skeleton > *arg1 = (mae::i_pose_detector< mae::fl::fl_skeleton > *) 0 ;
+  std::shared_ptr< mae::fl::fl_skeleton > arg2 ;
+  std::vector< mae::bone > arg3 ;
+  std::shared_ptr< mae::general_pose > arg4 ;
+  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::fl_skeleton > *argp2 ;
+  std::vector< mae::bone > *argp3 ;
+  std::shared_ptr< mae::general_pose > *argp4 ;
+  std::shared_ptr< mae::general_pose > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  (void)jarg3_;
+  (void)jarg4_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::i_pose_detector<mae::fl::fl_skeleton> > **)&jarg1;
+  arg1 = (mae::i_pose_detector<mae::fl::fl_skeleton> *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  argp3 = *(std::vector< mae::bone > **)&jarg3; 
+  if (!argp3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
+    return 0;
+  }
+  arg3 = *argp3; 
+  argp4 = *(std::shared_ptr< mae::general_pose > **)&jarg4; 
+  if (argp4) arg4 = *argp4; 
+  result = (arg1)->pose(arg2,arg3,arg4);
+  *(std::shared_ptr< mae::general_pose > **)&jresult = result ? new std::shared_ptr< mae::general_pose >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1pose_1detector(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  mae::i_pose_detector< mae::fl::fl_skeleton > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (mae::i_pose_detector< mae::fl::fl_skeleton > *)new SwigDirector_fl_skeleton_pose_detector(jenv);
+  
+  *(std::shared_ptr<  mae::i_pose_detector<mae::fl::fl_skeleton> > **)&jresult = result ? new std::shared_ptr<  mae::i_pose_detector<mae::fl::fl_skeleton> >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1pose_1detector_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
+  std::shared_ptr< mae::i_pose_detector<mae::fl::fl_skeleton> > *obj = *((std::shared_ptr< mae::i_pose_detector<mae::fl::fl_skeleton> > **)&objarg);
+  (void)jcls;
+  // Keep a local instance of the smart pointer around while we are using the raw pointer
+  // Avoids using smart pointer specific API.
+  SwigDirector_fl_skeleton_pose_detector *director = dynamic_cast<SwigDirector_fl_skeleton_pose_detector *>(obj->operator->());
+  if (director) {
+    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1pose_1detector_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
+  mae::i_pose_detector< mae::fl::fl_skeleton > *obj = *((mae::i_pose_detector< mae::fl::fl_skeleton > **)&objarg);
+  SwigDirector_fl_skeleton_pose_detector *director = dynamic_cast<SwigDirector_fl_skeleton_pose_detector *>(obj);
   (void)jcls;
   if (director) {
     director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
@@ -31727,6 +29282,174 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_i_1dec_1maker_1change_1owners
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *)new std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >();
+  *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type arg1 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type)jarg1; 
+  result = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *)new std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >(arg1);
+  *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
+  result = ((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > const *)arg1)->size();
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
+  result = ((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > const *)arg1)->capacity();
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
+  arg2 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type)jarg2; 
+  (arg1)->reserve(arg2);
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
+  result = (bool)((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > const *)arg1)->empty();
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
+  (arg1)->clear();
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type *arg2 = 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type tempnull2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
+  arg2 = jarg2 ? *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type **)&jarg2 : &tempnull2; 
+  (arg1)->push_back((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type const &)*arg2);
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
+  int arg2 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type *) &std_vector_Sl_std_shared_ptr_Sl_mae_fl_laban_laban_sequence_Sg__Sg__get(arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+    return 0;
+  }
+  
+  *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type **)&jresult = *result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(*result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
+  int arg2 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type *arg3 = 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type tempnull3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = jarg3 ? *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type **)&jarg3 : &tempnull3; 
+  try {
+    std_vector_Sl_std_shared_ptr_Sl_mae_fl_laban_laban_sequence_Sg__Sg__set(arg1,arg2,(std::shared_ptr< mae::fl::laban::laban_sequence > const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1laban_1sequence_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
+  delete arg1;
+}
+
+
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1list(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *result = 0 ;
@@ -31826,6 +29549,186 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1laban_1sequence_1list
   (void)jcls;
   arg1 = *(std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg1; 
   delete arg1;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1laban_1sequence_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  
+  smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
+  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
+  (void)arg1; delete smartarg1;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1register_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
+  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  (arg1)->register_sequence(arg2);
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1deregister_1sequence_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jboolean jresult = 0 ;
+  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
+  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  result = (bool)(arg1)->deregister_sequence(arg2);
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1deregister_1sequence_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  jboolean jresult = 0 ;
+  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
+  unsigned int arg2 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
+  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (unsigned int)jarg2; 
+  result = (bool)(arg1)->deregister_sequence(arg2);
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1clear_1registered_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
+  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
+  (arg1)->clear_registered_sequences();
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1get_1sequence_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jint jresult = 0 ;
+  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
+  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  result = (int)((mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > const *)arg1)->get_sequence_length(arg2);
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1recognize_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
+  jlong jresult = 0 ;
+  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
+  std::vector< mae::bone > arg3 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
+  std::vector< mae::bone > *argp3 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  (void)jarg3_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
+  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  argp3 = *(std::vector< mae::bone > **)&jarg3; 
+  if (!argp3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
+    return 0;
+  }
+  arg3 = *argp3; 
+  result = (arg1)->recognize_sequence(arg2,arg3);
+  *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jresult = new std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >((const std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1sequence_1recognizer(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *)new SwigDirector_laban_sequence_sequence_recognizer(jenv);
+  
+  *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jresult = result ? new std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
+  std::shared_ptr< mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > *obj = *((std::shared_ptr< mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&objarg);
+  (void)jcls;
+  // Keep a local instance of the smart pointer around while we are using the raw pointer
+  // Avoids using smart pointer specific API.
+  SwigDirector_laban_sequence_sequence_recognizer *director = dynamic_cast<SwigDirector_laban_sequence_sequence_recognizer *>(obj->operator->());
+  if (director) {
+    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1recognizer_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
+  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *obj = *((mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > **)&objarg);
+  SwigDirector_laban_sequence_sequence_recognizer *director = dynamic_cast<SwigDirector_laban_sequence_sequence_recognizer *>(obj);
+  (void)jcls;
+  if (director) {
+    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
+  }
 }
 
 
@@ -32482,6 +30385,93 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1recognizer_1
 }
 
 
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1laban_1sequence_1sequence_1generator(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  mae::i_sequence_generator< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_generator< mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  
+  smartarg1 = *(std::shared_ptr<  mae::i_sequence_generator<mae::fl::laban::laban_sequence> > **)&jarg1;
+  arg1 = (mae::i_sequence_generator<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
+  (void)arg1; delete smartarg1;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1generator_1generate_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
+  jlong jresult = 0 ;
+  mae::i_sequence_generator< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_generator< mae::fl::laban::laban_sequence > *) 0 ;
+  double arg2 ;
+  std::list< std::shared_ptr< mae::general_enriched_pose > > arg3 ;
+  std::vector< mae::bone > arg4 ;
+  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
+  std::list< std::shared_ptr< mae::general_enriched_pose > > *argp3 ;
+  std::vector< mae::bone > *argp4 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  (void)jarg4_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::i_sequence_generator<mae::fl::laban::laban_sequence> > **)&jarg1;
+  arg1 = (mae::i_sequence_generator<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (double)jarg2; 
+  argp3 = *(std::list< std::shared_ptr< mae::general_enriched_pose > > **)&jarg3; 
+  if (!argp3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::list< std::shared_ptr< mae::general_enriched_pose > >");
+    return 0;
+  }
+  arg3 = *argp3; 
+  argp4 = *(std::vector< mae::bone > **)&jarg4; 
+  if (!argp4) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
+    return 0;
+  }
+  arg4 = *argp4; 
+  result = (arg1)->generate_sequence(arg2,arg3,arg4);
+  *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1sequence_1generator(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  mae::i_sequence_generator< mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (mae::i_sequence_generator< mae::fl::laban::laban_sequence > *)new SwigDirector_laban_sequence_sequence_generator(jenv);
+  
+  *(std::shared_ptr<  mae::i_sequence_generator<mae::fl::laban::laban_sequence> > **)&jresult = result ? new std::shared_ptr<  mae::i_sequence_generator<mae::fl::laban::laban_sequence> >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1generator_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
+  std::shared_ptr< mae::i_sequence_generator<mae::fl::laban::laban_sequence> > *obj = *((std::shared_ptr< mae::i_sequence_generator<mae::fl::laban::laban_sequence> > **)&objarg);
+  (void)jcls;
+  // Keep a local instance of the smart pointer around while we are using the raw pointer
+  // Avoids using smart pointer specific API.
+  SwigDirector_laban_sequence_sequence_generator *director = dynamic_cast<SwigDirector_laban_sequence_sequence_generator *>(obj->operator->());
+  if (director) {
+    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1generator_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
+  mae::i_sequence_generator< mae::fl::laban::laban_sequence > *obj = *((mae::i_sequence_generator< mae::fl::laban::laban_sequence > **)&objarg);
+  SwigDirector_laban_sequence_sequence_generator *director = dynamic_cast<SwigDirector_laban_sequence_sequence_generator *>(obj);
+  (void)jcls;
+  if (director) {
+    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
+  }
+}
+
+
 SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1generator_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jboolean jarg1) {
   jlong jresult = 0 ;
   bool arg1 ;
@@ -32751,6 +30741,1208 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1generator_1d
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1generator_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
   mae::fl::laban::laban_sequence_generator *obj = *((mae::fl::laban::laban_sequence_generator **)&objarg);
   SwigDirector_laban_sequence_generator *director = dynamic_cast<SwigDirector_laban_sequence_generator *>(obj);
+  (void)jcls;
+  if (director) {
+    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1laban_1sequence_1sequence_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  mae::i_sequence_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_listener< mae::fl::laban::laban_sequence > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(mae::i_sequence_listener< mae::fl::laban::laban_sequence > **)&jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1listener_1on_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  mae::i_sequence_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_listener< mae::fl::laban::laban_sequence > *) 0 ;
+  long arg2 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(mae::i_sequence_listener< mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = (long)jarg2; 
+  argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  (arg1)->on_sequence(arg2,arg3);
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1sequence_1listener(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  mae::i_sequence_listener< mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (mae::i_sequence_listener< mae::fl::laban::laban_sequence > *)new SwigDirector_laban_sequence_sequence_listener(jenv);
+  *(mae::i_sequence_listener< mae::fl::laban::laban_sequence > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1listener_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
+  mae::i_sequence_listener< mae::fl::laban::laban_sequence > *obj = *((mae::i_sequence_listener< mae::fl::laban::laban_sequence > **)&objarg);
+  (void)jcls;
+  SwigDirector_laban_sequence_sequence_listener *director = dynamic_cast<SwigDirector_laban_sequence_sequence_listener *>(obj);
+  if (director) {
+    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1sequence_1listener_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
+  mae::i_sequence_listener< mae::fl::laban::laban_sequence > *obj = *((mae::i_sequence_listener< mae::fl::laban::laban_sequence > **)&objarg);
+  SwigDirector_laban_sequence_sequence_listener *director = dynamic_cast<SwigDirector_laban_sequence_sequence_listener *>(obj);
+  (void)jcls;
+  if (director) {
+    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1laban_1sequence_1recognition_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  mae::i_recognition_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(mae::i_recognition_listener< mae::fl::laban::laban_sequence > **)&jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1recognition_1listener_1on_1recognition_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  mae::i_recognition_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *) 0 ;
+  long arg2 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > arg3 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *argp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(mae::i_recognition_listener< mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = (long)jarg2; 
+  argp3 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg3; 
+  if (!argp3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >");
+    return ;
+  }
+  arg3 = *argp3; 
+  (arg1)->on_recognition(arg2,arg3);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1recognition_1listener_1on_1recognition_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  mae::i_recognition_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *) 0 ;
+  long arg2 ;
+  std::vector< std::string > arg3 ;
+  std::vector< std::string > *argp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(mae::i_recognition_listener< mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = (long)jarg2; 
+  argp3 = *(std::vector< std::string > **)&jarg3; 
+  if (!argp3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::string >");
+    return ;
+  }
+  arg3 = *argp3; 
+  (arg1)->on_recognition(arg2,arg3);
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1laban_1sequence_1recognition_1listener(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  mae::i_recognition_listener< mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *)new SwigDirector_laban_sequence_recognition_listener(jenv);
+  *(mae::i_recognition_listener< mae::fl::laban::laban_sequence > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1recognition_1listener_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
+  mae::i_recognition_listener< mae::fl::laban::laban_sequence > *obj = *((mae::i_recognition_listener< mae::fl::laban::laban_sequence > **)&objarg);
+  (void)jcls;
+  SwigDirector_laban_sequence_recognition_listener *director = dynamic_cast<SwigDirector_laban_sequence_recognition_listener *>(obj);
+  if (director) {
+    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_laban_1sequence_1recognition_1listener_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
+  mae::i_recognition_listener< mae::fl::laban::laban_sequence > *obj = *((mae::i_recognition_listener< mae::fl::laban::laban_sequence > **)&objarg);
+  SwigDirector_laban_sequence_recognition_listener *director = dynamic_cast<SwigDirector_laban_sequence_recognition_listener *>(obj);
+  (void)jcls;
+  if (director) {
+    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1fl_1skeleton_1laban_1sequence_1movement_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1detect_1movement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jdouble jarg3, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_) {
+  jlong jresult = 0 ;
+  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  long arg2 ;
+  double arg3 ;
+  std::shared_ptr< mae::fl::fl_skeleton > arg4 ;
+  std::vector< mae::bone > arg5 ;
+  std::shared_ptr< mae::fl::fl_skeleton > *argp4 ;
+  std::vector< mae::bone > *argp5 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg4_;
+  (void)jarg5_;
+  arg1 = *(mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = (long)jarg2; 
+  arg3 = (double)jarg3; 
+  argp4 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg4; 
+  if (argp4) arg4 = *argp4; 
+  argp5 = *(std::vector< mae::bone > **)&jarg5; 
+  if (!argp5) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
+    return 0;
+  }
+  arg5 = *argp5; 
+  result = (arg1)->detect_movement(arg2,arg3,arg4,arg5);
+  *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1set_1buffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  int arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  (arg1)->set_buffer(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1clear_1buffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  (arg1)->clear_buffer();
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1add_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_pose_listener > arg2 ;
+  std::shared_ptr< mae::i_pose_listener > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  (arg1)->add_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1remove_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_pose_listener > arg2 ;
+  std::shared_ptr< mae::i_pose_listener > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  (arg1)->remove_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1clear_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  (arg1)->clear_listeners();
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1notify_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  long arg2 ;
+  std::shared_ptr< mae::general_pose > arg3 ;
+  std::shared_ptr< mae::general_pose > *argp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = (long)jarg2; 
+  argp3 = *(std::shared_ptr< mae::general_pose > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  (arg1)->notify_listeners(arg2,arg3);
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1detector(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_detector(jenv);
+  *(mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
+  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *obj = *((mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&objarg);
+  (void)jcls;
+  SwigDirector_fl_skeleton_laban_sequence_movement_detector *director = dynamic_cast<SwigDirector_fl_skeleton_laban_sequence_movement_detector *>(obj);
+  if (director) {
+    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
+  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *obj = *((mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&objarg);
+  SwigDirector_fl_skeleton_laban_sequence_movement_detector *director = dynamic_cast<SwigDirector_fl_skeleton_laban_sequence_movement_detector *>(obj);
+  (void)jcls;
+  if (director) {
+    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
+  }
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jdouble jarg5, jboolean jarg6) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
+  std::vector< mae::bone > arg3 ;
+  int arg4 ;
+  double arg5 ;
+  bool arg6 ;
+  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp1 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp2 ;
+  std::vector< mae::bone > *argp3 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg3_;
+  argp1 = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  argp2 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  argp3 = *(std::vector< mae::bone > **)&jarg3; 
+  if (!argp3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
+    return 0;
+  }
+  arg3 = *argp3; 
+  arg4 = (int)jarg4; 
+  arg5 = (double)jarg5; 
+  arg6 = jarg6 ? true : false; 
+  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5,arg6);
+  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jdouble jarg5) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
+  std::vector< mae::bone > arg3 ;
+  int arg4 ;
+  double arg5 ;
+  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp1 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp2 ;
+  std::vector< mae::bone > *argp3 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg3_;
+  argp1 = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  argp2 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  argp3 = *(std::vector< mae::bone > **)&jarg3; 
+  if (!argp3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
+    return 0;
+  }
+  arg3 = *argp3; 
+  arg4 = (int)jarg4; 
+  arg5 = (double)jarg5; 
+  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5);
+  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
+  std::vector< mae::bone > arg3 ;
+  int arg4 ;
+  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp1 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp2 ;
+  std::vector< mae::bone > *argp3 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg3_;
+  argp1 = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  argp2 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  argp3 = *(std::vector< mae::bone > **)&jarg3; 
+  if (!argp3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
+    return 0;
+  }
+  arg3 = *argp3; 
+  arg4 = (int)jarg4; 
+  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4);
+  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jobject jarg3_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
+  std::vector< mae::bone > arg3 ;
+  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp1 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp2 ;
+  std::vector< mae::bone > *argp3 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg3_;
+  argp1 = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  argp2 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  argp3 = *(std::vector< mae::bone > **)&jarg3; 
+  if (!argp3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
+    return 0;
+  }
+  arg3 = *argp3; 
+  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3);
+  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5, jdouble jarg6, jboolean jarg7) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
+  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg3 ;
+  std::vector< mae::bone > arg4 ;
+  int arg5 ;
+  double arg6 ;
+  bool arg7 ;
+  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *argp1 ;
+  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *argp2 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp3 ;
+  std::vector< mae::bone > *argp4 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg4_;
+  argp1 = *(std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  argp2 = *(std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  argp3 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  argp4 = *(std::vector< mae::bone > **)&jarg4; 
+  if (!argp4) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
+    return 0;
+  }
+  arg4 = *argp4; 
+  arg5 = (int)jarg5; 
+  arg6 = (double)jarg6; 
+  arg7 = jarg7 ? true : false; 
+  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5, jdouble jarg6) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
+  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg3 ;
+  std::vector< mae::bone > arg4 ;
+  int arg5 ;
+  double arg6 ;
+  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *argp1 ;
+  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *argp2 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp3 ;
+  std::vector< mae::bone > *argp4 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg4_;
+  argp1 = *(std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  argp2 = *(std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  argp3 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  argp4 = *(std::vector< mae::bone > **)&jarg4; 
+  if (!argp4) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
+    return 0;
+  }
+  arg4 = *argp4; 
+  arg5 = (int)jarg5; 
+  arg6 = (double)jarg6; 
+  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5,arg6);
+  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
+  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg3 ;
+  std::vector< mae::bone > arg4 ;
+  int arg5 ;
+  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *argp1 ;
+  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *argp2 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp3 ;
+  std::vector< mae::bone > *argp4 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg4_;
+  argp1 = *(std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  argp2 = *(std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  argp3 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  argp4 = *(std::vector< mae::bone > **)&jarg4; 
+  if (!argp4) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
+    return 0;
+  }
+  arg4 = *argp4; 
+  arg5 = (int)jarg5; 
+  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5);
+  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
+  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg3 ;
+  std::vector< mae::bone > arg4 ;
+  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *argp1 ;
+  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *argp2 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp3 ;
+  std::vector< mae::bone > *argp4 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg4_;
+  argp1 = *(std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  argp2 = *(std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  argp3 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  argp4 = *(std::vector< mae::bone > **)&jarg4; 
+  if (!argp4) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
+    return 0;
+  }
+  arg4 = *argp4; 
+  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skeleton_laban_sequence_movement_controller(jenv,arg1,arg2,arg3,arg4);
+  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1fl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1next_1frame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  long arg2 ;
+  std::shared_ptr< mae::fl::fl_skeleton > arg3 ;
+  std::shared_ptr< mae::fl::fl_skeleton > *argp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = (long)jarg2; 
+  argp3 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  (arg1)->next_frame(arg2,arg3);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1next_1frameSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  long arg2 ;
+  std::shared_ptr< mae::fl::fl_skeleton > arg3 ;
+  std::shared_ptr< mae::fl::fl_skeleton > *argp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = (long)jarg2; 
+  argp3 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::next_frame(arg2,arg3);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1register_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  (arg1)->register_sequence(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1register_1sequenceSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::register_sequence(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1deregister_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  (arg1)->deregister_sequence(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1deregister_1sequenceSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::deregister_sequence(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1registered_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  (arg1)->clear_registered_sequences();
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1registered_1sequencesSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_registered_sequences();
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1set_1no_1buffer_1size_1update(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  bool arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = jarg2 ? true : false; 
+  (arg1)->set_no_buffer_size_update(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1set_1no_1buffer_1size_1updateSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  bool arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = jarg2 ? true : false; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::set_no_buffer_size_update(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1buffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  (arg1)->clear_buffer();
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1bufferSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_buffer();
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1current_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  result = (arg1)->get_current_sequence();
+  *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1current_1sequenceSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  result = (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_current_sequence();
+  *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listener_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_pose_listener > arg2 ;
+  std::shared_ptr< mae::i_pose_listener > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  (arg1)->add_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listenerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_pose_listener > arg2 ;
+  std::shared_ptr< mae::i_pose_listener > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listener_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_pose_listener > arg2 ;
+  std::shared_ptr< mae::i_pose_listener > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  (arg1)->remove_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listenerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_pose_listener > arg2 ;
+  std::shared_ptr< mae::i_pose_listener > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
+  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > >");
+    return ;
+  }
+  arg2 = *argp2; 
+  (arg1)->add_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listenerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
+  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > >");
+    return ;
+  }
+  arg2 = *argp2; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
+  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > >");
+    return ;
+  }
+  arg2 = *argp2; 
+  (arg1)->remove_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listenerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
+  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > >");
+    return ;
+  }
+  arg2 = *argp2; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
+  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > >");
+    return ;
+  }
+  arg2 = *argp2; 
+  (arg1)->add_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listenerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
+  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > >");
+    return ;
+  }
+  arg2 = *argp2; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
+  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > >");
+    return ;
+  }
+  arg2 = *argp2; 
+  (arg1)->remove_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listenerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
+  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > >");
+    return ;
+  }
+  arg2 = *argp2; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  (arg1)->clear_listeners();
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1listenersSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_listeners();
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1notify_1sequence_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  long arg2 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = (long)jarg2; 
+  argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  (arg1)->notify_sequence_listeners(arg2,arg3);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1notify_1sequence_1listenersSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  long arg2 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = (long)jarg2; 
+  argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_sequence_listeners(arg2,arg3);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1notify_1recognition_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  long arg2 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > arg3 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *argp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = (long)jarg2; 
+  argp3 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg3; 
+  if (!argp3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >");
+    return ;
+  }
+  arg3 = *argp3; 
+  (arg1)->notify_recognition_listeners(arg2,arg3);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1notify_1recognition_1listenersSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  long arg2 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > arg3 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *argp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = (long)jarg2; 
+  argp3 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg3; 
+  if (!argp3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >");
+    return ;
+  }
+  arg3 = *argp3; 
+  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_recognition_listeners(arg2,arg3);
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1movement_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  result = (arg1)->get_movement_detector();
+  *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jresult = new std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >((const std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1movement_1detectorSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  result = (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_movement_detector();
+  *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jresult = new std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >((const std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  result = (arg1)->get_sequence_recognizer();
+  *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jresult = result ? new std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1sequence_1recognizerSwigExplicitfl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  result = (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_sequence_recognizer();
+  *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jresult = result ? new std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *obj = *((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&objarg);
+  (void)jcls;
+  SwigDirector_fl_skeleton_laban_sequence_movement_controller *director = dynamic_cast<SwigDirector_fl_skeleton_laban_sequence_movement_controller *>(obj);
+  if (director) {
+    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *obj = *((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&objarg);
+  SwigDirector_fl_skeleton_laban_sequence_movement_controller *director = dynamic_cast<SwigDirector_fl_skeleton_laban_sequence_movement_controller *>(obj);
   (void)jcls;
   if (director) {
     director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
@@ -33532,866 +32724,6 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1movement_1controller_1dir
 SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1movement_1controller_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
   mae::fl::fl_movement_controller *obj = *((mae::fl::fl_movement_controller **)&objarg);
   SwigDirector_fl_movement_controller *director = dynamic_cast<SwigDirector_fl_movement_controller *>(obj);
-  (void)jcls;
-  if (director) {
-    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
-  }
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skel_1laban_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jdouble jarg5, jboolean jarg6) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
-  std::vector< mae::bone > arg3 ;
-  int arg4 ;
-  double arg5 ;
-  bool arg6 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  argp1 = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg3 = *argp3; 
-  arg4 = (int)jarg4; 
-  arg5 = (double)jarg5; 
-  arg6 = jarg6 ? true : false; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skel_laban_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5,arg6);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skel_1laban_1movement_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jdouble jarg5) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
-  std::vector< mae::bone > arg3 ;
-  int arg4 ;
-  double arg5 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  argp1 = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg3 = *argp3; 
-  arg4 = (int)jarg4; 
-  arg5 = (double)jarg5; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skel_laban_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skel_1laban_1movement_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
-  std::vector< mae::bone > arg3 ;
-  int arg4 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  argp1 = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg3 = *argp3; 
-  arg4 = (int)jarg4; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skel_laban_movement_controller(jenv,arg1,arg2,arg3,arg4);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skel_1laban_1movement_1controller_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
-  std::vector< mae::bone > arg3 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  argp1 = *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg3 = *argp3; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skel_laban_movement_controller(jenv,arg1,arg2,arg3);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skel_1laban_1movement_1controller_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5, jdouble jarg6, jboolean jarg7) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg3 ;
-  std::vector< mae::bone > arg4 ;
-  int arg5 ;
-  double arg6 ;
-  bool arg7 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp3 ;
-  std::vector< mae::bone > *argp4 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg4_;
-  argp1 = *(std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  argp4 = *(std::vector< mae::bone > **)&jarg4; 
-  if (!argp4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg4 = *argp4; 
-  arg5 = (int)jarg5; 
-  arg6 = (double)jarg6; 
-  arg7 = jarg7 ? true : false; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skel_laban_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5,arg6,arg7);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skel_1laban_1movement_1controller_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5, jdouble jarg6) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg3 ;
-  std::vector< mae::bone > arg4 ;
-  int arg5 ;
-  double arg6 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp3 ;
-  std::vector< mae::bone > *argp4 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg4_;
-  argp1 = *(std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  argp4 = *(std::vector< mae::bone > **)&jarg4; 
-  if (!argp4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg4 = *argp4; 
-  arg5 = (int)jarg5; 
-  arg6 = (double)jarg6; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skel_laban_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5,arg6);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skel_1laban_1movement_1controller_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg3 ;
-  std::vector< mae::bone > arg4 ;
-  int arg5 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp3 ;
-  std::vector< mae::bone > *argp4 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg4_;
-  argp1 = *(std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  argp4 = *(std::vector< mae::bone > **)&jarg4; 
-  if (!argp4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg4 = *argp4; 
-  arg5 = (int)jarg5; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skel_laban_movement_controller(jenv,arg1,arg2,arg3,arg4,arg5);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_new_1fl_1skel_1laban_1movement_1controller_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg3 ;
-  std::vector< mae::bone > arg4 ;
-  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *argp1 ;
-  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *argp2 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *argp3 ;
-  std::vector< mae::bone > *argp4 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg4_;
-  argp1 = *(std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > **)&jarg1; 
-  if (argp1) arg1 = *argp1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  argp4 = *(std::vector< mae::bone > **)&jarg4; 
-  if (!argp4) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
-    return 0;
-  }
-  arg4 = *argp4; 
-  result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new SwigDirector_fl_skel_laban_movement_controller(jenv,arg1,arg2,arg3,arg4);
-  *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_delete_1fl_1skel_1laban_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  delete arg1;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1next_1frame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::shared_ptr< mae::fl::fl_skeleton > arg3 ;
-  std::shared_ptr< mae::fl::fl_skeleton > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  (arg1)->next_frame(arg2,arg3);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1next_1frameSwigExplicitfl_1skel_1laban_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::shared_ptr< mae::fl::fl_skeleton > arg3 ;
-  std::shared_ptr< mae::fl::fl_skeleton > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::next_frame(arg2,arg3);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1register_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->register_sequence(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1register_1sequenceSwigExplicitfl_1skel_1laban_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::register_sequence(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1deregister_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->deregister_sequence(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1deregister_1sequenceSwigExplicitfl_1skel_1laban_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::deregister_sequence(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1clear_1registered_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  (arg1)->clear_registered_sequences();
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1clear_1registered_1sequencesSwigExplicitfl_1skel_1laban_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_registered_sequences();
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1set_1no_1buffer_1size_1update(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  bool arg2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = jarg2 ? true : false; 
-  (arg1)->set_no_buffer_size_update(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1set_1no_1buffer_1size_1updateSwigExplicitfl_1skel_1laban_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  bool arg2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = jarg2 ? true : false; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::set_no_buffer_size_update(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1clear_1buffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  (arg1)->clear_buffer();
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1clear_1bufferSwigExplicitfl_1skel_1laban_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_buffer();
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1get_1current_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  result = (arg1)->get_current_sequence();
-  *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1get_1current_1sequenceSwigExplicitfl_1skel_1laban_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  result = (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_current_sequence();
-  *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1add_1listener_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_pose_listener > arg2 ;
-  std::shared_ptr< mae::i_pose_listener > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->add_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1add_1listenerSwigExplicitfl_1skel_1laban_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_pose_listener > arg2 ;
-  std::shared_ptr< mae::i_pose_listener > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1remove_1listener_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_pose_listener > arg2 ;
-  std::shared_ptr< mae::i_pose_listener > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->remove_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1remove_1listenerSwigExplicitfl_1skel_1laban_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_pose_listener > arg2 ;
-  std::shared_ptr< mae::i_pose_listener > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_pose_listener > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1add_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->add_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1add_1listenerSwigExplicitfl_1skel_1laban_1movement_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1remove_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->remove_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1remove_1listenerSwigExplicitfl_1skel_1laban_1movement_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1add_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->add_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1add_1listenerSwigExplicitfl_1skel_1laban_1movement_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::add_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1remove_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->remove_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1remove_1listenerSwigExplicitfl_1skel_1laban_1movement_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
-  std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  argp2 = *(std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::remove_listener(arg2);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1clear_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  (arg1)->clear_listeners();
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1clear_1listenersSwigExplicitfl_1skel_1laban_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::clear_listeners();
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1notify_1sequence_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  (arg1)->notify_sequence_listeners(arg2,arg3);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1notify_1sequence_1listenersSwigExplicitfl_1skel_1laban_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_sequence_listeners(arg2,arg3);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1notify_1recognition_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > arg3 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >");
-    return ;
-  }
-  arg3 = *argp3; 
-  (arg1)->notify_recognition_listeners(arg2,arg3);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1notify_1recognition_1listenersSwigExplicitfl_1skel_1laban_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > arg3 ;
-  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *argp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
-  argp3 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg3; 
-  if (!argp3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >");
-    return ;
-  }
-  arg3 = *argp3; 
-  (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::notify_recognition_listeners(arg2,arg3);
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1get_1movement_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  result = (arg1)->get_movement_detector();
-  *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jresult = result ? new std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1get_1movement_1detectorSwigExplicitfl_1skel_1laban_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  result = (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_movement_detector();
-  *(std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > **)&jresult = result ? new std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1get_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  result = (arg1)->get_sequence_recognizer();
-  *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jresult = result ? new std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1get_1sequence_1recognizerSwigExplicitfl_1skel_1laban_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  result = (arg1)->mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >::get_sequence_recognizer();
-  *(std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > **)&jresult = result ? new std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > >(result) : 0; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *obj = *((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&objarg);
-  (void)jcls;
-  SwigDirector_fl_skel_laban_movement_controller *director = dynamic_cast<SwigDirector_fl_skel_laban_movement_controller *>(obj);
-  if (director) {
-    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_fl_1skel_1laban_1movement_1controller_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
-  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *obj = *((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&objarg);
-  SwigDirector_fl_skel_laban_movement_controller *director = dynamic_cast<SwigDirector_fl_skel_laban_movement_controller *>(obj);
   (void)jcls;
   if (director) {
     director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
@@ -51610,7 +49942,7 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_swig_1module_1init(JNIEnv *je
   static struct {
     const char *method;
     const char *signature;
-  } methods[493] = {
+  } methods[474] = {
     {
       "SwigDirector_bone_get_id", "(Lmaejava/bone;)I" 
     },
@@ -51628,15 +49960,6 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_swig_1module_1init(JNIEnv *je
     },
     {
       "SwigDirector_bone_get_middle_joint", "(Lmaejava/bone;)I" 
-    },
-    {
-      "SwigDirector_laban_sequence_sequence_listener_on_sequence", "(Lmaejava/laban_sequence_sequence_listener;IJ)V" 
-    },
-    {
-      "SwigDirector_laban_sequence_recognition_listener_on_recognition__SWIG_0", "(Lmaejava/laban_sequence_recognition_listener;IJ)V" 
-    },
-    {
-      "SwigDirector_laban_sequence_recognition_listener_on_recognition__SWIG_1", "(Lmaejava/laban_sequence_recognition_listener;IJ)V" 
     },
     {
       "SwigDirector_general_pose_set_direction", "(Lmaejava/general_pose;II)V" 
@@ -51664,51 +49987,6 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_swig_1module_1init(JNIEnv *je
     },
     {
       "SwigDirector_i_pose_listener_on_pose", "(Lmaejava/i_pose_listener;IJ)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_detect_movement", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;IDJJ)J" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_set_buffer", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;I)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_clear_buffer", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_add_listener", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;J)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_remove_listener", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;J)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_clear_listeners", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_notify_listeners", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;IJ)V" 
-    },
-    {
-      "SwigDirector_laban_sequence_sequence_recognizer_register_sequence", "(Lmaejava/laban_sequence_sequence_recognizer;J)V" 
-    },
-    {
-      "SwigDirector_laban_sequence_sequence_recognizer_deregister_sequence__SWIG_0", "(Lmaejava/laban_sequence_sequence_recognizer;J)Z" 
-    },
-    {
-      "SwigDirector_laban_sequence_sequence_recognizer_deregister_sequence__SWIG_1", "(Lmaejava/laban_sequence_sequence_recognizer;J)Z" 
-    },
-    {
-      "SwigDirector_laban_sequence_sequence_recognizer_clear_registered_sequences", "(Lmaejava/laban_sequence_sequence_recognizer;)V" 
-    },
-    {
-      "SwigDirector_laban_sequence_sequence_recognizer_get_sequence_length", "(Lmaejava/laban_sequence_sequence_recognizer;J)I" 
-    },
-    {
-      "SwigDirector_laban_sequence_sequence_recognizer_recognize_sequence", "(Lmaejava/laban_sequence_sequence_recognizer;JJ)J" 
-    },
-    {
-      "SwigDirector_general_skeleton_pose_detector_pose", "(Lmaejava/general_skeleton_pose_detector;JJJ)J" 
-    },
-    {
-      "SwigDirector_fl_skeleton_pose_detector_pose", "(Lmaejava/fl_skeleton_pose_detector;JJJ)J" 
     },
     {
       "SwigDirector_general_enriched_pose_set_direction", "(Lmaejava/general_enriched_pose;II)V" 
@@ -51745,63 +50023,6 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_swig_1module_1init(JNIEnv *je
     },
     {
       "SwigDirector_general_enriched_pose_is_in_motion", "(Lmaejava/general_enriched_pose;I)Z" 
-    },
-    {
-      "SwigDirector_laban_sequence_sequence_generator_generate_sequence", "(Lmaejava/laban_sequence_sequence_generator;DJJ)J" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_next_frame", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;IJ)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_register_sequence", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_deregister_sequence", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_clear_registered_sequences", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_set_no_buffer_size_update", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;Z)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_clear_buffer", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_get_current_sequence", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)J" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_0", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_0", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_1", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_1", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_2", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_2", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_clear_listeners", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_notify_sequence_listeners", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;IJ)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_notify_recognition_listeners", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;IJ)V" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_get_movement_detector", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)J" 
-    },
-    {
-      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_get_sequence_recognizer", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)J" 
     },
     {
       "SwigDirector_vec3d_set_x", "(Lmaejava/vec3d;D)V" 
@@ -51988,6 +50209,9 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_swig_1module_1init(JNIEnv *je
     },
     {
       "SwigDirector_fl_skeleton_get_orig_skeleton", "(Lmaejava/fl_skeleton;)J" 
+    },
+    {
+      "SwigDirector_fl_skeleton_pose_detector_pose", "(Lmaejava/fl_skeleton_pose_detector;JJJ)J" 
     },
     {
       "SwigDirector_fl_pose_detector_pose", "(Lmaejava/fl_pose_detector;JJJ)J" 
@@ -52293,6 +50517,24 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_swig_1module_1init(JNIEnv *je
       "SwigDirector_i_dec_maker_position_okay", "(Lmaejava/i_movement_decision_maker;DDZ)Z" 
     },
     {
+      "SwigDirector_laban_sequence_sequence_recognizer_register_sequence", "(Lmaejava/laban_sequence_sequence_recognizer;J)V" 
+    },
+    {
+      "SwigDirector_laban_sequence_sequence_recognizer_deregister_sequence__SWIG_0", "(Lmaejava/laban_sequence_sequence_recognizer;J)Z" 
+    },
+    {
+      "SwigDirector_laban_sequence_sequence_recognizer_deregister_sequence__SWIG_1", "(Lmaejava/laban_sequence_sequence_recognizer;J)Z" 
+    },
+    {
+      "SwigDirector_laban_sequence_sequence_recognizer_clear_registered_sequences", "(Lmaejava/laban_sequence_sequence_recognizer;)V" 
+    },
+    {
+      "SwigDirector_laban_sequence_sequence_recognizer_get_sequence_length", "(Lmaejava/laban_sequence_sequence_recognizer;J)I" 
+    },
+    {
+      "SwigDirector_laban_sequence_sequence_recognizer_recognize_sequence", "(Lmaejava/laban_sequence_sequence_recognizer;JJ)J" 
+    },
+    {
       "SwigDirector_laban_sequence_recognizer_register_sequence", "(Lmaejava/laban_sequence_recognizer;J)V" 
     },
     {
@@ -52323,7 +50565,94 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_swig_1module_1init(JNIEnv *je
       "SwigDirector_laban_sequence_recognizer_str", "(Lmaejava/laban_sequence_recognizer;)Ljava/lang/String;" 
     },
     {
+      "SwigDirector_laban_sequence_sequence_generator_generate_sequence", "(Lmaejava/laban_sequence_sequence_generator;DJJ)J" 
+    },
+    {
       "SwigDirector_laban_sequence_generator_generate_sequence", "(Lmaejava/laban_sequence_generator;DJJ)J" 
+    },
+    {
+      "SwigDirector_laban_sequence_sequence_listener_on_sequence", "(Lmaejava/laban_sequence_sequence_listener;IJ)V" 
+    },
+    {
+      "SwigDirector_laban_sequence_recognition_listener_on_recognition__SWIG_0", "(Lmaejava/laban_sequence_recognition_listener;IJ)V" 
+    },
+    {
+      "SwigDirector_laban_sequence_recognition_listener_on_recognition__SWIG_1", "(Lmaejava/laban_sequence_recognition_listener;IJ)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_detect_movement", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;IDJJ)J" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_set_buffer", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;I)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_clear_buffer", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_add_listener", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;J)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_remove_listener", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;J)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_clear_listeners", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_detector_notify_listeners", "(Lmaejava/fl_skeleton_laban_sequence_movement_detector;IJ)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_next_frame", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;IJ)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_register_sequence", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_deregister_sequence", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_clear_registered_sequences", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_set_no_buffer_size_update", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;Z)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_clear_buffer", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_get_current_sequence", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)J" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_0", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_0", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_1", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_1", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_2", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_2", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_clear_listeners", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_notify_sequence_listeners", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;IJ)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_notify_recognition_listeners", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;IJ)V" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_get_movement_detector", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)J" 
+    },
+    {
+      "SwigDirector_fl_skeleton_laban_sequence_movement_controller_get_sequence_recognizer", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)J" 
     },
     {
       "SwigDirector_fl_movement_controller_next_frame", "(Lmaejava/fl_movement_controller;IJ)V" 
@@ -52393,60 +50722,6 @@ SWIGEXPORT void JNICALL Java_maejava_w_1e_1boneJNI_swig_1module_1init(JNIEnv *je
     },
     {
       "SwigDirector_fl_movement_controller_get_fl_pose_detector", "(Lmaejava/fl_movement_controller;)J" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_next_frame", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;IJ)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_register_sequence", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_deregister_sequence", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_clear_registered_sequences", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_set_no_buffer_size_update", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;Z)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_clear_buffer", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_get_current_sequence", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)J" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_add_listener__SWIG_0", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_remove_listener__SWIG_0", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_add_listener__SWIG_1", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_remove_listener__SWIG_1", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_add_listener__SWIG_2", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_remove_listener__SWIG_2", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;J)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_clear_listeners", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_notify_sequence_listeners", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;IJ)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_notify_recognition_listeners", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;IJ)V" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_get_movement_detector", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)J" 
-    },
-    {
-      "SwigDirector_fl_skel_laban_movement_controller_get_sequence_recognizer", "(Lmaejava/fl_skeleton_laban_sequence_movement_controller;)J" 
     },
     {
       "SwigDirector_bvh_spec_get_id_map", "(Lmaejava/bvh_spec;)J" 
