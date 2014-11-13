@@ -9,6 +9,7 @@ import maejava.general_skeleton;
 import maejava.general_skeleton_vector;
 
 
+
 public class MAEJavaSample 
 {
 
