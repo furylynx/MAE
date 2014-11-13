@@ -29,63 +29,46 @@ public class vec3d {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_vec3d(swigCPtr);
+        MaejavaJNI.delete_vec3d(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.vec3d_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.vec3d_change_ownership(this, swigCPtr, true);
-  }
-
   public vec3d() {
-    this(maeJNI.new_vec3d__SWIG_0(), true);
-    maeJNI.vec3d_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_vec3d__SWIG_0(), true);
   }
 
   public vec3d(double x, double y, double z) {
-    this(maeJNI.new_vec3d__SWIG_1(x, y, z), true);
-    maeJNI.vec3d_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_vec3d__SWIG_1(x, y, z), true);
   }
 
   public void set_x(double x) {
-    if (getClass() == vec3d.class) maeJNI.vec3d_set_x(swigCPtr, this, x); else maeJNI.vec3d_set_xSwigExplicitvec3d(swigCPtr, this, x);
+    MaejavaJNI.vec3d_set_x(swigCPtr, this, x);
   }
 
   public double get_x() {
-    return (getClass() == vec3d.class) ? maeJNI.vec3d_get_x(swigCPtr, this) : maeJNI.vec3d_get_xSwigExplicitvec3d(swigCPtr, this);
+    return MaejavaJNI.vec3d_get_x(swigCPtr, this);
   }
 
   public void set_y(double y) {
-    if (getClass() == vec3d.class) maeJNI.vec3d_set_y(swigCPtr, this, y); else maeJNI.vec3d_set_ySwigExplicitvec3d(swigCPtr, this, y);
+    MaejavaJNI.vec3d_set_y(swigCPtr, this, y);
   }
 
   public double get_y() {
-    return (getClass() == vec3d.class) ? maeJNI.vec3d_get_y(swigCPtr, this) : maeJNI.vec3d_get_ySwigExplicitvec3d(swigCPtr, this);
+    return MaejavaJNI.vec3d_get_y(swigCPtr, this);
   }
 
   public void set_z(double z) {
-    if (getClass() == vec3d.class) maeJNI.vec3d_set_z(swigCPtr, this, z); else maeJNI.vec3d_set_zSwigExplicitvec3d(swigCPtr, this, z);
+    MaejavaJNI.vec3d_set_z(swigCPtr, this, z);
   }
 
   public double get_z() {
-    return (getClass() == vec3d.class) ? maeJNI.vec3d_get_z(swigCPtr, this) : maeJNI.vec3d_get_zSwigExplicitvec3d(swigCPtr, this);
+    return MaejavaJNI.vec3d_get_z(swigCPtr, this);
   }
 
   public String str() {
-    return (getClass() == vec3d.class) ? maeJNI.vec3d_str(swigCPtr, this) : maeJNI.vec3d_strSwigExplicitvec3d(swigCPtr, this);
+    return MaejavaJNI.vec3d_str(swigCPtr, this);
   }
 
 }

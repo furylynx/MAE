@@ -29,50 +29,50 @@ public class e_cancel_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_e_cancel_vector(swigCPtr);
+        MaejavaJNI.delete_e_cancel_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public e_cancel_vector() {
-    this(maeJNI.new_e_cancel_vector__SWIG_0(), true);
+    this(MaejavaJNI.new_e_cancel_vector__SWIG_0(), true);
   }
 
   public e_cancel_vector(long n) {
-    this(maeJNI.new_e_cancel_vector__SWIG_1(n), true);
+    this(MaejavaJNI.new_e_cancel_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return maeJNI.e_cancel_vector_size(swigCPtr, this);
+    return MaejavaJNI.e_cancel_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return maeJNI.e_cancel_vector_capacity(swigCPtr, this);
+    return MaejavaJNI.e_cancel_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    maeJNI.e_cancel_vector_reserve(swigCPtr, this, n);
+    MaejavaJNI.e_cancel_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return maeJNI.e_cancel_vector_isEmpty(swigCPtr, this);
+    return MaejavaJNI.e_cancel_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    maeJNI.e_cancel_vector_clear(swigCPtr, this);
+    MaejavaJNI.e_cancel_vector_clear(swigCPtr, this);
   }
 
   public void add(e_cancel x) {
-    maeJNI.e_cancel_vector_add(swigCPtr, this, x.swigValue());
+    MaejavaJNI.e_cancel_vector_add(swigCPtr, this, x.swigValue());
   }
 
   public e_cancel get(int i) {
-    return e_cancel.swigToEnum(maeJNI.e_cancel_vector_get(swigCPtr, this, i));
+    return e_cancel.swigToEnum(MaejavaJNI.e_cancel_vector_get(swigCPtr, this, i));
   }
 
   public void set(int i, e_cancel val) {
-    maeJNI.e_cancel_vector_set(swigCPtr, this, i, val.swigValue());
+    MaejavaJNI.e_cancel_vector_set(swigCPtr, this, i, val.swigValue());
   }
 
 }

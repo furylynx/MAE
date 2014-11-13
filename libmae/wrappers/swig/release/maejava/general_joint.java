@@ -29,125 +29,103 @@ public class general_joint {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_general_joint(swigCPtr);
+        MaejavaJNI.delete_general_joint(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.general_joint_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.general_joint_change_ownership(this, swigCPtr, true);
-  }
-
   public general_joint() {
-    this(maeJNI.new_general_joint__SWIG_0(), true);
-    maeJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_general_joint__SWIG_0(), true);
   }
 
   public general_joint(double x, double y, double z, double rotation, double confidence) {
-    this(maeJNI.new_general_joint__SWIG_1(x, y, z, rotation, confidence), true);
-    maeJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_general_joint__SWIG_1(x, y, z, rotation, confidence), true);
   }
 
   public general_joint(double x, double y, double z, double rotation) {
-    this(maeJNI.new_general_joint__SWIG_2(x, y, z, rotation), true);
-    maeJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_general_joint__SWIG_2(x, y, z, rotation), true);
   }
 
   public general_joint(double x, double y, double z) {
-    this(maeJNI.new_general_joint__SWIG_3(x, y, z), true);
-    maeJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_general_joint__SWIG_3(x, y, z), true);
   }
 
   public general_joint(vec3d pos, double rotation, double confidence) {
-    this(maeJNI.new_general_joint__SWIG_4(vec3d.getCPtr(pos), pos, rotation, confidence), true);
-    maeJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_general_joint__SWIG_4(vec3d.getCPtr(pos), pos, rotation, confidence), true);
   }
 
   public general_joint(vec3d pos, double rotation) {
-    this(maeJNI.new_general_joint__SWIG_5(vec3d.getCPtr(pos), pos, rotation), true);
-    maeJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_general_joint__SWIG_5(vec3d.getCPtr(pos), pos, rotation), true);
   }
 
   public general_joint(vec3d pos) {
-    this(maeJNI.new_general_joint__SWIG_6(vec3d.getCPtr(pos), pos), true);
-    maeJNI.general_joint_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_general_joint__SWIG_6(vec3d.getCPtr(pos), pos), true);
   }
 
   public void set_x(double x) {
-    if (getClass() == general_joint.class) maeJNI.general_joint_set_x(swigCPtr, this, x); else maeJNI.general_joint_set_xSwigExplicitgeneral_joint(swigCPtr, this, x);
+    MaejavaJNI.general_joint_set_x(swigCPtr, this, x);
   }
 
   public double get_x() {
-    return (getClass() == general_joint.class) ? maeJNI.general_joint_get_x(swigCPtr, this) : maeJNI.general_joint_get_xSwigExplicitgeneral_joint(swigCPtr, this);
+    return MaejavaJNI.general_joint_get_x(swigCPtr, this);
   }
 
   public void set_y(double y) {
-    if (getClass() == general_joint.class) maeJNI.general_joint_set_y(swigCPtr, this, y); else maeJNI.general_joint_set_ySwigExplicitgeneral_joint(swigCPtr, this, y);
+    MaejavaJNI.general_joint_set_y(swigCPtr, this, y);
   }
 
   public double get_y() {
-    return (getClass() == general_joint.class) ? maeJNI.general_joint_get_y(swigCPtr, this) : maeJNI.general_joint_get_ySwigExplicitgeneral_joint(swigCPtr, this);
+    return MaejavaJNI.general_joint_get_y(swigCPtr, this);
   }
 
   public void set_z(double z) {
-    if (getClass() == general_joint.class) maeJNI.general_joint_set_z(swigCPtr, this, z); else maeJNI.general_joint_set_zSwigExplicitgeneral_joint(swigCPtr, this, z);
+    MaejavaJNI.general_joint_set_z(swigCPtr, this, z);
   }
 
   public double get_z() {
-    return (getClass() == general_joint.class) ? maeJNI.general_joint_get_z(swigCPtr, this) : maeJNI.general_joint_get_zSwigExplicitgeneral_joint(swigCPtr, this);
+    return MaejavaJNI.general_joint_get_z(swigCPtr, this);
   }
 
   public void set_valid(boolean is_valid) {
-    if (getClass() == general_joint.class) maeJNI.general_joint_set_valid(swigCPtr, this, is_valid); else maeJNI.general_joint_set_validSwigExplicitgeneral_joint(swigCPtr, this, is_valid);
+    MaejavaJNI.general_joint_set_valid(swigCPtr, this, is_valid);
   }
 
   public boolean is_valid() {
-    return (getClass() == general_joint.class) ? maeJNI.general_joint_is_valid(swigCPtr, this) : maeJNI.general_joint_is_validSwigExplicitgeneral_joint(swigCPtr, this);
+    return MaejavaJNI.general_joint_is_valid(swigCPtr, this);
   }
 
   public void set_confidence(double confidence) {
-    if (getClass() == general_joint.class) maeJNI.general_joint_set_confidence(swigCPtr, this, confidence); else maeJNI.general_joint_set_confidenceSwigExplicitgeneral_joint(swigCPtr, this, confidence);
+    MaejavaJNI.general_joint_set_confidence(swigCPtr, this, confidence);
   }
 
   public double get_confidence() {
-    return (getClass() == general_joint.class) ? maeJNI.general_joint_get_confidence(swigCPtr, this) : maeJNI.general_joint_get_confidenceSwigExplicitgeneral_joint(swigCPtr, this);
+    return MaejavaJNI.general_joint_get_confidence(swigCPtr, this);
   }
 
   public void set_rotation(double rotation) {
-    if (getClass() == general_joint.class) maeJNI.general_joint_set_rotation(swigCPtr, this, rotation); else maeJNI.general_joint_set_rotationSwigExplicitgeneral_joint(swigCPtr, this, rotation);
+    MaejavaJNI.general_joint_set_rotation(swigCPtr, this, rotation);
   }
 
   public double get_rotation() {
-    return (getClass() == general_joint.class) ? maeJNI.general_joint_get_rotation(swigCPtr, this) : maeJNI.general_joint_get_rotationSwigExplicitgeneral_joint(swigCPtr, this);
+    return MaejavaJNI.general_joint_get_rotation(swigCPtr, this);
   }
 
   public vec3d vec() {
-    long cPtr = (getClass() == general_joint.class) ? maeJNI.general_joint_vec(swigCPtr, this) : maeJNI.general_joint_vecSwigExplicitgeneral_joint(swigCPtr, this);
+    long cPtr = MaejavaJNI.general_joint_vec(swigCPtr, this);
     return (cPtr == 0) ? null : new vec3d(cPtr, true);
   }
 
   public boolean equals_val(general_joint joint) {
-    return (getClass() == general_joint.class) ? maeJNI.general_joint_equals_val(swigCPtr, this, general_joint.getCPtr(joint), joint) : maeJNI.general_joint_equals_valSwigExplicitgeneral_joint(swigCPtr, this, general_joint.getCPtr(joint), joint);
+    return MaejavaJNI.general_joint_equals_val(swigCPtr, this, general_joint.getCPtr(joint), joint);
   }
 
   public boolean equals(general_joint joint) {
-    return (getClass() == general_joint.class) ? maeJNI.general_joint_equals(swigCPtr, this, general_joint.getCPtr(joint), joint) : maeJNI.general_joint_equalsSwigExplicitgeneral_joint(swigCPtr, this, general_joint.getCPtr(joint), joint);
+    return MaejavaJNI.general_joint_equals(swigCPtr, this, general_joint.getCPtr(joint), joint);
   }
 
   public String str() {
-    return (getClass() == general_joint.class) ? maeJNI.general_joint_str(swigCPtr, this) : maeJNI.general_joint_strSwigExplicitgeneral_joint(swigCPtr, this);
+    return MaejavaJNI.general_joint_str(swigCPtr, this);
   }
 
 }

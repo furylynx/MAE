@@ -12,6 +12,26 @@
 %include "std_pair.i"
 %include "exception.i"
 
+//TODO
+%typemap (jni)    std::shared_ptr< mae::fl::bvh_spec >, 
+                  std::shared_ptr< mae::fl::bvh_spec > &,
+                  std::shared_ptr< mae::fl::bvh_spec > *,
+                  std::shared_ptr< mae::fl::bvh_spec > *& "jlong"
+%typemap (jtype)  std::shared_ptr< mae::fl::bvh_spec >, 
+                  std::shared_ptr< mae::fl::bvh_spec > &,
+                  std::shared_ptr< mae::fl::bvh_spec > *,
+                  std::shared_ptr< mae::fl::bvh_spec > *& "long"
+%typemap (jstype) std::shared_ptr< mae::fl::bvh_spec >, 
+                  std::shared_ptr< mae::fl::bvh_spec > &,
+                  std::shared_ptr< mae::fl::bvh_spec > *,
+                  std::shared_ptr< mae::fl::bvh_spec > *& "$typemap(jstype, mae::fl::bvh_spec)"
+
+%typemap(javain) std::shared_ptr< mae::fl::bvh_spec >, 
+                 std::shared_ptr< mae::fl::bvh_spec > &,
+                 std::shared_ptr< mae::fl::bvh_spec > *,
+                 std::shared_ptr< mae::fl::bvh_spec > *& "$typemap(jstype, mae::fl::bvh_spec).getCPtr($javainput)"
+
+
 
 //module definition
 %module(directors="1") w_bvh_controller
@@ -30,5 +50,4 @@
 //templates
 %template (general_skeleton_vector) std::vector<std::shared_ptr<mae::general_skeleton> >;
 %template (general_skeleton_vector_double_pair) std::pair<std::vector<std::shared_ptr<mae::general_skeleton> >, double>;
-
 

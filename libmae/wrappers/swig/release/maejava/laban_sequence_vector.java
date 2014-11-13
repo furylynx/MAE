@@ -29,51 +29,51 @@ public class laban_sequence_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_laban_sequence_vector(swigCPtr);
+        MaejavaJNI.delete_laban_sequence_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public laban_sequence_vector() {
-    this(maeJNI.new_laban_sequence_vector__SWIG_0(), true);
+    this(MaejavaJNI.new_laban_sequence_vector__SWIG_0(), true);
   }
 
   public laban_sequence_vector(long n) {
-    this(maeJNI.new_laban_sequence_vector__SWIG_1(n), true);
+    this(MaejavaJNI.new_laban_sequence_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return maeJNI.laban_sequence_vector_size(swigCPtr, this);
+    return MaejavaJNI.laban_sequence_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return maeJNI.laban_sequence_vector_capacity(swigCPtr, this);
+    return MaejavaJNI.laban_sequence_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    maeJNI.laban_sequence_vector_reserve(swigCPtr, this, n);
+    MaejavaJNI.laban_sequence_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return maeJNI.laban_sequence_vector_isEmpty(swigCPtr, this);
+    return MaejavaJNI.laban_sequence_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    maeJNI.laban_sequence_vector_clear(swigCPtr, this);
+    MaejavaJNI.laban_sequence_vector_clear(swigCPtr, this);
   }
 
   public void add(laban_sequence x) {
-    maeJNI.laban_sequence_vector_add(swigCPtr, this, laban_sequence.getCPtr(x), x);
+    MaejavaJNI.laban_sequence_vector_add(swigCPtr, this, laban_sequence.getCPtr(x), x);
   }
 
   public laban_sequence get(int i) {
-    long cPtr = maeJNI.laban_sequence_vector_get(swigCPtr, this, i);
+    long cPtr = MaejavaJNI.laban_sequence_vector_get(swigCPtr, this, i);
     return (cPtr == 0) ? null : new laban_sequence(cPtr, true);
   }
 
   public void set(int i, laban_sequence val) {
-    maeJNI.laban_sequence_vector_set(swigCPtr, this, i, laban_sequence.getCPtr(val), val);
+    MaejavaJNI.laban_sequence_vector_set(swigCPtr, this, i, laban_sequence.getCPtr(val), val);
   }
 
 }

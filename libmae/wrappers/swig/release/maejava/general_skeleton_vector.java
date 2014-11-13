@@ -29,51 +29,51 @@ public class general_skeleton_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_general_skeleton_vector(swigCPtr);
+        MaejavaJNI.delete_general_skeleton_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public general_skeleton_vector() {
-    this(maeJNI.new_general_skeleton_vector__SWIG_0(), true);
+    this(MaejavaJNI.new_general_skeleton_vector__SWIG_0(), true);
   }
 
   public general_skeleton_vector(long n) {
-    this(maeJNI.new_general_skeleton_vector__SWIG_1(n), true);
+    this(MaejavaJNI.new_general_skeleton_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return maeJNI.general_skeleton_vector_size(swigCPtr, this);
+    return MaejavaJNI.general_skeleton_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return maeJNI.general_skeleton_vector_capacity(swigCPtr, this);
+    return MaejavaJNI.general_skeleton_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    maeJNI.general_skeleton_vector_reserve(swigCPtr, this, n);
+    MaejavaJNI.general_skeleton_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return maeJNI.general_skeleton_vector_isEmpty(swigCPtr, this);
+    return MaejavaJNI.general_skeleton_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    maeJNI.general_skeleton_vector_clear(swigCPtr, this);
+    MaejavaJNI.general_skeleton_vector_clear(swigCPtr, this);
   }
 
   public void add(general_skeleton x) {
-    maeJNI.general_skeleton_vector_add(swigCPtr, this, general_skeleton.getCPtr(x), x);
+    MaejavaJNI.general_skeleton_vector_add(swigCPtr, this, general_skeleton.getCPtr(x), x);
   }
 
   public general_skeleton get(int i) {
-    long cPtr = maeJNI.general_skeleton_vector_get(swigCPtr, this, i);
+    long cPtr = MaejavaJNI.general_skeleton_vector_get(swigCPtr, this, i);
     return (cPtr == 0) ? null : new general_skeleton(cPtr, true);
   }
 
   public void set(int i, general_skeleton val) {
-    maeJNI.general_skeleton_vector_set(swigCPtr, this, i, general_skeleton.getCPtr(val), val);
+    MaejavaJNI.general_skeleton_vector_set(swigCPtr, this, i, general_skeleton.getCPtr(val), val);
   }
 
 }

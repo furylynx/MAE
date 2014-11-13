@@ -12,7 +12,7 @@ public class fl_movement_controller extends fl_skeleton_laban_sequence_movement_
   private long swigCPtr;
 
   protected fl_movement_controller(long cPtr, boolean cMemoryOwn) {
-    super(maeJNI.fl_movement_controller_SWIGUpcast(cPtr), cMemoryOwn);
+    super(MaejavaJNI.fl_movement_controller_SWIGUpcast(cPtr), cMemoryOwn);
     swigCPtr = cPtr;
   }
 
@@ -28,138 +28,105 @@ public class fl_movement_controller extends fl_skeleton_laban_sequence_movement_
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_fl_movement_controller(swigCPtr);
+        MaejavaJNI.delete_fl_movement_controller(swigCPtr);
       }
       swigCPtr = 0;
     }
     super.delete();
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.fl_movement_controller_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.fl_movement_controller_change_ownership(this, swigCPtr, true);
-  }
-
   public fl_movement_controller(long pose_buffer_size, double framerate, boolean debug) {
-    this(maeJNI.new_fl_movement_controller__SWIG_0(pose_buffer_size, framerate, debug), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_0(pose_buffer_size, framerate, debug), true);
   }
 
   public fl_movement_controller(long pose_buffer_size, double framerate) {
-    this(maeJNI.new_fl_movement_controller__SWIG_1(pose_buffer_size, framerate), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_1(pose_buffer_size, framerate), true);
   }
 
   public fl_movement_controller(long pose_buffer_size) {
-    this(maeJNI.new_fl_movement_controller__SWIG_2(pose_buffer_size), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_2(pose_buffer_size), true);
   }
 
   public fl_movement_controller() {
-    this(maeJNI.new_fl_movement_controller__SWIG_3(), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_3(), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions, long pose_buffer_size, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate, boolean debug) {
-    this(maeJNI.new_fl_movement_controller__SWIG_4(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, pose_buffer_size, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, debug), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_4(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, pose_buffer_size, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, debug), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions, long pose_buffer_size, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate) {
-    this(maeJNI.new_fl_movement_controller__SWIG_5(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, pose_buffer_size, beats_per_measure, beat_duration, time_unit.swigValue(), framerate), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_5(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, pose_buffer_size, beats_per_measure, beat_duration, time_unit.swigValue(), framerate), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions, long pose_buffer_size, long beats_per_measure, long beat_duration, e_time_unit time_unit) {
-    this(maeJNI.new_fl_movement_controller__SWIG_6(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, pose_buffer_size, beats_per_measure, beat_duration, time_unit.swigValue()), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_6(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, pose_buffer_size, beats_per_measure, beat_duration, time_unit.swigValue()), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions, long pose_buffer_size, long beats_per_measure, long beat_duration) {
-    this(maeJNI.new_fl_movement_controller__SWIG_7(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, pose_buffer_size, beats_per_measure, beat_duration), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_7(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, pose_buffer_size, beats_per_measure, beat_duration), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions, long pose_buffer_size, long beats_per_measure) {
-    this(maeJNI.new_fl_movement_controller__SWIG_8(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, pose_buffer_size, beats_per_measure), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_8(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, pose_buffer_size, beats_per_measure), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions, long pose_buffer_size) {
-    this(maeJNI.new_fl_movement_controller__SWIG_9(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, pose_buffer_size), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_9(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, pose_buffer_size), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions) {
-    this(maeJNI.new_fl_movement_controller__SWIG_10(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_10(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions, laban_sequence_generator sequence_generator, long pose_buffer_size, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate, boolean debug) {
-    this(maeJNI.new_fl_movement_controller__SWIG_11(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator, pose_buffer_size, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, debug), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_11(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator, pose_buffer_size, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, debug), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions, laban_sequence_generator sequence_generator, long pose_buffer_size, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate) {
-    this(maeJNI.new_fl_movement_controller__SWIG_12(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator, pose_buffer_size, beats_per_measure, beat_duration, time_unit.swigValue(), framerate), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_12(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator, pose_buffer_size, beats_per_measure, beat_duration, time_unit.swigValue(), framerate), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions, laban_sequence_generator sequence_generator, long pose_buffer_size, long beats_per_measure, long beat_duration, e_time_unit time_unit) {
-    this(maeJNI.new_fl_movement_controller__SWIG_13(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator, pose_buffer_size, beats_per_measure, beat_duration, time_unit.swigValue()), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_13(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator, pose_buffer_size, beats_per_measure, beat_duration, time_unit.swigValue()), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions, laban_sequence_generator sequence_generator, long pose_buffer_size, long beats_per_measure, long beat_duration) {
-    this(maeJNI.new_fl_movement_controller__SWIG_14(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator, pose_buffer_size, beats_per_measure, beat_duration), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_14(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator, pose_buffer_size, beats_per_measure, beat_duration), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions, laban_sequence_generator sequence_generator, long pose_buffer_size, long beats_per_measure) {
-    this(maeJNI.new_fl_movement_controller__SWIG_15(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator, pose_buffer_size, beats_per_measure), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_15(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator, pose_buffer_size, beats_per_measure), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions, laban_sequence_generator sequence_generator, long pose_buffer_size) {
-    this(maeJNI.new_fl_movement_controller__SWIG_16(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator, pose_buffer_size), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_16(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator, pose_buffer_size), true);
   }
 
   public fl_movement_controller(bone_vector body_parts, coldef_vector column_definitions, laban_sequence_generator sequence_generator) {
-    this(maeJNI.new_fl_movement_controller__SWIG_17(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator), true);
-    maeJNI.fl_movement_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_fl_movement_controller__SWIG_17(bone_vector.getCPtr(body_parts), body_parts, coldef_vector.getCPtr(column_definitions), column_definitions, laban_sequence_generator.getCPtr(sequence_generator), sequence_generator), true);
   }
 
   public void next_frame(int timestamp, general_skeleton skeleton) {
-    if (getClass() == fl_movement_controller.class) maeJNI.fl_movement_controller_next_frame(swigCPtr, this, timestamp, general_skeleton.getCPtr(skeleton), skeleton); else maeJNI.fl_movement_controller_next_frameSwigExplicitfl_movement_controller(swigCPtr, this, timestamp, general_skeleton.getCPtr(skeleton), skeleton);
+    MaejavaJNI.fl_movement_controller_next_frame(swigCPtr, this, timestamp, general_skeleton.getCPtr(skeleton), skeleton);
   }
 
   public void set_recognition_tolerance(double tolerance) {
-    if (getClass() == fl_movement_controller.class) maeJNI.fl_movement_controller_set_recognition_tolerance(swigCPtr, this, tolerance); else maeJNI.fl_movement_controller_set_recognition_toleranceSwigExplicitfl_movement_controller(swigCPtr, this, tolerance);
+    MaejavaJNI.fl_movement_controller_set_recognition_tolerance(swigCPtr, this, tolerance);
   }
 
   public laban_sequence_recognizer get_laban_sequence_recognizer() {
-    long cPtr = (getClass() == fl_movement_controller.class) ? maeJNI.fl_movement_controller_get_laban_sequence_recognizer(swigCPtr, this) : maeJNI.fl_movement_controller_get_laban_sequence_recognizerSwigExplicitfl_movement_controller(swigCPtr, this);
+    long cPtr = MaejavaJNI.fl_movement_controller_get_laban_sequence_recognizer(swigCPtr, this);
     return (cPtr == 0) ? null : new laban_sequence_recognizer(cPtr, true);
   }
 
   public laban_sequence_generator get_laban_sequence_generator() {
-    long cPtr = (getClass() == fl_movement_controller.class) ? maeJNI.fl_movement_controller_get_laban_sequence_generator(swigCPtr, this) : maeJNI.fl_movement_controller_get_laban_sequence_generatorSwigExplicitfl_movement_controller(swigCPtr, this);
+    long cPtr = MaejavaJNI.fl_movement_controller_get_laban_sequence_generator(swigCPtr, this);
     return (cPtr == 0) ? null : new laban_sequence_generator(cPtr, true);
   }
 
   public fl_pose_detector get_fl_pose_detector() {
-    long cPtr = (getClass() == fl_movement_controller.class) ? maeJNI.fl_movement_controller_get_fl_pose_detector(swigCPtr, this) : maeJNI.fl_movement_controller_get_fl_pose_detectorSwigExplicitfl_movement_controller(swigCPtr, this);
+    long cPtr = MaejavaJNI.fl_movement_controller_get_fl_pose_detector(swigCPtr, this);
     return (cPtr == 0) ? null : new fl_pose_detector(cPtr, true);
   }
 

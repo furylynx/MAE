@@ -96,7 +96,6 @@
 #error "typemaps for $1_type not available"
 %}
 
-
 %typemap (jni)    SWIG_SHARED_PTR_QNAMESPACE::shared_ptr< CONST TYPE >, 
                   SWIG_SHARED_PTR_QNAMESPACE::shared_ptr< CONST TYPE > &,
                   SWIG_SHARED_PTR_QNAMESPACE::shared_ptr< CONST TYPE > *,
@@ -114,6 +113,7 @@
                  SWIG_SHARED_PTR_QNAMESPACE::shared_ptr< CONST TYPE > &,
                  SWIG_SHARED_PTR_QNAMESPACE::shared_ptr< CONST TYPE > *,
                  SWIG_SHARED_PTR_QNAMESPACE::shared_ptr< CONST TYPE > *& "$typemap(jstype, TYPE).getCPtr($javainput)"
+                 
 
 %typemap(javaout) SWIG_SHARED_PTR_QNAMESPACE::shared_ptr< CONST TYPE > {
     long cPtr = $jnicall;
@@ -199,6 +199,7 @@
     }
     super.delete();
   }
+  
 
 
 %template() SWIG_SHARED_PTR_QNAMESPACE::shared_ptr< CONST TYPE >;

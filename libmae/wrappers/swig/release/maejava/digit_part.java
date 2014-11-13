@@ -13,7 +13,7 @@ public class digit_part extends i_endpoint {
   private boolean swigCMemOwnDerived;
 
   protected digit_part(long cPtr, boolean cMemoryOwn) {
-    super(maeJNI.digit_part_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaejavaJNI.digit_part_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,72 +30,56 @@ public class digit_part extends i_endpoint {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        maeJNI.delete_digit_part(swigCPtr);
+        MaejavaJNI.delete_digit_part(swigCPtr);
       }
       swigCPtr = 0;
     }
     super.delete();
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.digit_part_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.digit_part_change_ownership(this, swigCPtr, true);
-  }
-
   public digit_part(e_digit digit, long knuckle) {
-    this(maeJNI.new_digit_part(digit.swigValue(), knuckle), true);
-    maeJNI.digit_part_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_digit_part(digit.swigValue(), knuckle), true);
   }
 
   public e_digit get_digit() {
-    return e_digit.swigToEnum(maeJNI.digit_part_get_digit(swigCPtr, this));
+    return e_digit.swigToEnum(MaejavaJNI.digit_part_get_digit(swigCPtr, this));
   }
 
   public long get_knuckle() {
-    return maeJNI.digit_part_get_knuckle(swigCPtr, this);
+    return MaejavaJNI.digit_part_get_knuckle(swigCPtr, this);
   }
 
   public String xml(long indent, String namesp) {
-    return (getClass() == digit_part.class) ? maeJNI.digit_part_xml__SWIG_0(swigCPtr, this, indent, namesp) : maeJNI.digit_part_xmlSwigExplicitdigit_part__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaejavaJNI.digit_part_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return (getClass() == digit_part.class) ? maeJNI.digit_part_xml__SWIG_1(swigCPtr, this, indent) : maeJNI.digit_part_xmlSwigExplicitdigit_part__SWIG_1(swigCPtr, this, indent);
+    return MaejavaJNI.digit_part_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return (getClass() == digit_part.class) ? maeJNI.digit_part_xml__SWIG_2(swigCPtr, this) : maeJNI.digit_part_xmlSwigExplicitdigit_part__SWIG_2(swigCPtr, this);
+    return MaejavaJNI.digit_part_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return (getClass() == digit_part.class) ? maeJNI.digit_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : maeJNI.digit_part_svgSwigExplicitdigit_part__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaejavaJNI.digit_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return (getClass() == digit_part.class) ? maeJNI.digit_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : maeJNI.digit_part_svgSwigExplicitdigit_part__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaejavaJNI.digit_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public i_endpoint get_fixed_end() {
-    long cPtr = (getClass() == digit_part.class) ? maeJNI.digit_part_get_fixed_end(swigCPtr, this) : maeJNI.digit_part_get_fixed_endSwigExplicitdigit_part(swigCPtr, this);
+    long cPtr = MaejavaJNI.digit_part_get_fixed_end(swigCPtr, this);
     return (cPtr == 0) ? null : new i_endpoint(cPtr, true);
   }
 
   public boolean equals(i_part a) {
-    return (getClass() == digit_part.class) ? maeJNI.digit_part_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a) : maeJNI.digit_part_equalsSwigExplicitdigit_part__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
+    return MaejavaJNI.digit_part_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
   public boolean equals(i_endpoint a) {
-    return (getClass() == digit_part.class) ? maeJNI.digit_part_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a) : maeJNI.digit_part_equalsSwigExplicitdigit_part__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
+    return MaejavaJNI.digit_part_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
   }
 
 }

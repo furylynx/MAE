@@ -29,54 +29,34 @@ public class i_pre_sign {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_i_pre_sign(swigCPtr);
+        MaejavaJNI.delete_i_pre_sign(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.i_pre_sign_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.i_pre_sign_change_ownership(this, swigCPtr, true);
-  }
-
   public String xml(long indent, String namesp) {
-    return maeJNI.i_pre_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaejavaJNI.i_pre_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return maeJNI.i_pre_sign_xml__SWIG_1(swigCPtr, this, indent);
+    return MaejavaJNI.i_pre_sign_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return maeJNI.i_pre_sign_xml__SWIG_2(swigCPtr, this);
+    return MaejavaJNI.i_pre_sign_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return maeJNI.i_pre_sign_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaejavaJNI.i_pre_sign_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return maeJNI.i_pre_sign_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaejavaJNI.i_pre_sign_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public boolean equals(i_pre_sign a) {
-    return maeJNI.i_pre_sign_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a);
-  }
-
-  public i_pre_sign() {
-    this(maeJNI.new_i_pre_sign(), true);
-    maeJNI.i_pre_sign_director_connect(this, swigCPtr, swigCMemOwn, true);
+    return MaejavaJNI.i_pre_sign_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a);
   }
 
 }
