@@ -29,51 +29,51 @@ public class i_mov_vector_vector_dec_val_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_i_mov_vector_vector_dec_val_vector(swigCPtr);
+        maeJNI.delete_i_mov_vector_vector_dec_val_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public i_mov_vector_vector_dec_val_vector() {
-    this(w_e_boneJNI.new_i_mov_vector_vector_dec_val_vector__SWIG_0(), true);
+    this(maeJNI.new_i_mov_vector_vector_dec_val_vector__SWIG_0(), true);
   }
 
   public i_mov_vector_vector_dec_val_vector(long n) {
-    this(w_e_boneJNI.new_i_mov_vector_vector_dec_val_vector__SWIG_1(n), true);
+    this(maeJNI.new_i_mov_vector_vector_dec_val_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return w_e_boneJNI.i_mov_vector_vector_dec_val_vector_size(swigCPtr, this);
+    return maeJNI.i_mov_vector_vector_dec_val_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return w_e_boneJNI.i_mov_vector_vector_dec_val_vector_capacity(swigCPtr, this);
+    return maeJNI.i_mov_vector_vector_dec_val_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    w_e_boneJNI.i_mov_vector_vector_dec_val_vector_reserve(swigCPtr, this, n);
+    maeJNI.i_mov_vector_vector_dec_val_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return w_e_boneJNI.i_mov_vector_vector_dec_val_vector_isEmpty(swigCPtr, this);
+    return maeJNI.i_mov_vector_vector_dec_val_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    w_e_boneJNI.i_mov_vector_vector_dec_val_vector_clear(swigCPtr, this);
+    maeJNI.i_mov_vector_vector_dec_val_vector_clear(swigCPtr, this);
   }
 
   public void add(i_mov_vector_vector_dec_val x) {
-    w_e_boneJNI.i_mov_vector_vector_dec_val_vector_add(swigCPtr, this, i_mov_vector_vector_dec_val.getCPtr(x));
+    maeJNI.i_mov_vector_vector_dec_val_vector_add(swigCPtr, this, i_mov_vector_vector_dec_val.getCPtr(x));
   }
 
   public i_mov_vector_vector_dec_val get(int i) {
-    long cPtr = w_e_boneJNI.i_mov_vector_vector_dec_val_vector_get(swigCPtr, this, i);
+    long cPtr = maeJNI.i_mov_vector_vector_dec_val_vector_get(swigCPtr, this, i);
     return (cPtr == 0) ? null : new i_mov_vector_vector_dec_val(cPtr, true);
   }
 
   public void set(int i, i_mov_vector_vector_dec_val val) {
-    w_e_boneJNI.i_mov_vector_vector_dec_val_vector_set(swigCPtr, this, i, i_mov_vector_vector_dec_val.getCPtr(val));
+    maeJNI.i_mov_vector_vector_dec_val_vector_set(swigCPtr, this, i, i_mov_vector_vector_dec_val.getCPtr(val));
   }
 
 }

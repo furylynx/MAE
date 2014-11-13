@@ -10,7 +10,7 @@ package maejava;
 
 public class general_skeleton {
   private long swigCPtr;
-  private boolean swigCMemOwn;
+  protected boolean swigCMemOwn;
 
   protected general_skeleton(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -29,7 +29,7 @@ public class general_skeleton {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_general_skeleton(swigCPtr);
+        maeJNI.delete_general_skeleton(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,79 +42,79 @@ public class general_skeleton {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.general_skeleton_change_ownership(this, swigCPtr, false);
+    maeJNI.general_skeleton_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.general_skeleton_change_ownership(this, swigCPtr, true);
+    maeJNI.general_skeleton_change_ownership(this, swigCPtr, true);
   }
 
   public general_skeleton() {
-    this(w_e_boneJNI.new_general_skeleton__SWIG_0(), true);
-    w_e_boneJNI.general_skeleton_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_general_skeleton__SWIG_0(), true);
+    maeJNI.general_skeleton_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public general_skeleton(hierarchy hierarchy) {
-    this(w_e_boneJNI.new_general_skeleton__SWIG_1(hierarchy.getCPtr(hierarchy), hierarchy), true);
-    w_e_boneJNI.general_skeleton_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_general_skeleton__SWIG_1(hierarchy.getCPtr(hierarchy), hierarchy), true);
+    maeJNI.general_skeleton_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public void set_joint(int body_part, general_joint joint) {
-    if (getClass() == general_skeleton.class) w_e_boneJNI.general_skeleton_set_joint(swigCPtr, this, body_part, general_joint.getCPtr(joint), joint); else w_e_boneJNI.general_skeleton_set_jointSwigExplicitgeneral_skeleton(swigCPtr, this, body_part, general_joint.getCPtr(joint), joint);
+    if (getClass() == general_skeleton.class) maeJNI.general_skeleton_set_joint(swigCPtr, this, body_part, general_joint.getCPtr(joint), joint); else maeJNI.general_skeleton_set_jointSwigExplicitgeneral_skeleton(swigCPtr, this, body_part, general_joint.getCPtr(joint), joint);
   }
 
   public general_joint get_joint(int body_part) {
-    long cPtr = (getClass() == general_skeleton.class) ? w_e_boneJNI.general_skeleton_get_joint(swigCPtr, this, body_part) : w_e_boneJNI.general_skeleton_get_jointSwigExplicitgeneral_skeleton(swigCPtr, this, body_part);
+    long cPtr = (getClass() == general_skeleton.class) ? maeJNI.general_skeleton_get_joint(swigCPtr, this, body_part) : maeJNI.general_skeleton_get_jointSwigExplicitgeneral_skeleton(swigCPtr, this, body_part);
     return (cPtr == 0) ? null : new general_joint(cPtr, true);
   }
 
   public hierarchy get_hierarchy() {
-    long cPtr = (getClass() == general_skeleton.class) ? w_e_boneJNI.general_skeleton_get_hierarchy(swigCPtr, this) : w_e_boneJNI.general_skeleton_get_hierarchySwigExplicitgeneral_skeleton(swigCPtr, this);
+    long cPtr = (getClass() == general_skeleton.class) ? maeJNI.general_skeleton_get_hierarchy(swigCPtr, this) : maeJNI.general_skeleton_get_hierarchySwigExplicitgeneral_skeleton(swigCPtr, this);
     return (cPtr == 0) ? null : new hierarchy(cPtr, true);
   }
 
   public void set_hierarchy(hierarchy hierarchy) {
-    if (getClass() == general_skeleton.class) w_e_boneJNI.general_skeleton_set_hierarchy(swigCPtr, this, hierarchy.getCPtr(hierarchy), hierarchy); else w_e_boneJNI.general_skeleton_set_hierarchySwigExplicitgeneral_skeleton(swigCPtr, this, hierarchy.getCPtr(hierarchy), hierarchy);
+    if (getClass() == general_skeleton.class) maeJNI.general_skeleton_set_hierarchy(swigCPtr, this, hierarchy.getCPtr(hierarchy), hierarchy); else maeJNI.general_skeleton_set_hierarchySwigExplicitgeneral_skeleton(swigCPtr, this, hierarchy.getCPtr(hierarchy), hierarchy);
   }
 
   public void set_top_down(bone top_down) {
-    if (getClass() == general_skeleton.class) w_e_boneJNI.general_skeleton_set_top_down(swigCPtr, this, bone.getCPtr(top_down), top_down); else w_e_boneJNI.general_skeleton_set_top_downSwigExplicitgeneral_skeleton(swigCPtr, this, bone.getCPtr(top_down), top_down);
+    if (getClass() == general_skeleton.class) maeJNI.general_skeleton_set_top_down(swigCPtr, this, bone.getCPtr(top_down), top_down); else maeJNI.general_skeleton_set_top_downSwigExplicitgeneral_skeleton(swigCPtr, this, bone.getCPtr(top_down), top_down);
   }
 
   public bone get_top_down() {
-    long cPtr = (getClass() == general_skeleton.class) ? w_e_boneJNI.general_skeleton_get_top_down(swigCPtr, this) : w_e_boneJNI.general_skeleton_get_top_downSwigExplicitgeneral_skeleton(swigCPtr, this);
+    long cPtr = (getClass() == general_skeleton.class) ? maeJNI.general_skeleton_get_top_down(swigCPtr, this) : maeJNI.general_skeleton_get_top_downSwigExplicitgeneral_skeleton(swigCPtr, this);
     return (cPtr == 0) ? null : new bone(cPtr, true);
   }
 
   public void set_right_left(bone right_left) {
-    if (getClass() == general_skeleton.class) w_e_boneJNI.general_skeleton_set_right_left(swigCPtr, this, bone.getCPtr(right_left), right_left); else w_e_boneJNI.general_skeleton_set_right_leftSwigExplicitgeneral_skeleton(swigCPtr, this, bone.getCPtr(right_left), right_left);
+    if (getClass() == general_skeleton.class) maeJNI.general_skeleton_set_right_left(swigCPtr, this, bone.getCPtr(right_left), right_left); else maeJNI.general_skeleton_set_right_leftSwigExplicitgeneral_skeleton(swigCPtr, this, bone.getCPtr(right_left), right_left);
   }
 
   public bone get_right_left() {
-    long cPtr = (getClass() == general_skeleton.class) ? w_e_boneJNI.general_skeleton_get_right_left(swigCPtr, this) : w_e_boneJNI.general_skeleton_get_right_leftSwigExplicitgeneral_skeleton(swigCPtr, this);
+    long cPtr = (getClass() == general_skeleton.class) ? maeJNI.general_skeleton_get_right_left(swigCPtr, this) : maeJNI.general_skeleton_get_right_leftSwigExplicitgeneral_skeleton(swigCPtr, this);
     return (cPtr == 0) ? null : new bone(cPtr, true);
   }
 
   public void set_weight(vec3d weight) {
-    if (getClass() == general_skeleton.class) w_e_boneJNI.general_skeleton_set_weight(swigCPtr, this, vec3d.getCPtr(weight), weight); else w_e_boneJNI.general_skeleton_set_weightSwigExplicitgeneral_skeleton(swigCPtr, this, vec3d.getCPtr(weight), weight);
+    if (getClass() == general_skeleton.class) maeJNI.general_skeleton_set_weight(swigCPtr, this, vec3d.getCPtr(weight), weight); else maeJNI.general_skeleton_set_weightSwigExplicitgeneral_skeleton(swigCPtr, this, vec3d.getCPtr(weight), weight);
   }
 
   public vec3d get_weight() {
-    long cPtr = (getClass() == general_skeleton.class) ? w_e_boneJNI.general_skeleton_get_weight(swigCPtr, this) : w_e_boneJNI.general_skeleton_get_weightSwigExplicitgeneral_skeleton(swigCPtr, this);
+    long cPtr = (getClass() == general_skeleton.class) ? maeJNI.general_skeleton_get_weight(swigCPtr, this) : maeJNI.general_skeleton_get_weightSwigExplicitgeneral_skeleton(swigCPtr, this);
     return (cPtr == 0) ? null : new vec3d(cPtr, true);
   }
 
   public String str() {
-    return (getClass() == general_skeleton.class) ? w_e_boneJNI.general_skeleton_str(swigCPtr, this) : w_e_boneJNI.general_skeleton_strSwigExplicitgeneral_skeleton(swigCPtr, this);
+    return (getClass() == general_skeleton.class) ? maeJNI.general_skeleton_str(swigCPtr, this) : maeJNI.general_skeleton_strSwigExplicitgeneral_skeleton(swigCPtr, this);
   }
 
   public String ply_str() {
-    return (getClass() == general_skeleton.class) ? w_e_boneJNI.general_skeleton_ply_str(swigCPtr, this) : w_e_boneJNI.general_skeleton_ply_strSwigExplicitgeneral_skeleton(swigCPtr, this);
+    return (getClass() == general_skeleton.class) ? maeJNI.general_skeleton_ply_str(swigCPtr, this) : maeJNI.general_skeleton_ply_strSwigExplicitgeneral_skeleton(swigCPtr, this);
   }
 
   public void ply_file(String filename) {
-    if (getClass() == general_skeleton.class) w_e_boneJNI.general_skeleton_ply_file(swigCPtr, this, filename); else w_e_boneJNI.general_skeleton_ply_fileSwigExplicitgeneral_skeleton(swigCPtr, this, filename);
+    if (getClass() == general_skeleton.class) maeJNI.general_skeleton_ply_file(swigCPtr, this, filename); else maeJNI.general_skeleton_ply_fileSwigExplicitgeneral_skeleton(swigCPtr, this, filename);
   }
 
 }

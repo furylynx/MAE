@@ -13,7 +13,7 @@ public class joint_part extends i_endpoint {
   private boolean swigCMemOwnDerived;
 
   protected joint_part(long cPtr, boolean cMemoryOwn) {
-    super(w_e_boneJNI.joint_part_SWIGSmartPtrUpcast(cPtr), true);
+    super(maeJNI.joint_part_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class joint_part extends i_endpoint {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        w_e_boneJNI.delete_joint_part(swigCPtr);
+        maeJNI.delete_joint_part(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -44,54 +44,54 @@ public class joint_part extends i_endpoint {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.joint_part_change_ownership(this, swigCPtr, false);
+    maeJNI.joint_part_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.joint_part_change_ownership(this, swigCPtr, true);
+    maeJNI.joint_part_change_ownership(this, swigCPtr, true);
   }
 
   public joint_part(e_joint joint) {
-    this(w_e_boneJNI.new_joint_part(joint.swigValue()), true);
-    w_e_boneJNI.joint_part_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_joint_part(joint.swigValue()), true);
+    maeJNI.joint_part_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public e_joint get_joint() {
-    return e_joint.swigToEnum(w_e_boneJNI.joint_part_get_joint(swigCPtr, this));
+    return e_joint.swigToEnum(maeJNI.joint_part_get_joint(swigCPtr, this));
   }
 
   public String xml(long indent, String namesp) {
-    return (getClass() == joint_part.class) ? w_e_boneJNI.joint_part_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.joint_part_xmlSwigExplicitjoint_part__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == joint_part.class) ? maeJNI.joint_part_xml__SWIG_0(swigCPtr, this, indent, namesp) : maeJNI.joint_part_xmlSwigExplicitjoint_part__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return (getClass() == joint_part.class) ? w_e_boneJNI.joint_part_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.joint_part_xmlSwigExplicitjoint_part__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == joint_part.class) ? maeJNI.joint_part_xml__SWIG_1(swigCPtr, this, indent) : maeJNI.joint_part_xmlSwigExplicitjoint_part__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return (getClass() == joint_part.class) ? w_e_boneJNI.joint_part_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.joint_part_xmlSwigExplicitjoint_part__SWIG_2(swigCPtr, this);
+    return (getClass() == joint_part.class) ? maeJNI.joint_part_xml__SWIG_2(swigCPtr, this) : maeJNI.joint_part_xmlSwigExplicitjoint_part__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return (getClass() == joint_part.class) ? w_e_boneJNI.joint_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : w_e_boneJNI.joint_part_svgSwigExplicitjoint_part__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return (getClass() == joint_part.class) ? maeJNI.joint_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : maeJNI.joint_part_svgSwigExplicitjoint_part__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return (getClass() == joint_part.class) ? w_e_boneJNI.joint_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : w_e_boneJNI.joint_part_svgSwigExplicitjoint_part__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return (getClass() == joint_part.class) ? maeJNI.joint_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : maeJNI.joint_part_svgSwigExplicitjoint_part__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public i_endpoint get_fixed_end() {
-    long cPtr = (getClass() == joint_part.class) ? w_e_boneJNI.joint_part_get_fixed_end(swigCPtr, this) : w_e_boneJNI.joint_part_get_fixed_endSwigExplicitjoint_part(swigCPtr, this);
+    long cPtr = (getClass() == joint_part.class) ? maeJNI.joint_part_get_fixed_end(swigCPtr, this) : maeJNI.joint_part_get_fixed_endSwigExplicitjoint_part(swigCPtr, this);
     return (cPtr == 0) ? null : new i_endpoint(cPtr, true);
   }
 
   public boolean equals(i_part a) {
-    return (getClass() == joint_part.class) ? w_e_boneJNI.joint_part_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a) : w_e_boneJNI.joint_part_equalsSwigExplicitjoint_part__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
+    return (getClass() == joint_part.class) ? maeJNI.joint_part_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a) : maeJNI.joint_part_equalsSwigExplicitjoint_part__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
   public boolean equals(i_endpoint a) {
-    return (getClass() == joint_part.class) ? w_e_boneJNI.joint_part_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a) : w_e_boneJNI.joint_part_equalsSwigExplicitjoint_part__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
+    return (getClass() == joint_part.class) ? maeJNI.joint_part_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a) : maeJNI.joint_part_equalsSwigExplicitjoint_part__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
   }
 
 }

@@ -29,7 +29,7 @@ public class laban_sequence_reader {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_laban_sequence_reader(swigCPtr);
+        maeJNI.delete_laban_sequence_reader(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,26 +42,26 @@ public class laban_sequence_reader {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.laban_sequence_reader_change_ownership(this, swigCPtr, false);
+    maeJNI.laban_sequence_reader_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.laban_sequence_reader_change_ownership(this, swigCPtr, true);
+    maeJNI.laban_sequence_reader_change_ownership(this, swigCPtr, true);
   }
 
   public laban_sequence_reader() {
-    this(w_e_boneJNI.new_laban_sequence_reader(), true);
-    w_e_boneJNI.laban_sequence_reader_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_laban_sequence_reader(), true);
+    maeJNI.laban_sequence_reader_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public laban_sequence read_sequence_file(String file_name) {
-    long cPtr = (getClass() == laban_sequence_reader.class) ? w_e_boneJNI.laban_sequence_reader_read_sequence_file(swigCPtr, this, file_name) : w_e_boneJNI.laban_sequence_reader_read_sequence_fileSwigExplicitlaban_sequence_reader(swigCPtr, this, file_name);
+    long cPtr = (getClass() == laban_sequence_reader.class) ? maeJNI.laban_sequence_reader_read_sequence_file(swigCPtr, this, file_name) : maeJNI.laban_sequence_reader_read_sequence_fileSwigExplicitlaban_sequence_reader(swigCPtr, this, file_name);
     return (cPtr == 0) ? null : new laban_sequence(cPtr, true);
   }
 
   public laban_sequence read_sequence_str(String xml_string) {
-    long cPtr = (getClass() == laban_sequence_reader.class) ? w_e_boneJNI.laban_sequence_reader_read_sequence_str(swigCPtr, this, xml_string) : w_e_boneJNI.laban_sequence_reader_read_sequence_strSwigExplicitlaban_sequence_reader(swigCPtr, this, xml_string);
+    long cPtr = (getClass() == laban_sequence_reader.class) ? maeJNI.laban_sequence_reader_read_sequence_str(swigCPtr, this, xml_string) : maeJNI.laban_sequence_reader_read_sequence_strSwigExplicitlaban_sequence_reader(swigCPtr, this, xml_string);
     return (cPtr == 0) ? null : new laban_sequence(cPtr, true);
   }
 

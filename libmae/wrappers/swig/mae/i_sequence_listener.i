@@ -4,7 +4,8 @@
 //...
 
 //global includes
-%include "std_shared_ptr.i"
+//%include "std_shared_ptr.i"
+%include "swig_fixed_std_shared_ptr.i"
  
 %module(directors="1") w_i_sequence_listener
 %{
@@ -23,3 +24,4 @@
 
 //Director
 //%feature("director") laban_sequence_sequence_listener;
+

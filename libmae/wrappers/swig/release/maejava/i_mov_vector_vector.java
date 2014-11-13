@@ -10,7 +10,7 @@ package maejava;
 
 public class i_mov_vector_vector {
   private long swigCPtr;
-  private boolean swigCMemOwn;
+  protected boolean swigCMemOwn;
 
   protected i_mov_vector_vector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -29,50 +29,50 @@ public class i_mov_vector_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_i_mov_vector_vector(swigCPtr);
+        maeJNI.delete_i_mov_vector_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public i_mov_vector_vector() {
-    this(w_e_boneJNI.new_i_mov_vector_vector__SWIG_0(), true);
+    this(maeJNI.new_i_mov_vector_vector__SWIG_0(), true);
   }
 
   public i_mov_vector_vector(long n) {
-    this(w_e_boneJNI.new_i_mov_vector_vector__SWIG_1(n), true);
+    this(maeJNI.new_i_mov_vector_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return w_e_boneJNI.i_mov_vector_vector_size(swigCPtr, this);
+    return maeJNI.i_mov_vector_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return w_e_boneJNI.i_mov_vector_vector_capacity(swigCPtr, this);
+    return maeJNI.i_mov_vector_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    w_e_boneJNI.i_mov_vector_vector_reserve(swigCPtr, this, n);
+    maeJNI.i_mov_vector_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return w_e_boneJNI.i_mov_vector_vector_isEmpty(swigCPtr, this);
+    return maeJNI.i_mov_vector_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    w_e_boneJNI.i_mov_vector_vector_clear(swigCPtr, this);
+    maeJNI.i_mov_vector_vector_clear(swigCPtr, this);
   }
 
   public void add(i_mov_vector x) {
-    w_e_boneJNI.i_mov_vector_vector_add(swigCPtr, this, i_mov_vector.getCPtr(x), x);
+    maeJNI.i_mov_vector_vector_add(swigCPtr, this, i_mov_vector.getCPtr(x), x);
   }
 
   public i_mov_vector get(int i) {
-    return new i_mov_vector(w_e_boneJNI.i_mov_vector_vector_get(swigCPtr, this, i), false);
+    return new i_mov_vector(maeJNI.i_mov_vector_vector_get(swigCPtr, this, i), false);
   }
 
   public void set(int i, i_mov_vector val) {
-    w_e_boneJNI.i_mov_vector_vector_set(swigCPtr, this, i, i_mov_vector.getCPtr(val), val);
+    maeJNI.i_mov_vector_vector_set(swigCPtr, this, i, i_mov_vector.getCPtr(val), val);
   }
 
 }

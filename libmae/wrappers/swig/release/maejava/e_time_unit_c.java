@@ -29,26 +29,26 @@ public class e_time_unit_c {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_e_time_unit_c(swigCPtr);
+        maeJNI.delete_e_time_unit_c(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public static String str(e_time_unit unit) {
-    return w_e_boneJNI.e_time_unit_c_str(unit.swigValue());
+    return maeJNI.e_time_unit_c_str(unit.swigValue());
   }
 
   public static e_time_unit_vector vec() {
-    return new e_time_unit_vector(w_e_boneJNI.e_time_unit_c_vec(), true);
+    return new e_time_unit_vector(maeJNI.e_time_unit_c_vec(), true);
   }
 
   public static e_time_unit parse(String str) {
-    return e_time_unit.swigToEnum(w_e_boneJNI.e_time_unit_c_parse(str));
+    return e_time_unit.swigToEnum(maeJNI.e_time_unit_c_parse(str));
   }
 
   public e_time_unit_c() {
-    this(w_e_boneJNI.new_e_time_unit_c(), true);
+    this(maeJNI.new_e_time_unit_c(), true);
   }
 
 }

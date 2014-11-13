@@ -13,7 +13,7 @@ public class movement extends i_movement {
   private boolean swigCMemOwnDerived;
 
   protected movement(long cPtr, boolean cMemoryOwn) {
-    super(w_e_boneJNI.movement_SWIGSmartPtrUpcast(cPtr), true);
+    super(maeJNI.movement_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class movement extends i_movement {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        w_e_boneJNI.delete_movement(swigCPtr);
+        maeJNI.delete_movement(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -44,90 +44,90 @@ public class movement extends i_movement {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.movement_change_ownership(this, swigCPtr, false);
+    maeJNI.movement_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.movement_change_ownership(this, swigCPtr, true);
+    maeJNI.movement_change_ownership(this, swigCPtr, true);
   }
 
   public movement(int column, long measure, double beat, double duration, i_symbol symbol, boolean hold, i_pre_sign pre_sign) {
-    this(w_e_boneJNI.new_movement__SWIG_0(column, measure, beat, duration, i_symbol.getCPtr(symbol), symbol, hold, i_pre_sign.getCPtr(pre_sign), pre_sign), true);
-    w_e_boneJNI.movement_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_movement__SWIG_0(column, measure, beat, duration, i_symbol.getCPtr(symbol), symbol, hold, i_pre_sign.getCPtr(pre_sign), pre_sign), true);
+    maeJNI.movement_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public movement(int column, long measure, double beat, double duration, i_symbol symbol, boolean hold) {
-    this(w_e_boneJNI.new_movement__SWIG_1(column, measure, beat, duration, i_symbol.getCPtr(symbol), symbol, hold), true);
-    w_e_boneJNI.movement_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_movement__SWIG_1(column, measure, beat, duration, i_symbol.getCPtr(symbol), symbol, hold), true);
+    maeJNI.movement_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public movement(int column, long measure, double beat, double duration, i_symbol symbol) {
-    this(w_e_boneJNI.new_movement__SWIG_2(column, measure, beat, duration, i_symbol.getCPtr(symbol), symbol), true);
-    w_e_boneJNI.movement_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_movement__SWIG_2(column, measure, beat, duration, i_symbol.getCPtr(symbol), symbol), true);
+    maeJNI.movement_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public int get_column() {
-    return (getClass() == movement.class) ? w_e_boneJNI.movement_get_column(swigCPtr, this) : w_e_boneJNI.movement_get_columnSwigExplicitmovement(swigCPtr, this);
+    return (getClass() == movement.class) ? maeJNI.movement_get_column(swigCPtr, this) : maeJNI.movement_get_columnSwigExplicitmovement(swigCPtr, this);
   }
 
   public long get_measure() {
-    return (getClass() == movement.class) ? w_e_boneJNI.movement_get_measure(swigCPtr, this) : w_e_boneJNI.movement_get_measureSwigExplicitmovement(swigCPtr, this);
+    return (getClass() == movement.class) ? maeJNI.movement_get_measure(swigCPtr, this) : maeJNI.movement_get_measureSwigExplicitmovement(swigCPtr, this);
   }
 
   public double get_beat() {
-    return (getClass() == movement.class) ? w_e_boneJNI.movement_get_beat(swigCPtr, this) : w_e_boneJNI.movement_get_beatSwigExplicitmovement(swigCPtr, this);
+    return (getClass() == movement.class) ? maeJNI.movement_get_beat(swigCPtr, this) : maeJNI.movement_get_beatSwigExplicitmovement(swigCPtr, this);
   }
 
   public double get_duration() {
-    return (getClass() == movement.class) ? w_e_boneJNI.movement_get_duration(swigCPtr, this) : w_e_boneJNI.movement_get_durationSwigExplicitmovement(swigCPtr, this);
+    return (getClass() == movement.class) ? maeJNI.movement_get_duration(swigCPtr, this) : maeJNI.movement_get_durationSwigExplicitmovement(swigCPtr, this);
   }
 
   public i_pre_sign get_pre_sign() {
-    long cPtr = w_e_boneJNI.movement_get_pre_sign(swigCPtr, this);
+    long cPtr = maeJNI.movement_get_pre_sign(swigCPtr, this);
     return (cPtr == 0) ? null : new i_pre_sign(cPtr, true);
   }
 
   public boolean get_hold() {
-    return w_e_boneJNI.movement_get_hold(swigCPtr, this);
+    return maeJNI.movement_get_hold(swigCPtr, this);
   }
 
   public i_symbol get_symbol() {
-    long cPtr = w_e_boneJNI.movement_get_symbol(swigCPtr, this);
+    long cPtr = maeJNI.movement_get_symbol(swigCPtr, this);
     return (cPtr == 0) ? null : new i_symbol(cPtr, true);
   }
 
   public boolean equals(i_movement a) {
-    return (getClass() == movement.class) ? w_e_boneJNI.movement_equals(swigCPtr, this, i_movement.getCPtr(a), a) : w_e_boneJNI.movement_equalsSwigExplicitmovement(swigCPtr, this, i_movement.getCPtr(a), a);
+    return (getClass() == movement.class) ? maeJNI.movement_equals(swigCPtr, this, i_movement.getCPtr(a), a) : maeJNI.movement_equalsSwigExplicitmovement(swigCPtr, this, i_movement.getCPtr(a), a);
   }
 
   public boolean symbol_equals(i_movement a) {
-    return (getClass() == movement.class) ? w_e_boneJNI.movement_symbol_equals(swigCPtr, this, i_movement.getCPtr(a), a) : w_e_boneJNI.movement_symbol_equalsSwigExplicitmovement(swigCPtr, this, i_movement.getCPtr(a), a);
+    return (getClass() == movement.class) ? maeJNI.movement_symbol_equals(swigCPtr, this, i_movement.getCPtr(a), a) : maeJNI.movement_symbol_equalsSwigExplicitmovement(swigCPtr, this, i_movement.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return (getClass() == movement.class) ? w_e_boneJNI.movement_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.movement_xmlSwigExplicitmovement__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == movement.class) ? maeJNI.movement_xml__SWIG_0(swigCPtr, this, indent, namesp) : maeJNI.movement_xmlSwigExplicitmovement__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return (getClass() == movement.class) ? w_e_boneJNI.movement_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.movement_xmlSwigExplicitmovement__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == movement.class) ? maeJNI.movement_xml__SWIG_1(swigCPtr, this, indent) : maeJNI.movement_xmlSwigExplicitmovement__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return (getClass() == movement.class) ? w_e_boneJNI.movement_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.movement_xmlSwigExplicitmovement__SWIG_2(swigCPtr, this);
+    return (getClass() == movement.class) ? maeJNI.movement_xml__SWIG_2(swigCPtr, this) : maeJNI.movement_xmlSwigExplicitmovement__SWIG_2(swigCPtr, this);
   }
 
   public String svg(long im_width, long im_height, long max_column, long measures, long beats_per_measure) {
-    return (getClass() == movement.class) ? w_e_boneJNI.movement_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure) : w_e_boneJNI.movement_svgSwigExplicitmovement(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
+    return (getClass() == movement.class) ? maeJNI.movement_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure) : maeJNI.movement_svgSwigExplicitmovement(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
   }
 
   public i_movement recreate(int_int_map column_mapping, long measure, double beat, double duration) {
-    long cPtr = (getClass() == movement.class) ? w_e_boneJNI.movement_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration) : w_e_boneJNI.movement_recreateSwigExplicitmovement(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration);
+    long cPtr = (getClass() == movement.class) ? maeJNI.movement_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration) : maeJNI.movement_recreateSwigExplicitmovement(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration);
     return (cPtr == 0) ? null : new i_movement(cPtr, true);
   }
 
   public String str() {
-    return (getClass() == movement.class) ? w_e_boneJNI.movement_str(swigCPtr, this) : w_e_boneJNI.movement_strSwigExplicitmovement(swigCPtr, this);
+    return (getClass() == movement.class) ? maeJNI.movement_str(swigCPtr, this) : maeJNI.movement_strSwigExplicitmovement(swigCPtr, this);
   }
 
 }

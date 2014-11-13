@@ -29,7 +29,7 @@ public class i_pose_listener {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_i_pose_listener(swigCPtr);
+        maeJNI.delete_i_pose_listener(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,21 +42,21 @@ public class i_pose_listener {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.i_pose_listener_change_ownership(this, swigCPtr, false);
+    maeJNI.i_pose_listener_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.i_pose_listener_change_ownership(this, swigCPtr, true);
+    maeJNI.i_pose_listener_change_ownership(this, swigCPtr, true);
   }
 
   public void on_pose(int timestamp, general_pose pose) {
-    w_e_boneJNI.i_pose_listener_on_pose(swigCPtr, this, timestamp, general_pose.getCPtr(pose), pose);
+    maeJNI.i_pose_listener_on_pose(swigCPtr, this, timestamp, general_pose.getCPtr(pose), pose);
   }
 
   public i_pose_listener() {
-    this(w_e_boneJNI.new_i_pose_listener(), true);
-    w_e_boneJNI.i_pose_listener_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_i_pose_listener(), true);
+    maeJNI.i_pose_listener_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

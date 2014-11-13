@@ -10,7 +10,7 @@ package maejava;
 
 public class i_pre_sign {
   private long swigCPtr;
-  private boolean swigCMemOwn;
+  protected boolean swigCMemOwn;
 
   protected i_pre_sign(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -29,7 +29,7 @@ public class i_pre_sign {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_i_pre_sign(swigCPtr);
+        maeJNI.delete_i_pre_sign(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,41 +42,41 @@ public class i_pre_sign {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.i_pre_sign_change_ownership(this, swigCPtr, false);
+    maeJNI.i_pre_sign_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.i_pre_sign_change_ownership(this, swigCPtr, true);
+    maeJNI.i_pre_sign_change_ownership(this, swigCPtr, true);
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.i_pre_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return maeJNI.i_pre_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.i_pre_sign_xml__SWIG_1(swigCPtr, this, indent);
+    return maeJNI.i_pre_sign_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.i_pre_sign_xml__SWIG_2(swigCPtr, this);
+    return maeJNI.i_pre_sign_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return w_e_boneJNI.i_pre_sign_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return maeJNI.i_pre_sign_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return w_e_boneJNI.i_pre_sign_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return maeJNI.i_pre_sign_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public boolean equals(i_pre_sign a) {
-    return w_e_boneJNI.i_pre_sign_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a);
+    return maeJNI.i_pre_sign_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a);
   }
 
   public i_pre_sign() {
-    this(w_e_boneJNI.new_i_pre_sign(), true);
-    w_e_boneJNI.i_pre_sign_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_i_pre_sign(), true);
+    maeJNI.i_pre_sign_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

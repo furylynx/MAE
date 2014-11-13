@@ -29,7 +29,7 @@ public class vec3d {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_vec3d(swigCPtr);
+        maeJNI.delete_vec3d(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,50 +42,50 @@ public class vec3d {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.vec3d_change_ownership(this, swigCPtr, false);
+    maeJNI.vec3d_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.vec3d_change_ownership(this, swigCPtr, true);
+    maeJNI.vec3d_change_ownership(this, swigCPtr, true);
   }
 
   public vec3d() {
-    this(w_e_boneJNI.new_vec3d__SWIG_0(), true);
-    w_e_boneJNI.vec3d_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_vec3d__SWIG_0(), true);
+    maeJNI.vec3d_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public vec3d(double x, double y, double z) {
-    this(w_e_boneJNI.new_vec3d__SWIG_1(x, y, z), true);
-    w_e_boneJNI.vec3d_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_vec3d__SWIG_1(x, y, z), true);
+    maeJNI.vec3d_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public void set_x(double x) {
-    if (getClass() == vec3d.class) w_e_boneJNI.vec3d_set_x(swigCPtr, this, x); else w_e_boneJNI.vec3d_set_xSwigExplicitvec3d(swigCPtr, this, x);
+    if (getClass() == vec3d.class) maeJNI.vec3d_set_x(swigCPtr, this, x); else maeJNI.vec3d_set_xSwigExplicitvec3d(swigCPtr, this, x);
   }
 
   public double get_x() {
-    return (getClass() == vec3d.class) ? w_e_boneJNI.vec3d_get_x(swigCPtr, this) : w_e_boneJNI.vec3d_get_xSwigExplicitvec3d(swigCPtr, this);
+    return (getClass() == vec3d.class) ? maeJNI.vec3d_get_x(swigCPtr, this) : maeJNI.vec3d_get_xSwigExplicitvec3d(swigCPtr, this);
   }
 
   public void set_y(double y) {
-    if (getClass() == vec3d.class) w_e_boneJNI.vec3d_set_y(swigCPtr, this, y); else w_e_boneJNI.vec3d_set_ySwigExplicitvec3d(swigCPtr, this, y);
+    if (getClass() == vec3d.class) maeJNI.vec3d_set_y(swigCPtr, this, y); else maeJNI.vec3d_set_ySwigExplicitvec3d(swigCPtr, this, y);
   }
 
   public double get_y() {
-    return (getClass() == vec3d.class) ? w_e_boneJNI.vec3d_get_y(swigCPtr, this) : w_e_boneJNI.vec3d_get_ySwigExplicitvec3d(swigCPtr, this);
+    return (getClass() == vec3d.class) ? maeJNI.vec3d_get_y(swigCPtr, this) : maeJNI.vec3d_get_ySwigExplicitvec3d(swigCPtr, this);
   }
 
   public void set_z(double z) {
-    if (getClass() == vec3d.class) w_e_boneJNI.vec3d_set_z(swigCPtr, this, z); else w_e_boneJNI.vec3d_set_zSwigExplicitvec3d(swigCPtr, this, z);
+    if (getClass() == vec3d.class) maeJNI.vec3d_set_z(swigCPtr, this, z); else maeJNI.vec3d_set_zSwigExplicitvec3d(swigCPtr, this, z);
   }
 
   public double get_z() {
-    return (getClass() == vec3d.class) ? w_e_boneJNI.vec3d_get_z(swigCPtr, this) : w_e_boneJNI.vec3d_get_zSwigExplicitvec3d(swigCPtr, this);
+    return (getClass() == vec3d.class) ? maeJNI.vec3d_get_z(swigCPtr, this) : maeJNI.vec3d_get_zSwigExplicitvec3d(swigCPtr, this);
   }
 
   public String str() {
-    return (getClass() == vec3d.class) ? w_e_boneJNI.vec3d_str(swigCPtr, this) : w_e_boneJNI.vec3d_strSwigExplicitvec3d(swigCPtr, this);
+    return (getClass() == vec3d.class) ? maeJNI.vec3d_str(swigCPtr, this) : maeJNI.vec3d_strSwigExplicitvec3d(swigCPtr, this);
   }
 
 }

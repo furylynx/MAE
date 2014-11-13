@@ -29,26 +29,26 @@ public class e_digit_c {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_e_digit_c(swigCPtr);
+        maeJNI.delete_e_digit_c(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public static String str(e_digit digit) {
-    return w_e_boneJNI.e_digit_c_str(digit.swigValue());
+    return maeJNI.e_digit_c_str(digit.swigValue());
   }
 
   public static e_digit_vector vec() {
-    return new e_digit_vector(w_e_boneJNI.e_digit_c_vec(), true);
+    return new e_digit_vector(maeJNI.e_digit_c_vec(), true);
   }
 
   public static e_digit parse(String str) {
-    return e_digit.swigToEnum(w_e_boneJNI.e_digit_c_parse(str));
+    return e_digit.swigToEnum(maeJNI.e_digit_c_parse(str));
   }
 
   public e_digit_c() {
-    this(w_e_boneJNI.new_e_digit_c(), true);
+    this(maeJNI.new_e_digit_c(), true);
   }
 
 }

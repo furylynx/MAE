@@ -29,51 +29,51 @@ public class general_skeleton_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_general_skeleton_vector(swigCPtr);
+        maeJNI.delete_general_skeleton_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public general_skeleton_vector() {
-    this(w_e_boneJNI.new_general_skeleton_vector__SWIG_0(), true);
+    this(maeJNI.new_general_skeleton_vector__SWIG_0(), true);
   }
 
   public general_skeleton_vector(long n) {
-    this(w_e_boneJNI.new_general_skeleton_vector__SWIG_1(n), true);
+    this(maeJNI.new_general_skeleton_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return w_e_boneJNI.general_skeleton_vector_size(swigCPtr, this);
+    return maeJNI.general_skeleton_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return w_e_boneJNI.general_skeleton_vector_capacity(swigCPtr, this);
+    return maeJNI.general_skeleton_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    w_e_boneJNI.general_skeleton_vector_reserve(swigCPtr, this, n);
+    maeJNI.general_skeleton_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return w_e_boneJNI.general_skeleton_vector_isEmpty(swigCPtr, this);
+    return maeJNI.general_skeleton_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    w_e_boneJNI.general_skeleton_vector_clear(swigCPtr, this);
+    maeJNI.general_skeleton_vector_clear(swigCPtr, this);
   }
 
   public void add(general_skeleton x) {
-    w_e_boneJNI.general_skeleton_vector_add(swigCPtr, this, general_skeleton.getCPtr(x), x);
+    maeJNI.general_skeleton_vector_add(swigCPtr, this, general_skeleton.getCPtr(x), x);
   }
 
   public general_skeleton get(int i) {
-    long cPtr = w_e_boneJNI.general_skeleton_vector_get(swigCPtr, this, i);
+    long cPtr = maeJNI.general_skeleton_vector_get(swigCPtr, this, i);
     return (cPtr == 0) ? null : new general_skeleton(cPtr, true);
   }
 
   public void set(int i, general_skeleton val) {
-    w_e_boneJNI.general_skeleton_vector_set(swigCPtr, this, i, general_skeleton.getCPtr(val), val);
+    maeJNI.general_skeleton_vector_set(swigCPtr, this, i, general_skeleton.getCPtr(val), val);
   }
 
 }

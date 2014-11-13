@@ -29,30 +29,30 @@ public class e_direction_c {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_e_direction_c(swigCPtr);
+        maeJNI.delete_e_direction_c(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public static String str(e_direction direction) {
-    return w_e_boneJNI.e_direction_c_str(direction.swigValue());
+    return maeJNI.e_direction_c_str(direction.swigValue());
   }
 
   public static e_direction dir(e_fl_direction direction) {
-    return e_direction.swigToEnum(w_e_boneJNI.e_direction_c_dir(direction.swigValue()));
+    return e_direction.swigToEnum(maeJNI.e_direction_c_dir(direction.swigValue()));
   }
 
   public static e_direction_vector vec() {
-    return new e_direction_vector(w_e_boneJNI.e_direction_c_vec(), true);
+    return new e_direction_vector(maeJNI.e_direction_c_vec(), true);
   }
 
   public static e_direction parse(String str) {
-    return e_direction.swigToEnum(w_e_boneJNI.e_direction_c_parse(str));
+    return e_direction.swigToEnum(maeJNI.e_direction_c_parse(str));
   }
 
   public e_direction_c() {
-    this(w_e_boneJNI.new_e_direction_c(), true);
+    this(maeJNI.new_e_direction_c(), true);
   }
 
 }

@@ -29,34 +29,34 @@ public class enriched_pose_list {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_enriched_pose_list(swigCPtr);
+        maeJNI.delete_enriched_pose_list(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public enriched_pose_list() {
-    this(w_e_boneJNI.new_enriched_pose_list(), true);
+    this(maeJNI.new_enriched_pose_list(), true);
   }
 
   public long size() {
-    return w_e_boneJNI.enriched_pose_list_size(swigCPtr, this);
+    return maeJNI.enriched_pose_list_size(swigCPtr, this);
   }
 
   public boolean isEmpty() {
-    return w_e_boneJNI.enriched_pose_list_isEmpty(swigCPtr, this);
+    return maeJNI.enriched_pose_list_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    w_e_boneJNI.enriched_pose_list_clear(swigCPtr, this);
+    maeJNI.enriched_pose_list_clear(swigCPtr, this);
   }
 
   public void add(general_enriched_pose x) {
-    w_e_boneJNI.enriched_pose_list_add(swigCPtr, this, general_enriched_pose.getCPtr(x), x);
+    maeJNI.enriched_pose_list_add(swigCPtr, this, general_enriched_pose.getCPtr(x), x);
   }
 
   public general_enriched_pose get(int i) {
-    long cPtr = w_e_boneJNI.enriched_pose_list_get(swigCPtr, this, i);
+    long cPtr = maeJNI.enriched_pose_list_get(swigCPtr, this, i);
     return (cPtr == 0) ? null : new general_enriched_pose(cPtr, true);
   }
 

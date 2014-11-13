@@ -29,26 +29,26 @@ public class e_area_c {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_e_area_c(swigCPtr);
+        maeJNI.delete_e_area_c(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public static String str(e_area area) {
-    return w_e_boneJNI.e_area_c_str(area.swigValue());
+    return maeJNI.e_area_c_str(area.swigValue());
   }
 
   public static e_area_vector vec() {
-    return new e_area_vector(w_e_boneJNI.e_area_c_vec(), true);
+    return new e_area_vector(maeJNI.e_area_c_vec(), true);
   }
 
   public static e_area parse(String str) {
-    return e_area.swigToEnum(w_e_boneJNI.e_area_c_parse(str));
+    return e_area.swigToEnum(maeJNI.e_area_c_parse(str));
   }
 
   public e_area_c() {
-    this(w_e_boneJNI.new_e_area_c(), true);
+    this(maeJNI.new_e_area_c(), true);
   }
 
 }

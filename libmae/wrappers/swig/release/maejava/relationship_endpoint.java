@@ -10,7 +10,7 @@ package maejava;
 
 public class relationship_endpoint {
   private long swigCPtr;
-  private boolean swigCMemOwn;
+  protected boolean swigCMemOwn;
 
   protected relationship_endpoint(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -29,7 +29,7 @@ public class relationship_endpoint {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_relationship_endpoint(swigCPtr);
+        maeJNI.delete_relationship_endpoint(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,66 +42,66 @@ public class relationship_endpoint {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.relationship_endpoint_change_ownership(this, swigCPtr, false);
+    maeJNI.relationship_endpoint_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.relationship_endpoint_change_ownership(this, swigCPtr, true);
+    maeJNI.relationship_endpoint_change_ownership(this, swigCPtr, true);
   }
 
   public relationship_endpoint(int column, boolean active, i_pre_sign pre_sign, i_dynamics_sign dynamics) {
-    this(w_e_boneJNI.new_relationship_endpoint__SWIG_0(column, active, i_pre_sign.getCPtr(pre_sign), pre_sign, i_dynamics_sign.getCPtr(dynamics), dynamics), true);
-    w_e_boneJNI.relationship_endpoint_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_relationship_endpoint__SWIG_0(column, active, i_pre_sign.getCPtr(pre_sign), pre_sign, i_dynamics_sign.getCPtr(dynamics), dynamics), true);
+    maeJNI.relationship_endpoint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public relationship_endpoint(int column, boolean active, i_pre_sign pre_sign) {
-    this(w_e_boneJNI.new_relationship_endpoint__SWIG_1(column, active, i_pre_sign.getCPtr(pre_sign), pre_sign), true);
-    w_e_boneJNI.relationship_endpoint_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_relationship_endpoint__SWIG_1(column, active, i_pre_sign.getCPtr(pre_sign), pre_sign), true);
+    maeJNI.relationship_endpoint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public relationship_endpoint(int column, boolean active) {
-    this(w_e_boneJNI.new_relationship_endpoint__SWIG_2(column, active), true);
-    w_e_boneJNI.relationship_endpoint_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_relationship_endpoint__SWIG_2(column, active), true);
+    maeJNI.relationship_endpoint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public int get_column() {
-    return w_e_boneJNI.relationship_endpoint_get_column(swigCPtr, this);
+    return maeJNI.relationship_endpoint_get_column(swigCPtr, this);
   }
 
   public i_pre_sign get_pre_sign() {
-    long cPtr = w_e_boneJNI.relationship_endpoint_get_pre_sign(swigCPtr, this);
+    long cPtr = maeJNI.relationship_endpoint_get_pre_sign(swigCPtr, this);
     return (cPtr == 0) ? null : new i_pre_sign(cPtr, true);
   }
 
   public i_dynamics_sign get_dynamics() {
-    long cPtr = w_e_boneJNI.relationship_endpoint_get_dynamics(swigCPtr, this);
+    long cPtr = maeJNI.relationship_endpoint_get_dynamics(swigCPtr, this);
     return (cPtr == 0) ? null : new i_dynamics_sign(cPtr, true);
   }
 
   public boolean get_active() {
-    return w_e_boneJNI.relationship_endpoint_get_active(swigCPtr, this);
+    return maeJNI.relationship_endpoint_get_active(swigCPtr, this);
   }
 
   public String xml(long indent, String namesp) {
-    return (getClass() == relationship_endpoint.class) ? w_e_boneJNI.relationship_endpoint_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.relationship_endpoint_xmlSwigExplicitrelationship_endpoint__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == relationship_endpoint.class) ? maeJNI.relationship_endpoint_xml__SWIG_0(swigCPtr, this, indent, namesp) : maeJNI.relationship_endpoint_xmlSwigExplicitrelationship_endpoint__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return (getClass() == relationship_endpoint.class) ? w_e_boneJNI.relationship_endpoint_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.relationship_endpoint_xmlSwigExplicitrelationship_endpoint__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == relationship_endpoint.class) ? maeJNI.relationship_endpoint_xml__SWIG_1(swigCPtr, this, indent) : maeJNI.relationship_endpoint_xmlSwigExplicitrelationship_endpoint__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return (getClass() == relationship_endpoint.class) ? w_e_boneJNI.relationship_endpoint_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.relationship_endpoint_xmlSwigExplicitrelationship_endpoint__SWIG_2(swigCPtr, this);
+    return (getClass() == relationship_endpoint.class) ? maeJNI.relationship_endpoint_xml__SWIG_2(swigCPtr, this) : maeJNI.relationship_endpoint_xmlSwigExplicitrelationship_endpoint__SWIG_2(swigCPtr, this);
   }
 
   public relationship_endpoint recreate(int_int_map column_mapping) {
-    long cPtr = (getClass() == relationship_endpoint.class) ? w_e_boneJNI.relationship_endpoint_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping) : w_e_boneJNI.relationship_endpoint_recreateSwigExplicitrelationship_endpoint(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping);
+    long cPtr = (getClass() == relationship_endpoint.class) ? maeJNI.relationship_endpoint_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping) : maeJNI.relationship_endpoint_recreateSwigExplicitrelationship_endpoint(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping);
     return (cPtr == 0) ? null : new relationship_endpoint(cPtr, true);
   }
 
   public boolean equals(relationship_endpoint a) {
-    return (getClass() == relationship_endpoint.class) ? w_e_boneJNI.relationship_endpoint_equals(swigCPtr, this, relationship_endpoint.getCPtr(a), a) : w_e_boneJNI.relationship_endpoint_equalsSwigExplicitrelationship_endpoint(swigCPtr, this, relationship_endpoint.getCPtr(a), a);
+    return (getClass() == relationship_endpoint.class) ? maeJNI.relationship_endpoint_equals(swigCPtr, this, relationship_endpoint.getCPtr(a), a) : maeJNI.relationship_endpoint_equalsSwigExplicitrelationship_endpoint(swigCPtr, this, relationship_endpoint.getCPtr(a), a);
   }
 
 }

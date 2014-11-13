@@ -8,5 +8,5 @@
 
 package maejava;
 
-public class w_e_bone {
+public class mae {
 }

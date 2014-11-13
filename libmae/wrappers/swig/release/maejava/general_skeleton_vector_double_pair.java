@@ -29,39 +29,39 @@ public class general_skeleton_vector_double_pair {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_general_skeleton_vector_double_pair(swigCPtr);
+        maeJNI.delete_general_skeleton_vector_double_pair(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public general_skeleton_vector_double_pair() {
-    this(w_e_boneJNI.new_general_skeleton_vector_double_pair__SWIG_0(), true);
+    this(maeJNI.new_general_skeleton_vector_double_pair__SWIG_0(), true);
   }
 
   public general_skeleton_vector_double_pair(general_skeleton_vector first, double second) {
-    this(w_e_boneJNI.new_general_skeleton_vector_double_pair__SWIG_1(general_skeleton_vector.getCPtr(first), first, second), true);
+    this(maeJNI.new_general_skeleton_vector_double_pair__SWIG_1(general_skeleton_vector.getCPtr(first), first, second), true);
   }
 
   public general_skeleton_vector_double_pair(general_skeleton_vector_double_pair p) {
-    this(w_e_boneJNI.new_general_skeleton_vector_double_pair__SWIG_2(general_skeleton_vector_double_pair.getCPtr(p), p), true);
+    this(maeJNI.new_general_skeleton_vector_double_pair__SWIG_2(general_skeleton_vector_double_pair.getCPtr(p), p), true);
   }
 
   public void setFirst(general_skeleton_vector value) {
-    w_e_boneJNI.general_skeleton_vector_double_pair_first_set(swigCPtr, this, general_skeleton_vector.getCPtr(value), value);
+    maeJNI.general_skeleton_vector_double_pair_first_set(swigCPtr, this, general_skeleton_vector.getCPtr(value), value);
   }
 
   public general_skeleton_vector getFirst() {
-    long cPtr = w_e_boneJNI.general_skeleton_vector_double_pair_first_get(swigCPtr, this);
+    long cPtr = maeJNI.general_skeleton_vector_double_pair_first_get(swigCPtr, this);
     return (cPtr == 0) ? null : new general_skeleton_vector(cPtr, false);
   }
 
   public void setSecond(double value) {
-    w_e_boneJNI.general_skeleton_vector_double_pair_second_set(swigCPtr, this, value);
+    maeJNI.general_skeleton_vector_double_pair_second_set(swigCPtr, this, value);
   }
 
   public double getSecond() {
-    return w_e_boneJNI.general_skeleton_vector_double_pair_second_get(swigCPtr, this);
+    return maeJNI.general_skeleton_vector_double_pair_second_get(swigCPtr, this);
   }
 
 }

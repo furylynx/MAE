@@ -13,7 +13,7 @@ public class dynamic_sign extends i_dynamics_sign {
   private boolean swigCMemOwnDerived;
 
   protected dynamic_sign(long cPtr, boolean cMemoryOwn) {
-    super(w_e_boneJNI.dynamic_sign_SWIGSmartPtrUpcast(cPtr), true);
+    super(maeJNI.dynamic_sign_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class dynamic_sign extends i_dynamics_sign {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        w_e_boneJNI.delete_dynamic_sign(swigCPtr);
+        maeJNI.delete_dynamic_sign(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -44,37 +44,37 @@ public class dynamic_sign extends i_dynamics_sign {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.dynamic_sign_change_ownership(this, swigCPtr, false);
+    maeJNI.dynamic_sign_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.dynamic_sign_change_ownership(this, swigCPtr, true);
+    maeJNI.dynamic_sign_change_ownership(this, swigCPtr, true);
   }
 
   public dynamic_sign(e_dynamic dynamic) {
-    this(w_e_boneJNI.new_dynamic_sign(dynamic.swigValue()), true);
-    w_e_boneJNI.dynamic_sign_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_dynamic_sign(dynamic.swigValue()), true);
+    maeJNI.dynamic_sign_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public e_dynamic get_dynamic() {
-    return e_dynamic.swigToEnum(w_e_boneJNI.dynamic_sign_get_dynamic(swigCPtr, this));
+    return e_dynamic.swigToEnum(maeJNI.dynamic_sign_get_dynamic(swigCPtr, this));
   }
 
   public boolean equals(i_dynamics_sign a) {
-    return (getClass() == dynamic_sign.class) ? w_e_boneJNI.dynamic_sign_equals(swigCPtr, this, i_dynamics_sign.getCPtr(a), a) : w_e_boneJNI.dynamic_sign_equalsSwigExplicitdynamic_sign(swigCPtr, this, i_dynamics_sign.getCPtr(a), a);
+    return (getClass() == dynamic_sign.class) ? maeJNI.dynamic_sign_equals(swigCPtr, this, i_dynamics_sign.getCPtr(a), a) : maeJNI.dynamic_sign_equalsSwigExplicitdynamic_sign(swigCPtr, this, i_dynamics_sign.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return (getClass() == dynamic_sign.class) ? w_e_boneJNI.dynamic_sign_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.dynamic_sign_xmlSwigExplicitdynamic_sign__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == dynamic_sign.class) ? maeJNI.dynamic_sign_xml__SWIG_0(swigCPtr, this, indent, namesp) : maeJNI.dynamic_sign_xmlSwigExplicitdynamic_sign__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return (getClass() == dynamic_sign.class) ? w_e_boneJNI.dynamic_sign_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.dynamic_sign_xmlSwigExplicitdynamic_sign__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == dynamic_sign.class) ? maeJNI.dynamic_sign_xml__SWIG_1(swigCPtr, this, indent) : maeJNI.dynamic_sign_xmlSwigExplicitdynamic_sign__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return (getClass() == dynamic_sign.class) ? w_e_boneJNI.dynamic_sign_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.dynamic_sign_xmlSwigExplicitdynamic_sign__SWIG_2(swigCPtr, this);
+    return (getClass() == dynamic_sign.class) ? maeJNI.dynamic_sign_xml__SWIG_2(swigCPtr, this) : maeJNI.dynamic_sign_xmlSwigExplicitdynamic_sign__SWIG_2(swigCPtr, this);
   }
 
 }

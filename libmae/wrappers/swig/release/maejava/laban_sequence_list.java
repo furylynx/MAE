@@ -29,34 +29,34 @@ public class laban_sequence_list {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_laban_sequence_list(swigCPtr);
+        maeJNI.delete_laban_sequence_list(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public laban_sequence_list() {
-    this(w_e_boneJNI.new_laban_sequence_list(), true);
+    this(maeJNI.new_laban_sequence_list(), true);
   }
 
   public long size() {
-    return w_e_boneJNI.laban_sequence_list_size(swigCPtr, this);
+    return maeJNI.laban_sequence_list_size(swigCPtr, this);
   }
 
   public boolean isEmpty() {
-    return w_e_boneJNI.laban_sequence_list_isEmpty(swigCPtr, this);
+    return maeJNI.laban_sequence_list_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    w_e_boneJNI.laban_sequence_list_clear(swigCPtr, this);
+    maeJNI.laban_sequence_list_clear(swigCPtr, this);
   }
 
   public void add(laban_sequence x) {
-    w_e_boneJNI.laban_sequence_list_add(swigCPtr, this, laban_sequence.getCPtr(x), x);
+    maeJNI.laban_sequence_list_add(swigCPtr, this, laban_sequence.getCPtr(x), x);
   }
 
   public laban_sequence get(int i) {
-    long cPtr = w_e_boneJNI.laban_sequence_list_get(swigCPtr, this, i);
+    long cPtr = maeJNI.laban_sequence_list_get(swigCPtr, this, i);
     return (cPtr == 0) ? null : new laban_sequence(cPtr, true);
   }
 
