@@ -10,7 +10,7 @@ package maejava;
 
 public class laban_sequence_sequence_listener {
   private long swigCPtr;
-  private boolean swigCMemOwn;
+  protected boolean swigCMemOwn;
 
   protected laban_sequence_sequence_listener(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -50,8 +50,8 @@ public class laban_sequence_sequence_listener {
     w_e_boneJNI.laban_sequence_sequence_listener_change_ownership(this, swigCPtr, true);
   }
 
-  public void on_sequence(int timestamp, SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t sequence) {
-    w_e_boneJNI.laban_sequence_sequence_listener_on_sequence(swigCPtr, this, timestamp, SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t.getCPtr(sequence));
+  public void on_sequence(int timestamp, laban_sequence sequence) {
+    w_e_boneJNI.laban_sequence_sequence_listener_on_sequence(swigCPtr, this, timestamp, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public laban_sequence_sequence_listener() {

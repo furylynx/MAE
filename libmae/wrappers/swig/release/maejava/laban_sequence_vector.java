@@ -63,16 +63,17 @@ public class laban_sequence_vector {
     w_e_boneJNI.laban_sequence_vector_clear(swigCPtr, this);
   }
 
-  public void add(SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t x) {
-    w_e_boneJNI.laban_sequence_vector_add(swigCPtr, this, SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t.getCPtr(x));
+  public void add(laban_sequence x) {
+    w_e_boneJNI.laban_sequence_vector_add(swigCPtr, this, laban_sequence.getCPtr(x), x);
   }
 
-  public SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t get(int i) {
-    return new SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t(w_e_boneJNI.laban_sequence_vector_get(swigCPtr, this, i), false);
+  public laban_sequence get(int i) {
+    long cPtr = w_e_boneJNI.laban_sequence_vector_get(swigCPtr, this, i);
+    return (cPtr == 0) ? null : new laban_sequence(cPtr, true);
   }
 
-  public void set(int i, SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t val) {
-    w_e_boneJNI.laban_sequence_vector_set(swigCPtr, this, i, SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t.getCPtr(val));
+  public void set(int i, laban_sequence val) {
+    w_e_boneJNI.laban_sequence_vector_set(swigCPtr, this, i, laban_sequence.getCPtr(val), val);
   }
 
 }
