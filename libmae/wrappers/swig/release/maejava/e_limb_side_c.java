@@ -29,26 +29,26 @@ public class e_limb_side_c {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_e_limb_side_c(swigCPtr);
+        maeJNI.delete_e_limb_side_c(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public static String str(e_limb_side lside) {
-    return w_e_boneJNI.e_limb_side_c_str(lside.swigValue());
+    return maeJNI.e_limb_side_c_str(lside.swigValue());
   }
 
   public static e_limb_side_vector vec() {
-    return new e_limb_side_vector(w_e_boneJNI.e_limb_side_c_vec(), true);
+    return new e_limb_side_vector(maeJNI.e_limb_side_c_vec(), true);
   }
 
   public static e_limb_side parse(String str) {
-    return e_limb_side.swigToEnum(w_e_boneJNI.e_limb_side_c_parse(str));
+    return e_limb_side.swigToEnum(maeJNI.e_limb_side_c_parse(str));
   }
 
   public e_limb_side_c() {
-    this(w_e_boneJNI.new_e_limb_side_c(), true);
+    this(maeJNI.new_e_limb_side_c(), true);
   }
 
 }

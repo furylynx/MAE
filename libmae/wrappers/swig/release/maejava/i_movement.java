@@ -10,7 +10,7 @@ package maejava;
 
 public class i_movement {
   private long swigCPtr;
-  private boolean swigCMemOwn;
+  protected boolean swigCMemOwn;
 
   protected i_movement(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -29,7 +29,7 @@ public class i_movement {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_i_movement(swigCPtr);
+        maeJNI.delete_i_movement(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,66 +42,66 @@ public class i_movement {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.i_movement_change_ownership(this, swigCPtr, false);
+    maeJNI.i_movement_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.i_movement_change_ownership(this, swigCPtr, true);
+    maeJNI.i_movement_change_ownership(this, swigCPtr, true);
   }
 
   public int get_column() {
-    return w_e_boneJNI.i_movement_get_column(swigCPtr, this);
+    return maeJNI.i_movement_get_column(swigCPtr, this);
   }
 
   public long get_measure() {
-    return w_e_boneJNI.i_movement_get_measure(swigCPtr, this);
+    return maeJNI.i_movement_get_measure(swigCPtr, this);
   }
 
   public double get_beat() {
-    return w_e_boneJNI.i_movement_get_beat(swigCPtr, this);
+    return maeJNI.i_movement_get_beat(swigCPtr, this);
   }
 
   public double get_duration() {
-    return w_e_boneJNI.i_movement_get_duration(swigCPtr, this);
+    return maeJNI.i_movement_get_duration(swigCPtr, this);
   }
 
   public boolean equals(i_movement a) {
-    return w_e_boneJNI.i_movement_equals(swigCPtr, this, i_movement.getCPtr(a), a);
+    return maeJNI.i_movement_equals(swigCPtr, this, i_movement.getCPtr(a), a);
   }
 
   public boolean symbol_equals(i_movement a) {
-    return w_e_boneJNI.i_movement_symbol_equals(swigCPtr, this, i_movement.getCPtr(a), a);
+    return maeJNI.i_movement_symbol_equals(swigCPtr, this, i_movement.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.i_movement_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return maeJNI.i_movement_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.i_movement_xml__SWIG_1(swigCPtr, this, indent);
+    return maeJNI.i_movement_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.i_movement_xml__SWIG_2(swigCPtr, this);
+    return maeJNI.i_movement_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(long im_width, long im_height, long max_column, long measures, long beats_per_measure) {
-    return w_e_boneJNI.i_movement_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
+    return maeJNI.i_movement_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
   }
 
   public i_movement recreate(int_int_map column_mapping, long measure, double beat, double duration) {
-    long cPtr = w_e_boneJNI.i_movement_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration);
+    long cPtr = maeJNI.i_movement_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration);
     return (cPtr == 0) ? null : new i_movement(cPtr, true);
   }
 
   public String str() {
-    return w_e_boneJNI.i_movement_str(swigCPtr, this);
+    return maeJNI.i_movement_str(swigCPtr, this);
   }
 
   public i_movement() {
-    this(w_e_boneJNI.new_i_movement(), true);
-    w_e_boneJNI.i_movement_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_i_movement(), true);
+    maeJNI.i_movement_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

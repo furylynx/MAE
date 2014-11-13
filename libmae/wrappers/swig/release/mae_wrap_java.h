@@ -8,8 +8,8 @@
  * interface file instead.
  * ----------------------------------------------------------------------------- */
 
-#ifndef SWIG_w_e_bone_WRAP_H_
-#define SWIG_w_e_bone_WRAP_H_
+#ifndef SWIG_mae_WRAP_H_
+#define SWIG_mae_WRAP_H_
 
 class SwigDirector_bone : public mae::bone, public Swig::Director {
 

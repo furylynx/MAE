@@ -13,7 +13,7 @@ public class i_limb extends i_part {
   private boolean swigCMemOwnDerived;
 
   protected i_limb(long cPtr, boolean cMemoryOwn) {
-    super(w_e_boneJNI.i_limb_SWIGSmartPtrUpcast(cPtr), true);
+    super(maeJNI.i_limb_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class i_limb extends i_part {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        w_e_boneJNI.delete_i_limb(swigCPtr);
+        maeJNI.delete_i_limb(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -44,37 +44,37 @@ public class i_limb extends i_part {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.i_limb_change_ownership(this, swigCPtr, false);
+    maeJNI.i_limb_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.i_limb_change_ownership(this, swigCPtr, true);
+    maeJNI.i_limb_change_ownership(this, swigCPtr, true);
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.i_limb_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return maeJNI.i_limb_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.i_limb_xml__SWIG_1(swigCPtr, this, indent);
+    return maeJNI.i_limb_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.i_limb_xml__SWIG_2(swigCPtr, this);
+    return maeJNI.i_limb_xml__SWIG_2(swigCPtr, this);
   }
 
   public boolean equals(i_part a) {
-    return w_e_boneJNI.i_limb_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
+    return maeJNI.i_limb_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
   public boolean equals(i_limb a) {
-    return w_e_boneJNI.i_limb_equals__SWIG_1(swigCPtr, this, i_limb.getCPtr(a), a);
+    return maeJNI.i_limb_equals__SWIG_1(swigCPtr, this, i_limb.getCPtr(a), a);
   }
 
   public i_limb() {
-    this(w_e_boneJNI.new_i_limb(), true);
-    w_e_boneJNI.i_limb_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_i_limb(), true);
+    maeJNI.i_limb_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

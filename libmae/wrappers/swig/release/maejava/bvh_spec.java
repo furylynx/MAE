@@ -10,7 +10,7 @@ package maejava;
 
 public class bvh_spec {
   private long swigCPtr;
-  private boolean swigCMemOwn;
+  protected boolean swigCMemOwn;
 
   protected bvh_spec(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -29,7 +29,7 @@ public class bvh_spec {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_bvh_spec(swigCPtr);
+        maeJNI.delete_bvh_spec(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,45 +42,45 @@ public class bvh_spec {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.bvh_spec_change_ownership(this, swigCPtr, false);
+    maeJNI.bvh_spec_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.bvh_spec_change_ownership(this, swigCPtr, true);
+    maeJNI.bvh_spec_change_ownership(this, swigCPtr, true);
   }
 
   public bvh_spec(String left_anchor, String right_anchor, String top_anchor, String bottom_anchor, string_int_map string_id_map, string_bool_map string_torso_map) {
-    this(w_e_boneJNI.new_bvh_spec(left_anchor, right_anchor, top_anchor, bottom_anchor, string_int_map.getCPtr(string_id_map), string_id_map, string_bool_map.getCPtr(string_torso_map), string_torso_map), true);
-    w_e_boneJNI.bvh_spec_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_bvh_spec(left_anchor, right_anchor, top_anchor, bottom_anchor, string_int_map.getCPtr(string_id_map), string_id_map, string_bool_map.getCPtr(string_torso_map), string_torso_map), true);
+    maeJNI.bvh_spec_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public string_int_map get_id_map() {
-    return new string_int_map((getClass() == bvh_spec.class) ? w_e_boneJNI.bvh_spec_get_id_map(swigCPtr, this) : w_e_boneJNI.bvh_spec_get_id_mapSwigExplicitbvh_spec(swigCPtr, this), true);
+    return new string_int_map((getClass() == bvh_spec.class) ? maeJNI.bvh_spec_get_id_map(swigCPtr, this) : maeJNI.bvh_spec_get_id_mapSwigExplicitbvh_spec(swigCPtr, this), true);
   }
 
   public string_bool_map get_torso_map() {
-    return new string_bool_map((getClass() == bvh_spec.class) ? w_e_boneJNI.bvh_spec_get_torso_map(swigCPtr, this) : w_e_boneJNI.bvh_spec_get_torso_mapSwigExplicitbvh_spec(swigCPtr, this), true);
+    return new string_bool_map((getClass() == bvh_spec.class) ? maeJNI.bvh_spec_get_torso_map(swigCPtr, this) : maeJNI.bvh_spec_get_torso_mapSwigExplicitbvh_spec(swigCPtr, this), true);
   }
 
   public String get_left_anchor() {
-    return (getClass() == bvh_spec.class) ? w_e_boneJNI.bvh_spec_get_left_anchor(swigCPtr, this) : w_e_boneJNI.bvh_spec_get_left_anchorSwigExplicitbvh_spec(swigCPtr, this);
+    return (getClass() == bvh_spec.class) ? maeJNI.bvh_spec_get_left_anchor(swigCPtr, this) : maeJNI.bvh_spec_get_left_anchorSwigExplicitbvh_spec(swigCPtr, this);
   }
 
   public String get_right_anchor() {
-    return (getClass() == bvh_spec.class) ? w_e_boneJNI.bvh_spec_get_right_anchor(swigCPtr, this) : w_e_boneJNI.bvh_spec_get_right_anchorSwigExplicitbvh_spec(swigCPtr, this);
+    return (getClass() == bvh_spec.class) ? maeJNI.bvh_spec_get_right_anchor(swigCPtr, this) : maeJNI.bvh_spec_get_right_anchorSwigExplicitbvh_spec(swigCPtr, this);
   }
 
   public String get_top_anchor() {
-    return (getClass() == bvh_spec.class) ? w_e_boneJNI.bvh_spec_get_top_anchor(swigCPtr, this) : w_e_boneJNI.bvh_spec_get_top_anchorSwigExplicitbvh_spec(swigCPtr, this);
+    return (getClass() == bvh_spec.class) ? maeJNI.bvh_spec_get_top_anchor(swigCPtr, this) : maeJNI.bvh_spec_get_top_anchorSwigExplicitbvh_spec(swigCPtr, this);
   }
 
   public String get_bottom_anchor() {
-    return (getClass() == bvh_spec.class) ? w_e_boneJNI.bvh_spec_get_bottom_anchor(swigCPtr, this) : w_e_boneJNI.bvh_spec_get_bottom_anchorSwigExplicitbvh_spec(swigCPtr, this);
+    return (getClass() == bvh_spec.class) ? maeJNI.bvh_spec_get_bottom_anchor(swigCPtr, this) : maeJNI.bvh_spec_get_bottom_anchorSwigExplicitbvh_spec(swigCPtr, this);
   }
 
   public static bvh_spec default_spec() {
-    long cPtr = w_e_boneJNI.bvh_spec_default_spec();
+    long cPtr = maeJNI.bvh_spec_default_spec();
     return (cPtr == 0) ? null : new bvh_spec(cPtr, true);
   }
 

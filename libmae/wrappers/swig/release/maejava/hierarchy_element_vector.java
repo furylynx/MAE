@@ -29,51 +29,51 @@ public class hierarchy_element_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_hierarchy_element_vector(swigCPtr);
+        maeJNI.delete_hierarchy_element_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public hierarchy_element_vector() {
-    this(w_e_boneJNI.new_hierarchy_element_vector__SWIG_0(), true);
+    this(maeJNI.new_hierarchy_element_vector__SWIG_0(), true);
   }
 
   public hierarchy_element_vector(long n) {
-    this(w_e_boneJNI.new_hierarchy_element_vector__SWIG_1(n), true);
+    this(maeJNI.new_hierarchy_element_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return w_e_boneJNI.hierarchy_element_vector_size(swigCPtr, this);
+    return maeJNI.hierarchy_element_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return w_e_boneJNI.hierarchy_element_vector_capacity(swigCPtr, this);
+    return maeJNI.hierarchy_element_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    w_e_boneJNI.hierarchy_element_vector_reserve(swigCPtr, this, n);
+    maeJNI.hierarchy_element_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return w_e_boneJNI.hierarchy_element_vector_isEmpty(swigCPtr, this);
+    return maeJNI.hierarchy_element_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    w_e_boneJNI.hierarchy_element_vector_clear(swigCPtr, this);
+    maeJNI.hierarchy_element_vector_clear(swigCPtr, this);
   }
 
   public void add(hierarchy_element x) {
-    w_e_boneJNI.hierarchy_element_vector_add(swigCPtr, this, hierarchy_element.getCPtr(x), x);
+    maeJNI.hierarchy_element_vector_add(swigCPtr, this, hierarchy_element.getCPtr(x), x);
   }
 
   public hierarchy_element get(int i) {
-    long cPtr = w_e_boneJNI.hierarchy_element_vector_get(swigCPtr, this, i);
+    long cPtr = maeJNI.hierarchy_element_vector_get(swigCPtr, this, i);
     return (cPtr == 0) ? null : new hierarchy_element(cPtr, true);
   }
 
   public void set(int i, hierarchy_element val) {
-    w_e_boneJNI.hierarchy_element_vector_set(swigCPtr, this, i, hierarchy_element.getCPtr(val), val);
+    maeJNI.hierarchy_element_vector_set(swigCPtr, this, i, hierarchy_element.getCPtr(val), val);
   }
 
 }

@@ -10,7 +10,7 @@ package maejava;
 
 public class i_symbol {
   private long swigCPtr;
-  private boolean swigCMemOwn;
+  protected boolean swigCMemOwn;
 
   protected i_symbol(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -29,7 +29,7 @@ public class i_symbol {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_i_symbol(swigCPtr);
+        maeJNI.delete_i_symbol(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,45 +42,45 @@ public class i_symbol {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.i_symbol_change_ownership(this, swigCPtr, false);
+    maeJNI.i_symbol_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.i_symbol_change_ownership(this, swigCPtr, true);
+    maeJNI.i_symbol_change_ownership(this, swigCPtr, true);
   }
 
   public boolean equals(i_symbol a) {
-    return w_e_boneJNI.i_symbol_equals(swigCPtr, this, i_symbol.getCPtr(a), a);
+    return maeJNI.i_symbol_equals(swigCPtr, this, i_symbol.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.i_symbol_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return maeJNI.i_symbol_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.i_symbol_xml__SWIG_1(swigCPtr, this, indent);
+    return maeJNI.i_symbol_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.i_symbol_xml__SWIG_2(swigCPtr, this);
+    return maeJNI.i_symbol_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return w_e_boneJNI.i_symbol_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return maeJNI.i_symbol_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return w_e_boneJNI.i_symbol_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return maeJNI.i_symbol_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public String str() {
-    return w_e_boneJNI.i_symbol_str(swigCPtr, this);
+    return maeJNI.i_symbol_str(swigCPtr, this);
   }
 
   public i_symbol() {
-    this(w_e_boneJNI.new_i_symbol(), true);
-    w_e_boneJNI.i_symbol_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_i_symbol(), true);
+    maeJNI.i_symbol_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

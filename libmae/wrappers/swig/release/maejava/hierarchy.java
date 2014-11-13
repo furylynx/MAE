@@ -10,7 +10,7 @@ package maejava;
 
 public class hierarchy {
   private long swigCPtr;
-  private boolean swigCMemOwn;
+  protected boolean swigCMemOwn;
 
   protected hierarchy(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -29,44 +29,44 @@ public class hierarchy {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_hierarchy(swigCPtr);
+        maeJNI.delete_hierarchy(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public hierarchy() {
-    this(w_e_boneJNI.new_hierarchy__SWIG_0(), true);
+    this(maeJNI.new_hierarchy__SWIG_0(), true);
   }
 
   public hierarchy(hierarchy_element root) {
-    this(w_e_boneJNI.new_hierarchy__SWIG_1(hierarchy_element.getCPtr(root), root), true);
+    this(maeJNI.new_hierarchy__SWIG_1(hierarchy_element.getCPtr(root), root), true);
   }
 
   public hierarchy_element get_root() {
-    long cPtr = w_e_boneJNI.hierarchy_get_root(swigCPtr, this);
+    long cPtr = maeJNI.hierarchy_get_root(swigCPtr, this);
     return (cPtr == 0) ? null : new hierarchy_element(cPtr, true);
   }
 
   public void set_root(hierarchy_element root) {
-    w_e_boneJNI.hierarchy_set_root(swigCPtr, this, hierarchy_element.getCPtr(root), root);
+    maeJNI.hierarchy_set_root(swigCPtr, this, hierarchy_element.getCPtr(root), root);
   }
 
   public hierarchy_element_vector get_element_sequence() {
-    return new hierarchy_element_vector(w_e_boneJNI.hierarchy_get_element_sequence(swigCPtr, this), true);
+    return new hierarchy_element_vector(maeJNI.hierarchy_get_element_sequence(swigCPtr, this), true);
   }
 
   public hierarchy_element at(int element_id) {
-    long cPtr = w_e_boneJNI.hierarchy_at(swigCPtr, this, element_id);
+    long cPtr = maeJNI.hierarchy_at(swigCPtr, this, element_id);
     return (cPtr == 0) ? null : new hierarchy_element(cPtr, true);
   }
 
   public String str() {
-    return w_e_boneJNI.hierarchy_str(swigCPtr, this);
+    return maeJNI.hierarchy_str(swigCPtr, this);
   }
 
   public static hierarchy default_hierarchy() {
-    long cPtr = w_e_boneJNI.hierarchy_default_hierarchy();
+    long cPtr = maeJNI.hierarchy_default_hierarchy();
     return (cPtr == 0) ? null : new hierarchy(cPtr, true);
   }
 

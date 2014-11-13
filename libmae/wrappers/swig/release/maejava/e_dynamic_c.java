@@ -29,26 +29,26 @@ public class e_dynamic_c {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_e_dynamic_c(swigCPtr);
+        maeJNI.delete_e_dynamic_c(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public static String str(e_dynamic dynamic) {
-    return w_e_boneJNI.e_dynamic_c_str(dynamic.swigValue());
+    return maeJNI.e_dynamic_c_str(dynamic.swigValue());
   }
 
   public static e_dynamic_vector vec() {
-    return new e_dynamic_vector(w_e_boneJNI.e_dynamic_c_vec(), true);
+    return new e_dynamic_vector(maeJNI.e_dynamic_c_vec(), true);
   }
 
   public static e_dynamic parse(String str) {
-    return e_dynamic.swigToEnum(w_e_boneJNI.e_dynamic_c_parse(str));
+    return e_dynamic.swigToEnum(maeJNI.e_dynamic_c_parse(str));
   }
 
   public e_dynamic_c() {
-    this(w_e_boneJNI.new_e_dynamic_c(), true);
+    this(maeJNI.new_e_dynamic_c(), true);
   }
 
 }

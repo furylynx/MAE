@@ -13,7 +13,7 @@ public class space_measurement extends i_degree_sign {
   private boolean swigCMemOwnDerived;
 
   protected space_measurement(long cPtr, boolean cMemoryOwn) {
-    super(w_e_boneJNI.space_measurement_SWIGSmartPtrUpcast(cPtr), true);
+    super(maeJNI.space_measurement_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class space_measurement extends i_degree_sign {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        w_e_boneJNI.delete_space_measurement(swigCPtr);
+        maeJNI.delete_space_measurement(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -44,66 +44,66 @@ public class space_measurement extends i_degree_sign {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.space_measurement_change_ownership(this, swigCPtr, false);
+    maeJNI.space_measurement_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.space_measurement_change_ownership(this, swigCPtr, true);
+    maeJNI.space_measurement_change_ownership(this, swigCPtr, true);
   }
 
   public space_measurement(e_space type, long degree, e_space_direction direction) {
-    this(w_e_boneJNI.new_space_measurement__SWIG_0(type.swigValue(), degree, direction.swigValue()), true);
-    w_e_boneJNI.space_measurement_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_space_measurement__SWIG_0(type.swigValue(), degree, direction.swigValue()), true);
+    maeJNI.space_measurement_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public space_measurement(e_space type, long degree) {
-    this(w_e_boneJNI.new_space_measurement__SWIG_1(type.swigValue(), degree), true);
-    w_e_boneJNI.space_measurement_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_space_measurement__SWIG_1(type.swigValue(), degree), true);
+    maeJNI.space_measurement_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public e_space get_type() {
-    return e_space.swigToEnum(w_e_boneJNI.space_measurement_get_type(swigCPtr, this));
+    return e_space.swigToEnum(maeJNI.space_measurement_get_type(swigCPtr, this));
   }
 
   public long get_degree() {
-    return w_e_boneJNI.space_measurement_get_degree(swigCPtr, this);
+    return maeJNI.space_measurement_get_degree(swigCPtr, this);
   }
 
   public e_space_direction get_direction() {
-    return e_space_direction.swigToEnum(w_e_boneJNI.space_measurement_get_direction(swigCPtr, this));
+    return e_space_direction.swigToEnum(maeJNI.space_measurement_get_direction(swigCPtr, this));
   }
 
   public boolean equals(i_degree_sign a) {
-    return (getClass() == space_measurement.class) ? w_e_boneJNI.space_measurement_equals(swigCPtr, this, i_degree_sign.getCPtr(a), a) : w_e_boneJNI.space_measurement_equalsSwigExplicitspace_measurement(swigCPtr, this, i_degree_sign.getCPtr(a), a);
+    return (getClass() == space_measurement.class) ? maeJNI.space_measurement_equals(swigCPtr, this, i_degree_sign.getCPtr(a), a) : maeJNI.space_measurement_equalsSwigExplicitspace_measurement(swigCPtr, this, i_degree_sign.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp, boolean print_type) {
-    return (getClass() == space_measurement.class) ? w_e_boneJNI.space_measurement_xml__SWIG_0(swigCPtr, this, indent, namesp, print_type) : w_e_boneJNI.space_measurement_xmlSwigExplicitspace_measurement__SWIG_0(swigCPtr, this, indent, namesp, print_type);
+    return (getClass() == space_measurement.class) ? maeJNI.space_measurement_xml__SWIG_0(swigCPtr, this, indent, namesp, print_type) : maeJNI.space_measurement_xmlSwigExplicitspace_measurement__SWIG_0(swigCPtr, this, indent, namesp, print_type);
   }
 
   public String xml(long indent, String namesp) {
-    return (getClass() == space_measurement.class) ? w_e_boneJNI.space_measurement_xml__SWIG_1(swigCPtr, this, indent, namesp) : w_e_boneJNI.space_measurement_xmlSwigExplicitspace_measurement__SWIG_1(swigCPtr, this, indent, namesp);
+    return (getClass() == space_measurement.class) ? maeJNI.space_measurement_xml__SWIG_1(swigCPtr, this, indent, namesp) : maeJNI.space_measurement_xmlSwigExplicitspace_measurement__SWIG_1(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return (getClass() == space_measurement.class) ? w_e_boneJNI.space_measurement_xml__SWIG_2(swigCPtr, this, indent) : w_e_boneJNI.space_measurement_xmlSwigExplicitspace_measurement__SWIG_2(swigCPtr, this, indent);
+    return (getClass() == space_measurement.class) ? maeJNI.space_measurement_xml__SWIG_2(swigCPtr, this, indent) : maeJNI.space_measurement_xmlSwigExplicitspace_measurement__SWIG_2(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return (getClass() == space_measurement.class) ? w_e_boneJNI.space_measurement_xml__SWIG_3(swigCPtr, this) : w_e_boneJNI.space_measurement_xmlSwigExplicitspace_measurement__SWIG_3(swigCPtr, this);
+    return (getClass() == space_measurement.class) ? maeJNI.space_measurement_xml__SWIG_3(swigCPtr, this) : maeJNI.space_measurement_xmlSwigExplicitspace_measurement__SWIG_3(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return (getClass() == space_measurement.class) ? w_e_boneJNI.space_measurement_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : w_e_boneJNI.space_measurement_svgSwigExplicitspace_measurement__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return (getClass() == space_measurement.class) ? maeJNI.space_measurement_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : maeJNI.space_measurement_svgSwigExplicitspace_measurement__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return (getClass() == space_measurement.class) ? w_e_boneJNI.space_measurement_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : w_e_boneJNI.space_measurement_svgSwigExplicitspace_measurement__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return (getClass() == space_measurement.class) ? maeJNI.space_measurement_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : maeJNI.space_measurement_svgSwigExplicitspace_measurement__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public String str() {
-    return (getClass() == space_measurement.class) ? w_e_boneJNI.space_measurement_str(swigCPtr, this) : w_e_boneJNI.space_measurement_strSwigExplicitspace_measurement(swigCPtr, this);
+    return (getClass() == space_measurement.class) ? maeJNI.space_measurement_str(swigCPtr, this) : maeJNI.space_measurement_strSwigExplicitspace_measurement(swigCPtr, this);
   }
 
 }
