@@ -13,7 +13,7 @@ public class vibration_symbol extends i_symbol {
   private boolean swigCMemOwnDerived;
 
   protected vibration_symbol(long cPtr, boolean cMemoryOwn) {
-    super(maeJNI.vibration_symbol_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaejavaJNI.vibration_symbol_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,79 +30,62 @@ public class vibration_symbol extends i_symbol {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        maeJNI.delete_vibration_symbol(swigCPtr);
+        MaejavaJNI.delete_vibration_symbol(swigCPtr);
       }
       swigCPtr = 0;
     }
     super.delete();
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.vibration_symbol_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.vibration_symbol_change_ownership(this, swigCPtr, true);
-  }
-
   public vibration_symbol(pin displacement1, pin displacement2, i_dynamics_sign dynamics) {
-    this(maeJNI.new_vibration_symbol__SWIG_0(pin.getCPtr(displacement1), displacement1, pin.getCPtr(displacement2), displacement2, i_dynamics_sign.getCPtr(dynamics), dynamics), true);
-    maeJNI.vibration_symbol_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_vibration_symbol__SWIG_0(pin.getCPtr(displacement1), displacement1, pin.getCPtr(displacement2), displacement2, i_dynamics_sign.getCPtr(dynamics), dynamics), true);
   }
 
   public vibration_symbol(pin displacement1, pin displacement2) {
-    this(maeJNI.new_vibration_symbol__SWIG_1(pin.getCPtr(displacement1), displacement1, pin.getCPtr(displacement2), displacement2), true);
-    maeJNI.vibration_symbol_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_vibration_symbol__SWIG_1(pin.getCPtr(displacement1), displacement1, pin.getCPtr(displacement2), displacement2), true);
   }
 
   public i_dynamics_sign get_dynamics() {
-    long cPtr = maeJNI.vibration_symbol_get_dynamics(swigCPtr, this);
+    long cPtr = MaejavaJNI.vibration_symbol_get_dynamics(swigCPtr, this);
     return (cPtr == 0) ? null : new i_dynamics_sign(cPtr, true);
   }
 
   public pin get_displacement1() {
-    long cPtr = maeJNI.vibration_symbol_get_displacement1(swigCPtr, this);
+    long cPtr = MaejavaJNI.vibration_symbol_get_displacement1(swigCPtr, this);
     return (cPtr == 0) ? null : new pin(cPtr, true);
   }
 
   public pin get_displacement2() {
-    long cPtr = maeJNI.vibration_symbol_get_displacement2(swigCPtr, this);
+    long cPtr = MaejavaJNI.vibration_symbol_get_displacement2(swigCPtr, this);
     return (cPtr == 0) ? null : new pin(cPtr, true);
   }
 
   public boolean equals(i_symbol a) {
-    return (getClass() == vibration_symbol.class) ? maeJNI.vibration_symbol_equals(swigCPtr, this, i_symbol.getCPtr(a), a) : maeJNI.vibration_symbol_equalsSwigExplicitvibration_symbol(swigCPtr, this, i_symbol.getCPtr(a), a);
+    return MaejavaJNI.vibration_symbol_equals(swigCPtr, this, i_symbol.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return (getClass() == vibration_symbol.class) ? maeJNI.vibration_symbol_xml__SWIG_0(swigCPtr, this, indent, namesp) : maeJNI.vibration_symbol_xmlSwigExplicitvibration_symbol__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaejavaJNI.vibration_symbol_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return (getClass() == vibration_symbol.class) ? maeJNI.vibration_symbol_xml__SWIG_1(swigCPtr, this, indent) : maeJNI.vibration_symbol_xmlSwigExplicitvibration_symbol__SWIG_1(swigCPtr, this, indent);
+    return MaejavaJNI.vibration_symbol_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return (getClass() == vibration_symbol.class) ? maeJNI.vibration_symbol_xml__SWIG_2(swigCPtr, this) : maeJNI.vibration_symbol_xmlSwigExplicitvibration_symbol__SWIG_2(swigCPtr, this);
+    return MaejavaJNI.vibration_symbol_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return (getClass() == vibration_symbol.class) ? maeJNI.vibration_symbol_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : maeJNI.vibration_symbol_svgSwigExplicitvibration_symbol__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaejavaJNI.vibration_symbol_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return (getClass() == vibration_symbol.class) ? maeJNI.vibration_symbol_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : maeJNI.vibration_symbol_svgSwigExplicitvibration_symbol__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaejavaJNI.vibration_symbol_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public String str() {
-    return (getClass() == vibration_symbol.class) ? maeJNI.vibration_symbol_str(swigCPtr, this) : maeJNI.vibration_symbol_strSwigExplicitvibration_symbol(swigCPtr, this);
+    return MaejavaJNI.vibration_symbol_str(swigCPtr, this);
   }
 
 }

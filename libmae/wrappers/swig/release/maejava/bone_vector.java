@@ -29,50 +29,50 @@ public class bone_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_bone_vector(swigCPtr);
+        MaejavaJNI.delete_bone_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public bone_vector() {
-    this(maeJNI.new_bone_vector__SWIG_0(), true);
+    this(MaejavaJNI.new_bone_vector__SWIG_0(), true);
   }
 
   public bone_vector(long n) {
-    this(maeJNI.new_bone_vector__SWIG_1(n), true);
+    this(MaejavaJNI.new_bone_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return maeJNI.bone_vector_size(swigCPtr, this);
+    return MaejavaJNI.bone_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return maeJNI.bone_vector_capacity(swigCPtr, this);
+    return MaejavaJNI.bone_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    maeJNI.bone_vector_reserve(swigCPtr, this, n);
+    MaejavaJNI.bone_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return maeJNI.bone_vector_isEmpty(swigCPtr, this);
+    return MaejavaJNI.bone_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    maeJNI.bone_vector_clear(swigCPtr, this);
+    MaejavaJNI.bone_vector_clear(swigCPtr, this);
   }
 
   public void add(bone x) {
-    maeJNI.bone_vector_add(swigCPtr, this, bone.getCPtr(x), x);
+    MaejavaJNI.bone_vector_add(swigCPtr, this, bone.getCPtr(x), x);
   }
 
   public bone get(int i) {
-    return new bone(maeJNI.bone_vector_get(swigCPtr, this, i), true);
+    return new bone(MaejavaJNI.bone_vector_get(swigCPtr, this, i), true);
   }
 
   public void set(int i, bone val) {
-    maeJNI.bone_vector_set(swigCPtr, this, i, bone.getCPtr(val), val);
+    MaejavaJNI.bone_vector_set(swigCPtr, this, i, bone.getCPtr(val), val);
   }
 
 }

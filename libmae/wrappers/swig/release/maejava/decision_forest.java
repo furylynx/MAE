@@ -29,132 +29,107 @@ public class decision_forest {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_decision_forest(swigCPtr);
+        MaejavaJNI.delete_decision_forest(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.decision_forest_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.decision_forest_change_ownership(this, swigCPtr, true);
-  }
-
   public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate, i_movement_decision_maker dec_maker, rewriting_forest rw, boolean cooldown) {
-    this(maeJNI.new_decision_forest__SWIG_0(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, i_movement_decision_maker.getCPtr(dec_maker), rewriting_forest.getCPtr(rw), rw, cooldown), true);
-    maeJNI.decision_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_decision_forest__SWIG_0(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, i_movement_decision_maker.getCPtr(dec_maker), rewriting_forest.getCPtr(rw), rw, cooldown), true);
   }
 
   public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate, i_movement_decision_maker dec_maker, rewriting_forest rw) {
-    this(maeJNI.new_decision_forest__SWIG_1(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, i_movement_decision_maker.getCPtr(dec_maker), rewriting_forest.getCPtr(rw), rw), true);
-    maeJNI.decision_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_decision_forest__SWIG_1(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, i_movement_decision_maker.getCPtr(dec_maker), rewriting_forest.getCPtr(rw), rw), true);
   }
 
   public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate, i_movement_decision_maker dec_maker) {
-    this(maeJNI.new_decision_forest__SWIG_2(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, i_movement_decision_maker.getCPtr(dec_maker)), true);
-    maeJNI.decision_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_decision_forest__SWIG_2(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, i_movement_decision_maker.getCPtr(dec_maker)), true);
   }
 
   public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate) {
-    this(maeJNI.new_decision_forest__SWIG_3(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate), true);
-    maeJNI.decision_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_decision_forest__SWIG_3(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate), true);
   }
 
   public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration, e_time_unit time_unit) {
-    this(maeJNI.new_decision_forest__SWIG_4(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue()), true);
-    maeJNI.decision_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_decision_forest__SWIG_4(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue()), true);
   }
 
   public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure, long beat_duration) {
-    this(maeJNI.new_decision_forest__SWIG_5(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration), true);
-    maeJNI.decision_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_decision_forest__SWIG_5(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration), true);
   }
 
   public decision_forest(coldef_vector column_definitions, int_vector reserved_columns, long beats_per_measure) {
-    this(maeJNI.new_decision_forest__SWIG_6(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure), true);
-    maeJNI.decision_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_decision_forest__SWIG_6(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns, beats_per_measure), true);
   }
 
   public decision_forest(coldef_vector column_definitions, int_vector reserved_columns) {
-    this(maeJNI.new_decision_forest__SWIG_7(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns), true);
-    maeJNI.decision_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_decision_forest__SWIG_7(coldef_vector.getCPtr(column_definitions), column_definitions, int_vector.getCPtr(reserved_columns), reserved_columns), true);
   }
 
   public decision_forest(coldef_vector column_definitions) {
-    this(maeJNI.new_decision_forest__SWIG_8(coldef_vector.getCPtr(column_definitions), column_definitions), true);
-    maeJNI.decision_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_decision_forest__SWIG_8(coldef_vector.getCPtr(column_definitions), column_definitions), true);
   }
 
   public decision_forest() {
-    this(maeJNI.new_decision_forest__SWIG_9(), true);
-    maeJNI.decision_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_decision_forest__SWIG_9(), true);
   }
 
   public void set_recognition_tolerance(double tolerance) {
-    if (getClass() == decision_forest.class) maeJNI.decision_forest_set_recognition_tolerance(swigCPtr, this, tolerance); else maeJNI.decision_forest_set_recognition_toleranceSwigExplicitdecision_forest(swigCPtr, this, tolerance);
+    MaejavaJNI.decision_forest_set_recognition_tolerance(swigCPtr, this, tolerance);
   }
 
   public void set_cooldown(boolean cooldown) {
-    if (getClass() == decision_forest.class) maeJNI.decision_forest_set_cooldown(swigCPtr, this, cooldown); else maeJNI.decision_forest_set_cooldownSwigExplicitdecision_forest(swigCPtr, this, cooldown);
+    MaejavaJNI.decision_forest_set_cooldown(swigCPtr, this, cooldown);
   }
 
   public boolean get_cooldown() {
-    return (getClass() == decision_forest.class) ? maeJNI.decision_forest_get_cooldown(swigCPtr, this) : maeJNI.decision_forest_get_cooldownSwigExplicitdecision_forest(swigCPtr, this);
+    return MaejavaJNI.decision_forest_get_cooldown(swigCPtr, this);
   }
 
   public int get_sequence_length(laban_sequence sequence) {
-    return (getClass() == decision_forest.class) ? maeJNI.decision_forest_get_sequence_length(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence) : maeJNI.decision_forest_get_sequence_lengthSwigExplicitdecision_forest(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    return MaejavaJNI.decision_forest_get_sequence_length(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public void add_sequence(laban_sequence sequence) {
-    if (getClass() == decision_forest.class) maeJNI.decision_forest_add_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence); else maeJNI.decision_forest_add_sequenceSwigExplicitdecision_forest(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    MaejavaJNI.decision_forest_add_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public boolean remove_sequence(laban_sequence sequence) {
-    return (getClass() == decision_forest.class) ? maeJNI.decision_forest_remove_sequence__SWIG_0(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence) : maeJNI.decision_forest_remove_sequenceSwigExplicitdecision_forest__SWIG_0(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    return MaejavaJNI.decision_forest_remove_sequence__SWIG_0(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public boolean remove_sequence(long list_index) {
-    return (getClass() == decision_forest.class) ? maeJNI.decision_forest_remove_sequence__SWIG_1(swigCPtr, this, list_index) : maeJNI.decision_forest_remove_sequenceSwigExplicitdecision_forest__SWIG_1(swigCPtr, this, list_index);
+    return MaejavaJNI.decision_forest_remove_sequence__SWIG_1(swigCPtr, this, list_index);
   }
 
   public void clear() {
-    if (getClass() == decision_forest.class) maeJNI.decision_forest_clear(swigCPtr, this); else maeJNI.decision_forest_clearSwigExplicitdecision_forest(swigCPtr, this);
+    MaejavaJNI.decision_forest_clear(swigCPtr, this);
   }
 
   public void add_rewriting_rule(i_mov_vector sequence, i_mov_vector_vector replacements) {
-    if (getClass() == decision_forest.class) maeJNI.decision_forest_add_rewriting_rule__SWIG_0(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence, i_mov_vector_vector.getCPtr(replacements)); else maeJNI.decision_forest_add_rewriting_ruleSwigExplicitdecision_forest__SWIG_0(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence, i_mov_vector_vector.getCPtr(replacements));
+    MaejavaJNI.decision_forest_add_rewriting_rule__SWIG_0(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence, i_mov_vector_vector.getCPtr(replacements));
   }
 
   public void add_rewriting_rule(i_mov_vector_vector_dec_val rule) {
-    if (getClass() == decision_forest.class) maeJNI.decision_forest_add_rewriting_rule__SWIG_1(swigCPtr, this, i_mov_vector_vector_dec_val.getCPtr(rule)); else maeJNI.decision_forest_add_rewriting_ruleSwigExplicitdecision_forest__SWIG_1(swigCPtr, this, i_mov_vector_vector_dec_val.getCPtr(rule));
+    MaejavaJNI.decision_forest_add_rewriting_rule__SWIG_1(swigCPtr, this, i_mov_vector_vector_dec_val.getCPtr(rule));
   }
 
   public laban_sequence recreate_sequence(laban_sequence sequence) {
-    long cPtr = maeJNI.decision_forest_recreate_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    long cPtr = MaejavaJNI.decision_forest_recreate_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
     return (cPtr == 0) ? null : new laban_sequence(cPtr, true);
   }
 
   public laban_sequence_list get_sequences() {
-    return new laban_sequence_list((getClass() == decision_forest.class) ? maeJNI.decision_forest_get_sequences(swigCPtr, this) : maeJNI.decision_forest_get_sequencesSwigExplicitdecision_forest(swigCPtr, this), true);
+    return new laban_sequence_list(MaejavaJNI.decision_forest_get_sequences(swigCPtr, this), true);
   }
 
   public laban_sequence_vector find_submatches(laban_sequence whole_sequence, bone_vector body_parts) {
-    return new laban_sequence_vector((getClass() == decision_forest.class) ? maeJNI.decision_forest_find_submatches(swigCPtr, this, laban_sequence.getCPtr(whole_sequence), whole_sequence, bone_vector.getCPtr(body_parts), body_parts) : maeJNI.decision_forest_find_submatchesSwigExplicitdecision_forest(swigCPtr, this, laban_sequence.getCPtr(whole_sequence), whole_sequence, bone_vector.getCPtr(body_parts), body_parts), true);
+    return new laban_sequence_vector(MaejavaJNI.decision_forest_find_submatches(swigCPtr, this, laban_sequence.getCPtr(whole_sequence), whole_sequence, bone_vector.getCPtr(body_parts), body_parts), true);
   }
 
   public String str() {
-    return (getClass() == decision_forest.class) ? maeJNI.decision_forest_str(swigCPtr, this) : maeJNI.decision_forest_strSwigExplicitdecision_forest(swigCPtr, this);
+    return MaejavaJNI.decision_forest_str(swigCPtr, this);
   }
 
 }

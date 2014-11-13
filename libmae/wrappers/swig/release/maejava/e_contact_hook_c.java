@@ -29,26 +29,26 @@ public class e_contact_hook_c {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_e_contact_hook_c(swigCPtr);
+        MaejavaJNI.delete_e_contact_hook_c(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public static String str(e_contact_hook hook) {
-    return maeJNI.e_contact_hook_c_str(hook.swigValue());
+    return MaejavaJNI.e_contact_hook_c_str(hook.swigValue());
   }
 
   public static e_contact_hook_vector vec() {
-    return new e_contact_hook_vector(maeJNI.e_contact_hook_c_vec(), true);
+    return new e_contact_hook_vector(MaejavaJNI.e_contact_hook_c_vec(), true);
   }
 
   public static e_contact_hook parse(String str) {
-    return e_contact_hook.swigToEnum(maeJNI.e_contact_hook_c_parse(str));
+    return e_contact_hook.swigToEnum(MaejavaJNI.e_contact_hook_c_parse(str));
   }
 
   public e_contact_hook_c() {
-    this(maeJNI.new_e_contact_hook_c(), true);
+    this(MaejavaJNI.new_e_contact_hook_c(), true);
   }
 
 }

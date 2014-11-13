@@ -29,34 +29,14 @@ public class laban_sequence_sequence_listener {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_laban_sequence_sequence_listener(swigCPtr);
+        MaejavaJNI.delete_laban_sequence_sequence_listener(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.laban_sequence_sequence_listener_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.laban_sequence_sequence_listener_change_ownership(this, swigCPtr, true);
-  }
-
   public void on_sequence(int timestamp, laban_sequence sequence) {
-    maeJNI.laban_sequence_sequence_listener_on_sequence(swigCPtr, this, timestamp, laban_sequence.getCPtr(sequence), sequence);
-  }
-
-  public laban_sequence_sequence_listener() {
-    this(maeJNI.new_laban_sequence_sequence_listener(), true);
-    maeJNI.laban_sequence_sequence_listener_director_connect(this, swigCPtr, swigCMemOwn, true);
+    MaejavaJNI.laban_sequence_sequence_listener_on_sequence(swigCPtr, this, timestamp, laban_sequence.getCPtr(sequence), sequence);
   }
 
 }

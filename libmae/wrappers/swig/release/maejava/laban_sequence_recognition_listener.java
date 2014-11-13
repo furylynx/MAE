@@ -29,7 +29,7 @@ public class laban_sequence_recognition_listener {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_laban_sequence_recognition_listener(swigCPtr);
+        MaejavaJNI.delete_laban_sequence_recognition_listener(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,25 +42,25 @@ public class laban_sequence_recognition_listener {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    maeJNI.laban_sequence_recognition_listener_change_ownership(this, swigCPtr, false);
+    MaejavaJNI.laban_sequence_recognition_listener_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    maeJNI.laban_sequence_recognition_listener_change_ownership(this, swigCPtr, true);
+    MaejavaJNI.laban_sequence_recognition_listener_change_ownership(this, swigCPtr, true);
   }
 
   public void on_recognition(int timestamp, laban_sequence_vector sequences) {
-    maeJNI.laban_sequence_recognition_listener_on_recognition__SWIG_0(swigCPtr, this, timestamp, laban_sequence_vector.getCPtr(sequences), sequences);
+    MaejavaJNI.laban_sequence_recognition_listener_on_recognition__SWIG_0(swigCPtr, this, timestamp, laban_sequence_vector.getCPtr(sequences), sequences);
   }
 
   public void on_recognition(int timestamp, string_vector title) {
-    maeJNI.laban_sequence_recognition_listener_on_recognition__SWIG_1(swigCPtr, this, timestamp, string_vector.getCPtr(title), title);
+    MaejavaJNI.laban_sequence_recognition_listener_on_recognition__SWIG_1(swigCPtr, this, timestamp, string_vector.getCPtr(title), title);
   }
 
   public laban_sequence_recognition_listener() {
-    this(maeJNI.new_laban_sequence_recognition_listener(), true);
-    maeJNI.laban_sequence_recognition_listener_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_laban_sequence_recognition_listener(), true);
+    MaejavaJNI.laban_sequence_recognition_listener_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

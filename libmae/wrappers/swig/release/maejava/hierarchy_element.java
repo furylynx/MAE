@@ -29,115 +29,115 @@ public class hierarchy_element {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_hierarchy_element(swigCPtr);
+        MaejavaJNI.delete_hierarchy_element(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public hierarchy_element(int id, String name, boolean torso_joint, boolean dummy) {
-    this(maeJNI.new_hierarchy_element__SWIG_0(id, name, torso_joint, dummy), true);
+    this(MaejavaJNI.new_hierarchy_element__SWIG_0(id, name, torso_joint, dummy), true);
   }
 
   public hierarchy_element(int id, String name, boolean torso_joint) {
-    this(maeJNI.new_hierarchy_element__SWIG_1(id, name, torso_joint), true);
+    this(MaejavaJNI.new_hierarchy_element__SWIG_1(id, name, torso_joint), true);
   }
 
   public hierarchy_element(int id, String name) {
-    this(maeJNI.new_hierarchy_element__SWIG_2(id, name), true);
+    this(MaejavaJNI.new_hierarchy_element__SWIG_2(id, name), true);
   }
 
   public int get_id() {
-    return maeJNI.hierarchy_element_get_id(swigCPtr, this);
+    return MaejavaJNI.hierarchy_element_get_id(swigCPtr, this);
   }
 
   public String get_name() {
-    return maeJNI.hierarchy_element_get_name(swigCPtr, this);
+    return MaejavaJNI.hierarchy_element_get_name(swigCPtr, this);
   }
 
   public boolean is_torso_joint() {
-    return maeJNI.hierarchy_element_is_torso_joint(swigCPtr, this);
+    return MaejavaJNI.hierarchy_element_is_torso_joint(swigCPtr, this);
   }
 
   public boolean is_dummy() {
-    return maeJNI.hierarchy_element_is_dummy(swigCPtr, this);
+    return MaejavaJNI.hierarchy_element_is_dummy(swigCPtr, this);
   }
 
   public hierarchy_element get_parent() {
-    long cPtr = maeJNI.hierarchy_element_get_parent(swigCPtr, this);
+    long cPtr = MaejavaJNI.hierarchy_element_get_parent(swigCPtr, this);
     return (cPtr == 0) ? null : new hierarchy_element(cPtr, true);
   }
 
   public boolean is_parent() {
-    return maeJNI.hierarchy_element_is_parent(swigCPtr, this);
+    return MaejavaJNI.hierarchy_element_is_parent(swigCPtr, this);
   }
 
   public boolean is_parent_of(int element_id) {
-    return maeJNI.hierarchy_element_is_parent_of(swigCPtr, this, element_id);
+    return MaejavaJNI.hierarchy_element_is_parent_of(swigCPtr, this, element_id);
   }
 
   public hierarchy_element_vector get_children() {
-    return new hierarchy_element_vector(maeJNI.hierarchy_element_get_children(swigCPtr, this), true);
+    return new hierarchy_element_vector(MaejavaJNI.hierarchy_element_get_children(swigCPtr, this), true);
   }
 
   public void push_front(hierarchy_element child, boolean fix_child) {
-    maeJNI.hierarchy_element_push_front__SWIG_0(swigCPtr, this, hierarchy_element.getCPtr(child), child, fix_child);
+    MaejavaJNI.hierarchy_element_push_front__SWIG_0(swigCPtr, this, hierarchy_element.getCPtr(child), child, fix_child);
   }
 
   public void push_front(hierarchy_element child) {
-    maeJNI.hierarchy_element_push_front__SWIG_1(swigCPtr, this, hierarchy_element.getCPtr(child), child);
+    MaejavaJNI.hierarchy_element_push_front__SWIG_1(swigCPtr, this, hierarchy_element.getCPtr(child), child);
   }
 
   public void insert(long pos, hierarchy_element child, boolean fix_child) {
-    maeJNI.hierarchy_element_insert__SWIG_0(swigCPtr, this, pos, hierarchy_element.getCPtr(child), child, fix_child);
+    MaejavaJNI.hierarchy_element_insert__SWIG_0(swigCPtr, this, pos, hierarchy_element.getCPtr(child), child, fix_child);
   }
 
   public void insert(long pos, hierarchy_element child) {
-    maeJNI.hierarchy_element_insert__SWIG_1(swigCPtr, this, pos, hierarchy_element.getCPtr(child), child);
+    MaejavaJNI.hierarchy_element_insert__SWIG_1(swigCPtr, this, pos, hierarchy_element.getCPtr(child), child);
   }
 
   public void push_back(hierarchy_element child, boolean fix_child) {
-    maeJNI.hierarchy_element_push_back__SWIG_0(swigCPtr, this, hierarchy_element.getCPtr(child), child, fix_child);
+    MaejavaJNI.hierarchy_element_push_back__SWIG_0(swigCPtr, this, hierarchy_element.getCPtr(child), child, fix_child);
   }
 
   public void push_back(hierarchy_element child) {
-    maeJNI.hierarchy_element_push_back__SWIG_1(swigCPtr, this, hierarchy_element.getCPtr(child), child);
+    MaejavaJNI.hierarchy_element_push_back__SWIG_1(swigCPtr, this, hierarchy_element.getCPtr(child), child);
   }
 
   public void erase(int element_id, boolean fix_child) {
-    maeJNI.hierarchy_element_erase__SWIG_0(swigCPtr, this, element_id, fix_child);
+    MaejavaJNI.hierarchy_element_erase__SWIG_0(swigCPtr, this, element_id, fix_child);
   }
 
   public void erase(int element_id) {
-    maeJNI.hierarchy_element_erase__SWIG_1(swigCPtr, this, element_id);
+    MaejavaJNI.hierarchy_element_erase__SWIG_1(swigCPtr, this, element_id);
   }
 
   public void erase_at(long i, boolean fix_child) {
-    maeJNI.hierarchy_element_erase_at__SWIG_0(swigCPtr, this, i, fix_child);
+    MaejavaJNI.hierarchy_element_erase_at__SWIG_0(swigCPtr, this, i, fix_child);
   }
 
   public void erase_at(long i) {
-    maeJNI.hierarchy_element_erase_at__SWIG_1(swigCPtr, this, i);
+    MaejavaJNI.hierarchy_element_erase_at__SWIG_1(swigCPtr, this, i);
   }
 
   public void clear(boolean fix_child) {
-    maeJNI.hierarchy_element_clear__SWIG_0(swigCPtr, this, fix_child);
+    MaejavaJNI.hierarchy_element_clear__SWIG_0(swigCPtr, this, fix_child);
   }
 
   public void clear() {
-    maeJNI.hierarchy_element_clear__SWIG_1(swigCPtr, this);
+    MaejavaJNI.hierarchy_element_clear__SWIG_1(swigCPtr, this);
   }
 
   public hierarchy_element_vector get_element_sequence() {
-    return new hierarchy_element_vector(maeJNI.hierarchy_element_get_element_sequence(swigCPtr, this), true);
+    return new hierarchy_element_vector(MaejavaJNI.hierarchy_element_get_element_sequence(swigCPtr, this), true);
   }
 
   public String str(int offset) {
-    return maeJNI.hierarchy_element_str__SWIG_0(swigCPtr, this, offset);
+    return MaejavaJNI.hierarchy_element_str__SWIG_0(swigCPtr, this, offset);
   }
 
   public String str() {
-    return maeJNI.hierarchy_element_str__SWIG_1(swigCPtr, this);
+    return MaejavaJNI.hierarchy_element_str__SWIG_1(swigCPtr, this);
   }
 
 }

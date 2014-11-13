@@ -29,51 +29,51 @@ public class coldef_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_coldef_vector(swigCPtr);
+        MaejavaJNI.delete_coldef_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public coldef_vector() {
-    this(maeJNI.new_coldef_vector__SWIG_0(), true);
+    this(MaejavaJNI.new_coldef_vector__SWIG_0(), true);
   }
 
   public coldef_vector(long n) {
-    this(maeJNI.new_coldef_vector__SWIG_1(n), true);
+    this(MaejavaJNI.new_coldef_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return maeJNI.coldef_vector_size(swigCPtr, this);
+    return MaejavaJNI.coldef_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return maeJNI.coldef_vector_capacity(swigCPtr, this);
+    return MaejavaJNI.coldef_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    maeJNI.coldef_vector_reserve(swigCPtr, this, n);
+    MaejavaJNI.coldef_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return maeJNI.coldef_vector_isEmpty(swigCPtr, this);
+    return MaejavaJNI.coldef_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    maeJNI.coldef_vector_clear(swigCPtr, this);
+    MaejavaJNI.coldef_vector_clear(swigCPtr, this);
   }
 
   public void add(column_definition x) {
-    maeJNI.coldef_vector_add(swigCPtr, this, column_definition.getCPtr(x), x);
+    MaejavaJNI.coldef_vector_add(swigCPtr, this, column_definition.getCPtr(x), x);
   }
 
   public column_definition get(int i) {
-    long cPtr = maeJNI.coldef_vector_get(swigCPtr, this, i);
+    long cPtr = MaejavaJNI.coldef_vector_get(swigCPtr, this, i);
     return (cPtr == 0) ? null : new column_definition(cPtr, true);
   }
 
   public void set(int i, column_definition val) {
-    maeJNI.coldef_vector_set(swigCPtr, this, i, column_definition.getCPtr(val), val);
+    MaejavaJNI.coldef_vector_set(swigCPtr, this, i, column_definition.getCPtr(val), val);
   }
 
 }

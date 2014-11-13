@@ -2,11 +2,12 @@
 
 
 %ignore operator<<;
-%feature("director"); 
+//TODO uncomment and handle shared_ptr SWIG dummy classes...
+//%feature("director"); 
 #pragma SWIG nowarn=302  
 
 //generate the top-level module
-%module(directors="1") mae
+%module(directors="1") Maejava
 %{
 
 %}
