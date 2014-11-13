@@ -29,50 +29,30 @@ public class i_movement_decision_maker {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_i_movement_decision_maker(swigCPtr);
+        MaejavaJNI.delete_i_movement_decision_maker(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.i_movement_decision_maker_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.i_movement_decision_maker_change_ownership(this, swigCPtr, true);
-  }
-
   public void set_recognition_tolerance(double tolerance) {
-    maeJNI.i_movement_decision_maker_set_recognition_tolerance(swigCPtr, this, tolerance);
+    MaejavaJNI.i_movement_decision_maker_set_recognition_tolerance(swigCPtr, this, tolerance);
   }
 
   public double get_recognition_tolerance() {
-    return maeJNI.i_movement_decision_maker_get_recognition_tolerance(swigCPtr, this);
+    return MaejavaJNI.i_movement_decision_maker_get_recognition_tolerance(swigCPtr, this);
   }
 
   public boolean decide_match(i_movement stream_item, i_movement stream_item_predecessor, i_movement tree_item, i_movement tree_item_predecessor) {
-    return maeJNI.i_movement_decision_maker_decide_match(swigCPtr, this, i_movement.getCPtr(stream_item), stream_item, i_movement.getCPtr(stream_item_predecessor), stream_item_predecessor, i_movement.getCPtr(tree_item), tree_item, i_movement.getCPtr(tree_item_predecessor), tree_item_predecessor);
+    return MaejavaJNI.i_movement_decision_maker_decide_match(swigCPtr, this, i_movement.getCPtr(stream_item), stream_item, i_movement.getCPtr(stream_item_predecessor), stream_item_predecessor, i_movement.getCPtr(tree_item), tree_item, i_movement.getCPtr(tree_item_predecessor), tree_item_predecessor);
   }
 
   public boolean decide_insertion(i_movement add_item, i_movement add_item_predecessor, i_movement tree_item, i_movement tree_item_predecessor) {
-    return maeJNI.i_movement_decision_maker_decide_insertion(swigCPtr, this, i_movement.getCPtr(add_item), add_item, i_movement.getCPtr(add_item_predecessor), add_item_predecessor, i_movement.getCPtr(tree_item), tree_item, i_movement.getCPtr(tree_item_predecessor), tree_item_predecessor);
+    return MaejavaJNI.i_movement_decision_maker_decide_insertion(swigCPtr, this, i_movement.getCPtr(add_item), add_item, i_movement.getCPtr(add_item_predecessor), add_item_predecessor, i_movement.getCPtr(tree_item), tree_item, i_movement.getCPtr(tree_item_predecessor), tree_item_predecessor);
   }
 
   public boolean position_okay(double dist_to_last, double set_value, boolean check_startpose) {
-    return maeJNI.i_movement_decision_maker_position_okay(swigCPtr, this, dist_to_last, set_value, check_startpose);
-  }
-
-  public i_movement_decision_maker() {
-    this(maeJNI.new_i_movement_decision_maker(), true);
-    maeJNI.i_movement_decision_maker_director_connect(this, swigCPtr, swigCMemOwn, true);
+    return MaejavaJNI.i_movement_decision_maker_position_okay(swigCPtr, this, dist_to_last, set_value, check_startpose);
   }
 
 }

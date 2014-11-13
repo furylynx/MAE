@@ -29,34 +29,14 @@ public class i_pose_listener {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_i_pose_listener(swigCPtr);
+        MaejavaJNI.delete_i_pose_listener(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.i_pose_listener_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.i_pose_listener_change_ownership(this, swigCPtr, true);
-  }
-
   public void on_pose(int timestamp, general_pose pose) {
-    maeJNI.i_pose_listener_on_pose(swigCPtr, this, timestamp, general_pose.getCPtr(pose), pose);
-  }
-
-  public i_pose_listener() {
-    this(maeJNI.new_i_pose_listener(), true);
-    maeJNI.i_pose_listener_director_connect(this, swigCPtr, swigCMemOwn, true);
+    MaejavaJNI.i_pose_listener_on_pose(swigCPtr, this, timestamp, general_pose.getCPtr(pose), pose);
   }
 
 }

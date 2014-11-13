@@ -9,6 +9,7 @@
 %include "std_map.i"
 %include "exception.i"
 
+%feature("director") mae::fl::bvh_spec; 
 
 //module definition
 %module(directors="1") w_bvh_spec

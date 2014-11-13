@@ -29,30 +29,30 @@ public class e_bone_c {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_e_bone_c(swigCPtr);
+        MaejavaJNI.delete_e_bone_c(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public static String str(e_bone bone) {
-    return maeJNI.e_bone_c_str(bone.swigValue());
+    return MaejavaJNI.e_bone_c_str(bone.swigValue());
   }
 
   public static int to_int(e_bone bone) {
-    return maeJNI.e_bone_c_to_int(bone.swigValue());
+    return MaejavaJNI.e_bone_c_to_int(bone.swigValue());
   }
 
   public static e_bone_vector vec() {
-    return new e_bone_vector(maeJNI.e_bone_c_vec(), true);
+    return new e_bone_vector(MaejavaJNI.e_bone_c_vec(), true);
   }
 
   public static e_bone parse(String str) {
-    return e_bone.swigToEnum(maeJNI.e_bone_c_parse(str));
+    return e_bone.swigToEnum(MaejavaJNI.e_bone_c_parse(str));
   }
 
   public e_bone_c() {
-    this(maeJNI.new_e_bone_c(), true);
+    this(MaejavaJNI.new_e_bone_c(), true);
   }
 
 }

@@ -13,7 +13,7 @@ public class custom_limb extends i_limb {
   private boolean swigCMemOwnDerived;
 
   protected custom_limb(long cPtr, boolean cMemoryOwn) {
-    super(maeJNI.custom_limb_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaejavaJNI.custom_limb_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,74 +30,57 @@ public class custom_limb extends i_limb {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        maeJNI.delete_custom_limb(swigCPtr);
+        MaejavaJNI.delete_custom_limb(swigCPtr);
       }
       swigCPtr = 0;
     }
     super.delete();
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.custom_limb_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.custom_limb_change_ownership(this, swigCPtr, true);
-  }
-
   public custom_limb(i_endpoint extremity, i_endpoint fixed_end) {
-    this(maeJNI.new_custom_limb__SWIG_0(i_endpoint.getCPtr(extremity), extremity, i_endpoint.getCPtr(fixed_end), fixed_end), true);
-    maeJNI.custom_limb_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_custom_limb__SWIG_0(i_endpoint.getCPtr(extremity), extremity, i_endpoint.getCPtr(fixed_end), fixed_end), true);
   }
 
   public custom_limb(i_endpoint extremity) {
-    this(maeJNI.new_custom_limb__SWIG_1(i_endpoint.getCPtr(extremity), extremity), true);
-    maeJNI.custom_limb_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_custom_limb__SWIG_1(i_endpoint.getCPtr(extremity), extremity), true);
   }
 
   public i_endpoint get_fixed_end() {
-    long cPtr = maeJNI.custom_limb_get_fixed_end(swigCPtr, this);
+    long cPtr = MaejavaJNI.custom_limb_get_fixed_end(swigCPtr, this);
     return (cPtr == 0) ? null : new i_endpoint(cPtr, true);
   }
 
   public i_endpoint get_extremity() {
-    long cPtr = maeJNI.custom_limb_get_extremity(swigCPtr, this);
+    long cPtr = MaejavaJNI.custom_limb_get_extremity(swigCPtr, this);
     return (cPtr == 0) ? null : new i_endpoint(cPtr, true);
   }
 
   public String xml(long indent, String namesp) {
-    return (getClass() == custom_limb.class) ? maeJNI.custom_limb_xml__SWIG_0(swigCPtr, this, indent, namesp) : maeJNI.custom_limb_xmlSwigExplicitcustom_limb__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaejavaJNI.custom_limb_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return (getClass() == custom_limb.class) ? maeJNI.custom_limb_xml__SWIG_1(swigCPtr, this, indent) : maeJNI.custom_limb_xmlSwigExplicitcustom_limb__SWIG_1(swigCPtr, this, indent);
+    return MaejavaJNI.custom_limb_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return (getClass() == custom_limb.class) ? maeJNI.custom_limb_xml__SWIG_2(swigCPtr, this) : maeJNI.custom_limb_xmlSwigExplicitcustom_limb__SWIG_2(swigCPtr, this);
+    return MaejavaJNI.custom_limb_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return (getClass() == custom_limb.class) ? maeJNI.custom_limb_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : maeJNI.custom_limb_svgSwigExplicitcustom_limb__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaejavaJNI.custom_limb_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return (getClass() == custom_limb.class) ? maeJNI.custom_limb_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : maeJNI.custom_limb_svgSwigExplicitcustom_limb__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaejavaJNI.custom_limb_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public boolean equals(i_part a) {
-    return (getClass() == custom_limb.class) ? maeJNI.custom_limb_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a) : maeJNI.custom_limb_equalsSwigExplicitcustom_limb__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
+    return MaejavaJNI.custom_limb_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
   public boolean equals(i_limb a) {
-    return (getClass() == custom_limb.class) ? maeJNI.custom_limb_equals__SWIG_1(swigCPtr, this, i_limb.getCPtr(a), a) : maeJNI.custom_limb_equalsSwigExplicitcustom_limb__SWIG_1(swigCPtr, this, i_limb.getCPtr(a), a);
+    return MaejavaJNI.custom_limb_equals__SWIG_1(swigCPtr, this, i_limb.getCPtr(a), a);
   }
 
 }

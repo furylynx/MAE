@@ -29,62 +29,46 @@ public class general_pose {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_general_pose(swigCPtr);
+        MaejavaJNI.delete_general_pose(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.general_pose_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.general_pose_change_ownership(this, swigCPtr, true);
-  }
-
   public general_pose() {
-    this(maeJNI.new_general_pose(), true);
-    maeJNI.general_pose_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_general_pose(), true);
   }
 
   public void set_direction(int body_part, int direction) {
-    if (getClass() == general_pose.class) maeJNI.general_pose_set_direction(swigCPtr, this, body_part, direction); else maeJNI.general_pose_set_directionSwigExplicitgeneral_pose(swigCPtr, this, body_part, direction);
+    MaejavaJNI.general_pose_set_direction(swigCPtr, this, body_part, direction);
   }
 
   public int get_direction(int body_part) {
-    return (getClass() == general_pose.class) ? maeJNI.general_pose_get_direction(swigCPtr, this, body_part) : maeJNI.general_pose_get_directionSwigExplicitgeneral_pose(swigCPtr, this, body_part);
+    return MaejavaJNI.general_pose_get_direction(swigCPtr, this, body_part);
   }
 
   public void set_distance(int body_part, int direction, double distance) {
-    if (getClass() == general_pose.class) maeJNI.general_pose_set_distance(swigCPtr, this, body_part, direction, distance); else maeJNI.general_pose_set_distanceSwigExplicitgeneral_pose(swigCPtr, this, body_part, direction, distance);
+    MaejavaJNI.general_pose_set_distance(swigCPtr, this, body_part, direction, distance);
   }
 
   public double get_distance(int body_part, int direction) {
-    return (getClass() == general_pose.class) ? maeJNI.general_pose_get_distance(swigCPtr, this, body_part, direction) : maeJNI.general_pose_get_distanceSwigExplicitgeneral_pose(swigCPtr, this, body_part, direction);
+    return MaejavaJNI.general_pose_get_distance(swigCPtr, this, body_part, direction);
   }
 
   public void set_rotation(int body_part, double rotation) {
-    if (getClass() == general_pose.class) maeJNI.general_pose_set_rotation(swigCPtr, this, body_part, rotation); else maeJNI.general_pose_set_rotationSwigExplicitgeneral_pose(swigCPtr, this, body_part, rotation);
+    MaejavaJNI.general_pose_set_rotation(swigCPtr, this, body_part, rotation);
   }
 
   public double get_rotation(int body_part) {
-    return (getClass() == general_pose.class) ? maeJNI.general_pose_get_rotation(swigCPtr, this, body_part) : maeJNI.general_pose_get_rotationSwigExplicitgeneral_pose(swigCPtr, this, body_part);
+    return MaejavaJNI.general_pose_get_rotation(swigCPtr, this, body_part);
   }
 
   public int_list get_body_parts() {
-    return new int_list((getClass() == general_pose.class) ? maeJNI.general_pose_get_body_parts(swigCPtr, this) : maeJNI.general_pose_get_body_partsSwigExplicitgeneral_pose(swigCPtr, this), true);
+    return new int_list(MaejavaJNI.general_pose_get_body_parts(swigCPtr, this), true);
   }
 
   public int_list get_directions() {
-    return new int_list((getClass() == general_pose.class) ? maeJNI.general_pose_get_directions(swigCPtr, this) : maeJNI.general_pose_get_directionsSwigExplicitgeneral_pose(swigCPtr, this), true);
+    return new int_list(MaejavaJNI.general_pose_get_directions(swigCPtr, this), true);
   }
 
 }

@@ -13,7 +13,7 @@ public class area_part extends i_endpoint {
   private boolean swigCMemOwnDerived;
 
   protected area_part(long cPtr, boolean cMemoryOwn) {
-    super(maeJNI.area_part_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaejavaJNI.area_part_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,68 +30,52 @@ public class area_part extends i_endpoint {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        maeJNI.delete_area_part(swigCPtr);
+        MaejavaJNI.delete_area_part(swigCPtr);
       }
       swigCPtr = 0;
     }
     super.delete();
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.area_part_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.area_part_change_ownership(this, swigCPtr, true);
-  }
-
   public area_part(e_area area) {
-    this(maeJNI.new_area_part(area.swigValue()), true);
-    maeJNI.area_part_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaejavaJNI.new_area_part(area.swigValue()), true);
   }
 
   public e_area get_area() {
-    return e_area.swigToEnum(maeJNI.area_part_get_area(swigCPtr, this));
+    return e_area.swigToEnum(MaejavaJNI.area_part_get_area(swigCPtr, this));
   }
 
   public String xml(long indent, String namesp) {
-    return (getClass() == area_part.class) ? maeJNI.area_part_xml__SWIG_0(swigCPtr, this, indent, namesp) : maeJNI.area_part_xmlSwigExplicitarea_part__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaejavaJNI.area_part_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return (getClass() == area_part.class) ? maeJNI.area_part_xml__SWIG_1(swigCPtr, this, indent) : maeJNI.area_part_xmlSwigExplicitarea_part__SWIG_1(swigCPtr, this, indent);
+    return MaejavaJNI.area_part_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return (getClass() == area_part.class) ? maeJNI.area_part_xml__SWIG_2(swigCPtr, this) : maeJNI.area_part_xmlSwigExplicitarea_part__SWIG_2(swigCPtr, this);
+    return MaejavaJNI.area_part_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return (getClass() == area_part.class) ? maeJNI.area_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : maeJNI.area_part_svgSwigExplicitarea_part__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaejavaJNI.area_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return (getClass() == area_part.class) ? maeJNI.area_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : maeJNI.area_part_svgSwigExplicitarea_part__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaejavaJNI.area_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public i_endpoint get_fixed_end() {
-    long cPtr = (getClass() == area_part.class) ? maeJNI.area_part_get_fixed_end(swigCPtr, this) : maeJNI.area_part_get_fixed_endSwigExplicitarea_part(swigCPtr, this);
+    long cPtr = MaejavaJNI.area_part_get_fixed_end(swigCPtr, this);
     return (cPtr == 0) ? null : new i_endpoint(cPtr, true);
   }
 
   public boolean equals(i_part a) {
-    return (getClass() == area_part.class) ? maeJNI.area_part_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a) : maeJNI.area_part_equalsSwigExplicitarea_part__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
+    return MaejavaJNI.area_part_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
   public boolean equals(i_endpoint a) {
-    return (getClass() == area_part.class) ? maeJNI.area_part_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a) : maeJNI.area_part_equalsSwigExplicitarea_part__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
+    return MaejavaJNI.area_part_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
   }
 
 }

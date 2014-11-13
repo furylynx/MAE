@@ -43,7 +43,7 @@
 %template (i_mov_vector_vector) std::vector<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > >;
 %template (i_mov_vector) std::vector<std::shared_ptr<mae::fl::laban::i_movement> >;
 %template (i_mov_vector_vector_dec_val) mae::fl::laban::decision_value<mae::fl::laban::i_movement, std::vector<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > >;
-%template (i_dec_maker) mae::fl::laban::i_decision_maker<mae::fl::laban::i_movement>;
+%template (i_movement_decision_maker) mae::fl::laban::i_decision_maker<mae::fl::laban::i_movement>;
 %template (coldef_vector) std::vector<std::shared_ptr<mae::fl::laban::column_definition> >;
 %template (laban_sequence_vector) std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> >;
 %template (laban_sequence_list) std::list<std::shared_ptr<mae::fl::laban::laban_sequence> >;

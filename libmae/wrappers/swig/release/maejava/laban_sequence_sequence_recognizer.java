@@ -29,54 +29,34 @@ public class laban_sequence_sequence_recognizer {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_laban_sequence_sequence_recognizer(swigCPtr);
+        MaejavaJNI.delete_laban_sequence_sequence_recognizer(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    maeJNI.laban_sequence_sequence_recognizer_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    maeJNI.laban_sequence_sequence_recognizer_change_ownership(this, swigCPtr, true);
-  }
-
   public void register_sequence(laban_sequence sequence) {
-    maeJNI.laban_sequence_sequence_recognizer_register_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    MaejavaJNI.laban_sequence_sequence_recognizer_register_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public boolean deregister_sequence(laban_sequence sequence) {
-    return maeJNI.laban_sequence_sequence_recognizer_deregister_sequence__SWIG_0(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    return MaejavaJNI.laban_sequence_sequence_recognizer_deregister_sequence__SWIG_0(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public boolean deregister_sequence(long list_index) {
-    return maeJNI.laban_sequence_sequence_recognizer_deregister_sequence__SWIG_1(swigCPtr, this, list_index);
+    return MaejavaJNI.laban_sequence_sequence_recognizer_deregister_sequence__SWIG_1(swigCPtr, this, list_index);
   }
 
   public void clear_registered_sequences() {
-    maeJNI.laban_sequence_sequence_recognizer_clear_registered_sequences(swigCPtr, this);
+    MaejavaJNI.laban_sequence_sequence_recognizer_clear_registered_sequences(swigCPtr, this);
   }
 
   public int get_sequence_length(laban_sequence sequence) {
-    return maeJNI.laban_sequence_sequence_recognizer_get_sequence_length(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    return MaejavaJNI.laban_sequence_sequence_recognizer_get_sequence_length(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public laban_sequence_vector recognize_sequence(laban_sequence sequence, bone_vector body_parts) {
-    return new laban_sequence_vector(maeJNI.laban_sequence_sequence_recognizer_recognize_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence, bone_vector.getCPtr(body_parts), body_parts), true);
-  }
-
-  public laban_sequence_sequence_recognizer() {
-    this(maeJNI.new_laban_sequence_sequence_recognizer(), true);
-    maeJNI.laban_sequence_sequence_recognizer_director_connect(this, swigCPtr, swigCMemOwn, true);
+    return new laban_sequence_vector(MaejavaJNI.laban_sequence_sequence_recognizer_recognize_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence, bone_vector.getCPtr(body_parts), body_parts), true);
   }
 
 }

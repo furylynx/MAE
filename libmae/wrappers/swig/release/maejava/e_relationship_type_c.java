@@ -29,26 +29,26 @@ public class e_relationship_type_c {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_e_relationship_type_c(swigCPtr);
+        MaejavaJNI.delete_e_relationship_type_c(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public static String str(e_relationship_type type) {
-    return maeJNI.e_relationship_type_c_str(type.swigValue());
+    return MaejavaJNI.e_relationship_type_c_str(type.swigValue());
   }
 
   public static e_relationship_type_vector vec() {
-    return new e_relationship_type_vector(maeJNI.e_relationship_type_c_vec(), true);
+    return new e_relationship_type_vector(MaejavaJNI.e_relationship_type_c_vec(), true);
   }
 
   public static e_relationship_type parse(String str) {
-    return e_relationship_type.swigToEnum(maeJNI.e_relationship_type_c_parse(str));
+    return e_relationship_type.swigToEnum(MaejavaJNI.e_relationship_type_c_parse(str));
   }
 
   public e_relationship_type_c() {
-    this(maeJNI.new_e_relationship_type_c(), true);
+    this(MaejavaJNI.new_e_relationship_type_c(), true);
   }
 
 }

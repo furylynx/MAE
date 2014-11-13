@@ -15,15 +15,13 @@
 	#include "../../../src/mae/math/vec3d.hpp"
 %}
 
-
-
 //shared_ptr
 %shared_ptr(mae::math::vec3d);
-
-//typemap
 
 // Parse the original header file
 %include "../../../src/mae/math/vec3d.hpp"
 
 //templates
-%rename(vec3d) std::shared_ptr<vec3d>;
+//...
+
+

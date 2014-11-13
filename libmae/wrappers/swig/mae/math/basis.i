@@ -9,8 +9,6 @@
 %include "std_string.i"
 %include "exception.i"
 
-//typemap
-%typemap(out) SWIGTYPE_p_std__shared_ptrT_mae__math__vec3d_t {vec3d};
 
 //module definition
 %module(directors="1") w_basis

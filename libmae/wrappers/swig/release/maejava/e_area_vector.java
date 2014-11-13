@@ -29,50 +29,50 @@ public class e_area_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        maeJNI.delete_e_area_vector(swigCPtr);
+        MaejavaJNI.delete_e_area_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public e_area_vector() {
-    this(maeJNI.new_e_area_vector__SWIG_0(), true);
+    this(MaejavaJNI.new_e_area_vector__SWIG_0(), true);
   }
 
   public e_area_vector(long n) {
-    this(maeJNI.new_e_area_vector__SWIG_1(n), true);
+    this(MaejavaJNI.new_e_area_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return maeJNI.e_area_vector_size(swigCPtr, this);
+    return MaejavaJNI.e_area_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return maeJNI.e_area_vector_capacity(swigCPtr, this);
+    return MaejavaJNI.e_area_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    maeJNI.e_area_vector_reserve(swigCPtr, this, n);
+    MaejavaJNI.e_area_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return maeJNI.e_area_vector_isEmpty(swigCPtr, this);
+    return MaejavaJNI.e_area_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    maeJNI.e_area_vector_clear(swigCPtr, this);
+    MaejavaJNI.e_area_vector_clear(swigCPtr, this);
   }
 
   public void add(e_area x) {
-    maeJNI.e_area_vector_add(swigCPtr, this, x.swigValue());
+    MaejavaJNI.e_area_vector_add(swigCPtr, this, x.swigValue());
   }
 
   public e_area get(int i) {
-    return e_area.swigToEnum(maeJNI.e_area_vector_get(swigCPtr, this, i));
+    return e_area.swigToEnum(MaejavaJNI.e_area_vector_get(swigCPtr, this, i));
   }
 
   public void set(int i, e_area val) {
-    maeJNI.e_area_vector_set(swigCPtr, this, i, val.swigValue());
+    MaejavaJNI.e_area_vector_set(swigCPtr, this, i, val.swigValue());
   }
 
 }
