@@ -19,7 +19,6 @@ public class MAEJavaSample
 		
 		fl_movement_controller movementController = new fl_movement_controller(bone.default_bones(), column_definition.default_definitions());
 		movementController.add_listener(new SequenceListener());
-
 		
 		bvh_controller bvhc = new bvh_controller();
 		

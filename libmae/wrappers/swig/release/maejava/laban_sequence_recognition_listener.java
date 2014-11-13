@@ -10,7 +10,7 @@ package maejava;
 
 public class laban_sequence_recognition_listener {
   private long swigCPtr;
-  protected boolean swigCMemOwn;
+  private boolean swigCMemOwn;
 
   protected laban_sequence_recognition_listener(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
