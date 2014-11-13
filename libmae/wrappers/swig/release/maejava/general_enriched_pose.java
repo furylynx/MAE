@@ -13,7 +13,7 @@ public class general_enriched_pose extends general_pose {
   private boolean swigCMemOwnDerived;
 
   protected general_enriched_pose(long cPtr, boolean cMemoryOwn) {
-    super(w_e_boneJNI.general_enriched_pose_SWIGSmartPtrUpcast(cPtr), true);
+    super(maeJNI.general_enriched_pose_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class general_enriched_pose extends general_pose {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        w_e_boneJNI.delete_general_enriched_pose(swigCPtr);
+        maeJNI.delete_general_enriched_pose(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -44,38 +44,38 @@ public class general_enriched_pose extends general_pose {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.general_enriched_pose_change_ownership(this, swigCPtr, false);
+    maeJNI.general_enriched_pose_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.general_enriched_pose_change_ownership(this, swigCPtr, true);
+    maeJNI.general_enriched_pose_change_ownership(this, swigCPtr, true);
   }
 
   public general_enriched_pose() {
-    this(w_e_boneJNI.new_general_enriched_pose__SWIG_0(), true);
-    w_e_boneJNI.general_enriched_pose_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_general_enriched_pose__SWIG_0(), true);
+    maeJNI.general_enriched_pose_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public general_enriched_pose(general_pose pose) {
-    this(w_e_boneJNI.new_general_enriched_pose__SWIG_1(general_pose.getCPtr(pose), pose), true);
-    w_e_boneJNI.general_enriched_pose_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_general_enriched_pose__SWIG_1(general_pose.getCPtr(pose), pose), true);
+    maeJNI.general_enriched_pose_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public void set_key_pose(int body_part, boolean is_key_pose) {
-    if (getClass() == general_enriched_pose.class) w_e_boneJNI.general_enriched_pose_set_key_pose(swigCPtr, this, body_part, is_key_pose); else w_e_boneJNI.general_enriched_pose_set_key_poseSwigExplicitgeneral_enriched_pose(swigCPtr, this, body_part, is_key_pose);
+    if (getClass() == general_enriched_pose.class) maeJNI.general_enriched_pose_set_key_pose(swigCPtr, this, body_part, is_key_pose); else maeJNI.general_enriched_pose_set_key_poseSwigExplicitgeneral_enriched_pose(swigCPtr, this, body_part, is_key_pose);
   }
 
   public boolean is_key_pose(int body_part) {
-    return (getClass() == general_enriched_pose.class) ? w_e_boneJNI.general_enriched_pose_is_key_pose(swigCPtr, this, body_part) : w_e_boneJNI.general_enriched_pose_is_key_poseSwigExplicitgeneral_enriched_pose(swigCPtr, this, body_part);
+    return (getClass() == general_enriched_pose.class) ? maeJNI.general_enriched_pose_is_key_pose(swigCPtr, this, body_part) : maeJNI.general_enriched_pose_is_key_poseSwigExplicitgeneral_enriched_pose(swigCPtr, this, body_part);
   }
 
   public void set_in_motion(int body_part, boolean is_in_motion) {
-    if (getClass() == general_enriched_pose.class) w_e_boneJNI.general_enriched_pose_set_in_motion(swigCPtr, this, body_part, is_in_motion); else w_e_boneJNI.general_enriched_pose_set_in_motionSwigExplicitgeneral_enriched_pose(swigCPtr, this, body_part, is_in_motion);
+    if (getClass() == general_enriched_pose.class) maeJNI.general_enriched_pose_set_in_motion(swigCPtr, this, body_part, is_in_motion); else maeJNI.general_enriched_pose_set_in_motionSwigExplicitgeneral_enriched_pose(swigCPtr, this, body_part, is_in_motion);
   }
 
   public boolean is_in_motion(int body_part) {
-    return (getClass() == general_enriched_pose.class) ? w_e_boneJNI.general_enriched_pose_is_in_motion(swigCPtr, this, body_part) : w_e_boneJNI.general_enriched_pose_is_in_motionSwigExplicitgeneral_enriched_pose(swigCPtr, this, body_part);
+    return (getClass() == general_enriched_pose.class) ? maeJNI.general_enriched_pose_is_in_motion(swigCPtr, this, body_part) : maeJNI.general_enriched_pose_is_in_motionSwigExplicitgeneral_enriched_pose(swigCPtr, this, body_part);
   }
 
 }

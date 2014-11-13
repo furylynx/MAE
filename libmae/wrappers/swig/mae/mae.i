@@ -1,9 +1,17 @@
  // mae.i - SWIG interface
 
+
 %ignore operator<<;
 %feature("director"); 
 #pragma SWIG nowarn=302  
 
+//generate the top-level module
+%module(directors="1") mae
+%{
+
+%}
+
+//include all that is required
 %include "fl/fl.i"
 
 //TODO define renaming rules in here

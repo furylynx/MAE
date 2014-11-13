@@ -10,7 +10,7 @@ package maejava;
 
 public class fl_skeleton_pose_detector {
   private long swigCPtr;
-  private boolean swigCMemOwn;
+  protected boolean swigCMemOwn;
 
   protected fl_skeleton_pose_detector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -29,7 +29,7 @@ public class fl_skeleton_pose_detector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_fl_skeleton_pose_detector(swigCPtr);
+        maeJNI.delete_fl_skeleton_pose_detector(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,22 +42,22 @@ public class fl_skeleton_pose_detector {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.fl_skeleton_pose_detector_change_ownership(this, swigCPtr, false);
+    maeJNI.fl_skeleton_pose_detector_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.fl_skeleton_pose_detector_change_ownership(this, swigCPtr, true);
+    maeJNI.fl_skeleton_pose_detector_change_ownership(this, swigCPtr, true);
   }
 
   public general_pose pose(fl_skeleton skeleton, bone_vector body_parts, general_pose previous_pose) {
-    long cPtr = w_e_boneJNI.fl_skeleton_pose_detector_pose(swigCPtr, this, fl_skeleton.getCPtr(skeleton), skeleton, bone_vector.getCPtr(body_parts), body_parts, general_pose.getCPtr(previous_pose), previous_pose);
+    long cPtr = maeJNI.fl_skeleton_pose_detector_pose(swigCPtr, this, fl_skeleton.getCPtr(skeleton), skeleton, bone_vector.getCPtr(body_parts), body_parts, general_pose.getCPtr(previous_pose), previous_pose);
     return (cPtr == 0) ? null : new general_pose(cPtr, true);
   }
 
   public fl_skeleton_pose_detector() {
-    this(w_e_boneJNI.new_fl_skeleton_pose_detector(), true);
-    w_e_boneJNI.fl_skeleton_pose_detector_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_fl_skeleton_pose_detector(), true);
+    maeJNI.fl_skeleton_pose_detector_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

@@ -8,7 +8,7 @@
 
 package maejava;
 
-public class w_e_boneJNI {
+public class maeJNI {
   public final static native int INVALID_BONE_get();
   public final static native int HEAD_get();
   public final static native int LEFT_UPPER_ARM_get();
@@ -218,9 +218,9 @@ public class w_e_boneJNI {
   public final static native long new_general_joint__SWIG_1(double jarg1, double jarg2, double jarg3, double jarg4, double jarg5);
   public final static native long new_general_joint__SWIG_2(double jarg1, double jarg2, double jarg3, double jarg4);
   public final static native long new_general_joint__SWIG_3(double jarg1, double jarg2, double jarg3);
-  public final static native long new_general_joint__SWIG_4(long jarg1, double jarg2, double jarg3);
-  public final static native long new_general_joint__SWIG_5(long jarg1, double jarg2);
-  public final static native long new_general_joint__SWIG_6(long jarg1);
+  public final static native long new_general_joint__SWIG_4(long jarg1, vec3d jarg1_, double jarg2, double jarg3);
+  public final static native long new_general_joint__SWIG_5(long jarg1, vec3d jarg1_, double jarg2);
+  public final static native long new_general_joint__SWIG_6(long jarg1, vec3d jarg1_);
   public final static native void general_joint_set_x(long jarg1, general_joint jarg1_, double jarg2);
   public final static native void general_joint_set_xSwigExplicitgeneral_joint(long jarg1, general_joint jarg1_, double jarg2);
   public final static native double general_joint_get_x(long jarg1, general_joint jarg1_);

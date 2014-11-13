@@ -13,7 +13,7 @@ public class i_endpoint extends i_part {
   private boolean swigCMemOwnDerived;
 
   protected i_endpoint(long cPtr, boolean cMemoryOwn) {
-    super(w_e_boneJNI.i_endpoint_SWIGSmartPtrUpcast(cPtr), true);
+    super(maeJNI.i_endpoint_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class i_endpoint extends i_part {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        w_e_boneJNI.delete_i_endpoint(swigCPtr);
+        maeJNI.delete_i_endpoint(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -44,42 +44,42 @@ public class i_endpoint extends i_part {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.i_endpoint_change_ownership(this, swigCPtr, false);
+    maeJNI.i_endpoint_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.i_endpoint_change_ownership(this, swigCPtr, true);
+    maeJNI.i_endpoint_change_ownership(this, swigCPtr, true);
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.i_endpoint_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return maeJNI.i_endpoint_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.i_endpoint_xml__SWIG_1(swigCPtr, this, indent);
+    return maeJNI.i_endpoint_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.i_endpoint_xml__SWIG_2(swigCPtr, this);
+    return maeJNI.i_endpoint_xml__SWIG_2(swigCPtr, this);
   }
 
   public i_endpoint get_fixed_end() {
-    long cPtr = w_e_boneJNI.i_endpoint_get_fixed_end(swigCPtr, this);
+    long cPtr = maeJNI.i_endpoint_get_fixed_end(swigCPtr, this);
     return (cPtr == 0) ? null : new i_endpoint(cPtr, true);
   }
 
   public boolean equals(i_part a) {
-    return w_e_boneJNI.i_endpoint_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
+    return maeJNI.i_endpoint_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
   public boolean equals(i_endpoint a) {
-    return w_e_boneJNI.i_endpoint_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
+    return maeJNI.i_endpoint_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
   }
 
   public i_endpoint() {
-    this(w_e_boneJNI.new_i_endpoint(), true);
-    w_e_boneJNI.i_endpoint_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_i_endpoint(), true);
+    maeJNI.i_endpoint_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

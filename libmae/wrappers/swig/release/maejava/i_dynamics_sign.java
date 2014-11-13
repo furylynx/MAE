@@ -10,7 +10,7 @@ package maejava;
 
 public class i_dynamics_sign {
   private long swigCPtr;
-  private boolean swigCMemOwn;
+  protected boolean swigCMemOwn;
 
   protected i_dynamics_sign(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -29,7 +29,7 @@ public class i_dynamics_sign {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_i_dynamics_sign(swigCPtr);
+        maeJNI.delete_i_dynamics_sign(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,33 +42,33 @@ public class i_dynamics_sign {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.i_dynamics_sign_change_ownership(this, swigCPtr, false);
+    maeJNI.i_dynamics_sign_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.i_dynamics_sign_change_ownership(this, swigCPtr, true);
+    maeJNI.i_dynamics_sign_change_ownership(this, swigCPtr, true);
   }
 
   public boolean equals(i_dynamics_sign a) {
-    return w_e_boneJNI.i_dynamics_sign_equals(swigCPtr, this, i_dynamics_sign.getCPtr(a), a);
+    return maeJNI.i_dynamics_sign_equals(swigCPtr, this, i_dynamics_sign.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return w_e_boneJNI.i_dynamics_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return maeJNI.i_dynamics_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return w_e_boneJNI.i_dynamics_sign_xml__SWIG_1(swigCPtr, this, indent);
+    return maeJNI.i_dynamics_sign_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return w_e_boneJNI.i_dynamics_sign_xml__SWIG_2(swigCPtr, this);
+    return maeJNI.i_dynamics_sign_xml__SWIG_2(swigCPtr, this);
   }
 
   public i_dynamics_sign() {
-    this(w_e_boneJNI.new_i_dynamics_sign(), true);
-    w_e_boneJNI.i_dynamics_sign_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_i_dynamics_sign(), true);
+    maeJNI.i_dynamics_sign_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

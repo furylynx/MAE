@@ -13,7 +13,7 @@ public class body_part extends i_pre_sign {
   private boolean swigCMemOwnDerived;
 
   protected body_part(long cPtr, boolean cMemoryOwn) {
-    super(w_e_boneJNI.body_part_SWIGSmartPtrUpcast(cPtr), true);
+    super(maeJNI.body_part_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class body_part extends i_pre_sign {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        w_e_boneJNI.delete_body_part(swigCPtr);
+        maeJNI.delete_body_part(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -44,50 +44,50 @@ public class body_part extends i_pre_sign {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.body_part_change_ownership(this, swigCPtr, false);
+    maeJNI.body_part_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.body_part_change_ownership(this, swigCPtr, true);
+    maeJNI.body_part_change_ownership(this, swigCPtr, true);
   }
 
   public body_part(e_side side, i_part part) {
-    this(w_e_boneJNI.new_body_part(side.swigValue(), i_part.getCPtr(part), part), true);
-    w_e_boneJNI.body_part_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_body_part(side.swigValue(), i_part.getCPtr(part), part), true);
+    maeJNI.body_part_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public e_side get_side() {
-    return e_side.swigToEnum(w_e_boneJNI.body_part_get_side(swigCPtr, this));
+    return e_side.swigToEnum(maeJNI.body_part_get_side(swigCPtr, this));
   }
 
   public i_part get_part() {
-    long cPtr = w_e_boneJNI.body_part_get_part(swigCPtr, this);
+    long cPtr = maeJNI.body_part_get_part(swigCPtr, this);
     return (cPtr == 0) ? null : new i_part(cPtr, true);
   }
 
   public String xml(long indent, String namesp) {
-    return (getClass() == body_part.class) ? w_e_boneJNI.body_part_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.body_part_xmlSwigExplicitbody_part__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == body_part.class) ? maeJNI.body_part_xml__SWIG_0(swigCPtr, this, indent, namesp) : maeJNI.body_part_xmlSwigExplicitbody_part__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return (getClass() == body_part.class) ? w_e_boneJNI.body_part_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.body_part_xmlSwigExplicitbody_part__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == body_part.class) ? maeJNI.body_part_xml__SWIG_1(swigCPtr, this, indent) : maeJNI.body_part_xmlSwigExplicitbody_part__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return (getClass() == body_part.class) ? w_e_boneJNI.body_part_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.body_part_xmlSwigExplicitbody_part__SWIG_2(swigCPtr, this);
+    return (getClass() == body_part.class) ? maeJNI.body_part_xml__SWIG_2(swigCPtr, this) : maeJNI.body_part_xmlSwigExplicitbody_part__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return (getClass() == body_part.class) ? w_e_boneJNI.body_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : w_e_boneJNI.body_part_svgSwigExplicitbody_part__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return (getClass() == body_part.class) ? maeJNI.body_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left) : maeJNI.body_part_svgSwigExplicitbody_part__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return (getClass() == body_part.class) ? w_e_boneJNI.body_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : w_e_boneJNI.body_part_svgSwigExplicitbody_part__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return (getClass() == body_part.class) ? maeJNI.body_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height) : maeJNI.body_part_svgSwigExplicitbody_part__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public boolean equals(i_pre_sign a) {
-    return (getClass() == body_part.class) ? w_e_boneJNI.body_part_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a) : w_e_boneJNI.body_part_equalsSwigExplicitbody_part(swigCPtr, this, i_pre_sign.getCPtr(a), a);
+    return (getClass() == body_part.class) ? maeJNI.body_part_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a) : maeJNI.body_part_equalsSwigExplicitbody_part(swigCPtr, this, i_pre_sign.getCPtr(a), a);
   }
 
 }

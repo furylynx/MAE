@@ -13,7 +13,7 @@ public class relationship_bow extends i_movement {
   private boolean swigCMemOwnDerived;
 
   protected relationship_bow(long cPtr, boolean cMemoryOwn) {
-    super(w_e_boneJNI.relationship_bow_SWIGSmartPtrUpcast(cPtr), true);
+    super(maeJNI.relationship_bow_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class relationship_bow extends i_movement {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        w_e_boneJNI.delete_relationship_bow(swigCPtr);
+        maeJNI.delete_relationship_bow(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -44,92 +44,92 @@ public class relationship_bow extends i_movement {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.relationship_bow_change_ownership(this, swigCPtr, false);
+    maeJNI.relationship_bow_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.relationship_bow_change_ownership(this, swigCPtr, true);
+    maeJNI.relationship_bow_change_ownership(this, swigCPtr, true);
   }
 
   public relationship_bow(e_relationship_type type, boolean grasping, boolean passing, boolean hold, long measure, double beat, relationship_endpoint left_endpoint, relationship_endpoint right_endpoint) {
-    this(w_e_boneJNI.new_relationship_bow(type.swigValue(), grasping, passing, hold, measure, beat, relationship_endpoint.getCPtr(left_endpoint), left_endpoint, relationship_endpoint.getCPtr(right_endpoint), right_endpoint), true);
-    w_e_boneJNI.relationship_bow_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_relationship_bow(type.swigValue(), grasping, passing, hold, measure, beat, relationship_endpoint.getCPtr(left_endpoint), left_endpoint, relationship_endpoint.getCPtr(right_endpoint), right_endpoint), true);
+    maeJNI.relationship_bow_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public e_relationship_type get_type() {
-    return e_relationship_type.swigToEnum(w_e_boneJNI.relationship_bow_get_type(swigCPtr, this));
+    return e_relationship_type.swigToEnum(maeJNI.relationship_bow_get_type(swigCPtr, this));
   }
 
   public boolean get_grasping() {
-    return w_e_boneJNI.relationship_bow_get_grasping(swigCPtr, this);
+    return maeJNI.relationship_bow_get_grasping(swigCPtr, this);
   }
 
   public boolean get_passing() {
-    return w_e_boneJNI.relationship_bow_get_passing(swigCPtr, this);
+    return maeJNI.relationship_bow_get_passing(swigCPtr, this);
   }
 
   public boolean get_hold() {
-    return w_e_boneJNI.relationship_bow_get_hold(swigCPtr, this);
+    return maeJNI.relationship_bow_get_hold(swigCPtr, this);
   }
 
   public relationship_endpoint get_left_endpoint() {
-    long cPtr = w_e_boneJNI.relationship_bow_get_left_endpoint(swigCPtr, this);
+    long cPtr = maeJNI.relationship_bow_get_left_endpoint(swigCPtr, this);
     return (cPtr == 0) ? null : new relationship_endpoint(cPtr, true);
   }
 
   public relationship_endpoint get_right_endpoint() {
-    long cPtr = w_e_boneJNI.relationship_bow_get_right_endpoint(swigCPtr, this);
+    long cPtr = maeJNI.relationship_bow_get_right_endpoint(swigCPtr, this);
     return (cPtr == 0) ? null : new relationship_endpoint(cPtr, true);
   }
 
   public int get_column() {
-    return (getClass() == relationship_bow.class) ? w_e_boneJNI.relationship_bow_get_column(swigCPtr, this) : w_e_boneJNI.relationship_bow_get_columnSwigExplicitrelationship_bow(swigCPtr, this);
+    return (getClass() == relationship_bow.class) ? maeJNI.relationship_bow_get_column(swigCPtr, this) : maeJNI.relationship_bow_get_columnSwigExplicitrelationship_bow(swigCPtr, this);
   }
 
   public long get_measure() {
-    return (getClass() == relationship_bow.class) ? w_e_boneJNI.relationship_bow_get_measure(swigCPtr, this) : w_e_boneJNI.relationship_bow_get_measureSwigExplicitrelationship_bow(swigCPtr, this);
+    return (getClass() == relationship_bow.class) ? maeJNI.relationship_bow_get_measure(swigCPtr, this) : maeJNI.relationship_bow_get_measureSwigExplicitrelationship_bow(swigCPtr, this);
   }
 
   public double get_beat() {
-    return (getClass() == relationship_bow.class) ? w_e_boneJNI.relationship_bow_get_beat(swigCPtr, this) : w_e_boneJNI.relationship_bow_get_beatSwigExplicitrelationship_bow(swigCPtr, this);
+    return (getClass() == relationship_bow.class) ? maeJNI.relationship_bow_get_beat(swigCPtr, this) : maeJNI.relationship_bow_get_beatSwigExplicitrelationship_bow(swigCPtr, this);
   }
 
   public double get_duration() {
-    return (getClass() == relationship_bow.class) ? w_e_boneJNI.relationship_bow_get_duration(swigCPtr, this) : w_e_boneJNI.relationship_bow_get_durationSwigExplicitrelationship_bow(swigCPtr, this);
+    return (getClass() == relationship_bow.class) ? maeJNI.relationship_bow_get_duration(swigCPtr, this) : maeJNI.relationship_bow_get_durationSwigExplicitrelationship_bow(swigCPtr, this);
   }
 
   public boolean equals(i_movement a) {
-    return (getClass() == relationship_bow.class) ? w_e_boneJNI.relationship_bow_equals(swigCPtr, this, i_movement.getCPtr(a), a) : w_e_boneJNI.relationship_bow_equalsSwigExplicitrelationship_bow(swigCPtr, this, i_movement.getCPtr(a), a);
+    return (getClass() == relationship_bow.class) ? maeJNI.relationship_bow_equals(swigCPtr, this, i_movement.getCPtr(a), a) : maeJNI.relationship_bow_equalsSwigExplicitrelationship_bow(swigCPtr, this, i_movement.getCPtr(a), a);
   }
 
   public boolean symbol_equals(i_movement a) {
-    return (getClass() == relationship_bow.class) ? w_e_boneJNI.relationship_bow_symbol_equals(swigCPtr, this, i_movement.getCPtr(a), a) : w_e_boneJNI.relationship_bow_symbol_equalsSwigExplicitrelationship_bow(swigCPtr, this, i_movement.getCPtr(a), a);
+    return (getClass() == relationship_bow.class) ? maeJNI.relationship_bow_symbol_equals(swigCPtr, this, i_movement.getCPtr(a), a) : maeJNI.relationship_bow_symbol_equalsSwigExplicitrelationship_bow(swigCPtr, this, i_movement.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return (getClass() == relationship_bow.class) ? w_e_boneJNI.relationship_bow_xml__SWIG_0(swigCPtr, this, indent, namesp) : w_e_boneJNI.relationship_bow_xmlSwigExplicitrelationship_bow__SWIG_0(swigCPtr, this, indent, namesp);
+    return (getClass() == relationship_bow.class) ? maeJNI.relationship_bow_xml__SWIG_0(swigCPtr, this, indent, namesp) : maeJNI.relationship_bow_xmlSwigExplicitrelationship_bow__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return (getClass() == relationship_bow.class) ? w_e_boneJNI.relationship_bow_xml__SWIG_1(swigCPtr, this, indent) : w_e_boneJNI.relationship_bow_xmlSwigExplicitrelationship_bow__SWIG_1(swigCPtr, this, indent);
+    return (getClass() == relationship_bow.class) ? maeJNI.relationship_bow_xml__SWIG_1(swigCPtr, this, indent) : maeJNI.relationship_bow_xmlSwigExplicitrelationship_bow__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return (getClass() == relationship_bow.class) ? w_e_boneJNI.relationship_bow_xml__SWIG_2(swigCPtr, this) : w_e_boneJNI.relationship_bow_xmlSwigExplicitrelationship_bow__SWIG_2(swigCPtr, this);
+    return (getClass() == relationship_bow.class) ? maeJNI.relationship_bow_xml__SWIG_2(swigCPtr, this) : maeJNI.relationship_bow_xmlSwigExplicitrelationship_bow__SWIG_2(swigCPtr, this);
   }
 
   public String svg(long im_width, long im_height, long max_column, long measures, long beats_per_measure) {
-    return (getClass() == relationship_bow.class) ? w_e_boneJNI.relationship_bow_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure) : w_e_boneJNI.relationship_bow_svgSwigExplicitrelationship_bow(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
+    return (getClass() == relationship_bow.class) ? maeJNI.relationship_bow_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure) : maeJNI.relationship_bow_svgSwigExplicitrelationship_bow(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
   }
 
   public i_movement recreate(int_int_map column_mapping, long measure, double beat, double duration) {
-    long cPtr = (getClass() == relationship_bow.class) ? w_e_boneJNI.relationship_bow_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration) : w_e_boneJNI.relationship_bow_recreateSwigExplicitrelationship_bow(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration);
+    long cPtr = (getClass() == relationship_bow.class) ? maeJNI.relationship_bow_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration) : maeJNI.relationship_bow_recreateSwigExplicitrelationship_bow(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration);
     return (cPtr == 0) ? null : new i_movement(cPtr, true);
   }
 
   public String str() {
-    return (getClass() == relationship_bow.class) ? w_e_boneJNI.relationship_bow_str(swigCPtr, this) : w_e_boneJNI.relationship_bow_strSwigExplicitrelationship_bow(swigCPtr, this);
+    return (getClass() == relationship_bow.class) ? maeJNI.relationship_bow_str(swigCPtr, this) : maeJNI.relationship_bow_strSwigExplicitrelationship_bow(swigCPtr, this);
   }
 
 }

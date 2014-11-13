@@ -10,7 +10,7 @@ package maejava;
 
 public class rewriting_forest {
   private long swigCPtr;
-  private boolean swigCMemOwn;
+  protected boolean swigCMemOwn;
 
   protected rewriting_forest(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -29,7 +29,7 @@ public class rewriting_forest {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_rewriting_forest(swigCPtr);
+        maeJNI.delete_rewriting_forest(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,86 +42,86 @@ public class rewriting_forest {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.rewriting_forest_change_ownership(this, swigCPtr, false);
+    maeJNI.rewriting_forest_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.rewriting_forest_change_ownership(this, swigCPtr, true);
+    maeJNI.rewriting_forest_change_ownership(this, swigCPtr, true);
   }
 
   public rewriting_forest(long beats_per_measure, long beat_duration, e_time_unit time_unit, double tolerance) {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_0(beats_per_measure, beat_duration, time_unit.swigValue(), tolerance), true);
-    w_e_boneJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_rewriting_forest__SWIG_0(beats_per_measure, beat_duration, time_unit.swigValue(), tolerance), true);
+    maeJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public rewriting_forest(long beats_per_measure, long beat_duration, e_time_unit time_unit) {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_1(beats_per_measure, beat_duration, time_unit.swigValue()), true);
-    w_e_boneJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_rewriting_forest__SWIG_1(beats_per_measure, beat_duration, time_unit.swigValue()), true);
+    maeJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public rewriting_forest(long beats_per_measure, long beat_duration) {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_2(beats_per_measure, beat_duration), true);
-    w_e_boneJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_rewriting_forest__SWIG_2(beats_per_measure, beat_duration), true);
+    maeJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public rewriting_forest(long beats_per_measure) {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_3(beats_per_measure), true);
-    w_e_boneJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_rewriting_forest__SWIG_3(beats_per_measure), true);
+    maeJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public rewriting_forest() {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_4(), true);
-    w_e_boneJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_rewriting_forest__SWIG_4(), true);
+    maeJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules, long beats_per_measure, long beat_duration, e_time_unit time_unit, double tolerance) {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_5(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration, time_unit.swigValue(), tolerance), true);
-    w_e_boneJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_rewriting_forest__SWIG_5(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration, time_unit.swigValue(), tolerance), true);
+    maeJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules, long beats_per_measure, long beat_duration, e_time_unit time_unit) {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_6(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration, time_unit.swigValue()), true);
-    w_e_boneJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_rewriting_forest__SWIG_6(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration, time_unit.swigValue()), true);
+    maeJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules, long beats_per_measure, long beat_duration) {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_7(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration), true);
-    w_e_boneJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_rewriting_forest__SWIG_7(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration), true);
+    maeJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules, long beats_per_measure) {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_8(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure), true);
-    w_e_boneJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_rewriting_forest__SWIG_8(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure), true);
+    maeJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules) {
-    this(w_e_boneJNI.new_rewriting_forest__SWIG_9(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules), true);
-    w_e_boneJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_rewriting_forest__SWIG_9(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules), true);
+    maeJNI.rewriting_forest_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public double get_tolerance() {
-    return (getClass() == rewriting_forest.class) ? w_e_boneJNI.rewriting_forest_get_tolerance(swigCPtr, this) : w_e_boneJNI.rewriting_forest_get_toleranceSwigExplicitrewriting_forest(swigCPtr, this);
+    return (getClass() == rewriting_forest.class) ? maeJNI.rewriting_forest_get_tolerance(swigCPtr, this) : maeJNI.rewriting_forest_get_toleranceSwigExplicitrewriting_forest(swigCPtr, this);
   }
 
   public void set_tolerance(double tolerance) {
-    if (getClass() == rewriting_forest.class) w_e_boneJNI.rewriting_forest_set_tolerance(swigCPtr, this, tolerance); else w_e_boneJNI.rewriting_forest_set_toleranceSwigExplicitrewriting_forest(swigCPtr, this, tolerance);
+    if (getClass() == rewriting_forest.class) maeJNI.rewriting_forest_set_tolerance(swigCPtr, this, tolerance); else maeJNI.rewriting_forest_set_toleranceSwigExplicitrewriting_forest(swigCPtr, this, tolerance);
   }
 
   public i_mov_vector_vector replacements(i_mov_vector sequence) {
-    return new i_mov_vector_vector((getClass() == rewriting_forest.class) ? w_e_boneJNI.rewriting_forest_replacements(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence) : w_e_boneJNI.rewriting_forest_replacementsSwigExplicitrewriting_forest(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence), true);
+    return new i_mov_vector_vector((getClass() == rewriting_forest.class) ? maeJNI.rewriting_forest_replacements(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence) : maeJNI.rewriting_forest_replacementsSwigExplicitrewriting_forest(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence), true);
   }
 
   public void add_rule(i_mov_vector sequence, i_mov_vector_vector replacements) {
-    if (getClass() == rewriting_forest.class) w_e_boneJNI.rewriting_forest_add_rule__SWIG_0(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence, i_mov_vector_vector.getCPtr(replacements)); else w_e_boneJNI.rewriting_forest_add_ruleSwigExplicitrewriting_forest__SWIG_0(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence, i_mov_vector_vector.getCPtr(replacements));
+    if (getClass() == rewriting_forest.class) maeJNI.rewriting_forest_add_rule__SWIG_0(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence, i_mov_vector_vector.getCPtr(replacements)); else maeJNI.rewriting_forest_add_ruleSwigExplicitrewriting_forest__SWIG_0(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence, i_mov_vector_vector.getCPtr(replacements));
   }
 
   public void add_rule(i_mov_vector_vector_dec_val rule) {
-    if (getClass() == rewriting_forest.class) w_e_boneJNI.rewriting_forest_add_rule__SWIG_1(swigCPtr, this, i_mov_vector_vector_dec_val.getCPtr(rule)); else w_e_boneJNI.rewriting_forest_add_ruleSwigExplicitrewriting_forest__SWIG_1(swigCPtr, this, i_mov_vector_vector_dec_val.getCPtr(rule));
+    if (getClass() == rewriting_forest.class) maeJNI.rewriting_forest_add_rule__SWIG_1(swigCPtr, this, i_mov_vector_vector_dec_val.getCPtr(rule)); else maeJNI.rewriting_forest_add_ruleSwigExplicitrewriting_forest__SWIG_1(swigCPtr, this, i_mov_vector_vector_dec_val.getCPtr(rule));
   }
 
   public String str() {
-    return (getClass() == rewriting_forest.class) ? w_e_boneJNI.rewriting_forest_str(swigCPtr, this) : w_e_boneJNI.rewriting_forest_strSwigExplicitrewriting_forest(swigCPtr, this);
+    return (getClass() == rewriting_forest.class) ? maeJNI.rewriting_forest_str(swigCPtr, this) : maeJNI.rewriting_forest_strSwigExplicitrewriting_forest(swigCPtr, this);
   }
 
 }

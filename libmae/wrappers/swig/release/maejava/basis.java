@@ -29,7 +29,7 @@ public class basis {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        w_e_boneJNI.delete_basis(swigCPtr);
+        maeJNI.delete_basis(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -42,62 +42,62 @@ public class basis {
 
   public void swigReleaseOwnership() {
     swigCMemOwn = false;
-    w_e_boneJNI.basis_change_ownership(this, swigCPtr, false);
+    maeJNI.basis_change_ownership(this, swigCPtr, false);
   }
 
   public void swigTakeOwnership() {
     swigCMemOwn = true;
-    w_e_boneJNI.basis_change_ownership(this, swigCPtr, true);
+    maeJNI.basis_change_ownership(this, swigCPtr, true);
   }
 
   public basis() {
-    this(w_e_boneJNI.new_basis__SWIG_0(), true);
-    w_e_boneJNI.basis_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_basis__SWIG_0(), true);
+    maeJNI.basis_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public basis(vec3d position_vector, vec3d u, vec3d r, vec3d t) {
-    this(w_e_boneJNI.new_basis__SWIG_1(vec3d.getCPtr(position_vector), position_vector, vec3d.getCPtr(u), u, vec3d.getCPtr(r), r, vec3d.getCPtr(t), t), true);
-    w_e_boneJNI.basis_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(maeJNI.new_basis__SWIG_1(vec3d.getCPtr(position_vector), position_vector, vec3d.getCPtr(u), u, vec3d.getCPtr(r), r, vec3d.getCPtr(t), t), true);
+    maeJNI.basis_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
   public vec3d get_u() {
-    long cPtr = (getClass() == basis.class) ? w_e_boneJNI.basis_get_u(swigCPtr, this) : w_e_boneJNI.basis_get_uSwigExplicitbasis(swigCPtr, this);
+    long cPtr = (getClass() == basis.class) ? maeJNI.basis_get_u(swigCPtr, this) : maeJNI.basis_get_uSwigExplicitbasis(swigCPtr, this);
     return (cPtr == 0) ? null : new vec3d(cPtr, true);
   }
 
   public vec3d get_r() {
-    long cPtr = (getClass() == basis.class) ? w_e_boneJNI.basis_get_r(swigCPtr, this) : w_e_boneJNI.basis_get_rSwigExplicitbasis(swigCPtr, this);
+    long cPtr = (getClass() == basis.class) ? maeJNI.basis_get_r(swigCPtr, this) : maeJNI.basis_get_rSwigExplicitbasis(swigCPtr, this);
     return (cPtr == 0) ? null : new vec3d(cPtr, true);
   }
 
   public vec3d get_t() {
-    long cPtr = (getClass() == basis.class) ? w_e_boneJNI.basis_get_t(swigCPtr, this) : w_e_boneJNI.basis_get_tSwigExplicitbasis(swigCPtr, this);
+    long cPtr = (getClass() == basis.class) ? maeJNI.basis_get_t(swigCPtr, this) : maeJNI.basis_get_tSwigExplicitbasis(swigCPtr, this);
     return (cPtr == 0) ? null : new vec3d(cPtr, true);
   }
 
   public vec3d get_position_vector() {
-    long cPtr = (getClass() == basis.class) ? w_e_boneJNI.basis_get_position_vector(swigCPtr, this) : w_e_boneJNI.basis_get_position_vectorSwigExplicitbasis(swigCPtr, this);
+    long cPtr = (getClass() == basis.class) ? maeJNI.basis_get_position_vector(swigCPtr, this) : maeJNI.basis_get_position_vectorSwigExplicitbasis(swigCPtr, this);
     return (cPtr == 0) ? null : new vec3d(cPtr, true);
   }
 
   public void set_u(vec3d u) {
-    if (getClass() == basis.class) w_e_boneJNI.basis_set_u(swigCPtr, this, vec3d.getCPtr(u), u); else w_e_boneJNI.basis_set_uSwigExplicitbasis(swigCPtr, this, vec3d.getCPtr(u), u);
+    if (getClass() == basis.class) maeJNI.basis_set_u(swigCPtr, this, vec3d.getCPtr(u), u); else maeJNI.basis_set_uSwigExplicitbasis(swigCPtr, this, vec3d.getCPtr(u), u);
   }
 
   public void set_r(vec3d r) {
-    if (getClass() == basis.class) w_e_boneJNI.basis_set_r(swigCPtr, this, vec3d.getCPtr(r), r); else w_e_boneJNI.basis_set_rSwigExplicitbasis(swigCPtr, this, vec3d.getCPtr(r), r);
+    if (getClass() == basis.class) maeJNI.basis_set_r(swigCPtr, this, vec3d.getCPtr(r), r); else maeJNI.basis_set_rSwigExplicitbasis(swigCPtr, this, vec3d.getCPtr(r), r);
   }
 
   public void set_t(vec3d t) {
-    if (getClass() == basis.class) w_e_boneJNI.basis_set_t(swigCPtr, this, vec3d.getCPtr(t), t); else w_e_boneJNI.basis_set_tSwigExplicitbasis(swigCPtr, this, vec3d.getCPtr(t), t);
+    if (getClass() == basis.class) maeJNI.basis_set_t(swigCPtr, this, vec3d.getCPtr(t), t); else maeJNI.basis_set_tSwigExplicitbasis(swigCPtr, this, vec3d.getCPtr(t), t);
   }
 
   public void set_position_vector(vec3d position_vector) {
-    if (getClass() == basis.class) w_e_boneJNI.basis_set_position_vector(swigCPtr, this, vec3d.getCPtr(position_vector), position_vector); else w_e_boneJNI.basis_set_position_vectorSwigExplicitbasis(swigCPtr, this, vec3d.getCPtr(position_vector), position_vector);
+    if (getClass() == basis.class) maeJNI.basis_set_position_vector(swigCPtr, this, vec3d.getCPtr(position_vector), position_vector); else maeJNI.basis_set_position_vectorSwigExplicitbasis(swigCPtr, this, vec3d.getCPtr(position_vector), position_vector);
   }
 
   public String str() {
-    return (getClass() == basis.class) ? w_e_boneJNI.basis_str(swigCPtr, this) : w_e_boneJNI.basis_strSwigExplicitbasis(swigCPtr, this);
+    return (getClass() == basis.class) ? maeJNI.basis_str(swigCPtr, this) : maeJNI.basis_strSwigExplicitbasis(swigCPtr, this);
   }
 
 }
