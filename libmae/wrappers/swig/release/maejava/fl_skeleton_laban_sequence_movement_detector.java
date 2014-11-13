@@ -10,7 +10,7 @@ package maejava;
 
 public class fl_skeleton_laban_sequence_movement_detector {
   private long swigCPtr;
-  private boolean swigCMemOwn;
+  protected boolean swigCMemOwn;
 
   protected fl_skeleton_laban_sequence_movement_detector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
@@ -50,8 +50,8 @@ public class fl_skeleton_laban_sequence_movement_detector {
     w_e_boneJNI.fl_skeleton_laban_sequence_movement_detector_change_ownership(this, swigCPtr, true);
   }
 
-  public laban_sequence detect_movement(int timestamp, double framerate, SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t skeleton, bone_vector body_parts) {
-    long cPtr = w_e_boneJNI.fl_skeleton_laban_sequence_movement_detector_detect_movement(swigCPtr, this, timestamp, framerate, SWIGTYPE_p_std__shared_ptrT_mae__fl__fl_skeleton_t.getCPtr(skeleton), bone_vector.getCPtr(body_parts), body_parts);
+  public laban_sequence detect_movement(int timestamp, double framerate, fl_skeleton skeleton, bone_vector body_parts) {
+    long cPtr = w_e_boneJNI.fl_skeleton_laban_sequence_movement_detector_detect_movement(swigCPtr, this, timestamp, framerate, fl_skeleton.getCPtr(skeleton), skeleton, bone_vector.getCPtr(body_parts), body_parts);
     return (cPtr == 0) ? null : new laban_sequence(cPtr, true);
   }
 

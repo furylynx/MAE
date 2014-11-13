@@ -31,5 +31,4 @@
 
 //templates
 %template (bone_vector) std::vector<mae::bone>;
-%template (fl_skeleton_laban_sequence_movement_controller) mae::movement_controller<mae::fl::fl_skeleton, mae::fl::laban::laban_sequence>;
- 
+

@@ -19,10 +19,6 @@
 
 //shared_ptr
 %shared_ptr(mae::general_enriched_pose)
-%shared_ptr(mae::i_sequence_generator);
-%shared_ptr(mae::i_sequence_generator<mae::fl::laban::laban_sequence>);
-%shared_ptr(mae::fl::laban::laban_sequence_generator);
-%shared_ptr(mae::fl::laban::laban_sequence);
 
 // Parse the original header file
 %include "../../../src/mae/i_sequence_generator.hpp"
@@ -30,5 +26,3 @@
 //templates
 %template (bone_vector) std::vector<mae::bone>;
 %template (enriched_pose_list) std::list<std::shared_ptr<mae::general_enriched_pose> >;
-%template (laban_sequence_sequence_generator) mae::i_sequence_generator<mae::fl::laban::laban_sequence>;
-
