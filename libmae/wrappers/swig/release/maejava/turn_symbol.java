@@ -13,7 +13,7 @@ public class turn_symbol extends i_symbol {
   private boolean swigCMemOwnDerived;
 
   public turn_symbol(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.turn_symbol_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.turn_symbol_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class turn_symbol extends i_symbol {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_turn_symbol(swigCPtr);
+        MaeJavaJNI.delete_turn_symbol(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,57 +38,57 @@ public class turn_symbol extends i_symbol {
   }
 
   public turn_symbol(e_turn_direction direction, i_dynamics_sign dynamics, i_degree_sign degree) {
-    this(MaejavaJNI.new_turn_symbol__SWIG_0(direction.swigValue(), i_dynamics_sign.getCPtr(dynamics), dynamics, i_degree_sign.getCPtr(degree), degree), true);
+    this(MaeJavaJNI.new_turn_symbol__SWIG_0(direction.swigValue(), i_dynamics_sign.getCPtr(dynamics), dynamics, i_degree_sign.getCPtr(degree), degree), true);
   }
 
   public turn_symbol(e_turn_direction direction, i_dynamics_sign dynamics) {
-    this(MaejavaJNI.new_turn_symbol__SWIG_1(direction.swigValue(), i_dynamics_sign.getCPtr(dynamics), dynamics), true);
+    this(MaeJavaJNI.new_turn_symbol__SWIG_1(direction.swigValue(), i_dynamics_sign.getCPtr(dynamics), dynamics), true);
   }
 
   public turn_symbol(e_turn_direction direction) {
-    this(MaejavaJNI.new_turn_symbol__SWIG_2(direction.swigValue()), true);
+    this(MaeJavaJNI.new_turn_symbol__SWIG_2(direction.swigValue()), true);
   }
 
   public e_turn_direction get_direction() {
-    return e_turn_direction.swigToEnum(MaejavaJNI.turn_symbol_get_direction(swigCPtr, this));
+    return e_turn_direction.swigToEnum(MaeJavaJNI.turn_symbol_get_direction(swigCPtr, this));
   }
 
   public i_dynamics_sign get_dynamics() {
-    long cPtr = MaejavaJNI.turn_symbol_get_dynamics(swigCPtr, this);
+    long cPtr = MaeJavaJNI.turn_symbol_get_dynamics(swigCPtr, this);
     return (cPtr == 0) ? null : new i_dynamics_sign(cPtr, true);
   }
 
   public i_degree_sign get_degree() {
-    long cPtr = MaejavaJNI.turn_symbol_get_degree(swigCPtr, this);
+    long cPtr = MaeJavaJNI.turn_symbol_get_degree(swigCPtr, this);
     return (cPtr == 0) ? null : new i_degree_sign(cPtr, true);
   }
 
   public boolean equals(i_symbol a) {
-    return MaejavaJNI.turn_symbol_equals(swigCPtr, this, i_symbol.getCPtr(a), a);
+    return MaeJavaJNI.turn_symbol_equals(swigCPtr, this, i_symbol.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.turn_symbol_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.turn_symbol_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.turn_symbol_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.turn_symbol_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.turn_symbol_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.turn_symbol_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return MaejavaJNI.turn_symbol_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaeJavaJNI.turn_symbol_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return MaejavaJNI.turn_symbol_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaeJavaJNI.turn_symbol_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public String str() {
-    return MaejavaJNI.turn_symbol_str(swigCPtr, this);
+    return MaeJavaJNI.turn_symbol_str(swigCPtr, this);
   }
 
 }

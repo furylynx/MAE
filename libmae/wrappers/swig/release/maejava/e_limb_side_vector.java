@@ -29,50 +29,50 @@ public class e_limb_side_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_e_limb_side_vector(swigCPtr);
+        MaeJavaJNI.delete_e_limb_side_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public e_limb_side_vector() {
-    this(MaejavaJNI.new_e_limb_side_vector__SWIG_0(), true);
+    this(MaeJavaJNI.new_e_limb_side_vector__SWIG_0(), true);
   }
 
   public e_limb_side_vector(long n) {
-    this(MaejavaJNI.new_e_limb_side_vector__SWIG_1(n), true);
+    this(MaeJavaJNI.new_e_limb_side_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return MaejavaJNI.e_limb_side_vector_size(swigCPtr, this);
+    return MaeJavaJNI.e_limb_side_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return MaejavaJNI.e_limb_side_vector_capacity(swigCPtr, this);
+    return MaeJavaJNI.e_limb_side_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    MaejavaJNI.e_limb_side_vector_reserve(swigCPtr, this, n);
+    MaeJavaJNI.e_limb_side_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return MaejavaJNI.e_limb_side_vector_isEmpty(swigCPtr, this);
+    return MaeJavaJNI.e_limb_side_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    MaejavaJNI.e_limb_side_vector_clear(swigCPtr, this);
+    MaeJavaJNI.e_limb_side_vector_clear(swigCPtr, this);
   }
 
   public void add(e_limb_side x) {
-    MaejavaJNI.e_limb_side_vector_add(swigCPtr, this, x.swigValue());
+    MaeJavaJNI.e_limb_side_vector_add(swigCPtr, this, x.swigValue());
   }
 
   public e_limb_side get(int i) {
-    return e_limb_side.swigToEnum(MaejavaJNI.e_limb_side_vector_get(swigCPtr, this, i));
+    return e_limb_side.swigToEnum(MaeJavaJNI.e_limb_side_vector_get(swigCPtr, this, i));
   }
 
   public void set(int i, e_limb_side val) {
-    MaejavaJNI.e_limb_side_vector_set(swigCPtr, this, i, val.swigValue());
+    MaeJavaJNI.e_limb_side_vector_set(swigCPtr, this, i, val.swigValue());
   }
 
 }

@@ -13,7 +13,7 @@ public class cancellation_symbol extends i_symbol {
   private boolean swigCMemOwnDerived;
 
   public cancellation_symbol(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.cancellation_symbol_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.cancellation_symbol_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class cancellation_symbol extends i_symbol {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_cancellation_symbol(swigCPtr);
+        MaeJavaJNI.delete_cancellation_symbol(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,39 +38,39 @@ public class cancellation_symbol extends i_symbol {
   }
 
   public cancellation_symbol(e_cancel cancel) {
-    this(MaejavaJNI.new_cancellation_symbol(cancel.swigValue()), true);
+    this(MaeJavaJNI.new_cancellation_symbol(cancel.swigValue()), true);
   }
 
   public e_cancel get_cancel() {
-    return e_cancel.swigToEnum(MaejavaJNI.cancellation_symbol_get_cancel(swigCPtr, this));
+    return e_cancel.swigToEnum(MaeJavaJNI.cancellation_symbol_get_cancel(swigCPtr, this));
   }
 
   public boolean equals(i_symbol a) {
-    return MaejavaJNI.cancellation_symbol_equals(swigCPtr, this, i_symbol.getCPtr(a), a);
+    return MaeJavaJNI.cancellation_symbol_equals(swigCPtr, this, i_symbol.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.cancellation_symbol_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.cancellation_symbol_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.cancellation_symbol_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.cancellation_symbol_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.cancellation_symbol_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.cancellation_symbol_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return MaejavaJNI.cancellation_symbol_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaeJavaJNI.cancellation_symbol_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return MaejavaJNI.cancellation_symbol_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaeJavaJNI.cancellation_symbol_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public String str() {
-    return MaejavaJNI.cancellation_symbol_str(swigCPtr, this);
+    return MaeJavaJNI.cancellation_symbol_str(swigCPtr, this);
   }
 
 }

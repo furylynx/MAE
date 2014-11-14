@@ -29,75 +29,75 @@ public class general_skeleton {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_general_skeleton(swigCPtr);
+        MaeJavaJNI.delete_general_skeleton(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public general_skeleton() {
-    this(MaejavaJNI.new_general_skeleton__SWIG_0(), true);
+    this(MaeJavaJNI.new_general_skeleton__SWIG_0(), true);
   }
 
   public general_skeleton(hierarchy hierarchy) {
-    this(MaejavaJNI.new_general_skeleton__SWIG_1(hierarchy.getCPtr(hierarchy), hierarchy), true);
+    this(MaeJavaJNI.new_general_skeleton__SWIG_1(hierarchy.getCPtr(hierarchy), hierarchy), true);
   }
 
   public void set_joint(int body_part, general_joint joint) {
-    MaejavaJNI.general_skeleton_set_joint(swigCPtr, this, body_part, general_joint.getCPtr(joint), joint);
+    MaeJavaJNI.general_skeleton_set_joint(swigCPtr, this, body_part, general_joint.getCPtr(joint), joint);
   }
 
   public general_joint get_joint(int body_part) {
-    long cPtr = MaejavaJNI.general_skeleton_get_joint(swigCPtr, this, body_part);
+    long cPtr = MaeJavaJNI.general_skeleton_get_joint(swigCPtr, this, body_part);
     return (cPtr == 0) ? null : new general_joint(cPtr, true);
   }
 
   public hierarchy get_hierarchy() {
-    long cPtr = MaejavaJNI.general_skeleton_get_hierarchy(swigCPtr, this);
+    long cPtr = MaeJavaJNI.general_skeleton_get_hierarchy(swigCPtr, this);
     return (cPtr == 0) ? null : new hierarchy(cPtr, true);
   }
 
   public void set_hierarchy(hierarchy hierarchy) {
-    MaejavaJNI.general_skeleton_set_hierarchy(swigCPtr, this, hierarchy.getCPtr(hierarchy), hierarchy);
+    MaeJavaJNI.general_skeleton_set_hierarchy(swigCPtr, this, hierarchy.getCPtr(hierarchy), hierarchy);
   }
 
   public void set_top_down(bone top_down) {
-    MaejavaJNI.general_skeleton_set_top_down(swigCPtr, this, bone.getCPtr(top_down), top_down);
+    MaeJavaJNI.general_skeleton_set_top_down(swigCPtr, this, bone.getCPtr(top_down), top_down);
   }
 
   public bone get_top_down() {
-    long cPtr = MaejavaJNI.general_skeleton_get_top_down(swigCPtr, this);
+    long cPtr = MaeJavaJNI.general_skeleton_get_top_down(swigCPtr, this);
     return (cPtr == 0) ? null : new bone(cPtr, true);
   }
 
   public void set_right_left(bone right_left) {
-    MaejavaJNI.general_skeleton_set_right_left(swigCPtr, this, bone.getCPtr(right_left), right_left);
+    MaeJavaJNI.general_skeleton_set_right_left(swigCPtr, this, bone.getCPtr(right_left), right_left);
   }
 
   public bone get_right_left() {
-    long cPtr = MaejavaJNI.general_skeleton_get_right_left(swigCPtr, this);
+    long cPtr = MaeJavaJNI.general_skeleton_get_right_left(swigCPtr, this);
     return (cPtr == 0) ? null : new bone(cPtr, true);
   }
 
   public void set_weight(vec3d weight) {
-    MaejavaJNI.general_skeleton_set_weight(swigCPtr, this, vec3d.getCPtr(weight), weight);
+    MaeJavaJNI.general_skeleton_set_weight(swigCPtr, this, vec3d.getCPtr(weight), weight);
   }
 
   public vec3d get_weight() {
-    long cPtr = MaejavaJNI.general_skeleton_get_weight(swigCPtr, this);
+    long cPtr = MaeJavaJNI.general_skeleton_get_weight(swigCPtr, this);
     return (cPtr == 0) ? null : new vec3d(cPtr, true);
   }
 
   public String str() {
-    return MaejavaJNI.general_skeleton_str(swigCPtr, this);
+    return MaeJavaJNI.general_skeleton_str(swigCPtr, this);
   }
 
   public String ply_str() {
-    return MaejavaJNI.general_skeleton_ply_str(swigCPtr, this);
+    return MaeJavaJNI.general_skeleton_ply_str(swigCPtr, this);
   }
 
   public void ply_file(String filename) {
-    MaejavaJNI.general_skeleton_ply_file(swigCPtr, this, filename);
+    MaeJavaJNI.general_skeleton_ply_file(swigCPtr, this, filename);
   }
 
 }

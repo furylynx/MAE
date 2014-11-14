@@ -29,46 +29,46 @@ public class string_bool_map {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_string_bool_map(swigCPtr);
+        MaeJavaJNI.delete_string_bool_map(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public string_bool_map() {
-    this(MaejavaJNI.new_string_bool_map__SWIG_0(), true);
+    this(MaeJavaJNI.new_string_bool_map__SWIG_0(), true);
   }
 
   public string_bool_map(string_bool_map arg0) {
-    this(MaejavaJNI.new_string_bool_map__SWIG_1(string_bool_map.getCPtr(arg0), arg0), true);
+    this(MaeJavaJNI.new_string_bool_map__SWIG_1(string_bool_map.getCPtr(arg0), arg0), true);
   }
 
   public long size() {
-    return MaejavaJNI.string_bool_map_size(swigCPtr, this);
+    return MaeJavaJNI.string_bool_map_size(swigCPtr, this);
   }
 
   public boolean empty() {
-    return MaejavaJNI.string_bool_map_empty(swigCPtr, this);
+    return MaeJavaJNI.string_bool_map_empty(swigCPtr, this);
   }
 
   public void clear() {
-    MaejavaJNI.string_bool_map_clear(swigCPtr, this);
+    MaeJavaJNI.string_bool_map_clear(swigCPtr, this);
   }
 
   public boolean get(String key) {
-    return MaejavaJNI.string_bool_map_get(swigCPtr, this, key);
+    return MaeJavaJNI.string_bool_map_get(swigCPtr, this, key);
   }
 
   public void set(String key, boolean x) {
-    MaejavaJNI.string_bool_map_set(swigCPtr, this, key, x);
+    MaeJavaJNI.string_bool_map_set(swigCPtr, this, key, x);
   }
 
   public void del(String key) {
-    MaejavaJNI.string_bool_map_del(swigCPtr, this, key);
+    MaeJavaJNI.string_bool_map_del(swigCPtr, this, key);
   }
 
   public boolean has_key(String key) {
-    return MaejavaJNI.string_bool_map_has_key(swigCPtr, this, key);
+    return MaeJavaJNI.string_bool_map_has_key(swigCPtr, this, key);
   }
 
 }

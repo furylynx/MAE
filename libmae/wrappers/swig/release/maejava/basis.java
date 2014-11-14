@@ -29,58 +29,58 @@ public class basis {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_basis(swigCPtr);
+        MaeJavaJNI.delete_basis(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public basis() {
-    this(MaejavaJNI.new_basis__SWIG_0(), true);
+    this(MaeJavaJNI.new_basis__SWIG_0(), true);
   }
 
   public basis(vec3d position_vector, vec3d u, vec3d r, vec3d t) {
-    this(MaejavaJNI.new_basis__SWIG_1(vec3d.getCPtr(position_vector), position_vector, vec3d.getCPtr(u), u, vec3d.getCPtr(r), r, vec3d.getCPtr(t), t), true);
+    this(MaeJavaJNI.new_basis__SWIG_1(vec3d.getCPtr(position_vector), position_vector, vec3d.getCPtr(u), u, vec3d.getCPtr(r), r, vec3d.getCPtr(t), t), true);
   }
 
   public vec3d get_u() {
-    long cPtr = MaejavaJNI.basis_get_u(swigCPtr, this);
+    long cPtr = MaeJavaJNI.basis_get_u(swigCPtr, this);
     return (cPtr == 0) ? null : new vec3d(cPtr, true);
   }
 
   public vec3d get_r() {
-    long cPtr = MaejavaJNI.basis_get_r(swigCPtr, this);
+    long cPtr = MaeJavaJNI.basis_get_r(swigCPtr, this);
     return (cPtr == 0) ? null : new vec3d(cPtr, true);
   }
 
   public vec3d get_t() {
-    long cPtr = MaejavaJNI.basis_get_t(swigCPtr, this);
+    long cPtr = MaeJavaJNI.basis_get_t(swigCPtr, this);
     return (cPtr == 0) ? null : new vec3d(cPtr, true);
   }
 
   public vec3d get_position_vector() {
-    long cPtr = MaejavaJNI.basis_get_position_vector(swigCPtr, this);
+    long cPtr = MaeJavaJNI.basis_get_position_vector(swigCPtr, this);
     return (cPtr == 0) ? null : new vec3d(cPtr, true);
   }
 
   public void set_u(vec3d u) {
-    MaejavaJNI.basis_set_u(swigCPtr, this, vec3d.getCPtr(u), u);
+    MaeJavaJNI.basis_set_u(swigCPtr, this, vec3d.getCPtr(u), u);
   }
 
   public void set_r(vec3d r) {
-    MaejavaJNI.basis_set_r(swigCPtr, this, vec3d.getCPtr(r), r);
+    MaeJavaJNI.basis_set_r(swigCPtr, this, vec3d.getCPtr(r), r);
   }
 
   public void set_t(vec3d t) {
-    MaejavaJNI.basis_set_t(swigCPtr, this, vec3d.getCPtr(t), t);
+    MaeJavaJNI.basis_set_t(swigCPtr, this, vec3d.getCPtr(t), t);
   }
 
   public void set_position_vector(vec3d position_vector) {
-    MaejavaJNI.basis_set_position_vector(swigCPtr, this, vec3d.getCPtr(position_vector), position_vector);
+    MaeJavaJNI.basis_set_position_vector(swigCPtr, this, vec3d.getCPtr(position_vector), position_vector);
   }
 
   public String str() {
-    return MaejavaJNI.basis_str(swigCPtr, this);
+    return MaeJavaJNI.basis_str(swigCPtr, this);
   }
 
 }

@@ -29,26 +29,26 @@ public class e_joint_c {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_e_joint_c(swigCPtr);
+        MaeJavaJNI.delete_e_joint_c(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public static String str(e_joint joint) {
-    return MaejavaJNI.e_joint_c_str(joint.swigValue());
+    return MaeJavaJNI.e_joint_c_str(joint.swigValue());
   }
 
   public static e_joint_vector vec() {
-    return new e_joint_vector(MaejavaJNI.e_joint_c_vec(), true);
+    return new e_joint_vector(MaeJavaJNI.e_joint_c_vec(), true);
   }
 
   public static e_joint parse(String str) {
-    return e_joint.swigToEnum(MaejavaJNI.e_joint_c_parse(str));
+    return e_joint.swigToEnum(MaeJavaJNI.e_joint_c_parse(str));
   }
 
   public e_joint_c() {
-    this(MaejavaJNI.new_e_joint_c(), true);
+    this(MaeJavaJNI.new_e_joint_c(), true);
   }
 
 }

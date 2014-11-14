@@ -29,51 +29,51 @@ public class column_definition {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_column_definition(swigCPtr);
+        MaeJavaJNI.delete_column_definition(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public column_definition(int column_index, i_pre_sign pre_sign) {
-    this(MaejavaJNI.new_column_definition__SWIG_0(column_index, i_pre_sign.getCPtr(pre_sign), pre_sign), true);
+    this(MaeJavaJNI.new_column_definition__SWIG_0(column_index, i_pre_sign.getCPtr(pre_sign), pre_sign), true);
   }
 
   public column_definition(e_bone eb) {
-    this(MaejavaJNI.new_column_definition__SWIG_1(eb.swigValue()), true);
+    this(MaeJavaJNI.new_column_definition__SWIG_1(eb.swigValue()), true);
   }
 
   public int get_column_index() {
-    return MaejavaJNI.column_definition_get_column_index(swigCPtr, this);
+    return MaeJavaJNI.column_definition_get_column_index(swigCPtr, this);
   }
 
   public i_pre_sign get_pre_sign() {
-    long cPtr = MaejavaJNI.column_definition_get_pre_sign(swigCPtr, this);
+    long cPtr = MaeJavaJNI.column_definition_get_pre_sign(swigCPtr, this);
     return (cPtr == 0) ? null : new i_pre_sign(cPtr, true);
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.column_definition_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.column_definition_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.column_definition_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.column_definition_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.column_definition_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.column_definition_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(long im_width, long im_height, long max_column, long measures, long beats_per_measure) {
-    return MaejavaJNI.column_definition_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
+    return MaeJavaJNI.column_definition_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
   }
 
   public boolean equals(column_definition a) {
-    return MaejavaJNI.column_definition_equals(swigCPtr, this, column_definition.getCPtr(a), a);
+    return MaeJavaJNI.column_definition_equals(swigCPtr, this, column_definition.getCPtr(a), a);
   }
 
   public static coldef_vector default_definitions() {
-    return new coldef_vector(MaejavaJNI.column_definition_default_definitions(), true);
+    return new coldef_vector(MaeJavaJNI.column_definition_default_definitions(), true);
   }
 
 }

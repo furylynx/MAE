@@ -13,7 +13,7 @@ public class area_part extends i_endpoint {
   private boolean swigCMemOwnDerived;
 
   public area_part(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.area_part_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.area_part_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class area_part extends i_endpoint {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_area_part(swigCPtr);
+        MaeJavaJNI.delete_area_part(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,44 +38,44 @@ public class area_part extends i_endpoint {
   }
 
   public area_part(e_area area) {
-    this(MaejavaJNI.new_area_part(area.swigValue()), true);
+    this(MaeJavaJNI.new_area_part(area.swigValue()), true);
   }
 
   public e_area get_area() {
-    return e_area.swigToEnum(MaejavaJNI.area_part_get_area(swigCPtr, this));
+    return e_area.swigToEnum(MaeJavaJNI.area_part_get_area(swigCPtr, this));
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.area_part_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.area_part_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.area_part_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.area_part_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.area_part_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.area_part_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return MaejavaJNI.area_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaeJavaJNI.area_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return MaejavaJNI.area_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaeJavaJNI.area_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public i_endpoint get_fixed_end() {
-    long cPtr = MaejavaJNI.area_part_get_fixed_end(swigCPtr, this);
+    long cPtr = MaeJavaJNI.area_part_get_fixed_end(swigCPtr, this);
     return (cPtr == 0) ? null : new i_endpoint(cPtr, true);
   }
 
   public boolean equals(i_part a) {
-    return MaejavaJNI.area_part_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
+    return MaeJavaJNI.area_part_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
   public boolean equals(i_endpoint a) {
-    return MaejavaJNI.area_part_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
+    return MaeJavaJNI.area_part_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
   }
 
 }

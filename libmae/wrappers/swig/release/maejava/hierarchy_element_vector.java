@@ -29,51 +29,51 @@ public class hierarchy_element_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_hierarchy_element_vector(swigCPtr);
+        MaeJavaJNI.delete_hierarchy_element_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public hierarchy_element_vector() {
-    this(MaejavaJNI.new_hierarchy_element_vector__SWIG_0(), true);
+    this(MaeJavaJNI.new_hierarchy_element_vector__SWIG_0(), true);
   }
 
   public hierarchy_element_vector(long n) {
-    this(MaejavaJNI.new_hierarchy_element_vector__SWIG_1(n), true);
+    this(MaeJavaJNI.new_hierarchy_element_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return MaejavaJNI.hierarchy_element_vector_size(swigCPtr, this);
+    return MaeJavaJNI.hierarchy_element_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return MaejavaJNI.hierarchy_element_vector_capacity(swigCPtr, this);
+    return MaeJavaJNI.hierarchy_element_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    MaejavaJNI.hierarchy_element_vector_reserve(swigCPtr, this, n);
+    MaeJavaJNI.hierarchy_element_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return MaejavaJNI.hierarchy_element_vector_isEmpty(swigCPtr, this);
+    return MaeJavaJNI.hierarchy_element_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    MaejavaJNI.hierarchy_element_vector_clear(swigCPtr, this);
+    MaeJavaJNI.hierarchy_element_vector_clear(swigCPtr, this);
   }
 
   public void add(hierarchy_element x) {
-    MaejavaJNI.hierarchy_element_vector_add(swigCPtr, this, hierarchy_element.getCPtr(x), x);
+    MaeJavaJNI.hierarchy_element_vector_add(swigCPtr, this, hierarchy_element.getCPtr(x), x);
   }
 
   public hierarchy_element get(int i) {
-    long cPtr = MaejavaJNI.hierarchy_element_vector_get(swigCPtr, this, i);
+    long cPtr = MaeJavaJNI.hierarchy_element_vector_get(swigCPtr, this, i);
     return (cPtr == 0) ? null : new hierarchy_element(cPtr, true);
   }
 
   public void set(int i, hierarchy_element val) {
-    MaejavaJNI.hierarchy_element_vector_set(swigCPtr, this, i, hierarchy_element.getCPtr(val), val);
+    MaeJavaJNI.hierarchy_element_vector_set(swigCPtr, this, i, hierarchy_element.getCPtr(val), val);
   }
 
 }

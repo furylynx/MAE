@@ -13,7 +13,7 @@ public class body_part extends i_pre_sign {
   private boolean swigCMemOwnDerived;
 
   public body_part(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.body_part_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.body_part_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class body_part extends i_pre_sign {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_body_part(swigCPtr);
+        MaeJavaJNI.delete_body_part(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,40 +38,40 @@ public class body_part extends i_pre_sign {
   }
 
   public body_part(e_side side, i_part part) {
-    this(MaejavaJNI.new_body_part(side.swigValue(), i_part.getCPtr(part), part), true);
+    this(MaeJavaJNI.new_body_part(side.swigValue(), i_part.getCPtr(part), part), true);
   }
 
   public e_side get_side() {
-    return e_side.swigToEnum(MaejavaJNI.body_part_get_side(swigCPtr, this));
+    return e_side.swigToEnum(MaeJavaJNI.body_part_get_side(swigCPtr, this));
   }
 
   public i_part get_part() {
-    long cPtr = MaejavaJNI.body_part_get_part(swigCPtr, this);
+    long cPtr = MaeJavaJNI.body_part_get_part(swigCPtr, this);
     return (cPtr == 0) ? null : new i_part(cPtr, true);
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.body_part_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.body_part_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.body_part_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.body_part_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.body_part_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.body_part_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return MaejavaJNI.body_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaeJavaJNI.body_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return MaejavaJNI.body_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaeJavaJNI.body_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public boolean equals(i_pre_sign a) {
-    return MaejavaJNI.body_part_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a);
+    return MaeJavaJNI.body_part_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a);
   }
 
 }

@@ -29,58 +29,42 @@ public class bvh_spec {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_bvh_spec(swigCPtr);
+        MaeJavaJNI.delete_bvh_spec(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    MaejavaJNI.bvh_spec_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    MaejavaJNI.bvh_spec_change_ownership(this, swigCPtr, true);
-  }
-
   public bvh_spec(String left_anchor, String right_anchor, String top_anchor, String bottom_anchor, string_int_map string_id_map, string_bool_map string_torso_map) {
-    this(MaejavaJNI.new_bvh_spec(left_anchor, right_anchor, top_anchor, bottom_anchor, string_int_map.getCPtr(string_id_map), string_id_map, string_bool_map.getCPtr(string_torso_map), string_torso_map), true);
-    MaejavaJNI.bvh_spec_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaeJavaJNI.new_bvh_spec(left_anchor, right_anchor, top_anchor, bottom_anchor, string_int_map.getCPtr(string_id_map), string_id_map, string_bool_map.getCPtr(string_torso_map), string_torso_map), true);
   }
 
   public string_int_map get_id_map() {
-    return new string_int_map((getClass() == bvh_spec.class) ? MaejavaJNI.bvh_spec_get_id_map(swigCPtr, this) : MaejavaJNI.bvh_spec_get_id_mapSwigExplicitbvh_spec(swigCPtr, this), true);
+    return new string_int_map(MaeJavaJNI.bvh_spec_get_id_map(swigCPtr, this), true);
   }
 
   public string_bool_map get_torso_map() {
-    return new string_bool_map((getClass() == bvh_spec.class) ? MaejavaJNI.bvh_spec_get_torso_map(swigCPtr, this) : MaejavaJNI.bvh_spec_get_torso_mapSwigExplicitbvh_spec(swigCPtr, this), true);
+    return new string_bool_map(MaeJavaJNI.bvh_spec_get_torso_map(swigCPtr, this), true);
   }
 
   public String get_left_anchor() {
-    return (getClass() == bvh_spec.class) ? MaejavaJNI.bvh_spec_get_left_anchor(swigCPtr, this) : MaejavaJNI.bvh_spec_get_left_anchorSwigExplicitbvh_spec(swigCPtr, this);
+    return MaeJavaJNI.bvh_spec_get_left_anchor(swigCPtr, this);
   }
 
   public String get_right_anchor() {
-    return (getClass() == bvh_spec.class) ? MaejavaJNI.bvh_spec_get_right_anchor(swigCPtr, this) : MaejavaJNI.bvh_spec_get_right_anchorSwigExplicitbvh_spec(swigCPtr, this);
+    return MaeJavaJNI.bvh_spec_get_right_anchor(swigCPtr, this);
   }
 
   public String get_top_anchor() {
-    return (getClass() == bvh_spec.class) ? MaejavaJNI.bvh_spec_get_top_anchor(swigCPtr, this) : MaejavaJNI.bvh_spec_get_top_anchorSwigExplicitbvh_spec(swigCPtr, this);
+    return MaeJavaJNI.bvh_spec_get_top_anchor(swigCPtr, this);
   }
 
   public String get_bottom_anchor() {
-    return (getClass() == bvh_spec.class) ? MaejavaJNI.bvh_spec_get_bottom_anchor(swigCPtr, this) : MaejavaJNI.bvh_spec_get_bottom_anchorSwigExplicitbvh_spec(swigCPtr, this);
+    return MaeJavaJNI.bvh_spec_get_bottom_anchor(swigCPtr, this);
   }
 
   public static bvh_spec default_spec() {
-    long cPtr = MaejavaJNI.bvh_spec_default_spec();
+    long cPtr = MaeJavaJNI.bvh_spec_default_spec();
     return (cPtr == 0) ? null : new bvh_spec(cPtr, true);
   }
 

@@ -29,50 +29,50 @@ public class e_space_direction_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_e_space_direction_vector(swigCPtr);
+        MaeJavaJNI.delete_e_space_direction_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public e_space_direction_vector() {
-    this(MaejavaJNI.new_e_space_direction_vector__SWIG_0(), true);
+    this(MaeJavaJNI.new_e_space_direction_vector__SWIG_0(), true);
   }
 
   public e_space_direction_vector(long n) {
-    this(MaejavaJNI.new_e_space_direction_vector__SWIG_1(n), true);
+    this(MaeJavaJNI.new_e_space_direction_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return MaejavaJNI.e_space_direction_vector_size(swigCPtr, this);
+    return MaeJavaJNI.e_space_direction_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return MaejavaJNI.e_space_direction_vector_capacity(swigCPtr, this);
+    return MaeJavaJNI.e_space_direction_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    MaejavaJNI.e_space_direction_vector_reserve(swigCPtr, this, n);
+    MaeJavaJNI.e_space_direction_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return MaejavaJNI.e_space_direction_vector_isEmpty(swigCPtr, this);
+    return MaeJavaJNI.e_space_direction_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    MaejavaJNI.e_space_direction_vector_clear(swigCPtr, this);
+    MaeJavaJNI.e_space_direction_vector_clear(swigCPtr, this);
   }
 
   public void add(e_space_direction x) {
-    MaejavaJNI.e_space_direction_vector_add(swigCPtr, this, x.swigValue());
+    MaeJavaJNI.e_space_direction_vector_add(swigCPtr, this, x.swigValue());
   }
 
   public e_space_direction get(int i) {
-    return e_space_direction.swigToEnum(MaejavaJNI.e_space_direction_vector_get(swigCPtr, this, i));
+    return e_space_direction.swigToEnum(MaeJavaJNI.e_space_direction_vector_get(swigCPtr, this, i));
   }
 
   public void set(int i, e_space_direction val) {
-    MaejavaJNI.e_space_direction_vector_set(swigCPtr, this, i, val.swigValue());
+    MaeJavaJNI.e_space_direction_vector_set(swigCPtr, this, i, val.swigValue());
   }
 
 }

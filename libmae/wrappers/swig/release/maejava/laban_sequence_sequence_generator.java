@@ -29,14 +29,14 @@ public class laban_sequence_sequence_generator {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_laban_sequence_sequence_generator(swigCPtr);
+        MaeJavaJNI.delete_laban_sequence_sequence_generator(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public laban_sequence generate_sequence(double framerate, enriched_pose_list keyPoses, bone_vector bodyParts) {
-    long cPtr = MaejavaJNI.laban_sequence_sequence_generator_generate_sequence(swigCPtr, this, framerate, enriched_pose_list.getCPtr(keyPoses), keyPoses, bone_vector.getCPtr(bodyParts), bodyParts);
+    long cPtr = MaeJavaJNI.laban_sequence_sequence_generator_generate_sequence(swigCPtr, this, framerate, enriched_pose_list.getCPtr(keyPoses), keyPoses, bone_vector.getCPtr(bodyParts), bodyParts);
     return (cPtr == 0) ? null : new laban_sequence(cPtr, true);
   }
 

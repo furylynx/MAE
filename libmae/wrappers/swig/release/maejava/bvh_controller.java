@@ -29,58 +29,42 @@ public class bvh_controller {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_bvh_controller(swigCPtr);
+        MaeJavaJNI.delete_bvh_controller(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    MaejavaJNI.bvh_controller_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    MaejavaJNI.bvh_controller_change_ownership(this, swigCPtr, true);
-  }
-
   public bvh_controller() {
-    this(MaejavaJNI.new_bvh_controller(), true);
-    MaejavaJNI.bvh_controller_director_connect(this, swigCPtr, swigCMemOwn, true);
+    this(MaeJavaJNI.new_bvh_controller(), true);
   }
 
   public String bvh_str(general_skeleton_vector data) {
-    return (getClass() == bvh_controller.class) ? MaejavaJNI.bvh_controller_bvh_str__SWIG_0(swigCPtr, this, general_skeleton_vector.getCPtr(data), data) : MaejavaJNI.bvh_controller_bvh_strSwigExplicitbvh_controller__SWIG_0(swigCPtr, this, general_skeleton_vector.getCPtr(data), data);
+    return MaeJavaJNI.bvh_controller_bvh_str__SWIG_0(swigCPtr, this, general_skeleton_vector.getCPtr(data), data);
   }
 
   public String bvh_str(general_skeleton_vector data, double framerate) {
-    return (getClass() == bvh_controller.class) ? MaejavaJNI.bvh_controller_bvh_str__SWIG_1(swigCPtr, this, general_skeleton_vector.getCPtr(data), data, framerate) : MaejavaJNI.bvh_controller_bvh_strSwigExplicitbvh_controller__SWIG_1(swigCPtr, this, general_skeleton_vector.getCPtr(data), data, framerate);
+    return MaeJavaJNI.bvh_controller_bvh_str__SWIG_1(swigCPtr, this, general_skeleton_vector.getCPtr(data), data, framerate);
   }
 
   public String bvh_str(general_skeleton data) {
-    return (getClass() == bvh_controller.class) ? MaejavaJNI.bvh_controller_bvh_str__SWIG_2(swigCPtr, this, general_skeleton.getCPtr(data), data) : MaejavaJNI.bvh_controller_bvh_strSwigExplicitbvh_controller__SWIG_2(swigCPtr, this, general_skeleton.getCPtr(data), data);
+    return MaeJavaJNI.bvh_controller_bvh_str__SWIG_2(swigCPtr, this, general_skeleton.getCPtr(data), data);
   }
 
   public void print_bvh_file(general_skeleton_vector data, String filename) {
-    if (getClass() == bvh_controller.class) MaejavaJNI.bvh_controller_print_bvh_file__SWIG_0(swigCPtr, this, general_skeleton_vector.getCPtr(data), data, filename); else MaejavaJNI.bvh_controller_print_bvh_fileSwigExplicitbvh_controller__SWIG_0(swigCPtr, this, general_skeleton_vector.getCPtr(data), data, filename);
+    MaeJavaJNI.bvh_controller_print_bvh_file__SWIG_0(swigCPtr, this, general_skeleton_vector.getCPtr(data), data, filename);
   }
 
   public void print_bvh_file(general_skeleton data, String filename) {
-    if (getClass() == bvh_controller.class) MaejavaJNI.bvh_controller_print_bvh_file__SWIG_1(swigCPtr, this, general_skeleton.getCPtr(data), data, filename); else MaejavaJNI.bvh_controller_print_bvh_fileSwigExplicitbvh_controller__SWIG_1(swigCPtr, this, general_skeleton.getCPtr(data), data, filename);
+    MaeJavaJNI.bvh_controller_print_bvh_file__SWIG_1(swigCPtr, this, general_skeleton.getCPtr(data), data, filename);
   }
 
   public general_skeleton_vector_double_pair read_bvh_str(String bvh_str, bvh_spec spec) {
-    return new general_skeleton_vector_double_pair((getClass() == bvh_controller.class) ? MaejavaJNI.bvh_controller_read_bvh_str(swigCPtr, this, bvh_str, bvh_spec.getCPtr(spec), spec) : MaejavaJNI.bvh_controller_read_bvh_strSwigExplicitbvh_controller(swigCPtr, this, bvh_str, bvh_spec.getCPtr(spec), spec), true);
+    return new general_skeleton_vector_double_pair(MaeJavaJNI.bvh_controller_read_bvh_str(swigCPtr, this, bvh_str, bvh_spec.getCPtr(spec), spec), true);
   }
 
   public general_skeleton_vector_double_pair read_bvh_file(String filename, bvh_spec spec) {
-    return new general_skeleton_vector_double_pair((getClass() == bvh_controller.class) ? MaejavaJNI.bvh_controller_read_bvh_file(swigCPtr, this, filename, bvh_spec.getCPtr(spec), spec) : MaejavaJNI.bvh_controller_read_bvh_fileSwigExplicitbvh_controller(swigCPtr, this, filename, bvh_spec.getCPtr(spec), spec), true);
+    return new general_skeleton_vector_double_pair(MaeJavaJNI.bvh_controller_read_bvh_file(swigCPtr, this, filename, bvh_spec.getCPtr(spec), spec), true);
   }
 
 }

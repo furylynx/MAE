@@ -29,34 +29,34 @@ public class laban_sequence_list {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_laban_sequence_list(swigCPtr);
+        MaeJavaJNI.delete_laban_sequence_list(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public laban_sequence_list() {
-    this(MaejavaJNI.new_laban_sequence_list(), true);
+    this(MaeJavaJNI.new_laban_sequence_list(), true);
   }
 
   public long size() {
-    return MaejavaJNI.laban_sequence_list_size(swigCPtr, this);
+    return MaeJavaJNI.laban_sequence_list_size(swigCPtr, this);
   }
 
   public boolean isEmpty() {
-    return MaejavaJNI.laban_sequence_list_isEmpty(swigCPtr, this);
+    return MaeJavaJNI.laban_sequence_list_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    MaejavaJNI.laban_sequence_list_clear(swigCPtr, this);
+    MaeJavaJNI.laban_sequence_list_clear(swigCPtr, this);
   }
 
   public void add(laban_sequence x) {
-    MaejavaJNI.laban_sequence_list_add(swigCPtr, this, laban_sequence.getCPtr(x), x);
+    MaeJavaJNI.laban_sequence_list_add(swigCPtr, this, laban_sequence.getCPtr(x), x);
   }
 
   public laban_sequence get(int i) {
-    long cPtr = MaejavaJNI.laban_sequence_list_get(swigCPtr, this, i);
+    long cPtr = MaeJavaJNI.laban_sequence_list_get(swigCPtr, this, i);
     return (cPtr == 0) ? null : new laban_sequence(cPtr, true);
   }
 

@@ -29,26 +29,26 @@ public class i_dynamics_sign {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_i_dynamics_sign(swigCPtr);
+        MaeJavaJNI.delete_i_dynamics_sign(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public boolean equals(i_dynamics_sign a) {
-    return MaejavaJNI.i_dynamics_sign_equals(swigCPtr, this, i_dynamics_sign.getCPtr(a), a);
+    return MaeJavaJNI.i_dynamics_sign_equals(swigCPtr, this, i_dynamics_sign.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.i_dynamics_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.i_dynamics_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.i_dynamics_sign_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.i_dynamics_sign_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.i_dynamics_sign_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.i_dynamics_sign_xml__SWIG_2(swigCPtr, this);
   }
 
 }
