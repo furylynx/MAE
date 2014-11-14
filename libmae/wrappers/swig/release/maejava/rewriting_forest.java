@@ -29,74 +29,74 @@ public class rewriting_forest {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_rewriting_forest(swigCPtr);
+        MaeJavaJNI.delete_rewriting_forest(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public rewriting_forest(long beats_per_measure, long beat_duration, e_time_unit time_unit, double tolerance) {
-    this(MaejavaJNI.new_rewriting_forest__SWIG_0(beats_per_measure, beat_duration, time_unit.swigValue(), tolerance), true);
+    this(MaeJavaJNI.new_rewriting_forest__SWIG_0(beats_per_measure, beat_duration, time_unit.swigValue(), tolerance), true);
   }
 
   public rewriting_forest(long beats_per_measure, long beat_duration, e_time_unit time_unit) {
-    this(MaejavaJNI.new_rewriting_forest__SWIG_1(beats_per_measure, beat_duration, time_unit.swigValue()), true);
+    this(MaeJavaJNI.new_rewriting_forest__SWIG_1(beats_per_measure, beat_duration, time_unit.swigValue()), true);
   }
 
   public rewriting_forest(long beats_per_measure, long beat_duration) {
-    this(MaejavaJNI.new_rewriting_forest__SWIG_2(beats_per_measure, beat_duration), true);
+    this(MaeJavaJNI.new_rewriting_forest__SWIG_2(beats_per_measure, beat_duration), true);
   }
 
   public rewriting_forest(long beats_per_measure) {
-    this(MaejavaJNI.new_rewriting_forest__SWIG_3(beats_per_measure), true);
+    this(MaeJavaJNI.new_rewriting_forest__SWIG_3(beats_per_measure), true);
   }
 
   public rewriting_forest() {
-    this(MaejavaJNI.new_rewriting_forest__SWIG_4(), true);
+    this(MaeJavaJNI.new_rewriting_forest__SWIG_4(), true);
   }
 
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules, long beats_per_measure, long beat_duration, e_time_unit time_unit, double tolerance) {
-    this(MaejavaJNI.new_rewriting_forest__SWIG_5(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration, time_unit.swigValue(), tolerance), true);
+    this(MaeJavaJNI.new_rewriting_forest__SWIG_5(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration, time_unit.swigValue(), tolerance), true);
   }
 
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules, long beats_per_measure, long beat_duration, e_time_unit time_unit) {
-    this(MaejavaJNI.new_rewriting_forest__SWIG_6(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration, time_unit.swigValue()), true);
+    this(MaeJavaJNI.new_rewriting_forest__SWIG_6(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration, time_unit.swigValue()), true);
   }
 
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules, long beats_per_measure, long beat_duration) {
-    this(MaejavaJNI.new_rewriting_forest__SWIG_7(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration), true);
+    this(MaeJavaJNI.new_rewriting_forest__SWIG_7(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure, beat_duration), true);
   }
 
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules, long beats_per_measure) {
-    this(MaejavaJNI.new_rewriting_forest__SWIG_8(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure), true);
+    this(MaeJavaJNI.new_rewriting_forest__SWIG_8(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules, beats_per_measure), true);
   }
 
   public rewriting_forest(i_mov_vector_vector_dec_val_vector rules) {
-    this(MaejavaJNI.new_rewriting_forest__SWIG_9(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules), true);
+    this(MaeJavaJNI.new_rewriting_forest__SWIG_9(i_mov_vector_vector_dec_val_vector.getCPtr(rules), rules), true);
   }
 
   public double get_tolerance() {
-    return MaejavaJNI.rewriting_forest_get_tolerance(swigCPtr, this);
+    return MaeJavaJNI.rewriting_forest_get_tolerance(swigCPtr, this);
   }
 
   public void set_tolerance(double tolerance) {
-    MaejavaJNI.rewriting_forest_set_tolerance(swigCPtr, this, tolerance);
+    MaeJavaJNI.rewriting_forest_set_tolerance(swigCPtr, this, tolerance);
   }
 
   public i_mov_vector_vector replacements(i_mov_vector sequence) {
-    return new i_mov_vector_vector(MaejavaJNI.rewriting_forest_replacements(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence), true);
+    return new i_mov_vector_vector(MaeJavaJNI.rewriting_forest_replacements(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence), true);
   }
 
   public void add_rule(i_mov_vector sequence, i_mov_vector_vector replacements) {
-    MaejavaJNI.rewriting_forest_add_rule__SWIG_0(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence, i_mov_vector_vector.getCPtr(replacements));
+    MaeJavaJNI.rewriting_forest_add_rule__SWIG_0(swigCPtr, this, i_mov_vector.getCPtr(sequence), sequence, i_mov_vector_vector.getCPtr(replacements));
   }
 
   public void add_rule(i_mov_vector_vector_dec_val rule) {
-    MaejavaJNI.rewriting_forest_add_rule__SWIG_1(swigCPtr, this, i_mov_vector_vector_dec_val.getCPtr(rule));
+    MaeJavaJNI.rewriting_forest_add_rule__SWIG_1(swigCPtr, this, i_mov_vector_vector_dec_val.getCPtr(rule));
   }
 
   public String str() {
-    return MaejavaJNI.rewriting_forest_str(swigCPtr, this);
+    return MaeJavaJNI.rewriting_forest_str(swigCPtr, this);
   }
 
 }

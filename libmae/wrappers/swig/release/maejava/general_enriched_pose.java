@@ -13,7 +13,7 @@ public class general_enriched_pose extends general_pose {
   private boolean swigCMemOwnDerived;
 
   public general_enriched_pose(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.general_enriched_pose_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.general_enriched_pose_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class general_enriched_pose extends general_pose {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_general_enriched_pose(swigCPtr);
+        MaeJavaJNI.delete_general_enriched_pose(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,27 +38,27 @@ public class general_enriched_pose extends general_pose {
   }
 
   public general_enriched_pose() {
-    this(MaejavaJNI.new_general_enriched_pose__SWIG_0(), true);
+    this(MaeJavaJNI.new_general_enriched_pose__SWIG_0(), true);
   }
 
   public general_enriched_pose(general_pose pose) {
-    this(MaejavaJNI.new_general_enriched_pose__SWIG_1(general_pose.getCPtr(pose), pose), true);
+    this(MaeJavaJNI.new_general_enriched_pose__SWIG_1(general_pose.getCPtr(pose), pose), true);
   }
 
   public void set_key_pose(int body_part, boolean is_key_pose) {
-    MaejavaJNI.general_enriched_pose_set_key_pose(swigCPtr, this, body_part, is_key_pose);
+    MaeJavaJNI.general_enriched_pose_set_key_pose(swigCPtr, this, body_part, is_key_pose);
   }
 
   public boolean is_key_pose(int body_part) {
-    return MaejavaJNI.general_enriched_pose_is_key_pose(swigCPtr, this, body_part);
+    return MaeJavaJNI.general_enriched_pose_is_key_pose(swigCPtr, this, body_part);
   }
 
   public void set_in_motion(int body_part, boolean is_in_motion) {
-    MaejavaJNI.general_enriched_pose_set_in_motion(swigCPtr, this, body_part, is_in_motion);
+    MaeJavaJNI.general_enriched_pose_set_in_motion(swigCPtr, this, body_part, is_in_motion);
   }
 
   public boolean is_in_motion(int body_part) {
-    return MaejavaJNI.general_enriched_pose_is_in_motion(swigCPtr, this, body_part);
+    return MaeJavaJNI.general_enriched_pose_is_in_motion(swigCPtr, this, body_part);
   }
 
 }

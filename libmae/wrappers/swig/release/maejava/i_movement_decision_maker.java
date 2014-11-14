@@ -29,30 +29,30 @@ public class i_movement_decision_maker {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_i_movement_decision_maker(swigCPtr);
+        MaeJavaJNI.delete_i_movement_decision_maker(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public void set_recognition_tolerance(double tolerance) {
-    MaejavaJNI.i_movement_decision_maker_set_recognition_tolerance(swigCPtr, this, tolerance);
+    MaeJavaJNI.i_movement_decision_maker_set_recognition_tolerance(swigCPtr, this, tolerance);
   }
 
   public double get_recognition_tolerance() {
-    return MaejavaJNI.i_movement_decision_maker_get_recognition_tolerance(swigCPtr, this);
+    return MaeJavaJNI.i_movement_decision_maker_get_recognition_tolerance(swigCPtr, this);
   }
 
   public boolean decide_match(i_movement stream_item, i_movement stream_item_predecessor, i_movement tree_item, i_movement tree_item_predecessor) {
-    return MaejavaJNI.i_movement_decision_maker_decide_match(swigCPtr, this, i_movement.getCPtr(stream_item), stream_item, i_movement.getCPtr(stream_item_predecessor), stream_item_predecessor, i_movement.getCPtr(tree_item), tree_item, i_movement.getCPtr(tree_item_predecessor), tree_item_predecessor);
+    return MaeJavaJNI.i_movement_decision_maker_decide_match(swigCPtr, this, i_movement.getCPtr(stream_item), stream_item, i_movement.getCPtr(stream_item_predecessor), stream_item_predecessor, i_movement.getCPtr(tree_item), tree_item, i_movement.getCPtr(tree_item_predecessor), tree_item_predecessor);
   }
 
   public boolean decide_insertion(i_movement add_item, i_movement add_item_predecessor, i_movement tree_item, i_movement tree_item_predecessor) {
-    return MaejavaJNI.i_movement_decision_maker_decide_insertion(swigCPtr, this, i_movement.getCPtr(add_item), add_item, i_movement.getCPtr(add_item_predecessor), add_item_predecessor, i_movement.getCPtr(tree_item), tree_item, i_movement.getCPtr(tree_item_predecessor), tree_item_predecessor);
+    return MaeJavaJNI.i_movement_decision_maker_decide_insertion(swigCPtr, this, i_movement.getCPtr(add_item), add_item, i_movement.getCPtr(add_item_predecessor), add_item_predecessor, i_movement.getCPtr(tree_item), tree_item, i_movement.getCPtr(tree_item_predecessor), tree_item_predecessor);
   }
 
   public boolean position_okay(double dist_to_last, double set_value, boolean check_startpose) {
-    return MaejavaJNI.i_movement_decision_maker_position_okay(swigCPtr, this, dist_to_last, set_value, check_startpose);
+    return MaeJavaJNI.i_movement_decision_maker_position_okay(swigCPtr, this, dist_to_last, set_value, check_startpose);
   }
 
 }

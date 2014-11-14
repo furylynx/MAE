@@ -8,8 +8,8 @@
  * interface file instead.
  * ----------------------------------------------------------------------------- */
 
-#ifndef SWIG_Maejava_WRAP_H_
-#define SWIG_Maejava_WRAP_H_
+#ifndef SWIG_MaeJava_WRAP_H_
+#define SWIG_MaeJava_WRAP_H_
 
 class SwigDirector_laban_sequence_sequence_listener : public mae::i_sequence_listener< mae::fl::laban::laban_sequence >, public Swig::Director {
 
@@ -24,63 +24,6 @@ public:
     }
 protected:
     bool swig_override[1];
-};
-
-class SwigDirector_laban_sequence_recognition_listener : public mae::i_recognition_listener< mae::fl::laban::laban_sequence >, public Swig::Director {
-
-public:
-    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
-    SwigDirector_laban_sequence_recognition_listener(JNIEnv *jenv);
-    virtual ~SwigDirector_laban_sequence_recognition_listener();
-    virtual void on_recognition(long timestamp, std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > sequences);
-    virtual void on_recognition(long timestamp, std::vector< std::string > title);
-public:
-    bool swig_overrides(int n) {
-      return (n < 2 ? swig_override[n] : false);
-    }
-protected:
-    bool swig_override[2];
-};
-
-class SwigDirector_bvh_spec : public mae::fl::bvh_spec, public Swig::Director {
-
-public:
-    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
-    SwigDirector_bvh_spec(JNIEnv *jenv, std::string left_anchor, std::string right_anchor, std::string top_anchor, std::string bottom_anchor, std::map< std::string,int > string_id_map, std::map< std::string,bool > string_torso_map);
-    virtual ~SwigDirector_bvh_spec();
-    virtual std::map< std::string,int > get_id_map() const;
-    virtual std::map< std::string,bool > get_torso_map() const;
-    virtual std::string get_left_anchor();
-    virtual std::string get_right_anchor();
-    virtual std::string get_top_anchor();
-    virtual std::string get_bottom_anchor();
-public:
-    bool swig_overrides(int n) {
-      return (n < 6 ? swig_override[n] : false);
-    }
-protected:
-    bool swig_override[6];
-};
-
-class SwigDirector_bvh_controller : public mae::fl::bvh_controller, public Swig::Director {
-
-public:
-    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
-    SwigDirector_bvh_controller(JNIEnv *jenv);
-    virtual ~SwigDirector_bvh_controller();
-    virtual std::string bvh_str(std::vector< std::shared_ptr< mae::general_skeleton > > data);
-    virtual std::string bvh_str(std::vector< std::shared_ptr< mae::general_skeleton > > data, double framerate);
-    virtual std::string bvh_str(std::shared_ptr< mae::general_skeleton > data);
-    virtual void print_bvh_file(std::vector< std::shared_ptr< mae::general_skeleton > > data, std::string filename);
-    virtual void print_bvh_file(std::shared_ptr< mae::general_skeleton > data, std::string filename);
-    virtual std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > read_bvh_str(std::string bvh_str, std::shared_ptr< mae::fl::bvh_spec > spec);
-    virtual std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > read_bvh_file(std::string filename, std::shared_ptr< mae::fl::bvh_spec > spec);
-public:
-    bool swig_overrides(int n) {
-      return (n < 7 ? swig_override[n] : false);
-    }
-protected:
-    bool swig_override[7];
 };
 
 

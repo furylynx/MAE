@@ -29,26 +29,26 @@ public class e_cancel_c {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_e_cancel_c(swigCPtr);
+        MaeJavaJNI.delete_e_cancel_c(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public static String str(e_cancel cancel) {
-    return MaejavaJNI.e_cancel_c_str(cancel.swigValue());
+    return MaeJavaJNI.e_cancel_c_str(cancel.swigValue());
   }
 
   public static e_cancel_vector vec() {
-    return new e_cancel_vector(MaejavaJNI.e_cancel_c_vec(), true);
+    return new e_cancel_vector(MaeJavaJNI.e_cancel_c_vec(), true);
   }
 
   public static e_cancel parse(String str) {
-    return e_cancel.swigToEnum(MaejavaJNI.e_cancel_c_parse(str));
+    return e_cancel.swigToEnum(MaeJavaJNI.e_cancel_c_parse(str));
   }
 
   public e_cancel_c() {
-    this(MaejavaJNI.new_e_cancel_c(), true);
+    this(MaeJavaJNI.new_e_cancel_c(), true);
   }
 
 }

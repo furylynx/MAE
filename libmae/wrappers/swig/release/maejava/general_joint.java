@@ -29,103 +29,103 @@ public class general_joint {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_general_joint(swigCPtr);
+        MaeJavaJNI.delete_general_joint(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public general_joint() {
-    this(MaejavaJNI.new_general_joint__SWIG_0(), true);
+    this(MaeJavaJNI.new_general_joint__SWIG_0(), true);
   }
 
   public general_joint(double x, double y, double z, double rotation, double confidence) {
-    this(MaejavaJNI.new_general_joint__SWIG_1(x, y, z, rotation, confidence), true);
+    this(MaeJavaJNI.new_general_joint__SWIG_1(x, y, z, rotation, confidence), true);
   }
 
   public general_joint(double x, double y, double z, double rotation) {
-    this(MaejavaJNI.new_general_joint__SWIG_2(x, y, z, rotation), true);
+    this(MaeJavaJNI.new_general_joint__SWIG_2(x, y, z, rotation), true);
   }
 
   public general_joint(double x, double y, double z) {
-    this(MaejavaJNI.new_general_joint__SWIG_3(x, y, z), true);
+    this(MaeJavaJNI.new_general_joint__SWIG_3(x, y, z), true);
   }
 
   public general_joint(vec3d pos, double rotation, double confidence) {
-    this(MaejavaJNI.new_general_joint__SWIG_4(vec3d.getCPtr(pos), pos, rotation, confidence), true);
+    this(MaeJavaJNI.new_general_joint__SWIG_4(vec3d.getCPtr(pos), pos, rotation, confidence), true);
   }
 
   public general_joint(vec3d pos, double rotation) {
-    this(MaejavaJNI.new_general_joint__SWIG_5(vec3d.getCPtr(pos), pos, rotation), true);
+    this(MaeJavaJNI.new_general_joint__SWIG_5(vec3d.getCPtr(pos), pos, rotation), true);
   }
 
   public general_joint(vec3d pos) {
-    this(MaejavaJNI.new_general_joint__SWIG_6(vec3d.getCPtr(pos), pos), true);
+    this(MaeJavaJNI.new_general_joint__SWIG_6(vec3d.getCPtr(pos), pos), true);
   }
 
   public void set_x(double x) {
-    MaejavaJNI.general_joint_set_x(swigCPtr, this, x);
+    MaeJavaJNI.general_joint_set_x(swigCPtr, this, x);
   }
 
   public double get_x() {
-    return MaejavaJNI.general_joint_get_x(swigCPtr, this);
+    return MaeJavaJNI.general_joint_get_x(swigCPtr, this);
   }
 
   public void set_y(double y) {
-    MaejavaJNI.general_joint_set_y(swigCPtr, this, y);
+    MaeJavaJNI.general_joint_set_y(swigCPtr, this, y);
   }
 
   public double get_y() {
-    return MaejavaJNI.general_joint_get_y(swigCPtr, this);
+    return MaeJavaJNI.general_joint_get_y(swigCPtr, this);
   }
 
   public void set_z(double z) {
-    MaejavaJNI.general_joint_set_z(swigCPtr, this, z);
+    MaeJavaJNI.general_joint_set_z(swigCPtr, this, z);
   }
 
   public double get_z() {
-    return MaejavaJNI.general_joint_get_z(swigCPtr, this);
+    return MaeJavaJNI.general_joint_get_z(swigCPtr, this);
   }
 
   public void set_valid(boolean is_valid) {
-    MaejavaJNI.general_joint_set_valid(swigCPtr, this, is_valid);
+    MaeJavaJNI.general_joint_set_valid(swigCPtr, this, is_valid);
   }
 
   public boolean is_valid() {
-    return MaejavaJNI.general_joint_is_valid(swigCPtr, this);
+    return MaeJavaJNI.general_joint_is_valid(swigCPtr, this);
   }
 
   public void set_confidence(double confidence) {
-    MaejavaJNI.general_joint_set_confidence(swigCPtr, this, confidence);
+    MaeJavaJNI.general_joint_set_confidence(swigCPtr, this, confidence);
   }
 
   public double get_confidence() {
-    return MaejavaJNI.general_joint_get_confidence(swigCPtr, this);
+    return MaeJavaJNI.general_joint_get_confidence(swigCPtr, this);
   }
 
   public void set_rotation(double rotation) {
-    MaejavaJNI.general_joint_set_rotation(swigCPtr, this, rotation);
+    MaeJavaJNI.general_joint_set_rotation(swigCPtr, this, rotation);
   }
 
   public double get_rotation() {
-    return MaejavaJNI.general_joint_get_rotation(swigCPtr, this);
+    return MaeJavaJNI.general_joint_get_rotation(swigCPtr, this);
   }
 
   public vec3d vec() {
-    long cPtr = MaejavaJNI.general_joint_vec(swigCPtr, this);
+    long cPtr = MaeJavaJNI.general_joint_vec(swigCPtr, this);
     return (cPtr == 0) ? null : new vec3d(cPtr, true);
   }
 
   public boolean equals_val(general_joint joint) {
-    return MaejavaJNI.general_joint_equals_val(swigCPtr, this, general_joint.getCPtr(joint), joint);
+    return MaeJavaJNI.general_joint_equals_val(swigCPtr, this, general_joint.getCPtr(joint), joint);
   }
 
   public boolean equals(general_joint joint) {
-    return MaejavaJNI.general_joint_equals(swigCPtr, this, general_joint.getCPtr(joint), joint);
+    return MaeJavaJNI.general_joint_equals(swigCPtr, this, general_joint.getCPtr(joint), joint);
   }
 
   public String str() {
-    return MaejavaJNI.general_joint_str(swigCPtr, this);
+    return MaeJavaJNI.general_joint_str(swigCPtr, this);
   }
 
 }

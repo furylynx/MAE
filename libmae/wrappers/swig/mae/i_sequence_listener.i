@@ -6,7 +6,9 @@
 //global includes
 //%include "std_shared_ptr.i"
 %include "swig_fixed_std_shared_ptr.i"
- 
+
+%feature("director") mae::i_sequence_listener; 
+
 %module(directors="1") w_i_sequence_listener
 %{
 	#include "../../../src/mae/i_sequence_listener.hpp"

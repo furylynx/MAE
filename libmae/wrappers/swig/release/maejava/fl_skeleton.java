@@ -13,7 +13,7 @@ public class fl_skeleton extends general_skeleton {
   private boolean swigCMemOwnDerived;
 
   public fl_skeleton(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.fl_skeleton_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.fl_skeleton_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class fl_skeleton extends general_skeleton {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_fl_skeleton(swigCPtr);
+        MaeJavaJNI.delete_fl_skeleton(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,29 +38,29 @@ public class fl_skeleton extends general_skeleton {
   }
 
   public fl_skeleton() {
-    this(MaejavaJNI.new_fl_skeleton(), true);
+    this(MaeJavaJNI.new_fl_skeleton(), true);
   }
 
   public void set_torso_basis(basis torso_basis) {
-    MaejavaJNI.fl_skeleton_set_torso_basis(swigCPtr, this, basis.getCPtr(torso_basis), torso_basis);
+    MaeJavaJNI.fl_skeleton_set_torso_basis(swigCPtr, this, basis.getCPtr(torso_basis), torso_basis);
   }
 
   public basis get_torso_basis() {
-    long cPtr = MaejavaJNI.fl_skeleton_get_torso_basis(swigCPtr, this);
+    long cPtr = MaeJavaJNI.fl_skeleton_get_torso_basis(swigCPtr, this);
     return (cPtr == 0) ? null : new basis(cPtr, true);
   }
 
   public void set_orig_skeleton(general_skeleton offset_skeleton) {
-    MaejavaJNI.fl_skeleton_set_orig_skeleton(swigCPtr, this, general_skeleton.getCPtr(offset_skeleton), offset_skeleton);
+    MaeJavaJNI.fl_skeleton_set_orig_skeleton(swigCPtr, this, general_skeleton.getCPtr(offset_skeleton), offset_skeleton);
   }
 
   public general_skeleton get_orig_skeleton() {
-    long cPtr = MaejavaJNI.fl_skeleton_get_orig_skeleton(swigCPtr, this);
+    long cPtr = MaeJavaJNI.fl_skeleton_get_orig_skeleton(swigCPtr, this);
     return (cPtr == 0) ? null : new general_skeleton(cPtr, true);
   }
 
   public String str() {
-    return MaejavaJNI.fl_skeleton_str(swigCPtr, this);
+    return MaeJavaJNI.fl_skeleton_str(swigCPtr, this);
   }
 
 }

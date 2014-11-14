@@ -8,5 +8,5 @@
 
 package maejava;
 
-public class Maejava {
+public class MaeJava {
 }

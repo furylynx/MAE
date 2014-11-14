@@ -12,10 +12,11 @@
 %include "std_pair.i"
 %include "exception.i"
 
-%typemap(javadirectorin) std::shared_ptr<mae::fl::bvh_spec> "new bvh_spec($jniinput, false)"
-%typemap(javadirectorin) std::shared_ptr<mae::fl::general_skeleton> "new general_skeleton($jniinput, false)"
+//TODO director
+//%typemap(javadirectorin) std::shared_ptr<mae::fl::bvh_spec> "new bvh_spec($jniinput, false)"
+//%typemap(javadirectorin) std::shared_ptr<mae::fl::general_skeleton> "new general_skeleton($jniinput, false)"
 
-%feature("director") mae::fl::bvh_controller; 
+//%feature("director") mae::fl::bvh_controller; 
 
 //module definition
 %module(directors="1") w_bvh_controller

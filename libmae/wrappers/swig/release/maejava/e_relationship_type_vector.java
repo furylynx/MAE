@@ -29,50 +29,50 @@ public class e_relationship_type_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_e_relationship_type_vector(swigCPtr);
+        MaeJavaJNI.delete_e_relationship_type_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public e_relationship_type_vector() {
-    this(MaejavaJNI.new_e_relationship_type_vector__SWIG_0(), true);
+    this(MaeJavaJNI.new_e_relationship_type_vector__SWIG_0(), true);
   }
 
   public e_relationship_type_vector(long n) {
-    this(MaejavaJNI.new_e_relationship_type_vector__SWIG_1(n), true);
+    this(MaeJavaJNI.new_e_relationship_type_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return MaejavaJNI.e_relationship_type_vector_size(swigCPtr, this);
+    return MaeJavaJNI.e_relationship_type_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return MaejavaJNI.e_relationship_type_vector_capacity(swigCPtr, this);
+    return MaeJavaJNI.e_relationship_type_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    MaejavaJNI.e_relationship_type_vector_reserve(swigCPtr, this, n);
+    MaeJavaJNI.e_relationship_type_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return MaejavaJNI.e_relationship_type_vector_isEmpty(swigCPtr, this);
+    return MaeJavaJNI.e_relationship_type_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    MaejavaJNI.e_relationship_type_vector_clear(swigCPtr, this);
+    MaeJavaJNI.e_relationship_type_vector_clear(swigCPtr, this);
   }
 
   public void add(e_relationship_type x) {
-    MaejavaJNI.e_relationship_type_vector_add(swigCPtr, this, x.swigValue());
+    MaeJavaJNI.e_relationship_type_vector_add(swigCPtr, this, x.swigValue());
   }
 
   public e_relationship_type get(int i) {
-    return e_relationship_type.swigToEnum(MaejavaJNI.e_relationship_type_vector_get(swigCPtr, this, i));
+    return e_relationship_type.swigToEnum(MaeJavaJNI.e_relationship_type_vector_get(swigCPtr, this, i));
   }
 
   public void set(int i, e_relationship_type val) {
-    MaejavaJNI.e_relationship_type_vector_set(swigCPtr, this, i, val.swigValue());
+    MaeJavaJNI.e_relationship_type_vector_set(swigCPtr, this, i, val.swigValue());
   }
 
 }

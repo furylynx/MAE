@@ -75,6 +75,13 @@ namespace mae {
 				 * @param pose
 				 */
 				virtual void notify_listeners(long timestamp, std::shared_ptr<general_pose> pose) = 0;
+
+				/**
+				 * Returns the last processed pose.
+				 *
+				 * @return The last processed pose.
+				 */
+				virtual std::shared_ptr<general_pose> get_current_pose() const = 0;
 		};
 
 } // namespace mae

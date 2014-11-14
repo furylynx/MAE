@@ -13,7 +13,7 @@ public class pin extends i_degree_sign {
   private boolean swigCMemOwnDerived;
 
   public pin(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.pin_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.pin_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class pin extends i_degree_sign {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_pin(swigCPtr);
+        MaeJavaJNI.delete_pin(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,43 +38,43 @@ public class pin extends i_degree_sign {
   }
 
   public pin(e_level level, int horizontal) {
-    this(MaejavaJNI.new_pin(level.swigValue(), horizontal), true);
+    this(MaeJavaJNI.new_pin(level.swigValue(), horizontal), true);
   }
 
   public e_level get_level() {
-    return e_level.swigToEnum(MaejavaJNI.pin_get_level(swigCPtr, this));
+    return e_level.swigToEnum(MaeJavaJNI.pin_get_level(swigCPtr, this));
   }
 
   public int get_horizontal() {
-    return MaejavaJNI.pin_get_horizontal(swigCPtr, this);
+    return MaeJavaJNI.pin_get_horizontal(swigCPtr, this);
   }
 
   public boolean equals(i_degree_sign a) {
-    return MaejavaJNI.pin_equals(swigCPtr, this, i_degree_sign.getCPtr(a), a);
+    return MaeJavaJNI.pin_equals(swigCPtr, this, i_degree_sign.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp, boolean print_type) {
-    return MaejavaJNI.pin_xml__SWIG_0(swigCPtr, this, indent, namesp, print_type);
+    return MaeJavaJNI.pin_xml__SWIG_0(swigCPtr, this, indent, namesp, print_type);
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.pin_xml__SWIG_1(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.pin_xml__SWIG_1(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.pin_xml__SWIG_2(swigCPtr, this, indent);
+    return MaeJavaJNI.pin_xml__SWIG_2(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.pin_xml__SWIG_3(swigCPtr, this);
+    return MaeJavaJNI.pin_xml__SWIG_3(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return MaejavaJNI.pin_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaeJavaJNI.pin_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return MaejavaJNI.pin_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaeJavaJNI.pin_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
 }

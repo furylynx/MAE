@@ -9,20 +9,20 @@
 package maejava;
 
 public final class e_bone {
-  public final static e_bone INVALID_BONE = new e_bone("INVALID_BONE", MaejavaJNI.INVALID_BONE_get());
-  public final static e_bone HEAD = new e_bone("HEAD", MaejavaJNI.HEAD_get());
-  public final static e_bone LEFT_UPPER_ARM = new e_bone("LEFT_UPPER_ARM", MaejavaJNI.LEFT_UPPER_ARM_get());
-  public final static e_bone LEFT_FOREARM = new e_bone("LEFT_FOREARM", MaejavaJNI.LEFT_FOREARM_get());
-  public final static e_bone LEFT_WHOLE_ARM = new e_bone("LEFT_WHOLE_ARM", MaejavaJNI.LEFT_WHOLE_ARM_get());
-  public final static e_bone RIGHT_UPPER_ARM = new e_bone("RIGHT_UPPER_ARM", MaejavaJNI.RIGHT_UPPER_ARM_get());
-  public final static e_bone RIGHT_FOREARM = new e_bone("RIGHT_FOREARM", MaejavaJNI.RIGHT_FOREARM_get());
-  public final static e_bone RIGHT_WHOLE_ARM = new e_bone("RIGHT_WHOLE_ARM", MaejavaJNI.RIGHT_WHOLE_ARM_get());
-  public final static e_bone LEFT_THIGH = new e_bone("LEFT_THIGH", MaejavaJNI.LEFT_THIGH_get());
-  public final static e_bone LEFT_SHANK = new e_bone("LEFT_SHANK", MaejavaJNI.LEFT_SHANK_get());
-  public final static e_bone LEFT_WHOLE_LEG = new e_bone("LEFT_WHOLE_LEG", MaejavaJNI.LEFT_WHOLE_LEG_get());
-  public final static e_bone RIGHT_THIGH = new e_bone("RIGHT_THIGH", MaejavaJNI.RIGHT_THIGH_get());
-  public final static e_bone RIGHT_SHANK = new e_bone("RIGHT_SHANK", MaejavaJNI.RIGHT_SHANK_get());
-  public final static e_bone RIGHT_WHOLE_LEG = new e_bone("RIGHT_WHOLE_LEG", MaejavaJNI.RIGHT_WHOLE_LEG_get());
+  public final static e_bone INVALID_BONE = new e_bone("INVALID_BONE", MaeJavaJNI.INVALID_BONE_get());
+  public final static e_bone HEAD = new e_bone("HEAD", MaeJavaJNI.HEAD_get());
+  public final static e_bone LEFT_UPPER_ARM = new e_bone("LEFT_UPPER_ARM", MaeJavaJNI.LEFT_UPPER_ARM_get());
+  public final static e_bone LEFT_FOREARM = new e_bone("LEFT_FOREARM", MaeJavaJNI.LEFT_FOREARM_get());
+  public final static e_bone LEFT_WHOLE_ARM = new e_bone("LEFT_WHOLE_ARM", MaeJavaJNI.LEFT_WHOLE_ARM_get());
+  public final static e_bone RIGHT_UPPER_ARM = new e_bone("RIGHT_UPPER_ARM", MaeJavaJNI.RIGHT_UPPER_ARM_get());
+  public final static e_bone RIGHT_FOREARM = new e_bone("RIGHT_FOREARM", MaeJavaJNI.RIGHT_FOREARM_get());
+  public final static e_bone RIGHT_WHOLE_ARM = new e_bone("RIGHT_WHOLE_ARM", MaeJavaJNI.RIGHT_WHOLE_ARM_get());
+  public final static e_bone LEFT_THIGH = new e_bone("LEFT_THIGH", MaeJavaJNI.LEFT_THIGH_get());
+  public final static e_bone LEFT_SHANK = new e_bone("LEFT_SHANK", MaeJavaJNI.LEFT_SHANK_get());
+  public final static e_bone LEFT_WHOLE_LEG = new e_bone("LEFT_WHOLE_LEG", MaeJavaJNI.LEFT_WHOLE_LEG_get());
+  public final static e_bone RIGHT_THIGH = new e_bone("RIGHT_THIGH", MaeJavaJNI.RIGHT_THIGH_get());
+  public final static e_bone RIGHT_SHANK = new e_bone("RIGHT_SHANK", MaeJavaJNI.RIGHT_SHANK_get());
+  public final static e_bone RIGHT_WHOLE_LEG = new e_bone("RIGHT_WHOLE_LEG", MaeJavaJNI.RIGHT_WHOLE_LEG_get());
 
   public final int swigValue() {
     return swigValue;

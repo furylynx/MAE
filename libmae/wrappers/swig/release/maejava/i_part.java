@@ -29,34 +29,34 @@ public class i_part {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_i_part(swigCPtr);
+        MaeJavaJNI.delete_i_part(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.i_part_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.i_part_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.i_part_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.i_part_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.i_part_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.i_part_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return MaejavaJNI.i_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaeJavaJNI.i_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return MaejavaJNI.i_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaeJavaJNI.i_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public boolean equals(i_part a) {
-    return MaejavaJNI.i_part_equals(swigCPtr, this, i_part.getCPtr(a), a);
+    return MaeJavaJNI.i_part_equals(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
 }

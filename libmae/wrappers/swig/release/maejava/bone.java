@@ -29,56 +29,56 @@ public class bone {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_bone(swigCPtr);
+        MaeJavaJNI.delete_bone(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public bone() {
-    this(MaejavaJNI.new_bone__SWIG_0(), true);
+    this(MaeJavaJNI.new_bone__SWIG_0(), true);
   }
 
   public bone(int id, String name, int from, int to) {
-    this(MaejavaJNI.new_bone__SWIG_1(id, name, from, to), true);
+    this(MaeJavaJNI.new_bone__SWIG_1(id, name, from, to), true);
   }
 
   public bone(int id, String name, int from, int to, int middle_joint) {
-    this(MaejavaJNI.new_bone__SWIG_2(id, name, from, to, middle_joint), true);
+    this(MaeJavaJNI.new_bone__SWIG_2(id, name, from, to, middle_joint), true);
   }
 
   public bone(e_bone eb) {
-    this(MaejavaJNI.new_bone__SWIG_3(eb.swigValue()), true);
+    this(MaeJavaJNI.new_bone__SWIG_3(eb.swigValue()), true);
   }
 
   public int get_id() {
-    return MaejavaJNI.bone_get_id(swigCPtr, this);
+    return MaeJavaJNI.bone_get_id(swigCPtr, this);
   }
 
   public String get_name() {
-    return MaejavaJNI.bone_get_name(swigCPtr, this);
+    return MaeJavaJNI.bone_get_name(swigCPtr, this);
   }
 
   public int get_from() {
-    return MaejavaJNI.bone_get_from(swigCPtr, this);
+    return MaeJavaJNI.bone_get_from(swigCPtr, this);
   }
 
   public int get_to() {
-    return MaejavaJNI.bone_get_to(swigCPtr, this);
+    return MaeJavaJNI.bone_get_to(swigCPtr, this);
   }
 
   public boolean has_middle_joint() {
-    return MaejavaJNI.bone_has_middle_joint(swigCPtr, this);
+    return MaeJavaJNI.bone_has_middle_joint(swigCPtr, this);
   }
 
   public int get_middle_joint() {
-    return MaejavaJNI.bone_get_middle_joint(swigCPtr, this);
+    return MaeJavaJNI.bone_get_middle_joint(swigCPtr, this);
   }
 
   public static bone_vector default_bones() {
-    return new bone_vector(MaejavaJNI.bone_default_bones(), true);
+    return new bone_vector(MaeJavaJNI.bone_default_bones(), true);
   }
 
-  public final static int RESERVED_TOP_DOWN = MaejavaJNI.bone_RESERVED_TOP_DOWN_get();
-  public final static int RESERVED_RIGHT_LEFT = MaejavaJNI.bone_RESERVED_RIGHT_LEFT_get();
+  public final static int RESERVED_TOP_DOWN = MaeJavaJNI.bone_RESERVED_TOP_DOWN_get();
+  public final static int RESERVED_RIGHT_LEFT = MaeJavaJNI.bone_RESERVED_RIGHT_LEFT_get();
 }

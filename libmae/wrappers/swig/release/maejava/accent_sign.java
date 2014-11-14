@@ -13,7 +13,7 @@ public class accent_sign extends i_dynamics_sign {
   private boolean swigCMemOwnDerived;
 
   public accent_sign(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.accent_sign_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.accent_sign_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class accent_sign extends i_dynamics_sign {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_accent_sign(swigCPtr);
+        MaeJavaJNI.delete_accent_sign(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,27 +38,27 @@ public class accent_sign extends i_dynamics_sign {
   }
 
   public accent_sign(long accent) {
-    this(MaejavaJNI.new_accent_sign(accent), true);
+    this(MaeJavaJNI.new_accent_sign(accent), true);
   }
 
   public long get_accent() {
-    return MaejavaJNI.accent_sign_get_accent(swigCPtr, this);
+    return MaeJavaJNI.accent_sign_get_accent(swigCPtr, this);
   }
 
   public boolean equals(i_dynamics_sign a) {
-    return MaejavaJNI.accent_sign_equals(swigCPtr, this, i_dynamics_sign.getCPtr(a), a);
+    return MaeJavaJNI.accent_sign_equals(swigCPtr, this, i_dynamics_sign.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.accent_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.accent_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.accent_sign_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.accent_sign_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.accent_sign_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.accent_sign_xml__SWIG_2(swigCPtr, this);
   }
 
 }

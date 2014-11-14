@@ -29,39 +29,44 @@ public class fl_skeleton_laban_sequence_movement_detector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_fl_skeleton_laban_sequence_movement_detector(swigCPtr);
+        MaeJavaJNI.delete_fl_skeleton_laban_sequence_movement_detector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public laban_sequence detect_movement(int timestamp, double framerate, fl_skeleton skeleton, bone_vector body_parts) {
-    long cPtr = MaejavaJNI.fl_skeleton_laban_sequence_movement_detector_detect_movement(swigCPtr, this, timestamp, framerate, fl_skeleton.getCPtr(skeleton), skeleton, bone_vector.getCPtr(body_parts), body_parts);
+    long cPtr = MaeJavaJNI.fl_skeleton_laban_sequence_movement_detector_detect_movement(swigCPtr, this, timestamp, framerate, fl_skeleton.getCPtr(skeleton), skeleton, bone_vector.getCPtr(body_parts), body_parts);
     return (cPtr == 0) ? null : new laban_sequence(cPtr, true);
   }
 
   public void set_buffer(int size) {
-    MaejavaJNI.fl_skeleton_laban_sequence_movement_detector_set_buffer(swigCPtr, this, size);
+    MaeJavaJNI.fl_skeleton_laban_sequence_movement_detector_set_buffer(swigCPtr, this, size);
   }
 
   public void clear_buffer() {
-    MaejavaJNI.fl_skeleton_laban_sequence_movement_detector_clear_buffer(swigCPtr, this);
+    MaeJavaJNI.fl_skeleton_laban_sequence_movement_detector_clear_buffer(swigCPtr, this);
   }
 
   public void add_listener(i_pose_listener listener) {
-    MaejavaJNI.fl_skeleton_laban_sequence_movement_detector_add_listener(swigCPtr, this, i_pose_listener.getCPtr(listener), listener);
+    MaeJavaJNI.fl_skeleton_laban_sequence_movement_detector_add_listener(swigCPtr, this, i_pose_listener.getCPtr(listener), listener);
   }
 
   public void remove_listener(i_pose_listener listener) {
-    MaejavaJNI.fl_skeleton_laban_sequence_movement_detector_remove_listener(swigCPtr, this, i_pose_listener.getCPtr(listener), listener);
+    MaeJavaJNI.fl_skeleton_laban_sequence_movement_detector_remove_listener(swigCPtr, this, i_pose_listener.getCPtr(listener), listener);
   }
 
   public void clear_listeners() {
-    MaejavaJNI.fl_skeleton_laban_sequence_movement_detector_clear_listeners(swigCPtr, this);
+    MaeJavaJNI.fl_skeleton_laban_sequence_movement_detector_clear_listeners(swigCPtr, this);
   }
 
   public void notify_listeners(int timestamp, general_pose pose) {
-    MaejavaJNI.fl_skeleton_laban_sequence_movement_detector_notify_listeners(swigCPtr, this, timestamp, general_pose.getCPtr(pose), pose);
+    MaeJavaJNI.fl_skeleton_laban_sequence_movement_detector_notify_listeners(swigCPtr, this, timestamp, general_pose.getCPtr(pose), pose);
+  }
+
+  public general_pose get_current_pose() {
+    long cPtr = MaeJavaJNI.fl_skeleton_laban_sequence_movement_detector_get_current_pose(swigCPtr, this);
+    return (cPtr == 0) ? null : new general_pose(cPtr, true);
   }
 
 }

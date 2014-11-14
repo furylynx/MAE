@@ -13,7 +13,7 @@ public class default_limb extends i_limb {
   private boolean swigCMemOwnDerived;
 
   public default_limb(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.default_limb_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.default_limb_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class default_limb extends i_limb {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_default_limb(swigCPtr);
+        MaeJavaJNI.delete_default_limb(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,39 +38,39 @@ public class default_limb extends i_limb {
   }
 
   public default_limb(e_limb limb) {
-    this(MaejavaJNI.new_default_limb(limb.swigValue()), true);
+    this(MaeJavaJNI.new_default_limb(limb.swigValue()), true);
   }
 
   public e_limb get_limb() {
-    return e_limb.swigToEnum(MaejavaJNI.default_limb_get_limb(swigCPtr, this));
+    return e_limb.swigToEnum(MaeJavaJNI.default_limb_get_limb(swigCPtr, this));
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.default_limb_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.default_limb_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.default_limb_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.default_limb_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.default_limb_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.default_limb_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return MaejavaJNI.default_limb_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaeJavaJNI.default_limb_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return MaejavaJNI.default_limb_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaeJavaJNI.default_limb_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public boolean equals(i_part a) {
-    return MaejavaJNI.default_limb_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
+    return MaeJavaJNI.default_limb_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
   public boolean equals(i_limb a) {
-    return MaejavaJNI.default_limb_equals__SWIG_1(swigCPtr, this, i_limb.getCPtr(a), a);
+    return MaeJavaJNI.default_limb_equals__SWIG_1(swigCPtr, this, i_limb.getCPtr(a), a);
   }
 
 }

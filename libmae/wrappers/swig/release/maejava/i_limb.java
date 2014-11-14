@@ -13,7 +13,7 @@ public class i_limb extends i_part {
   private boolean swigCMemOwnDerived;
 
   public i_limb(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.i_limb_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.i_limb_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class i_limb extends i_part {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_i_limb(swigCPtr);
+        MaeJavaJNI.delete_i_limb(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,23 +38,23 @@ public class i_limb extends i_part {
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.i_limb_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.i_limb_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.i_limb_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.i_limb_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.i_limb_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.i_limb_xml__SWIG_2(swigCPtr, this);
   }
 
   public boolean equals(i_part a) {
-    return MaejavaJNI.i_limb_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
+    return MaeJavaJNI.i_limb_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
   public boolean equals(i_limb a) {
-    return MaejavaJNI.i_limb_equals__SWIG_1(swigCPtr, this, i_limb.getCPtr(a), a);
+    return MaeJavaJNI.i_limb_equals__SWIG_1(swigCPtr, this, i_limb.getCPtr(a), a);
   }
 
 }
