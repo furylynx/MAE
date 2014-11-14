@@ -12,12 +12,12 @@ public class i_pre_sign {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected i_pre_sign(long cPtr, boolean cMemoryOwn) {
+  public i_pre_sign(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(i_pre_sign obj) {
+  public static long getCPtr(i_pre_sign obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

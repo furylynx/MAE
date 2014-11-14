@@ -32,12 +32,12 @@
 %shared_ptr(mae::i_pose_detector<mae::fl::fl_skeleton>);
 %shared_ptr(mae::i_movement_detector<mae::fl::fl_skeleton, mae::fl::laban::laban_sequence>);
 
+//update shared_ptr defs for director
+%typemap(javadirectorin) std::shared_ptr<mae::fl::laban::laban_sequence> "new laban_sequence($jniinput, false)"
 
-//TODO DIRECTORS
-//%feature("director") mae::i_sequence_listener<mae::fl::laban::laban_sequence>;
+//directors
+%feature("director") mae::i_sequence_listener<mae::fl::laban::laban_sequence>;
 %feature("director") mae::i_recognition_listener<mae::fl::laban::laban_sequence>;
-
-%template (laban_sequence_shared_ptr) std::shared_ptr<mae::fl::laban::laban_sequence>;
 
 %template (laban_sequence_sequence_listener) mae::i_sequence_listener<mae::fl::laban::laban_sequence>;
 %template (laban_sequence_vector) std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> >;

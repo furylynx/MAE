@@ -12,12 +12,12 @@ public class i_symbol {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected i_symbol(long cPtr, boolean cMemoryOwn) {
+  public i_symbol(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(i_symbol obj) {
+  public static long getCPtr(i_symbol obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

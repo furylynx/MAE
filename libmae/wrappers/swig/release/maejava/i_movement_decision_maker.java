@@ -12,12 +12,12 @@ public class i_movement_decision_maker {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected i_movement_decision_maker(long cPtr, boolean cMemoryOwn) {
+  public i_movement_decision_maker(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(i_movement_decision_maker obj) {
+  public static long getCPtr(i_movement_decision_maker obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

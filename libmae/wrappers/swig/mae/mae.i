@@ -12,6 +12,9 @@
 
 %}
 
+//shared_ptr public
+#define SWIG_SHARED_PTR_TYPEMAPS(CONST, TYPE...) SWIG_SHARED_PTR_TYPEMAPS_IMPLEMENTATION(public, public, CONST, TYPE)
+
 //include all that is required
 %include "fl/fl.i"
 

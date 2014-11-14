@@ -12,13 +12,13 @@ public class relationship_bow extends i_movement {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected relationship_bow(long cPtr, boolean cMemoryOwn) {
+  public relationship_bow(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.relationship_bow_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(relationship_bow obj) {
+  public static long getCPtr(relationship_bow obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

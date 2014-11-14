@@ -12,12 +12,12 @@ public class fl_skeleton_pose_detector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected fl_skeleton_pose_detector(long cPtr, boolean cMemoryOwn) {
+  public fl_skeleton_pose_detector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(fl_skeleton_pose_detector obj) {
+  public static long getCPtr(fl_skeleton_pose_detector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

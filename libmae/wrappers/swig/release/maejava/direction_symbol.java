@@ -12,13 +12,13 @@ public class direction_symbol extends i_symbol {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected direction_symbol(long cPtr, boolean cMemoryOwn) {
+  public direction_symbol(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.direction_symbol_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(direction_symbol obj) {
+  public static long getCPtr(direction_symbol obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

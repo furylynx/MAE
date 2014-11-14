@@ -12,13 +12,13 @@ public class turn_symbol extends i_symbol {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected turn_symbol(long cPtr, boolean cMemoryOwn) {
+  public turn_symbol(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.turn_symbol_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(turn_symbol obj) {
+  public static long getCPtr(turn_symbol obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

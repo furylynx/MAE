@@ -12,12 +12,12 @@ public class basis {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected basis(long cPtr, boolean cMemoryOwn) {
+  public basis(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(basis obj) {
+  public static long getCPtr(basis obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

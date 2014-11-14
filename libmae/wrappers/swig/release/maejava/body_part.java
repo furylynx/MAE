@@ -12,13 +12,13 @@ public class body_part extends i_pre_sign {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected body_part(long cPtr, boolean cMemoryOwn) {
+  public body_part(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.body_part_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(body_part obj) {
+  public static long getCPtr(body_part obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

@@ -12,12 +12,12 @@ public class general_skeleton {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected general_skeleton(long cPtr, boolean cMemoryOwn) {
+  public general_skeleton(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(general_skeleton obj) {
+  public static long getCPtr(general_skeleton obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

@@ -615,7 +615,7 @@ namespace Swig {
 namespace Swig {
   namespace {
     jclass jclass_MaejavaJNI = NULL;
-    jmethodID director_methids[8];
+    jmethodID director_methids[16];
   }
 }
 
@@ -1452,6 +1452,79 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_ps_e_joint_Sg__set(std::vector< mae::
 
 #include "mae_wrap_java.h"
 
+SwigDirector_laban_sequence_sequence_listener::SwigDirector_laban_sequence_sequence_listener(JNIEnv *jenv) : mae::i_sequence_listener< mae::fl::laban::laban_sequence >(), Swig::Director(jenv) {
+}
+
+SwigDirector_laban_sequence_sequence_listener::~SwigDirector_laban_sequence_sequence_listener() {
+  swig_disconnect_director_self("swigDirectorDisconnect");
+}
+
+
+void SwigDirector_laban_sequence_sequence_listener::on_sequence(long timestamp, std::shared_ptr< mae::fl::laban::laban_sequence > sequence) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jint jtimestamp  ;
+  jlong jsequence  ;
+  
+  if (!swig_override[0]) {
+    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_sequence_listener< mae::fl::laban::laban_sequence >::on_sequence.");
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jtimestamp = (jint) timestamp;
+    jsequence = 0;
+    *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
+    jenv->CallStaticVoidMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[0], swigjobj, jtimestamp, jsequence);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_sequence_listener< mae::fl::laban::laban_sequence >::on_sequence ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_laban_sequence_sequence_listener::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
+  static struct {
+    const char *mname;
+    const char *mdesc;
+    jmethodID base_methid;
+  } methods[] = {
+    {
+      "on_sequence", "(ILmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__laban__laban_sequence_t;)V", NULL 
+    }
+  };
+  
+  static jclass baseclass = 0 ;
+  
+  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
+    if (!baseclass) {
+      baseclass = jenv->FindClass("maejava/laban_sequence_sequence_listener");
+      if (!baseclass) return;
+      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
+    }
+    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
+    for (int i = 0; i < 1; ++i) {
+      if (!methods[i].base_methid) {
+        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
+        if (!methods[i].base_methid) return;
+      }
+      swig_override[i] = false;
+      if (derived) {
+        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
+        swig_override[i] = (methid != methods[i].base_methid);
+        jenv->ExceptionClear();
+      }
+    }
+  }
+}
+
+
 SwigDirector_laban_sequence_recognition_listener::SwigDirector_laban_sequence_recognition_listener(JNIEnv *jenv) : mae::i_recognition_listener< mae::fl::laban::laban_sequence >(), Swig::Director(jenv) {
 }
 
@@ -1476,7 +1549,7 @@ void SwigDirector_laban_sequence_recognition_listener::on_recognition(long times
     jtimestamp = (jint) timestamp;
     jsequences = 0;
     *((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jsequences) = &sequences; 
-    jenv->CallStaticVoidMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[0], swigjobj, jtimestamp, jsequences);
+    jenv->CallStaticVoidMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[1], swigjobj, jtimestamp, jsequences);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -1505,7 +1578,7 @@ void SwigDirector_laban_sequence_recognition_listener::on_recognition(long times
     jtimestamp = (jint) timestamp;
     jtitle = 0;
     *((std::vector< std::string > **)&jtitle) = &title; 
-    jenv->CallStaticVoidMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[1], swigjobj, jtimestamp, jtitle);
+    jenv->CallStaticVoidMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[2], swigjobj, jtimestamp, jtitle);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -1578,7 +1651,7 @@ std::map< std::string,int > SwigDirector_bvh_spec::get_id_map() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[2], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[3], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -1611,7 +1684,7 @@ std::map< std::string,bool > SwigDirector_bvh_spec::get_torso_map() const {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[3], swigjobj);
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[4], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -1643,7 +1716,7 @@ std::string SwigDirector_bvh_spec::get_left_anchor() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[4], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[5], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -1679,7 +1752,7 @@ std::string SwigDirector_bvh_spec::get_right_anchor() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[5], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[6], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -1715,7 +1788,7 @@ std::string SwigDirector_bvh_spec::get_top_anchor() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[6], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[7], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -1751,7 +1824,7 @@ std::string SwigDirector_bvh_spec::get_bottom_anchor() {
   }
   swigjobj = swig_get_self(jenv);
   if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[7], swigjobj);
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[8], swigjobj);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -1811,6 +1884,321 @@ void SwigDirector_bvh_spec::swig_connect_director(JNIEnv *jenv, jobject jself, j
     }
     bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
     for (int i = 0; i < 6; ++i) {
+      if (!methods[i].base_methid) {
+        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
+        if (!methods[i].base_methid) return;
+      }
+      swig_override[i] = false;
+      if (derived) {
+        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
+        swig_override[i] = (methid != methods[i].base_methid);
+        jenv->ExceptionClear();
+      }
+    }
+  }
+}
+
+
+SwigDirector_bvh_controller::SwigDirector_bvh_controller(JNIEnv *jenv) : mae::fl::bvh_controller(), Swig::Director(jenv) {
+}
+
+SwigDirector_bvh_controller::~SwigDirector_bvh_controller() {
+  swig_disconnect_director_self("swigDirectorDisconnect");
+}
+
+
+std::string SwigDirector_bvh_controller::bvh_str(std::vector< std::shared_ptr< mae::general_skeleton > > data) {
+  std::string c_result ;
+  jstring jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jdata  ;
+  
+  if (!swig_override[0]) {
+    return mae::fl::bvh_controller::bvh_str(data);
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jdata = 0;
+    *((std::vector< std::shared_ptr< mae::general_skeleton > > **)&jdata) = &data; 
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[9], swigjobj, jdata);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    if(!jresult) {
+      if (!jenv->ExceptionCheck()) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+      }
+      return c_result;
+    } 
+    const char *c_result_pstr = (const char *)jenv->GetStringUTFChars(jresult, 0); 
+    if (!c_result_pstr) return c_result;
+    c_result.assign(c_result_pstr);
+    jenv->ReleaseStringUTFChars(jresult, c_result_pstr); 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::bvh_str ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+std::string SwigDirector_bvh_controller::bvh_str(std::vector< std::shared_ptr< mae::general_skeleton > > data, double framerate) {
+  std::string c_result ;
+  jstring jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jdata  ;
+  jdouble jframerate  ;
+  
+  if (!swig_override[1]) {
+    return mae::fl::bvh_controller::bvh_str(data,framerate);
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jdata = 0;
+    *((std::vector< std::shared_ptr< mae::general_skeleton > > **)&jdata) = &data; 
+    jframerate = (jdouble) framerate;
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[10], swigjobj, jdata, jframerate);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    if(!jresult) {
+      if (!jenv->ExceptionCheck()) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+      }
+      return c_result;
+    } 
+    const char *c_result_pstr = (const char *)jenv->GetStringUTFChars(jresult, 0); 
+    if (!c_result_pstr) return c_result;
+    c_result.assign(c_result_pstr);
+    jenv->ReleaseStringUTFChars(jresult, c_result_pstr); 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::bvh_str ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+std::string SwigDirector_bvh_controller::bvh_str(std::shared_ptr< mae::general_skeleton > data) {
+  std::string c_result ;
+  jstring jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jdata  ;
+  
+  if (!swig_override[2]) {
+    return mae::fl::bvh_controller::bvh_str(data);
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jdata = 0;
+    *((std::shared_ptr< mae::general_skeleton > **)&jdata) = &data; 
+    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[11], swigjobj, jdata);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    if(!jresult) {
+      if (!jenv->ExceptionCheck()) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+      }
+      return c_result;
+    } 
+    const char *c_result_pstr = (const char *)jenv->GetStringUTFChars(jresult, 0); 
+    if (!c_result_pstr) return c_result;
+    c_result.assign(c_result_pstr);
+    jenv->ReleaseStringUTFChars(jresult, c_result_pstr); 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::bvh_str ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+void SwigDirector_bvh_controller::print_bvh_file(std::vector< std::shared_ptr< mae::general_skeleton > > data, std::string filename) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jdata  ;
+  jstring jfilename  ;
+  
+  if (!swig_override[3]) {
+    mae::fl::bvh_controller::print_bvh_file(data,filename);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jdata = 0;
+    *((std::vector< std::shared_ptr< mae::general_skeleton > > **)&jdata) = &data; 
+    jfilename = jenv->NewStringUTF((&filename)->c_str()); 
+    jenv->CallStaticVoidMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[12], swigjobj, jdata, jfilename);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::print_bvh_file ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+void SwigDirector_bvh_controller::print_bvh_file(std::shared_ptr< mae::general_skeleton > data, std::string filename) {
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jlong jdata  ;
+  jstring jfilename  ;
+  
+  if (!swig_override[4]) {
+    mae::fl::bvh_controller::print_bvh_file(data,filename);
+    return;
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jdata = 0;
+    *((std::shared_ptr< mae::general_skeleton > **)&jdata) = &data; 
+    jfilename = jenv->NewStringUTF((&filename)->c_str()); 
+    jenv->CallStaticVoidMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[13], swigjobj, jdata, jfilename);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::print_bvh_file ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+}
+
+std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > SwigDirector_bvh_controller::read_bvh_str(std::string bvh_str, std::shared_ptr< mae::fl::bvh_spec > spec) {
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > c_result ;
+  jlong jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jstring jbvh_str  ;
+  jlong jspec  ;
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *argp ;
+  
+  if (!swig_override[5]) {
+    return mae::fl::bvh_controller::read_bvh_str(bvh_str,spec);
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jbvh_str = jenv->NewStringUTF((&bvh_str)->c_str()); 
+    jspec = 0;
+    *((std::shared_ptr< mae::fl::bvh_spec > **)&jspec) = &spec; 
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[14], swigjobj, jbvh_str, jspec);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    argp = *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > **)&jresult; 
+    if (!argp) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double >");
+      return c_result;
+    }
+    c_result = *argp; 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::read_bvh_str ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > SwigDirector_bvh_controller::read_bvh_file(std::string filename, std::shared_ptr< mae::fl::bvh_spec > spec) {
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > c_result ;
+  jlong jresult = 0 ;
+  JNIEnvWrapper swigjnienv(this) ;
+  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
+  jobject swigjobj = (jobject) NULL ;
+  jstring jfilename  ;
+  jlong jspec  ;
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *argp ;
+  
+  if (!swig_override[6]) {
+    return mae::fl::bvh_controller::read_bvh_file(filename,spec);
+  }
+  swigjobj = swig_get_self(jenv);
+  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
+    jfilename = jenv->NewStringUTF((&filename)->c_str()); 
+    jspec = 0;
+    *((std::shared_ptr< mae::fl::bvh_spec > **)&jspec) = &spec; 
+    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[15], swigjobj, jfilename, jspec);
+    jthrowable swigerror = jenv->ExceptionOccurred();
+    if (swigerror) {
+      jenv->ExceptionClear();
+      throw Swig::DirectorException(jenv, swigerror);
+    }
+    
+    argp = *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > **)&jresult; 
+    if (!argp) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double >");
+      return c_result;
+    }
+    c_result = *argp; 
+  } else {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::read_bvh_file ");
+  }
+  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
+  return c_result;
+}
+
+void SwigDirector_bvh_controller::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
+  static struct {
+    const char *mname;
+    const char *mdesc;
+    jmethodID base_methid;
+  } methods[] = {
+    {
+      "bvh_str", "(Lmaejava/general_skeleton_vector;)Ljava/lang/String;", NULL 
+    },
+    {
+      "bvh_str", "(Lmaejava/general_skeleton_vector;D)Ljava/lang/String;", NULL 
+    },
+    {
+      "bvh_str", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__general_skeleton_t;)Ljava/lang/String;", NULL 
+    },
+    {
+      "print_bvh_file", "(Lmaejava/general_skeleton_vector;Ljava/lang/String;)V", NULL 
+    },
+    {
+      "print_bvh_file", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__general_skeleton_t;Ljava/lang/String;)V", NULL 
+    },
+    {
+      "read_bvh_str", "(Ljava/lang/String;Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__bvh_spec_t;)Lmaejava/general_skeleton_vector_double_pair;", NULL 
+    },
+    {
+      "read_bvh_file", "(Ljava/lang/String;Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__bvh_spec_t;)Lmaejava/general_skeleton_vector_double_pair;", NULL 
+    }
+  };
+  
+  static jclass baseclass = 0 ;
+  
+  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
+    if (!baseclass) {
+      baseclass = jenv->FindClass("maejava/bvh_controller");
+      if (!baseclass) return;
+      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
+    }
+    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
+    for (int i = 0; i < 7; ++i) {
       if (!methods[i].base_methid) {
         methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
         if (!methods[i].base_methid) return;
@@ -10984,30 +11372,6 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1generator_1gen
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1shared_1ptr(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (std::shared_ptr< mae::fl::laban::laban_sequence > *)new std::shared_ptr< mae::fl::laban::laban_sequence >();
-  *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = (result && *result) ? new std::shared_ptr< mae::fl::laban::laban_sequence >(*result) : 0;
-  if (1) delete result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1shared_1ptr(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  std::shared_ptr< mae::fl::laban::laban_sequence > *arg1 = (std::shared_ptr< mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > tempnull1 ;
-  
-  (void)jenv;
-  (void)jcls;
-  arg1 = jarg1 ? *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg1 : &tempnull1; 
-  delete arg1;
-}
-
-
 SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1sequence_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::i_sequence_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_listener< mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
@@ -11039,6 +11403,42 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1liste
   argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
   if (argp3) arg3 = *argp3; 
   (arg1)->on_sequence(arg2,arg3);
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1sequence_1listener(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  mae::i_sequence_listener< mae::fl::laban::laban_sequence > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (mae::i_sequence_listener< mae::fl::laban::laban_sequence > *)new SwigDirector_laban_sequence_sequence_listener(jenv);
+  
+  *(std::shared_ptr<  mae::i_sequence_listener<mae::fl::laban::laban_sequence> > **)&jresult = result ? new std::shared_ptr<  mae::i_sequence_listener<mae::fl::laban::laban_sequence> >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1listener_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
+  std::shared_ptr< mae::i_sequence_listener<mae::fl::laban::laban_sequence> > *obj = *((std::shared_ptr< mae::i_sequence_listener<mae::fl::laban::laban_sequence> > **)&objarg);
+  (void)jcls;
+  // Keep a local instance of the smart pointer around while we are using the raw pointer
+  // Avoids using smart pointer specific API.
+  SwigDirector_laban_sequence_sequence_listener *director = dynamic_cast<SwigDirector_laban_sequence_sequence_listener *>(obj->operator->());
+  if (director) {
+    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1listener_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
+  mae::i_sequence_listener< mae::fl::laban::laban_sequence > *obj = *((mae::i_sequence_listener< mae::fl::laban::laban_sequence > **)&objarg);
+  SwigDirector_laban_sequence_sequence_listener *director = dynamic_cast<SwigDirector_laban_sequence_sequence_listener *>(obj);
+  (void)jcls;
+  if (director) {
+    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
+  }
 }
 
 
@@ -13262,7 +13662,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bvh_1controller(JNIEnv *je
   
   (void)jenv;
   (void)jcls;
-  result = (mae::fl::bvh_controller *)new mae::fl::bvh_controller();
+  result = (mae::fl::bvh_controller *)new SwigDirector_bvh_controller(jenv);
   
   *(std::shared_ptr<  mae::fl::bvh_controller > **)&jresult = result ? new std::shared_ptr<  mae::fl::bvh_controller >(result SWIG_NO_NULL_DELETER_1) : 0;
   
@@ -13310,6 +13710,33 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1str_1_1
 }
 
 
+SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1strSwigExplicitbvh_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jstring jresult = 0 ;
+  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > arg2 ;
+  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > *argp2 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
+  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::general_skeleton > >");
+    return 0;
+  }
+  arg2 = *argp2; 
+  result = (arg1)->mae::fl::bvh_controller::bvh_str(arg2);
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1str_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jdouble jarg3) {
   jstring jresult = 0 ;
   mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
@@ -13339,6 +13766,35 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1str_1_1
 }
 
 
+SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1strSwigExplicitbvh_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jdouble jarg3) {
+  jstring jresult = 0 ;
+  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > arg2 ;
+  double arg3 ;
+  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > *argp2 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
+  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::general_skeleton > >");
+    return 0;
+  }
+  arg2 = *argp2; 
+  arg3 = (double)jarg3; 
+  result = (arg1)->mae::fl::bvh_controller::bvh_str(arg2,arg3);
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1str_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jstring jresult = 0 ;
   mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
@@ -13357,6 +13813,29 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1str_1_1
   argp2 = *(std::shared_ptr< mae::general_skeleton > **)&jarg2; 
   if (argp2) arg2 = *argp2; 
   result = (arg1)->bvh_str(arg2);
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1strSwigExplicitbvh_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jstring jresult = 0 ;
+  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
+  std::shared_ptr< mae::general_skeleton > arg2 ;
+  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
+  std::shared_ptr< mae::general_skeleton > *argp2 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
+  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::general_skeleton > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  result = (arg1)->mae::fl::bvh_controller::bvh_str(arg2);
   jresult = jenv->NewStringUTF((&result)->c_str()); 
   return jresult;
 }
@@ -13394,6 +13873,38 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1print_1bvh_1fil
 }
 
 
+SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1print_1bvh_1fileSwigExplicitbvh_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
+  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > arg2 ;
+  std::string arg3 ;
+  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
+  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::general_skeleton > >");
+    return ;
+  }
+  arg2 = *argp2; 
+  if(!jarg3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return ;
+  } 
+  const char *arg3_pstr = (const char *)jenv->GetStringUTFChars(jarg3, 0); 
+  if (!arg3_pstr) return ;
+  (&arg3)->assign(arg3_pstr);
+  jenv->ReleaseStringUTFChars(jarg3, arg3_pstr); 
+  (arg1)->mae::fl::bvh_controller::print_bvh_file(arg2,arg3);
+}
+
+
 SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1print_1bvh_1file_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
   mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
   std::shared_ptr< mae::general_skeleton > arg2 ;
@@ -13419,6 +13930,34 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1print_1bvh_1fil
   (&arg3)->assign(arg3_pstr);
   jenv->ReleaseStringUTFChars(jarg3, arg3_pstr); 
   (arg1)->print_bvh_file(arg2,arg3);
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1print_1bvh_1fileSwigExplicitbvh_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
+  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
+  std::shared_ptr< mae::general_skeleton > arg2 ;
+  std::string arg3 ;
+  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
+  std::shared_ptr< mae::general_skeleton > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
+  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::general_skeleton > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  if(!jarg3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return ;
+  } 
+  const char *arg3_pstr = (const char *)jenv->GetStringUTFChars(jarg3, 0); 
+  if (!arg3_pstr) return ;
+  (&arg3)->assign(arg3_pstr);
+  jenv->ReleaseStringUTFChars(jarg3, arg3_pstr); 
+  (arg1)->mae::fl::bvh_controller::print_bvh_file(arg2,arg3);
 }
 
 
@@ -13454,6 +13993,38 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1read_1bvh_1str
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1read_1bvh_1strSwigExplicitbvh_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
+  jlong jresult = 0 ;
+  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
+  std::string arg2 ;
+  std::shared_ptr< mae::fl::bvh_spec > arg3 ;
+  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::bvh_spec > *argp3 ;
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
+  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  argp3 = *(std::shared_ptr< mae::fl::bvh_spec > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  result = (arg1)->mae::fl::bvh_controller::read_bvh_str(arg2,arg3);
+  *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > **)&jresult = new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double >((const std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > &)result); 
+  return jresult;
+}
+
+
 SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1read_1bvh_1file(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
@@ -13483,6 +14054,60 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1read_1bvh_1fil
   result = (arg1)->read_bvh_file(arg2,arg3);
   *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > **)&jresult = new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double >((const std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > &)result); 
   return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1read_1bvh_1fileSwigExplicitbvh_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
+  jlong jresult = 0 ;
+  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
+  std::string arg2 ;
+  std::shared_ptr< mae::fl::bvh_spec > arg3 ;
+  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::bvh_spec > *argp3 ;
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
+  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  argp3 = *(std::shared_ptr< mae::fl::bvh_spec > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  result = (arg1)->mae::fl::bvh_controller::read_bvh_file(arg2,arg3);
+  *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > **)&jresult = new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double >((const std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
+  std::shared_ptr< mae::fl::bvh_controller > *obj = *((std::shared_ptr< mae::fl::bvh_controller > **)&objarg);
+  (void)jcls;
+  // Keep a local instance of the smart pointer around while we are using the raw pointer
+  // Avoids using smart pointer specific API.
+  SwigDirector_bvh_controller *director = dynamic_cast<SwigDirector_bvh_controller *>(obj->operator->());
+  if (director) {
+    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
+  mae::fl::bvh_controller *obj = *((mae::fl::bvh_controller **)&objarg);
+  SwigDirector_bvh_controller *director = dynamic_cast<SwigDirector_bvh_controller *>(obj);
+  (void)jcls;
+  if (director) {
+    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
+  }
 }
 
 
@@ -24839,7 +25464,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_swig_1module_1init(JNIEnv *jenv,
   static struct {
     const char *method;
     const char *signature;
-  } methods[8] = {
+  } methods[16] = {
+    {
+      "SwigDirector_laban_sequence_sequence_listener_on_sequence", "(Lmaejava/laban_sequence_sequence_listener;IJ)V" 
+    },
     {
       "SwigDirector_laban_sequence_recognition_listener_on_recognition__SWIG_0", "(Lmaejava/laban_sequence_recognition_listener;IJ)V" 
     },
@@ -24863,6 +25491,27 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_swig_1module_1init(JNIEnv *jenv,
     },
     {
       "SwigDirector_bvh_spec_get_bottom_anchor", "(Lmaejava/bvh_spec;)Ljava/lang/String;" 
+    },
+    {
+      "SwigDirector_bvh_controller_bvh_str__SWIG_0", "(Lmaejava/bvh_controller;J)Ljava/lang/String;" 
+    },
+    {
+      "SwigDirector_bvh_controller_bvh_str__SWIG_1", "(Lmaejava/bvh_controller;JD)Ljava/lang/String;" 
+    },
+    {
+      "SwigDirector_bvh_controller_bvh_str__SWIG_2", "(Lmaejava/bvh_controller;J)Ljava/lang/String;" 
+    },
+    {
+      "SwigDirector_bvh_controller_print_bvh_file__SWIG_0", "(Lmaejava/bvh_controller;JLjava/lang/String;)V" 
+    },
+    {
+      "SwigDirector_bvh_controller_print_bvh_file__SWIG_1", "(Lmaejava/bvh_controller;JLjava/lang/String;)V" 
+    },
+    {
+      "SwigDirector_bvh_controller_read_bvh_str", "(Lmaejava/bvh_controller;Ljava/lang/String;J)J" 
+    },
+    {
+      "SwigDirector_bvh_controller_read_bvh_file", "(Lmaejava/bvh_controller;Ljava/lang/String;J)J" 
     }
   };
   Swig::jclass_MaejavaJNI = (jclass) jenv->NewGlobalRef(jcls);

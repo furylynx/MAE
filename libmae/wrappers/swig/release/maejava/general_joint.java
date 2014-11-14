@@ -12,12 +12,12 @@ public class general_joint {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected general_joint(long cPtr, boolean cMemoryOwn) {
+  public general_joint(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(general_joint obj) {
+  public static long getCPtr(general_joint obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

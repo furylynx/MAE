@@ -12,13 +12,13 @@ public class pin extends i_degree_sign {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected pin(long cPtr, boolean cMemoryOwn) {
+  public pin(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.pin_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(pin obj) {
+  public static long getCPtr(pin obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

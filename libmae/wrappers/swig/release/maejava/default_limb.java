@@ -12,13 +12,13 @@ public class default_limb extends i_limb {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected default_limb(long cPtr, boolean cMemoryOwn) {
+  public default_limb(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.default_limb_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(default_limb obj) {
+  public static long getCPtr(default_limb obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
