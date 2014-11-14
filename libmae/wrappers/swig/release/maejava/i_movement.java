@@ -12,12 +12,12 @@ public class i_movement {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected i_movement(long cPtr, boolean cMemoryOwn) {
+  public i_movement(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(i_movement obj) {
+  public static long getCPtr(i_movement obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

@@ -12,13 +12,13 @@ public class accent_sign extends i_dynamics_sign {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected accent_sign(long cPtr, boolean cMemoryOwn) {
+  public accent_sign(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.accent_sign_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(accent_sign obj) {
+  public static long getCPtr(accent_sign obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

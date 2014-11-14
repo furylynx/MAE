@@ -12,13 +12,13 @@ public class digit_part extends i_endpoint {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected digit_part(long cPtr, boolean cMemoryOwn) {
+  public digit_part(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.digit_part_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(digit_part obj) {
+  public static long getCPtr(digit_part obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

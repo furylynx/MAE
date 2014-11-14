@@ -12,12 +12,12 @@ public class i_mov_vector_vector_dec_val {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected i_mov_vector_vector_dec_val(long cPtr, boolean cMemoryOwn) {
+  public i_mov_vector_vector_dec_val(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(i_mov_vector_vector_dec_val obj) {
+  public static long getCPtr(i_mov_vector_vector_dec_val obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

@@ -12,12 +12,12 @@ public class decision_forest {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected decision_forest(long cPtr, boolean cMemoryOwn) {
+  public decision_forest(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(decision_forest obj) {
+  public static long getCPtr(decision_forest obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

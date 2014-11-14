@@ -12,12 +12,12 @@ public class laban_sequence_sequence_recognizer {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected laban_sequence_sequence_recognizer(long cPtr, boolean cMemoryOwn) {
+  public laban_sequence_sequence_recognizer(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(laban_sequence_sequence_recognizer obj) {
+  public static long getCPtr(laban_sequence_sequence_recognizer obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

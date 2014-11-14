@@ -12,12 +12,12 @@ public class i_part {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected i_part(long cPtr, boolean cMemoryOwn) {
+  public i_part(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(i_part obj) {
+  public static long getCPtr(i_part obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

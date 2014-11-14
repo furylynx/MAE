@@ -12,13 +12,13 @@ public class general_enriched_pose extends general_pose {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected general_enriched_pose(long cPtr, boolean cMemoryOwn) {
+  public general_enriched_pose(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.general_enriched_pose_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(general_enriched_pose obj) {
+  public static long getCPtr(general_enriched_pose obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

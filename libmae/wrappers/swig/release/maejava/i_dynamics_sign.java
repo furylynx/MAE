@@ -12,12 +12,12 @@ public class i_dynamics_sign {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected i_dynamics_sign(long cPtr, boolean cMemoryOwn) {
+  public i_dynamics_sign(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(i_dynamics_sign obj) {
+  public static long getCPtr(i_dynamics_sign obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

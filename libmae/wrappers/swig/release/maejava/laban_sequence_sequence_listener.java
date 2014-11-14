@@ -12,12 +12,12 @@ public class laban_sequence_sequence_listener {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected laban_sequence_sequence_listener(long cPtr, boolean cMemoryOwn) {
+  public laban_sequence_sequence_listener(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(laban_sequence_sequence_listener obj) {
+  public static long getCPtr(laban_sequence_sequence_listener obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
@@ -35,8 +35,28 @@ public class laban_sequence_sequence_listener {
     }
   }
 
+  protected void swigDirectorDisconnect() {
+    swigCMemOwn = false;
+    delete();
+  }
+
+  public void swigReleaseOwnership() {
+    swigCMemOwn = false;
+    MaejavaJNI.laban_sequence_sequence_listener_change_ownership(this, swigCPtr, false);
+  }
+
+  public void swigTakeOwnership() {
+    swigCMemOwn = true;
+    MaejavaJNI.laban_sequence_sequence_listener_change_ownership(this, swigCPtr, true);
+  }
+
   public void on_sequence(int timestamp, laban_sequence sequence) {
     MaejavaJNI.laban_sequence_sequence_listener_on_sequence(swigCPtr, this, timestamp, laban_sequence.getCPtr(sequence), sequence);
+  }
+
+  public laban_sequence_sequence_listener() {
+    this(MaejavaJNI.new_laban_sequence_sequence_listener(), true);
+    MaejavaJNI.laban_sequence_sequence_listener_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

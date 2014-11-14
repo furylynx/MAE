@@ -12,13 +12,13 @@ public class laban_sequence_generator extends laban_sequence_sequence_generator 
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected laban_sequence_generator(long cPtr, boolean cMemoryOwn) {
+  public laban_sequence_generator(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.laban_sequence_generator_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(laban_sequence_generator obj) {
+  public static long getCPtr(laban_sequence_generator obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

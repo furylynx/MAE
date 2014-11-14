@@ -12,13 +12,13 @@ public class custom_limb extends i_limb {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected custom_limb(long cPtr, boolean cMemoryOwn) {
+  public custom_limb(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.custom_limb_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(custom_limb obj) {
+  public static long getCPtr(custom_limb obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

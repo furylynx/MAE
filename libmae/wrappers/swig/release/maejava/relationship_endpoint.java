@@ -12,12 +12,12 @@ public class relationship_endpoint {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected relationship_endpoint(long cPtr, boolean cMemoryOwn) {
+  public relationship_endpoint(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(relationship_endpoint obj) {
+  public static long getCPtr(relationship_endpoint obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

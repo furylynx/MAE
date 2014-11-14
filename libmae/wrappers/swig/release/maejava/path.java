@@ -12,13 +12,13 @@ public class path extends i_movement {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected path(long cPtr, boolean cMemoryOwn) {
+  public path(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.path_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(path obj) {
+  public static long getCPtr(path obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

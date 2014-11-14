@@ -12,13 +12,13 @@ public class surface_part extends i_part {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected surface_part(long cPtr, boolean cMemoryOwn) {
+  public surface_part(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.surface_part_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(surface_part obj) {
+  public static long getCPtr(surface_part obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

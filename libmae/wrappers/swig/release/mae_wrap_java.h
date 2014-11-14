@@ -11,6 +11,21 @@
 #ifndef SWIG_Maejava_WRAP_H_
 #define SWIG_Maejava_WRAP_H_
 
+class SwigDirector_laban_sequence_sequence_listener : public mae::i_sequence_listener< mae::fl::laban::laban_sequence >, public Swig::Director {
+
+public:
+    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
+    SwigDirector_laban_sequence_sequence_listener(JNIEnv *jenv);
+    virtual ~SwigDirector_laban_sequence_sequence_listener();
+    virtual void on_sequence(long timestamp, std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
+public:
+    bool swig_overrides(int n) {
+      return (n < 1 ? swig_override[n] : false);
+    }
+protected:
+    bool swig_override[1];
+};
+
 class SwigDirector_laban_sequence_recognition_listener : public mae::i_recognition_listener< mae::fl::laban::laban_sequence >, public Swig::Director {
 
 public:
@@ -45,6 +60,27 @@ public:
     }
 protected:
     bool swig_override[6];
+};
+
+class SwigDirector_bvh_controller : public mae::fl::bvh_controller, public Swig::Director {
+
+public:
+    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
+    SwigDirector_bvh_controller(JNIEnv *jenv);
+    virtual ~SwigDirector_bvh_controller();
+    virtual std::string bvh_str(std::vector< std::shared_ptr< mae::general_skeleton > > data);
+    virtual std::string bvh_str(std::vector< std::shared_ptr< mae::general_skeleton > > data, double framerate);
+    virtual std::string bvh_str(std::shared_ptr< mae::general_skeleton > data);
+    virtual void print_bvh_file(std::vector< std::shared_ptr< mae::general_skeleton > > data, std::string filename);
+    virtual void print_bvh_file(std::shared_ptr< mae::general_skeleton > data, std::string filename);
+    virtual std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > read_bvh_str(std::string bvh_str, std::shared_ptr< mae::fl::bvh_spec > spec);
+    virtual std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > read_bvh_file(std::string filename, std::shared_ptr< mae::fl::bvh_spec > spec);
+public:
+    bool swig_overrides(int n) {
+      return (n < 7 ? swig_override[n] : false);
+    }
+protected:
+    bool swig_override[7];
 };
 
 

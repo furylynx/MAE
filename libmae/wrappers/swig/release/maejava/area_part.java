@@ -12,13 +12,13 @@ public class area_part extends i_endpoint {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected area_part(long cPtr, boolean cMemoryOwn) {
+  public area_part(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.area_part_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(area_part obj) {
+  public static long getCPtr(area_part obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
