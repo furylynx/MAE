@@ -1,4 +1,4 @@
- // laban.i - SWIG interface
+ //-- laban.i - SWIG interface
 
 %include "laban_sequence_reader.i"
 

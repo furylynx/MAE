@@ -9,7 +9,7 @@
 %include "std_vector.i"
 %include "exception.i"
 
-
+//-- module definition
 %module(directors="1") w_i_sequence_recognizer
 %{
 	#include "../../../src/mae/i_sequence_recognizer.hpp"
@@ -22,4 +22,4 @@
 %include "../../../src/mae/i_sequence_recognizer.hpp"
 
 //templates
-%template (bone_vector) std::vector<mae::bone>;
+%template (BoneVector) std::vector<mae::bone>;

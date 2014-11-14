@@ -1,4 +1,4 @@
- // mv.i - SWIG interface
+//-- mv.i - SWIG interface
 
 %include "accent_sign.i"
 %include "dynamic_sign.i"
