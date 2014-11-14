@@ -1,10 +1,11 @@
 package maejavawrapper;
 
-import maejava.laban_sequence_vector;
-import maejava.string_vector;
+import maejava.LabanSequenceVector;
+import maejava.StringVector;
+
 
 
 public interface IJRecognitionListener {
-	void onRecognition(int timestamp, laban_sequence_vector sequences);
-	void onRecognition(int timestamp, string_vector sequenceTitles);
+	void onRecognition(int timestamp, LabanSequenceVector sequences);
+	void onRecognition(int timestamp, StringVector sequenceTitles);
 }

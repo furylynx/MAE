@@ -1,4 +1,4 @@
- // mae.i - SWIG interface
+//-- mae.i - SWIG interface
 
 //-- ignore the shift operator used to implement the toString method in C++
 %ignore operator<<;
@@ -22,9 +22,15 @@
 //-- set shared_ptr contructor to public
 #define SWIG_SHARED_PTR_TYPEMAPS(CONST, TYPE...) SWIG_SHARED_PTR_TYPEMAPS_IMPLEMENTATION(public, public, CONST, TYPE)
 
+//-- renaming rules for camel case
+%rename("%(camelcase)s", %$isclass) "";
+%rename("%(camelcase)s", %$isenum) "";
+
+%rename("%(uppercase)s", %$isenumitem) "";
+
+%rename("%(lowercamelcase)s", %$isfunction) "";
+%rename("%(lowercamelcase)s", %$isvariable) "";
+
 //-- include definitions that are required
 %include "fl/fl.i"
 
-//-- TODO define renaming rules in here
-//%rename("%(regex:/^([A-Z][a-z]+)+_(.*)/\\2/)s", %$isenumitem) "";
-//http://stackoverflow.com/questions/21783689/swig-how-to-rename-generated-java-code-according-to-a-regex

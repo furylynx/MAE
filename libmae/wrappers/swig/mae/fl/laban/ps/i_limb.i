@@ -1,28 +1,26 @@
-// i_limb.i - SWIG interface
- 
-//custom includes
+//-- i_limb.i - SWIG interface
+
+//-- custom includes
 %include "i_part.i"
 
-//global includes
+//-- global includes
 //%include "std_shared_ptr.i"
 %include "swig_fixed_std_shared_ptr.i"
 %include "std_string.i"
 %include "exception.i"
 
-
-//module definition
+//-- module definition
 %module(directors="1") w_i_limb
 %{
 	#include "../../../src/mae/fl/laban/ps/i_limb.hpp"
 %}
 
-//shared_ptr
+//-- shared_ptr
 %shared_ptr(mae::fl::laban::ps::i_part);
 %shared_ptr(mae::fl::laban::ps::i_limb);
 
-// Parse the original header file
+//-- Parse the original header file
 %include "../../../src/mae/fl/laban/ps/i_limb.hpp"
 
-//templates
+//-- templates
 //...
-

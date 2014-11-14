@@ -1,9 +1,9 @@
 package maejavawrapper;
 
-import maejava.laban_sequence;
+import maejava.LabanSequence;
 
 
 public interface IJSequenceListener {
 
-	void onSequence(int timestamp, laban_sequence sequence);
+	void onSequence(int timestamp, LabanSequence sequence);
 }
