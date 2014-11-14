@@ -29,23 +29,23 @@ public class laban_sequence_reader {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_laban_sequence_reader(swigCPtr);
+        MaeJavaJNI.delete_laban_sequence_reader(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public laban_sequence_reader() {
-    this(MaejavaJNI.new_laban_sequence_reader(), true);
+    this(MaeJavaJNI.new_laban_sequence_reader(), true);
   }
 
   public laban_sequence read_sequence_file(String file_name) {
-    long cPtr = MaejavaJNI.laban_sequence_reader_read_sequence_file(swigCPtr, this, file_name);
+    long cPtr = MaeJavaJNI.laban_sequence_reader_read_sequence_file(swigCPtr, this, file_name);
     return (cPtr == 0) ? null : new laban_sequence(cPtr, true);
   }
 
   public laban_sequence read_sequence_str(String xml_string) {
-    long cPtr = MaejavaJNI.laban_sequence_reader_read_sequence_str(swigCPtr, this, xml_string);
+    long cPtr = MaeJavaJNI.laban_sequence_reader_read_sequence_str(swigCPtr, this, xml_string);
     return (cPtr == 0) ? null : new laban_sequence(cPtr, true);
   }
 

@@ -29,34 +29,34 @@ public class int_list {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_int_list(swigCPtr);
+        MaeJavaJNI.delete_int_list(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public int_list() {
-    this(MaejavaJNI.new_int_list(), true);
+    this(MaeJavaJNI.new_int_list(), true);
   }
 
   public long size() {
-    return MaejavaJNI.int_list_size(swigCPtr, this);
+    return MaeJavaJNI.int_list_size(swigCPtr, this);
   }
 
   public boolean isEmpty() {
-    return MaejavaJNI.int_list_isEmpty(swigCPtr, this);
+    return MaeJavaJNI.int_list_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    MaejavaJNI.int_list_clear(swigCPtr, this);
+    MaeJavaJNI.int_list_clear(swigCPtr, this);
   }
 
   public void add(int x) {
-    MaejavaJNI.int_list_add(swigCPtr, this, x);
+    MaeJavaJNI.int_list_add(swigCPtr, this, x);
   }
 
   public int get(int i) {
-    return MaejavaJNI.int_list_get(swigCPtr, this, i);
+    return MaeJavaJNI.int_list_get(swigCPtr, this, i);
   }
 
 }

@@ -29,26 +29,26 @@ public class e_digit_c {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_e_digit_c(swigCPtr);
+        MaeJavaJNI.delete_e_digit_c(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public static String str(e_digit digit) {
-    return MaejavaJNI.e_digit_c_str(digit.swigValue());
+    return MaeJavaJNI.e_digit_c_str(digit.swigValue());
   }
 
   public static e_digit_vector vec() {
-    return new e_digit_vector(MaejavaJNI.e_digit_c_vec(), true);
+    return new e_digit_vector(MaeJavaJNI.e_digit_c_vec(), true);
   }
 
   public static e_digit parse(String str) {
-    return e_digit.swigToEnum(MaejavaJNI.e_digit_c_parse(str));
+    return e_digit.swigToEnum(MaeJavaJNI.e_digit_c_parse(str));
   }
 
   public e_digit_c() {
-    this(MaejavaJNI.new_e_digit_c(), true);
+    this(MaeJavaJNI.new_e_digit_c(), true);
   }
 
 }

@@ -8,7 +8,7 @@
 
 package maejava;
 
-public class MaejavaJNI {
+public class MaeJavaJNI {
   public final static native int INVALID_BONE_get();
   public final static native int HEAD_get();
   public final static native int LEFT_UPPER_ARM_get();
@@ -514,9 +514,6 @@ public class MaejavaJNI {
   public final static native void delete_laban_sequence_recognition_listener(long jarg1);
   public final static native void laban_sequence_recognition_listener_on_recognition__SWIG_0(long jarg1, laban_sequence_recognition_listener jarg1_, int jarg2, long jarg3, laban_sequence_vector jarg3_);
   public final static native void laban_sequence_recognition_listener_on_recognition__SWIG_1(long jarg1, laban_sequence_recognition_listener jarg1_, int jarg2, long jarg3, string_vector jarg3_);
-  public final static native long new_laban_sequence_recognition_listener();
-  public final static native void laban_sequence_recognition_listener_director_connect(laban_sequence_recognition_listener obj, long cptr, boolean mem_own, boolean weak_global);
-  public final static native void laban_sequence_recognition_listener_change_ownership(laban_sequence_recognition_listener obj, long cptr, boolean take_or_release);
   public final static native void delete_fl_skeleton_laban_sequence_movement_detector(long jarg1);
   public final static native long fl_skeleton_laban_sequence_movement_detector_detect_movement(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, int jarg2, double jarg3, long jarg4, fl_skeleton jarg4_, long jarg5, bone_vector jarg5_);
   public final static native void fl_skeleton_laban_sequence_movement_detector_set_buffer(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, int jarg2);
@@ -525,6 +522,7 @@ public class MaejavaJNI {
   public final static native void fl_skeleton_laban_sequence_movement_detector_remove_listener(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, i_pose_listener jarg2_);
   public final static native void fl_skeleton_laban_sequence_movement_detector_clear_listeners(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_);
   public final static native void fl_skeleton_laban_sequence_movement_detector_notify_listeners(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, int jarg2, long jarg3, general_pose jarg3_);
+  public final static native long fl_skeleton_laban_sequence_movement_detector_get_current_pose(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_);
   public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, long jarg3, bone_vector jarg3_, int jarg4, double jarg5, boolean jarg6);
   public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, long jarg3, bone_vector jarg3_, int jarg4, double jarg5);
   public final static native long new_fl_skeleton_laban_sequence_movement_controller__SWIG_2(long jarg1, fl_skeleton_laban_sequence_movement_detector jarg1_, long jarg2, long jarg3, bone_vector jarg3_, int jarg4);
@@ -541,6 +539,8 @@ public class MaejavaJNI {
   public final static native void fl_skeleton_laban_sequence_movement_controller_set_no_buffer_size_update(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, boolean jarg2);
   public final static native void fl_skeleton_laban_sequence_movement_controller_clear_buffer(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
   public final static native long fl_skeleton_laban_sequence_movement_controller_get_current_sequence(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native long fl_skeleton_laban_sequence_movement_controller_get_current_pose(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
+  public final static native long fl_skeleton_laban_sequence_movement_controller_get_current_recognition(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_);
   public final static native void fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
   public final static native void fl_skeleton_laban_sequence_movement_controller_remove_listener__SWIG_0(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, i_pose_listener jarg2_);
   public final static native void fl_skeleton_laban_sequence_movement_controller_add_listener__SWIG_1(long jarg1, fl_skeleton_laban_sequence_movement_controller jarg1_, long jarg2, laban_sequence_sequence_listener jarg2_);
@@ -579,20 +579,12 @@ public class MaejavaJNI {
   public final static native long new_bvh_spec(String jarg1, String jarg2, String jarg3, String jarg4, long jarg5, string_int_map jarg5_, long jarg6, string_bool_map jarg6_);
   public final static native void delete_bvh_spec(long jarg1);
   public final static native long bvh_spec_get_id_map(long jarg1, bvh_spec jarg1_);
-  public final static native long bvh_spec_get_id_mapSwigExplicitbvh_spec(long jarg1, bvh_spec jarg1_);
   public final static native long bvh_spec_get_torso_map(long jarg1, bvh_spec jarg1_);
-  public final static native long bvh_spec_get_torso_mapSwigExplicitbvh_spec(long jarg1, bvh_spec jarg1_);
   public final static native String bvh_spec_get_left_anchor(long jarg1, bvh_spec jarg1_);
-  public final static native String bvh_spec_get_left_anchorSwigExplicitbvh_spec(long jarg1, bvh_spec jarg1_);
   public final static native String bvh_spec_get_right_anchor(long jarg1, bvh_spec jarg1_);
-  public final static native String bvh_spec_get_right_anchorSwigExplicitbvh_spec(long jarg1, bvh_spec jarg1_);
   public final static native String bvh_spec_get_top_anchor(long jarg1, bvh_spec jarg1_);
-  public final static native String bvh_spec_get_top_anchorSwigExplicitbvh_spec(long jarg1, bvh_spec jarg1_);
   public final static native String bvh_spec_get_bottom_anchor(long jarg1, bvh_spec jarg1_);
-  public final static native String bvh_spec_get_bottom_anchorSwigExplicitbvh_spec(long jarg1, bvh_spec jarg1_);
   public final static native long bvh_spec_default_spec();
-  public final static native void bvh_spec_director_connect(bvh_spec obj, long cptr, boolean mem_own, boolean weak_global);
-  public final static native void bvh_spec_change_ownership(bvh_spec obj, long cptr, boolean take_or_release);
   public final static native long new_string_int_map__SWIG_0();
   public final static native long new_string_int_map__SWIG_1(long jarg1, string_int_map jarg1_);
   public final static native long string_int_map_size(long jarg1, string_int_map jarg1_);
@@ -616,21 +608,12 @@ public class MaejavaJNI {
   public final static native long new_bvh_controller();
   public final static native void delete_bvh_controller(long jarg1);
   public final static native String bvh_controller_bvh_str__SWIG_0(long jarg1, bvh_controller jarg1_, long jarg2, general_skeleton_vector jarg2_);
-  public final static native String bvh_controller_bvh_strSwigExplicitbvh_controller__SWIG_0(long jarg1, bvh_controller jarg1_, long jarg2, general_skeleton_vector jarg2_);
   public final static native String bvh_controller_bvh_str__SWIG_1(long jarg1, bvh_controller jarg1_, long jarg2, general_skeleton_vector jarg2_, double jarg3);
-  public final static native String bvh_controller_bvh_strSwigExplicitbvh_controller__SWIG_1(long jarg1, bvh_controller jarg1_, long jarg2, general_skeleton_vector jarg2_, double jarg3);
   public final static native String bvh_controller_bvh_str__SWIG_2(long jarg1, bvh_controller jarg1_, long jarg2, general_skeleton jarg2_);
-  public final static native String bvh_controller_bvh_strSwigExplicitbvh_controller__SWIG_2(long jarg1, bvh_controller jarg1_, long jarg2, general_skeleton jarg2_);
   public final static native void bvh_controller_print_bvh_file__SWIG_0(long jarg1, bvh_controller jarg1_, long jarg2, general_skeleton_vector jarg2_, String jarg3);
-  public final static native void bvh_controller_print_bvh_fileSwigExplicitbvh_controller__SWIG_0(long jarg1, bvh_controller jarg1_, long jarg2, general_skeleton_vector jarg2_, String jarg3);
   public final static native void bvh_controller_print_bvh_file__SWIG_1(long jarg1, bvh_controller jarg1_, long jarg2, general_skeleton jarg2_, String jarg3);
-  public final static native void bvh_controller_print_bvh_fileSwigExplicitbvh_controller__SWIG_1(long jarg1, bvh_controller jarg1_, long jarg2, general_skeleton jarg2_, String jarg3);
   public final static native long bvh_controller_read_bvh_str(long jarg1, bvh_controller jarg1_, String jarg2, long jarg3, bvh_spec jarg3_);
-  public final static native long bvh_controller_read_bvh_strSwigExplicitbvh_controller(long jarg1, bvh_controller jarg1_, String jarg2, long jarg3, bvh_spec jarg3_);
   public final static native long bvh_controller_read_bvh_file(long jarg1, bvh_controller jarg1_, String jarg2, long jarg3, bvh_spec jarg3_);
-  public final static native long bvh_controller_read_bvh_fileSwigExplicitbvh_controller(long jarg1, bvh_controller jarg1_, String jarg2, long jarg3, bvh_spec jarg3_);
-  public final static native void bvh_controller_director_connect(bvh_controller obj, long cptr, boolean mem_own, boolean weak_global);
-  public final static native void bvh_controller_change_ownership(bvh_controller obj, long cptr, boolean take_or_release);
   public final static native long new_general_skeleton_vector__SWIG_0();
   public final static native long new_general_skeleton_vector__SWIG_1(long jarg1);
   public final static native long general_skeleton_vector_size(long jarg1, general_skeleton_vector jarg1_);
@@ -1250,51 +1233,6 @@ public class MaejavaJNI {
 
   public static void SwigDirector_laban_sequence_sequence_listener_on_sequence(laban_sequence_sequence_listener self, int timestamp, long sequence) {
     self.on_sequence(timestamp, new laban_sequence(sequence, false));
-  }
-  public static void SwigDirector_laban_sequence_recognition_listener_on_recognition__SWIG_0(laban_sequence_recognition_listener self, int timestamp, long sequences) {
-    self.on_recognition(timestamp, new laban_sequence_vector(sequences, false));
-  }
-  public static void SwigDirector_laban_sequence_recognition_listener_on_recognition__SWIG_1(laban_sequence_recognition_listener self, int timestamp, long title) {
-    self.on_recognition(timestamp, new string_vector(title, false));
-  }
-  public static long SwigDirector_bvh_spec_get_id_map(bvh_spec self) {
-    return string_int_map.getCPtr(self.get_id_map());
-  }
-  public static long SwigDirector_bvh_spec_get_torso_map(bvh_spec self) {
-    return string_bool_map.getCPtr(self.get_torso_map());
-  }
-  public static String SwigDirector_bvh_spec_get_left_anchor(bvh_spec self) {
-    return self.get_left_anchor();
-  }
-  public static String SwigDirector_bvh_spec_get_right_anchor(bvh_spec self) {
-    return self.get_right_anchor();
-  }
-  public static String SwigDirector_bvh_spec_get_top_anchor(bvh_spec self) {
-    return self.get_top_anchor();
-  }
-  public static String SwigDirector_bvh_spec_get_bottom_anchor(bvh_spec self) {
-    return self.get_bottom_anchor();
-  }
-  public static String SwigDirector_bvh_controller_bvh_str__SWIG_0(bvh_controller self, long data) {
-    return self.bvh_str(new general_skeleton_vector(data, false));
-  }
-  public static String SwigDirector_bvh_controller_bvh_str__SWIG_1(bvh_controller self, long data, double framerate) {
-    return self.bvh_str(new general_skeleton_vector(data, false), framerate);
-  }
-  public static String SwigDirector_bvh_controller_bvh_str__SWIG_2(bvh_controller self, long data) {
-    return self.bvh_str(new general_skeleton(data, false));
-  }
-  public static void SwigDirector_bvh_controller_print_bvh_file__SWIG_0(bvh_controller self, long data, String filename) {
-    self.print_bvh_file(new general_skeleton_vector(data, false), filename);
-  }
-  public static void SwigDirector_bvh_controller_print_bvh_file__SWIG_1(bvh_controller self, long data, String filename) {
-    self.print_bvh_file(new general_skeleton(data, false), filename);
-  }
-  public static long SwigDirector_bvh_controller_read_bvh_str(bvh_controller self, String bvh_str, long spec) {
-    return general_skeleton_vector_double_pair.getCPtr(self.read_bvh_str(bvh_str, new bvh_spec(spec, false)));
-  }
-  public static long SwigDirector_bvh_controller_read_bvh_file(bvh_controller self, String filename, long spec) {
-    return general_skeleton_vector_double_pair.getCPtr(self.read_bvh_file(filename, new bvh_spec(spec, false)));
   }
 
   private final static native void swig_module_init();

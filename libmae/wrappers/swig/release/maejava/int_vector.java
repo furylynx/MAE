@@ -29,50 +29,50 @@ public class int_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_int_vector(swigCPtr);
+        MaeJavaJNI.delete_int_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public int_vector() {
-    this(MaejavaJNI.new_int_vector__SWIG_0(), true);
+    this(MaeJavaJNI.new_int_vector__SWIG_0(), true);
   }
 
   public int_vector(long n) {
-    this(MaejavaJNI.new_int_vector__SWIG_1(n), true);
+    this(MaeJavaJNI.new_int_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return MaejavaJNI.int_vector_size(swigCPtr, this);
+    return MaeJavaJNI.int_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return MaejavaJNI.int_vector_capacity(swigCPtr, this);
+    return MaeJavaJNI.int_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    MaejavaJNI.int_vector_reserve(swigCPtr, this, n);
+    MaeJavaJNI.int_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return MaejavaJNI.int_vector_isEmpty(swigCPtr, this);
+    return MaeJavaJNI.int_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    MaejavaJNI.int_vector_clear(swigCPtr, this);
+    MaeJavaJNI.int_vector_clear(swigCPtr, this);
   }
 
   public void add(int x) {
-    MaejavaJNI.int_vector_add(swigCPtr, this, x);
+    MaeJavaJNI.int_vector_add(swigCPtr, this, x);
   }
 
   public int get(int i) {
-    return MaejavaJNI.int_vector_get(swigCPtr, this, i);
+    return MaeJavaJNI.int_vector_get(swigCPtr, this, i);
   }
 
   public void set(int i, int val) {
-    MaejavaJNI.int_vector_set(swigCPtr, this, i, val);
+    MaeJavaJNI.int_vector_set(swigCPtr, this, i, val);
   }
 
 }

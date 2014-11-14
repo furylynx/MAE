@@ -614,8 +614,8 @@ namespace Swig {
 
 namespace Swig {
   namespace {
-    jclass jclass_MaejavaJNI = NULL;
-    jmethodID director_methids[16];
+    jclass jclass_MaeJavaJNI = NULL;
+    jmethodID director_methids[1];
   }
 }
 
@@ -1476,7 +1476,7 @@ void SwigDirector_laban_sequence_sequence_listener::on_sequence(long timestamp, 
     jtimestamp = (jint) timestamp;
     jsequence = 0;
     *((std::shared_ptr< mae::fl::laban::laban_sequence > **)&jsequence) = &sequence; 
-    jenv->CallStaticVoidMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[0], swigjobj, jtimestamp, jsequence);
+    jenv->CallStaticVoidMethod(Swig::jclass_MaeJavaJNI, Swig::director_methids[0], swigjobj, jtimestamp, jsequence);
     jthrowable swigerror = jenv->ExceptionOccurred();
     if (swigerror) {
       jenv->ExceptionClear();
@@ -1525,701 +1525,12 @@ void SwigDirector_laban_sequence_sequence_listener::swig_connect_director(JNIEnv
 }
 
 
-SwigDirector_laban_sequence_recognition_listener::SwigDirector_laban_sequence_recognition_listener(JNIEnv *jenv) : mae::i_recognition_listener< mae::fl::laban::laban_sequence >(), Swig::Director(jenv) {
-}
-
-SwigDirector_laban_sequence_recognition_listener::~SwigDirector_laban_sequence_recognition_listener() {
-  swig_disconnect_director_self("swigDirectorDisconnect");
-}
-
-
-void SwigDirector_laban_sequence_recognition_listener::on_recognition(long timestamp, std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > sequences) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jtimestamp  ;
-  jlong jsequences  ;
-  
-  if (!swig_override[0]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_recognition_listener< mae::fl::laban::laban_sequence >::on_recognition.");
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jtimestamp = (jint) timestamp;
-    jsequences = 0;
-    *((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jsequences) = &sequences; 
-    jenv->CallStaticVoidMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[1], swigjobj, jtimestamp, jsequences);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_recognition_listener< mae::fl::laban::laban_sequence >::on_recognition ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_laban_sequence_recognition_listener::on_recognition(long timestamp, std::vector< std::string > title) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jint jtimestamp  ;
-  jlong jtitle  ;
-  
-  if (!swig_override[1]) {
-    SWIG_JavaThrowException(JNIEnvWrapper(this).getJNIEnv(), SWIG_JavaDirectorPureVirtual, "Attempted to invoke pure virtual method mae::i_recognition_listener< mae::fl::laban::laban_sequence >::on_recognition.");
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jtimestamp = (jint) timestamp;
-    jtitle = 0;
-    *((std::vector< std::string > **)&jtitle) = &title; 
-    jenv->CallStaticVoidMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[2], swigjobj, jtimestamp, jtitle);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::i_recognition_listener< mae::fl::laban::laban_sequence >::on_recognition ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_laban_sequence_recognition_listener::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
-  static struct {
-    const char *mname;
-    const char *mdesc;
-    jmethodID base_methid;
-  } methods[] = {
-    {
-      "on_recognition", "(ILmaejava/laban_sequence_vector;)V", NULL 
-    },
-    {
-      "on_recognition", "(ILmaejava/string_vector;)V", NULL 
-    }
-  };
-  
-  static jclass baseclass = 0 ;
-  
-  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
-    if (!baseclass) {
-      baseclass = jenv->FindClass("maejava/laban_sequence_recognition_listener");
-      if (!baseclass) return;
-      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
-    }
-    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
-    for (int i = 0; i < 2; ++i) {
-      if (!methods[i].base_methid) {
-        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
-        if (!methods[i].base_methid) return;
-      }
-      swig_override[i] = false;
-      if (derived) {
-        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
-        swig_override[i] = (methid != methods[i].base_methid);
-        jenv->ExceptionClear();
-      }
-    }
-  }
-}
-
-
-SwigDirector_bvh_spec::SwigDirector_bvh_spec(JNIEnv *jenv, std::string left_anchor, std::string right_anchor, std::string top_anchor, std::string bottom_anchor, std::map< std::string,int > string_id_map, std::map< std::string,bool > string_torso_map) : mae::fl::bvh_spec(left_anchor, right_anchor, top_anchor, bottom_anchor, string_id_map, string_torso_map), Swig::Director(jenv) {
-}
-
-SwigDirector_bvh_spec::~SwigDirector_bvh_spec() {
-  swig_disconnect_director_self("swigDirectorDisconnect");
-}
-
-
-std::map< std::string,int > SwigDirector_bvh_spec::get_id_map() const {
-  std::map< std::string,int > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  std::map< std::string,int > *argp ;
-  
-  if (!swig_override[0]) {
-    return mae::fl::bvh_spec::get_id_map();
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[3], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::map< std::string,int > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::map< std::string,int >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_spec::get_id_map ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-std::map< std::string,bool > SwigDirector_bvh_spec::get_torso_map() const {
-  std::map< std::string,bool > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  std::map< std::string,bool > *argp ;
-  
-  if (!swig_override[1]) {
-    return mae::fl::bvh_spec::get_torso_map();
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[4], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::map< std::string,bool > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::map< std::string,bool >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_spec::get_torso_map ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-std::string SwigDirector_bvh_spec::get_left_anchor() {
-  std::string c_result ;
-  jstring jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  
-  if (!swig_override[2]) {
-    return mae::fl::bvh_spec::get_left_anchor();
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[5], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    if(!jresult) {
-      if (!jenv->ExceptionCheck()) {
-        SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
-      }
-      return c_result;
-    } 
-    const char *c_result_pstr = (const char *)jenv->GetStringUTFChars(jresult, 0); 
-    if (!c_result_pstr) return c_result;
-    c_result.assign(c_result_pstr);
-    jenv->ReleaseStringUTFChars(jresult, c_result_pstr); 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_spec::get_left_anchor ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-std::string SwigDirector_bvh_spec::get_right_anchor() {
-  std::string c_result ;
-  jstring jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  
-  if (!swig_override[3]) {
-    return mae::fl::bvh_spec::get_right_anchor();
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[6], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    if(!jresult) {
-      if (!jenv->ExceptionCheck()) {
-        SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
-      }
-      return c_result;
-    } 
-    const char *c_result_pstr = (const char *)jenv->GetStringUTFChars(jresult, 0); 
-    if (!c_result_pstr) return c_result;
-    c_result.assign(c_result_pstr);
-    jenv->ReleaseStringUTFChars(jresult, c_result_pstr); 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_spec::get_right_anchor ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-std::string SwigDirector_bvh_spec::get_top_anchor() {
-  std::string c_result ;
-  jstring jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  
-  if (!swig_override[4]) {
-    return mae::fl::bvh_spec::get_top_anchor();
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[7], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    if(!jresult) {
-      if (!jenv->ExceptionCheck()) {
-        SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
-      }
-      return c_result;
-    } 
-    const char *c_result_pstr = (const char *)jenv->GetStringUTFChars(jresult, 0); 
-    if (!c_result_pstr) return c_result;
-    c_result.assign(c_result_pstr);
-    jenv->ReleaseStringUTFChars(jresult, c_result_pstr); 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_spec::get_top_anchor ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-std::string SwigDirector_bvh_spec::get_bottom_anchor() {
-  std::string c_result ;
-  jstring jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  
-  if (!swig_override[5]) {
-    return mae::fl::bvh_spec::get_bottom_anchor();
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[8], swigjobj);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    if(!jresult) {
-      if (!jenv->ExceptionCheck()) {
-        SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
-      }
-      return c_result;
-    } 
-    const char *c_result_pstr = (const char *)jenv->GetStringUTFChars(jresult, 0); 
-    if (!c_result_pstr) return c_result;
-    c_result.assign(c_result_pstr);
-    jenv->ReleaseStringUTFChars(jresult, c_result_pstr); 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_spec::get_bottom_anchor ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-void SwigDirector_bvh_spec::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
-  static struct {
-    const char *mname;
-    const char *mdesc;
-    jmethodID base_methid;
-  } methods[] = {
-    {
-      "get_id_map", "()Lmaejava/string_int_map;", NULL 
-    },
-    {
-      "get_torso_map", "()Lmaejava/string_bool_map;", NULL 
-    },
-    {
-      "get_left_anchor", "()Ljava/lang/String;", NULL 
-    },
-    {
-      "get_right_anchor", "()Ljava/lang/String;", NULL 
-    },
-    {
-      "get_top_anchor", "()Ljava/lang/String;", NULL 
-    },
-    {
-      "get_bottom_anchor", "()Ljava/lang/String;", NULL 
-    }
-  };
-  
-  static jclass baseclass = 0 ;
-  
-  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
-    if (!baseclass) {
-      baseclass = jenv->FindClass("maejava/bvh_spec");
-      if (!baseclass) return;
-      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
-    }
-    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
-    for (int i = 0; i < 6; ++i) {
-      if (!methods[i].base_methid) {
-        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
-        if (!methods[i].base_methid) return;
-      }
-      swig_override[i] = false;
-      if (derived) {
-        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
-        swig_override[i] = (methid != methods[i].base_methid);
-        jenv->ExceptionClear();
-      }
-    }
-  }
-}
-
-
-SwigDirector_bvh_controller::SwigDirector_bvh_controller(JNIEnv *jenv) : mae::fl::bvh_controller(), Swig::Director(jenv) {
-}
-
-SwigDirector_bvh_controller::~SwigDirector_bvh_controller() {
-  swig_disconnect_director_self("swigDirectorDisconnect");
-}
-
-
-std::string SwigDirector_bvh_controller::bvh_str(std::vector< std::shared_ptr< mae::general_skeleton > > data) {
-  std::string c_result ;
-  jstring jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jdata  ;
-  
-  if (!swig_override[0]) {
-    return mae::fl::bvh_controller::bvh_str(data);
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jdata = 0;
-    *((std::vector< std::shared_ptr< mae::general_skeleton > > **)&jdata) = &data; 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[9], swigjobj, jdata);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    if(!jresult) {
-      if (!jenv->ExceptionCheck()) {
-        SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
-      }
-      return c_result;
-    } 
-    const char *c_result_pstr = (const char *)jenv->GetStringUTFChars(jresult, 0); 
-    if (!c_result_pstr) return c_result;
-    c_result.assign(c_result_pstr);
-    jenv->ReleaseStringUTFChars(jresult, c_result_pstr); 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::bvh_str ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-std::string SwigDirector_bvh_controller::bvh_str(std::vector< std::shared_ptr< mae::general_skeleton > > data, double framerate) {
-  std::string c_result ;
-  jstring jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jdata  ;
-  jdouble jframerate  ;
-  
-  if (!swig_override[1]) {
-    return mae::fl::bvh_controller::bvh_str(data,framerate);
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jdata = 0;
-    *((std::vector< std::shared_ptr< mae::general_skeleton > > **)&jdata) = &data; 
-    jframerate = (jdouble) framerate;
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[10], swigjobj, jdata, jframerate);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    if(!jresult) {
-      if (!jenv->ExceptionCheck()) {
-        SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
-      }
-      return c_result;
-    } 
-    const char *c_result_pstr = (const char *)jenv->GetStringUTFChars(jresult, 0); 
-    if (!c_result_pstr) return c_result;
-    c_result.assign(c_result_pstr);
-    jenv->ReleaseStringUTFChars(jresult, c_result_pstr); 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::bvh_str ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-std::string SwigDirector_bvh_controller::bvh_str(std::shared_ptr< mae::general_skeleton > data) {
-  std::string c_result ;
-  jstring jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jdata  ;
-  
-  if (!swig_override[2]) {
-    return mae::fl::bvh_controller::bvh_str(data);
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jdata = 0;
-    *((std::shared_ptr< mae::general_skeleton > **)&jdata) = &data; 
-    jresult = (jstring) jenv->CallStaticObjectMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[11], swigjobj, jdata);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    if(!jresult) {
-      if (!jenv->ExceptionCheck()) {
-        SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
-      }
-      return c_result;
-    } 
-    const char *c_result_pstr = (const char *)jenv->GetStringUTFChars(jresult, 0); 
-    if (!c_result_pstr) return c_result;
-    c_result.assign(c_result_pstr);
-    jenv->ReleaseStringUTFChars(jresult, c_result_pstr); 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::bvh_str ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-void SwigDirector_bvh_controller::print_bvh_file(std::vector< std::shared_ptr< mae::general_skeleton > > data, std::string filename) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jdata  ;
-  jstring jfilename  ;
-  
-  if (!swig_override[3]) {
-    mae::fl::bvh_controller::print_bvh_file(data,filename);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jdata = 0;
-    *((std::vector< std::shared_ptr< mae::general_skeleton > > **)&jdata) = &data; 
-    jfilename = jenv->NewStringUTF((&filename)->c_str()); 
-    jenv->CallStaticVoidMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[12], swigjobj, jdata, jfilename);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::print_bvh_file ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-void SwigDirector_bvh_controller::print_bvh_file(std::shared_ptr< mae::general_skeleton > data, std::string filename) {
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jlong jdata  ;
-  jstring jfilename  ;
-  
-  if (!swig_override[4]) {
-    mae::fl::bvh_controller::print_bvh_file(data,filename);
-    return;
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jdata = 0;
-    *((std::shared_ptr< mae::general_skeleton > **)&jdata) = &data; 
-    jfilename = jenv->NewStringUTF((&filename)->c_str()); 
-    jenv->CallStaticVoidMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[13], swigjobj, jdata, jfilename);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::print_bvh_file ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-}
-
-std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > SwigDirector_bvh_controller::read_bvh_str(std::string bvh_str, std::shared_ptr< mae::fl::bvh_spec > spec) {
-  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jstring jbvh_str  ;
-  jlong jspec  ;
-  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *argp ;
-  
-  if (!swig_override[5]) {
-    return mae::fl::bvh_controller::read_bvh_str(bvh_str,spec);
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jbvh_str = jenv->NewStringUTF((&bvh_str)->c_str()); 
-    jspec = 0;
-    *((std::shared_ptr< mae::fl::bvh_spec > **)&jspec) = &spec; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[14], swigjobj, jbvh_str, jspec);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::read_bvh_str ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > SwigDirector_bvh_controller::read_bvh_file(std::string filename, std::shared_ptr< mae::fl::bvh_spec > spec) {
-  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > c_result ;
-  jlong jresult = 0 ;
-  JNIEnvWrapper swigjnienv(this) ;
-  JNIEnv * jenv = swigjnienv.getJNIEnv() ;
-  jobject swigjobj = (jobject) NULL ;
-  jstring jfilename  ;
-  jlong jspec  ;
-  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *argp ;
-  
-  if (!swig_override[6]) {
-    return mae::fl::bvh_controller::read_bvh_file(filename,spec);
-  }
-  swigjobj = swig_get_self(jenv);
-  if (swigjobj && jenv->IsSameObject(swigjobj, NULL) == JNI_FALSE) {
-    jfilename = jenv->NewStringUTF((&filename)->c_str()); 
-    jspec = 0;
-    *((std::shared_ptr< mae::fl::bvh_spec > **)&jspec) = &spec; 
-    jresult = (jlong) jenv->CallStaticLongMethod(Swig::jclass_MaejavaJNI, Swig::director_methids[15], swigjobj, jfilename, jspec);
-    jthrowable swigerror = jenv->ExceptionOccurred();
-    if (swigerror) {
-      jenv->ExceptionClear();
-      throw Swig::DirectorException(jenv, swigerror);
-    }
-    
-    argp = *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > **)&jresult; 
-    if (!argp) {
-      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Unexpected null return for type std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double >");
-      return c_result;
-    }
-    c_result = *argp; 
-  } else {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null upcall object in mae::fl::bvh_controller::read_bvh_file ");
-  }
-  if (swigjobj) jenv->DeleteLocalRef(swigjobj);
-  return c_result;
-}
-
-void SwigDirector_bvh_controller::swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global) {
-  static struct {
-    const char *mname;
-    const char *mdesc;
-    jmethodID base_methid;
-  } methods[] = {
-    {
-      "bvh_str", "(Lmaejava/general_skeleton_vector;)Ljava/lang/String;", NULL 
-    },
-    {
-      "bvh_str", "(Lmaejava/general_skeleton_vector;D)Ljava/lang/String;", NULL 
-    },
-    {
-      "bvh_str", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__general_skeleton_t;)Ljava/lang/String;", NULL 
-    },
-    {
-      "print_bvh_file", "(Lmaejava/general_skeleton_vector;Ljava/lang/String;)V", NULL 
-    },
-    {
-      "print_bvh_file", "(Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__general_skeleton_t;Ljava/lang/String;)V", NULL 
-    },
-    {
-      "read_bvh_str", "(Ljava/lang/String;Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__bvh_spec_t;)Lmaejava/general_skeleton_vector_double_pair;", NULL 
-    },
-    {
-      "read_bvh_file", "(Ljava/lang/String;Lmaejava/SWIGTYPE_p_std__shared_ptrT_mae__fl__bvh_spec_t;)Lmaejava/general_skeleton_vector_double_pair;", NULL 
-    }
-  };
-  
-  static jclass baseclass = 0 ;
-  
-  if (swig_set_self(jenv, jself, swig_mem_own, weak_global)) {
-    if (!baseclass) {
-      baseclass = jenv->FindClass("maejava/bvh_controller");
-      if (!baseclass) return;
-      baseclass = (jclass) jenv->NewGlobalRef(baseclass);
-    }
-    bool derived = (jenv->IsSameObject(baseclass, jcls) ? false : true);
-    for (int i = 0; i < 7; ++i) {
-      if (!methods[i].base_methid) {
-        methods[i].base_methid = jenv->GetMethodID(baseclass, methods[i].mname, methods[i].mdesc);
-        if (!methods[i].base_methid) return;
-      }
-      swig_override[i] = false;
-      if (derived) {
-        jmethodID methid = jenv->GetMethodID(jcls, methods[i].mname, methods[i].mdesc);
-        swig_override[i] = (methid != methods[i].base_methid);
-        jenv->ExceptionClear();
-      }
-    }
-  }
-}
-
-
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_INVALID_1BONE_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_INVALID_1BONE_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2231,7 +1542,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_INVALID_1BONE_1get(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_HEAD_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_HEAD_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2243,7 +1554,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_HEAD_1get(JNIEnv *jenv, jclass j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_LEFT_1UPPER_1ARM_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1UPPER_1ARM_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2255,7 +1566,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_LEFT_1UPPER_1ARM_1get(JNIEnv *je
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_LEFT_1FOREARM_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1FOREARM_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2267,7 +1578,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_LEFT_1FOREARM_1get(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_LEFT_1WHOLE_1ARM_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1WHOLE_1ARM_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2279,7 +1590,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_LEFT_1WHOLE_1ARM_1get(JNIEnv *je
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_RIGHT_1UPPER_1ARM_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1UPPER_1ARM_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2291,7 +1602,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_RIGHT_1UPPER_1ARM_1get(JNIEnv *j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_RIGHT_1FOREARM_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1FOREARM_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2303,7 +1614,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_RIGHT_1FOREARM_1get(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_RIGHT_1WHOLE_1ARM_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1WHOLE_1ARM_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2315,7 +1626,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_RIGHT_1WHOLE_1ARM_1get(JNIEnv *j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_LEFT_1THIGH_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1THIGH_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2327,7 +1638,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_LEFT_1THIGH_1get(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_LEFT_1SHANK_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1SHANK_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2339,7 +1650,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_LEFT_1SHANK_1get(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_LEFT_1WHOLE_1LEG_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1WHOLE_1LEG_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2351,7 +1662,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_LEFT_1WHOLE_1LEG_1get(JNIEnv *je
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_RIGHT_1THIGH_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1THIGH_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2363,7 +1674,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_RIGHT_1THIGH_1get(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_RIGHT_1SHANK_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1SHANK_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2375,7 +1686,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_RIGHT_1SHANK_1get(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_RIGHT_1WHOLE_1LEG_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1WHOLE_1LEG_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
   
@@ -2387,7 +1698,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_RIGHT_1WHOLE_1LEG_1get(JNIEnv *j
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1bone_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1bone_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::e_bone arg1 ;
   std::string result;
@@ -2401,7 +1712,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1bone_1c_1str(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1bone_1c_1to_1int(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1bone_1c_1to_1int(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jint jresult = 0 ;
   mae::e_bone arg1 ;
   int result;
@@ -2415,7 +1726,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1bone_1c_1to_1int(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1bone_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1bone_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::e_bone > result;
   
@@ -2427,7 +1738,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1bone_1c_1vec(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1bone_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1bone_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::e_bone result;
@@ -2448,7 +1759,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1bone_1c_1parse(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1bone_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1bone_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::e_bone_c *result = 0 ;
   
@@ -2460,7 +1771,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1bone_1c(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1bone_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1bone_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::e_bone_c *arg1 = (mae::e_bone_c *) 0 ;
   
   (void)jenv;
@@ -2470,7 +1781,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1bone_1c(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1int_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1int_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< int > *result = 0 ;
   
@@ -2482,7 +1793,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1int_1vector_1_1SWIG_10(JNI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1int_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1int_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< int >::size_type arg1 ;
   std::vector< int > *result = 0 ;
@@ -2496,7 +1807,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1int_1vector_1_1SWIG_11(JNI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_int_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_int_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< int > *arg1 = (std::vector< int > *) 0 ;
   std::vector< int >::size_type result;
@@ -2511,7 +1822,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_int_1vector_1size(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_int_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_int_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< int > *arg1 = (std::vector< int > *) 0 ;
   std::vector< int >::size_type result;
@@ -2526,7 +1837,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_int_1vector_1capacity(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_int_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< int > *arg1 = (std::vector< int > *) 0 ;
   std::vector< int >::size_type arg2 ;
   
@@ -2539,7 +1850,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1vector_1reserve(JNIEnv *jen
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_int_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_int_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< int > *arg1 = (std::vector< int > *) 0 ;
   bool result;
@@ -2554,7 +1865,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_int_1vector_1isEmpty(JNIEnv 
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_int_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< int > *arg1 = (std::vector< int > *) 0 ;
   
   (void)jenv;
@@ -2565,7 +1876,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1vector_1clear(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_int_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< int > *arg1 = (std::vector< int > *) 0 ;
   std::vector< int >::value_type *arg2 = 0 ;
   std::vector< int >::value_type temp2 ;
@@ -2580,7 +1891,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1vector_1add(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_int_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_int_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< int > *arg1 = (std::vector< int > *) 0 ;
   int arg2 ;
@@ -2604,7 +1915,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_int_1vector_1get(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_int_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< int > *arg1 = (std::vector< int > *) 0 ;
   int arg2 ;
   std::vector< int >::value_type *arg3 = 0 ;
@@ -2628,7 +1939,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1vector_1set(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1int_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1int_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< int > *arg1 = (std::vector< int > *) 0 ;
   
   (void)jenv;
@@ -2638,7 +1949,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1int_1vector(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1bone_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1bone_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::e_bone > *result = 0 ;
   
@@ -2650,7 +1961,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1bone_1vector_1_1SWIG_10
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1bone_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1bone_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::e_bone >::size_type arg1 ;
   std::vector< mae::e_bone > *result = 0 ;
@@ -2664,7 +1975,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1bone_1vector_1_1SWIG_11
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1bone_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::e_bone > *arg1 = (std::vector< mae::e_bone > *) 0 ;
   std::vector< enum mae::e_bone >::size_type result;
@@ -2679,7 +1990,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1size(JNIEnv *j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1bone_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::e_bone > *arg1 = (std::vector< mae::e_bone > *) 0 ;
   std::vector< enum mae::e_bone >::size_type result;
@@ -2694,7 +2005,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1capacity(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1bone_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::e_bone > *arg1 = (std::vector< mae::e_bone > *) 0 ;
   std::vector< enum mae::e_bone >::size_type arg2 ;
   
@@ -2707,7 +2018,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1reserve(JNIEnv 
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1bone_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::e_bone > *arg1 = (std::vector< mae::e_bone > *) 0 ;
   bool result;
@@ -2722,7 +2033,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1isEmpty(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1bone_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::e_bone > *arg1 = (std::vector< mae::e_bone > *) 0 ;
   
   (void)jenv;
@@ -2733,7 +2044,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1clear(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1bone_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::e_bone > *arg1 = (std::vector< mae::e_bone > *) 0 ;
   std::vector< enum mae::e_bone >::value_type *arg2 = 0 ;
   std::vector< enum mae::e_bone >::value_type temp2 ;
@@ -2748,7 +2059,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1add(JNIEnv *jen
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1bone_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::e_bone > *arg1 = (std::vector< mae::e_bone > *) 0 ;
   int arg2 ;
@@ -2772,7 +2083,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1get(JNIEnv *jen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1bone_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::e_bone > *arg1 = (std::vector< mae::e_bone > *) 0 ;
   int arg2 ;
   std::vector< enum mae::e_bone >::value_type *arg3 = 0 ;
@@ -2796,7 +2107,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1bone_1vector_1set(JNIEnv *jen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1bone_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1bone_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::e_bone > *arg1 = (std::vector< mae::e_bone > *) 0 ;
   
   (void)jenv;
@@ -2806,7 +2117,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1bone_1vector(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bone_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1bone_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::bone *result = 0 ;
   
@@ -2820,7 +2131,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bone_1_1SWIG_10(JNIEnv *je
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bone_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jstring jarg2, jint jarg3, jint jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1bone_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jstring jarg2, jint jarg3, jint jarg4) {
   jlong jresult = 0 ;
   int arg1 ;
   std::string arg2 ;
@@ -2849,7 +2160,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bone_1_1SWIG_11(JNIEnv *je
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bone_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jint jarg1, jstring jarg2, jint jarg3, jint jarg4, jint jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1bone_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jint jarg1, jstring jarg2, jint jarg3, jint jarg4, jint jarg5) {
   jlong jresult = 0 ;
   int arg1 ;
   std::string arg2 ;
@@ -2880,7 +2191,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bone_1_1SWIG_12(JNIEnv *je
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bone_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1bone_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jlong jresult = 0 ;
   mae::e_bone arg1 ;
   mae::bone *result = 0 ;
@@ -2896,7 +2207,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bone_1_1SWIG_13(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1bone(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1bone(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::bone *arg1 = (mae::bone *) 0 ;
   std::shared_ptr< mae::bone > *smartarg1 = 0 ;
   
@@ -2909,7 +2220,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1bone(JNIEnv *jenv, jclas
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_bone_1get_1id(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_bone_1get_1id(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::bone *arg1 = (mae::bone *) 0 ;
   std::shared_ptr< mae::bone const > *smartarg1 = 0 ;
@@ -2927,7 +2238,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_bone_1get_1id(JNIEnv *jenv, jcla
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bone_1get_1name(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_bone_1get_1name(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::bone *arg1 = (mae::bone *) 0 ;
   std::shared_ptr< mae::bone const > *smartarg1 = 0 ;
@@ -2945,7 +2256,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bone_1get_1name(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_bone_1get_1from(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_bone_1get_1from(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::bone *arg1 = (mae::bone *) 0 ;
   std::shared_ptr< mae::bone const > *smartarg1 = 0 ;
@@ -2963,7 +2274,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_bone_1get_1from(JNIEnv *jenv, jc
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_bone_1get_1to(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_bone_1get_1to(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::bone *arg1 = (mae::bone *) 0 ;
   std::shared_ptr< mae::bone const > *smartarg1 = 0 ;
@@ -2981,7 +2292,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_bone_1get_1to(JNIEnv *jenv, jcla
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_bone_1has_1middle_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_bone_1has_1middle_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   mae::bone *arg1 = (mae::bone *) 0 ;
   std::shared_ptr< mae::bone const > *smartarg1 = 0 ;
@@ -2999,7 +2310,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_bone_1has_1middle_1joint(JNI
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_bone_1get_1middle_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_bone_1get_1middle_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::bone *arg1 = (mae::bone *) 0 ;
   std::shared_ptr< mae::bone const > *smartarg1 = 0 ;
@@ -3017,7 +2328,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_bone_1get_1middle_1joint(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bone_1default_1bones(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_bone_1default_1bones(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::bone > result;
   
@@ -3029,7 +2340,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bone_1default_1bones(JNIEnv *je
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_bone_1RESERVED_1TOP_1DOWN_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_bone_1RESERVED_1TOP_1DOWN_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
@@ -3041,7 +2352,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_bone_1RESERVED_1TOP_1DOWN_1get(J
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_bone_1RESERVED_1RIGHT_1LEFT_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_bone_1RESERVED_1RIGHT_1LEFT_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
@@ -3053,7 +2364,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_bone_1RESERVED_1RIGHT_1LEFT_1get
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bone_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1bone_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::bone > *result = 0 ;
   
@@ -3065,7 +2376,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bone_1vector_1_1SWIG_10(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bone_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1bone_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< mae::bone >::size_type arg1 ;
   std::vector< mae::bone > *result = 0 ;
@@ -3079,7 +2390,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bone_1vector_1_1SWIG_11(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bone_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_bone_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::bone > *arg1 = (std::vector< mae::bone > *) 0 ;
   std::vector< mae::bone >::size_type result;
@@ -3094,7 +2405,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bone_1vector_1size(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bone_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_bone_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::bone > *arg1 = (std::vector< mae::bone > *) 0 ;
   std::vector< mae::bone >::size_type result;
@@ -3109,7 +2420,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bone_1vector_1capacity(JNIEnv *
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bone_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_bone_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::bone > *arg1 = (std::vector< mae::bone > *) 0 ;
   std::vector< mae::bone >::size_type arg2 ;
   
@@ -3122,7 +2433,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bone_1vector_1reserve(JNIEnv *je
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_bone_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_bone_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::bone > *arg1 = (std::vector< mae::bone > *) 0 ;
   bool result;
@@ -3137,7 +2448,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_bone_1vector_1isEmpty(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bone_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_bone_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::bone > *arg1 = (std::vector< mae::bone > *) 0 ;
   
   (void)jenv;
@@ -3148,7 +2459,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bone_1vector_1clear(JNIEnv *jenv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bone_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_bone_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   std::vector< mae::bone > *arg1 = (std::vector< mae::bone > *) 0 ;
   std::vector< mae::bone >::value_type *arg2 = 0 ;
   
@@ -3167,7 +2478,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bone_1vector_1add(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bone_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_bone_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   std::vector< mae::bone > *arg1 = (std::vector< mae::bone > *) 0 ;
   int arg2 ;
@@ -3191,7 +2502,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bone_1vector_1get(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bone_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_bone_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   std::vector< mae::bone > *arg1 = (std::vector< mae::bone > *) 0 ;
   int arg2 ;
   std::vector< mae::bone >::value_type *arg3 = 0 ;
@@ -3219,7 +2530,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bone_1vector_1set(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1bone_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1bone_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::bone > *arg1 = (std::vector< mae::bone > *) 0 ;
   
   (void)jenv;
@@ -3229,7 +2540,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1bone_1vector(JNIEnv *jen
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1string_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1string_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< std::string > *result = 0 ;
   
@@ -3241,7 +2552,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1string_1vector_1_1SWIG_10(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1string_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1string_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< std::string >::size_type arg1 ;
   std::vector< std::string > *result = 0 ;
@@ -3255,7 +2566,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1string_1vector_1_1SWIG_11(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_string_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_string_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::string > *arg1 = (std::vector< std::string > *) 0 ;
   std::vector< std::string >::size_type result;
@@ -3270,7 +2581,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_string_1vector_1size(JNIEnv *je
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_string_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_string_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::string > *arg1 = (std::vector< std::string > *) 0 ;
   std::vector< std::string >::size_type result;
@@ -3285,7 +2596,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_string_1vector_1capacity(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_string_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< std::string > *arg1 = (std::vector< std::string > *) 0 ;
   std::vector< std::string >::size_type arg2 ;
   
@@ -3298,7 +2609,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1vector_1reserve(JNIEnv *
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_string_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_string_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< std::string > *arg1 = (std::vector< std::string > *) 0 ;
   bool result;
@@ -3313,7 +2624,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_string_1vector_1isEmpty(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_string_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< std::string > *arg1 = (std::vector< std::string > *) 0 ;
   
   (void)jenv;
@@ -3324,7 +2635,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1vector_1clear(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_string_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   std::vector< std::string > *arg1 = (std::vector< std::string > *) 0 ;
   std::vector< std::string >::value_type *arg2 = 0 ;
   
@@ -3345,7 +2656,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1vector_1add(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_string_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_string_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jstring jresult = 0 ;
   std::vector< std::string > *arg1 = (std::vector< std::string > *) 0 ;
   int arg2 ;
@@ -3369,7 +2680,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_string_1vector_1get(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jstring jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_string_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jstring jarg3) {
   std::vector< std::string > *arg1 = (std::vector< std::string > *) 0 ;
   int arg2 ;
   std::vector< std::string >::value_type *arg3 = 0 ;
@@ -3399,7 +2710,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1vector_1set(JNIEnv *jenv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1string_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1string_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< std::string > *arg1 = (std::vector< std::string > *) 0 ;
   
   (void)jenv;
@@ -3409,7 +2720,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1string_1vector(JNIEnv *j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1pose(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1pose(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::general_pose *result = 0 ;
   
@@ -3423,7 +2734,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1pose(JNIEnv *jenv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1general_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1general_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::general_pose *arg1 = (mae::general_pose *) 0 ;
   std::shared_ptr< mae::general_pose > *smartarg1 = 0 ;
   
@@ -3436,7 +2747,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1general_1pose(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1pose_1set_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1pose_1set_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   mae::general_pose *arg1 = (mae::general_pose *) 0 ;
   int arg2 ;
   int arg3 ;
@@ -3454,7 +2765,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1pose_1set_1direction(JN
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_general_1pose_1get_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_general_1pose_1get_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   mae::general_pose *arg1 = (mae::general_pose *) 0 ;
   int arg2 ;
@@ -3474,7 +2785,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_general_1pose_1get_1direction(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1pose_1set_1distance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jdouble jarg4) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1pose_1set_1distance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jdouble jarg4) {
   mae::general_pose *arg1 = (mae::general_pose *) 0 ;
   int arg2 ;
   int arg3 ;
@@ -3494,7 +2805,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1pose_1set_1distance(JNI
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1pose_1get_1distance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_general_1pose_1get_1distance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   jdouble jresult = 0 ;
   mae::general_pose *arg1 = (mae::general_pose *) 0 ;
   int arg2 ;
@@ -3516,7 +2827,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1pose_1get_1distance(
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1pose_1set_1rotation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jdouble jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1pose_1set_1rotation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jdouble jarg3) {
   mae::general_pose *arg1 = (mae::general_pose *) 0 ;
   int arg2 ;
   double arg3 ;
@@ -3534,7 +2845,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1pose_1set_1rotation(JNI
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1pose_1get_1rotation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_general_1pose_1get_1rotation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jdouble jresult = 0 ;
   mae::general_pose *arg1 = (mae::general_pose *) 0 ;
   int arg2 ;
@@ -3554,7 +2865,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1pose_1get_1rotation(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1pose_1get_1body_1parts(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_general_1pose_1get_1body_1parts(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::general_pose *arg1 = (mae::general_pose *) 0 ;
   std::shared_ptr< mae::general_pose const > *smartarg1 = 0 ;
@@ -3572,7 +2883,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1pose_1get_1body_1parts
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1pose_1get_1directions(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_general_1pose_1get_1directions(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::general_pose *arg1 = (mae::general_pose *) 0 ;
   std::shared_ptr< mae::general_pose const > *smartarg1 = 0 ;
@@ -3590,7 +2901,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1pose_1get_1directions(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1int_1list(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1int_1list(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::list< int > *result = 0 ;
   
@@ -3602,7 +2913,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1int_1list(JNIEnv *jenv, jc
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_int_1list_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_int_1list_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::list< int > *arg1 = (std::list< int > *) 0 ;
   std::list< int >::size_type result;
@@ -3617,7 +2928,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_int_1list_1size(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_int_1list_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_int_1list_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::list< int > *arg1 = (std::list< int > *) 0 ;
   bool result;
@@ -3632,7 +2943,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_int_1list_1isEmpty(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1list_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_int_1list_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::list< int > *arg1 = (std::list< int > *) 0 ;
   
   (void)jenv;
@@ -3643,7 +2954,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1list_1clear(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1list_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_int_1list_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::list< int > *arg1 = (std::list< int > *) 0 ;
   std::list< int >::value_type *arg2 = 0 ;
   std::list< int >::value_type temp2 ;
@@ -3658,7 +2969,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1list_1add(JNIEnv *jenv, jcl
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_int_1list_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_int_1list_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::list< int > *arg1 = (std::list< int > *) 0 ;
   int arg2 ;
@@ -3682,7 +2993,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_int_1list_1get(JNIEnv *jenv, jcl
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1int_1list(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1int_1list(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::list< int > *arg1 = (std::list< int > *) 0 ;
   
   (void)jenv;
@@ -3692,7 +3003,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1int_1list(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1pose_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1pose_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::i_pose_listener *arg1 = (mae::i_pose_listener *) 0 ;
   
   (void)jenv;
@@ -3702,7 +3013,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1pose_1listener(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1pose_1listener_1on_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1pose_1listener_1on_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   mae::i_pose_listener *arg1 = (mae::i_pose_listener *) 0 ;
   long arg2 ;
   std::shared_ptr< mae::general_pose > arg3 ;
@@ -3720,7 +3031,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1pose_1listener_1on_1pose(JNIE
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1enriched_1pose_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1enriched_1pose_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::general_enriched_pose *result = 0 ;
   
@@ -3734,7 +3045,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1enriched_1pose_1_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1enriched_1pose_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1enriched_1pose_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::general_pose > arg1 ;
   std::shared_ptr< mae::general_pose > *argp1 ;
@@ -3753,7 +3064,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1enriched_1pose_1_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1general_1enriched_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1general_1enriched_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::general_enriched_pose *arg1 = (mae::general_enriched_pose *) 0 ;
   std::shared_ptr< mae::general_enriched_pose > *smartarg1 = 0 ;
   
@@ -3766,7 +3077,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1general_1enriched_1pose(
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1enriched_1pose_1set_1key_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jboolean jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1enriched_1pose_1set_1key_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jboolean jarg3) {
   mae::general_enriched_pose *arg1 = (mae::general_enriched_pose *) 0 ;
   int arg2 ;
   bool arg3 ;
@@ -3784,7 +3095,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1enriched_1pose_1set_1ke
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_general_1enriched_1pose_1is_1key_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_general_1enriched_1pose_1is_1key_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jboolean jresult = 0 ;
   mae::general_enriched_pose *arg1 = (mae::general_enriched_pose *) 0 ;
   int arg2 ;
@@ -3804,7 +3115,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_general_1enriched_1pose_1is_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1enriched_1pose_1set_1in_1motion(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jboolean jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1enriched_1pose_1set_1in_1motion(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jboolean jarg3) {
   mae::general_enriched_pose *arg1 = (mae::general_enriched_pose *) 0 ;
   int arg2 ;
   bool arg3 ;
@@ -3822,7 +3133,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1enriched_1pose_1set_1in
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_general_1enriched_1pose_1is_1in_1motion(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_general_1enriched_1pose_1is_1in_1motion(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jboolean jresult = 0 ;
   mae::general_enriched_pose *arg1 = (mae::general_enriched_pose *) 0 ;
   int arg2 ;
@@ -3842,7 +3153,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_general_1enriched_1pose_1is_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1enriched_1pose_1list(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1enriched_1pose_1list(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::list< std::shared_ptr< mae::general_enriched_pose > > *result = 0 ;
   
@@ -3854,7 +3165,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1enriched_1pose_1list(JNIEn
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_enriched_1pose_1list_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_enriched_1pose_1list_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::list< std::shared_ptr< mae::general_enriched_pose > > *arg1 = (std::list< std::shared_ptr< mae::general_enriched_pose > > *) 0 ;
   std::list< std::shared_ptr< mae::general_enriched_pose > >::size_type result;
@@ -3869,7 +3180,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_enriched_1pose_1list_1size(JNIE
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_enriched_1pose_1list_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_enriched_1pose_1list_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::list< std::shared_ptr< mae::general_enriched_pose > > *arg1 = (std::list< std::shared_ptr< mae::general_enriched_pose > > *) 0 ;
   bool result;
@@ -3884,7 +3195,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_enriched_1pose_1list_1isEmpt
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_enriched_1pose_1list_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_enriched_1pose_1list_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::list< std::shared_ptr< mae::general_enriched_pose > > *arg1 = (std::list< std::shared_ptr< mae::general_enriched_pose > > *) 0 ;
   
   (void)jenv;
@@ -3895,7 +3206,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_enriched_1pose_1list_1clear(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_enriched_1pose_1list_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_enriched_1pose_1list_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   std::list< std::shared_ptr< mae::general_enriched_pose > > *arg1 = (std::list< std::shared_ptr< mae::general_enriched_pose > > *) 0 ;
   std::list< std::shared_ptr< mae::general_enriched_pose > >::value_type *arg2 = 0 ;
   std::list< std::shared_ptr< mae::general_enriched_pose > >::value_type tempnull2 ;
@@ -3910,7 +3221,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_enriched_1pose_1list_1add(JNIEnv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_enriched_1pose_1list_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_enriched_1pose_1list_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   std::list< std::shared_ptr< mae::general_enriched_pose > > *arg1 = (std::list< std::shared_ptr< mae::general_enriched_pose > > *) 0 ;
   int arg2 ;
@@ -3934,7 +3245,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_enriched_1pose_1list_1get(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1enriched_1pose_1list(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1enriched_1pose_1list(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::list< std::shared_ptr< mae::general_enriched_pose > > *arg1 = (std::list< std::shared_ptr< mae::general_enriched_pose > > *) 0 ;
   
   (void)jenv;
@@ -3944,7 +3255,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1enriched_1pose_1list(JNI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1hierarchy_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::hierarchy *result = 0 ;
   
@@ -3958,7 +3269,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1_1SWIG_10(JNIEn
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1hierarchy_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::hierarchy_element > arg1 ;
   std::shared_ptr< mae::hierarchy_element > *argp1 ;
@@ -3977,7 +3288,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1_1SWIG_11(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1hierarchy(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1hierarchy(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
   std::shared_ptr< mae::hierarchy > *smartarg1 = 0 ;
   
@@ -3990,7 +3301,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1hierarchy(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1get_1root(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_hierarchy_1get_1root(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
   std::shared_ptr< mae::hierarchy const > *smartarg1 = 0 ;
@@ -4008,7 +3319,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1get_1root(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1set_1root(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1set_1root(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
   std::shared_ptr< mae::hierarchy_element > arg2 ;
   std::shared_ptr< mae::hierarchy > *smartarg1 = 0 ;
@@ -4027,7 +3338,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1set_1root(JNIEnv *jen
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1get_1element_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_hierarchy_1get_1element_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
   std::shared_ptr< mae::hierarchy > *smartarg1 = 0 ;
@@ -4045,7 +3356,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1get_1element_1sequen
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1at(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_hierarchy_1at(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
   int arg2 ;
@@ -4067,7 +3378,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1at(JNIEnv *jenv, jcl
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_hierarchy_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_hierarchy_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
   std::shared_ptr< mae::hierarchy const > *smartarg1 = 0 ;
@@ -4085,7 +3396,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_hierarchy_1str(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1default_1hierarchy(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_hierarchy_1default_1hierarchy(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::hierarchy > result;
   
@@ -4097,7 +3408,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1default_1hierarchy(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1element_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1hierarchy_1element_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > > *result = 0 ;
   
@@ -4109,7 +3420,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1element_1vector
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1element_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1hierarchy_1element_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > >::size_type arg1 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > > *result = 0 ;
@@ -4123,7 +3434,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1element_1vector
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > > *arg1 = (std::vector< std::shared_ptr< mae::hierarchy_element > > *) 0 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > >::size_type result;
@@ -4138,7 +3449,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1siz
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > > *arg1 = (std::vector< std::shared_ptr< mae::hierarchy_element > > *) 0 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > >::size_type result;
@@ -4153,7 +3464,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1cap
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< std::shared_ptr< mae::hierarchy_element > > *arg1 = (std::vector< std::shared_ptr< mae::hierarchy_element > > *) 0 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > >::size_type arg2 ;
   
@@ -4166,7 +3477,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1rese
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > > *arg1 = (std::vector< std::shared_ptr< mae::hierarchy_element > > *) 0 ;
   bool result;
@@ -4181,7 +3492,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< std::shared_ptr< mae::hierarchy_element > > *arg1 = (std::vector< std::shared_ptr< mae::hierarchy_element > > *) 0 ;
   
   (void)jenv;
@@ -4192,7 +3503,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1clea
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   std::vector< std::shared_ptr< mae::hierarchy_element > > *arg1 = (std::vector< std::shared_ptr< mae::hierarchy_element > > *) 0 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > >::value_type *arg2 = 0 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > >::value_type tempnull2 ;
@@ -4207,7 +3518,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1add(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > > *arg1 = (std::vector< std::shared_ptr< mae::hierarchy_element > > *) 0 ;
   int arg2 ;
@@ -4231,7 +3542,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1get
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   std::vector< std::shared_ptr< mae::hierarchy_element > > *arg1 = (std::vector< std::shared_ptr< mae::hierarchy_element > > *) 0 ;
   int arg2 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > >::value_type *arg3 = 0 ;
@@ -4255,7 +3566,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1vector_1set(
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1hierarchy_1element_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1hierarchy_1element_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< std::shared_ptr< mae::hierarchy_element > > *arg1 = (std::vector< std::shared_ptr< mae::hierarchy_element > > *) 0 ;
   
   (void)jenv;
@@ -4265,7 +3576,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1hierarchy_1element_1vect
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1element_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jstring jarg2, jboolean jarg3, jboolean jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1hierarchy_1element_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jstring jarg2, jboolean jarg3, jboolean jarg4) {
   jlong jresult = 0 ;
   int arg1 ;
   std::string arg2 ;
@@ -4294,7 +3605,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1element_1_1SWIG
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1element_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jstring jarg2, jboolean jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1hierarchy_1element_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jstring jarg2, jboolean jarg3) {
   jlong jresult = 0 ;
   int arg1 ;
   std::string arg2 ;
@@ -4321,7 +3632,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1element_1_1SWIG
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1element_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jint jarg1, jstring jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1hierarchy_1element_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jint jarg1, jstring jarg2) {
   jlong jresult = 0 ;
   int arg1 ;
   std::string arg2 ;
@@ -4346,7 +3657,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1hierarchy_1element_1_1SWIG
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1hierarchy_1element(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1hierarchy_1element(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element > *smartarg1 = 0 ;
   
@@ -4359,7 +3670,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1hierarchy_1element(JNIEn
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1get_1id(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1get_1id(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element const > *smartarg1 = 0 ;
@@ -4377,7 +3688,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1get_1id(JNIE
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1get_1name(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1get_1name(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element const > *smartarg1 = 0 ;
@@ -4395,7 +3706,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1get_1name
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1is_1torso_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1is_1torso_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element const > *smartarg1 = 0 ;
@@ -4413,7 +3724,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1is_1tors
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1is_1dummy(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1is_1dummy(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element const > *smartarg1 = 0 ;
@@ -4431,7 +3742,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1is_1dumm
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1get_1parent(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1get_1parent(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element const > *smartarg1 = 0 ;
@@ -4451,7 +3762,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1get_1parent
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1is_1parent(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1is_1parent(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element const > *smartarg1 = 0 ;
@@ -4469,7 +3780,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1is_1pare
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1is_1parent_1of(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1is_1parent_1of(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jboolean jresult = 0 ;
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   int arg2 ;
@@ -4489,7 +3800,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1is_1pare
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1get_1children(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1get_1children(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element const > *smartarg1 = 0 ;
@@ -4507,7 +3818,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1get_1childr
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1push_1front_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jboolean jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1push_1front_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jboolean jarg3) {
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element > arg2 ;
   bool arg3 ;
@@ -4528,7 +3839,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1push_1front_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1push_1front_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1push_1front_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element > arg2 ;
   std::shared_ptr< mae::hierarchy_element > *smartarg1 = 0 ;
@@ -4547,7 +3858,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1push_1front_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1insert_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jboolean jarg4) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1insert_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jboolean jarg4) {
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   unsigned int arg2 ;
   std::shared_ptr< mae::hierarchy_element > arg3 ;
@@ -4570,7 +3881,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1insert_1_1SW
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1insert_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1insert_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_) {
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   unsigned int arg2 ;
   std::shared_ptr< mae::hierarchy_element > arg3 ;
@@ -4591,7 +3902,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1insert_1_1SW
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1push_1back_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jboolean jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1push_1back_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jboolean jarg3) {
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element > arg2 ;
   bool arg3 ;
@@ -4612,7 +3923,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1push_1back_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1push_1back_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1push_1back_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element > arg2 ;
   std::shared_ptr< mae::hierarchy_element > *smartarg1 = 0 ;
@@ -4631,7 +3942,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1push_1back_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1erase_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jboolean jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1erase_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jboolean jarg3) {
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   int arg2 ;
   bool arg3 ;
@@ -4649,7 +3960,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1erase_1_1SWI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1erase_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1erase_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   int arg2 ;
   std::shared_ptr< mae::hierarchy_element > *smartarg1 = 0 ;
@@ -4665,7 +3976,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1erase_1_1SWI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1erase_1at_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jboolean jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1erase_1at_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jboolean jarg3) {
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   unsigned int arg2 ;
   bool arg3 ;
@@ -4683,7 +3994,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1erase_1at_1_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1erase_1at_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1erase_1at_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   unsigned int arg2 ;
   std::shared_ptr< mae::hierarchy_element > *smartarg1 = 0 ;
@@ -4699,7 +4010,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1erase_1at_1_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1clear_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1clear_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   bool arg2 ;
   std::shared_ptr< mae::hierarchy_element > *smartarg1 = 0 ;
@@ -4715,7 +4026,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1clear_1_1SWI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1clear_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1clear_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element > *smartarg1 = 0 ;
   
@@ -4729,7 +4040,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1clear_1_1SWI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1get_1element_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1get_1element_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element > *smartarg1 = 0 ;
@@ -4747,7 +4058,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1get_1elemen
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1str_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1str_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jstring jresult = 0 ;
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   int arg2 ;
@@ -4767,7 +4078,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1str_1_1SW
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1str_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_hierarchy_1element_1str_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::hierarchy_element *arg1 = (mae::hierarchy_element *) 0 ;
   std::shared_ptr< mae::hierarchy_element const > *smartarg1 = 0 ;
@@ -4785,7 +4096,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_hierarchy_1element_1str_1_1SW
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1vec3d_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1vec3d_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::math::vec3d *result = 0 ;
   
@@ -4799,7 +4110,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1vec3d_1_1SWIG_10(JNIEnv *j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1vec3d_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jdouble jarg1, jdouble jarg2, jdouble jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1vec3d_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jdouble jarg1, jdouble jarg2, jdouble jarg3) {
   jlong jresult = 0 ;
   double arg1 ;
   double arg2 ;
@@ -4819,7 +4130,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1vec3d_1_1SWIG_11(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1vec3d(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1vec3d(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   std::shared_ptr< mae::math::vec3d > *smartarg1 = 0 ;
   
@@ -4832,7 +4143,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1vec3d(JNIEnv *jenv, jcla
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_vec3d_1set_1x(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_vec3d_1set_1x(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   double arg2 ;
   std::shared_ptr< mae::math::vec3d > *smartarg1 = 0 ;
@@ -4848,7 +4159,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_vec3d_1set_1x(JNIEnv *jenv, jcla
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_vec3d_1get_1x(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_vec3d_1get_1x(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   std::shared_ptr< mae::math::vec3d const > *smartarg1 = 0 ;
@@ -4866,7 +4177,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_vec3d_1get_1x(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_vec3d_1set_1y(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_vec3d_1set_1y(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   double arg2 ;
   std::shared_ptr< mae::math::vec3d > *smartarg1 = 0 ;
@@ -4882,7 +4193,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_vec3d_1set_1y(JNIEnv *jenv, jcla
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_vec3d_1get_1y(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_vec3d_1get_1y(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   std::shared_ptr< mae::math::vec3d const > *smartarg1 = 0 ;
@@ -4900,7 +4211,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_vec3d_1get_1y(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_vec3d_1set_1z(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_vec3d_1set_1z(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   double arg2 ;
   std::shared_ptr< mae::math::vec3d > *smartarg1 = 0 ;
@@ -4916,7 +4227,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_vec3d_1set_1z(JNIEnv *jenv, jcla
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_vec3d_1get_1z(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_vec3d_1get_1z(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   std::shared_ptr< mae::math::vec3d const > *smartarg1 = 0 ;
@@ -4934,7 +4245,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_vec3d_1get_1z(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vec3d_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_vec3d_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
   std::shared_ptr< mae::math::vec3d const > *smartarg1 = 0 ;
@@ -4952,7 +4263,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vec3d_1str(JNIEnv *jenv, jcla
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1general_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1general_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   std::shared_ptr< mae::general_joint > *smartarg1 = 0 ;
   
@@ -4965,7 +4276,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1general_1joint(JNIEnv *j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1joint_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::general_joint *result = 0 ;
   
@@ -4979,7 +4290,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_10(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jdouble jarg1, jdouble jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1joint_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jdouble jarg1, jdouble jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5) {
   jlong jresult = 0 ;
   double arg1 ;
   double arg2 ;
@@ -5003,7 +4314,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_11(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jdouble jarg1, jdouble jarg2, jdouble jarg3, jdouble jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1joint_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jdouble jarg1, jdouble jarg2, jdouble jarg3, jdouble jarg4) {
   jlong jresult = 0 ;
   double arg1 ;
   double arg2 ;
@@ -5025,7 +4336,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_12(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jdouble jarg1, jdouble jarg2, jdouble jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1joint_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jdouble jarg1, jdouble jarg2, jdouble jarg3) {
   jlong jresult = 0 ;
   double arg1 ;
   double arg2 ;
@@ -5045,7 +4356,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_13(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jdouble jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1joint_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jdouble jarg3) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::math::vec3d > arg1 ;
   double arg2 ;
@@ -5068,7 +4379,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_14(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1joint_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::math::vec3d > arg1 ;
   double arg2 ;
@@ -5089,7 +4400,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_15(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1joint_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::math::vec3d > arg1 ;
   std::shared_ptr< mae::math::vec3d > *argp1 ;
@@ -5108,7 +4419,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1joint_1_1SWIG_16(
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1joint_1set_1x(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1joint_1set_1x(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   double arg2 ;
   std::shared_ptr< mae::general_joint > *smartarg1 = 0 ;
@@ -5124,7 +4435,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1joint_1set_1x(JNIEnv *j
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1joint_1get_1x(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_general_1joint_1get_1x(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   std::shared_ptr< mae::general_joint const > *smartarg1 = 0 ;
@@ -5142,7 +4453,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1joint_1get_1x(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1joint_1set_1y(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1joint_1set_1y(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   double arg2 ;
   std::shared_ptr< mae::general_joint > *smartarg1 = 0 ;
@@ -5158,7 +4469,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1joint_1set_1y(JNIEnv *j
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1joint_1get_1y(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_general_1joint_1get_1y(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   std::shared_ptr< mae::general_joint const > *smartarg1 = 0 ;
@@ -5176,7 +4487,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1joint_1get_1y(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1joint_1set_1z(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1joint_1set_1z(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   double arg2 ;
   std::shared_ptr< mae::general_joint > *smartarg1 = 0 ;
@@ -5192,7 +4503,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1joint_1set_1z(JNIEnv *j
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1joint_1get_1z(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_general_1joint_1get_1z(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   std::shared_ptr< mae::general_joint const > *smartarg1 = 0 ;
@@ -5210,7 +4521,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1joint_1get_1z(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1joint_1set_1valid(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1joint_1set_1valid(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   bool arg2 ;
   std::shared_ptr< mae::general_joint > *smartarg1 = 0 ;
@@ -5226,7 +4537,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1joint_1set_1valid(JNIEn
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_general_1joint_1is_1valid(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_general_1joint_1is_1valid(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   std::shared_ptr< mae::general_joint const > *smartarg1 = 0 ;
@@ -5244,7 +4555,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_general_1joint_1is_1valid(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1joint_1set_1confidence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1joint_1set_1confidence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   double arg2 ;
   std::shared_ptr< mae::general_joint > *smartarg1 = 0 ;
@@ -5260,7 +4571,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1joint_1set_1confidence(
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1joint_1get_1confidence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_general_1joint_1get_1confidence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   std::shared_ptr< mae::general_joint > *smartarg1 = 0 ;
@@ -5278,7 +4589,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1joint_1get_1confiden
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1joint_1set_1rotation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1joint_1set_1rotation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   double arg2 ;
   std::shared_ptr< mae::general_joint > *smartarg1 = 0 ;
@@ -5294,7 +4605,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1joint_1set_1rotation(JN
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1joint_1get_1rotation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_general_1joint_1get_1rotation(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   std::shared_ptr< mae::general_joint > *smartarg1 = 0 ;
@@ -5312,7 +4623,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1joint_1get_1rotation
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1joint_1vec(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_general_1joint_1vec(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   std::shared_ptr< mae::general_joint > *smartarg1 = 0 ;
@@ -5330,7 +4641,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1joint_1vec(JNIEnv *jen
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_general_1joint_1equals_1val(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_general_1joint_1equals_1val(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   mae::general_joint arg2 ;
@@ -5358,7 +4669,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_general_1joint_1equals_1val(
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_general_1joint_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_general_1joint_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   std::shared_ptr< mae::general_joint > arg2 ;
@@ -5381,7 +4692,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_general_1joint_1equals(JNIEn
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_general_1joint_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_general_1joint_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::general_joint *arg1 = (mae::general_joint *) 0 ;
   std::shared_ptr< mae::general_joint const > *smartarg1 = 0 ;
@@ -5399,7 +4710,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_general_1joint_1str(JNIEnv *j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1basis_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1basis_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::math::basis *result = 0 ;
   
@@ -5413,7 +4724,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1basis_1_1SWIG_10(JNIEnv *j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1basis_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1basis_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::math::vec3d > arg1 ;
   std::shared_ptr< mae::math::vec3d > arg2 ;
@@ -5447,7 +4758,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1basis_1_1SWIG_11(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1basis(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1basis(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::math::basis *arg1 = (mae::math::basis *) 0 ;
   std::shared_ptr< mae::math::basis > *smartarg1 = 0 ;
   
@@ -5460,7 +4771,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1basis(JNIEnv *jenv, jcla
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_basis_1get_1u(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_basis_1get_1u(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::math::basis *arg1 = (mae::math::basis *) 0 ;
   std::shared_ptr< mae::math::basis const > *smartarg1 = 0 ;
@@ -5478,7 +4789,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_basis_1get_1u(JNIEnv *jenv, jcl
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_basis_1get_1r(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_basis_1get_1r(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::math::basis *arg1 = (mae::math::basis *) 0 ;
   std::shared_ptr< mae::math::basis const > *smartarg1 = 0 ;
@@ -5496,7 +4807,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_basis_1get_1r(JNIEnv *jenv, jcl
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_basis_1get_1t(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_basis_1get_1t(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::math::basis *arg1 = (mae::math::basis *) 0 ;
   std::shared_ptr< mae::math::basis const > *smartarg1 = 0 ;
@@ -5514,7 +4825,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_basis_1get_1t(JNIEnv *jenv, jcl
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_basis_1get_1position_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_basis_1get_1position_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::math::basis *arg1 = (mae::math::basis *) 0 ;
   std::shared_ptr< mae::math::basis const > *smartarg1 = 0 ;
@@ -5532,7 +4843,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_basis_1get_1position_1vector(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_basis_1set_1u(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_basis_1set_1u(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::math::basis *arg1 = (mae::math::basis *) 0 ;
   std::shared_ptr< mae::math::vec3d > arg2 ;
   std::shared_ptr< mae::math::basis > *smartarg1 = 0 ;
@@ -5551,7 +4862,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_basis_1set_1u(JNIEnv *jenv, jcla
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_basis_1set_1r(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_basis_1set_1r(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::math::basis *arg1 = (mae::math::basis *) 0 ;
   std::shared_ptr< mae::math::vec3d > arg2 ;
   std::shared_ptr< mae::math::basis > *smartarg1 = 0 ;
@@ -5570,7 +4881,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_basis_1set_1r(JNIEnv *jenv, jcla
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_basis_1set_1t(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_basis_1set_1t(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::math::basis *arg1 = (mae::math::basis *) 0 ;
   std::shared_ptr< mae::math::vec3d > arg2 ;
   std::shared_ptr< mae::math::basis > *smartarg1 = 0 ;
@@ -5589,7 +4900,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_basis_1set_1t(JNIEnv *jenv, jcla
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_basis_1set_1position_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_basis_1set_1position_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::math::basis *arg1 = (mae::math::basis *) 0 ;
   std::shared_ptr< mae::math::vec3d > arg2 ;
   std::shared_ptr< mae::math::basis > *smartarg1 = 0 ;
@@ -5608,7 +4919,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_basis_1set_1position_1vector(JNI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_basis_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_basis_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::math::basis *arg1 = (mae::math::basis *) 0 ;
   std::shared_ptr< mae::math::basis const > *smartarg1 = 0 ;
@@ -5626,7 +4937,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_basis_1str(JNIEnv *jenv, jcla
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1skeleton_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::general_skeleton *result = 0 ;
   
@@ -5640,7 +4951,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1skeleton_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::hierarchy > arg1 ;
   std::shared_ptr< mae::hierarchy > *argp1 ;
@@ -5659,7 +4970,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1_1SWIG_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1general_1skeleton(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1general_1skeleton(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   std::shared_ptr< mae::general_skeleton > *smartarg1 = 0 ;
   
@@ -5672,7 +4983,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1general_1skeleton(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1set_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1set_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   int arg2 ;
   std::shared_ptr< mae::general_joint > arg3 ;
@@ -5693,7 +5004,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1set_1joint(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1get_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1get_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   int arg2 ;
@@ -5713,7 +5024,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1get_1joint(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1get_1hierarchy(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1get_1hierarchy(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   std::shared_ptr< mae::general_skeleton const > *smartarg1 = 0 ;
@@ -5731,7 +5042,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1get_1hierarc
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1set_1hierarchy(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1set_1hierarchy(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   std::shared_ptr< mae::hierarchy > arg2 ;
   std::shared_ptr< mae::general_skeleton > *smartarg1 = 0 ;
@@ -5750,7 +5061,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1set_1hierarch
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1set_1top_1down(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1set_1top_1down(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   std::shared_ptr< mae::bone > arg2 ;
   std::shared_ptr< mae::general_skeleton > *smartarg1 = 0 ;
@@ -5769,7 +5080,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1set_1top_1dow
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1get_1top_1down(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1get_1top_1down(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   std::shared_ptr< mae::general_skeleton const > *smartarg1 = 0 ;
@@ -5787,7 +5098,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1get_1top_1do
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1set_1right_1left(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1set_1right_1left(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   std::shared_ptr< mae::bone > arg2 ;
   std::shared_ptr< mae::general_skeleton > *smartarg1 = 0 ;
@@ -5806,7 +5117,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1set_1right_1l
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1get_1right_1left(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1get_1right_1left(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   std::shared_ptr< mae::general_skeleton const > *smartarg1 = 0 ;
@@ -5824,7 +5135,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1get_1right_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1set_1weight(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1set_1weight(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   std::shared_ptr< mae::math::vec3d > arg2 ;
   std::shared_ptr< mae::general_skeleton > *smartarg1 = 0 ;
@@ -5843,7 +5154,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1set_1weight(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1get_1weight(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1get_1weight(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   std::shared_ptr< mae::general_skeleton const > *smartarg1 = 0 ;
@@ -5861,7 +5172,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1get_1weight(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   std::shared_ptr< mae::general_skeleton const > *smartarg1 = 0 ;
@@ -5879,7 +5190,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1str(JNIEnv
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1ply_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1ply_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   std::shared_ptr< mae::general_skeleton const > *smartarg1 = 0 ;
@@ -5897,7 +5208,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1ply_1str(J
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1ply_1file(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1ply_1file(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   mae::general_skeleton *arg1 = (mae::general_skeleton *) 0 ;
   std::string arg2 ;
   std::shared_ptr< mae::general_skeleton const > *smartarg1 = 0 ;
@@ -5920,7 +5231,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1ply_1file(JNI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1skeleton(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::fl_skeleton *result = 0 ;
   
@@ -5934,7 +5245,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1fl_1skeleton(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1fl_1skeleton(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::fl_skeleton *arg1 = (mae::fl::fl_skeleton *) 0 ;
   std::shared_ptr< mae::fl::fl_skeleton > *smartarg1 = 0 ;
   
@@ -5947,7 +5258,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1fl_1skeleton(JNIEnv *jen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1set_1torso_1basis(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1set_1torso_1basis(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::fl::fl_skeleton *arg1 = (mae::fl::fl_skeleton *) 0 ;
   std::shared_ptr< mae::math::basis > arg2 ;
   std::shared_ptr< mae::fl::fl_skeleton > *smartarg1 = 0 ;
@@ -5966,7 +5277,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1set_1torso_1basis(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1get_1torso_1basis(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1get_1torso_1basis(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::fl_skeleton *arg1 = (mae::fl::fl_skeleton *) 0 ;
   std::shared_ptr< mae::fl::fl_skeleton const > *smartarg1 = 0 ;
@@ -5984,7 +5295,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1get_1torso_1basis
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1set_1orig_1skeleton(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1set_1orig_1skeleton(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::fl::fl_skeleton *arg1 = (mae::fl::fl_skeleton *) 0 ;
   std::shared_ptr< mae::general_skeleton > arg2 ;
   std::shared_ptr< mae::fl::fl_skeleton > *smartarg1 = 0 ;
@@ -6003,7 +5314,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1set_1orig_1skeleto
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1get_1orig_1skeleton(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1get_1orig_1skeleton(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::fl_skeleton *arg1 = (mae::fl::fl_skeleton *) 0 ;
   std::shared_ptr< mae::fl::fl_skeleton const > *smartarg1 = 0 ;
@@ -6021,7 +5332,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1get_1orig_1skelet
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::fl_skeleton *arg1 = (mae::fl::fl_skeleton *) 0 ;
   std::shared_ptr< mae::fl::fl_skeleton const > *smartarg1 = 0 ;
@@ -6039,7 +5350,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1str(JNIEnv *jen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1fl_1skeleton_1pose_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1fl_1skeleton_1pose_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::i_pose_detector< mae::fl::fl_skeleton > *arg1 = (mae::i_pose_detector< mae::fl::fl_skeleton > *) 0 ;
   std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *smartarg1 = 0 ;
   
@@ -6052,7 +5363,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1fl_1skeleton_1pose_1dete
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1pose_1detector_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1pose_1detector_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
   jlong jresult = 0 ;
   mae::i_pose_detector< mae::fl::fl_skeleton > *arg1 = (mae::i_pose_detector< mae::fl::fl_skeleton > *) 0 ;
   std::shared_ptr< mae::fl::fl_skeleton > arg2 ;
@@ -6089,7 +5400,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1pose_1detector_1p
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1pose_1detector_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jdouble jarg1, jboolean jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1pose_1detector_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jdouble jarg1, jboolean jarg2) {
   jlong jresult = 0 ;
   double arg1 ;
   bool arg2 ;
@@ -6107,7 +5418,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1pose_1detector_1_1SWIG
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1pose_1detector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jdouble jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1pose_1detector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jdouble jarg1) {
   jlong jresult = 0 ;
   double arg1 ;
   mae::fl::fl_pose_detector *result = 0 ;
@@ -6123,7 +5434,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1pose_1detector_1_1SWIG
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1pose_1detector_1_1SWIG_12(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1pose_1detector_1_1SWIG_12(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::fl_pose_detector *result = 0 ;
   
@@ -6137,7 +5448,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1pose_1detector_1_1SWIG
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1fl_1pose_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1fl_1pose_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::fl_pose_detector *arg1 = (mae::fl::fl_pose_detector *) 0 ;
   std::shared_ptr< mae::fl::fl_pose_detector > *smartarg1 = 0 ;
   
@@ -6150,7 +5461,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1fl_1pose_1detector(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1pose_1detector_1set_1hysteresis_1val(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1pose_1detector_1set_1hysteresis_1val(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::fl::fl_pose_detector *arg1 = (mae::fl::fl_pose_detector *) 0 ;
   double arg2 ;
   std::shared_ptr< mae::fl::fl_pose_detector > *smartarg1 = 0 ;
@@ -6166,7 +5477,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1pose_1detector_1set_1hystere
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_fl_1pose_1detector_1get_1hysteresis_1val(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_fl_1pose_1detector_1get_1hysteresis_1val(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::fl::fl_pose_detector *arg1 = (mae::fl::fl_pose_detector *) 0 ;
   std::shared_ptr< mae::fl::fl_pose_detector const > *smartarg1 = 0 ;
@@ -6184,7 +5495,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_fl_1pose_1detector_1get_1hyst
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1pose_1detector_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1pose_1detector_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
   jlong jresult = 0 ;
   mae::fl::fl_pose_detector *arg1 = (mae::fl::fl_pose_detector *) 0 ;
   std::shared_ptr< mae::fl::fl_skeleton > arg2 ;
@@ -6221,7 +5532,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1pose_1detector_1pose(JNIEnv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1pose_1detector_1vector_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1pose_1detector_1vector_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
   jlong jresult = 0 ;
   mae::fl::fl_pose_detector *arg1 = (mae::fl::fl_pose_detector *) 0 ;
   std::shared_ptr< mae::fl::fl_skeleton > arg2 ;
@@ -6258,7 +5569,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1pose_1detector_1vector_1pos
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_fl_1pose_1detector_1default_1hysteresis_1val(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_fl_1pose_1detector_1default_1hysteresis_1val(JNIEnv *jenv, jclass jcls) {
   jdouble jresult = 0 ;
   double result;
   
@@ -6270,7 +5581,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_fl_1pose_1detector_1default_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1pre_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1pre_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::i_pre_sign *arg1 = (mae::fl::laban::ps::i_pre_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_pre_sign > *smartarg1 = 0 ;
   
@@ -6283,7 +5594,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1pre_1sign(JNIEnv *jen
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1pre_1sign_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1pre_1sign_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_pre_sign *arg1 = (mae::fl::laban::ps::i_pre_sign *) 0 ;
   unsigned int arg2 ;
@@ -6312,7 +5623,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1pre_1sign_1xml_1_1SWIG_10(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1pre_1sign_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1pre_1sign_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_pre_sign *arg1 = (mae::fl::laban::ps::i_pre_sign *) 0 ;
   unsigned int arg2 ;
@@ -6332,7 +5643,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1pre_1sign_1xml_1_1SWIG_11(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1pre_1sign_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1pre_1sign_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_pre_sign *arg1 = (mae::fl::laban::ps::i_pre_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_pre_sign const > *smartarg1 = 0 ;
@@ -6350,7 +5661,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1pre_1sign_1xml_1_1SWIG_12(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1pre_1sign_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1pre_1sign_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_pre_sign *arg1 = (mae::fl::laban::ps::i_pre_sign *) 0 ;
   std::string arg2 ;
@@ -6387,7 +5698,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1pre_1sign_1svg_1_1SWIG_10(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1pre_1sign_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1pre_1sign_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_pre_sign *arg1 = (mae::fl::laban::ps::i_pre_sign *) 0 ;
   std::string arg2 ;
@@ -6422,7 +5733,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1pre_1sign_1svg_1_1SWIG_11(
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1pre_1sign_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1pre_1sign_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::i_pre_sign *arg1 = (mae::fl::laban::ps::i_pre_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_pre_sign > arg2 ;
@@ -6445,7 +5756,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1pre_1sign_1equals(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1column_1definition_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1column_1definition_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   int arg1 ;
   std::shared_ptr< mae::fl::laban::ps::i_pre_sign > arg2 ;
@@ -6466,7 +5777,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1column_1definition_1_1SWIG
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1column_1definition_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1column_1definition_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jlong jresult = 0 ;
   mae::e_bone arg1 ;
   mae::fl::laban::column_definition *result = 0 ;
@@ -6482,7 +5793,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1column_1definition_1_1SWIG
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1column_1definition(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1column_1definition(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::column_definition *arg1 = (mae::fl::laban::column_definition *) 0 ;
   std::shared_ptr< mae::fl::laban::column_definition > *smartarg1 = 0 ;
   
@@ -6495,7 +5806,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1column_1definition(JNIEn
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_column_1definition_1get_1column_1index(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_column_1definition_1get_1column_1index(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::column_definition *arg1 = (mae::fl::laban::column_definition *) 0 ;
   std::shared_ptr< mae::fl::laban::column_definition const > *smartarg1 = 0 ;
@@ -6513,7 +5824,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_column_1definition_1get_1column_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_column_1definition_1get_1pre_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_column_1definition_1get_1pre_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::column_definition *arg1 = (mae::fl::laban::column_definition *) 0 ;
   std::shared_ptr< mae::fl::laban::column_definition const > *smartarg1 = 0 ;
@@ -6531,7 +5842,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_column_1definition_1get_1pre_1s
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_column_1definition_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_column_1definition_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::column_definition *arg1 = (mae::fl::laban::column_definition *) 0 ;
   unsigned int arg2 ;
@@ -6560,7 +5871,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_column_1definition_1xml_1_1SW
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_column_1definition_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_column_1definition_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::column_definition *arg1 = (mae::fl::laban::column_definition *) 0 ;
   unsigned int arg2 ;
@@ -6580,7 +5891,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_column_1definition_1xml_1_1SW
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_column_1definition_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_column_1definition_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::column_definition *arg1 = (mae::fl::laban::column_definition *) 0 ;
   std::shared_ptr< mae::fl::laban::column_definition const > *smartarg1 = 0 ;
@@ -6598,7 +5909,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_column_1definition_1xml_1_1SW
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_column_1definition_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_column_1definition_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::column_definition *arg1 = (mae::fl::laban::column_definition *) 0 ;
   unsigned int arg2 ;
@@ -6626,7 +5937,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_column_1definition_1svg(JNIEn
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_column_1definition_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_column_1definition_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::column_definition *arg1 = (mae::fl::laban::column_definition *) 0 ;
   std::shared_ptr< mae::fl::laban::column_definition > arg2 ;
@@ -6649,7 +5960,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_column_1definition_1equals(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_column_1definition_1default_1definitions(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_column_1definition_1default_1definitions(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > result;
   
@@ -6661,7 +5972,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_column_1definition_1default_1de
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1coldef_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1coldef_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *result = 0 ;
   
@@ -6673,7 +5984,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1coldef_1vector_1_1SWIG_10(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1coldef_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1coldef_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > >::size_type arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *result = 0 ;
@@ -6687,7 +5998,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1coldef_1vector_1_1SWIG_11(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_coldef_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > >::size_type result;
@@ -6702,7 +6013,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1size(JNIEnv *je
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_coldef_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > >::size_type result;
@@ -6717,7 +6028,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1capacity(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_coldef_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > >::size_type arg2 ;
   
@@ -6730,7 +6041,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1reserve(JNIEnv *
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_coldef_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *) 0 ;
   bool result;
@@ -6745,7 +6056,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1isEmpty(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_coldef_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *) 0 ;
   
   (void)jenv;
@@ -6756,7 +6067,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1clear(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_coldef_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > >::value_type *arg2 = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > >::value_type tempnull2 ;
@@ -6771,7 +6082,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1add(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_coldef_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *) 0 ;
   int arg2 ;
@@ -6795,7 +6106,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1get(JNIEnv *jen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_coldef_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *) 0 ;
   int arg2 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > >::value_type *arg3 = 0 ;
@@ -6819,7 +6130,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_coldef_1vector_1set(JNIEnv *jenv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1coldef_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1coldef_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *) 0 ;
   
   (void)jenv;
@@ -6829,7 +6140,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1coldef_1vector(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1movement(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1movement(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > *smartarg1 = 0 ;
   
@@ -6842,7 +6153,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1movement(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_i_1movement_1get_1column(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_i_1movement_1get_1column(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement const > *smartarg1 = 0 ;
@@ -6860,7 +6171,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_i_1movement_1get_1column(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1movement_1get_1measure(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1movement_1get_1measure(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement const > *smartarg1 = 0 ;
@@ -6878,7 +6189,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1movement_1get_1measure(JNIEn
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_i_1movement_1get_1beat(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_i_1movement_1get_1beat(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement const > *smartarg1 = 0 ;
@@ -6896,7 +6207,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_i_1movement_1get_1beat(JNIEnv
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_i_1movement_1get_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_i_1movement_1get_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement const > *smartarg1 = 0 ;
@@ -6914,7 +6225,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_i_1movement_1get_1duration(JN
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1movement_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1movement_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
@@ -6937,7 +6248,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1movement_1equals(JNIEnv *
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1movement_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1movement_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
@@ -6960,7 +6271,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1movement_1symbol_1equals(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1movement_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1movement_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   unsigned int arg2 ;
@@ -6989,7 +6300,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1movement_1xml_1_1SWIG_10(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1movement_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1movement_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   unsigned int arg2 ;
@@ -7009,7 +6320,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1movement_1xml_1_1SWIG_11(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1movement_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1movement_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement const > *smartarg1 = 0 ;
@@ -7027,7 +6338,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1movement_1xml_1_1SWIG_12(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1movement_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1movement_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   unsigned int arg2 ;
@@ -7055,7 +6366,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1movement_1svg(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1movement_1recreate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jdouble jarg4, jdouble jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1movement_1recreate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jdouble jarg4, jdouble jarg5) {
   jlong jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   std::map< int,int > arg2 ;
@@ -7088,7 +6399,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1movement_1recreate(JNIEnv *j
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1movement_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1movement_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::i_movement *arg1 = (mae::fl::laban::i_movement *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement const > *smartarg1 = 0 ;
@@ -7106,7 +6417,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1movement_1str(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1int_1int_1map_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1int_1int_1map_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::map< int,int > *result = 0 ;
   
@@ -7118,7 +6429,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1int_1int_1map_1_1SWIG_10(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1int_1int_1map_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1int_1int_1map_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::map< int,int > *arg1 = 0 ;
   std::map< int,int > *result = 0 ;
@@ -7137,7 +6448,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1int_1int_1map_1_1SWIG_11(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_int_1int_1map_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::map< int,int > *arg1 = (std::map< int,int > *) 0 ;
   unsigned int result;
@@ -7152,7 +6463,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1size(JNIEnv *jen
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1empty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_int_1int_1map_1empty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::map< int,int > *arg1 = (std::map< int,int > *) 0 ;
   bool result;
@@ -7167,7 +6478,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1empty(JNIEnv 
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_int_1int_1map_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::map< int,int > *arg1 = (std::map< int,int > *) 0 ;
   
   (void)jenv;
@@ -7178,7 +6489,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1clear(JNIEnv *jen
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_int_1int_1map_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::map< int,int > *arg1 = (std::map< int,int > *) 0 ;
   int *arg2 = 0 ;
@@ -7204,7 +6515,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1get(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_int_1int_1map_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::map< int,int > *arg1 = (std::map< int,int > *) 0 ;
   int *arg2 = 0 ;
   int *arg3 = 0 ;
@@ -7223,7 +6534,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1set(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1del(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_int_1int_1map_1del(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::map< int,int > *arg1 = (std::map< int,int > *) 0 ;
   int *arg2 = 0 ;
   int temp2 ;
@@ -7245,7 +6556,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1del(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1has_1key(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_int_1int_1map_1has_1key(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jboolean jresult = 0 ;
   std::map< int,int > *arg1 = (std::map< int,int > *) 0 ;
   int *arg2 = 0 ;
@@ -7264,7 +6575,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_int_1int_1map_1has_1key(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1int_1int_1map(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1int_1int_1map(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::map< int,int > *arg1 = (std::map< int,int > *) 0 ;
   
   (void)jenv;
@@ -7274,7 +6585,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1int_1int_1map(JNIEnv *je
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1time_1unit_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::e_time_unit arg1 ;
   std::string result;
@@ -7288,7 +6599,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1c_1str(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1time_1unit_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::e_time_unit > result;
   
@@ -7300,7 +6611,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1c_1vec(JNIEnv *j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1time_1unit_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::e_time_unit result;
@@ -7321,7 +6632,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1c_1parse(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1time_1unit_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1time_1unit_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::e_time_unit_c *result = 0 ;
   
@@ -7333,7 +6644,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1time_1unit_1c(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1time_1unit_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1time_1unit_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::e_time_unit_c *arg1 = (mae::fl::laban::e_time_unit_c *) 0 ;
   
   (void)jenv;
@@ -7343,7 +6654,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1time_1unit_1c(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1time_1unit_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1time_1unit_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::e_time_unit > *result = 0 ;
   
@@ -7355,7 +6666,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1time_1unit_1vector_1_1S
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1time_1unit_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1time_1unit_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::e_time_unit >::size_type arg1 ;
   std::vector< mae::fl::laban::e_time_unit > *result = 0 ;
@@ -7369,7 +6680,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1time_1unit_1vector_1_1S
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1time_1unit_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::e_time_unit > *arg1 = (std::vector< mae::fl::laban::e_time_unit > *) 0 ;
   std::vector< enum mae::fl::laban::e_time_unit >::size_type result;
@@ -7384,7 +6695,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1size(JNI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1time_1unit_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::e_time_unit > *arg1 = (std::vector< mae::fl::laban::e_time_unit > *) 0 ;
   std::vector< enum mae::fl::laban::e_time_unit >::size_type result;
@@ -7399,7 +6710,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1capacity
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1time_1unit_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::e_time_unit > *arg1 = (std::vector< mae::fl::laban::e_time_unit > *) 0 ;
   std::vector< enum mae::fl::laban::e_time_unit >::size_type arg2 ;
   
@@ -7412,7 +6723,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1reserve(J
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1time_1unit_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::e_time_unit > *arg1 = (std::vector< mae::fl::laban::e_time_unit > *) 0 ;
   bool result;
@@ -7427,7 +6738,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1isEmp
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1time_1unit_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::e_time_unit > *arg1 = (std::vector< mae::fl::laban::e_time_unit > *) 0 ;
   
   (void)jenv;
@@ -7438,7 +6749,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1clear(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1time_1unit_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::e_time_unit > *arg1 = (std::vector< mae::fl::laban::e_time_unit > *) 0 ;
   std::vector< enum mae::fl::laban::e_time_unit >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::e_time_unit >::value_type temp2 ;
@@ -7453,7 +6764,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1add(JNIEn
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1time_1unit_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::e_time_unit > *arg1 = (std::vector< mae::fl::laban::e_time_unit > *) 0 ;
   int arg2 ;
@@ -7477,7 +6788,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1get(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1time_1unit_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::e_time_unit > *arg1 = (std::vector< mae::fl::laban::e_time_unit > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::e_time_unit >::value_type *arg3 = 0 ;
@@ -7501,7 +6812,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1time_1unit_1vector_1set(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1time_1unit_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1time_1unit_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::e_time_unit > *arg1 = (std::vector< mae::fl::laban::e_time_unit > *) 0 ;
   
   (void)jenv;
@@ -7511,7 +6822,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1time_1unit_1vector(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence *result = 0 ;
   
@@ -7525,7 +6836,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1_1SWIG_10
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jstring jarg1, jstring jarg2, jlong jarg3, jint jarg4, jlong jarg5, jlong jarg6) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jstring jarg1, jstring jarg2, jlong jarg3, jint jarg4, jlong jarg5, jlong jarg6) {
   jlong jresult = 0 ;
   std::string arg1 ;
   std::string arg2 ;
@@ -7565,7 +6876,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1_1SWIG_11
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1laban_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
   
@@ -7578,7 +6889,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence(JNIEnv *
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1version(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1version(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -7596,7 +6907,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1version
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1authors(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1set_1authors(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::vector< std::string > arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
@@ -7619,7 +6930,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1authors(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1add_1author(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1add_1author(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::string arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
@@ -7642,7 +6953,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1add_1author(JNI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1authors(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1authors(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -7660,7 +6971,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1authors(J
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1title(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1set_1title(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::string arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
@@ -7683,7 +6994,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1title(JNIE
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1title(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1title(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -7701,7 +7012,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1title(J
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1description(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1set_1description(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::string arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
@@ -7724,7 +7035,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1descriptio
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1description(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1description(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -7742,7 +7053,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1descrip
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1measures(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1set_1measures(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   unsigned int arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
@@ -7758,7 +7069,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1measures(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1measures(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1measures(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -7776,7 +7087,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1measures(
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1time_1unit(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1set_1time_1unit(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   mae::fl::laban::e_time_unit arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
@@ -7792,7 +7103,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1time_1unit
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1time_1unit(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1time_1unit(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -7810,7 +7121,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1time_1unit
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1beat_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1set_1beat_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   unsigned int arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
@@ -7826,7 +7137,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1beat_1dura
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1beat_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1beat_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -7844,7 +7155,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1beat_1dur
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1beats(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1set_1beats(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   unsigned int arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
@@ -7860,7 +7171,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1beats(JNIE
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1beats(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1beats(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -7878,7 +7189,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1beats(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1column_1definitions(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1set_1column_1definitions(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
@@ -7901,7 +7212,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1column_1de
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1add_1column_1definition(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1add_1column_1definition(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::column_definition > arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
@@ -7920,7 +7231,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1add_1column_1de
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1column_1definitions(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1column_1definitions(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -7938,7 +7249,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1column_1d
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1column_1definition(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1column_1definition(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   int arg2 ;
@@ -7958,7 +7269,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1column_1d
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1clear_1column_1definitions(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1clear_1column_1definitions(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
   
@@ -7972,7 +7283,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1clear_1column_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1columns(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1columns(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -7990,7 +7301,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1columns(J
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1movements(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1set_1movements(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
@@ -8013,7 +7324,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1set_1movements(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1movements(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1movements(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -8031,7 +7342,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1movements
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1add_1movement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1add_1movement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
@@ -8050,7 +7361,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1add_1movement(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1column_1movements(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1column_1movements(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   int arg2 ;
@@ -8070,7 +7381,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1column_1m
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1last_1movement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1get_1last_1movement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -8088,7 +7399,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1get_1last_1mov
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1clear_1movements(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1clear_1movements(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *smartarg1 = 0 ;
   
@@ -8102,7 +7413,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1clear_1movement
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2, jlong jarg3, jstring jarg4) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2, jlong jarg3, jstring jarg4) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   bool arg2 ;
@@ -8133,7 +7444,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2, jlong jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2, jlong jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   bool arg2 ;
@@ -8155,7 +7466,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   bool arg2 ;
@@ -8175,7 +7486,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1xml_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -8193,7 +7504,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1namespace_1header_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1xml_1namespace_1header_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::string arg2 ;
@@ -8220,7 +7531,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1namespa
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1namespace_1header_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1xml_1namespace_1header_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -8238,7 +7549,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1namespa
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1schema_1location(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1xml_1schema_1location(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -8256,7 +7567,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1schema_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1namespace_1uri(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1xml_1namespace_1uri(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -8274,7 +7585,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1namespa
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1file(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1xml_1file(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::string arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -8297,7 +7608,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1xml_1file(JNIEn
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   unsigned int arg2 ;
@@ -8319,7 +7630,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1svg(JNIEnv *
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1svg_1file_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jlong jarg4) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1svg_1file_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jlong jarg4) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::string arg2 ;
   unsigned int arg3 ;
@@ -8346,7 +7657,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1svg_1file_1_1SW
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1svg_1file_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1svg_1file_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::string arg2 ;
   unsigned int arg3 ;
@@ -8371,7 +7682,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1svg_1file_1_1SW
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1svg_1file_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1svg_1file_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::string arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -8394,7 +7705,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1svg_1file_1_1SW
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence *arg1 = (mae::fl::laban::laban_sequence *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence const > *smartarg1 = 0 ;
@@ -8412,7 +7723,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1str(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1default_1beat_1duration(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1default_1beat_1duration(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   unsigned int result;
   
@@ -8424,7 +7735,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1default_1beat_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1default_1beats_1per_1measure(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1default_1beats_1per_1measure(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   unsigned int result;
   
@@ -8436,7 +7747,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1default_1beats
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1default_1time_1unit(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1default_1time_1unit(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::fl::laban::e_time_unit result;
   
@@ -8448,7 +7759,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1default_1time_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1default_1columns(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1default_1columns(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< int > result;
   
@@ -8460,7 +7771,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1default_1colum
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1i_1mov_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *result = 0 ;
   
@@ -8472,7 +7783,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1_1SWIG_10(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1i_1mov_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > >::size_type arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *result = 0 ;
@@ -8486,7 +7797,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1_1SWIG_11(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > >::size_type result;
@@ -8501,7 +7812,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1size(JNIEnv *je
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > >::size_type result;
@@ -8516,7 +7827,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1capacity(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > >::size_type arg2 ;
   
@@ -8529,7 +7840,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1reserve(JNIEnv *
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *) 0 ;
   bool result;
@@ -8544,7 +7855,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1isEmpty(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *) 0 ;
   
   (void)jenv;
@@ -8555,7 +7866,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1clear(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > >::value_type *arg2 = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > >::value_type tempnull2 ;
@@ -8570,7 +7881,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1add(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *) 0 ;
   int arg2 ;
@@ -8594,7 +7905,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1get(JNIEnv *jen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *) 0 ;
   int arg2 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > >::value_type *arg3 = 0 ;
@@ -8618,7 +7929,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1set(JNIEnv *jenv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1mov_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1mov_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *) 0 ;
   
   (void)jenv;
@@ -8628,7 +7939,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1mov_1vector(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1movement_1decision_1maker(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1movement_1decision_1maker(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > *arg1 = (mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > *) 0 ;
   std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > *smartarg1 = 0 ;
   
@@ -8641,7 +7952,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1movement_1decision_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1movement_1decision_1maker_1set_1recognition_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1movement_1decision_1maker_1set_1recognition_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > *arg1 = (mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > *) 0 ;
   double arg2 ;
   std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > *smartarg1 = 0 ;
@@ -8657,7 +7968,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1movement_1decision_1maker_1se
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_i_1movement_1decision_1maker_1get_1recognition_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_i_1movement_1decision_1maker_1get_1recognition_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > *arg1 = (mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > *) 0 ;
   std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > *smartarg1 = 0 ;
@@ -8675,7 +7986,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_i_1movement_1decision_1maker_
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1movement_1decision_1maker_1decide_1match(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1movement_1decision_1maker_1decide_1match(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_) {
   jboolean jresult = 0 ;
   mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > *arg1 = (mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
@@ -8713,7 +8024,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1movement_1decision_1maker
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1movement_1decision_1maker_1decide_1insertion(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1movement_1decision_1maker_1decide_1insertion(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_) {
   jboolean jresult = 0 ;
   mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > *arg1 = (mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
@@ -8751,7 +8062,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1movement_1decision_1maker
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1movement_1decision_1maker_1position_1okay(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jdouble jarg3, jboolean jarg4) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1movement_1decision_1maker_1position_1okay(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jdouble jarg3, jboolean jarg4) {
   jboolean jresult = 0 ;
   mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > *arg1 = (mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > *) 0 ;
   double arg2 ;
@@ -8775,7 +8086,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1movement_1decision_1maker
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jint jarg3, jdouble jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1rewriting_1forest_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jint jarg3, jdouble jarg4) {
   jlong jresult = 0 ;
   unsigned int arg1 ;
   unsigned int arg2 ;
@@ -8797,7 +8108,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jint jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1rewriting_1forest_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jint jarg3) {
   jlong jresult = 0 ;
   unsigned int arg1 ;
   unsigned int arg2 ;
@@ -8817,7 +8128,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1rewriting_1forest_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2) {
   jlong jresult = 0 ;
   unsigned int arg1 ;
   unsigned int arg2 ;
@@ -8835,7 +8146,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1rewriting_1forest_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   unsigned int arg1 ;
   mae::fl::laban::rewriting_forest *result = 0 ;
@@ -8851,7 +8162,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_14(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1rewriting_1forest_1_1SWIG_14(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::rewriting_forest *result = 0 ;
   
@@ -8865,7 +8176,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4, jdouble jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1rewriting_1forest_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4, jdouble jarg5) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > arg1 ;
   unsigned int arg2 ;
@@ -8896,7 +8207,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1rewriting_1forest_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > arg1 ;
   unsigned int arg2 ;
@@ -8925,7 +8236,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1rewriting_1forest_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > arg1 ;
   unsigned int arg2 ;
@@ -8952,7 +8263,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1rewriting_1forest_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > arg1 ;
   unsigned int arg2 ;
@@ -8977,7 +8288,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_19(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1rewriting_1forest_1_1SWIG_19(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *argp1 ;
@@ -9000,7 +8311,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1rewriting_1forest_1_1SWIG_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1rewriting_1forest(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1rewriting_1forest(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::rewriting_forest *arg1 = (mae::fl::laban::rewriting_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::rewriting_forest > *smartarg1 = 0 ;
   
@@ -9013,7 +8324,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1rewriting_1forest(JNIEnv
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_rewriting_1forest_1get_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_rewriting_1forest_1get_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::fl::laban::rewriting_forest *arg1 = (mae::fl::laban::rewriting_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::rewriting_forest > *smartarg1 = 0 ;
@@ -9031,7 +8342,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_rewriting_1forest_1get_1toler
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_rewriting_1forest_1set_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_rewriting_1forest_1set_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::fl::laban::rewriting_forest *arg1 = (mae::fl::laban::rewriting_forest *) 0 ;
   double arg2 ;
   std::shared_ptr< mae::fl::laban::rewriting_forest > *smartarg1 = 0 ;
@@ -9047,7 +8358,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_rewriting_1forest_1set_1toleranc
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_rewriting_1forest_1replacements(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_rewriting_1forest_1replacements(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   mae::fl::laban::rewriting_forest *arg1 = (mae::fl::laban::rewriting_forest *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > arg2 ;
@@ -9074,7 +8385,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_rewriting_1forest_1replacements
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_rewriting_1forest_1add_1rule_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_rewriting_1forest_1add_1rule_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3) {
   mae::fl::laban::rewriting_forest *arg1 = (mae::fl::laban::rewriting_forest *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > arg2 ;
   std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > arg3 ;
@@ -9101,7 +8412,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_rewriting_1forest_1add_1rule_1_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_rewriting_1forest_1add_1rule_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_rewriting_1forest_1add_1rule_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   mae::fl::laban::rewriting_forest *arg1 = (mae::fl::laban::rewriting_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > arg2 ;
   std::shared_ptr< mae::fl::laban::rewriting_forest > *smartarg1 = 0 ;
@@ -9119,7 +8430,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_rewriting_1forest_1add_1rule_1_1
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_rewriting_1forest_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_rewriting_1forest_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::rewriting_forest *arg1 = (mae::fl::laban::rewriting_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::rewriting_forest > *smartarg1 = 0 ;
@@ -9137,7 +8448,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_rewriting_1forest_1str(JNIEnv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1i_1mov_1vector_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *result = 0 ;
   
@@ -9151,7 +8462,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1vector_1_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1i_1mov_1vector_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > >::size_type arg1 ;
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *result = 0 ;
@@ -9167,7 +8478,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1vector_1_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *) 0 ;
   std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > const > *smartarg1 = 0 ;
@@ -9185,7 +8496,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1size(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *) 0 ;
   std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > const > *smartarg1 = 0 ;
@@ -9203,7 +8514,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1capacit
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *) 0 ;
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > >::size_type arg2 ;
   std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *smartarg1 = 0 ;
@@ -9219,7 +8530,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1reserve(
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *) 0 ;
   std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > const > *smartarg1 = 0 ;
@@ -9237,7 +8548,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1isEm
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *) 0 ;
   std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *smartarg1 = 0 ;
   
@@ -9251,7 +8562,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1clear(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *) 0 ;
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > >::value_type *arg2 = 0 ;
   std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *smartarg1 = 0 ;
@@ -9272,7 +8583,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1add(JNIE
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *) 0 ;
   int arg2 ;
@@ -9299,7 +8610,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1get(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *) 0 ;
   int arg2 ;
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > >::value_type *arg3 = 0 ;
@@ -9329,7 +8640,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1set(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1mov_1vector_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1mov_1vector_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *) 0 ;
   std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *smartarg1 = 0 ;
   
@@ -9342,7 +8653,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1mov_1vector_1vector(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1vector_1dec_1val_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1i_1mov_1vector_1vector_1dec_1val_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > arg1 ;
   std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > arg2 ;
@@ -9369,7 +8680,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1vector_1de
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1vector_1dec_1val_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1i_1mov_1vector_1vector_1dec_1val_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > arg1 ;
   std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *argp1 ;
@@ -9387,7 +8698,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1vector_1de
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1mov_1vector_1vector_1dec_1val(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1mov_1vector_1vector_1dec_1val(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *arg1 = (mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *) 0 ;
   std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > *smartarg1 = 0 ;
   
@@ -9400,7 +8711,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1mov_1vector_1vector_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val_1get_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1dec_1val_1get_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *arg1 = (mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *) 0 ;
   std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > *smartarg1 = 0 ;
@@ -9418,7 +8729,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1va
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val_1get_1value(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1dec_1val_1get_1value(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *arg1 = (mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *) 0 ;
   std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > *smartarg1 = 0 ;
@@ -9436,7 +8747,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1va
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1vector_1dec_1val_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1i_1mov_1vector_1vector_1dec_1val_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *result = 0 ;
   
@@ -9448,7 +8759,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1vector_1de
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1vector_1dec_1val_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1i_1mov_1vector_1vector_1dec_1val_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > >::size_type arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *result = 0 ;
@@ -9462,7 +8773,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1i_1mov_1vector_1vector_1de
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > >::size_type result;
@@ -9477,7 +8788,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1va
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > >::size_type result;
@@ -9492,7 +8803,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1va
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > >::size_type arg2 ;
   
@@ -9505,7 +8816,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *) 0 ;
   bool result;
@@ -9520,7 +8831,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *) 0 ;
   
   (void)jenv;
@@ -9531,7 +8842,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > >::value_type *arg2 = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > >::value_type tempnull2 ;
@@ -9545,7 +8856,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *) 0 ;
   int arg2 ;
@@ -9569,7 +8880,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1va
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_i_1mov_1vector_1vector_1dec_1val_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *) 0 ;
   int arg2 ;
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > >::value_type *arg3 = 0 ;
@@ -9592,7 +8903,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_i_1mov_1vector_1vector_1dec_1val
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1mov_1vector_1vector_1dec_1val_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1mov_1vector_1vector_1dec_1val_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *) 0 ;
   
   (void)jenv;
@@ -9602,7 +8913,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1mov_1vector_1vector_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jdouble jarg6, jlong jarg7, jlong jarg8, jobject jarg8_, jboolean jarg9) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1decision_1forest_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jdouble jarg6, jlong jarg7, jlong jarg8, jobject jarg8_, jboolean jarg9) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
@@ -9653,7 +8964,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jdouble jarg6, jlong jarg7, jlong jarg8, jobject jarg8_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1decision_1forest_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jdouble jarg6, jlong jarg7, jlong jarg8, jobject jarg8_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
@@ -9702,7 +9013,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jdouble jarg6, jlong jarg7) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1decision_1forest_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jdouble jarg6, jlong jarg7) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
@@ -9746,7 +9057,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jdouble jarg6) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1decision_1forest_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jdouble jarg6) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
@@ -9786,7 +9097,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1decision_1forest_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
@@ -9824,7 +9135,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1decision_1forest_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
@@ -9860,7 +9171,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1decision_1forest_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
@@ -9894,7 +9205,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1decision_1forest_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
@@ -9926,7 +9237,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1decision_1forest_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *argp1 ;
@@ -9949,7 +9260,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_19(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1decision_1forest_1_1SWIG_19(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::decision_forest *result = 0 ;
   
@@ -9963,7 +9274,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1decision_1forest_1_1SWIG_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1decision_1forest(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1decision_1forest(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
   
@@ -9976,7 +9287,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1decision_1forest(JNIEnv 
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_decision_1forest_1set_1recognition_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1set_1recognition_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   double arg2 ;
   std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
@@ -9992,7 +9303,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_decision_1forest_1set_1recogniti
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_decision_1forest_1set_1cooldown(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1set_1cooldown(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   bool arg2 ;
   std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
@@ -10008,7 +9319,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_decision_1forest_1set_1cooldown(
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_decision_1forest_1get_1cooldown(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1get_1cooldown(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::decision_forest const > *smartarg1 = 0 ;
@@ -10026,7 +9337,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_decision_1forest_1get_1coold
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_decision_1forest_1get_1sequence_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1get_1sequence_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jint jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
@@ -10049,7 +9360,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_decision_1forest_1get_1sequence_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_decision_1forest_1add_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1add_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
   std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
@@ -10068,7 +9379,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_decision_1forest_1add_1sequence(
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_decision_1forest_1remove_1sequence_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1remove_1sequence_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
@@ -10091,7 +9402,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_decision_1forest_1remove_1se
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_decision_1forest_1remove_1sequence_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1remove_1sequence_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jboolean jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   unsigned int arg2 ;
@@ -10111,7 +9422,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_decision_1forest_1remove_1se
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_decision_1forest_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
   
@@ -10125,7 +9436,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_decision_1forest_1clear(JNIEnv *
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_decision_1forest_1add_1rewriting_1rule_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1add_1rewriting_1rule_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > arg2 ;
   std::shared_ptr< std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > arg3 ;
@@ -10152,7 +9463,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_decision_1forest_1add_1rewriting
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_decision_1forest_1add_1rewriting_1rule_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1add_1rewriting_1rule_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > arg2 ;
   std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
@@ -10170,7 +9481,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_decision_1forest_1add_1rewriting
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_decision_1forest_1recreate_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1recreate_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
@@ -10193,7 +9504,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_decision_1forest_1recreate_1seq
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_decision_1forest_1get_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1get_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::decision_forest const > *smartarg1 = 0 ;
@@ -10211,7 +9522,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_decision_1forest_1get_1sequence
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_decision_1forest_1find_1submatches(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1find_1submatches(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
@@ -10243,7 +9554,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_decision_1forest_1find_1submatc
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_decision_1forest_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_decision_1forest_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::shared_ptr< mae::fl::laban::decision_forest const > *smartarg1 = 0 ;
@@ -10261,7 +9572,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_decision_1forest_1str(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *result = 0 ;
   
@@ -10273,7 +9584,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1vector_1_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *result = 0 ;
@@ -10287,7 +9598,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1vector_1_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type result;
@@ -10302,7 +9613,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1size(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type result;
@@ -10317,7 +9628,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1capaci
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type arg2 ;
   
@@ -10330,7 +9641,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1reserve
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   bool result;
@@ -10345,7 +9656,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1isE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   
   (void)jenv;
@@ -10356,7 +9667,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1clear(J
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type *arg2 = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type tempnull2 ;
@@ -10371,7 +9682,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1add(JNI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   int arg2 ;
@@ -10395,7 +9706,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1get(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   int arg2 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type *arg3 = 0 ;
@@ -10419,7 +9730,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1vector_1set(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1laban_1sequence_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   
   (void)jenv;
@@ -10429,7 +9740,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1vector(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1list(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1list(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *result = 0 ;
   
@@ -10441,7 +9752,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1list(JNIE
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1list_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1list_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   std::list< std::shared_ptr< mae::fl::laban::laban_sequence > >::size_type result;
@@ -10456,7 +9767,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1list_1size(JNI
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1list_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1list_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   bool result;
@@ -10471,7 +9782,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1list_1isEmp
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1list_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1list_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   
   (void)jenv;
@@ -10482,7 +9793,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1list_1clear(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1list_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1list_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   std::list< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type *arg2 = 0 ;
   std::list< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type tempnull2 ;
@@ -10497,7 +9808,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1list_1add(JNIEn
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1list_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1list_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   int arg2 ;
@@ -10521,7 +9832,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1list_1get(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1list(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1laban_1sequence_1list(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *arg1 = (std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *) 0 ;
   
   (void)jenv;
@@ -10531,7 +9842,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1list(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1laban_1sequence_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
   
@@ -10544,7 +9855,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1sequenc
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1recognizer_1register_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1sequence_1recognizer_1register_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
   std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
@@ -10563,7 +9874,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1recog
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1recognizer_1deregister_1sequence_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1sequence_1recognizer_1deregister_1sequence_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
@@ -10586,7 +9897,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1r
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1recognizer_1deregister_1sequence_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1sequence_1recognizer_1deregister_1sequence_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jboolean jresult = 0 ;
   mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
   unsigned int arg2 ;
@@ -10606,7 +9917,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1r
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1recognizer_1clear_1registered_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1sequence_1recognizer_1clear_1registered_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
   
@@ -10620,7 +9931,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1recog
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1recognizer_1get_1sequence_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1sequence_1recognizer_1get_1sequence_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jint jresult = 0 ;
   mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
@@ -10643,7 +9954,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1recog
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1recognizer_1recognize_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1sequence_1recognizer_1recognize_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
@@ -10675,7 +9986,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1reco
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jdouble jarg1, jboolean jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jdouble jarg1, jboolean jarg2) {
   jlong jresult = 0 ;
   double arg1 ;
   bool arg2 ;
@@ -10693,7 +10004,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognize
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jdouble jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jdouble jarg1) {
   jlong jresult = 0 ;
   double arg1 ;
   mae::fl::laban::laban_sequence_recognizer *result = 0 ;
@@ -10709,7 +10020,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognize
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_12(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_12(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence_recognizer *result = 0 ;
   
@@ -10723,7 +10034,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognize
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4, jdouble jarg5, jboolean jarg6) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4, jdouble jarg5, jboolean jarg6) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   unsigned int arg2 ;
@@ -10756,7 +10067,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognize
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4, jdouble jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4, jdouble jarg5) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   unsigned int arg2 ;
@@ -10787,7 +10098,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognize
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   unsigned int arg2 ;
@@ -10816,7 +10127,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognize
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   unsigned int arg2 ;
@@ -10843,7 +10154,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognize
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   unsigned int arg2 ;
@@ -10868,7 +10179,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognize
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1recognizer_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *argp1 ;
@@ -10891,7 +10202,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognize
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1laban_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence_recognizer > *smartarg1 = 0 ;
   
@@ -10904,7 +10215,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1recogni
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1set_1recognition_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1recognizer_1set_1recognition_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
   double arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence_recognizer > *smartarg1 = 0 ;
@@ -10920,7 +10231,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1set
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1get_1decision_1forest(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1recognizer_1get_1decision_1forest(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence_recognizer const > *smartarg1 = 0 ;
@@ -10938,7 +10249,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1ge
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1register_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1recognizer_1register_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence_recognizer > *smartarg1 = 0 ;
@@ -10957,7 +10268,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1reg
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1deregister_1sequence_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1recognizer_1deregister_1sequence_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
@@ -10980,7 +10291,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1deregister_1sequence_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1recognizer_1deregister_1sequence_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jboolean jresult = 0 ;
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
   unsigned int arg2 ;
@@ -11000,7 +10311,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1clear_1registered_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1recognizer_1clear_1registered_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence_recognizer > *smartarg1 = 0 ;
   
@@ -11014,7 +10325,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1cle
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1get_1registered_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1recognizer_1get_1registered_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence_recognizer const > *smartarg1 = 0 ;
@@ -11032,7 +10343,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1ge
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1get_1sequence_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1recognizer_1get_1sequence_1length(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jint jresult = 0 ;
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
@@ -11055,7 +10366,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1get
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1recognize_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1recognizer_1recognize_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
@@ -11087,7 +10398,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1re
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1recognizer_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence_recognizer const > *smartarg1 = 0 ;
@@ -11105,7 +10416,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1sequence_1generator(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1laban_1sequence_1sequence_1generator(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::i_sequence_generator< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_generator< mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
   
@@ -11118,7 +10429,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1sequenc
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1generator_1generate_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1sequence_1generator_1generate_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
   jlong jresult = 0 ;
   mae::i_sequence_generator< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_generator< mae::fl::laban::laban_sequence > *) 0 ;
   double arg2 ;
@@ -11156,7 +10467,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1gene
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jboolean jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1generator_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jboolean jarg1) {
   jlong jresult = 0 ;
   bool arg1 ;
   mae::fl::laban::laban_sequence_generator *result = 0 ;
@@ -11172,7 +10483,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator_1_1SWIG_11(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1generator_1_1SWIG_11(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence_generator *result = 0 ;
   
@@ -11186,7 +10497,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4, jboolean jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1generator_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4, jboolean jarg5) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   unsigned int arg2 ;
@@ -11217,7 +10528,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1generator_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   unsigned int arg2 ;
@@ -11246,7 +10557,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1generator_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   unsigned int arg2 ;
@@ -11273,7 +10584,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1generator_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   unsigned int arg2 ;
@@ -11298,7 +10609,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1generator_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *argp1 ;
@@ -11321,7 +10632,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1generator
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1generator(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1laban_1sequence_1generator(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::laban_sequence_generator *arg1 = (mae::fl::laban::laban_sequence_generator *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence_generator > *smartarg1 = 0 ;
   
@@ -11334,7 +10645,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1generat
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1generator_1generate_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1generator_1generate_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence_generator *arg1 = (mae::fl::laban::laban_sequence_generator *) 0 ;
   double arg2 ;
@@ -11372,7 +10683,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1generator_1gen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1sequence_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1laban_1sequence_1sequence_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::i_sequence_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_listener< mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
   
@@ -11385,7 +10696,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1sequenc
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1listener_1on_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1sequence_1listener_1on_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   mae::i_sequence_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_listener< mae::fl::laban::laban_sequence > *) 0 ;
   long arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
@@ -11406,7 +10717,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1liste
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1sequence_1listener(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1sequence_1listener(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::i_sequence_listener< mae::fl::laban::laban_sequence > *result = 0 ;
   
@@ -11420,7 +10731,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1sequence_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1listener_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1sequence_1listener_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
   std::shared_ptr< mae::i_sequence_listener<mae::fl::laban::laban_sequence> > *obj = *((std::shared_ptr< mae::i_sequence_listener<mae::fl::laban::laban_sequence> > **)&objarg);
   (void)jcls;
   // Keep a local instance of the smart pointer around while we are using the raw pointer
@@ -11432,7 +10743,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1liste
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1listener_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1sequence_1listener_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
   mae::i_sequence_listener< mae::fl::laban::laban_sequence > *obj = *((mae::i_sequence_listener< mae::fl::laban::laban_sequence > **)&objarg);
   SwigDirector_laban_sequence_sequence_listener *director = dynamic_cast<SwigDirector_laban_sequence_sequence_listener *>(obj);
   (void)jcls;
@@ -11442,7 +10753,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1sequence_1liste
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1recognition_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1laban_1sequence_1recognition_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::i_recognition_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
   
@@ -11455,7 +10766,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1recogni
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognition_1listener_1on_1recognition_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1recognition_1listener_1on_1recognition_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   mae::i_recognition_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *) 0 ;
   long arg2 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > arg3 ;
@@ -11480,7 +10791,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognition_1li
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognition_1listener_1on_1recognition_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1recognition_1listener_1on_1recognition_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   mae::i_recognition_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *) 0 ;
   long arg2 ;
   std::vector< std::string > arg3 ;
@@ -11505,43 +10816,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognition_1li
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1recognition_1listener(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  mae::i_recognition_listener< mae::fl::laban::laban_sequence > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  result = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *)new SwigDirector_laban_sequence_recognition_listener(jenv);
-  
-  *(std::shared_ptr<  mae::i_recognition_listener<mae::fl::laban::laban_sequence> > **)&jresult = result ? new std::shared_ptr<  mae::i_recognition_listener<mae::fl::laban::laban_sequence> >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognition_1listener_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
-  std::shared_ptr< mae::i_recognition_listener<mae::fl::laban::laban_sequence> > *obj = *((std::shared_ptr< mae::i_recognition_listener<mae::fl::laban::laban_sequence> > **)&objarg);
-  (void)jcls;
-  // Keep a local instance of the smart pointer around while we are using the raw pointer
-  // Avoids using smart pointer specific API.
-  SwigDirector_laban_sequence_recognition_listener *director = dynamic_cast<SwigDirector_laban_sequence_recognition_listener *>(obj->operator->());
-  if (director) {
-    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognition_1listener_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
-  mae::i_recognition_listener< mae::fl::laban::laban_sequence > *obj = *((mae::i_recognition_listener< mae::fl::laban::laban_sequence > **)&objarg);
-  SwigDirector_laban_sequence_recognition_listener *director = dynamic_cast<SwigDirector_laban_sequence_recognition_listener *>(obj);
-  (void)jcls;
-  if (director) {
-    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1fl_1skeleton_1laban_1sequence_1movement_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1fl_1skeleton_1laban_1sequence_1movement_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
   
@@ -11554,7 +10829,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1fl_1skeleton_1laban_1seq
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1detect_1movement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jdouble jarg3, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1detect_1movement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jdouble jarg3, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_) {
   jlong jresult = 0 ;
   mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   long arg2 ;
@@ -11590,7 +10865,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1set_1buffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1set_1buffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   int arg2 ;
   std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
@@ -11606,7 +10881,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1clear_1buffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1clear_1buffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
   
@@ -11620,7 +10895,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1add_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1add_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_pose_listener > arg2 ;
   std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
@@ -11639,7 +10914,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1remove_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1remove_1listener(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_pose_listener > arg2 ;
   std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
@@ -11658,7 +10933,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1clear_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1clear_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
   
@@ -11672,7 +10947,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1notify_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1notify_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   long arg2 ;
   std::shared_ptr< mae::general_pose > arg3 ;
@@ -11693,7 +10968,25 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jdouble jarg5, jboolean jarg6) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1detector_1get_1current_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::general_pose > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > **)&jarg1;
+  arg1 = (mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
+  result = ((mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > const *)arg1)->get_current_pose();
+  *(std::shared_ptr< mae::general_pose > **)&jresult = result ? new std::shared_ptr< mae::general_pose >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jdouble jarg5, jboolean jarg6) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
   std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
@@ -11729,7 +11022,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1seque
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jdouble jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4, jdouble jarg5) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
   std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
@@ -11763,7 +11056,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1seque
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_, jint jarg4) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
   std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
@@ -11795,7 +11088,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1seque
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > arg1 ;
   std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > arg2 ;
@@ -11825,7 +11118,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1seque
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5, jdouble jarg6, jboolean jarg7) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
   std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
@@ -11864,7 +11157,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1seque
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5, jdouble jarg6) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5, jdouble jarg6) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
   std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
@@ -11901,7 +11194,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1seque
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_, jint jarg5) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
   std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
@@ -11936,7 +11229,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1seque
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1skeleton_1laban_1sequence_1movement_1controller_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2, jlong jarg3, jlong jarg4, jobject jarg4_) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > arg1 ;
   std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > arg2 ;
@@ -11969,7 +11262,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1skeleton_1laban_1seque
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1fl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1fl_1skeleton_1laban_1sequence_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   
   (void)jenv;
@@ -11979,7 +11272,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1fl_1skeleton_1laban_1seq
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1next_1frame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1next_1frame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   long arg2 ;
   std::shared_ptr< mae::fl::fl_skeleton > arg3 ;
@@ -11997,7 +11290,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1register_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1register_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
@@ -12013,7 +11306,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1deregister_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1deregister_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
@@ -12029,7 +11322,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1registered_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1registered_1sequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   
   (void)jenv;
@@ -12040,7 +11333,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1set_1no_1buffer_1size_1update(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1set_1no_1buffer_1size_1update(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   bool arg2 ;
   
@@ -12053,7 +11346,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1buffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1buffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   
   (void)jenv;
@@ -12064,7 +11357,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1current_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1current_1sequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > result;
@@ -12073,13 +11366,43 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1
   (void)jcls;
   (void)jarg1_;
   arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  result = (arg1)->get_current_sequence();
+  result = ((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > const *)arg1)->get_current_sequence();
   *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(result) : 0; 
   return jresult;
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listener_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1current_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::general_pose > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  result = ((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > const *)arg1)->get_current_pose();
+  *(std::shared_ptr< mae::general_pose > **)&jresult = result ? new std::shared_ptr< mae::general_pose >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1current_1recognition(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  result = ((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > const *)arg1)->get_current_recognition();
+  *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jresult = new std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >((const std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listener_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_pose_listener > arg2 ;
   std::shared_ptr< mae::i_pose_listener > *argp2 ;
@@ -12095,7 +11418,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listener_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listener_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_pose_listener > arg2 ;
   std::shared_ptr< mae::i_pose_listener > *argp2 ;
@@ -12111,7 +11434,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
   std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
@@ -12127,7 +11450,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listener_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > arg2 ;
   std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *argp2 ;
@@ -12143,7 +11466,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1add_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
   std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
@@ -12159,7 +11482,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1remove_1listener_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > arg2 ;
   std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *argp2 ;
@@ -12175,7 +11498,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1clear_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   
   (void)jenv;
@@ -12186,7 +11509,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1notify_1sequence_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1notify_1sequence_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   long arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
@@ -12204,7 +11527,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1notify_1recognition_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1notify_1recognition_1listeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   long arg2 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > arg3 ;
@@ -12226,7 +11549,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1m
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1movement_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1movement_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > result;
@@ -12241,7 +11564,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1laban_1sequence_1movement_1controller_1get_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
   std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > result;
@@ -12256,7 +11579,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1laban_1sequence_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jdouble jarg2, jboolean jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jdouble jarg2, jboolean jarg3) {
   jlong jresult = 0 ;
   unsigned int arg1 ;
   double arg2 ;
@@ -12274,7 +11597,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jdouble jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jdouble jarg2) {
   jlong jresult = 0 ;
   unsigned int arg1 ;
   double arg2 ;
@@ -12290,7 +11613,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   unsigned int arg1 ;
   mae::fl::fl_movement_controller *result = 0 ;
@@ -12304,7 +11627,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_13(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_13(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::fl_movement_controller *result = 0 ;
   
@@ -12316,7 +11639,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jlong jarg5, jint jarg6, jdouble jarg7, jboolean jarg8) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jlong jarg5, jint jarg6, jdouble jarg7, jboolean jarg8) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12358,7 +11681,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jlong jarg5, jint jarg6, jdouble jarg7) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jlong jarg5, jint jarg6, jdouble jarg7) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12398,7 +11721,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jlong jarg5, jint jarg6) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jlong jarg5, jint jarg6) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12436,7 +11759,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jlong jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jlong jarg5) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12472,7 +11795,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12506,7 +11829,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_19(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_19(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12538,7 +11861,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_110(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_110(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12568,7 +11891,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_111(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jlong jarg5, jlong jarg6, jint jarg7, jdouble jarg8, jboolean jarg9) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_111(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jlong jarg5, jlong jarg6, jint jarg7, jdouble jarg8, jboolean jarg9) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12615,7 +11938,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_112(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jlong jarg5, jlong jarg6, jint jarg7, jdouble jarg8) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_112(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jlong jarg5, jlong jarg6, jint jarg7, jdouble jarg8) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12660,7 +11983,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_113(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jlong jarg5, jlong jarg6, jint jarg7) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_113(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jlong jarg5, jlong jarg6, jint jarg7) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12703,7 +12026,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_114(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jlong jarg5, jlong jarg6) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_114(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jlong jarg5, jlong jarg6) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12744,7 +12067,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_115(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jlong jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_115(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jlong jarg5) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12783,7 +12106,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_116(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_116(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12820,7 +12143,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1_1SWIG_117(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1fl_1movement_1controller_1_1SWIG_117(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   std::vector< mae::bone > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg2 ;
@@ -12855,7 +12178,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1fl_1movement_1controller_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1fl_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1fl_1movement_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::fl_movement_controller *arg1 = (mae::fl::fl_movement_controller *) 0 ;
   
   (void)jenv;
@@ -12865,7 +12188,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1fl_1movement_1controller
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1movement_1controller_1next_1frame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1movement_1controller_1next_1frame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   mae::fl::fl_movement_controller *arg1 = (mae::fl::fl_movement_controller *) 0 ;
   long arg2 ;
   std::shared_ptr< mae::general_skeleton > arg3 ;
@@ -12883,7 +12206,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1movement_1controller_1next_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1movement_1controller_1set_1recognition_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_fl_1movement_1controller_1set_1recognition_1tolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::fl::fl_movement_controller *arg1 = (mae::fl::fl_movement_controller *) 0 ;
   double arg2 ;
   
@@ -12896,7 +12219,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_fl_1movement_1controller_1set_1r
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1movement_1controller_1get_1laban_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1movement_1controller_1get_1laban_1sequence_1recognizer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::fl_movement_controller *arg1 = (mae::fl::fl_movement_controller *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence_recognizer > result;
@@ -12911,7 +12234,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1movement_1controller_1get_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1movement_1controller_1get_1laban_1sequence_1generator(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1movement_1controller_1get_1laban_1sequence_1generator(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::fl_movement_controller *arg1 = (mae::fl::fl_movement_controller *) 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence_generator > result;
@@ -12926,7 +12249,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1movement_1controller_1get_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1movement_1controller_1get_1fl_1pose_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1movement_1controller_1get_1fl_1pose_1detector(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::fl_movement_controller *arg1 = (mae::fl::fl_movement_controller *) 0 ;
   std::shared_ptr< mae::fl::fl_pose_detector > result;
@@ -12941,7 +12264,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1movement_1controller_1get_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bvh_1spec(JNIEnv *jenv, jclass jcls, jstring jarg1, jstring jarg2, jstring jarg3, jstring jarg4, jlong jarg5, jobject jarg5_, jlong jarg6, jobject jarg6_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1bvh_1spec(JNIEnv *jenv, jclass jcls, jstring jarg1, jstring jarg2, jstring jarg3, jstring jarg4, jlong jarg5, jobject jarg5_, jlong jarg6, jobject jarg6_) {
   jlong jresult = 0 ;
   std::string arg1 ;
   std::string arg2 ;
@@ -13001,7 +12324,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bvh_1spec(JNIEnv *jenv, jc
     return 0;
   }
   arg6 = *argp6; 
-  result = (mae::fl::bvh_spec *)new SwigDirector_bvh_spec(jenv,arg1,arg2,arg3,arg4,arg5,arg6);
+  result = (mae::fl::bvh_spec *)new mae::fl::bvh_spec(arg1,arg2,arg3,arg4,arg5,arg6);
   
   *(std::shared_ptr<  mae::fl::bvh_spec > **)&jresult = result ? new std::shared_ptr<  mae::fl::bvh_spec >(result SWIG_NO_NULL_DELETER_1) : 0;
   
@@ -13009,7 +12332,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bvh_1spec(JNIEnv *jenv, jc
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1bvh_1spec(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1bvh_1spec(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::bvh_spec *arg1 = (mae::fl::bvh_spec *) 0 ;
   std::shared_ptr< mae::fl::bvh_spec > *smartarg1 = 0 ;
   
@@ -13022,7 +12345,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1bvh_1spec(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1id_1map(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_bvh_1spec_1get_1id_1map(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::bvh_spec *arg1 = (mae::fl::bvh_spec *) 0 ;
   std::shared_ptr< mae::fl::bvh_spec const > *smartarg1 = 0 ;
@@ -13040,25 +12363,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1id_1map(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1id_1mapSwigExplicitbvh_1spec(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::fl::bvh_spec *arg1 = (mae::fl::bvh_spec *) 0 ;
-  std::shared_ptr< mae::fl::bvh_spec const > *smartarg1 = 0 ;
-  std::map< std::string,int > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr< const mae::fl::bvh_spec > **)&jarg1;
-  arg1 = (mae::fl::bvh_spec *)(smartarg1 ? smartarg1->get() : 0); 
-  result = ((mae::fl::bvh_spec const *)arg1)->mae::fl::bvh_spec::get_id_map();
-  *(std::map< std::string,int > **)&jresult = new std::map< std::string,int >((const std::map< std::string,int > &)result); 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1torso_1map(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_bvh_1spec_1get_1torso_1map(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::bvh_spec *arg1 = (mae::fl::bvh_spec *) 0 ;
   std::shared_ptr< mae::fl::bvh_spec const > *smartarg1 = 0 ;
@@ -13076,25 +12381,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1torso_1map(JNIE
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1torso_1mapSwigExplicitbvh_1spec(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  mae::fl::bvh_spec *arg1 = (mae::fl::bvh_spec *) 0 ;
-  std::shared_ptr< mae::fl::bvh_spec const > *smartarg1 = 0 ;
-  std::map< std::string,bool > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr< const mae::fl::bvh_spec > **)&jarg1;
-  arg1 = (mae::fl::bvh_spec *)(smartarg1 ? smartarg1->get() : 0); 
-  result = ((mae::fl::bvh_spec const *)arg1)->mae::fl::bvh_spec::get_torso_map();
-  *(std::map< std::string,bool > **)&jresult = new std::map< std::string,bool >((const std::map< std::string,bool > &)result); 
-  return jresult;
-}
-
-
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1left_1anchor(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_bvh_1spec_1get_1left_1anchor(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::bvh_spec *arg1 = (mae::fl::bvh_spec *) 0 ;
   std::shared_ptr< mae::fl::bvh_spec > *smartarg1 = 0 ;
@@ -13112,25 +12399,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1left_1anchor(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1left_1anchorSwigExplicitbvh_1spec(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  mae::fl::bvh_spec *arg1 = (mae::fl::bvh_spec *) 0 ;
-  std::shared_ptr< mae::fl::bvh_spec > *smartarg1 = 0 ;
-  std::string result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_spec > **)&jarg1;
-  arg1 = (mae::fl::bvh_spec *)(smartarg1 ? smartarg1->get() : 0); 
-  result = (arg1)->mae::fl::bvh_spec::get_left_anchor();
-  jresult = jenv->NewStringUTF((&result)->c_str()); 
-  return jresult;
-}
-
-
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1right_1anchor(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_bvh_1spec_1get_1right_1anchor(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::bvh_spec *arg1 = (mae::fl::bvh_spec *) 0 ;
   std::shared_ptr< mae::fl::bvh_spec > *smartarg1 = 0 ;
@@ -13148,25 +12417,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1right_1anchor
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1right_1anchorSwigExplicitbvh_1spec(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  mae::fl::bvh_spec *arg1 = (mae::fl::bvh_spec *) 0 ;
-  std::shared_ptr< mae::fl::bvh_spec > *smartarg1 = 0 ;
-  std::string result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_spec > **)&jarg1;
-  arg1 = (mae::fl::bvh_spec *)(smartarg1 ? smartarg1->get() : 0); 
-  result = (arg1)->mae::fl::bvh_spec::get_right_anchor();
-  jresult = jenv->NewStringUTF((&result)->c_str()); 
-  return jresult;
-}
-
-
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1top_1anchor(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_bvh_1spec_1get_1top_1anchor(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::bvh_spec *arg1 = (mae::fl::bvh_spec *) 0 ;
   std::shared_ptr< mae::fl::bvh_spec > *smartarg1 = 0 ;
@@ -13184,25 +12435,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1top_1anchor(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1top_1anchorSwigExplicitbvh_1spec(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  mae::fl::bvh_spec *arg1 = (mae::fl::bvh_spec *) 0 ;
-  std::shared_ptr< mae::fl::bvh_spec > *smartarg1 = 0 ;
-  std::string result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_spec > **)&jarg1;
-  arg1 = (mae::fl::bvh_spec *)(smartarg1 ? smartarg1->get() : 0); 
-  result = (arg1)->mae::fl::bvh_spec::get_top_anchor();
-  jresult = jenv->NewStringUTF((&result)->c_str()); 
-  return jresult;
-}
-
-
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1bottom_1anchor(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_bvh_1spec_1get_1bottom_1anchor(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::bvh_spec *arg1 = (mae::fl::bvh_spec *) 0 ;
   std::shared_ptr< mae::fl::bvh_spec > *smartarg1 = 0 ;
@@ -13220,25 +12453,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1bottom_1ancho
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1get_1bottom_1anchorSwigExplicitbvh_1spec(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jstring jresult = 0 ;
-  mae::fl::bvh_spec *arg1 = (mae::fl::bvh_spec *) 0 ;
-  std::shared_ptr< mae::fl::bvh_spec > *smartarg1 = 0 ;
-  std::string result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_spec > **)&jarg1;
-  arg1 = (mae::fl::bvh_spec *)(smartarg1 ? smartarg1->get() : 0); 
-  result = (arg1)->mae::fl::bvh_spec::get_bottom_anchor();
-  jresult = jenv->NewStringUTF((&result)->c_str()); 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1default_1spec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_bvh_1spec_1default_1spec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::fl::bvh_spec > result;
   
@@ -13250,29 +12465,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1default_1spec(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
-  std::shared_ptr< mae::fl::bvh_spec > *obj = *((std::shared_ptr< mae::fl::bvh_spec > **)&objarg);
-  (void)jcls;
-  // Keep a local instance of the smart pointer around while we are using the raw pointer
-  // Avoids using smart pointer specific API.
-  SwigDirector_bvh_spec *director = dynamic_cast<SwigDirector_bvh_spec *>(obj->operator->());
-  if (director) {
-    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1spec_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
-  mae::fl::bvh_spec *obj = *((mae::fl::bvh_spec **)&objarg);
-  SwigDirector_bvh_spec *director = dynamic_cast<SwigDirector_bvh_spec *>(obj);
-  (void)jcls;
-  if (director) {
-    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
-  }
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1string_1int_1map_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1string_1int_1map_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::map< std::string,int > *result = 0 ;
   
@@ -13284,7 +12477,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1string_1int_1map_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1string_1int_1map_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1string_1int_1map_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::map< std::string,int > *arg1 = 0 ;
   std::map< std::string,int > *result = 0 ;
@@ -13303,7 +12496,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1string_1int_1map_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_string_1int_1map_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::map< std::string,int > *arg1 = (std::map< std::string,int > *) 0 ;
   unsigned int result;
@@ -13318,7 +12511,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1size(JNIEnv *
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1empty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_string_1int_1map_1empty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::map< std::string,int > *arg1 = (std::map< std::string,int > *) 0 ;
   bool result;
@@ -13333,7 +12526,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1empty(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_string_1int_1map_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::map< std::string,int > *arg1 = (std::map< std::string,int > *) 0 ;
   
   (void)jenv;
@@ -13344,7 +12537,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1clear(JNIEnv *
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_string_1int_1map_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jint jresult = 0 ;
   std::map< std::string,int > *arg1 = (std::map< std::string,int > *) 0 ;
   std::string *arg2 = 0 ;
@@ -13376,7 +12569,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1get(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_string_1int_1map_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3) {
   std::map< std::string,int > *arg1 = (std::map< std::string,int > *) 0 ;
   std::string *arg2 = 0 ;
   int *arg3 = 0 ;
@@ -13401,7 +12594,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1set(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1del(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_string_1int_1map_1del(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   std::map< std::string,int > *arg1 = (std::map< std::string,int > *) 0 ;
   std::string *arg2 = 0 ;
   
@@ -13429,7 +12622,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1del(JNIEnv *je
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1has_1key(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_string_1int_1map_1has_1key(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jboolean jresult = 0 ;
   std::map< std::string,int > *arg1 = (std::map< std::string,int > *) 0 ;
   std::string *arg2 = 0 ;
@@ -13454,7 +12647,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_string_1int_1map_1has_1key(J
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1string_1int_1map(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1string_1int_1map(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::map< std::string,int > *arg1 = (std::map< std::string,int > *) 0 ;
   
   (void)jenv;
@@ -13464,7 +12657,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1string_1int_1map(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1string_1bool_1map_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1string_1bool_1map_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::map< std::string,bool > *result = 0 ;
   
@@ -13476,7 +12669,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1string_1bool_1map_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1string_1bool_1map_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1string_1bool_1map_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::map< std::string,bool > *arg1 = 0 ;
   std::map< std::string,bool > *result = 0 ;
@@ -13495,7 +12688,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1string_1bool_1map_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_string_1bool_1map_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::map< std::string,bool > *arg1 = (std::map< std::string,bool > *) 0 ;
   unsigned int result;
@@ -13510,7 +12703,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1size(JNIEnv 
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1empty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_string_1bool_1map_1empty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::map< std::string,bool > *arg1 = (std::map< std::string,bool > *) 0 ;
   bool result;
@@ -13525,7 +12718,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1empty(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_string_1bool_1map_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::map< std::string,bool > *arg1 = (std::map< std::string,bool > *) 0 ;
   
   (void)jenv;
@@ -13536,7 +12729,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1clear(JNIEnv 
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_string_1bool_1map_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jboolean jresult = 0 ;
   std::map< std::string,bool > *arg1 = (std::map< std::string,bool > *) 0 ;
   std::string *arg2 = 0 ;
@@ -13568,7 +12761,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1get(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jboolean jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_string_1bool_1map_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jboolean jarg3) {
   std::map< std::string,bool > *arg1 = (std::map< std::string,bool > *) 0 ;
   std::string *arg2 = 0 ;
   bool *arg3 = 0 ;
@@ -13593,7 +12786,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1set(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1del(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_string_1bool_1map_1del(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   std::map< std::string,bool > *arg1 = (std::map< std::string,bool > *) 0 ;
   std::string *arg2 = 0 ;
   
@@ -13621,7 +12814,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1del(JNIEnv *j
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1has_1key(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_string_1bool_1map_1has_1key(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jboolean jresult = 0 ;
   std::map< std::string,bool > *arg1 = (std::map< std::string,bool > *) 0 ;
   std::string *arg2 = 0 ;
@@ -13646,7 +12839,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_string_1bool_1map_1has_1key(
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1string_1bool_1map(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1string_1bool_1map(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::map< std::string,bool > *arg1 = (std::map< std::string,bool > *) 0 ;
   
   (void)jenv;
@@ -13656,13 +12849,13 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1string_1bool_1map(JNIEnv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bvh_1controller(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1bvh_1controller(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::bvh_controller *result = 0 ;
   
   (void)jenv;
   (void)jcls;
-  result = (mae::fl::bvh_controller *)new SwigDirector_bvh_controller(jenv);
+  result = (mae::fl::bvh_controller *)new mae::fl::bvh_controller();
   
   *(std::shared_ptr<  mae::fl::bvh_controller > **)&jresult = result ? new std::shared_ptr<  mae::fl::bvh_controller >(result SWIG_NO_NULL_DELETER_1) : 0;
   
@@ -13670,7 +12863,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1bvh_1controller(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1bvh_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1bvh_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
   std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
   
@@ -13683,7 +12876,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1bvh_1controller(JNIEnv *
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1str_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_bvh_1controller_1bvh_1str_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jstring jresult = 0 ;
   mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > > arg2 ;
@@ -13710,34 +12903,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1str_1_1
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1strSwigExplicitbvh_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jstring jresult = 0 ;
-  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
-  std::vector< std::shared_ptr< mae::general_skeleton > > arg2 ;
-  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
-  std::vector< std::shared_ptr< mae::general_skeleton > > *argp2 ;
-  std::string result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
-  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg2; 
-  if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::general_skeleton > >");
-    return 0;
-  }
-  arg2 = *argp2; 
-  result = (arg1)->mae::fl::bvh_controller::bvh_str(arg2);
-  jresult = jenv->NewStringUTF((&result)->c_str()); 
-  return jresult;
-}
-
-
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1str_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jdouble jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_bvh_1controller_1bvh_1str_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jdouble jarg3) {
   jstring jresult = 0 ;
   mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > > arg2 ;
@@ -13766,36 +12932,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1str_1_1
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1strSwigExplicitbvh_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jdouble jarg3) {
-  jstring jresult = 0 ;
-  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
-  std::vector< std::shared_ptr< mae::general_skeleton > > arg2 ;
-  double arg3 ;
-  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
-  std::vector< std::shared_ptr< mae::general_skeleton > > *argp2 ;
-  std::string result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
-  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg2; 
-  if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::general_skeleton > >");
-    return 0;
-  }
-  arg2 = *argp2; 
-  arg3 = (double)jarg3; 
-  result = (arg1)->mae::fl::bvh_controller::bvh_str(arg2,arg3);
-  jresult = jenv->NewStringUTF((&result)->c_str()); 
-  return jresult;
-}
-
-
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1str_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_bvh_1controller_1bvh_1str_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jstring jresult = 0 ;
   mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
   std::shared_ptr< mae::general_skeleton > arg2 ;
@@ -13818,30 +12955,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1str_1_1
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1bvh_1strSwigExplicitbvh_1controller_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jstring jresult = 0 ;
-  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
-  std::shared_ptr< mae::general_skeleton > arg2 ;
-  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
-  std::shared_ptr< mae::general_skeleton > *argp2 ;
-  std::string result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
-  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::general_skeleton > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  result = (arg1)->mae::fl::bvh_controller::bvh_str(arg2);
-  jresult = jenv->NewStringUTF((&result)->c_str()); 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1print_1bvh_1file_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_bvh_1controller_1print_1bvh_1file_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
   mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > > arg2 ;
   std::string arg3 ;
@@ -13873,39 +12987,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1print_1bvh_1fil
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1print_1bvh_1fileSwigExplicitbvh_1controller_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
-  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
-  std::vector< std::shared_ptr< mae::general_skeleton > > arg2 ;
-  std::string arg3 ;
-  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
-  std::vector< std::shared_ptr< mae::general_skeleton > > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
-  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg2; 
-  if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::general_skeleton > >");
-    return ;
-  }
-  arg2 = *argp2; 
-  if(!jarg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
-    return ;
-  } 
-  const char *arg3_pstr = (const char *)jenv->GetStringUTFChars(jarg3, 0); 
-  if (!arg3_pstr) return ;
-  (&arg3)->assign(arg3_pstr);
-  jenv->ReleaseStringUTFChars(jarg3, arg3_pstr); 
-  (arg1)->mae::fl::bvh_controller::print_bvh_file(arg2,arg3);
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1print_1bvh_1file_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_bvh_1controller_1print_1bvh_1file_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
   mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
   std::shared_ptr< mae::general_skeleton > arg2 ;
   std::string arg3 ;
@@ -13933,35 +13015,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1print_1bvh_1fil
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1print_1bvh_1fileSwigExplicitbvh_1controller_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
-  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
-  std::shared_ptr< mae::general_skeleton > arg2 ;
-  std::string arg3 ;
-  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
-  std::shared_ptr< mae::general_skeleton > *argp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
-  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::general_skeleton > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  if(!jarg3) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
-    return ;
-  } 
-  const char *arg3_pstr = (const char *)jenv->GetStringUTFChars(jarg3, 0); 
-  if (!arg3_pstr) return ;
-  (&arg3)->assign(arg3_pstr);
-  jenv->ReleaseStringUTFChars(jarg3, arg3_pstr); 
-  (arg1)->mae::fl::bvh_controller::print_bvh_file(arg2,arg3);
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1read_1bvh_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_bvh_1controller_1read_1bvh_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
   std::string arg2 ;
@@ -13993,39 +13047,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1read_1bvh_1str
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1read_1bvh_1strSwigExplicitbvh_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
-  jlong jresult = 0 ;
-  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
-  std::string arg2 ;
-  std::shared_ptr< mae::fl::bvh_spec > arg3 ;
-  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::bvh_spec > *argp3 ;
-  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
-  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
-  if(!jarg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
-    return 0;
-  } 
-  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
-  if (!arg2_pstr) return 0;
-  (&arg2)->assign(arg2_pstr);
-  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
-  argp3 = *(std::shared_ptr< mae::fl::bvh_spec > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  result = (arg1)->mae::fl::bvh_controller::read_bvh_str(arg2,arg3);
-  *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > **)&jresult = new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double >((const std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > &)result); 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1read_1bvh_1file(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_bvh_1controller_1read_1bvh_1file(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
   std::string arg2 ;
@@ -14057,61 +13079,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1read_1bvh_1fil
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1read_1bvh_1fileSwigExplicitbvh_1controller(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
-  jlong jresult = 0 ;
-  mae::fl::bvh_controller *arg1 = (mae::fl::bvh_controller *) 0 ;
-  std::string arg2 ;
-  std::shared_ptr< mae::fl::bvh_spec > arg3 ;
-  std::shared_ptr< mae::fl::bvh_controller > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::bvh_spec > *argp3 ;
-  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg3_;
-  
-  smartarg1 = *(std::shared_ptr<  mae::fl::bvh_controller > **)&jarg1;
-  arg1 = (mae::fl::bvh_controller *)(smartarg1 ? smartarg1->get() : 0); 
-  if(!jarg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
-    return 0;
-  } 
-  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
-  if (!arg2_pstr) return 0;
-  (&arg2)->assign(arg2_pstr);
-  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
-  argp3 = *(std::shared_ptr< mae::fl::bvh_spec > **)&jarg3; 
-  if (argp3) arg3 = *argp3; 
-  result = (arg1)->mae::fl::bvh_controller::read_bvh_file(arg2,arg3);
-  *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > **)&jresult = new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double >((const std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > &)result); 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1director_1connect(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jswig_mem_own, jboolean jweak_global) {
-  std::shared_ptr< mae::fl::bvh_controller > *obj = *((std::shared_ptr< mae::fl::bvh_controller > **)&objarg);
-  (void)jcls;
-  // Keep a local instance of the smart pointer around while we are using the raw pointer
-  // Avoids using smart pointer specific API.
-  SwigDirector_bvh_controller *director = dynamic_cast<SwigDirector_bvh_controller *>(obj->operator->());
-  if (director) {
-    director->swig_connect_director(jenv, jself, jenv->GetObjectClass(jself), (jswig_mem_own == JNI_TRUE), (jweak_global == JNI_TRUE));
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_bvh_1controller_1change_1ownership(JNIEnv *jenv, jclass jcls, jobject jself, jlong objarg, jboolean jtake_or_release) {
-  mae::fl::bvh_controller *obj = *((mae::fl::bvh_controller **)&objarg);
-  SwigDirector_bvh_controller *director = dynamic_cast<SwigDirector_bvh_controller *>(obj);
-  (void)jcls;
-  if (director) {
-    director->swig_java_change_ownership(jenv, jself, jtake_or_release ? true : false);
-  }
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1skeleton_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > > *result = 0 ;
   
@@ -14123,7 +13091,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1vector_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1skeleton_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > >::size_type arg1 ;
   std::vector< std::shared_ptr< mae::general_skeleton > > *result = 0 ;
@@ -14137,7 +13105,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1vector_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > > *arg1 = (std::vector< std::shared_ptr< mae::general_skeleton > > *) 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > >::size_type result;
@@ -14152,7 +13120,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1size
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > > *arg1 = (std::vector< std::shared_ptr< mae::general_skeleton > > *) 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > >::size_type result;
@@ -14167,7 +13135,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1capa
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< std::shared_ptr< mae::general_skeleton > > *arg1 = (std::vector< std::shared_ptr< mae::general_skeleton > > *) 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > >::size_type arg2 ;
   
@@ -14180,7 +13148,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1reser
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > > *arg1 = (std::vector< std::shared_ptr< mae::general_skeleton > > *) 0 ;
   bool result;
@@ -14195,7 +13163,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1i
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< std::shared_ptr< mae::general_skeleton > > *arg1 = (std::vector< std::shared_ptr< mae::general_skeleton > > *) 0 ;
   
   (void)jenv;
@@ -14206,7 +13174,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1clear
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   std::vector< std::shared_ptr< mae::general_skeleton > > *arg1 = (std::vector< std::shared_ptr< mae::general_skeleton > > *) 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > >::value_type *arg2 = 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > >::value_type tempnull2 ;
@@ -14221,7 +13189,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1add(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > > *arg1 = (std::vector< std::shared_ptr< mae::general_skeleton > > *) 0 ;
   int arg2 ;
@@ -14245,7 +13213,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1get(
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   std::vector< std::shared_ptr< mae::general_skeleton > > *arg1 = (std::vector< std::shared_ptr< mae::general_skeleton > > *) 0 ;
   int arg2 ;
   std::vector< std::shared_ptr< mae::general_skeleton > >::value_type *arg3 = 0 ;
@@ -14269,7 +13237,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1set(J
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1general_1skeleton_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1general_1skeleton_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< std::shared_ptr< mae::general_skeleton > > *arg1 = (std::vector< std::shared_ptr< mae::general_skeleton > > *) 0 ;
   
   (void)jenv;
@@ -14279,7 +13247,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1general_1skeleton_1vecto
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1vector_1double_1pair_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1skeleton_1vector_1double_1pair_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *result = 0 ;
   
@@ -14291,7 +13259,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1vector_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1vector_1double_1pair_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1skeleton_1vector_1double_1pair_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > > arg1 ;
   double arg2 ;
@@ -14314,7 +13282,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1vector_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1vector_1double_1pair_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1general_1skeleton_1vector_1double_1pair_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *arg1 = 0 ;
   std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *result = 0 ;
@@ -14333,7 +13301,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1general_1skeleton_1vector_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1double_1pair_1first_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1vector_1double_1pair_1first_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *arg1 = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *) 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > > *arg2 = (std::vector< std::shared_ptr< mae::general_skeleton > > *) 0 ;
   
@@ -14347,7 +13315,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1doubl
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1double_1pair_1first_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1vector_1double_1pair_1first_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *arg1 = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *) 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > > *result = 0 ;
@@ -14362,7 +13330,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1doub
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1double_1pair_1second_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1vector_1double_1pair_1second_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *arg1 = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *) 0 ;
   double arg2 ;
   
@@ -14375,7 +13343,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1doubl
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1double_1pair_1second_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_general_1skeleton_1vector_1double_1pair_1second_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *arg1 = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *) 0 ;
   double result;
@@ -14390,7 +13358,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_general_1skeleton_1vector_1do
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1general_1skeleton_1vector_1double_1pair(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1general_1skeleton_1vector_1double_1pair(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *arg1 = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *) 0 ;
   
   (void)jenv;
@@ -14400,7 +13368,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1general_1skeleton_1vecto
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1reader(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1laban_1sequence_1reader(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence_reader *result = 0 ;
   
@@ -14412,7 +13380,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1laban_1sequence_1reader(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1reader(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1laban_1sequence_1reader(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::laban_sequence_reader *arg1 = (mae::fl::laban::laban_sequence_reader *) 0 ;
   
   (void)jenv;
@@ -14422,7 +13390,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1laban_1sequence_1reader(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1reader_1read_1sequence_1file(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1reader_1read_1sequence_1file(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence_reader *arg1 = (mae::fl::laban::laban_sequence_reader *) 0 ;
   std::string arg2 ;
@@ -14446,7 +13414,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1reader_1read_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1reader_1read_1sequence_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1reader_1read_1sequence_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence_reader *arg1 = (mae::fl::laban::laban_sequence_reader *) 0 ;
   std::string arg2 ;
@@ -14470,7 +13438,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1reader_1read_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1symbol(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1symbol(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::i_symbol *arg1 = (mae::fl::laban::mv::i_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_symbol > *smartarg1 = 0 ;
   
@@ -14483,7 +13451,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1symbol(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::mv::i_symbol *arg1 = (mae::fl::laban::mv::i_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_symbol > arg2 ;
@@ -14506,7 +13474,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1symbol_1equals(JNIEnv *je
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1symbol_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1symbol_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_symbol *arg1 = (mae::fl::laban::mv::i_symbol *) 0 ;
   unsigned int arg2 ;
@@ -14535,7 +13503,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1symbol_1xml_1_1SWIG_10(JNI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1symbol_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1symbol_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_symbol *arg1 = (mae::fl::laban::mv::i_symbol *) 0 ;
   unsigned int arg2 ;
@@ -14555,7 +13523,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1symbol_1xml_1_1SWIG_11(JNI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1symbol_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1symbol_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_symbol *arg1 = (mae::fl::laban::mv::i_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_symbol const > *smartarg1 = 0 ;
@@ -14573,7 +13541,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1symbol_1xml_1_1SWIG_12(JNI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_symbol *arg1 = (mae::fl::laban::mv::i_symbol *) 0 ;
   std::string arg2 ;
@@ -14610,7 +13578,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1symbol_1svg_1_1SWIG_10(JNI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_symbol *arg1 = (mae::fl::laban::mv::i_symbol *) 0 ;
   std::string arg2 ;
@@ -14645,7 +13613,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1symbol_1svg_1_1SWIG_11(JNI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1symbol_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1symbol_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_symbol *arg1 = (mae::fl::laban::mv::i_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_symbol const > *smartarg1 = 0 ;
@@ -14663,7 +13631,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1symbol_1str(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1movement_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jdouble jarg3, jdouble jarg4, jlong jarg5, jobject jarg5_, jboolean jarg6, jlong jarg7, jobject jarg7_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1movement_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jdouble jarg3, jdouble jarg4, jlong jarg5, jobject jarg5_, jboolean jarg6, jlong jarg7, jobject jarg7_) {
   jlong jresult = 0 ;
   int arg1 ;
   unsigned int arg2 ;
@@ -14697,7 +13665,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1movement_1_1SWIG_10(JNIEnv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1movement_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jdouble jarg3, jdouble jarg4, jlong jarg5, jobject jarg5_, jboolean jarg6) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1movement_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jdouble jarg3, jdouble jarg4, jlong jarg5, jobject jarg5_, jboolean jarg6) {
   jlong jresult = 0 ;
   int arg1 ;
   unsigned int arg2 ;
@@ -14726,7 +13694,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1movement_1_1SWIG_11(JNIEnv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1movement_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jdouble jarg3, jdouble jarg4, jlong jarg5, jobject jarg5_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1movement_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jdouble jarg3, jdouble jarg4, jlong jarg5, jobject jarg5_) {
   jlong jresult = 0 ;
   int arg1 ;
   unsigned int arg2 ;
@@ -14753,7 +13721,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1movement_1_1SWIG_12(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1movement(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1movement(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   std::shared_ptr< mae::fl::laban::movement > *smartarg1 = 0 ;
   
@@ -14766,7 +13734,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1movement(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_movement_1get_1column(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_movement_1get_1column(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
@@ -14784,7 +13752,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_movement_1get_1column(JNIEnv *je
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_movement_1get_1measure(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_movement_1get_1measure(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
@@ -14802,7 +13770,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_movement_1get_1measure(JNIEnv *
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_movement_1get_1beat(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_movement_1get_1beat(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
@@ -14820,7 +13788,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_movement_1get_1beat(JNIEnv *j
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_movement_1get_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_movement_1get_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
@@ -14838,7 +13806,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_movement_1get_1duration(JNIEn
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_movement_1get_1pre_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_movement_1get_1pre_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
@@ -14856,7 +13824,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_movement_1get_1pre_1sign(JNIEnv
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_movement_1get_1hold(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_movement_1get_1hold(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
@@ -14874,7 +13842,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_movement_1get_1hold(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_movement_1get_1symbol(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_movement_1get_1symbol(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
@@ -14892,7 +13860,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_movement_1get_1symbol(JNIEnv *j
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_movement_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_movement_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
@@ -14915,7 +13883,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_movement_1equals(JNIEnv *jen
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_movement_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_movement_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
@@ -14938,7 +13906,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_movement_1symbol_1equals(JNI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_movement_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_movement_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   unsigned int arg2 ;
@@ -14967,7 +13935,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_movement_1xml_1_1SWIG_10(JNIE
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_movement_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_movement_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   unsigned int arg2 ;
@@ -14987,7 +13955,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_movement_1xml_1_1SWIG_11(JNIE
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_movement_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_movement_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
@@ -15005,7 +13973,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_movement_1xml_1_1SWIG_12(JNIE
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_movement_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_movement_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   unsigned int arg2 ;
@@ -15033,7 +14001,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_movement_1svg(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_movement_1recreate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jdouble jarg4, jdouble jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_movement_1recreate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jdouble jarg4, jdouble jarg5) {
   jlong jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   std::map< int,int > arg2 ;
@@ -15066,7 +14034,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_movement_1recreate(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_movement_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_movement_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::movement *arg1 = (mae::fl::laban::movement *) 0 ;
   std::shared_ptr< mae::fl::laban::movement const > *smartarg1 = 0 ;
@@ -15084,7 +14052,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_movement_1str(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1path_1type_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::e_path_type arg1 ;
   std::string result;
@@ -15098,7 +14066,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1c_1str(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1path_1type_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::e_path_type > result;
   
@@ -15110,7 +14078,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1c_1vec(JNIEnv *j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1path_1type_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::e_path_type result;
@@ -15131,7 +14099,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1c_1parse(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1path_1type_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1path_1type_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::e_path_type_c *result = 0 ;
   
@@ -15143,7 +14111,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1path_1type_1c(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1path_1type_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1path_1type_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::e_path_type_c *arg1 = (mae::fl::laban::e_path_type_c *) 0 ;
   
   (void)jenv;
@@ -15153,7 +14121,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1path_1type_1c(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1path_1type_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1path_1type_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::e_path_type > *result = 0 ;
   
@@ -15165,7 +14133,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1path_1type_1vector_1_1S
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1path_1type_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1path_1type_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::e_path_type >::size_type arg1 ;
   std::vector< mae::fl::laban::e_path_type > *result = 0 ;
@@ -15179,7 +14147,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1path_1type_1vector_1_1S
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1path_1type_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::e_path_type > *arg1 = (std::vector< mae::fl::laban::e_path_type > *) 0 ;
   std::vector< enum mae::fl::laban::e_path_type >::size_type result;
@@ -15194,7 +14162,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1size(JNI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1path_1type_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::e_path_type > *arg1 = (std::vector< mae::fl::laban::e_path_type > *) 0 ;
   std::vector< enum mae::fl::laban::e_path_type >::size_type result;
@@ -15209,7 +14177,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1capacity
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1path_1type_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::e_path_type > *arg1 = (std::vector< mae::fl::laban::e_path_type > *) 0 ;
   std::vector< enum mae::fl::laban::e_path_type >::size_type arg2 ;
   
@@ -15222,7 +14190,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1reserve(J
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1path_1type_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::e_path_type > *arg1 = (std::vector< mae::fl::laban::e_path_type > *) 0 ;
   bool result;
@@ -15237,7 +14205,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1isEmp
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1path_1type_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::e_path_type > *arg1 = (std::vector< mae::fl::laban::e_path_type > *) 0 ;
   
   (void)jenv;
@@ -15248,7 +14216,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1clear(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1path_1type_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::e_path_type > *arg1 = (std::vector< mae::fl::laban::e_path_type > *) 0 ;
   std::vector< enum mae::fl::laban::e_path_type >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::e_path_type >::value_type temp2 ;
@@ -15263,7 +14231,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1add(JNIEn
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1path_1type_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::e_path_type > *arg1 = (std::vector< mae::fl::laban::e_path_type > *) 0 ;
   int arg2 ;
@@ -15287,7 +14255,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1get(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1path_1type_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::e_path_type > *arg1 = (std::vector< mae::fl::laban::e_path_type > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::e_path_type >::value_type *arg3 = 0 ;
@@ -15311,7 +14279,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1path_1type_1vector_1set(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1path_1type_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1path_1type_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::e_path_type > *arg1 = (std::vector< mae::fl::laban::e_path_type > *) 0 ;
   
   (void)jenv;
@@ -15321,7 +14289,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1path_1type_1vector(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1path(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jdouble jarg3, jdouble jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1path(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jdouble jarg3, jdouble jarg4) {
   jlong jresult = 0 ;
   mae::fl::laban::e_path_type arg1 ;
   unsigned int arg2 ;
@@ -15343,7 +14311,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1path(JNIEnv *jenv, jclass 
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1path(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1path(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   std::shared_ptr< mae::fl::laban::path > *smartarg1 = 0 ;
   
@@ -15356,7 +14324,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1path(JNIEnv *jenv, jclas
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_path_1get_1type(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_path_1get_1type(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   std::shared_ptr< mae::fl::laban::path const > *smartarg1 = 0 ;
@@ -15374,7 +14342,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_path_1get_1type(JNIEnv *jenv, jc
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_path_1get_1column(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_path_1get_1column(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   std::shared_ptr< mae::fl::laban::path const > *smartarg1 = 0 ;
@@ -15392,7 +14360,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_path_1get_1column(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_path_1get_1measure(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_path_1get_1measure(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   std::shared_ptr< mae::fl::laban::path const > *smartarg1 = 0 ;
@@ -15410,7 +14378,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_path_1get_1measure(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_path_1get_1beat(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_path_1get_1beat(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   std::shared_ptr< mae::fl::laban::path const > *smartarg1 = 0 ;
@@ -15428,7 +14396,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_path_1get_1beat(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_path_1get_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_path_1get_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   std::shared_ptr< mae::fl::laban::path const > *smartarg1 = 0 ;
@@ -15446,7 +14414,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_path_1get_1duration(JNIEnv *j
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_path_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_path_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
@@ -15469,7 +14437,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_path_1equals(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_path_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_path_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
@@ -15492,7 +14460,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_path_1symbol_1equals(JNIEnv 
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_path_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_path_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   unsigned int arg2 ;
@@ -15521,7 +14489,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_path_1xml_1_1SWIG_10(JNIEnv *
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_path_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_path_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   unsigned int arg2 ;
@@ -15541,7 +14509,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_path_1xml_1_1SWIG_11(JNIEnv *
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_path_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_path_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   std::shared_ptr< mae::fl::laban::path const > *smartarg1 = 0 ;
@@ -15559,7 +14527,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_path_1xml_1_1SWIG_12(JNIEnv *
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_path_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_path_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   unsigned int arg2 ;
@@ -15587,7 +14555,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_path_1svg(JNIEnv *jenv, jclas
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_path_1recreate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jdouble jarg4, jdouble jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_path_1recreate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jdouble jarg4, jdouble jarg5) {
   jlong jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   std::map< int,int > arg2 ;
@@ -15620,7 +14588,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_path_1recreate(JNIEnv *jenv, jc
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_path_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_path_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::path *arg1 = (mae::fl::laban::path *) 0 ;
   std::shared_ptr< mae::fl::laban::path const > *smartarg1 = 0 ;
@@ -15638,7 +14606,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_path_1str(JNIEnv *jenv, jclas
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1relationship_1type_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::e_relationship_type arg1 ;
   std::string result;
@@ -15652,7 +14620,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1c_1str
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1relationship_1type_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::e_relationship_type > result;
   
@@ -15664,7 +14632,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1c_1vec(J
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1relationship_1type_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::e_relationship_type result;
@@ -15685,7 +14653,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1c_1parse(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1relationship_1type_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1relationship_1type_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::e_relationship_type_c *result = 0 ;
   
@@ -15697,7 +14665,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1relationship_1type_1c(J
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1relationship_1type_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1relationship_1type_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::e_relationship_type_c *arg1 = (mae::fl::laban::e_relationship_type_c *) 0 ;
   
   (void)jenv;
@@ -15707,7 +14675,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1relationship_1type_1c
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1relationship_1type_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1relationship_1type_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::e_relationship_type > *result = 0 ;
   
@@ -15719,7 +14687,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1relationship_1type_1vec
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1relationship_1type_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1relationship_1type_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::e_relationship_type >::size_type arg1 ;
   std::vector< mae::fl::laban::e_relationship_type > *result = 0 ;
@@ -15733,7 +14701,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1relationship_1type_1vec
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1relationship_1type_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::e_relationship_type > *arg1 = (std::vector< mae::fl::laban::e_relationship_type > *) 0 ;
   std::vector< enum mae::fl::laban::e_relationship_type >::size_type result;
@@ -15748,7 +14716,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1relationship_1type_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::e_relationship_type > *arg1 = (std::vector< mae::fl::laban::e_relationship_type > *) 0 ;
   std::vector< enum mae::fl::laban::e_relationship_type >::size_type result;
@@ -15763,7 +14731,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1relationship_1type_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::e_relationship_type > *arg1 = (std::vector< mae::fl::laban::e_relationship_type > *) 0 ;
   std::vector< enum mae::fl::laban::e_relationship_type >::size_type arg2 ;
   
@@ -15776,7 +14744,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1r
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1relationship_1type_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::e_relationship_type > *arg1 = (std::vector< mae::fl::laban::e_relationship_type > *) 0 ;
   bool result;
@@ -15791,7 +14759,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vecto
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1relationship_1type_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::e_relationship_type > *arg1 = (std::vector< mae::fl::laban::e_relationship_type > *) 0 ;
   
   (void)jenv;
@@ -15802,7 +14770,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1c
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1relationship_1type_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::e_relationship_type > *arg1 = (std::vector< mae::fl::laban::e_relationship_type > *) 0 ;
   std::vector< enum mae::fl::laban::e_relationship_type >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::e_relationship_type >::value_type temp2 ;
@@ -15817,7 +14785,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1a
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1relationship_1type_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::e_relationship_type > *arg1 = (std::vector< mae::fl::laban::e_relationship_type > *) 0 ;
   int arg2 ;
@@ -15841,7 +14809,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1g
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1relationship_1type_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::e_relationship_type > *arg1 = (std::vector< mae::fl::laban::e_relationship_type > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::e_relationship_type >::value_type *arg3 = 0 ;
@@ -15865,7 +14833,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1relationship_1type_1vector_1s
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1relationship_1type_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1relationship_1type_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::e_relationship_type > *arg1 = (std::vector< mae::fl::laban::e_relationship_type > *) 0 ;
   
   (void)jenv;
@@ -15875,7 +14843,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1relationship_1type_1v
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1dynamics_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1dynamics_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::i_dynamics_sign *arg1 = (mae::fl::laban::mv::i_dynamics_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > *smartarg1 = 0 ;
   
@@ -15888,7 +14856,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1dynamics_1sign(JNIEnv
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1dynamics_1sign_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1dynamics_1sign_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::mv::i_dynamics_sign *arg1 = (mae::fl::laban::mv::i_dynamics_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > arg2 ;
@@ -15911,7 +14879,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1dynamics_1sign_1equals(JN
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1dynamics_1sign_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1dynamics_1sign_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_dynamics_sign *arg1 = (mae::fl::laban::mv::i_dynamics_sign *) 0 ;
   unsigned int arg2 ;
@@ -15940,7 +14908,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1dynamics_1sign_1xml_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1dynamics_1sign_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1dynamics_1sign_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_dynamics_sign *arg1 = (mae::fl::laban::mv::i_dynamics_sign *) 0 ;
   unsigned int arg2 ;
@@ -15960,7 +14928,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1dynamics_1sign_1xml_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1dynamics_1sign_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1dynamics_1sign_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_dynamics_sign *arg1 = (mae::fl::laban::mv::i_dynamics_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign const > *smartarg1 = 0 ;
@@ -15978,7 +14946,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1dynamics_1sign_1xml_1_1SWI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1relationship_1endpoint_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jboolean jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1relationship_1endpoint_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jboolean jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
   jlong jresult = 0 ;
   int arg1 ;
   bool arg2 ;
@@ -16006,7 +14974,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1relationship_1endpoint_1_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1relationship_1endpoint_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jboolean jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1relationship_1endpoint_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jboolean jarg2, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   int arg1 ;
   bool arg2 ;
@@ -16029,7 +14997,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1relationship_1endpoint_1_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1relationship_1endpoint_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jint jarg1, jboolean jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1relationship_1endpoint_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jint jarg1, jboolean jarg2) {
   jlong jresult = 0 ;
   int arg1 ;
   bool arg2 ;
@@ -16047,7 +15015,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1relationship_1endpoint_1_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1relationship_1endpoint(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1relationship_1endpoint(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::relationship_endpoint *arg1 = (mae::fl::laban::mv::relationship_endpoint *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::relationship_endpoint > *smartarg1 = 0 ;
   
@@ -16060,7 +15028,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1relationship_1endpoint(J
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1get_1column(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_relationship_1endpoint_1get_1column(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::mv::relationship_endpoint *arg1 = (mae::fl::laban::mv::relationship_endpoint *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::relationship_endpoint const > *smartarg1 = 0 ;
@@ -16078,7 +15046,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1get_1col
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1get_1pre_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_relationship_1endpoint_1get_1pre_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::relationship_endpoint *arg1 = (mae::fl::laban::mv::relationship_endpoint *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::relationship_endpoint const > *smartarg1 = 0 ;
@@ -16096,7 +15064,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1get_1pr
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1get_1dynamics(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_relationship_1endpoint_1get_1dynamics(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::relationship_endpoint *arg1 = (mae::fl::laban::mv::relationship_endpoint *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::relationship_endpoint const > *smartarg1 = 0 ;
@@ -16114,7 +15082,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1get_1dy
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1get_1active(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_relationship_1endpoint_1get_1active(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   mae::fl::laban::mv::relationship_endpoint *arg1 = (mae::fl::laban::mv::relationship_endpoint *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::relationship_endpoint const > *smartarg1 = 0 ;
@@ -16132,7 +15100,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1get_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_relationship_1endpoint_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::relationship_endpoint *arg1 = (mae::fl::laban::mv::relationship_endpoint *) 0 ;
   unsigned int arg2 ;
@@ -16161,7 +15129,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1xml_1
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_relationship_1endpoint_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::relationship_endpoint *arg1 = (mae::fl::laban::mv::relationship_endpoint *) 0 ;
   unsigned int arg2 ;
@@ -16181,7 +15149,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1xml_1
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_relationship_1endpoint_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::relationship_endpoint *arg1 = (mae::fl::laban::mv::relationship_endpoint *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::relationship_endpoint const > *smartarg1 = 0 ;
@@ -16199,7 +15167,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1xml_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1recreate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_relationship_1endpoint_1recreate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::relationship_endpoint *arg1 = (mae::fl::laban::mv::relationship_endpoint *) 0 ;
   std::map< int,int > arg2 ;
@@ -16226,7 +15194,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1recreat
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_relationship_1endpoint_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::mv::relationship_endpoint *arg1 = (mae::fl::laban::mv::relationship_endpoint *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::relationship_endpoint > arg2 ;
@@ -16249,7 +15217,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1endpoint_1equa
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1relationship_1bow(JNIEnv *jenv, jclass jcls, jint jarg1, jboolean jarg2, jboolean jarg3, jboolean jarg4, jlong jarg5, jdouble jarg6, jlong jarg7, jobject jarg7_, jlong jarg8, jobject jarg8_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1relationship_1bow(JNIEnv *jenv, jclass jcls, jint jarg1, jboolean jarg2, jboolean jarg3, jboolean jarg4, jlong jarg5, jdouble jarg6, jlong jarg7, jobject jarg7_, jlong jarg8, jobject jarg8_) {
   jlong jresult = 0 ;
   mae::fl::laban::e_relationship_type arg1 ;
   bool arg2 ;
@@ -16285,7 +15253,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1relationship_1bow(JNIEnv *
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1relationship_1bow(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1relationship_1bow(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::relationship_bow > *smartarg1 = 0 ;
   
@@ -16298,7 +15266,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1relationship_1bow(JNIEnv
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1type(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1get_1type(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
@@ -16316,7 +15284,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1type(JNI
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1grasping(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1get_1grasping(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
@@ -16334,7 +15302,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1gras
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1passing(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1get_1passing(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
@@ -16352,7 +15320,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1pass
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1hold(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1get_1hold(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
@@ -16370,7 +15338,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1hold
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1left_1endpoint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1get_1left_1endpoint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
@@ -16388,7 +15356,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1left_1e
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1right_1endpoint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1get_1right_1endpoint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
@@ -16406,7 +15374,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1right_1
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1column(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1get_1column(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
@@ -16424,7 +15392,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1column(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1measure(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1get_1measure(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
@@ -16442,7 +15410,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1measure
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1beat(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1get_1beat(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
@@ -16460,7 +15428,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1beat(
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1get_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
@@ -16478,7 +15446,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1get_1durat
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
@@ -16501,7 +15469,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1equals(JN
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
@@ -16524,7 +15492,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1symbol_1e
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   unsigned int arg2 ;
@@ -16553,7 +15521,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1xml_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   unsigned int arg2 ;
@@ -16573,7 +15541,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1xml_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
@@ -16591,7 +15559,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1xml_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   unsigned int arg2 ;
@@ -16619,7 +15587,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1svg(JNIEnv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1recreate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jdouble jarg4, jdouble jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1recreate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jdouble jarg4, jdouble jarg5) {
   jlong jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::map< int,int > arg2 ;
@@ -16652,7 +15620,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1recreate(JNI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::relationship_bow *arg1 = (mae::fl::laban::relationship_bow *) 0 ;
   std::shared_ptr< mae::fl::laban::relationship_bow const > *smartarg1 = 0 ;
@@ -16670,7 +15638,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1str(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1degree_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1degree_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::i_degree_sign *arg1 = (mae::fl::laban::mv::i_degree_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_degree_sign > *smartarg1 = 0 ;
   
@@ -16683,7 +15651,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1degree_1sign(JNIEnv *
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1degree_1sign_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::mv::i_degree_sign *arg1 = (mae::fl::laban::mv::i_degree_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_degree_sign > arg2 ;
@@ -16706,7 +15674,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1equals(JNIE
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3, jboolean jarg4) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1degree_1sign_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3, jboolean jarg4) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_degree_sign *arg1 = (mae::fl::laban::mv::i_degree_sign *) 0 ;
   unsigned int arg2 ;
@@ -16737,7 +15705,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1xml_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1degree_1sign_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_degree_sign *arg1 = (mae::fl::laban::mv::i_degree_sign *) 0 ;
   unsigned int arg2 ;
@@ -16766,7 +15734,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1xml_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1degree_1sign_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_degree_sign *arg1 = (mae::fl::laban::mv::i_degree_sign *) 0 ;
   unsigned int arg2 ;
@@ -16786,7 +15754,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1xml_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1xml_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1degree_1sign_1xml_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_degree_sign *arg1 = (mae::fl::laban::mv::i_degree_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_degree_sign const > *smartarg1 = 0 ;
@@ -16804,7 +15772,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1xml_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1degree_1sign_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_degree_sign *arg1 = (mae::fl::laban::mv::i_degree_sign *) 0 ;
   std::string arg2 ;
@@ -16841,7 +15809,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1svg_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1degree_1sign_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::i_degree_sign *arg1 = (mae::fl::laban::mv::i_degree_sign *) 0 ;
   std::string arg2 ;
@@ -16876,7 +15844,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1degree_1sign_1svg_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1level_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1level_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::e_level arg1 ;
   std::string result;
@@ -16890,7 +15858,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1level_1c_1str(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1level_1c_1lvl(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1level_1c_1lvl(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jint jresult = 0 ;
   mae::fl::e_fl_direction arg1 ;
   mae::fl::laban::mv::e_level result;
@@ -16904,7 +15872,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1level_1c_1lvl(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1level_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1level_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_level > result;
   
@@ -16916,7 +15884,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1level_1c_1vec(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1level_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1level_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::mv::e_level result;
@@ -16937,7 +15905,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1level_1c_1parse(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1level_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1level_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_level_c *result = 0 ;
   
@@ -16949,7 +15917,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1level_1c(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1level_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1level_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::e_level_c *arg1 = (mae::fl::laban::mv::e_level_c *) 0 ;
   
   (void)jenv;
@@ -16959,7 +15927,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1level_1c(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1level_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1level_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_level > *result = 0 ;
   
@@ -16971,7 +15939,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1level_1vector_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1level_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1level_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::mv::e_level >::size_type arg1 ;
   std::vector< mae::fl::laban::mv::e_level > *result = 0 ;
@@ -16985,7 +15953,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1level_1vector_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1level_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_level > *arg1 = (std::vector< mae::fl::laban::mv::e_level > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_level >::size_type result;
@@ -17000,7 +15968,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1size(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1level_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_level > *arg1 = (std::vector< mae::fl::laban::mv::e_level > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_level >::size_type result;
@@ -17015,7 +15983,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1capacity(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1level_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::mv::e_level > *arg1 = (std::vector< mae::fl::laban::mv::e_level > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_level >::size_type arg2 ;
   
@@ -17028,7 +15996,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1reserve(JNIEnv
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1level_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_level > *arg1 = (std::vector< mae::fl::laban::mv::e_level > *) 0 ;
   bool result;
@@ -17043,7 +16011,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1isEmpty(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1level_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::mv::e_level > *arg1 = (std::vector< mae::fl::laban::mv::e_level > *) 0 ;
   
   (void)jenv;
@@ -17054,7 +16022,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1clear(JNIEnv *
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1level_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::mv::e_level > *arg1 = (std::vector< mae::fl::laban::mv::e_level > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_level >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::mv::e_level >::value_type temp2 ;
@@ -17069,7 +16037,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1add(JNIEnv *je
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1level_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_level > *arg1 = (std::vector< mae::fl::laban::mv::e_level > *) 0 ;
   int arg2 ;
@@ -17093,7 +16061,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1get(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1level_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::mv::e_level > *arg1 = (std::vector< mae::fl::laban::mv::e_level > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::mv::e_level >::value_type *arg3 = 0 ;
@@ -17117,7 +16085,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1level_1vector_1set(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1level_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1level_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::mv::e_level > *arg1 = (std::vector< mae::fl::laban::mv::e_level > *) 0 ;
   
   (void)jenv;
@@ -17127,7 +16095,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1level_1vector(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1pin(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1pin(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_level arg1 ;
   int arg2 ;
@@ -17145,7 +16113,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1pin(JNIEnv *jenv, jclass j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1pin(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1pin(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::pin *arg1 = (mae::fl::laban::mv::pin *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::pin > *smartarg1 = 0 ;
   
@@ -17158,7 +16126,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1pin(JNIEnv *jenv, jclass
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_pin_1get_1level(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_pin_1get_1level(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::mv::pin *arg1 = (mae::fl::laban::mv::pin *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::pin const > *smartarg1 = 0 ;
@@ -17176,7 +16144,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_pin_1get_1level(JNIEnv *jenv, jc
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_pin_1get_1horizontal(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_pin_1get_1horizontal(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::mv::pin *arg1 = (mae::fl::laban::mv::pin *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::pin const > *smartarg1 = 0 ;
@@ -17194,7 +16162,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_pin_1get_1horizontal(JNIEnv *jen
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_pin_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_pin_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::mv::pin *arg1 = (mae::fl::laban::mv::pin *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_degree_sign > arg2 ;
@@ -17217,7 +16185,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_pin_1equals(JNIEnv *jenv, jc
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_pin_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3, jboolean jarg4) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_pin_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3, jboolean jarg4) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::pin *arg1 = (mae::fl::laban::mv::pin *) 0 ;
   unsigned int arg2 ;
@@ -17248,7 +16216,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_pin_1xml_1_1SWIG_10(JNIEnv *j
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_pin_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_pin_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::pin *arg1 = (mae::fl::laban::mv::pin *) 0 ;
   unsigned int arg2 ;
@@ -17277,7 +16245,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_pin_1xml_1_1SWIG_11(JNIEnv *j
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_pin_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_pin_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::pin *arg1 = (mae::fl::laban::mv::pin *) 0 ;
   unsigned int arg2 ;
@@ -17297,7 +16265,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_pin_1xml_1_1SWIG_12(JNIEnv *j
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_pin_1xml_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_pin_1xml_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::pin *arg1 = (mae::fl::laban::mv::pin *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::pin const > *smartarg1 = 0 ;
@@ -17315,7 +16283,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_pin_1xml_1_1SWIG_13(JNIEnv *j
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_pin_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_pin_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::pin *arg1 = (mae::fl::laban::mv::pin *) 0 ;
   std::string arg2 ;
@@ -17352,7 +16320,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_pin_1svg_1_1SWIG_10(JNIEnv *j
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_pin_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_pin_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::pin *arg1 = (mae::fl::laban::mv::pin *) 0 ;
   std::string arg2 ;
@@ -17387,7 +16355,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_pin_1svg_1_1SWIG_11(JNIEnv *j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1room_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1, jdouble jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1room_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1, jdouble jarg2, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   unsigned int arg1 ;
   double arg2 ;
@@ -17410,7 +16378,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1room_1direction(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1room_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1room_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   std::shared_ptr< mae::fl::laban::room_direction > *smartarg1 = 0 ;
   
@@ -17423,7 +16391,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1room_1direction(JNIEnv *
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_room_1direction_1get_1column(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_room_1direction_1get_1column(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   std::shared_ptr< mae::fl::laban::room_direction const > *smartarg1 = 0 ;
@@ -17441,7 +16409,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_room_1direction_1get_1column(JNI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_room_1direction_1get_1measure(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_room_1direction_1get_1measure(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   std::shared_ptr< mae::fl::laban::room_direction const > *smartarg1 = 0 ;
@@ -17459,7 +16427,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_room_1direction_1get_1measure(J
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_room_1direction_1get_1beat(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_room_1direction_1get_1beat(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   std::shared_ptr< mae::fl::laban::room_direction const > *smartarg1 = 0 ;
@@ -17477,7 +16445,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_room_1direction_1get_1beat(JN
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_room_1direction_1get_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_room_1direction_1get_1duration(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   std::shared_ptr< mae::fl::laban::room_direction const > *smartarg1 = 0 ;
@@ -17495,7 +16463,7 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaejavaJNI_room_1direction_1get_1duratio
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_room_1direction_1get_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_room_1direction_1get_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   std::shared_ptr< mae::fl::laban::room_direction const > *smartarg1 = 0 ;
@@ -17513,7 +16481,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_room_1direction_1get_1direction
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_room_1direction_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_room_1direction_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
@@ -17536,7 +16504,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_room_1direction_1equals(JNIE
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_room_1direction_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_room_1direction_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
@@ -17559,7 +16527,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_room_1direction_1symbol_1equ
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_room_1direction_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_room_1direction_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   unsigned int arg2 ;
@@ -17588,7 +16556,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_room_1direction_1xml_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_room_1direction_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_room_1direction_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   unsigned int arg2 ;
@@ -17608,7 +16576,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_room_1direction_1xml_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_room_1direction_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_room_1direction_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   std::shared_ptr< mae::fl::laban::room_direction const > *smartarg1 = 0 ;
@@ -17626,7 +16594,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_room_1direction_1xml_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_room_1direction_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_room_1direction_1svg(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jlong jarg4, jlong jarg5, jlong jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   unsigned int arg2 ;
@@ -17654,7 +16622,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_room_1direction_1svg(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_room_1direction_1recreate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jdouble jarg4, jdouble jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_room_1direction_1recreate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jdouble jarg4, jdouble jarg5) {
   jlong jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   std::map< int,int > arg2 ;
@@ -17687,7 +16655,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_room_1direction_1recreate(JNIEn
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_room_1direction_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_room_1direction_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::room_direction *arg1 = (mae::fl::laban::room_direction *) 0 ;
   std::shared_ptr< mae::fl::laban::room_direction const > *smartarg1 = 0 ;
@@ -17705,7 +16673,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_room_1direction_1str(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1accent_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1accent_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   unsigned int arg1 ;
   mae::fl::laban::mv::accent_sign *result = 0 ;
@@ -17721,7 +16689,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1accent_1sign(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1accent_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1accent_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::accent_sign *arg1 = (mae::fl::laban::mv::accent_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::accent_sign > *smartarg1 = 0 ;
   
@@ -17734,7 +16702,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1accent_1sign(JNIEnv *jen
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_accent_1sign_1get_1accent(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_accent_1sign_1get_1accent(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::accent_sign *arg1 = (mae::fl::laban::mv::accent_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::accent_sign const > *smartarg1 = 0 ;
@@ -17752,7 +16720,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_accent_1sign_1get_1accent(JNIEn
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_accent_1sign_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_accent_1sign_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::mv::accent_sign *arg1 = (mae::fl::laban::mv::accent_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > arg2 ;
@@ -17775,7 +16743,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_accent_1sign_1equals(JNIEnv 
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_accent_1sign_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_accent_1sign_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::accent_sign *arg1 = (mae::fl::laban::mv::accent_sign *) 0 ;
   unsigned int arg2 ;
@@ -17804,7 +16772,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_accent_1sign_1xml_1_1SWIG_10(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_accent_1sign_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_accent_1sign_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::accent_sign *arg1 = (mae::fl::laban::mv::accent_sign *) 0 ;
   unsigned int arg2 ;
@@ -17824,7 +16792,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_accent_1sign_1xml_1_1SWIG_11(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_accent_1sign_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_accent_1sign_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::accent_sign *arg1 = (mae::fl::laban::mv::accent_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::accent_sign const > *smartarg1 = 0 ;
@@ -17842,7 +16810,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_accent_1sign_1xml_1_1SWIG_12(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1dynamic_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::e_dynamic arg1 ;
   std::string result;
@@ -17856,7 +16824,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1c_1str(JNIEnv *je
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1dynamic_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_dynamic > result;
   
@@ -17868,7 +16836,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1c_1vec(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1dynamic_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::mv::e_dynamic result;
@@ -17889,7 +16857,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1c_1parse(JNIEnv *jen
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1dynamic_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1dynamic_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_dynamic_c *result = 0 ;
   
@@ -17901,7 +16869,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1dynamic_1c(JNIEnv *jenv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1dynamic_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1dynamic_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::e_dynamic_c *arg1 = (mae::fl::laban::mv::e_dynamic_c *) 0 ;
   
   (void)jenv;
@@ -17911,7 +16879,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1dynamic_1c(JNIEnv *je
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1dynamic_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1dynamic_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_dynamic > *result = 0 ;
   
@@ -17923,7 +16891,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1dynamic_1vector_1_1SWIG
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1dynamic_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1dynamic_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::mv::e_dynamic >::size_type arg1 ;
   std::vector< mae::fl::laban::mv::e_dynamic > *result = 0 ;
@@ -17937,7 +16905,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1dynamic_1vector_1_1SWIG
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1dynamic_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_dynamic > *arg1 = (std::vector< mae::fl::laban::mv::e_dynamic > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_dynamic >::size_type result;
@@ -17952,7 +16920,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1size(JNIEnv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1dynamic_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_dynamic > *arg1 = (std::vector< mae::fl::laban::mv::e_dynamic > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_dynamic >::size_type result;
@@ -17967,7 +16935,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1capacity(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1dynamic_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::mv::e_dynamic > *arg1 = (std::vector< mae::fl::laban::mv::e_dynamic > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_dynamic >::size_type arg2 ;
   
@@ -17980,7 +16948,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1reserve(JNIE
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1dynamic_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_dynamic > *arg1 = (std::vector< mae::fl::laban::mv::e_dynamic > *) 0 ;
   bool result;
@@ -17995,7 +16963,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1isEmpty(
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1dynamic_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::mv::e_dynamic > *arg1 = (std::vector< mae::fl::laban::mv::e_dynamic > *) 0 ;
   
   (void)jenv;
@@ -18006,7 +16974,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1clear(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1dynamic_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::mv::e_dynamic > *arg1 = (std::vector< mae::fl::laban::mv::e_dynamic > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_dynamic >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::mv::e_dynamic >::value_type temp2 ;
@@ -18021,7 +16989,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1add(JNIEnv *
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1dynamic_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_dynamic > *arg1 = (std::vector< mae::fl::laban::mv::e_dynamic > *) 0 ;
   int arg2 ;
@@ -18045,7 +17013,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1get(JNIEnv *
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1dynamic_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::mv::e_dynamic > *arg1 = (std::vector< mae::fl::laban::mv::e_dynamic > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::mv::e_dynamic >::value_type *arg3 = 0 ;
@@ -18069,7 +17037,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1dynamic_1vector_1set(JNIEnv *
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1dynamic_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1dynamic_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::mv::e_dynamic > *arg1 = (std::vector< mae::fl::laban::mv::e_dynamic > *) 0 ;
   
   (void)jenv;
@@ -18079,7 +17047,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1dynamic_1vector(JNIEn
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1dynamic_1sign(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1dynamic_1sign(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_dynamic arg1 ;
   mae::fl::laban::mv::dynamic_sign *result = 0 ;
@@ -18095,7 +17063,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1dynamic_1sign(JNIEnv *jenv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1dynamic_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1dynamic_1sign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::dynamic_sign *arg1 = (mae::fl::laban::mv::dynamic_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::dynamic_sign > *smartarg1 = 0 ;
   
@@ -18108,7 +17076,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1dynamic_1sign(JNIEnv *je
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_dynamic_1sign_1get_1dynamic(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_dynamic_1sign_1get_1dynamic(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::mv::dynamic_sign *arg1 = (mae::fl::laban::mv::dynamic_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::dynamic_sign const > *smartarg1 = 0 ;
@@ -18126,7 +17094,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_dynamic_1sign_1get_1dynamic(JNIE
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_dynamic_1sign_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_dynamic_1sign_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::mv::dynamic_sign *arg1 = (mae::fl::laban::mv::dynamic_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > arg2 ;
@@ -18149,7 +17117,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_dynamic_1sign_1equals(JNIEnv
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_dynamic_1sign_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_dynamic_1sign_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::dynamic_sign *arg1 = (mae::fl::laban::mv::dynamic_sign *) 0 ;
   unsigned int arg2 ;
@@ -18178,7 +17146,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_dynamic_1sign_1xml_1_1SWIG_10
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_dynamic_1sign_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_dynamic_1sign_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::dynamic_sign *arg1 = (mae::fl::laban::mv::dynamic_sign *) 0 ;
   unsigned int arg2 ;
@@ -18198,7 +17166,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_dynamic_1sign_1xml_1_1SWIG_11
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_dynamic_1sign_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_dynamic_1sign_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::dynamic_sign *arg1 = (mae::fl::laban::mv::dynamic_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::dynamic_sign const > *smartarg1 = 0 ;
@@ -18216,7 +17184,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_dynamic_1sign_1xml_1_1SWIG_12
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1cancel_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1cancel_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::e_cancel arg1 ;
   std::string result;
@@ -18230,7 +17198,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1cancel_1c_1str(JNIEnv *jen
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1cancel_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1cancel_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_cancel > result;
   
@@ -18242,7 +17210,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1cancel_1c_1vec(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1cancel_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1cancel_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::mv::e_cancel result;
@@ -18263,7 +17231,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1cancel_1c_1parse(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1cancel_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1cancel_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_cancel_c *result = 0 ;
   
@@ -18275,7 +17243,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1cancel_1c(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1cancel_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1cancel_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::e_cancel_c *arg1 = (mae::fl::laban::mv::e_cancel_c *) 0 ;
   
   (void)jenv;
@@ -18285,7 +17253,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1cancel_1c(JNIEnv *jen
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1cancel_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1cancel_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_cancel > *result = 0 ;
   
@@ -18297,7 +17265,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1cancel_1vector_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1cancel_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1cancel_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::mv::e_cancel >::size_type arg1 ;
   std::vector< mae::fl::laban::mv::e_cancel > *result = 0 ;
@@ -18311,7 +17279,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1cancel_1vector_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1cancel_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_cancel > *arg1 = (std::vector< mae::fl::laban::mv::e_cancel > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_cancel >::size_type result;
@@ -18326,7 +17294,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1size(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1cancel_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_cancel > *arg1 = (std::vector< mae::fl::laban::mv::e_cancel > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_cancel >::size_type result;
@@ -18341,7 +17309,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1capacity(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1cancel_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::mv::e_cancel > *arg1 = (std::vector< mae::fl::laban::mv::e_cancel > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_cancel >::size_type arg2 ;
   
@@ -18354,7 +17322,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1reserve(JNIEn
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1cancel_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_cancel > *arg1 = (std::vector< mae::fl::laban::mv::e_cancel > *) 0 ;
   bool result;
@@ -18369,7 +17337,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1isEmpty(J
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1cancel_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::mv::e_cancel > *arg1 = (std::vector< mae::fl::laban::mv::e_cancel > *) 0 ;
   
   (void)jenv;
@@ -18380,7 +17348,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1clear(JNIEnv 
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1cancel_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::mv::e_cancel > *arg1 = (std::vector< mae::fl::laban::mv::e_cancel > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_cancel >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::mv::e_cancel >::value_type temp2 ;
@@ -18395,7 +17363,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1add(JNIEnv *j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1cancel_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_cancel > *arg1 = (std::vector< mae::fl::laban::mv::e_cancel > *) 0 ;
   int arg2 ;
@@ -18419,7 +17387,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1get(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1cancel_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::mv::e_cancel > *arg1 = (std::vector< mae::fl::laban::mv::e_cancel > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::mv::e_cancel >::value_type *arg3 = 0 ;
@@ -18443,7 +17411,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1cancel_1vector_1set(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1cancel_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1cancel_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::mv::e_cancel > *arg1 = (std::vector< mae::fl::laban::mv::e_cancel > *) 0 ;
   
   (void)jenv;
@@ -18453,7 +17421,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1cancel_1vector(JNIEnv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1cancellation_1symbol(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1cancellation_1symbol(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_cancel arg1 ;
   mae::fl::laban::mv::cancellation_symbol *result = 0 ;
@@ -18469,7 +17437,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1cancellation_1symbol(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1cancellation_1symbol(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1cancellation_1symbol(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::cancellation_symbol *arg1 = (mae::fl::laban::mv::cancellation_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::cancellation_symbol > *smartarg1 = 0 ;
   
@@ -18482,7 +17450,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1cancellation_1symbol(JNI
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1get_1cancel(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_cancellation_1symbol_1get_1cancel(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::mv::cancellation_symbol *arg1 = (mae::fl::laban::mv::cancellation_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::cancellation_symbol const > *smartarg1 = 0 ;
@@ -18500,7 +17468,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1get_1cance
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_cancellation_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::mv::cancellation_symbol *arg1 = (mae::fl::laban::mv::cancellation_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_symbol > arg2 ;
@@ -18523,7 +17491,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1equals
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_cancellation_1symbol_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::cancellation_symbol *arg1 = (mae::fl::laban::mv::cancellation_symbol *) 0 ;
   unsigned int arg2 ;
@@ -18552,7 +17520,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1xml_1_1
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_cancellation_1symbol_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::cancellation_symbol *arg1 = (mae::fl::laban::mv::cancellation_symbol *) 0 ;
   unsigned int arg2 ;
@@ -18572,7 +17540,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1xml_1_1
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_cancellation_1symbol_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::cancellation_symbol *arg1 = (mae::fl::laban::mv::cancellation_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::cancellation_symbol const > *smartarg1 = 0 ;
@@ -18590,7 +17558,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1xml_1_1
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_cancellation_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::cancellation_symbol *arg1 = (mae::fl::laban::mv::cancellation_symbol *) 0 ;
   std::string arg2 ;
@@ -18627,7 +17595,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1svg_1_1
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_cancellation_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::cancellation_symbol *arg1 = (mae::fl::laban::mv::cancellation_symbol *) 0 ;
   std::string arg2 ;
@@ -18662,7 +17630,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1svg_1_1
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_cancellation_1symbol_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::cancellation_symbol *arg1 = (mae::fl::laban::mv::cancellation_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::cancellation_symbol const > *smartarg1 = 0 ;
@@ -18680,7 +17648,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1str(JNI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1space_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1space_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::e_space arg1 ;
   std::string result;
@@ -18694,7 +17662,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1space_1c_1str(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1space_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1space_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_space > result;
   
@@ -18706,7 +17674,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1space_1c_1vec(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1space_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1space_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::mv::e_space result;
@@ -18727,7 +17695,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1space_1c_1parse(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1space_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1space_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_space_c *result = 0 ;
   
@@ -18739,7 +17707,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1space_1c(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1space_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1space_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::e_space_c *arg1 = (mae::fl::laban::mv::e_space_c *) 0 ;
   
   (void)jenv;
@@ -18749,7 +17717,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1space_1c(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1space_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1space_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_space > *result = 0 ;
   
@@ -18761,7 +17729,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1space_1vector_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1space_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1space_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::mv::e_space >::size_type arg1 ;
   std::vector< mae::fl::laban::mv::e_space > *result = 0 ;
@@ -18775,7 +17743,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1space_1vector_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1space_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_space > *arg1 = (std::vector< mae::fl::laban::mv::e_space > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_space >::size_type result;
@@ -18790,7 +17758,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1size(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1space_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_space > *arg1 = (std::vector< mae::fl::laban::mv::e_space > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_space >::size_type result;
@@ -18805,7 +17773,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1capacity(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1space_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::mv::e_space > *arg1 = (std::vector< mae::fl::laban::mv::e_space > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_space >::size_type arg2 ;
   
@@ -18818,7 +17786,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1reserve(JNIEnv
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1space_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_space > *arg1 = (std::vector< mae::fl::laban::mv::e_space > *) 0 ;
   bool result;
@@ -18833,7 +17801,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1isEmpty(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1space_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::mv::e_space > *arg1 = (std::vector< mae::fl::laban::mv::e_space > *) 0 ;
   
   (void)jenv;
@@ -18844,7 +17812,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1clear(JNIEnv *
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1space_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::mv::e_space > *arg1 = (std::vector< mae::fl::laban::mv::e_space > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_space >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::mv::e_space >::value_type temp2 ;
@@ -18859,7 +17827,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1add(JNIEnv *je
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1space_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_space > *arg1 = (std::vector< mae::fl::laban::mv::e_space > *) 0 ;
   int arg2 ;
@@ -18883,7 +17851,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1get(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1space_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::mv::e_space > *arg1 = (std::vector< mae::fl::laban::mv::e_space > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::mv::e_space >::value_type *arg3 = 0 ;
@@ -18907,7 +17875,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1vector_1set(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1space_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1space_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::mv::e_space > *arg1 = (std::vector< mae::fl::laban::mv::e_space > *) 0 ;
   
   (void)jenv;
@@ -18917,7 +17885,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1space_1vector(JNIEnv 
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1space_1direction_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::e_space_direction arg1 ;
   std::string result;
@@ -18931,7 +17899,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1c_1str(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1space_1direction_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_space_direction > result;
   
@@ -18943,7 +17911,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1c_1vec(JNI
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1space_1direction_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::mv::e_space_direction result;
@@ -18964,7 +17932,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1c_1parse(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1space_1direction_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1space_1direction_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_space_direction_c *result = 0 ;
   
@@ -18976,7 +17944,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1space_1direction_1c(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1space_1direction_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1space_1direction_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::e_space_direction_c *arg1 = (mae::fl::laban::mv::e_space_direction_c *) 0 ;
   
   (void)jenv;
@@ -18986,7 +17954,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1space_1direction_1c(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1space_1direction_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1space_1direction_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_space_direction > *result = 0 ;
   
@@ -18998,7 +17966,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1space_1direction_1vecto
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1space_1direction_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1space_1direction_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::mv::e_space_direction >::size_type arg1 ;
   std::vector< mae::fl::laban::mv::e_space_direction > *result = 0 ;
@@ -19012,7 +17980,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1space_1direction_1vecto
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1space_1direction_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_space_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_space_direction > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_space_direction >::size_type result;
@@ -19027,7 +17995,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1si
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1space_1direction_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_space_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_space_direction > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_space_direction >::size_type result;
@@ -19042,7 +18010,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1ca
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1space_1direction_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::mv::e_space_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_space_direction > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_space_direction >::size_type arg2 ;
   
@@ -19055,7 +18023,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1res
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1space_1direction_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_space_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_space_direction > *) 0 ;
   bool result;
@@ -19070,7 +18038,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1space_1direction_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::mv::e_space_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_space_direction > *) 0 ;
   
   (void)jenv;
@@ -19081,7 +18049,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1cle
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1space_1direction_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::mv::e_space_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_space_direction > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_space_direction >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::mv::e_space_direction >::value_type temp2 ;
@@ -19096,7 +18064,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1add
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1space_1direction_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_space_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_space_direction > *) 0 ;
   int arg2 ;
@@ -19120,7 +18088,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1get
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1space_1direction_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::mv::e_space_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_space_direction > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::mv::e_space_direction >::value_type *arg3 = 0 ;
@@ -19144,7 +18112,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1space_1direction_1vector_1set
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1space_1direction_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1space_1direction_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::mv::e_space_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_space_direction > *) 0 ;
   
   (void)jenv;
@@ -19154,7 +18122,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1space_1direction_1vec
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1space_1measurement_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jint jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1space_1measurement_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jint jarg3) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_space arg1 ;
   unsigned int arg2 ;
@@ -19174,7 +18142,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1space_1measurement_1_1SWIG
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1space_1measurement_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1space_1measurement_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_space arg1 ;
   unsigned int arg2 ;
@@ -19192,7 +18160,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1space_1measurement_1_1SWIG
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1space_1measurement(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1space_1measurement(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::space_measurement *arg1 = (mae::fl::laban::mv::space_measurement *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::space_measurement > *smartarg1 = 0 ;
   
@@ -19205,7 +18173,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1space_1measurement(JNIEn
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_space_1measurement_1get_1type(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_space_1measurement_1get_1type(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::mv::space_measurement *arg1 = (mae::fl::laban::mv::space_measurement *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::space_measurement const > *smartarg1 = 0 ;
@@ -19223,7 +18191,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_space_1measurement_1get_1type(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_space_1measurement_1get_1degree(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_space_1measurement_1get_1degree(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::space_measurement *arg1 = (mae::fl::laban::mv::space_measurement *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::space_measurement const > *smartarg1 = 0 ;
@@ -19241,7 +18209,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_space_1measurement_1get_1degree
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_space_1measurement_1get_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_space_1measurement_1get_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::mv::space_measurement *arg1 = (mae::fl::laban::mv::space_measurement *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::space_measurement const > *smartarg1 = 0 ;
@@ -19259,7 +18227,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_space_1measurement_1get_1directi
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_space_1measurement_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_space_1measurement_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::mv::space_measurement *arg1 = (mae::fl::laban::mv::space_measurement *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_degree_sign > arg2 ;
@@ -19282,7 +18250,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_space_1measurement_1equals(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3, jboolean jarg4) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_space_1measurement_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3, jboolean jarg4) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::space_measurement *arg1 = (mae::fl::laban::mv::space_measurement *) 0 ;
   unsigned int arg2 ;
@@ -19313,7 +18281,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1xml_1_1SW
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_space_1measurement_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::space_measurement *arg1 = (mae::fl::laban::mv::space_measurement *) 0 ;
   unsigned int arg2 ;
@@ -19342,7 +18310,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1xml_1_1SW
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_space_1measurement_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::space_measurement *arg1 = (mae::fl::laban::mv::space_measurement *) 0 ;
   unsigned int arg2 ;
@@ -19362,7 +18330,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1xml_1_1SW
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1xml_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_space_1measurement_1xml_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::space_measurement *arg1 = (mae::fl::laban::mv::space_measurement *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::space_measurement const > *smartarg1 = 0 ;
@@ -19380,7 +18348,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1xml_1_1SW
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_space_1measurement_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::space_measurement *arg1 = (mae::fl::laban::mv::space_measurement *) 0 ;
   std::string arg2 ;
@@ -19417,7 +18385,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1svg_1_1SW
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_space_1measurement_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::space_measurement *arg1 = (mae::fl::laban::mv::space_measurement *) 0 ;
   std::string arg2 ;
@@ -19452,7 +18420,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1svg_1_1SW
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_space_1measurement_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::space_measurement *arg1 = (mae::fl::laban::mv::space_measurement *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::space_measurement const > *smartarg1 = 0 ;
@@ -19470,7 +18438,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_space_1measurement_1str(JNIEn
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1direction_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1direction_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::e_direction arg1 ;
   std::string result;
@@ -19484,7 +18452,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1direction_1c_1str(JNIEnv *
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1direction_1c_1dir(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1direction_1c_1dir(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jint jresult = 0 ;
   mae::fl::e_fl_direction arg1 ;
   mae::fl::laban::mv::e_direction result;
@@ -19498,7 +18466,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1direction_1c_1dir(JNIEnv *jen
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1direction_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1direction_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_direction > result;
   
@@ -19510,7 +18478,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1direction_1c_1vec(JNIEnv *je
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1direction_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1direction_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::mv::e_direction result;
@@ -19531,7 +18499,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1direction_1c_1parse(JNIEnv *j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1direction_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1direction_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_direction_c *result = 0 ;
   
@@ -19543,7 +18511,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1direction_1c(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1direction_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1direction_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::e_direction_c *arg1 = (mae::fl::laban::mv::e_direction_c *) 0 ;
   
   (void)jenv;
@@ -19553,7 +18521,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1direction_1c(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1direction_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1direction_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_direction > *result = 0 ;
   
@@ -19565,7 +18533,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1direction_1vector_1_1SW
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1direction_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1direction_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::mv::e_direction >::size_type arg1 ;
   std::vector< mae::fl::laban::mv::e_direction > *result = 0 ;
@@ -19579,7 +18547,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1direction_1vector_1_1SW
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1direction_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_direction > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_direction >::size_type result;
@@ -19594,7 +18562,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1size(JNIE
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1direction_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_direction > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_direction >::size_type result;
@@ -19609,7 +18577,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1capacity(
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1direction_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::mv::e_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_direction > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_direction >::size_type arg2 ;
   
@@ -19622,7 +18590,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1reserve(JN
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1direction_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_direction > *) 0 ;
   bool result;
@@ -19637,7 +18605,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1isEmpt
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1direction_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::mv::e_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_direction > *) 0 ;
   
   (void)jenv;
@@ -19648,7 +18616,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1clear(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1direction_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::mv::e_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_direction > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_direction >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::mv::e_direction >::value_type temp2 ;
@@ -19663,7 +18631,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1add(JNIEnv
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1direction_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_direction > *) 0 ;
   int arg2 ;
@@ -19687,7 +18655,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1get(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1direction_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::mv::e_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_direction > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::mv::e_direction >::value_type *arg3 = 0 ;
@@ -19711,7 +18679,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1direction_1vector_1set(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1direction_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1direction_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::mv::e_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_direction > *) 0 ;
   
   (void)jenv;
@@ -19721,7 +18689,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1direction_1vector(JNI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1contact_1hook_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::e_contact_hook arg1 ;
   std::string result;
@@ -19735,7 +18703,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1c_1str(JNIE
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1contact_1hook_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_contact_hook > result;
   
@@ -19747,7 +18715,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1c_1vec(JNIEnv
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1contact_1hook_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::mv::e_contact_hook result;
@@ -19768,7 +18736,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1c_1parse(JNIEn
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1contact_1hook_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1contact_1hook_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_contact_hook_c *result = 0 ;
   
@@ -19780,7 +18748,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1contact_1hook_1c(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1contact_1hook_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1contact_1hook_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::e_contact_hook_c *arg1 = (mae::fl::laban::mv::e_contact_hook_c *) 0 ;
   
   (void)jenv;
@@ -19790,7 +18758,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1contact_1hook_1c(JNIE
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1contact_1hook_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1contact_1hook_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_contact_hook > *result = 0 ;
   
@@ -19802,7 +18770,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1contact_1hook_1vector_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1contact_1hook_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1contact_1hook_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::mv::e_contact_hook >::size_type arg1 ;
   std::vector< mae::fl::laban::mv::e_contact_hook > *result = 0 ;
@@ -19816,7 +18784,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1contact_1hook_1vector_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1contact_1hook_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_contact_hook > *arg1 = (std::vector< mae::fl::laban::mv::e_contact_hook > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_contact_hook >::size_type result;
@@ -19831,7 +18799,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1size(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1contact_1hook_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_contact_hook > *arg1 = (std::vector< mae::fl::laban::mv::e_contact_hook > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_contact_hook >::size_type result;
@@ -19846,7 +18814,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1capac
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1contact_1hook_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::mv::e_contact_hook > *arg1 = (std::vector< mae::fl::laban::mv::e_contact_hook > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_contact_hook >::size_type arg2 ;
   
@@ -19859,7 +18827,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1reserv
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1contact_1hook_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_contact_hook > *arg1 = (std::vector< mae::fl::laban::mv::e_contact_hook > *) 0 ;
   bool result;
@@ -19874,7 +18842,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1is
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1contact_1hook_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::mv::e_contact_hook > *arg1 = (std::vector< mae::fl::laban::mv::e_contact_hook > *) 0 ;
   
   (void)jenv;
@@ -19885,7 +18853,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1clear(
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1contact_1hook_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::mv::e_contact_hook > *arg1 = (std::vector< mae::fl::laban::mv::e_contact_hook > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_contact_hook >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::mv::e_contact_hook >::value_type temp2 ;
@@ -19900,7 +18868,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1add(JN
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1contact_1hook_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_contact_hook > *arg1 = (std::vector< mae::fl::laban::mv::e_contact_hook > *) 0 ;
   int arg2 ;
@@ -19924,7 +18892,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1get(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1contact_1hook_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::mv::e_contact_hook > *arg1 = (std::vector< mae::fl::laban::mv::e_contact_hook > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::mv::e_contact_hook >::value_type *arg3 = 0 ;
@@ -19948,7 +18916,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1contact_1hook_1vector_1set(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1contact_1hook_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1contact_1hook_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::mv::e_contact_hook > *arg1 = (std::vector< mae::fl::laban::mv::e_contact_hook > *) 0 ;
   
   (void)jenv;
@@ -19958,7 +18926,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1contact_1hook_1vector
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1direction_1symbol_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_, jlong jarg6, jobject jarg6_, jint jarg7) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1direction_1symbol_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_, jlong jarg6, jobject jarg6_, jint jarg7) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_level arg1 ;
   mae::fl::laban::mv::e_direction arg2 ;
@@ -19998,7 +18966,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1direction_1symbol_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1direction_1symbol_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_, jlong jarg6, jobject jarg6_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1direction_1symbol_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_, jlong jarg6, jobject jarg6_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_level arg1 ;
   mae::fl::laban::mv::e_direction arg2 ;
@@ -20036,7 +19004,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1direction_1symbol_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1direction_1symbol_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1direction_1symbol_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_level arg1 ;
   mae::fl::laban::mv::e_direction arg2 ;
@@ -20069,7 +19037,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1direction_1symbol_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1direction_1symbol_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1direction_1symbol_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_level arg1 ;
   mae::fl::laban::mv::e_direction arg2 ;
@@ -20097,7 +19065,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1direction_1symbol_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1direction_1symbol_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1direction_1symbol_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_level arg1 ;
   mae::fl::laban::mv::e_direction arg2 ;
@@ -20120,7 +19088,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1direction_1symbol_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1direction_1symbol_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1direction_1symbol_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jint jarg1, jint jarg2) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_level arg1 ;
   mae::fl::laban::mv::e_direction arg2 ;
@@ -20138,7 +19106,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1direction_1symbol_1_1SWIG_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1direction_1symbol(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1direction_1symbol(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::direction_symbol > *smartarg1 = 0 ;
   
@@ -20151,7 +19119,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1direction_1symbol(JNIEnv
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1vertical(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1get_1vertical(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::direction_symbol const > *smartarg1 = 0 ;
@@ -20169,7 +19137,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1vertical
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1horizontal(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1get_1horizontal(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::direction_symbol const > *smartarg1 = 0 ;
@@ -20187,7 +19155,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1horizont
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1modification_1pin(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1get_1modification_1pin(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::direction_symbol const > *smartarg1 = 0 ;
@@ -20205,7 +19173,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1modific
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1relationship_1pin(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1get_1relationship_1pin(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::direction_symbol const > *smartarg1 = 0 ;
@@ -20223,7 +19191,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1relatio
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1dynamics(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1get_1dynamics(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::direction_symbol const > *smartarg1 = 0 ;
@@ -20241,7 +19209,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1dynamic
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1space_1measurement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1get_1space_1measurement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::direction_symbol const > *smartarg1 = 0 ;
@@ -20259,7 +19227,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1space_1
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1contact_1hook(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1get_1contact_1hook(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::direction_symbol const > *smartarg1 = 0 ;
@@ -20277,7 +19245,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1get_1contact_
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_symbol > arg2 ;
@@ -20300,7 +19268,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1equals(JN
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   unsigned int arg2 ;
@@ -20329,7 +19297,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1xml_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   unsigned int arg2 ;
@@ -20349,7 +19317,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1xml_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::direction_symbol const > *smartarg1 = 0 ;
@@ -20367,7 +19335,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1xml_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   std::string arg2 ;
@@ -20404,7 +19372,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1svg_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   std::string arg2 ;
@@ -20439,7 +19407,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1svg_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::direction_symbol *arg1 = (mae::fl::laban::mv::direction_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::direction_symbol const > *smartarg1 = 0 ;
@@ -20457,7 +19425,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1str(JNIEnv
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1turn_1direction_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::e_turn_direction arg1 ;
   std::string result;
@@ -20471,7 +19439,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1c_1str(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1turn_1direction_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_turn_direction > result;
   
@@ -20483,7 +19451,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1c_1vec(JNIE
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1turn_1direction_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::mv::e_turn_direction result;
@@ -20504,7 +19472,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1c_1parse(JNI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1turn_1direction_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1turn_1direction_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_turn_direction_c *result = 0 ;
   
@@ -20516,7 +19484,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1turn_1direction_1c(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1turn_1direction_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1turn_1direction_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::e_turn_direction_c *arg1 = (mae::fl::laban::mv::e_turn_direction_c *) 0 ;
   
   (void)jenv;
@@ -20526,7 +19494,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1turn_1direction_1c(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1turn_1direction_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1turn_1direction_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_turn_direction > *result = 0 ;
   
@@ -20538,7 +19506,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1turn_1direction_1vector
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1turn_1direction_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1turn_1direction_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::mv::e_turn_direction >::size_type arg1 ;
   std::vector< mae::fl::laban::mv::e_turn_direction > *result = 0 ;
@@ -20552,7 +19520,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1turn_1direction_1vector
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1turn_1direction_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_turn_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_turn_direction > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_turn_direction >::size_type result;
@@ -20567,7 +19535,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1siz
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1turn_1direction_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_turn_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_turn_direction > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_turn_direction >::size_type result;
@@ -20582,7 +19550,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1cap
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1turn_1direction_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::mv::e_turn_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_turn_direction > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_turn_direction >::size_type arg2 ;
   
@@ -20595,7 +19563,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1rese
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1turn_1direction_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_turn_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_turn_direction > *) 0 ;
   bool result;
@@ -20610,7 +19578,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1turn_1direction_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::mv::e_turn_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_turn_direction > *) 0 ;
   
   (void)jenv;
@@ -20621,7 +19589,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1clea
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1turn_1direction_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::mv::e_turn_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_turn_direction > *) 0 ;
   std::vector< enum mae::fl::laban::mv::e_turn_direction >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::mv::e_turn_direction >::value_type temp2 ;
@@ -20636,7 +19604,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1add(
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1turn_1direction_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::mv::e_turn_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_turn_direction > *) 0 ;
   int arg2 ;
@@ -20660,7 +19628,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1get(
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1turn_1direction_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::mv::e_turn_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_turn_direction > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::mv::e_turn_direction >::value_type *arg3 = 0 ;
@@ -20684,7 +19652,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1turn_1direction_1vector_1set(
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1turn_1direction_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1turn_1direction_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::mv::e_turn_direction > *arg1 = (std::vector< mae::fl::laban::mv::e_turn_direction > *) 0 ;
   
   (void)jenv;
@@ -20694,7 +19662,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1turn_1direction_1vect
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1turn_1symbol_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1turn_1symbol_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_turn_direction arg1 ;
   std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > arg2 ;
@@ -20720,7 +19688,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1turn_1symbol_1_1SWIG_10(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1turn_1symbol_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1turn_1symbol_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_turn_direction arg1 ;
   std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > arg2 ;
@@ -20741,7 +19709,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1turn_1symbol_1_1SWIG_11(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1turn_1symbol_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1turn_1symbol_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::e_turn_direction arg1 ;
   mae::fl::laban::mv::turn_symbol *result = 0 ;
@@ -20757,7 +19725,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1turn_1symbol_1_1SWIG_12(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1turn_1symbol(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1turn_1symbol(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::turn_symbol > *smartarg1 = 0 ;
   
@@ -20770,7 +19738,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1turn_1symbol(JNIEnv *jen
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1get_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_turn_1symbol_1get_1direction(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::turn_symbol const > *smartarg1 = 0 ;
@@ -20788,7 +19756,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1get_1direction(JNI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1get_1dynamics(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_turn_1symbol_1get_1dynamics(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::turn_symbol const > *smartarg1 = 0 ;
@@ -20806,7 +19774,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1get_1dynamics(JNI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1get_1degree(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_turn_1symbol_1get_1degree(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::turn_symbol const > *smartarg1 = 0 ;
@@ -20824,7 +19792,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1get_1degree(JNIEn
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_turn_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_symbol > arg2 ;
@@ -20847,7 +19815,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1equals(JNIEnv 
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_turn_1symbol_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
   unsigned int arg2 ;
@@ -20876,7 +19844,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1xml_1_1SWIG_10(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_turn_1symbol_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
   unsigned int arg2 ;
@@ -20896,7 +19864,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1xml_1_1SWIG_11(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_turn_1symbol_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::turn_symbol const > *smartarg1 = 0 ;
@@ -20914,7 +19882,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1xml_1_1SWIG_12(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_turn_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
   std::string arg2 ;
@@ -20951,7 +19919,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1svg_1_1SWIG_10(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_turn_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
   std::string arg2 ;
@@ -20986,7 +19954,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1svg_1_1SWIG_11(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_turn_1symbol_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::turn_symbol *arg1 = (mae::fl::laban::mv::turn_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::turn_symbol const > *smartarg1 = 0 ;
@@ -21004,7 +19972,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1str(JNIEnv *jen
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1vibration_1symbol_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1vibration_1symbol_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::fl::laban::mv::pin > arg1 ;
   std::shared_ptr< mae::fl::laban::mv::pin > arg2 ;
@@ -21033,7 +20001,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1vibration_1symbol_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1vibration_1symbol_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1vibration_1symbol_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::fl::laban::mv::pin > arg1 ;
   std::shared_ptr< mae::fl::laban::mv::pin > arg2 ;
@@ -21057,7 +20025,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1vibration_1symbol_1_1SWIG_
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1vibration_1symbol(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1vibration_1symbol(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::vibration_symbol *arg1 = (mae::fl::laban::mv::vibration_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::vibration_symbol > *smartarg1 = 0 ;
   
@@ -21070,7 +20038,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1vibration_1symbol(JNIEnv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1get_1dynamics(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_vibration_1symbol_1get_1dynamics(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::vibration_symbol *arg1 = (mae::fl::laban::mv::vibration_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::vibration_symbol const > *smartarg1 = 0 ;
@@ -21088,7 +20056,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1get_1dynamic
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1get_1displacement1(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_vibration_1symbol_1get_1displacement1(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::vibration_symbol *arg1 = (mae::fl::laban::mv::vibration_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::vibration_symbol const > *smartarg1 = 0 ;
@@ -21106,7 +20074,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1get_1displac
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1get_1displacement2(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_vibration_1symbol_1get_1displacement2(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::mv::vibration_symbol *arg1 = (mae::fl::laban::mv::vibration_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::vibration_symbol const > *smartarg1 = 0 ;
@@ -21124,7 +20092,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1get_1displac
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_vibration_1symbol_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::mv::vibration_symbol *arg1 = (mae::fl::laban::mv::vibration_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_symbol > arg2 ;
@@ -21147,7 +20115,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1equals(JN
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_vibration_1symbol_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::vibration_symbol *arg1 = (mae::fl::laban::mv::vibration_symbol *) 0 ;
   unsigned int arg2 ;
@@ -21176,7 +20144,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1xml_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_vibration_1symbol_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::vibration_symbol *arg1 = (mae::fl::laban::mv::vibration_symbol *) 0 ;
   unsigned int arg2 ;
@@ -21196,7 +20164,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1xml_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_vibration_1symbol_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::vibration_symbol *arg1 = (mae::fl::laban::mv::vibration_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::vibration_symbol const > *smartarg1 = 0 ;
@@ -21214,7 +20182,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1xml_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_vibration_1symbol_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::vibration_symbol *arg1 = (mae::fl::laban::mv::vibration_symbol *) 0 ;
   std::string arg2 ;
@@ -21251,7 +20219,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1svg_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_vibration_1symbol_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::vibration_symbol *arg1 = (mae::fl::laban::mv::vibration_symbol *) 0 ;
   std::string arg2 ;
@@ -21286,7 +20254,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1svg_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_vibration_1symbol_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::vibration_symbol *arg1 = (mae::fl::laban::mv::vibration_symbol *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::vibration_symbol const > *smartarg1 = 0 ;
@@ -21304,7 +20272,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1str(JNIEnv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1part(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1part(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::i_part *arg1 = (mae::fl::laban::ps::i_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_part > *smartarg1 = 0 ;
   
@@ -21317,7 +20285,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1part(JNIEnv *jenv, jc
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1part_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1part_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_part *arg1 = (mae::fl::laban::ps::i_part *) 0 ;
   unsigned int arg2 ;
@@ -21346,7 +20314,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1part_1xml_1_1SWIG_10(JNIEn
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1part_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1part_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_part *arg1 = (mae::fl::laban::ps::i_part *) 0 ;
   unsigned int arg2 ;
@@ -21366,7 +20334,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1part_1xml_1_1SWIG_11(JNIEn
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1part_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1part_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_part *arg1 = (mae::fl::laban::ps::i_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_part const > *smartarg1 = 0 ;
@@ -21384,7 +20352,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1part_1xml_1_1SWIG_12(JNIEn
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1part_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1part_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_part *arg1 = (mae::fl::laban::ps::i_part *) 0 ;
   std::string arg2 ;
@@ -21421,7 +20389,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1part_1svg_1_1SWIG_10(JNIEn
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1part_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1part_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_part *arg1 = (mae::fl::laban::ps::i_part *) 0 ;
   std::string arg2 ;
@@ -21456,7 +20424,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1part_1svg_1_1SWIG_11(JNIEn
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1part_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1part_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::i_part *arg1 = (mae::fl::laban::ps::i_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_part > arg2 ;
@@ -21479,7 +20447,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1part_1equals(JNIEnv *jenv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1endpoint(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1endpoint(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::i_endpoint *arg1 = (mae::fl::laban::ps::i_endpoint *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_endpoint > *smartarg1 = 0 ;
   
@@ -21492,7 +20460,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1endpoint(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1endpoint_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_endpoint *arg1 = (mae::fl::laban::ps::i_endpoint *) 0 ;
   unsigned int arg2 ;
@@ -21521,7 +20489,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1xml_1_1SWIG_10(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1endpoint_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_endpoint *arg1 = (mae::fl::laban::ps::i_endpoint *) 0 ;
   unsigned int arg2 ;
@@ -21541,7 +20509,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1xml_1_1SWIG_11(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1endpoint_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_endpoint *arg1 = (mae::fl::laban::ps::i_endpoint *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_endpoint const > *smartarg1 = 0 ;
@@ -21559,7 +20527,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1xml_1_1SWIG_12(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1get_1fixed_1end(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1endpoint_1get_1fixed_1end(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::i_endpoint *arg1 = (mae::fl::laban::ps::i_endpoint *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_endpoint const > *smartarg1 = 0 ;
@@ -21577,7 +20545,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1get_1fixed_1end(JN
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1endpoint_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::i_endpoint *arg1 = (mae::fl::laban::ps::i_endpoint *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_part > arg2 ;
@@ -21600,7 +20568,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1equals_1_1SWIG_
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1endpoint_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::i_endpoint *arg1 = (mae::fl::laban::ps::i_endpoint *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_endpoint > arg2 ;
@@ -21623,7 +20591,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1equals_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1area_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1area_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::e_area arg1 ;
   std::string result;
@@ -21637,7 +20605,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1area_1c_1str(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1area_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1area_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_area > result;
   
@@ -21649,7 +20617,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1area_1c_1vec(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1area_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1area_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::ps::e_area result;
@@ -21670,7 +20638,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1area_1c_1parse(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1area_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1area_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::e_area_c *result = 0 ;
   
@@ -21682,7 +20650,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1area_1c(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1area_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1area_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::e_area_c *arg1 = (mae::fl::laban::ps::e_area_c *) 0 ;
   
   (void)jenv;
@@ -21692,7 +20660,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1area_1c(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1area_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1area_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_area > *result = 0 ;
   
@@ -21704,7 +20672,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1area_1vector_1_1SWIG_10
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1area_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1area_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::ps::e_area >::size_type arg1 ;
   std::vector< mae::fl::laban::ps::e_area > *result = 0 ;
@@ -21718,7 +20686,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1area_1vector_1_1SWIG_11
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1area_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_area > *arg1 = (std::vector< mae::fl::laban::ps::e_area > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_area >::size_type result;
@@ -21733,7 +20701,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1size(JNIEnv *j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1area_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_area > *arg1 = (std::vector< mae::fl::laban::ps::e_area > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_area >::size_type result;
@@ -21748,7 +20716,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1capacity(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1area_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::ps::e_area > *arg1 = (std::vector< mae::fl::laban::ps::e_area > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_area >::size_type arg2 ;
   
@@ -21761,7 +20729,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1reserve(JNIEnv 
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1area_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_area > *arg1 = (std::vector< mae::fl::laban::ps::e_area > *) 0 ;
   bool result;
@@ -21776,7 +20744,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1isEmpty(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1area_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::ps::e_area > *arg1 = (std::vector< mae::fl::laban::ps::e_area > *) 0 ;
   
   (void)jenv;
@@ -21787,7 +20755,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1clear(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1area_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::ps::e_area > *arg1 = (std::vector< mae::fl::laban::ps::e_area > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_area >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::ps::e_area >::value_type temp2 ;
@@ -21802,7 +20770,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1add(JNIEnv *jen
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1area_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_area > *arg1 = (std::vector< mae::fl::laban::ps::e_area > *) 0 ;
   int arg2 ;
@@ -21826,7 +20794,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1get(JNIEnv *jen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1area_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::ps::e_area > *arg1 = (std::vector< mae::fl::laban::ps::e_area > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::ps::e_area >::value_type *arg3 = 0 ;
@@ -21850,7 +20818,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1area_1vector_1set(JNIEnv *jen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1area_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1area_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::ps::e_area > *arg1 = (std::vector< mae::fl::laban::ps::e_area > *) 0 ;
   
   (void)jenv;
@@ -21860,7 +20828,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1area_1vector(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1area_1part(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1area_1part(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::e_area arg1 ;
   mae::fl::laban::ps::area_part *result = 0 ;
@@ -21876,7 +20844,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1area_1part(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1area_1part(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1area_1part(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::area_part *arg1 = (mae::fl::laban::ps::area_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::area_part > *smartarg1 = 0 ;
   
@@ -21889,7 +20857,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1area_1part(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_area_1part_1get_1area(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_area_1part_1get_1area(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::ps::area_part *arg1 = (mae::fl::laban::ps::area_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::area_part const > *smartarg1 = 0 ;
@@ -21907,7 +20875,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_area_1part_1get_1area(JNIEnv *je
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_area_1part_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_area_1part_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::area_part *arg1 = (mae::fl::laban::ps::area_part *) 0 ;
   unsigned int arg2 ;
@@ -21936,7 +20904,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_area_1part_1xml_1_1SWIG_10(JN
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_area_1part_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_area_1part_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::area_part *arg1 = (mae::fl::laban::ps::area_part *) 0 ;
   unsigned int arg2 ;
@@ -21956,7 +20924,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_area_1part_1xml_1_1SWIG_11(JN
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_area_1part_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_area_1part_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::area_part *arg1 = (mae::fl::laban::ps::area_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::area_part const > *smartarg1 = 0 ;
@@ -21974,7 +20942,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_area_1part_1xml_1_1SWIG_12(JN
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_area_1part_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_area_1part_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::area_part *arg1 = (mae::fl::laban::ps::area_part *) 0 ;
   std::string arg2 ;
@@ -22011,7 +20979,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_area_1part_1svg_1_1SWIG_10(JN
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_area_1part_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_area_1part_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::area_part *arg1 = (mae::fl::laban::ps::area_part *) 0 ;
   std::string arg2 ;
@@ -22046,7 +21014,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_area_1part_1svg_1_1SWIG_11(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_area_1part_1get_1fixed_1end(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_area_1part_1get_1fixed_1end(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::area_part *arg1 = (mae::fl::laban::ps::area_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::area_part const > *smartarg1 = 0 ;
@@ -22064,7 +21032,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_area_1part_1get_1fixed_1end(JNI
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_area_1part_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_area_1part_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::area_part *arg1 = (mae::fl::laban::ps::area_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_part > arg2 ;
@@ -22087,7 +21055,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_area_1part_1equals_1_1SWIG_1
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_area_1part_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_area_1part_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::area_part *arg1 = (mae::fl::laban::ps::area_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_endpoint > arg2 ;
@@ -22110,7 +21078,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_area_1part_1equals_1_1SWIG_1
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1side_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1side_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::e_side arg1 ;
   std::string result;
@@ -22124,7 +21092,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1side_1c_1str(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1side_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1side_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_side > result;
   
@@ -22136,7 +21104,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1side_1c_1vec(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1side_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1side_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::ps::e_side result;
@@ -22157,7 +21125,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1side_1c_1parse(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1side_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1side_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::e_side_c *result = 0 ;
   
@@ -22169,7 +21137,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1side_1c(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1side_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1side_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::e_side_c *arg1 = (mae::fl::laban::ps::e_side_c *) 0 ;
   
   (void)jenv;
@@ -22179,7 +21147,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1side_1c(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1side_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1side_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_side > *result = 0 ;
   
@@ -22191,7 +21159,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1side_1vector_1_1SWIG_10
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1side_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1side_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::ps::e_side >::size_type arg1 ;
   std::vector< mae::fl::laban::ps::e_side > *result = 0 ;
@@ -22205,7 +21173,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1side_1vector_1_1SWIG_11
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1side_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_side > *arg1 = (std::vector< mae::fl::laban::ps::e_side > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_side >::size_type result;
@@ -22220,7 +21188,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1size(JNIEnv *j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1side_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_side > *arg1 = (std::vector< mae::fl::laban::ps::e_side > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_side >::size_type result;
@@ -22235,7 +21203,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1capacity(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1side_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::ps::e_side > *arg1 = (std::vector< mae::fl::laban::ps::e_side > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_side >::size_type arg2 ;
   
@@ -22248,7 +21216,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1reserve(JNIEnv 
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1side_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_side > *arg1 = (std::vector< mae::fl::laban::ps::e_side > *) 0 ;
   bool result;
@@ -22263,7 +21231,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1isEmpty(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1side_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::ps::e_side > *arg1 = (std::vector< mae::fl::laban::ps::e_side > *) 0 ;
   
   (void)jenv;
@@ -22274,7 +21242,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1clear(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1side_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::ps::e_side > *arg1 = (std::vector< mae::fl::laban::ps::e_side > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_side >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::ps::e_side >::value_type temp2 ;
@@ -22289,7 +21257,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1add(JNIEnv *jen
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1side_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_side > *arg1 = (std::vector< mae::fl::laban::ps::e_side > *) 0 ;
   int arg2 ;
@@ -22313,7 +21281,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1get(JNIEnv *jen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1side_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::ps::e_side > *arg1 = (std::vector< mae::fl::laban::ps::e_side > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::ps::e_side >::value_type *arg3 = 0 ;
@@ -22337,7 +21305,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1side_1vector_1set(JNIEnv *jen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1side_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1side_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::ps::e_side > *arg1 = (std::vector< mae::fl::laban::ps::e_side > *) 0 ;
   
   (void)jenv;
@@ -22347,7 +21315,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1side_1vector(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1body_1part(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1body_1part(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::e_side arg1 ;
   std::shared_ptr< mae::fl::laban::ps::i_part > arg2 ;
@@ -22368,7 +21336,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1body_1part(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1body_1part(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1body_1part(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::body_part *arg1 = (mae::fl::laban::ps::body_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::body_part > *smartarg1 = 0 ;
   
@@ -22381,7 +21349,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1body_1part(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_body_1part_1get_1side(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_body_1part_1get_1side(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::ps::body_part *arg1 = (mae::fl::laban::ps::body_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::body_part const > *smartarg1 = 0 ;
@@ -22399,7 +21367,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_body_1part_1get_1side(JNIEnv *je
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_body_1part_1get_1part(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_body_1part_1get_1part(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::body_part *arg1 = (mae::fl::laban::ps::body_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::body_part const > *smartarg1 = 0 ;
@@ -22417,7 +21385,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_body_1part_1get_1part(JNIEnv *j
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_body_1part_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_body_1part_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::body_part *arg1 = (mae::fl::laban::ps::body_part *) 0 ;
   unsigned int arg2 ;
@@ -22446,7 +21414,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_body_1part_1xml_1_1SWIG_10(JN
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_body_1part_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_body_1part_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::body_part *arg1 = (mae::fl::laban::ps::body_part *) 0 ;
   unsigned int arg2 ;
@@ -22466,7 +21434,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_body_1part_1xml_1_1SWIG_11(JN
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_body_1part_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_body_1part_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::body_part *arg1 = (mae::fl::laban::ps::body_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::body_part const > *smartarg1 = 0 ;
@@ -22484,7 +21452,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_body_1part_1xml_1_1SWIG_12(JN
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_body_1part_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_body_1part_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::body_part *arg1 = (mae::fl::laban::ps::body_part *) 0 ;
   std::string arg2 ;
@@ -22521,7 +21489,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_body_1part_1svg_1_1SWIG_10(JN
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_body_1part_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_body_1part_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::body_part *arg1 = (mae::fl::laban::ps::body_part *) 0 ;
   std::string arg2 ;
@@ -22556,7 +21524,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_body_1part_1svg_1_1SWIG_11(JN
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_body_1part_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_body_1part_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::body_part *arg1 = (mae::fl::laban::ps::body_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_pre_sign > arg2 ;
@@ -22579,7 +21547,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_body_1part_1equals(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1limb(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1i_1limb(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::i_limb *arg1 = (mae::fl::laban::ps::i_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_limb > *smartarg1 = 0 ;
   
@@ -22592,7 +21560,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1i_1limb(JNIEnv *jenv, jc
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1limb_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1limb_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_limb *arg1 = (mae::fl::laban::ps::i_limb *) 0 ;
   unsigned int arg2 ;
@@ -22621,7 +21589,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1limb_1xml_1_1SWIG_10(JNIEn
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1limb_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1limb_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_limb *arg1 = (mae::fl::laban::ps::i_limb *) 0 ;
   unsigned int arg2 ;
@@ -22641,7 +21609,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1limb_1xml_1_1SWIG_11(JNIEn
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1limb_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_i_1limb_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::i_limb *arg1 = (mae::fl::laban::ps::i_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_limb const > *smartarg1 = 0 ;
@@ -22659,7 +21627,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_i_1limb_1xml_1_1SWIG_12(JNIEn
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1limb_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1limb_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::i_limb *arg1 = (mae::fl::laban::ps::i_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_part > arg2 ;
@@ -22682,7 +21650,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1limb_1equals_1_1SWIG_10(J
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1limb_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_i_1limb_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::i_limb *arg1 = (mae::fl::laban::ps::i_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_limb > arg2 ;
@@ -22705,7 +21673,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_i_1limb_1equals_1_1SWIG_11(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1custom_1limb_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1custom_1limb_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_endpoint > arg1 ;
   std::shared_ptr< mae::fl::laban::ps::i_endpoint > arg2 ;
@@ -22729,7 +21697,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1custom_1limb_1_1SWIG_10(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1custom_1limb_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1custom_1limb_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_endpoint > arg1 ;
   std::shared_ptr< mae::fl::laban::ps::i_endpoint > *argp1 ;
@@ -22748,7 +21716,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1custom_1limb_1_1SWIG_11(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1custom_1limb(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1custom_1limb(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::custom_limb *arg1 = (mae::fl::laban::ps::custom_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::custom_limb > *smartarg1 = 0 ;
   
@@ -22761,7 +21729,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1custom_1limb(JNIEnv *jen
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_custom_1limb_1get_1fixed_1end(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_custom_1limb_1get_1fixed_1end(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::custom_limb *arg1 = (mae::fl::laban::ps::custom_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::custom_limb const > *smartarg1 = 0 ;
@@ -22779,7 +21747,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_custom_1limb_1get_1fixed_1end(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_custom_1limb_1get_1extremity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_custom_1limb_1get_1extremity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::custom_limb *arg1 = (mae::fl::laban::ps::custom_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::custom_limb const > *smartarg1 = 0 ;
@@ -22797,7 +21765,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_custom_1limb_1get_1extremity(JN
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_custom_1limb_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_custom_1limb_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::custom_limb *arg1 = (mae::fl::laban::ps::custom_limb *) 0 ;
   unsigned int arg2 ;
@@ -22826,7 +21794,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_custom_1limb_1xml_1_1SWIG_10(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_custom_1limb_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_custom_1limb_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::custom_limb *arg1 = (mae::fl::laban::ps::custom_limb *) 0 ;
   unsigned int arg2 ;
@@ -22846,7 +21814,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_custom_1limb_1xml_1_1SWIG_11(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_custom_1limb_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_custom_1limb_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::custom_limb *arg1 = (mae::fl::laban::ps::custom_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::custom_limb const > *smartarg1 = 0 ;
@@ -22864,7 +21832,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_custom_1limb_1xml_1_1SWIG_12(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_custom_1limb_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_custom_1limb_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::custom_limb *arg1 = (mae::fl::laban::ps::custom_limb *) 0 ;
   std::string arg2 ;
@@ -22901,7 +21869,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_custom_1limb_1svg_1_1SWIG_10(
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_custom_1limb_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_custom_1limb_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::custom_limb *arg1 = (mae::fl::laban::ps::custom_limb *) 0 ;
   std::string arg2 ;
@@ -22936,7 +21904,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_custom_1limb_1svg_1_1SWIG_11(
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_custom_1limb_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_custom_1limb_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::custom_limb *arg1 = (mae::fl::laban::ps::custom_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_part > arg2 ;
@@ -22959,7 +21927,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_custom_1limb_1equals_1_1SWIG
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_custom_1limb_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_custom_1limb_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::custom_limb *arg1 = (mae::fl::laban::ps::custom_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_limb > arg2 ;
@@ -22982,7 +21950,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_custom_1limb_1equals_1_1SWIG
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1limb_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1limb_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::e_limb arg1 ;
   std::string result;
@@ -22996,7 +21964,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1limb_1c_1str(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1limb_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1limb_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_limb > result;
   
@@ -23008,7 +21976,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1limb_1c_1vec(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1limb_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1limb_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::ps::e_limb result;
@@ -23029,7 +21997,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1limb_1c_1parse(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1limb_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1limb_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::e_limb_c *result = 0 ;
   
@@ -23041,7 +22009,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1limb_1c(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1limb_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1limb_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::e_limb_c *arg1 = (mae::fl::laban::ps::e_limb_c *) 0 ;
   
   (void)jenv;
@@ -23051,7 +22019,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1limb_1c(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1limb_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1limb_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_limb > *result = 0 ;
   
@@ -23063,7 +22031,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1limb_1vector_1_1SWIG_10
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1limb_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1limb_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::ps::e_limb >::size_type arg1 ;
   std::vector< mae::fl::laban::ps::e_limb > *result = 0 ;
@@ -23077,7 +22045,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1limb_1vector_1_1SWIG_11
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1limb_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_limb > *arg1 = (std::vector< mae::fl::laban::ps::e_limb > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_limb >::size_type result;
@@ -23092,7 +22060,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1size(JNIEnv *j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1limb_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_limb > *arg1 = (std::vector< mae::fl::laban::ps::e_limb > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_limb >::size_type result;
@@ -23107,7 +22075,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1capacity(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1limb_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::ps::e_limb > *arg1 = (std::vector< mae::fl::laban::ps::e_limb > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_limb >::size_type arg2 ;
   
@@ -23120,7 +22088,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1reserve(JNIEnv 
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1limb_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_limb > *arg1 = (std::vector< mae::fl::laban::ps::e_limb > *) 0 ;
   bool result;
@@ -23135,7 +22103,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1isEmpty(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1limb_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::ps::e_limb > *arg1 = (std::vector< mae::fl::laban::ps::e_limb > *) 0 ;
   
   (void)jenv;
@@ -23146,7 +22114,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1clear(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1limb_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::ps::e_limb > *arg1 = (std::vector< mae::fl::laban::ps::e_limb > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_limb >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::ps::e_limb >::value_type temp2 ;
@@ -23161,7 +22129,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1add(JNIEnv *jen
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1limb_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_limb > *arg1 = (std::vector< mae::fl::laban::ps::e_limb > *) 0 ;
   int arg2 ;
@@ -23185,7 +22153,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1get(JNIEnv *jen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1limb_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::ps::e_limb > *arg1 = (std::vector< mae::fl::laban::ps::e_limb > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::ps::e_limb >::value_type *arg3 = 0 ;
@@ -23209,7 +22177,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1vector_1set(JNIEnv *jen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1limb_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1limb_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::ps::e_limb > *arg1 = (std::vector< mae::fl::laban::ps::e_limb > *) 0 ;
   
   (void)jenv;
@@ -23219,7 +22187,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1limb_1vector(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1default_1limb(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1default_1limb(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::e_limb arg1 ;
   mae::fl::laban::ps::default_limb *result = 0 ;
@@ -23235,7 +22203,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1default_1limb(JNIEnv *jenv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1default_1limb(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1default_1limb(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::default_limb *arg1 = (mae::fl::laban::ps::default_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::default_limb > *smartarg1 = 0 ;
   
@@ -23248,7 +22216,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1default_1limb(JNIEnv *je
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_default_1limb_1get_1limb(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_default_1limb_1get_1limb(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::ps::default_limb *arg1 = (mae::fl::laban::ps::default_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::default_limb const > *smartarg1 = 0 ;
@@ -23266,7 +22234,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_default_1limb_1get_1limb(JNIEnv 
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_default_1limb_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_default_1limb_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::default_limb *arg1 = (mae::fl::laban::ps::default_limb *) 0 ;
   unsigned int arg2 ;
@@ -23295,7 +22263,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_default_1limb_1xml_1_1SWIG_10
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_default_1limb_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_default_1limb_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::default_limb *arg1 = (mae::fl::laban::ps::default_limb *) 0 ;
   unsigned int arg2 ;
@@ -23315,7 +22283,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_default_1limb_1xml_1_1SWIG_11
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_default_1limb_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_default_1limb_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::default_limb *arg1 = (mae::fl::laban::ps::default_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::default_limb const > *smartarg1 = 0 ;
@@ -23333,7 +22301,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_default_1limb_1xml_1_1SWIG_12
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_default_1limb_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_default_1limb_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::default_limb *arg1 = (mae::fl::laban::ps::default_limb *) 0 ;
   std::string arg2 ;
@@ -23370,7 +22338,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_default_1limb_1svg_1_1SWIG_10
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_default_1limb_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_default_1limb_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::default_limb *arg1 = (mae::fl::laban::ps::default_limb *) 0 ;
   std::string arg2 ;
@@ -23405,7 +22373,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_default_1limb_1svg_1_1SWIG_11
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_default_1limb_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_default_1limb_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::default_limb *arg1 = (mae::fl::laban::ps::default_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_part > arg2 ;
@@ -23428,7 +22396,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_default_1limb_1equals_1_1SWI
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_default_1limb_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_default_1limb_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::default_limb *arg1 = (mae::fl::laban::ps::default_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_limb > arg2 ;
@@ -23451,7 +22419,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_default_1limb_1equals_1_1SWI
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1digit_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1digit_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::e_digit arg1 ;
   std::string result;
@@ -23465,7 +22433,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1digit_1c_1str(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1digit_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1digit_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_digit > result;
   
@@ -23477,7 +22445,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1digit_1c_1vec(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1digit_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1digit_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::ps::e_digit result;
@@ -23498,7 +22466,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1digit_1c_1parse(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1digit_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1digit_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::e_digit_c *result = 0 ;
   
@@ -23510,7 +22478,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1digit_1c(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1digit_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1digit_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::e_digit_c *arg1 = (mae::fl::laban::ps::e_digit_c *) 0 ;
   
   (void)jenv;
@@ -23520,7 +22488,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1digit_1c(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1digit_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1digit_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_digit > *result = 0 ;
   
@@ -23532,7 +22500,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1digit_1vector_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1digit_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1digit_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::ps::e_digit >::size_type arg1 ;
   std::vector< mae::fl::laban::ps::e_digit > *result = 0 ;
@@ -23546,7 +22514,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1digit_1vector_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1digit_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_digit > *arg1 = (std::vector< mae::fl::laban::ps::e_digit > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_digit >::size_type result;
@@ -23561,7 +22529,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1size(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1digit_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_digit > *arg1 = (std::vector< mae::fl::laban::ps::e_digit > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_digit >::size_type result;
@@ -23576,7 +22544,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1capacity(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1digit_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::ps::e_digit > *arg1 = (std::vector< mae::fl::laban::ps::e_digit > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_digit >::size_type arg2 ;
   
@@ -23589,7 +22557,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1reserve(JNIEnv
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1digit_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_digit > *arg1 = (std::vector< mae::fl::laban::ps::e_digit > *) 0 ;
   bool result;
@@ -23604,7 +22572,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1isEmpty(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1digit_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::ps::e_digit > *arg1 = (std::vector< mae::fl::laban::ps::e_digit > *) 0 ;
   
   (void)jenv;
@@ -23615,7 +22583,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1clear(JNIEnv *
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1digit_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::ps::e_digit > *arg1 = (std::vector< mae::fl::laban::ps::e_digit > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_digit >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::ps::e_digit >::value_type temp2 ;
@@ -23630,7 +22598,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1add(JNIEnv *je
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1digit_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_digit > *arg1 = (std::vector< mae::fl::laban::ps::e_digit > *) 0 ;
   int arg2 ;
@@ -23654,7 +22622,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1get(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1digit_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::ps::e_digit > *arg1 = (std::vector< mae::fl::laban::ps::e_digit > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::ps::e_digit >::value_type *arg3 = 0 ;
@@ -23678,7 +22646,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1digit_1vector_1set(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1digit_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1digit_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::ps::e_digit > *arg1 = (std::vector< mae::fl::laban::ps::e_digit > *) 0 ;
   
   (void)jenv;
@@ -23688,7 +22656,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1digit_1vector(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1digit_1part(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1digit_1part(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::e_digit arg1 ;
   unsigned int arg2 ;
@@ -23706,7 +22674,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1digit_1part(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1digit_1part(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1digit_1part(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::digit_part *arg1 = (mae::fl::laban::ps::digit_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::digit_part > *smartarg1 = 0 ;
   
@@ -23719,7 +22687,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1digit_1part(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_digit_1part_1get_1digit(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_digit_1part_1get_1digit(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::ps::digit_part *arg1 = (mae::fl::laban::ps::digit_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::digit_part const > *smartarg1 = 0 ;
@@ -23737,7 +22705,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_digit_1part_1get_1digit(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_digit_1part_1get_1knuckle(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_digit_1part_1get_1knuckle(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::digit_part *arg1 = (mae::fl::laban::ps::digit_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::digit_part const > *smartarg1 = 0 ;
@@ -23755,7 +22723,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_digit_1part_1get_1knuckle(JNIEn
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_digit_1part_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_digit_1part_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::digit_part *arg1 = (mae::fl::laban::ps::digit_part *) 0 ;
   unsigned int arg2 ;
@@ -23784,7 +22752,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_digit_1part_1xml_1_1SWIG_10(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_digit_1part_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_digit_1part_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::digit_part *arg1 = (mae::fl::laban::ps::digit_part *) 0 ;
   unsigned int arg2 ;
@@ -23804,7 +22772,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_digit_1part_1xml_1_1SWIG_11(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_digit_1part_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_digit_1part_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::digit_part *arg1 = (mae::fl::laban::ps::digit_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::digit_part const > *smartarg1 = 0 ;
@@ -23822,7 +22790,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_digit_1part_1xml_1_1SWIG_12(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_digit_1part_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_digit_1part_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::digit_part *arg1 = (mae::fl::laban::ps::digit_part *) 0 ;
   std::string arg2 ;
@@ -23859,7 +22827,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_digit_1part_1svg_1_1SWIG_10(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_digit_1part_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_digit_1part_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::digit_part *arg1 = (mae::fl::laban::ps::digit_part *) 0 ;
   std::string arg2 ;
@@ -23894,7 +22862,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_digit_1part_1svg_1_1SWIG_11(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_digit_1part_1get_1fixed_1end(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_digit_1part_1get_1fixed_1end(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::digit_part *arg1 = (mae::fl::laban::ps::digit_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::digit_part const > *smartarg1 = 0 ;
@@ -23912,7 +22880,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_digit_1part_1get_1fixed_1end(JN
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_digit_1part_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_digit_1part_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::digit_part *arg1 = (mae::fl::laban::ps::digit_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_part > arg2 ;
@@ -23935,7 +22903,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_digit_1part_1equals_1_1SWIG_
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_digit_1part_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_digit_1part_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::digit_part *arg1 = (mae::fl::laban::ps::digit_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_endpoint > arg2 ;
@@ -23958,7 +22926,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_digit_1part_1equals_1_1SWIG_
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1limb_1side_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::e_limb_side arg1 ;
   std::string result;
@@ -23972,7 +22940,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1c_1str(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1limb_1side_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_limb_side > result;
   
@@ -23984,7 +22952,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1c_1vec(JNIEnv *j
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1limb_1side_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::ps::e_limb_side result;
@@ -24005,7 +22973,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1c_1parse(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1limb_1side_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1limb_1side_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::e_limb_side_c *result = 0 ;
   
@@ -24017,7 +22985,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1limb_1side_1c(JNIEnv *j
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1limb_1side_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1limb_1side_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::e_limb_side_c *arg1 = (mae::fl::laban::ps::e_limb_side_c *) 0 ;
   
   (void)jenv;
@@ -24027,7 +22995,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1limb_1side_1c(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1limb_1side_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1limb_1side_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_limb_side > *result = 0 ;
   
@@ -24039,7 +23007,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1limb_1side_1vector_1_1S
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1limb_1side_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1limb_1side_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::ps::e_limb_side >::size_type arg1 ;
   std::vector< mae::fl::laban::ps::e_limb_side > *result = 0 ;
@@ -24053,7 +23021,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1limb_1side_1vector_1_1S
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1limb_1side_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_limb_side > *arg1 = (std::vector< mae::fl::laban::ps::e_limb_side > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_limb_side >::size_type result;
@@ -24068,7 +23036,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1size(JNI
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1limb_1side_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_limb_side > *arg1 = (std::vector< mae::fl::laban::ps::e_limb_side > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_limb_side >::size_type result;
@@ -24083,7 +23051,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1capacity
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1limb_1side_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::ps::e_limb_side > *arg1 = (std::vector< mae::fl::laban::ps::e_limb_side > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_limb_side >::size_type arg2 ;
   
@@ -24096,7 +23064,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1reserve(J
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1limb_1side_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_limb_side > *arg1 = (std::vector< mae::fl::laban::ps::e_limb_side > *) 0 ;
   bool result;
@@ -24111,7 +23079,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1isEmp
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1limb_1side_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::ps::e_limb_side > *arg1 = (std::vector< mae::fl::laban::ps::e_limb_side > *) 0 ;
   
   (void)jenv;
@@ -24122,7 +23090,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1clear(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1limb_1side_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::ps::e_limb_side > *arg1 = (std::vector< mae::fl::laban::ps::e_limb_side > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_limb_side >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::ps::e_limb_side >::value_type temp2 ;
@@ -24137,7 +23105,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1add(JNIEn
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1limb_1side_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_limb_side > *arg1 = (std::vector< mae::fl::laban::ps::e_limb_side > *) 0 ;
   int arg2 ;
@@ -24161,7 +23129,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1get(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1limb_1side_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::ps::e_limb_side > *arg1 = (std::vector< mae::fl::laban::ps::e_limb_side > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::ps::e_limb_side >::value_type *arg3 = 0 ;
@@ -24185,7 +23153,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1limb_1side_1vector_1set(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1limb_1side_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1limb_1side_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::ps::e_limb_side > *arg1 = (std::vector< mae::fl::laban::ps::e_limb_side > *) 0 ;
   
   (void)jenv;
@@ -24195,7 +23163,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1limb_1side_1vector(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1surface_1part(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1surface_1part(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::e_limb_side arg1 ;
   std::shared_ptr< mae::fl::laban::ps::i_limb > arg2 ;
@@ -24216,7 +23184,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1surface_1part(JNIEnv *jenv
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1surface_1part(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1surface_1part(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::surface_part *arg1 = (mae::fl::laban::ps::surface_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::surface_part > *smartarg1 = 0 ;
   
@@ -24229,7 +23197,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1surface_1part(JNIEnv *je
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_surface_1part_1get_1limb_1side(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_surface_1part_1get_1limb_1side(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::ps::surface_part *arg1 = (mae::fl::laban::ps::surface_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::surface_part const > *smartarg1 = 0 ;
@@ -24247,7 +23215,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_surface_1part_1get_1limb_1side(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_surface_1part_1get_1limb(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_surface_1part_1get_1limb(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::surface_part *arg1 = (mae::fl::laban::ps::surface_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::surface_part const > *smartarg1 = 0 ;
@@ -24265,7 +23233,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_surface_1part_1get_1limb(JNIEnv
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_surface_1part_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_surface_1part_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::surface_part *arg1 = (mae::fl::laban::ps::surface_part *) 0 ;
   unsigned int arg2 ;
@@ -24294,7 +23262,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_surface_1part_1xml_1_1SWIG_10
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_surface_1part_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_surface_1part_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::surface_part *arg1 = (mae::fl::laban::ps::surface_part *) 0 ;
   unsigned int arg2 ;
@@ -24314,7 +23282,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_surface_1part_1xml_1_1SWIG_11
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_surface_1part_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_surface_1part_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::surface_part *arg1 = (mae::fl::laban::ps::surface_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::surface_part const > *smartarg1 = 0 ;
@@ -24332,7 +23300,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_surface_1part_1xml_1_1SWIG_12
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_surface_1part_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_surface_1part_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::surface_part *arg1 = (mae::fl::laban::ps::surface_part *) 0 ;
   std::string arg2 ;
@@ -24369,7 +23337,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_surface_1part_1svg_1_1SWIG_10
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_surface_1part_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_surface_1part_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::surface_part *arg1 = (mae::fl::laban::ps::surface_part *) 0 ;
   std::string arg2 ;
@@ -24404,7 +23372,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_surface_1part_1svg_1_1SWIG_11
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_surface_1part_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_surface_1part_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::surface_part *arg1 = (mae::fl::laban::ps::surface_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_part > arg2 ;
@@ -24427,7 +23395,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_surface_1part_1equals(JNIEnv
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1joint_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_e_1joint_1c_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::e_joint arg1 ;
   std::string result;
@@ -24441,7 +23409,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_e_1joint_1c_1str(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1joint_1c_1vec(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1joint_1c_1vec(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_joint > result;
   
@@ -24453,7 +23421,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1joint_1c_1vec(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1joint_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1joint_1c_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jint jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::ps::e_joint result;
@@ -24474,7 +23442,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1joint_1c_1parse(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1joint_1c(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1joint_1c(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::e_joint_c *result = 0 ;
   
@@ -24486,7 +23454,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1joint_1c(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1joint_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1joint_1c(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::e_joint_c *arg1 = (mae::fl::laban::ps::e_joint_c *) 0 ;
   
   (void)jenv;
@@ -24496,7 +23464,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1joint_1c(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1joint_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1joint_1vector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_joint > *result = 0 ;
   
@@ -24508,7 +23476,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1joint_1vector_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1joint_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1e_1joint_1vector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   std::vector< enum mae::fl::laban::ps::e_joint >::size_type arg1 ;
   std::vector< mae::fl::laban::ps::e_joint > *result = 0 ;
@@ -24522,7 +23490,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1e_1joint_1vector_1_1SWIG_1
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1joint_1vector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_joint > *arg1 = (std::vector< mae::fl::laban::ps::e_joint > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_joint >::size_type result;
@@ -24537,7 +23505,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1size(JNIEnv *
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_e_1joint_1vector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_joint > *arg1 = (std::vector< mae::fl::laban::ps::e_joint > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_joint >::size_type result;
@@ -24552,7 +23520,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1capacity(JNIE
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1joint_1vector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   std::vector< mae::fl::laban::ps::e_joint > *arg1 = (std::vector< mae::fl::laban::ps::e_joint > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_joint >::size_type arg2 ;
   
@@ -24565,7 +23533,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1reserve(JNIEnv
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_e_1joint_1vector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_joint > *arg1 = (std::vector< mae::fl::laban::ps::e_joint > *) 0 ;
   bool result;
@@ -24580,7 +23548,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1isEmpty(JN
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1joint_1vector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   std::vector< mae::fl::laban::ps::e_joint > *arg1 = (std::vector< mae::fl::laban::ps::e_joint > *) 0 ;
   
   (void)jenv;
@@ -24591,7 +23559,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1clear(JNIEnv *
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1joint_1vector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   std::vector< mae::fl::laban::ps::e_joint > *arg1 = (std::vector< mae::fl::laban::ps::e_joint > *) 0 ;
   std::vector< enum mae::fl::laban::ps::e_joint >::value_type *arg2 = 0 ;
   std::vector< enum mae::fl::laban::ps::e_joint >::value_type temp2 ;
@@ -24606,7 +23574,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1add(JNIEnv *je
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_e_1joint_1vector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   jint jresult = 0 ;
   std::vector< mae::fl::laban::ps::e_joint > *arg1 = (std::vector< mae::fl::laban::ps::e_joint > *) 0 ;
   int arg2 ;
@@ -24630,7 +23598,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1get(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_e_1joint_1vector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   std::vector< mae::fl::laban::ps::e_joint > *arg1 = (std::vector< mae::fl::laban::ps::e_joint > *) 0 ;
   int arg2 ;
   std::vector< enum mae::fl::laban::ps::e_joint >::value_type *arg3 = 0 ;
@@ -24654,7 +23622,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_e_1joint_1vector_1set(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1joint_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1e_1joint_1vector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   std::vector< mae::fl::laban::ps::e_joint > *arg1 = (std::vector< mae::fl::laban::ps::e_joint > *) 0 ;
   
   (void)jenv;
@@ -24664,7 +23632,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1e_1joint_1vector(JNIEnv 
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1joint_1part(JNIEnv *jenv, jclass jcls, jint jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1joint_1part(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::e_joint arg1 ;
   mae::fl::laban::ps::joint_part *result = 0 ;
@@ -24680,7 +23648,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1joint_1part(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1joint_1part(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1joint_1part(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::joint_part *arg1 = (mae::fl::laban::ps::joint_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::joint_part > *smartarg1 = 0 ;
   
@@ -24693,7 +23661,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1joint_1part(JNIEnv *jenv
 }
 
 
-SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_joint_1part_1get_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_joint_1part_1get_1joint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jint jresult = 0 ;
   mae::fl::laban::ps::joint_part *arg1 = (mae::fl::laban::ps::joint_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::joint_part const > *smartarg1 = 0 ;
@@ -24711,7 +23679,7 @@ SWIGEXPORT jint JNICALL Java_maejava_MaejavaJNI_joint_1part_1get_1joint(JNIEnv *
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_joint_1part_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_joint_1part_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::joint_part *arg1 = (mae::fl::laban::ps::joint_part *) 0 ;
   unsigned int arg2 ;
@@ -24740,7 +23708,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_joint_1part_1xml_1_1SWIG_10(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_joint_1part_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_joint_1part_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::joint_part *arg1 = (mae::fl::laban::ps::joint_part *) 0 ;
   unsigned int arg2 ;
@@ -24760,7 +23728,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_joint_1part_1xml_1_1SWIG_11(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_joint_1part_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_joint_1part_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::joint_part *arg1 = (mae::fl::laban::ps::joint_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::joint_part const > *smartarg1 = 0 ;
@@ -24778,7 +23746,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_joint_1part_1xml_1_1SWIG_12(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_joint_1part_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_joint_1part_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::joint_part *arg1 = (mae::fl::laban::ps::joint_part *) 0 ;
   std::string arg2 ;
@@ -24815,7 +23783,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_joint_1part_1svg_1_1SWIG_10(J
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_joint_1part_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_joint_1part_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::joint_part *arg1 = (mae::fl::laban::ps::joint_part *) 0 ;
   std::string arg2 ;
@@ -24850,7 +23818,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_joint_1part_1svg_1_1SWIG_11(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_joint_1part_1get_1fixed_1end(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_joint_1part_1get_1fixed_1end(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::ps::joint_part *arg1 = (mae::fl::laban::ps::joint_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::joint_part const > *smartarg1 = 0 ;
@@ -24868,7 +23836,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_joint_1part_1get_1fixed_1end(JN
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_joint_1part_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_joint_1part_1equals_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::joint_part *arg1 = (mae::fl::laban::ps::joint_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_part > arg2 ;
@@ -24891,7 +23859,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_joint_1part_1equals_1_1SWIG_
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_joint_1part_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_joint_1part_1equals_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::joint_part *arg1 = (mae::fl::laban::ps::joint_part *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_endpoint > arg2 ;
@@ -24914,7 +23882,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_joint_1part_1equals_1_1SWIG_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1prop_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jstring jarg1, jstring jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1prop_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jstring jarg1, jstring jarg2) {
   jlong jresult = 0 ;
   std::string arg1 ;
   std::string arg2 ;
@@ -24946,7 +23914,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1prop_1_1SWIG_10(JNIEnv *je
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1prop_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1prop_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jlong jresult = 0 ;
   std::string arg1 ;
   mae::fl::laban::ps::prop *result = 0 ;
@@ -24969,7 +23937,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_new_1prop_1_1SWIG_11(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1prop(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1prop(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::prop *arg1 = (mae::fl::laban::ps::prop *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::prop > *smartarg1 = 0 ;
   
@@ -24982,7 +23950,7 @@ SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_delete_1prop(JNIEnv *jenv, jclas
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1get_1name(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_prop_1get_1name(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::prop *arg1 = (mae::fl::laban::ps::prop *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::prop const > *smartarg1 = 0 ;
@@ -25000,7 +23968,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1get_1name(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1get_1description(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_prop_1get_1description(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::prop *arg1 = (mae::fl::laban::ps::prop *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::prop const > *smartarg1 = 0 ;
@@ -25018,7 +23986,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1get_1description(JNIEnv
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_prop_1xml_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jstring jarg3) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::prop *arg1 = (mae::fl::laban::ps::prop *) 0 ;
   unsigned int arg2 ;
@@ -25047,7 +24015,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1xml_1_1SWIG_10(JNIEnv *
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_prop_1xml_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::prop *arg1 = (mae::fl::laban::ps::prop *) 0 ;
   unsigned int arg2 ;
@@ -25067,7 +24035,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1xml_1_1SWIG_11(JNIEnv *
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_prop_1xml_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::prop *arg1 = (mae::fl::laban::ps::prop *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::prop const > *smartarg1 = 0 ;
@@ -25085,7 +24053,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1xml_1_1SWIG_12(JNIEnv *
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_prop_1svg_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6, jboolean jarg7) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::prop *arg1 = (mae::fl::laban::ps::prop *) 0 ;
   std::string arg2 ;
@@ -25122,7 +24090,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1svg_1_1SWIG_10(JNIEnv *
 }
 
 
-SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_prop_1svg_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jdouble jarg3, jdouble jarg4, jdouble jarg5, jdouble jarg6) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::prop *arg1 = (mae::fl::laban::ps::prop *) 0 ;
   std::string arg2 ;
@@ -25157,7 +24125,7 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaejavaJNI_prop_1svg_1_1SWIG_11(JNIEnv *
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_prop_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_prop_1equals(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jboolean jresult = 0 ;
   mae::fl::laban::ps::prop *arg1 = (mae::fl::laban::ps::prop *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_pre_sign > arg2 ;
@@ -25180,7 +24148,7 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaejavaJNI_prop_1equals(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1enriched_1pose_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_general_1enriched_1pose_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::general_enriched_pose > *argp1;
     (void)jenv;
@@ -25190,7 +24158,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_general_1enriched_1pose_1SWIGSm
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1skeleton_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::fl_skeleton > *argp1;
     (void)jenv;
@@ -25200,7 +24168,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1skeleton_1SWIGSmartPtrUpcas
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1pose_1detector_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1pose_1detector_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::fl_pose_detector > *argp1;
     (void)jenv;
@@ -25210,7 +24178,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1pose_1detector_1SWIGSmartPt
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1recognizer_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::laban_sequence_recognizer > *argp1;
     (void)jenv;
@@ -25220,7 +24188,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1recognizer_1SW
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1generator_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_laban_1sequence_1generator_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::laban_sequence_generator > *argp1;
     (void)jenv;
@@ -25230,7 +24198,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_laban_1sequence_1generator_1SWI
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1movement_1controller_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_fl_1movement_1controller_1SWIGUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     (void)jenv;
     (void)jcls;
@@ -25238,7 +24206,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_fl_1movement_1controller_1SWIGU
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_movement_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_movement_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::movement > *argp1;
     (void)jenv;
@@ -25248,7 +24216,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_movement_1SWIGSmartPtrUpcast(JN
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_path_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_path_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::path > *argp1;
     (void)jenv;
@@ -25258,7 +24226,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_path_1SWIGSmartPtrUpcast(JNIEnv
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_relationship_1bow_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::relationship_bow > *argp1;
     (void)jenv;
@@ -25268,7 +24236,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_relationship_1bow_1SWIGSmartPtr
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_pin_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_pin_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::mv::pin > *argp1;
     (void)jenv;
@@ -25278,7 +24246,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_pin_1SWIGSmartPtrUpcast(JNIEnv 
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_room_1direction_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_room_1direction_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::room_direction > *argp1;
     (void)jenv;
@@ -25288,7 +24256,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_room_1direction_1SWIGSmartPtrUp
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_accent_1sign_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_accent_1sign_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::mv::accent_sign > *argp1;
     (void)jenv;
@@ -25298,7 +24266,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_accent_1sign_1SWIGSmartPtrUpcas
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_dynamic_1sign_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_dynamic_1sign_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::mv::dynamic_sign > *argp1;
     (void)jenv;
@@ -25308,7 +24276,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_dynamic_1sign_1SWIGSmartPtrUpca
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_cancellation_1symbol_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::mv::cancellation_symbol > *argp1;
     (void)jenv;
@@ -25318,7 +24286,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_cancellation_1symbol_1SWIGSmart
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_space_1measurement_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_space_1measurement_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::mv::space_measurement > *argp1;
     (void)jenv;
@@ -25328,7 +24296,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_space_1measurement_1SWIGSmartPt
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_direction_1symbol_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::mv::direction_symbol > *argp1;
     (void)jenv;
@@ -25338,7 +24306,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_direction_1symbol_1SWIGSmartPtr
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_turn_1symbol_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::mv::turn_symbol > *argp1;
     (void)jenv;
@@ -25348,7 +24316,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_turn_1symbol_1SWIGSmartPtrUpcas
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_vibration_1symbol_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::mv::vibration_symbol > *argp1;
     (void)jenv;
@@ -25358,7 +24326,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_vibration_1symbol_1SWIGSmartPtr
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1endpoint_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::ps::i_endpoint > *argp1;
     (void)jenv;
@@ -25368,7 +24336,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1endpoint_1SWIGSmartPtrUpcast
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_area_1part_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_area_1part_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::ps::area_part > *argp1;
     (void)jenv;
@@ -25378,7 +24346,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_area_1part_1SWIGSmartPtrUpcast(
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_body_1part_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_body_1part_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::ps::body_part > *argp1;
     (void)jenv;
@@ -25388,7 +24356,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_body_1part_1SWIGSmartPtrUpcast(
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1limb_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_i_1limb_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::ps::i_limb > *argp1;
     (void)jenv;
@@ -25398,7 +24366,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_i_1limb_1SWIGSmartPtrUpcast(JNI
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_custom_1limb_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_custom_1limb_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::ps::custom_limb > *argp1;
     (void)jenv;
@@ -25408,7 +24376,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_custom_1limb_1SWIGSmartPtrUpcas
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_default_1limb_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_default_1limb_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::ps::default_limb > *argp1;
     (void)jenv;
@@ -25418,7 +24386,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_default_1limb_1SWIGSmartPtrUpca
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_digit_1part_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_digit_1part_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::ps::digit_part > *argp1;
     (void)jenv;
@@ -25428,7 +24396,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_digit_1part_1SWIGSmartPtrUpcast
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_surface_1part_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_surface_1part_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::ps::surface_part > *argp1;
     (void)jenv;
@@ -25438,7 +24406,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_surface_1part_1SWIGSmartPtrUpca
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_joint_1part_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_joint_1part_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::ps::joint_part > *argp1;
     (void)jenv;
@@ -25448,7 +24416,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_joint_1part_1SWIGSmartPtrUpcast
     return baseptr;
 }
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_prop_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_prop_1SWIGSmartPtrUpcast(JNIEnv *jenv, jclass jcls, jlong jarg1) {
     jlong baseptr = 0;
     std::shared_ptr< mae::fl::laban::ps::prop > *argp1;
     (void)jenv;
@@ -25458,64 +24426,19 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaejavaJNI_prop_1SWIGSmartPtrUpcast(JNIEnv
     return baseptr;
 }
 
-SWIGEXPORT void JNICALL Java_maejava_MaejavaJNI_swig_1module_1init(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_swig_1module_1init(JNIEnv *jenv, jclass jcls) {
   int i;
   
   static struct {
     const char *method;
     const char *signature;
-  } methods[16] = {
+  } methods[1] = {
     {
       "SwigDirector_laban_sequence_sequence_listener_on_sequence", "(Lmaejava/laban_sequence_sequence_listener;IJ)V" 
-    },
-    {
-      "SwigDirector_laban_sequence_recognition_listener_on_recognition__SWIG_0", "(Lmaejava/laban_sequence_recognition_listener;IJ)V" 
-    },
-    {
-      "SwigDirector_laban_sequence_recognition_listener_on_recognition__SWIG_1", "(Lmaejava/laban_sequence_recognition_listener;IJ)V" 
-    },
-    {
-      "SwigDirector_bvh_spec_get_id_map", "(Lmaejava/bvh_spec;)J" 
-    },
-    {
-      "SwigDirector_bvh_spec_get_torso_map", "(Lmaejava/bvh_spec;)J" 
-    },
-    {
-      "SwigDirector_bvh_spec_get_left_anchor", "(Lmaejava/bvh_spec;)Ljava/lang/String;" 
-    },
-    {
-      "SwigDirector_bvh_spec_get_right_anchor", "(Lmaejava/bvh_spec;)Ljava/lang/String;" 
-    },
-    {
-      "SwigDirector_bvh_spec_get_top_anchor", "(Lmaejava/bvh_spec;)Ljava/lang/String;" 
-    },
-    {
-      "SwigDirector_bvh_spec_get_bottom_anchor", "(Lmaejava/bvh_spec;)Ljava/lang/String;" 
-    },
-    {
-      "SwigDirector_bvh_controller_bvh_str__SWIG_0", "(Lmaejava/bvh_controller;J)Ljava/lang/String;" 
-    },
-    {
-      "SwigDirector_bvh_controller_bvh_str__SWIG_1", "(Lmaejava/bvh_controller;JD)Ljava/lang/String;" 
-    },
-    {
-      "SwigDirector_bvh_controller_bvh_str__SWIG_2", "(Lmaejava/bvh_controller;J)Ljava/lang/String;" 
-    },
-    {
-      "SwigDirector_bvh_controller_print_bvh_file__SWIG_0", "(Lmaejava/bvh_controller;JLjava/lang/String;)V" 
-    },
-    {
-      "SwigDirector_bvh_controller_print_bvh_file__SWIG_1", "(Lmaejava/bvh_controller;JLjava/lang/String;)V" 
-    },
-    {
-      "SwigDirector_bvh_controller_read_bvh_str", "(Lmaejava/bvh_controller;Ljava/lang/String;J)J" 
-    },
-    {
-      "SwigDirector_bvh_controller_read_bvh_file", "(Lmaejava/bvh_controller;Ljava/lang/String;J)J" 
     }
   };
-  Swig::jclass_MaejavaJNI = (jclass) jenv->NewGlobalRef(jcls);
-  if (!Swig::jclass_MaejavaJNI) return;
+  Swig::jclass_MaeJavaJNI = (jclass) jenv->NewGlobalRef(jcls);
+  if (!Swig::jclass_MaeJavaJNI) return;
   for (i = 0; i < (int) (sizeof(methods)/sizeof(methods[0])); ++i) {
     Swig::director_methids[i] = jenv->GetStaticMethodID(jcls, methods[i].method, methods[i].signature);
     if (!Swig::director_methids[i]) return;

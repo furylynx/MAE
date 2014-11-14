@@ -13,7 +13,7 @@ public class dynamic_sign extends i_dynamics_sign {
   private boolean swigCMemOwnDerived;
 
   public dynamic_sign(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.dynamic_sign_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.dynamic_sign_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class dynamic_sign extends i_dynamics_sign {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_dynamic_sign(swigCPtr);
+        MaeJavaJNI.delete_dynamic_sign(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,27 +38,27 @@ public class dynamic_sign extends i_dynamics_sign {
   }
 
   public dynamic_sign(e_dynamic dynamic) {
-    this(MaejavaJNI.new_dynamic_sign(dynamic.swigValue()), true);
+    this(MaeJavaJNI.new_dynamic_sign(dynamic.swigValue()), true);
   }
 
   public e_dynamic get_dynamic() {
-    return e_dynamic.swigToEnum(MaejavaJNI.dynamic_sign_get_dynamic(swigCPtr, this));
+    return e_dynamic.swigToEnum(MaeJavaJNI.dynamic_sign_get_dynamic(swigCPtr, this));
   }
 
   public boolean equals(i_dynamics_sign a) {
-    return MaejavaJNI.dynamic_sign_equals(swigCPtr, this, i_dynamics_sign.getCPtr(a), a);
+    return MaeJavaJNI.dynamic_sign_equals(swigCPtr, this, i_dynamics_sign.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.dynamic_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.dynamic_sign_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.dynamic_sign_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.dynamic_sign_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.dynamic_sign_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.dynamic_sign_xml__SWIG_2(swigCPtr, this);
   }
 
 }

@@ -29,14 +29,14 @@ public class fl_skeleton_pose_detector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_fl_skeleton_pose_detector(swigCPtr);
+        MaeJavaJNI.delete_fl_skeleton_pose_detector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public general_pose pose(fl_skeleton skeleton, bone_vector body_parts, general_pose previous_pose) {
-    long cPtr = MaejavaJNI.fl_skeleton_pose_detector_pose(swigCPtr, this, fl_skeleton.getCPtr(skeleton), skeleton, bone_vector.getCPtr(body_parts), body_parts, general_pose.getCPtr(previous_pose), previous_pose);
+    long cPtr = MaeJavaJNI.fl_skeleton_pose_detector_pose(swigCPtr, this, fl_skeleton.getCPtr(skeleton), skeleton, bone_vector.getCPtr(body_parts), body_parts, general_pose.getCPtr(previous_pose), previous_pose);
     return (cPtr == 0) ? null : new general_pose(cPtr, true);
   }
 

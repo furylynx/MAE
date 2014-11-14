@@ -13,7 +13,7 @@ public class i_endpoint extends i_part {
   private boolean swigCMemOwnDerived;
 
   public i_endpoint(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.i_endpoint_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.i_endpoint_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class i_endpoint extends i_part {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_i_endpoint(swigCPtr);
+        MaeJavaJNI.delete_i_endpoint(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,28 +38,28 @@ public class i_endpoint extends i_part {
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.i_endpoint_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.i_endpoint_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.i_endpoint_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.i_endpoint_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.i_endpoint_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.i_endpoint_xml__SWIG_2(swigCPtr, this);
   }
 
   public i_endpoint get_fixed_end() {
-    long cPtr = MaejavaJNI.i_endpoint_get_fixed_end(swigCPtr, this);
+    long cPtr = MaeJavaJNI.i_endpoint_get_fixed_end(swigCPtr, this);
     return (cPtr == 0) ? null : new i_endpoint(cPtr, true);
   }
 
   public boolean equals(i_part a) {
-    return MaejavaJNI.i_endpoint_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
+    return MaeJavaJNI.i_endpoint_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
   public boolean equals(i_endpoint a) {
-    return MaejavaJNI.i_endpoint_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
+    return MaeJavaJNI.i_endpoint_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
   }
 
 }

@@ -13,7 +13,7 @@ public class path extends i_movement {
   private boolean swigCMemOwnDerived;
 
   public path(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.path_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.path_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class path extends i_movement {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_path(swigCPtr);
+        MaeJavaJNI.delete_path(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,60 +38,60 @@ public class path extends i_movement {
   }
 
   public path(e_path_type type, long measure, double beat, double duration) {
-    this(MaejavaJNI.new_path(type.swigValue(), measure, beat, duration), true);
+    this(MaeJavaJNI.new_path(type.swigValue(), measure, beat, duration), true);
   }
 
   public e_path_type get_type() {
-    return e_path_type.swigToEnum(MaejavaJNI.path_get_type(swigCPtr, this));
+    return e_path_type.swigToEnum(MaeJavaJNI.path_get_type(swigCPtr, this));
   }
 
   public int get_column() {
-    return MaejavaJNI.path_get_column(swigCPtr, this);
+    return MaeJavaJNI.path_get_column(swigCPtr, this);
   }
 
   public long get_measure() {
-    return MaejavaJNI.path_get_measure(swigCPtr, this);
+    return MaeJavaJNI.path_get_measure(swigCPtr, this);
   }
 
   public double get_beat() {
-    return MaejavaJNI.path_get_beat(swigCPtr, this);
+    return MaeJavaJNI.path_get_beat(swigCPtr, this);
   }
 
   public double get_duration() {
-    return MaejavaJNI.path_get_duration(swigCPtr, this);
+    return MaeJavaJNI.path_get_duration(swigCPtr, this);
   }
 
   public boolean equals(i_movement a) {
-    return MaejavaJNI.path_equals(swigCPtr, this, i_movement.getCPtr(a), a);
+    return MaeJavaJNI.path_equals(swigCPtr, this, i_movement.getCPtr(a), a);
   }
 
   public boolean symbol_equals(i_movement a) {
-    return MaejavaJNI.path_symbol_equals(swigCPtr, this, i_movement.getCPtr(a), a);
+    return MaeJavaJNI.path_symbol_equals(swigCPtr, this, i_movement.getCPtr(a), a);
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.path_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.path_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.path_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.path_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.path_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.path_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(long im_width, long im_height, long max_column, long measures, long beats_per_measure) {
-    return MaejavaJNI.path_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
+    return MaeJavaJNI.path_svg(swigCPtr, this, im_width, im_height, max_column, measures, beats_per_measure);
   }
 
   public i_movement recreate(int_int_map column_mapping, long measure, double beat, double duration) {
-    long cPtr = MaejavaJNI.path_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration);
+    long cPtr = MaeJavaJNI.path_recreate(swigCPtr, this, int_int_map.getCPtr(column_mapping), column_mapping, measure, beat, duration);
     return (cPtr == 0) ? null : new i_movement(cPtr, true);
   }
 
   public String str() {
-    return MaejavaJNI.path_str(swigCPtr, this);
+    return MaeJavaJNI.path_str(swigCPtr, this);
   }
 
 }

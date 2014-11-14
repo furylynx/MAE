@@ -29,14 +29,14 @@ public class i_pose_listener {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_i_pose_listener(swigCPtr);
+        MaeJavaJNI.delete_i_pose_listener(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public void on_pose(int timestamp, general_pose pose) {
-    MaejavaJNI.i_pose_listener_on_pose(swigCPtr, this, timestamp, general_pose.getCPtr(pose), pose);
+    MaeJavaJNI.i_pose_listener_on_pose(swigCPtr, this, timestamp, general_pose.getCPtr(pose), pose);
   }
 
 }

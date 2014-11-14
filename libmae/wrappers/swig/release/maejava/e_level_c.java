@@ -29,30 +29,30 @@ public class e_level_c {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_e_level_c(swigCPtr);
+        MaeJavaJNI.delete_e_level_c(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public static String str(e_level level) {
-    return MaejavaJNI.e_level_c_str(level.swigValue());
+    return MaeJavaJNI.e_level_c_str(level.swigValue());
   }
 
   public static e_level lvl(e_fl_direction direction) {
-    return e_level.swigToEnum(MaejavaJNI.e_level_c_lvl(direction.swigValue()));
+    return e_level.swigToEnum(MaeJavaJNI.e_level_c_lvl(direction.swigValue()));
   }
 
   public static e_level_vector vec() {
-    return new e_level_vector(MaejavaJNI.e_level_c_vec(), true);
+    return new e_level_vector(MaeJavaJNI.e_level_c_vec(), true);
   }
 
   public static e_level parse(String str) {
-    return e_level.swigToEnum(MaejavaJNI.e_level_c_parse(str));
+    return e_level.swigToEnum(MaeJavaJNI.e_level_c_parse(str));
   }
 
   public e_level_c() {
-    this(MaejavaJNI.new_e_level_c(), true);
+    this(MaeJavaJNI.new_e_level_c(), true);
   }
 
 }

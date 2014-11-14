@@ -29,46 +29,46 @@ public class vec3d {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_vec3d(swigCPtr);
+        MaeJavaJNI.delete_vec3d(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public vec3d() {
-    this(MaejavaJNI.new_vec3d__SWIG_0(), true);
+    this(MaeJavaJNI.new_vec3d__SWIG_0(), true);
   }
 
   public vec3d(double x, double y, double z) {
-    this(MaejavaJNI.new_vec3d__SWIG_1(x, y, z), true);
+    this(MaeJavaJNI.new_vec3d__SWIG_1(x, y, z), true);
   }
 
   public void set_x(double x) {
-    MaejavaJNI.vec3d_set_x(swigCPtr, this, x);
+    MaeJavaJNI.vec3d_set_x(swigCPtr, this, x);
   }
 
   public double get_x() {
-    return MaejavaJNI.vec3d_get_x(swigCPtr, this);
+    return MaeJavaJNI.vec3d_get_x(swigCPtr, this);
   }
 
   public void set_y(double y) {
-    MaejavaJNI.vec3d_set_y(swigCPtr, this, y);
+    MaeJavaJNI.vec3d_set_y(swigCPtr, this, y);
   }
 
   public double get_y() {
-    return MaejavaJNI.vec3d_get_y(swigCPtr, this);
+    return MaeJavaJNI.vec3d_get_y(swigCPtr, this);
   }
 
   public void set_z(double z) {
-    MaejavaJNI.vec3d_set_z(swigCPtr, this, z);
+    MaeJavaJNI.vec3d_set_z(swigCPtr, this, z);
   }
 
   public double get_z() {
-    return MaejavaJNI.vec3d_get_z(swigCPtr, this);
+    return MaeJavaJNI.vec3d_get_z(swigCPtr, this);
   }
 
   public String str() {
-    return MaejavaJNI.vec3d_str(swigCPtr, this);
+    return MaeJavaJNI.vec3d_str(swigCPtr, this);
   }
 
 }

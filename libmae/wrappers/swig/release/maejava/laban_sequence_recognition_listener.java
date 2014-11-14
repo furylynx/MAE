@@ -29,38 +29,18 @@ public class laban_sequence_recognition_listener {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_laban_sequence_recognition_listener(swigCPtr);
+        MaeJavaJNI.delete_laban_sequence_recognition_listener(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
-  protected void swigDirectorDisconnect() {
-    swigCMemOwn = false;
-    delete();
-  }
-
-  public void swigReleaseOwnership() {
-    swigCMemOwn = false;
-    MaejavaJNI.laban_sequence_recognition_listener_change_ownership(this, swigCPtr, false);
-  }
-
-  public void swigTakeOwnership() {
-    swigCMemOwn = true;
-    MaejavaJNI.laban_sequence_recognition_listener_change_ownership(this, swigCPtr, true);
-  }
-
   public void on_recognition(int timestamp, laban_sequence_vector sequences) {
-    MaejavaJNI.laban_sequence_recognition_listener_on_recognition__SWIG_0(swigCPtr, this, timestamp, laban_sequence_vector.getCPtr(sequences), sequences);
+    MaeJavaJNI.laban_sequence_recognition_listener_on_recognition__SWIG_0(swigCPtr, this, timestamp, laban_sequence_vector.getCPtr(sequences), sequences);
   }
 
   public void on_recognition(int timestamp, string_vector title) {
-    MaejavaJNI.laban_sequence_recognition_listener_on_recognition__SWIG_1(swigCPtr, this, timestamp, string_vector.getCPtr(title), title);
-  }
-
-  public laban_sequence_recognition_listener() {
-    this(MaejavaJNI.new_laban_sequence_recognition_listener(), true);
-    MaejavaJNI.laban_sequence_recognition_listener_director_connect(this, swigCPtr, swigCMemOwn, true);
+    MaeJavaJNI.laban_sequence_recognition_listener_on_recognition__SWIG_1(swigCPtr, this, timestamp, string_vector.getCPtr(title), title);
   }
 
 }

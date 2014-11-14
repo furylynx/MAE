@@ -29,50 +29,50 @@ public class e_digit_vector {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_e_digit_vector(swigCPtr);
+        MaeJavaJNI.delete_e_digit_vector(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public e_digit_vector() {
-    this(MaejavaJNI.new_e_digit_vector__SWIG_0(), true);
+    this(MaeJavaJNI.new_e_digit_vector__SWIG_0(), true);
   }
 
   public e_digit_vector(long n) {
-    this(MaejavaJNI.new_e_digit_vector__SWIG_1(n), true);
+    this(MaeJavaJNI.new_e_digit_vector__SWIG_1(n), true);
   }
 
   public long size() {
-    return MaejavaJNI.e_digit_vector_size(swigCPtr, this);
+    return MaeJavaJNI.e_digit_vector_size(swigCPtr, this);
   }
 
   public long capacity() {
-    return MaejavaJNI.e_digit_vector_capacity(swigCPtr, this);
+    return MaeJavaJNI.e_digit_vector_capacity(swigCPtr, this);
   }
 
   public void reserve(long n) {
-    MaejavaJNI.e_digit_vector_reserve(swigCPtr, this, n);
+    MaeJavaJNI.e_digit_vector_reserve(swigCPtr, this, n);
   }
 
   public boolean isEmpty() {
-    return MaejavaJNI.e_digit_vector_isEmpty(swigCPtr, this);
+    return MaeJavaJNI.e_digit_vector_isEmpty(swigCPtr, this);
   }
 
   public void clear() {
-    MaejavaJNI.e_digit_vector_clear(swigCPtr, this);
+    MaeJavaJNI.e_digit_vector_clear(swigCPtr, this);
   }
 
   public void add(e_digit x) {
-    MaejavaJNI.e_digit_vector_add(swigCPtr, this, x.swigValue());
+    MaeJavaJNI.e_digit_vector_add(swigCPtr, this, x.swigValue());
   }
 
   public e_digit get(int i) {
-    return e_digit.swigToEnum(MaejavaJNI.e_digit_vector_get(swigCPtr, this, i));
+    return e_digit.swigToEnum(MaeJavaJNI.e_digit_vector_get(swigCPtr, this, i));
   }
 
   public void set(int i, e_digit val) {
-    MaejavaJNI.e_digit_vector_set(swigCPtr, this, i, val.swigValue());
+    MaeJavaJNI.e_digit_vector_set(swigCPtr, this, i, val.swigValue());
   }
 
 }

@@ -13,7 +13,7 @@ public class laban_sequence_recognizer extends laban_sequence_sequence_recognize
   private boolean swigCMemOwnDerived;
 
   public laban_sequence_recognizer(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.laban_sequence_recognizer_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.laban_sequence_recognizer_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class laban_sequence_recognizer extends laban_sequence_sequence_recognize
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_laban_sequence_recognizer(swigCPtr);
+        MaeJavaJNI.delete_laban_sequence_recognizer(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,80 +38,80 @@ public class laban_sequence_recognizer extends laban_sequence_sequence_recognize
   }
 
   public laban_sequence_recognizer(double framerate, boolean debug) {
-    this(MaejavaJNI.new_laban_sequence_recognizer__SWIG_0(framerate, debug), true);
+    this(MaeJavaJNI.new_laban_sequence_recognizer__SWIG_0(framerate, debug), true);
   }
 
   public laban_sequence_recognizer(double framerate) {
-    this(MaejavaJNI.new_laban_sequence_recognizer__SWIG_1(framerate), true);
+    this(MaeJavaJNI.new_laban_sequence_recognizer__SWIG_1(framerate), true);
   }
 
   public laban_sequence_recognizer() {
-    this(MaejavaJNI.new_laban_sequence_recognizer__SWIG_2(), true);
+    this(MaeJavaJNI.new_laban_sequence_recognizer__SWIG_2(), true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate, boolean debug) {
-    this(MaejavaJNI.new_laban_sequence_recognizer__SWIG_3(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, debug), true);
+    this(MaeJavaJNI.new_laban_sequence_recognizer__SWIG_3(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, debug), true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure, long beat_duration, e_time_unit time_unit, double framerate) {
-    this(MaejavaJNI.new_laban_sequence_recognizer__SWIG_4(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue(), framerate), true);
+    this(MaeJavaJNI.new_laban_sequence_recognizer__SWIG_4(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue(), framerate), true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure, long beat_duration, e_time_unit time_unit) {
-    this(MaejavaJNI.new_laban_sequence_recognizer__SWIG_5(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue()), true);
+    this(MaeJavaJNI.new_laban_sequence_recognizer__SWIG_5(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue()), true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure, long beat_duration) {
-    this(MaejavaJNI.new_laban_sequence_recognizer__SWIG_6(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration), true);
+    this(MaeJavaJNI.new_laban_sequence_recognizer__SWIG_6(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration), true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions, long beats_per_measure) {
-    this(MaejavaJNI.new_laban_sequence_recognizer__SWIG_7(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure), true);
+    this(MaeJavaJNI.new_laban_sequence_recognizer__SWIG_7(coldef_vector.getCPtr(column_definitions), column_definitions, beats_per_measure), true);
   }
 
   public laban_sequence_recognizer(coldef_vector column_definitions) {
-    this(MaejavaJNI.new_laban_sequence_recognizer__SWIG_8(coldef_vector.getCPtr(column_definitions), column_definitions), true);
+    this(MaeJavaJNI.new_laban_sequence_recognizer__SWIG_8(coldef_vector.getCPtr(column_definitions), column_definitions), true);
   }
 
   public void set_recognition_tolerance(double tolerance) {
-    MaejavaJNI.laban_sequence_recognizer_set_recognition_tolerance(swigCPtr, this, tolerance);
+    MaeJavaJNI.laban_sequence_recognizer_set_recognition_tolerance(swigCPtr, this, tolerance);
   }
 
   public decision_forest get_decision_forest() {
-    long cPtr = MaejavaJNI.laban_sequence_recognizer_get_decision_forest(swigCPtr, this);
+    long cPtr = MaeJavaJNI.laban_sequence_recognizer_get_decision_forest(swigCPtr, this);
     return (cPtr == 0) ? null : new decision_forest(cPtr, true);
   }
 
   public void register_sequence(laban_sequence sequence) {
-    MaejavaJNI.laban_sequence_recognizer_register_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    MaeJavaJNI.laban_sequence_recognizer_register_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public boolean deregister_sequence(laban_sequence sequence) {
-    return MaejavaJNI.laban_sequence_recognizer_deregister_sequence__SWIG_0(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    return MaeJavaJNI.laban_sequence_recognizer_deregister_sequence__SWIG_0(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public boolean deregister_sequence(long list_index) {
-    return MaejavaJNI.laban_sequence_recognizer_deregister_sequence__SWIG_1(swigCPtr, this, list_index);
+    return MaeJavaJNI.laban_sequence_recognizer_deregister_sequence__SWIG_1(swigCPtr, this, list_index);
   }
 
   public void clear_registered_sequences() {
-    MaejavaJNI.laban_sequence_recognizer_clear_registered_sequences(swigCPtr, this);
+    MaeJavaJNI.laban_sequence_recognizer_clear_registered_sequences(swigCPtr, this);
   }
 
   public laban_sequence_list get_registered_sequences() {
-    return new laban_sequence_list(MaejavaJNI.laban_sequence_recognizer_get_registered_sequences(swigCPtr, this), true);
+    return new laban_sequence_list(MaeJavaJNI.laban_sequence_recognizer_get_registered_sequences(swigCPtr, this), true);
   }
 
   public int get_sequence_length(laban_sequence sequence) {
-    return MaejavaJNI.laban_sequence_recognizer_get_sequence_length(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
+    return MaeJavaJNI.laban_sequence_recognizer_get_sequence_length(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence);
   }
 
   public laban_sequence_vector recognize_sequence(laban_sequence sequence, bone_vector body_parts) {
-    return new laban_sequence_vector(MaejavaJNI.laban_sequence_recognizer_recognize_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence, bone_vector.getCPtr(body_parts), body_parts), true);
+    return new laban_sequence_vector(MaeJavaJNI.laban_sequence_recognizer_recognize_sequence(swigCPtr, this, laban_sequence.getCPtr(sequence), sequence, bone_vector.getCPtr(body_parts), body_parts), true);
   }
 
   public String str() {
-    return MaejavaJNI.laban_sequence_recognizer_str(swigCPtr, this);
+    return MaeJavaJNI.laban_sequence_recognizer_str(swigCPtr, this);
   }
 
 }

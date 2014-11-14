@@ -29,46 +29,46 @@ public class int_int_map {
     if (swigCPtr != 0) {
       if (swigCMemOwn) {
         swigCMemOwn = false;
-        MaejavaJNI.delete_int_int_map(swigCPtr);
+        MaeJavaJNI.delete_int_int_map(swigCPtr);
       }
       swigCPtr = 0;
     }
   }
 
   public int_int_map() {
-    this(MaejavaJNI.new_int_int_map__SWIG_0(), true);
+    this(MaeJavaJNI.new_int_int_map__SWIG_0(), true);
   }
 
   public int_int_map(int_int_map arg0) {
-    this(MaejavaJNI.new_int_int_map__SWIG_1(int_int_map.getCPtr(arg0), arg0), true);
+    this(MaeJavaJNI.new_int_int_map__SWIG_1(int_int_map.getCPtr(arg0), arg0), true);
   }
 
   public long size() {
-    return MaejavaJNI.int_int_map_size(swigCPtr, this);
+    return MaeJavaJNI.int_int_map_size(swigCPtr, this);
   }
 
   public boolean empty() {
-    return MaejavaJNI.int_int_map_empty(swigCPtr, this);
+    return MaeJavaJNI.int_int_map_empty(swigCPtr, this);
   }
 
   public void clear() {
-    MaejavaJNI.int_int_map_clear(swigCPtr, this);
+    MaeJavaJNI.int_int_map_clear(swigCPtr, this);
   }
 
   public int get(int key) {
-    return MaejavaJNI.int_int_map_get(swigCPtr, this, key);
+    return MaeJavaJNI.int_int_map_get(swigCPtr, this, key);
   }
 
   public void set(int key, int x) {
-    MaejavaJNI.int_int_map_set(swigCPtr, this, key, x);
+    MaeJavaJNI.int_int_map_set(swigCPtr, this, key, x);
   }
 
   public void del(int key) {
-    MaejavaJNI.int_int_map_del(swigCPtr, this, key);
+    MaeJavaJNI.int_int_map_del(swigCPtr, this, key);
   }
 
   public boolean has_key(int key) {
-    return MaejavaJNI.int_int_map_has_key(swigCPtr, this, key);
+    return MaeJavaJNI.int_int_map_has_key(swigCPtr, this, key);
   }
 
 }

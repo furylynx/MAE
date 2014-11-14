@@ -8,7 +8,8 @@
 %include "swig_fixed_std_shared_ptr.i"
 %include "exception.i"
 
- 
+//%feature("director") mae::i_pose_listener; 
+
 %module(directors="1") w_i_pose_listener
 %{
 	#include "../../../src/mae/i_pose_listener.hpp"

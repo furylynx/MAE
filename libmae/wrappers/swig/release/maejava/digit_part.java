@@ -13,7 +13,7 @@ public class digit_part extends i_endpoint {
   private boolean swigCMemOwnDerived;
 
   public digit_part(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.digit_part_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.digit_part_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class digit_part extends i_endpoint {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_digit_part(swigCPtr);
+        MaeJavaJNI.delete_digit_part(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,48 +38,48 @@ public class digit_part extends i_endpoint {
   }
 
   public digit_part(e_digit digit, long knuckle) {
-    this(MaejavaJNI.new_digit_part(digit.swigValue(), knuckle), true);
+    this(MaeJavaJNI.new_digit_part(digit.swigValue(), knuckle), true);
   }
 
   public e_digit get_digit() {
-    return e_digit.swigToEnum(MaejavaJNI.digit_part_get_digit(swigCPtr, this));
+    return e_digit.swigToEnum(MaeJavaJNI.digit_part_get_digit(swigCPtr, this));
   }
 
   public long get_knuckle() {
-    return MaejavaJNI.digit_part_get_knuckle(swigCPtr, this);
+    return MaeJavaJNI.digit_part_get_knuckle(swigCPtr, this);
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.digit_part_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.digit_part_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.digit_part_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.digit_part_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.digit_part_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.digit_part_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return MaejavaJNI.digit_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaeJavaJNI.digit_part_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return MaejavaJNI.digit_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaeJavaJNI.digit_part_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public i_endpoint get_fixed_end() {
-    long cPtr = MaejavaJNI.digit_part_get_fixed_end(swigCPtr, this);
+    long cPtr = MaeJavaJNI.digit_part_get_fixed_end(swigCPtr, this);
     return (cPtr == 0) ? null : new i_endpoint(cPtr, true);
   }
 
   public boolean equals(i_part a) {
-    return MaejavaJNI.digit_part_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
+    return MaeJavaJNI.digit_part_equals__SWIG_0(swigCPtr, this, i_part.getCPtr(a), a);
   }
 
   public boolean equals(i_endpoint a) {
-    return MaejavaJNI.digit_part_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
+    return MaeJavaJNI.digit_part_equals__SWIG_1(swigCPtr, this, i_endpoint.getCPtr(a), a);
   }
 
 }

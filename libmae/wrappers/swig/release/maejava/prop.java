@@ -13,7 +13,7 @@ public class prop extends i_pre_sign {
   private boolean swigCMemOwnDerived;
 
   public prop(long cPtr, boolean cMemoryOwn) {
-    super(MaejavaJNI.prop_SWIGSmartPtrUpcast(cPtr), true);
+    super(MaeJavaJNI.prop_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
@@ -30,7 +30,7 @@ public class prop extends i_pre_sign {
     if (swigCPtr != 0) {
       if (swigCMemOwnDerived) {
         swigCMemOwnDerived = false;
-        MaejavaJNI.delete_prop(swigCPtr);
+        MaeJavaJNI.delete_prop(swigCPtr);
       }
       swigCPtr = 0;
     }
@@ -38,43 +38,43 @@ public class prop extends i_pre_sign {
   }
 
   public prop(String name, String description) {
-    this(MaejavaJNI.new_prop__SWIG_0(name, description), true);
+    this(MaeJavaJNI.new_prop__SWIG_0(name, description), true);
   }
 
   public prop(String name) {
-    this(MaejavaJNI.new_prop__SWIG_1(name), true);
+    this(MaeJavaJNI.new_prop__SWIG_1(name), true);
   }
 
   public String get_name() {
-    return MaejavaJNI.prop_get_name(swigCPtr, this);
+    return MaeJavaJNI.prop_get_name(swigCPtr, this);
   }
 
   public String get_description() {
-    return MaejavaJNI.prop_get_description(swigCPtr, this);
+    return MaeJavaJNI.prop_get_description(swigCPtr, this);
   }
 
   public String xml(long indent, String namesp) {
-    return MaejavaJNI.prop_xml__SWIG_0(swigCPtr, this, indent, namesp);
+    return MaeJavaJNI.prop_xml__SWIG_0(swigCPtr, this, indent, namesp);
   }
 
   public String xml(long indent) {
-    return MaejavaJNI.prop_xml__SWIG_1(swigCPtr, this, indent);
+    return MaeJavaJNI.prop_xml__SWIG_1(swigCPtr, this, indent);
   }
 
   public String xml() {
-    return MaejavaJNI.prop_xml__SWIG_2(swigCPtr, this);
+    return MaeJavaJNI.prop_xml__SWIG_2(swigCPtr, this);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height, boolean left) {
-    return MaejavaJNI.prop_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
+    return MaeJavaJNI.prop_svg__SWIG_0(swigCPtr, this, identifier, posx, posy, width, height, left);
   }
 
   public String svg(String identifier, double posx, double posy, double width, double height) {
-    return MaejavaJNI.prop_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
+    return MaeJavaJNI.prop_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
   public boolean equals(i_pre_sign a) {
-    return MaejavaJNI.prop_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a);
+    return MaeJavaJNI.prop_equals(swigCPtr, this, i_pre_sign.getCPtr(a), a);
   }
 
 }
