@@ -12,12 +12,12 @@ public class general_pose {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected general_pose(long cPtr, boolean cMemoryOwn) {
+  public general_pose(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(general_pose obj) {
+  public static long getCPtr(general_pose obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

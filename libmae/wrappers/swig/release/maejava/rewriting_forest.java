@@ -12,12 +12,12 @@ public class rewriting_forest {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected rewriting_forest(long cPtr, boolean cMemoryOwn) {
+  public rewriting_forest(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(rewriting_forest obj) {
+  public static long getCPtr(rewriting_forest obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

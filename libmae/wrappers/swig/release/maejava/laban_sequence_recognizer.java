@@ -12,13 +12,13 @@ public class laban_sequence_recognizer extends laban_sequence_sequence_recognize
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected laban_sequence_recognizer(long cPtr, boolean cMemoryOwn) {
+  public laban_sequence_recognizer(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.laban_sequence_recognizer_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(laban_sequence_recognizer obj) {
+  public static long getCPtr(laban_sequence_recognizer obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

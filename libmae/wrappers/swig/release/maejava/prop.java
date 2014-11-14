@@ -12,13 +12,13 @@ public class prop extends i_pre_sign {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected prop(long cPtr, boolean cMemoryOwn) {
+  public prop(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.prop_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(prop obj) {
+  public static long getCPtr(prop obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

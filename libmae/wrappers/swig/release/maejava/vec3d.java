@@ -12,12 +12,12 @@ public class vec3d {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected vec3d(long cPtr, boolean cMemoryOwn) {
+  public vec3d(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(vec3d obj) {
+  public static long getCPtr(vec3d obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

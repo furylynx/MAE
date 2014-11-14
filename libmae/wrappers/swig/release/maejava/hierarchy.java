@@ -12,12 +12,12 @@ public class hierarchy {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected hierarchy(long cPtr, boolean cMemoryOwn) {
+  public hierarchy(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(hierarchy obj) {
+  public static long getCPtr(hierarchy obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

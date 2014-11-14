@@ -12,13 +12,13 @@ public class joint_part extends i_endpoint {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected joint_part(long cPtr, boolean cMemoryOwn) {
+  public joint_part(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.joint_part_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(joint_part obj) {
+  public static long getCPtr(joint_part obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

@@ -12,12 +12,12 @@ public class column_definition {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected column_definition(long cPtr, boolean cMemoryOwn) {
+  public column_definition(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(column_definition obj) {
+  public static long getCPtr(column_definition obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

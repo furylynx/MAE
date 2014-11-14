@@ -12,12 +12,12 @@ public class bvh_spec {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected bvh_spec(long cPtr, boolean cMemoryOwn) {
+  public bvh_spec(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(bvh_spec obj) {
+  public static long getCPtr(bvh_spec obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

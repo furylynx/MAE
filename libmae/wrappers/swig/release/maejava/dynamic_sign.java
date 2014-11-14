@@ -12,13 +12,13 @@ public class dynamic_sign extends i_dynamics_sign {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected dynamic_sign(long cPtr, boolean cMemoryOwn) {
+  public dynamic_sign(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.dynamic_sign_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(dynamic_sign obj) {
+  public static long getCPtr(dynamic_sign obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

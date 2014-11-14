@@ -12,13 +12,13 @@ public class fl_pose_detector extends fl_skeleton_pose_detector {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected fl_pose_detector(long cPtr, boolean cMemoryOwn) {
+  public fl_pose_detector(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.fl_pose_detector_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(fl_pose_detector obj) {
+  public static long getCPtr(fl_pose_detector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

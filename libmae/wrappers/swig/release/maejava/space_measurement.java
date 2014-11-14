@@ -12,13 +12,13 @@ public class space_measurement extends i_degree_sign {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected space_measurement(long cPtr, boolean cMemoryOwn) {
+  public space_measurement(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.space_measurement_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(space_measurement obj) {
+  public static long getCPtr(space_measurement obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

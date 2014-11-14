@@ -12,13 +12,13 @@ public class room_direction extends i_movement {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected room_direction(long cPtr, boolean cMemoryOwn) {
+  public room_direction(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.room_direction_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(room_direction obj) {
+  public static long getCPtr(room_direction obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

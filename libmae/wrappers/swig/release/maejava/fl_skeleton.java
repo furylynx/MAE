@@ -12,13 +12,13 @@ public class fl_skeleton extends general_skeleton {
   private long swigCPtr;
   private boolean swigCMemOwnDerived;
 
-  protected fl_skeleton(long cPtr, boolean cMemoryOwn) {
+  public fl_skeleton(long cPtr, boolean cMemoryOwn) {
     super(MaejavaJNI.fl_skeleton_SWIGSmartPtrUpcast(cPtr), true);
     swigCMemOwnDerived = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(fl_skeleton obj) {
+  public static long getCPtr(fl_skeleton obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
