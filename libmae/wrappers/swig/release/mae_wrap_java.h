@@ -11,20 +11,5 @@
 #ifndef SWIG_MaeJava_WRAP_H_
 #define SWIG_MaeJava_WRAP_H_
 
-class SwigDirector_laban_sequence_sequence_listener : public mae::i_sequence_listener< mae::fl::laban::laban_sequence >, public Swig::Director {
-
-public:
-    void swig_connect_director(JNIEnv *jenv, jobject jself, jclass jcls, bool swig_mem_own, bool weak_global);
-    SwigDirector_laban_sequence_sequence_listener(JNIEnv *jenv);
-    virtual ~SwigDirector_laban_sequence_sequence_listener();
-    virtual void on_sequence(long timestamp, std::shared_ptr< mae::fl::laban::laban_sequence > sequence);
-public:
-    bool swig_overrides(int n) {
-      return (n < 1 ? swig_override[n] : false);
-    }
-protected:
-    bool swig_override[1];
-};
-
 
 #endif

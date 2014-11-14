@@ -3,19 +3,19 @@ package maejavawrapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import maejava.bone_vector;
-import maejava.coldef_vector;
-import maejava.e_time_unit;
-import maejava.fl_movement_controller;
-import maejava.fl_skeleton;
-import maejava.general_pose;
-import maejava.general_skeleton;
-import maejava.laban_sequence;
-import maejava.laban_sequence_generator;
-import maejava.laban_sequence_vector;
-import maejava.string_vector;
+import maejava.BoneVector;
+import maejava.ColumnDefinitionVector;
+import maejava.ETimeUnit;
+import maejava.FlMovementController;
+import maejava.FlSkeleton;
+import maejava.GeneralPose;
+import maejava.GeneralSkeleton;
+import maejava.LabanSequence;
+import maejava.LabanSequenceGenerator;
+import maejava.LabanSequenceVector;
+import maejava.StringVector;
 
-public class WrappedMovementController extends fl_movement_controller {
+public class WrappedMovementController extends FlMovementController {
 
 	List<IJRecognitionListener> recognitionListeners = new ArrayList<IJRecognitionListener>();
 	List<IJSequenceListener> sequenceListeners = new ArrayList<IJSequenceListener>();
@@ -38,126 +38,126 @@ public class WrappedMovementController extends fl_movement_controller {
 		super();
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions, long pose_buffer_size,
-			long beats_per_measure, long beat_duration, e_time_unit time_unit,
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions, long pose_buffer_size,
+			long beats_per_measure, long beat_duration, ETimeUnit time_unit,
 			double framerate, boolean debug) {
 		super(body_parts, column_definitions, pose_buffer_size,
 				beats_per_measure, beat_duration, time_unit, framerate, debug);
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions, long pose_buffer_size,
-			long beats_per_measure, long beat_duration, e_time_unit time_unit,
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions, long pose_buffer_size,
+			long beats_per_measure, long beat_duration, ETimeUnit time_unit,
 			double framerate) {
 		super(body_parts, column_definitions, pose_buffer_size,
 				beats_per_measure, beat_duration, time_unit, framerate);
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions, long pose_buffer_size,
-			long beats_per_measure, long beat_duration, e_time_unit time_unit) {
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions, long pose_buffer_size,
+			long beats_per_measure, long beat_duration, ETimeUnit time_unit) {
 		super(body_parts, column_definitions, pose_buffer_size,
 				beats_per_measure, beat_duration, time_unit);
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions, long pose_buffer_size,
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions, long pose_buffer_size,
 			long beats_per_measure, long beat_duration) {
 		super(body_parts, column_definitions, pose_buffer_size,
 				beats_per_measure, beat_duration);
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions, long pose_buffer_size,
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions, long pose_buffer_size,
 			long beats_per_measure) {
 		super(body_parts, column_definitions, pose_buffer_size,
 				beats_per_measure);
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions, long pose_buffer_size) {
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions, long pose_buffer_size) {
 		super(body_parts, column_definitions, pose_buffer_size);
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions) {
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions) {
 		super(body_parts, column_definitions);
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions,
-			laban_sequence_generator sequence_generator, long pose_buffer_size,
-			long beats_per_measure, long beat_duration, e_time_unit time_unit,
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions,
+			LabanSequenceGenerator sequence_generator, long pose_buffer_size,
+			long beats_per_measure, long beat_duration, ETimeUnit time_unit,
 			double framerate, boolean debug) {
 		super(body_parts, column_definitions, sequence_generator,
 				pose_buffer_size, beats_per_measure, beat_duration, time_unit,
 				framerate, debug);
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions,
-			laban_sequence_generator sequence_generator, long pose_buffer_size,
-			long beats_per_measure, long beat_duration, e_time_unit time_unit,
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions,
+			LabanSequenceGenerator sequence_generator, long pose_buffer_size,
+			long beats_per_measure, long beat_duration, ETimeUnit time_unit,
 			double framerate) {
 		super(body_parts, column_definitions, sequence_generator,
 				pose_buffer_size, beats_per_measure, beat_duration, time_unit,
 				framerate);
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions,
-			laban_sequence_generator sequence_generator, long pose_buffer_size,
-			long beats_per_measure, long beat_duration, e_time_unit time_unit) {
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions,
+			LabanSequenceGenerator sequence_generator, long pose_buffer_size,
+			long beats_per_measure, long beat_duration, ETimeUnit time_unit) {
 		super(body_parts, column_definitions, sequence_generator,
 				pose_buffer_size, beats_per_measure, beat_duration, time_unit);
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions,
-			laban_sequence_generator sequence_generator, long pose_buffer_size,
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions,
+			LabanSequenceGenerator sequence_generator, long pose_buffer_size,
 			long beats_per_measure, long beat_duration) {
 		super(body_parts, column_definitions, sequence_generator,
 				pose_buffer_size, beats_per_measure, beat_duration);
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions,
-			laban_sequence_generator sequence_generator, long pose_buffer_size,
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions,
+			LabanSequenceGenerator sequence_generator, long pose_buffer_size,
 			long beats_per_measure) {
 		super(body_parts, column_definitions, sequence_generator,
 				pose_buffer_size, beats_per_measure);
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions,
-			laban_sequence_generator sequence_generator, long pose_buffer_size) {
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions,
+			LabanSequenceGenerator sequence_generator, long pose_buffer_size) {
 		super(body_parts, column_definitions, sequence_generator,
 				pose_buffer_size);
 	}
 
-	public WrappedMovementController(bone_vector body_parts,
-			coldef_vector column_definitions,
-			laban_sequence_generator sequence_generator) {
+	public WrappedMovementController(BoneVector body_parts,
+			ColumnDefinitionVector column_definitions,
+			LabanSequenceGenerator sequence_generator) {
 		super(body_parts, column_definitions, sequence_generator);
 	}
 
 	@Override
-	public void next_frame(int timestamp, general_skeleton skeleton) {
-		super.next_frame(timestamp, skeleton);
+	public void nextFrame(int timestamp, GeneralSkeleton skeleton) {
+		super.nextFrame(timestamp, skeleton);
 
-		notifySequenceListeners(timestamp, get_current_sequence());
-		notifyRecognitionListeners(timestamp, get_current_recognition());
-		notifyPoseListeners(timestamp, get_current_pose());
+		notifySequenceListeners(timestamp, getCurrentSequence());
+		notifyRecognitionListeners(timestamp, getCurrentRecognition());
+		notifyPoseListeners(timestamp, getCurrentPose());
 	}
 
 	@Override
-	public void next_frame(int timestamp, fl_skeleton skeleton) {
-		super.next_frame(timestamp, skeleton);
+	public void nextFrame(int timestamp, FlSkeleton skeleton) {
+		super.nextFrame(timestamp, skeleton);
 
-		notifySequenceListeners(timestamp, get_current_sequence());
-		notifyRecognitionListeners(timestamp, get_current_recognition());
-		notifyPoseListeners(timestamp, get_current_pose());
+		notifySequenceListeners(timestamp, getCurrentSequence());
+		notifyRecognitionListeners(timestamp, getCurrentRecognition());
+		notifyPoseListeners(timestamp, getCurrentPose());
 	}
 
 	public void addListener(IJRecognitionListener listener) {
@@ -184,17 +184,17 @@ public class WrappedMovementController extends fl_movement_controller {
 		return poseListeners.remove(listener);
 	}
 
-	public void notifySequenceListeners(int timestamp, laban_sequence sequence) {
+	public void notifySequenceListeners(int timestamp, LabanSequence sequence) {
 		for (IJSequenceListener listener : sequenceListeners) {
 			listener.onSequence(timestamp, sequence);
 		}
 	}
 
 	public void notifyRecognitionListeners(int timestamp,
-			laban_sequence_vector sequences) {
-		string_vector sequenceTitles = new string_vector();
+			LabanSequenceVector sequences) {
+		StringVector sequenceTitles = new StringVector();
 		for (int i = 0; i < sequences.size(); i++) {
-			sequenceTitles.add(sequences.get(i).get_title());
+			sequenceTitles.pushBack(sequences.get(i).getTitle());
 		}
 
 		for (IJRecognitionListener listener : recognitionListeners) {
@@ -203,7 +203,7 @@ public class WrappedMovementController extends fl_movement_controller {
 		}
 	}
 
-	public void notifyPoseListeners(int timestamp, general_pose pose) {
+	public void notifyPoseListeners(int timestamp, GeneralPose pose) {
 		for (IJPoseListener listener : poseListeners) {
 			listener.onPose(timestamp, pose);
 		}

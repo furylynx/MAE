@@ -1,8 +1,8 @@
 package maejavawrapper;
 
-import maejava.general_pose;
+import maejava.GeneralPose;
 
 
 public interface IJPoseListener {
-	void onPose(int timestamp, general_pose pose);
+	void onPose(int timestamp, GeneralPose pose);
 }
