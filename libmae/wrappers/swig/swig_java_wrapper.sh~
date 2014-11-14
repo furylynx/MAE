@@ -1,7 +1,7 @@
   #!/bin/bash
 
 #file info (modify if required)
-INCONFIG="mae/mae.i"
+INCONFIG="mae/_wrapper_.i"
 OUTDIRJAVA="release/maejava/"
 OUTDIRCXX="release/"
 OUTFILECXX="mae_wrap"
@@ -24,7 +24,7 @@ then
 fi
 
 #generate java wrapper files
-swig -c++ -java -autorename -package $PACKAGE -outdir $OUTDIRJAVA -o $OUTPATHJAVACXX $INCONFIG
+swig -c++ -java -package $PACKAGE -outdir $OUTDIRJAVA -o $OUTPATHJAVACXX $INCONFIG
 
 
 ## -- Add other commands for other languages if required; this may require to adjust the configuration files (*.i) --

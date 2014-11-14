@@ -54,6 +54,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/src/}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/include/ni/"/>
 									<listOptionValue builtIn="false" value="/usr/include/nite/"/>
+									<listOptionValue builtIn="false" value="/usr/local/java/jdk1.7.0_45/include/"/>
+									<listOptionValue builtIn="false" value="/usr/local/java/jdk1.7.0_45/include/linux/"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.other.other.1842437305" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -Wno-reorder -Wno-pragmas" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1686138955" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -140,6 +142,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/src/}&quot;"/>
 									<listOptionValue builtIn="false" value="/usr/include/ni/"/>
 									<listOptionValue builtIn="false" value="/usr/include/nite/"/>
+									<listOptionValue builtIn="false" value="/usr/local/java/jdk1.7.0_45/include/"/>
+									<listOptionValue builtIn="false" value="/usr/local/java/jdk1.7.0_45/include/linux/"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.309547954" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.other.other.641575925" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -Wno-reorder -Wno-pragmas" valueType="string"/>
