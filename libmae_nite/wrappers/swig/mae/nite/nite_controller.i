@@ -28,16 +28,30 @@
 //-- define MACRO in order to not have input errors
 #define XN_CALLBACK_TYPE 
 
-//-- define general_skeleton (we don't know anything about it here
-class mae::general_skeleton {};
-%nodefaultctor mae::general_skeleton; 
-%nodefaultdtor mae::general_skeleton; 
+//-- define general_skeleton (we don't know anything about it here)
+//...
+
 
 //-- module definition
 %module(directors="1") w_nite_controller
 %{
 	#include "../../../src/mae/nite/nite_controller.hpp"
 %}
+
+//-- define general_skeleton (we don't know anything about it here)
+%pragma(java) jniclassimports=%{
+import maejava.GeneralSkeleton;
+import maejava.GeneralSkeletonVector;
+%}
+
+%typemap(javaimports) mae::nite::nite_controller %{
+import maejava.GeneralSkeleton;
+import maejava.GeneralSkeletonVector;
+%}
+
+%typemap("javapackage") mae::general_skeleton, mae::general_skeleton *, mae::general_skeleton & "maejava.GeneralSkeleton";
+%typemap("javapackage") std::vector<std::shared_ptr<mae::general_skeleton> >, std::vector<std::shared_ptr<mae::general_skeleton> > *, std::vector<std::shared_ptr<mae::general_skeleton> > & "maejava.GeneralSkeletonVector";
+
 
 //-- shared_ptr
 %shared_ptr(mae::general_skeleton);

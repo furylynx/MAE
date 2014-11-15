@@ -8,6 +8,9 @@
 
 package maenitejava;
 
+import maejava.GeneralSkeleton;
+import maejava.GeneralSkeletonVector;
+
 public class NiteController {
   private long swigCPtr;
   protected boolean swigCMemOwn;

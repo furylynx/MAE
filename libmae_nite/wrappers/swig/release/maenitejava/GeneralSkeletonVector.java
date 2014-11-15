@@ -63,17 +63,17 @@ public class GeneralSkeletonVector {
     MaeNiteJavaJNI.GeneralSkeletonVector_clear(swigCPtr, this);
   }
 
-  public void pushBack(GeneralSkeleton x) {
-    MaeNiteJavaJNI.GeneralSkeletonVector_pushBack(swigCPtr, this, GeneralSkeleton.getCPtr(x));
+  public void pushBack(SWIGTYPE_p_mae__general_skeleton x) {
+    MaeNiteJavaJNI.GeneralSkeletonVector_pushBack(swigCPtr, this, SWIGTYPE_p_mae__general_skeleton.getCPtr(x));
   }
 
-  public GeneralSkeleton get(int i) {
+  public SWIGTYPE_p_mae__general_skeleton get(int i) {
     long cPtr = MaeNiteJavaJNI.GeneralSkeletonVector_get(swigCPtr, this, i);
-    return (cPtr == 0) ? null : new GeneralSkeleton(cPtr, true);
+    return (cPtr == 0) ? null : new SWIGTYPE_p_mae__general_skeleton(cPtr, true);
   }
 
-  public void set(int i, GeneralSkeleton val) {
-    MaeNiteJavaJNI.GeneralSkeletonVector_set(swigCPtr, this, i, GeneralSkeleton.getCPtr(val));
+  public void set(int i, SWIGTYPE_p_mae__general_skeleton val) {
+    MaeNiteJavaJNI.GeneralSkeletonVector_set(swigCPtr, this, i, SWIGTYPE_p_mae__general_skeleton.getCPtr(val));
   }
 
 }

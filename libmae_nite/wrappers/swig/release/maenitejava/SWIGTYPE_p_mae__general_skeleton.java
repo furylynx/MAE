@@ -8,18 +8,18 @@
 
 package maenitejava;
 
-public class SWIGTYPE_p_std__shared_ptrT_i_skeleton_mergerT_mae__general_skeleton_t_t {
+public class SWIGTYPE_p_mae__general_skeleton {
   private long swigCPtr;
 
-  protected SWIGTYPE_p_std__shared_ptrT_i_skeleton_mergerT_mae__general_skeleton_t_t(long cPtr, boolean futureUse) {
+  protected SWIGTYPE_p_mae__general_skeleton(long cPtr, boolean futureUse) {
     swigCPtr = cPtr;
   }
 
-  protected SWIGTYPE_p_std__shared_ptrT_i_skeleton_mergerT_mae__general_skeleton_t_t() {
+  protected SWIGTYPE_p_mae__general_skeleton() {
     swigCPtr = 0;
   }
 
-  protected static long getCPtr(SWIGTYPE_p_std__shared_ptrT_i_skeleton_mergerT_mae__general_skeleton_t_t obj) {
+  protected static long getCPtr(SWIGTYPE_p_mae__general_skeleton obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 }
