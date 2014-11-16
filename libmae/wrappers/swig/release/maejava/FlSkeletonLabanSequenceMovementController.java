@@ -12,12 +12,12 @@ public class FlSkeletonLabanSequenceMovementController {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected FlSkeletonLabanSequenceMovementController(long cPtr, boolean cMemoryOwn) {
+  public FlSkeletonLabanSequenceMovementController(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(FlSkeletonLabanSequenceMovementController obj) {
+  public static long getCPtr(FlSkeletonLabanSequenceMovementController obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

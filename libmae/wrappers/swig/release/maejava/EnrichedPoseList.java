@@ -12,12 +12,12 @@ public class EnrichedPoseList {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected EnrichedPoseList(long cPtr, boolean cMemoryOwn) {
+  public EnrichedPoseList(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(EnrichedPoseList obj) {
+  public static long getCPtr(EnrichedPoseList obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

@@ -12,12 +12,12 @@ public class EBoneVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected EBoneVector(long cPtr, boolean cMemoryOwn) {
+  public EBoneVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(EBoneVector obj) {
+  public static long getCPtr(EBoneVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

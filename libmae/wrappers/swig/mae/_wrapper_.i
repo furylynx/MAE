@@ -29,5 +29,9 @@
 %rename("%(lowercamelcase)s", %$isfunction) "";
 %rename("%(lowercamelcase)s", %$isvariable) "";
 
+//-- public methods
+SWIG_JAVABODY_PROXY(public, public, SWIGTYPE);
+SWIG_JAVABODY_TYPEWRAPPER(public, public, public, SWIGTYPE);
+
 //-- include definitions that are required
 %include "mae.i"

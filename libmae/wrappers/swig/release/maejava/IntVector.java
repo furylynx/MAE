@@ -12,12 +12,12 @@ public class IntVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected IntVector(long cPtr, boolean cMemoryOwn) {
+  public IntVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(IntVector obj) {
+  public static long getCPtr(IntVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

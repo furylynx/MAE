@@ -12,12 +12,12 @@ public class EJointVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected EJointVector(long cPtr, boolean cMemoryOwn) {
+  public EJointVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(EJointVector obj) {
+  public static long getCPtr(EJointVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

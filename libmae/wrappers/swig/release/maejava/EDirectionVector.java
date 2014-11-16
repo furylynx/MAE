@@ -12,12 +12,12 @@ public class EDirectionVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected EDirectionVector(long cPtr, boolean cMemoryOwn) {
+  public EDirectionVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(EDirectionVector obj) {
+  public static long getCPtr(EDirectionVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

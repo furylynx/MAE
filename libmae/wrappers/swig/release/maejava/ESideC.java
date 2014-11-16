@@ -12,12 +12,12 @@ public class ESideC {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected ESideC(long cPtr, boolean cMemoryOwn) {
+  public ESideC(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(ESideC obj) {
+  public static long getCPtr(ESideC obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

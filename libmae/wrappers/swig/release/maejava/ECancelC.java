@@ -12,12 +12,12 @@ public class ECancelC {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected ECancelC(long cPtr, boolean cMemoryOwn) {
+  public ECancelC(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(ECancelC obj) {
+  public static long getCPtr(ECancelC obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

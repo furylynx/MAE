@@ -12,12 +12,12 @@ public class IPoseListener {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected IPoseListener(long cPtr, boolean cMemoryOwn) {
+  public IPoseListener(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(IPoseListener obj) {
+  public static long getCPtr(IPoseListener obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

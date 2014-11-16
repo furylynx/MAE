@@ -12,12 +12,12 @@ public class ELimbSideC {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected ELimbSideC(long cPtr, boolean cMemoryOwn) {
+  public ELimbSideC(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(ELimbSideC obj) {
+  public static long getCPtr(ELimbSideC obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

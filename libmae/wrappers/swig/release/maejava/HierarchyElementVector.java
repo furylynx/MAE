@@ -12,12 +12,12 @@ public class HierarchyElementVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected HierarchyElementVector(long cPtr, boolean cMemoryOwn) {
+  public HierarchyElementVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(HierarchyElementVector obj) {
+  public static long getCPtr(HierarchyElementVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

@@ -12,12 +12,12 @@ public class IntList {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected IntList(long cPtr, boolean cMemoryOwn) {
+  public IntList(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(IntList obj) {
+  public static long getCPtr(IntList obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

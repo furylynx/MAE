@@ -12,12 +12,12 @@ public class EPathTypeVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected EPathTypeVector(long cPtr, boolean cMemoryOwn) {
+  public EPathTypeVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(EPathTypeVector obj) {
+  public static long getCPtr(EPathTypeVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
