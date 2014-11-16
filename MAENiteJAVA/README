@@ -17,13 +17,8 @@ Movement Analysis Engine (MAEJava). It can be compiled to a jar (currently there
 jar in the jar/ folder).
 
 When the wrapper is meant to be used in a project, the native libraries (libmae, libmae_nite) 
-must be loaded. This is done in the main method of a custom Java project by invoking:
-
-		System.loadLibrary("mae");
-		System.loadLibrary("mae_nite");
-		
-The library is required to be known to the project (e.g. path to libmae and libmae_nite added 
-to the PATH environment variable).
+must be loaded. This is done automatically. The libraries is required to be known to the project 
+(e.g. path to libmae and libmae_nite added to the PATH environment variable).
 
 Since SWIG does currently not support smart pointers when using directors (that enable callbacks
 to the Java objects), inheritance from the provided classes is not possible. See Readme of the 

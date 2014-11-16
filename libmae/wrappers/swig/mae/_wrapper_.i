@@ -17,6 +17,18 @@
 
 %}
 
+//-- load library automatically
+%pragma(java) jniclasscode=%{
+  static {
+    try {
+        System.loadLibrary("mae");
+    } catch (UnsatisfiedLinkError e) {
+      System.err.println("Native code library failed to load. \n" + e);
+      System.exit(1);
+    }
+  }
+%}
+
 //-- set shared_ptr contructor to public
 #define SWIG_SHARED_PTR_TYPEMAPS(CONST, TYPE...) SWIG_SHARED_PTR_TYPEMAPS_IMPLEMENTATION(public, public, CONST, TYPE)
 
