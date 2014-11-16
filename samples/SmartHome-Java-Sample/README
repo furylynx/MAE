@@ -1,0 +1,9 @@
+Readme
+==================
+
+The Movement Analysis Engine is able to analyze movements and provide events based on a 
+described movements sequence (Labanotation). The engine can be used by other applications 
+for further movement processing and filtering in ambient spaces (i.e., smart environments).
+
+This project is a demo of the usage of the Movement Analysis Engine in the context of Ambient
+Intelligent Systems.

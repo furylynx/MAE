@@ -42,26 +42,9 @@ import maejava.GeneralSkeletonVector;
 %typemap("javapackage") mae::general_skeleton, mae::general_skeleton *, mae::general_skeleton & "maejava.GeneralSkeleton";
 %typemap("javapackage") std::vector<std::shared_ptr<mae::general_skeleton> >, std::vector<std::shared_ptr<mae::general_skeleton> > *, std::vector<std::shared_ptr<mae::general_skeleton> > & "maejava.GeneralSkeletonVector";
 
+//-- general skeleton definition as well as the vector are required to be imported, not included! This forces swig to not create new classes for them.
 %import "../../../../libmae/wrappers/swig/mae/general_skeleton.i"
-
-
-%typemap (jni)    std::vector<std::shared_ptr<mae::general_skeleton> >, 
-                  std::vector<std::shared_ptr<mae::general_skeleton> > &,
-                  std::vector<std::shared_ptr<mae::general_skeleton> > *,
-                  std::vector<std::shared_ptr<mae::general_skeleton> > *& "jlong"
-%typemap (jtype)  std::vector<std::shared_ptr<mae::general_skeleton> >, 
-                  std::vector<std::shared_ptr<mae::general_skeleton> > &,
-                  std::vector<std::shared_ptr<mae::general_skeleton> > *,
-                  std::vector<std::shared_ptr<mae::general_skeleton> > *& "long"
-%typemap (jstype) std::vector<std::shared_ptr<mae::general_skeleton> >, 
-                  std::vector<std::shared_ptr<mae::general_skeleton> > &,
-                  std::vector<std::shared_ptr<mae::general_skeleton> > *,
-                  std::vector<std::shared_ptr<mae::general_skeleton> > *& "GeneralSkeletonVector"
-
-%typemap(javain) std::vector<std::shared_ptr<mae::general_skeleton> >, 
-                 std::vector<std::shared_ptr<mae::general_skeleton> > &,
-                 std::vector<std::shared_ptr<mae::general_skeleton> > *,
-                 std::vector<std::shared_ptr<mae::general_skeleton> > *& "GeneralSkeletonVector.getCPtr($javainput)"
+%import "general_skeleton_vector.i"
 
 //-- module definition
 %module(directors="1") w_nite_controller
@@ -78,4 +61,4 @@ import maejava.GeneralSkeletonVector;
 %include "../../../src/mae/nite/nite_controller.hpp"
 
 //-- templates
-%template (GeneralSkeletonVector) std::vector<std::shared_ptr<mae::general_skeleton> >;
+//%template (GeneralSkeletonVector) std::vector<std::shared_ptr<mae::general_skeleton> >;

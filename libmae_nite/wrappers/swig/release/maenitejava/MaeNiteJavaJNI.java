@@ -12,6 +12,16 @@ import maejava.GeneralSkeleton;
 import maejava.GeneralSkeletonVector;
 
 public class MaeNiteJavaJNI {
+
+  static {
+    try {
+        System.loadLibrary("mae_nite");
+    } catch (UnsatisfiedLinkError e) {
+      System.err.println("Native code library failed to load. \n" + e);
+      System.exit(1);
+    }
+  }
+
   public final static native long new_DeviceInfo(String jarg1, String jarg2, String jarg3, String jarg4);
   public final static native void delete_DeviceInfo(long jarg1);
   public final static native String DeviceInfo_getDeviceName(long jarg1, DeviceInfo jarg1_);
@@ -30,15 +40,4 @@ public class MaeNiteJavaJNI {
   public final static native long NiteController_waitForUpdate__SWIG_1(long jarg1, NiteController jarg1_);
   public final static native boolean NiteController_wasKeyboardHit(long jarg1, NiteController jarg1_);
   public final static native boolean NiteController_xnWasKeyboardHit();
-  public final static native long new_GeneralSkeletonVector__SWIG_0();
-  public final static native long new_GeneralSkeletonVector__SWIG_1(long jarg1);
-  public final static native long GeneralSkeletonVector_size(long jarg1, GeneralSkeletonVector jarg1_);
-  public final static native long GeneralSkeletonVector_capacity(long jarg1, GeneralSkeletonVector jarg1_);
-  public final static native void GeneralSkeletonVector_reserve(long jarg1, GeneralSkeletonVector jarg1_, long jarg2);
-  public final static native boolean GeneralSkeletonVector_empty(long jarg1, GeneralSkeletonVector jarg1_);
-  public final static native void GeneralSkeletonVector_clear(long jarg1, GeneralSkeletonVector jarg1_);
-  public final static native void GeneralSkeletonVector_pushBack(long jarg1, GeneralSkeletonVector jarg1_, long jarg2, GeneralSkeleton jarg2_);
-  public final static native long GeneralSkeletonVector_get(long jarg1, GeneralSkeletonVector jarg1_, int jarg2);
-  public final static native void GeneralSkeletonVector_set(long jarg1, GeneralSkeletonVector jarg1_, int jarg2, long jarg3, GeneralSkeleton jarg3_);
-  public final static native void delete_GeneralSkeletonVector(long jarg1);
 }

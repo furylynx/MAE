@@ -16,12 +16,8 @@ This project has no dependencies beyond the standard Java API. It can be compile
 (currently there is a compiled jar in the jar/ folder).
 
 When the wrapper is meant to be used in a project, the native library (libmae) must be loaded.
-This is done in the main method of a custom Java project by invoking:
-
-		System.loadLibrary("mae");
-		
-The library is required to be known to the project (e.g. path to libmae added to the PATH
-environment variable).
+This is done automatically. The library is required to be known to the project (e.g. path to 
+libmae added to the PATH environment variable).
 
 Since SWIG does currently not support smart pointers when using directors (that enable callbacks
 to the Java objects), inheritance from the provided classes is not possible. In order to get the
