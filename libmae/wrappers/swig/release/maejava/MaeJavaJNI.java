@@ -9,6 +9,16 @@
 package maejava;
 
 public class MaeJavaJNI {
+
+  static {
+    try {
+        System.loadLibrary("mae");
+    } catch (UnsatisfiedLinkError e) {
+      System.err.println("Native code library failed to load. \n" + e);
+      System.exit(1);
+    }
+  }
+
   public final static native int INVALID_BONE_get();
   public final static native int HEAD_get();
   public final static native int LEFT_UPPER_ARM_get();

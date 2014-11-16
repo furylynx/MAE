@@ -18,8 +18,8 @@ public class MAEJavaSample
 
 	public static void main(String[] args)
 	{
-		System.loadLibrary("mae");
-		System.loadLibrary("mae_nite");
+//		System.loadLibrary("mae");
+//		System.loadLibrary("mae_nite");
 		
 		WrappedMovementController movementController = new WrappedMovementController(Bone.defaultBones(), ColumnDefinition.defaultDefinitions());
 		movementController.addListener(new IJSequenceListener() {
