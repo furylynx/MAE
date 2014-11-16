@@ -12,12 +12,12 @@ public class ELimbVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected ELimbVector(long cPtr, boolean cMemoryOwn) {
+  public ELimbVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(ELimbVector obj) {
+  public static long getCPtr(ELimbVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

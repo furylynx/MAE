@@ -12,12 +12,12 @@ public class GeneralSkeletonVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected GeneralSkeletonVector(long cPtr, boolean cMemoryOwn) {
+  public GeneralSkeletonVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(GeneralSkeletonVector obj) {
+  public static long getCPtr(GeneralSkeletonVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

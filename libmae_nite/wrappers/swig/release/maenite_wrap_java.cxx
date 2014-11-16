@@ -1199,7 +1199,7 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVector_1c
 }
 
 
-SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVector_1pushBack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVector_1pushBack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   std::vector< std::shared_ptr< mae::general_skeleton > > *arg1 = (std::vector< std::shared_ptr< mae::general_skeleton > > *) 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > >::value_type *arg2 = 0 ;
   std::vector< std::shared_ptr< mae::general_skeleton > >::value_type tempnull2 ;
@@ -1207,6 +1207,7 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVector_1p
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
+  (void)jarg2_;
   arg1 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg1; 
   arg2 = jarg2 ? *(std::vector< std::shared_ptr< mae::general_skeleton > >::value_type **)&jarg2 : &tempnull2; 
   (arg1)->push_back((std::vector< std::shared_ptr< mae::general_skeleton > >::value_type const &)*arg2);
@@ -1237,7 +1238,7 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVector_1
 }
 
 
-SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3) {
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
   std::vector< std::shared_ptr< mae::general_skeleton > > *arg1 = (std::vector< std::shared_ptr< mae::general_skeleton > > *) 0 ;
   int arg2 ;
   std::vector< std::shared_ptr< mae::general_skeleton > >::value_type *arg3 = 0 ;
@@ -1246,6 +1247,7 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVector_1s
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
+  (void)jarg3_;
   arg1 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg1; 
   arg2 = (int)jarg2; 
   arg3 = jarg3 ? *(std::vector< std::shared_ptr< mae::general_skeleton > >::value_type **)&jarg3 : &tempnull3; 

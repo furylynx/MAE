@@ -12,12 +12,12 @@ public class ESideVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected ESideVector(long cPtr, boolean cMemoryOwn) {
+  public ESideVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(ESideVector obj) {
+  public static long getCPtr(ESideVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

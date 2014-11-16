@@ -13,7 +13,7 @@ Installation
 ==================
 
 This project has no dependencies beyond the standard Java API. It can be compiled to a jar
-(currently there is a compiled jar in the jar/ folder.
+(currently there is a compiled jar in the jar/ folder).
 
 When the wrapper is meant to be used in a project, the native library (libmae) must be loaded.
 This is done in the main method of a custom Java project by invoking:

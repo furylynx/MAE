@@ -12,12 +12,12 @@ public class EDynamicC {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected EDynamicC(long cPtr, boolean cMemoryOwn) {
+  public EDynamicC(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(EDynamicC obj) {
+  public static long getCPtr(EDynamicC obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

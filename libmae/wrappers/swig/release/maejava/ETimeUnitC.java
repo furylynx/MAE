@@ -12,12 +12,12 @@ public class ETimeUnitC {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected ETimeUnitC(long cPtr, boolean cMemoryOwn) {
+  public ETimeUnitC(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(ETimeUnitC obj) {
+  public static long getCPtr(ETimeUnitC obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

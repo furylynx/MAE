@@ -37,8 +37,8 @@ public class MaeNiteJavaJNI {
   public final static native void GeneralSkeletonVector_reserve(long jarg1, GeneralSkeletonVector jarg1_, long jarg2);
   public final static native boolean GeneralSkeletonVector_empty(long jarg1, GeneralSkeletonVector jarg1_);
   public final static native void GeneralSkeletonVector_clear(long jarg1, GeneralSkeletonVector jarg1_);
-  public final static native void GeneralSkeletonVector_pushBack(long jarg1, GeneralSkeletonVector jarg1_, long jarg2);
+  public final static native void GeneralSkeletonVector_pushBack(long jarg1, GeneralSkeletonVector jarg1_, long jarg2, GeneralSkeleton jarg2_);
   public final static native long GeneralSkeletonVector_get(long jarg1, GeneralSkeletonVector jarg1_, int jarg2);
-  public final static native void GeneralSkeletonVector_set(long jarg1, GeneralSkeletonVector jarg1_, int jarg2, long jarg3);
+  public final static native void GeneralSkeletonVector_set(long jarg1, GeneralSkeletonVector jarg1_, int jarg2, long jarg3, GeneralSkeleton jarg3_);
   public final static native void delete_GeneralSkeletonVector(long jarg1);
 }

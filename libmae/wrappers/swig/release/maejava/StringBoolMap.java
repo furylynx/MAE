@@ -12,12 +12,12 @@ public class StringBoolMap {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected StringBoolMap(long cPtr, boolean cMemoryOwn) {
+  public StringBoolMap(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(StringBoolMap obj) {
+  public static long getCPtr(StringBoolMap obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

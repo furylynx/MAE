@@ -12,12 +12,12 @@ public class ESpaceC {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected ESpaceC(long cPtr, boolean cMemoryOwn) {
+  public ESpaceC(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(ESpaceC obj) {
+  public static long getCPtr(ESpaceC obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

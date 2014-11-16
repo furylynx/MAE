@@ -12,12 +12,12 @@ public class LabanSequenceVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected LabanSequenceVector(long cPtr, boolean cMemoryOwn) {
+  public LabanSequenceVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(LabanSequenceVector obj) {
+  public static long getCPtr(LabanSequenceVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
