@@ -12,12 +12,12 @@ public class BoneVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected BoneVector(long cPtr, boolean cMemoryOwn) {
+  public BoneVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(BoneVector obj) {
+  public static long getCPtr(BoneVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

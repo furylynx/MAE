@@ -12,12 +12,12 @@ public class ERelationshipTypeC {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected ERelationshipTypeC(long cPtr, boolean cMemoryOwn) {
+  public ERelationshipTypeC(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(ERelationshipTypeC obj) {
+  public static long getCPtr(ERelationshipTypeC obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

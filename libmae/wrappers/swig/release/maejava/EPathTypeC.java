@@ -12,12 +12,12 @@ public class EPathTypeC {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected EPathTypeC(long cPtr, boolean cMemoryOwn) {
+  public EPathTypeC(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(EPathTypeC obj) {
+  public static long getCPtr(EPathTypeC obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

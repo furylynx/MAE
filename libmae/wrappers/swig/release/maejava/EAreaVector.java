@@ -12,12 +12,12 @@ public class EAreaVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected EAreaVector(long cPtr, boolean cMemoryOwn) {
+  public EAreaVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(EAreaVector obj) {
+  public static long getCPtr(EAreaVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

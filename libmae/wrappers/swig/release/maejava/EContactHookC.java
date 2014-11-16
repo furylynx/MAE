@@ -12,12 +12,12 @@ public class EContactHookC {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected EContactHookC(long cPtr, boolean cMemoryOwn) {
+  public EContactHookC(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(EContactHookC obj) {
+  public static long getCPtr(EContactHookC obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

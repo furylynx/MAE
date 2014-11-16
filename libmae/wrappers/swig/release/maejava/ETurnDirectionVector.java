@@ -12,12 +12,12 @@ public class ETurnDirectionVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected ETurnDirectionVector(long cPtr, boolean cMemoryOwn) {
+  public ETurnDirectionVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(ETurnDirectionVector obj) {
+  public static long getCPtr(ETurnDirectionVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

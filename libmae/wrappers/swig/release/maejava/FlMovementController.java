@@ -11,12 +11,12 @@ package maejava;
 public class FlMovementController extends FlSkeletonLabanSequenceMovementController {
   private long swigCPtr;
 
-  protected FlMovementController(long cPtr, boolean cMemoryOwn) {
+  public FlMovementController(long cPtr, boolean cMemoryOwn) {
     super(MaeJavaJNI.FlMovementController_SWIGUpcast(cPtr), cMemoryOwn);
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(FlMovementController obj) {
+  public static long getCPtr(FlMovementController obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

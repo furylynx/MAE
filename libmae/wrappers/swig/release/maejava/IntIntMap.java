@@ -12,12 +12,12 @@ public class IntIntMap {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected IntIntMap(long cPtr, boolean cMemoryOwn) {
+  public IntIntMap(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(IntIntMap obj) {
+  public static long getCPtr(IntIntMap obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

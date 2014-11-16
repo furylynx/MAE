@@ -12,12 +12,12 @@ public class EDigitC {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected EDigitC(long cPtr, boolean cMemoryOwn) {
+  public EDigitC(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(EDigitC obj) {
+  public static long getCPtr(EDigitC obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

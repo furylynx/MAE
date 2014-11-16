@@ -12,12 +12,12 @@ public class ELevelVector {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected ELevelVector(long cPtr, boolean cMemoryOwn) {
+  public ELevelVector(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(ELevelVector obj) {
+  public static long getCPtr(ELevelVector obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

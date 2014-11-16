@@ -12,12 +12,12 @@ public class EAreaC {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected EAreaC(long cPtr, boolean cMemoryOwn) {
+  public EAreaC(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(EAreaC obj) {
+  public static long getCPtr(EAreaC obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 

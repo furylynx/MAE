@@ -12,12 +12,12 @@ public class GeneralSkeletonVectorDoublePair {
   private long swigCPtr;
   protected boolean swigCMemOwn;
 
-  protected GeneralSkeletonVectorDoublePair(long cPtr, boolean cMemoryOwn) {
+  public GeneralSkeletonVectorDoublePair(long cPtr, boolean cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = cPtr;
   }
 
-  protected static long getCPtr(GeneralSkeletonVectorDoublePair obj) {
+  public static long getCPtr(GeneralSkeletonVectorDoublePair obj) {
     return (obj == null) ? 0 : obj.swigCPtr;
   }
 
