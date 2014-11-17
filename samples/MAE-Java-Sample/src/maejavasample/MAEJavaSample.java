@@ -10,15 +10,15 @@ import maejava.GeneralSkeletonVector;
 import maejava.LabanSequence;
 import maejavawrapper.IJSequenceListener;
 import maejavawrapper.WrappedMovementController;
+import maenitejava.DeviceInfoVector;
 import maenitejava.NiteController;
+import maenitejava.NiteFarm;
 
 public class MAEJavaSample 
 {
 
 	public static void main(String[] args)
 	{
-//		System.loadLibrary("mae");
-//		System.loadLibrary("mae_nite");
 		
 		WrappedMovementController movementController = new WrappedMovementController(Bone.defaultBones(), ColumnDefinition.defaultDefinitions());
 		movementController.addListener(new IJSequenceListener() {
