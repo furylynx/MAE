@@ -15,6 +15,7 @@ public class SmartHomeJavaSample {
 
 		//TODO initialize the MAE threads to run
 		
+		
 		SensorInfo firstSensorInfo = null;
 		//TODO get sensor info for first device
 		//TODO get sensor info for all devices...

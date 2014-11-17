@@ -6,6 +6,7 @@ import maejava.GeneralSkeletonVector;
 import maejava.LabanSequence;
 import maejava.LabanSequenceVector;
 import maenitejava.DeviceInfo;
+import maenitejava.NiteFarm;
 
 public class SensorInfo extends Observable {
 
@@ -21,7 +22,7 @@ public class SensorInfo extends Observable {
 
 	private double movingRate;
 
-	// TODO more useful info that can be displayed??
+	// TODO other useful info that can be displayed??
 
 	/**
 	 * Creates a new sensor info object.
@@ -42,18 +43,15 @@ public class SensorInfo extends Observable {
 	 * @param position
 	 *            The position info.
 	 * @param serialNumber
-	 *            The serial number of the corresponding device.
+	 *            The serial number of the device to be used.
 	 */
 	public SensorInfo(PositionInfo position, String serialNumber) {
 		this.position = position;
-
-		// TODO do things; retrieve serial number etc
-		// TODO requires the wrapper for the nite_farm !!!
-
+		this.deviceInfo = NiteFarm.getDeviceInfo(serialNumber);
 	}
 
 	/**
-	 * Processses the next frame of the sensor data.
+	 * Processes the next frame of the sensor data.
 	 * 
 	 * @param sensorData
 	 * @param currentSequence
