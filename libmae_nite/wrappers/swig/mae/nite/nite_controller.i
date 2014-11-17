@@ -11,19 +11,19 @@
 %include "exception.i"
 
 //-- define methods that are to be ignored
-%ignore nite_controller::initialize; 
-%ignore nite_controller::file_exists; 
-%ignore nite_controller::check_rc; 
-%ignore nite_controller::cb_user_newuser; 
-%ignore nite_controller::cb_user_lostuser; 
-%ignore nite_controller::cb_userpose_posedetected; 
-%ignore nite_controller::cb_usercalibration_calibrationstart; 
-%ignore nite_controller::cb_usercalibration_calibrationcomplete; 
-%ignore nite_controller::scb_user_newuser; 
-%ignore nite_controller::scb_user_lostuser; 
-%ignore nite_controller::scb_userpose_posedetected; 
-%ignore nite_controller::scb_usercalibration_calibrationstart; 
-%ignore nite_controller::scb_usercalibration_calibrationcomplete; 
+%ignore mae::nite::nite_controller::initialize; 
+%ignore mae::nite::nite_controller::file_exists; 
+%ignore mae::nite::nite_controller::check_rc; 
+%ignore mae::nite::nite_controller::cb_user_newuser; 
+%ignore mae::nite::nite_controller::cb_user_lostuser; 
+%ignore mae::nite::nite_controller::cb_userpose_posedetected; 
+%ignore mae::nite::nite_controller::cb_usercalibration_calibrationstart; 
+%ignore mae::nite::nite_controller::cb_usercalibration_calibrationcomplete; 
+%ignore mae::nite::nite_controller::scb_user_newuser; 
+%ignore mae::nite::nite_controller::scb_user_lostuser; 
+%ignore mae::nite::nite_controller::scb_userpose_posedetected; 
+%ignore mae::nite::nite_controller::scb_usercalibration_calibrationstart; 
+%ignore mae::nite::nite_controller::scb_usercalibration_calibrationcomplete; 
 
 //-- define MACRO in order to not have input errors
 #define XN_CALLBACK_TYPE 

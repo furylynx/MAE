@@ -679,6 +679,54 @@ struct SWIG_null_deleter {
 	#include "../../../src/mae/nite/nite_controller.hpp"
 
 
+#include <utility>
+
+
+	#include "../../../src/mae/nite/nite_farm.hpp"
+
+SWIGINTERN std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::const_reference std_vector_Sl_std_vector_Sl_std_shared_ptr_Sl_mae_general_skeleton_Sg__Sg__Sg__get(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *self,int i){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    return (*self)[i];
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+SWIGINTERN void std_vector_Sl_std_vector_Sl_std_shared_ptr_Sl_mae_general_skeleton_Sg__Sg__Sg__set(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *self,int i,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::value_type const &val){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    (*self)[i] = val;
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+SWIGINTERN std::vector< std::shared_ptr< mae::nite::nite_controller > >::const_reference std_vector_Sl_std_shared_ptr_Sl_mae_nite_nite_controller_Sg__Sg__get(std::vector< std::shared_ptr< mae::nite::nite_controller > > *self,int i){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    return (*self)[i];
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+SWIGINTERN void std_vector_Sl_std_shared_ptr_Sl_mae_nite_nite_controller_Sg__Sg__set(std::vector< std::shared_ptr< mae::nite::nite_controller > > *self,int i,std::vector< std::shared_ptr< mae::nite::nite_controller > >::value_type const &val){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    (*self)[i] = val;
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+SWIGINTERN std::vector< std::shared_ptr< mae::nite::device_info > >::const_reference std_vector_Sl_std_shared_ptr_Sl_mae_nite_device_info_Sg__Sg__get(std::vector< std::shared_ptr< mae::nite::device_info > > *self,int i){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    return (*self)[i];
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+SWIGINTERN void std_vector_Sl_std_shared_ptr_Sl_mae_nite_device_info_Sg__Sg__set(std::vector< std::shared_ptr< mae::nite::device_info > > *self,int i,std::vector< std::shared_ptr< mae::nite::device_info > >::value_type const &val){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    (*self)[i] = val;
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+
 
 /* ---------------------------------------------------
  * C++ director class methods
@@ -1087,6 +1135,1232 @@ SWIGEXPORT jboolean JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteController_1xnWa
   result = (bool)mae::nite::nite_controller::xn_was_keyboard_hit();
   jresult = (jboolean)result; 
   return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jboolean jarg3) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > arg1 ;
+  unsigned int arg2 ;
+  bool arg3 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *argp1 ;
+  mae::nite::nite_farm *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::nite::nite_controller > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  arg2 = (unsigned int)jarg2; 
+  arg3 = jarg3 ? true : false; 
+  result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2,arg3);
+  
+  *(std::shared_ptr<  mae::nite::nite_farm > **)&jresult = result ? new std::shared_ptr<  mae::nite::nite_farm >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > arg1 ;
+  unsigned int arg2 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *argp1 ;
+  mae::nite::nite_farm *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::nite::nite_controller > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  arg2 = (unsigned int)jarg2; 
+  result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2);
+  
+  *(std::shared_ptr<  mae::nite::nite_farm > **)&jresult = result ? new std::shared_ptr<  mae::nite::nite_farm >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > arg1 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *argp1 ;
+  mae::nite::nite_farm *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::nite::nite_controller > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1);
+  
+  *(std::shared_ptr<  mae::nite::nite_farm > **)&jresult = result ? new std::shared_ptr<  mae::nite::nite_farm >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jboolean jarg3) {
+  jlong jresult = 0 ;
+  std::vector< std::string > arg1 ;
+  unsigned int arg2 ;
+  bool arg3 ;
+  std::vector< std::string > *argp1 ;
+  mae::nite::nite_farm *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::vector< std::string > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::string >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  arg2 = (unsigned int)jarg2; 
+  arg3 = jarg3 ? true : false; 
+  result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2,arg3);
+  
+  *(std::shared_ptr<  mae::nite::nite_farm > **)&jresult = result ? new std::shared_ptr<  mae::nite::nite_farm >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  jlong jresult = 0 ;
+  std::vector< std::string > arg1 ;
+  unsigned int arg2 ;
+  std::vector< std::string > *argp1 ;
+  mae::nite::nite_farm *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::vector< std::string > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::string >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  arg2 = (unsigned int)jarg2; 
+  result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2);
+  
+  *(std::shared_ptr<  mae::nite::nite_farm > **)&jresult = result ? new std::shared_ptr<  mae::nite::nite_farm >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< std::string > arg1 ;
+  std::vector< std::string > *argp1 ;
+  mae::nite::nite_farm *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::vector< std::string > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::string >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1);
+  
+  *(std::shared_ptr<  mae::nite::nite_farm > **)&jresult = result ? new std::shared_ptr<  mae::nite::nite_farm >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jboolean jarg4) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > > arg1 ;
+  std::string arg2 ;
+  unsigned int arg3 ;
+  bool arg4 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > > *argp1 ;
+  mae::nite::nite_farm *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::nite::device_info > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (unsigned int)jarg3; 
+  arg4 = jarg4 ? true : false; 
+  result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2,arg3,arg4);
+  
+  *(std::shared_ptr<  mae::nite::nite_farm > **)&jresult = result ? new std::shared_ptr<  mae::nite::nite_farm >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > > arg1 ;
+  std::string arg2 ;
+  unsigned int arg3 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > > *argp1 ;
+  mae::nite::nite_farm *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::nite::device_info > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (unsigned int)jarg3; 
+  result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2,arg3);
+  
+  *(std::shared_ptr<  mae::nite::nite_farm > **)&jresult = result ? new std::shared_ptr<  mae::nite::nite_farm >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > > arg1 ;
+  std::string arg2 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > > *argp1 ;
+  mae::nite::nite_farm *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::nite::device_info > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2);
+  
+  *(std::shared_ptr<  mae::nite::nite_farm > **)&jresult = result ? new std::shared_ptr<  mae::nite::nite_farm >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_19(JNIEnv *jenv, jclass jcls, jstring jarg1, jlong jarg2, jboolean jarg3) {
+  jlong jresult = 0 ;
+  std::string arg1 ;
+  unsigned int arg2 ;
+  bool arg3 ;
+  mae::nite::nite_farm *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  if(!jarg1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg1_pstr = (const char *)jenv->GetStringUTFChars(jarg1, 0); 
+  if (!arg1_pstr) return 0;
+  (&arg1)->assign(arg1_pstr);
+  jenv->ReleaseStringUTFChars(jarg1, arg1_pstr); 
+  arg2 = (unsigned int)jarg2; 
+  arg3 = jarg3 ? true : false; 
+  result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2,arg3);
+  
+  *(std::shared_ptr<  mae::nite::nite_farm > **)&jresult = result ? new std::shared_ptr<  mae::nite::nite_farm >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_110(JNIEnv *jenv, jclass jcls, jstring jarg1, jlong jarg2) {
+  jlong jresult = 0 ;
+  std::string arg1 ;
+  unsigned int arg2 ;
+  mae::nite::nite_farm *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  if(!jarg1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg1_pstr = (const char *)jenv->GetStringUTFChars(jarg1, 0); 
+  if (!arg1_pstr) return 0;
+  (&arg1)->assign(arg1_pstr);
+  jenv->ReleaseStringUTFChars(jarg1, arg1_pstr); 
+  arg2 = (unsigned int)jarg2; 
+  result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2);
+  
+  *(std::shared_ptr<  mae::nite::nite_farm > **)&jresult = result ? new std::shared_ptr<  mae::nite::nite_farm >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_111(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+  jlong jresult = 0 ;
+  std::string arg1 ;
+  mae::nite::nite_farm *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  if(!jarg1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg1_pstr = (const char *)jenv->GetStringUTFChars(jarg1, 0); 
+  if (!arg1_pstr) return 0;
+  (&arg1)->assign(arg1_pstr);
+  jenv->ReleaseStringUTFChars(jarg1, arg1_pstr); 
+  result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1);
+  
+  *(std::shared_ptr<  mae::nite::nite_farm > **)&jresult = result ? new std::shared_ptr<  mae::nite::nite_farm >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_delete_1NiteFarm(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  mae::nite::nite_farm *arg1 = (mae::nite::nite_farm *) 0 ;
+  std::shared_ptr< mae::nite::nite_farm > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  
+  smartarg1 = *(std::shared_ptr<  mae::nite::nite_farm > **)&jarg1;
+  arg1 = (mae::nite::nite_farm *)(smartarg1 ? smartarg1->get() : 0); 
+  (void)arg1; delete smartarg1;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1addController_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2) {
+  mae::nite::nite_farm *arg1 = (mae::nite::nite_farm *) 0 ;
+  std::string arg2 ;
+  std::shared_ptr< mae::nite::nite_farm > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::nite::nite_farm > **)&jarg1;
+  arg1 = (mae::nite::nite_farm *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return ;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return ;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  (arg1)->add_controller(arg2);
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1addController_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jstring jarg3) {
+  mae::nite::nite_farm *arg1 = (mae::nite::nite_farm *) 0 ;
+  std::shared_ptr< mae::nite::device_info > arg2 ;
+  std::string arg3 ;
+  std::shared_ptr< mae::nite::nite_farm > *smartarg1 = 0 ;
+  std::shared_ptr< mae::nite::device_info > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::nite::nite_farm > **)&jarg1;
+  arg1 = (mae::nite::nite_farm *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::nite::device_info > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  if(!jarg3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return ;
+  } 
+  const char *arg3_pstr = (const char *)jenv->GetStringUTFChars(jarg3, 0); 
+  if (!arg3_pstr) return ;
+  (&arg3)->assign(arg3_pstr);
+  jenv->ReleaseStringUTFChars(jarg3, arg3_pstr); 
+  (arg1)->add_controller(arg2,arg3);
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1addController_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  mae::nite::nite_farm *arg1 = (mae::nite::nite_farm *) 0 ;
+  std::shared_ptr< mae::nite::nite_controller > arg2 ;
+  std::shared_ptr< mae::nite::nite_farm > *smartarg1 = 0 ;
+  std::shared_ptr< mae::nite::nite_controller > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::nite::nite_farm > **)&jarg1;
+  arg1 = (mae::nite::nite_farm *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::nite::nite_controller > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  (arg1)->add_controller(arg2);
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1waitForUpdate_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  jlong jresult = 0 ;
+  mae::nite::nite_farm *arg1 = (mae::nite::nite_farm *) 0 ;
+  unsigned int arg2 ;
+  std::shared_ptr< mae::nite::nite_farm > *smartarg1 = 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::nite::nite_farm > **)&jarg1;
+  arg1 = (mae::nite::nite_farm *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (unsigned int)jarg2; 
+  result = (arg1)->wait_for_update(arg2);
+  *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jresult = new std::vector< std::shared_ptr< mae::general_skeleton > >((const std::vector< std::shared_ptr< mae::general_skeleton > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1waitForUpdate_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::nite::nite_farm *arg1 = (mae::nite::nite_farm *) 0 ;
+  std::shared_ptr< mae::nite::nite_farm > *smartarg1 = 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::nite::nite_farm > **)&jarg1;
+  arg1 = (mae::nite::nite_farm *)(smartarg1 ? smartarg1->get() : 0); 
+  result = (arg1)->wait_for_update();
+  *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jresult = new std::vector< std::shared_ptr< mae::general_skeleton > >((const std::vector< std::shared_ptr< mae::general_skeleton > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1waitForUpdateUnmerged_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  jlong jresult = 0 ;
+  mae::nite::nite_farm *arg1 = (mae::nite::nite_farm *) 0 ;
+  unsigned int arg2 ;
+  std::shared_ptr< mae::nite::nite_farm > *smartarg1 = 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::nite::nite_farm > **)&jarg1;
+  arg1 = (mae::nite::nite_farm *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (unsigned int)jarg2; 
+  result = (arg1)->wait_for_update_unmerged(arg2);
+  *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jresult = new std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >((const std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1waitForUpdateUnmerged_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::nite::nite_farm *arg1 = (mae::nite::nite_farm *) 0 ;
+  std::shared_ptr< mae::nite::nite_farm > *smartarg1 = 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::nite::nite_farm > **)&jarg1;
+  arg1 = (mae::nite::nite_farm *)(smartarg1 ? smartarg1->get() : 0); 
+  result = (arg1)->wait_for_update_unmerged();
+  *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jresult = new std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >((const std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1waitForUpdateBoth_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  jlong jresult = 0 ;
+  mae::nite::nite_farm *arg1 = (mae::nite::nite_farm *) 0 ;
+  unsigned int arg2 ;
+  std::shared_ptr< mae::nite::nite_farm > *smartarg1 = 0 ;
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::nite::nite_farm > **)&jarg1;
+  arg1 = (mae::nite::nite_farm *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (unsigned int)jarg2; 
+  result = (arg1)->wait_for_update_both(arg2);
+  *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > **)&jresult = new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > >((const std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1waitForUpdateBoth_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::nite::nite_farm *arg1 = (mae::nite::nite_farm *) 0 ;
+  std::shared_ptr< mae::nite::nite_farm > *smartarg1 = 0 ;
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::nite::nite_farm > **)&jarg1;
+  arg1 = (mae::nite::nite_farm *)(smartarg1 ? smartarg1->get() : 0); 
+  result = (arg1)->wait_for_update_both();
+  *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > **)&jresult = new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > >((const std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1wasKeyboardHit(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  mae::nite::nite_farm *arg1 = (mae::nite::nite_farm *) 0 ;
+  std::shared_ptr< mae::nite::nite_farm > *smartarg1 = 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::nite::nite_farm > **)&jarg1;
+  arg1 = (mae::nite::nite_farm *)(smartarg1 ? smartarg1->get() : 0); 
+  result = (bool)(arg1)->was_keyboard_hit();
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1xnWasKeyboardHit(JNIEnv *jenv, jclass jcls) {
+  jboolean jresult = 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (bool)mae::nite::nite_farm::xn_was_keyboard_hit();
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1listAvailableDeviceInfos(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = mae::nite::nite_farm::list_available_device_infos();
+  *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jresult = new std::vector< std::shared_ptr< mae::nite::device_info > >((const std::vector< std::shared_ptr< mae::nite::device_info > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1getDeviceInfo(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+  jlong jresult = 0 ;
+  std::string arg1 ;
+  std::shared_ptr< mae::nite::device_info > result;
+  
+  (void)jenv;
+  (void)jcls;
+  if(!jarg1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg1_pstr = (const char *)jenv->GetStringUTFChars(jarg1, 0); 
+  if (!arg1_pstr) return 0;
+  (&arg1)->assign(arg1_pstr);
+  jenv->ReleaseStringUTFChars(jarg1, arg1_pstr); 
+  result = mae::nite::nite_farm::get_device_info(arg1);
+  *(std::shared_ptr< mae::nite::device_info > **)&jresult = result ? new std::shared_ptr< mae::nite::device_info >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1GeneralSkeletonVectorVector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *)new std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >();
+  *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1GeneralSkeletonVectorVector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  jlong jresult = 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::size_type arg1 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::size_type)jarg1; 
+  result = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *)new std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >(arg1);
+  *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *) 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jarg1; 
+  result = ((std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > const *)arg1)->size();
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *) 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jarg1; 
+  result = ((std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > const *)arg1)->capacity();
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *) 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::size_type arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jarg1; 
+  arg2 = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::size_type)jarg2; 
+  (arg1)->reserve(arg2);
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVector_1empty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *) 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jarg1; 
+  result = (bool)((std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > const *)arg1)->empty();
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jarg1; 
+  (arg1)->clear();
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVector_1pushBack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *) 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::value_type *arg2 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jarg1; 
+  arg2 = *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::value_type **)&jarg2;
+  if (!arg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::value_type const & reference is null");
+    return ;
+  } 
+  (arg1)->push_back((std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::value_type const &)*arg2);
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  jlong jresult = 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *) 0 ;
+  int arg2 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::value_type *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::value_type *) &std_vector_Sl_std_vector_Sl_std_shared_ptr_Sl_mae_general_skeleton_Sg__Sg__Sg__get(arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+    return 0;
+  }
+  
+  *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::value_type **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *) 0 ;
+  int arg2 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::value_type *arg3 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::value_type **)&jarg3;
+  if (!arg3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::value_type const & reference is null");
+    return ;
+  } 
+  try {
+    std_vector_Sl_std_vector_Sl_std_shared_ptr_Sl_mae_general_skeleton_Sg__Sg__Sg__set(arg1,arg2,(std::vector< std::shared_ptr< mae::general_skeleton > > const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_delete_1GeneralSkeletonVectorVector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *arg1 = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1GeneralSkeletonVectorGeneralSkeletonVectorVectorPair_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *)new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > >();
+  *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1GeneralSkeletonVectorGeneralSkeletonVectorVectorPair_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > arg1 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > arg2 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > *argp1 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *argp2 ;
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  argp1 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::general_skeleton > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  argp2 = *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >");
+    return 0;
+  }
+  arg2 = *argp2; 
+  result = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *)new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > >(arg1,arg2);
+  *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1GeneralSkeletonVectorGeneralSkeletonVectorVectorPair_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *arg1 = 0 ;
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > **)&jarg1;
+  if (!arg1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > const & reference is null");
+    return 0;
+  } 
+  result = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *)new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > >((std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > const &)*arg1);
+  *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorGeneralSkeletonVectorVectorPair_1first_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *arg1 = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *) 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > *arg2 = (std::vector< std::shared_ptr< mae::general_skeleton > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > **)&jarg1; 
+  arg2 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg2; 
+  if (arg1) (arg1)->first = *arg2;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorGeneralSkeletonVectorVectorPair_1first_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *arg1 = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *) 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > **)&jarg1; 
+  result = (std::vector< std::shared_ptr< mae::general_skeleton > > *)& ((arg1)->first);
+  *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorGeneralSkeletonVectorVectorPair_1second_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *arg1 = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *) 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *arg2 = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > **)&jarg1; 
+  arg2 = *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jarg2; 
+  if (arg1) (arg1)->second = *arg2;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorGeneralSkeletonVectorVectorPair_1second_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *arg1 = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *) 0 ;
+  std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > **)&jarg1; 
+  result = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *)& ((arg1)->second);
+  *(std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_delete_1GeneralSkeletonVectorGeneralSkeletonVectorVectorPair(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *arg1 = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > **)&jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteControllerVector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (std::vector< std::shared_ptr< mae::nite::nite_controller > > *)new std::vector< std::shared_ptr< mae::nite::nite_controller > >();
+  *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteControllerVector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > >::size_type arg1 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (std::vector< std::shared_ptr< mae::nite::nite_controller > >::size_type)jarg1; 
+  result = (std::vector< std::shared_ptr< mae::nite::nite_controller > > *)new std::vector< std::shared_ptr< mae::nite::nite_controller > >(arg1);
+  *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *arg1 = (std::vector< std::shared_ptr< mae::nite::nite_controller > > *) 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jarg1; 
+  result = ((std::vector< std::shared_ptr< mae::nite::nite_controller > > const *)arg1)->size();
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *arg1 = (std::vector< std::shared_ptr< mae::nite::nite_controller > > *) 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jarg1; 
+  result = ((std::vector< std::shared_ptr< mae::nite::nite_controller > > const *)arg1)->capacity();
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *arg1 = (std::vector< std::shared_ptr< mae::nite::nite_controller > > *) 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > >::size_type arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jarg1; 
+  arg2 = (std::vector< std::shared_ptr< mae::nite::nite_controller > >::size_type)jarg2; 
+  (arg1)->reserve(arg2);
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1empty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *arg1 = (std::vector< std::shared_ptr< mae::nite::nite_controller > > *) 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jarg1; 
+  result = (bool)((std::vector< std::shared_ptr< mae::nite::nite_controller > > const *)arg1)->empty();
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *arg1 = (std::vector< std::shared_ptr< mae::nite::nite_controller > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jarg1; 
+  (arg1)->clear();
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1pushBack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *arg1 = (std::vector< std::shared_ptr< mae::nite::nite_controller > > *) 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > >::value_type *arg2 = 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > >::value_type tempnull2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jarg1; 
+  arg2 = jarg2 ? *(std::vector< std::shared_ptr< mae::nite::nite_controller > >::value_type **)&jarg2 : &tempnull2; 
+  (arg1)->push_back((std::vector< std::shared_ptr< mae::nite::nite_controller > >::value_type const &)*arg2);
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *arg1 = (std::vector< std::shared_ptr< mae::nite::nite_controller > > *) 0 ;
+  int arg2 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > >::value_type *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< std::shared_ptr< mae::nite::nite_controller > >::value_type *) &std_vector_Sl_std_shared_ptr_Sl_mae_nite_nite_controller_Sg__Sg__get(arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+    return 0;
+  }
+  
+  *(std::vector< std::shared_ptr< mae::nite::nite_controller > >::value_type **)&jresult = *result ? new std::shared_ptr< mae::nite::nite_controller >(*result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *arg1 = (std::vector< std::shared_ptr< mae::nite::nite_controller > > *) 0 ;
+  int arg2 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > >::value_type *arg3 = 0 ;
+  std::vector< std::shared_ptr< mae::nite::nite_controller > >::value_type tempnull3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = jarg3 ? *(std::vector< std::shared_ptr< mae::nite::nite_controller > >::value_type **)&jarg3 : &tempnull3; 
+  try {
+    std_vector_Sl_std_shared_ptr_Sl_mae_nite_nite_controller_Sg__Sg__set(arg1,arg2,(std::shared_ptr< mae::nite::nite_controller > const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_delete_1NiteControllerVector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::vector< std::shared_ptr< mae::nite::nite_controller > > *arg1 = (std::vector< std::shared_ptr< mae::nite::nite_controller > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::nite_controller > > **)&jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1DeviceInfoVector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (std::vector< std::shared_ptr< mae::nite::device_info > > *)new std::vector< std::shared_ptr< mae::nite::device_info > >();
+  *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1DeviceInfoVector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > >::size_type arg1 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (std::vector< std::shared_ptr< mae::nite::device_info > >::size_type)jarg1; 
+  result = (std::vector< std::shared_ptr< mae::nite::device_info > > *)new std::vector< std::shared_ptr< mae::nite::device_info > >(arg1);
+  *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > > *arg1 = (std::vector< std::shared_ptr< mae::nite::device_info > > *) 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jarg1; 
+  result = ((std::vector< std::shared_ptr< mae::nite::device_info > > const *)arg1)->size();
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > > *arg1 = (std::vector< std::shared_ptr< mae::nite::device_info > > *) 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jarg1; 
+  result = ((std::vector< std::shared_ptr< mae::nite::device_info > > const *)arg1)->capacity();
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  std::vector< std::shared_ptr< mae::nite::device_info > > *arg1 = (std::vector< std::shared_ptr< mae::nite::device_info > > *) 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > >::size_type arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jarg1; 
+  arg2 = (std::vector< std::shared_ptr< mae::nite::device_info > >::size_type)jarg2; 
+  (arg1)->reserve(arg2);
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1empty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > > *arg1 = (std::vector< std::shared_ptr< mae::nite::device_info > > *) 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jarg1; 
+  result = (bool)((std::vector< std::shared_ptr< mae::nite::device_info > > const *)arg1)->empty();
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  std::vector< std::shared_ptr< mae::nite::device_info > > *arg1 = (std::vector< std::shared_ptr< mae::nite::device_info > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jarg1; 
+  (arg1)->clear();
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1pushBack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  std::vector< std::shared_ptr< mae::nite::device_info > > *arg1 = (std::vector< std::shared_ptr< mae::nite::device_info > > *) 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > >::value_type *arg2 = 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > >::value_type tempnull2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jarg1; 
+  arg2 = jarg2 ? *(std::vector< std::shared_ptr< mae::nite::device_info > >::value_type **)&jarg2 : &tempnull2; 
+  (arg1)->push_back((std::vector< std::shared_ptr< mae::nite::device_info > >::value_type const &)*arg2);
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > > *arg1 = (std::vector< std::shared_ptr< mae::nite::device_info > > *) 0 ;
+  int arg2 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > >::value_type *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  try {
+    result = (std::vector< std::shared_ptr< mae::nite::device_info > >::value_type *) &std_vector_Sl_std_shared_ptr_Sl_mae_nite_device_info_Sg__Sg__get(arg1,arg2);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+    return 0;
+  }
+  
+  *(std::vector< std::shared_ptr< mae::nite::device_info > >::value_type **)&jresult = *result ? new std::shared_ptr< mae::nite::device_info >(*result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+  std::vector< std::shared_ptr< mae::nite::device_info > > *arg1 = (std::vector< std::shared_ptr< mae::nite::device_info > > *) 0 ;
+  int arg2 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > >::value_type *arg3 = 0 ;
+  std::vector< std::shared_ptr< mae::nite::device_info > >::value_type tempnull3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = jarg3 ? *(std::vector< std::shared_ptr< mae::nite::device_info > >::value_type **)&jarg3 : &tempnull3; 
+  try {
+    std_vector_Sl_std_shared_ptr_Sl_mae_nite_device_info_Sg__Sg__set(arg1,arg2,(std::shared_ptr< mae::nite::device_info > const &)*arg3);
+  }
+  catch(std::out_of_range &_e) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+    return ;
+  }
+  
+}
+
+
+SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_delete_1DeviceInfoVector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::vector< std::shared_ptr< mae::nite::device_info > > *arg1 = (std::vector< std::shared_ptr< mae::nite::device_info > > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::vector< std::shared_ptr< mae::nite::device_info > > **)&jarg1; 
+  delete arg1;
 }
 
 
