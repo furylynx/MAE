@@ -4,5 +4,11 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/MAEJava"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/MAENiteJava"/>
+	<classpathentry kind="lib" path="libs/batik-1.7/batik-rasterizer.jar"/>
+	<classpathentry kind="lib" path="libs/batik-1.7/batik-slideshow.jar"/>
+	<classpathentry kind="lib" path="libs/batik-1.7/batik-squiggle.jar"/>
+	<classpathentry kind="lib" path="libs/batik-1.7/batik-svgpp.jar"/>
+	<classpathentry kind="lib" path="libs/batik-1.7/batik-ttf2svg.jar"/>
+	<classpathentry kind="lib" path="libs/batik-1.7/batik.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
