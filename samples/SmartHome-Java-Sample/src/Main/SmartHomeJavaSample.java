@@ -42,7 +42,6 @@ public class SmartHomeJavaSample {
 		//run the threads
 		 (new Thread(firstSensorThread)).start();
 		
-		
 	}
 
 }

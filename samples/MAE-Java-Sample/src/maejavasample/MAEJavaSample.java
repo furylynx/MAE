@@ -12,7 +12,6 @@ import maejavawrapper.IJSequenceListener;
 import maejavawrapper.WrappedMovementController;
 import maenitejava.NiteController;
 
-
 public class MAEJavaSample 
 {
 
