@@ -45,5 +45,15 @@
 SWIG_JAVABODY_PROXY(public, public, SWIGTYPE);
 SWIG_JAVABODY_TYPEWRAPPER(public, public, public, SWIGTYPE);
 
+//-- exception
+%include "exception.i"
+%exception { 
+    try {
+        $action
+    } catch (...) {
+        SWIG_exception(SWIG_RuntimeError, "unknown exception");
+    }
+}
+
 //-- include definitions that are required
 %include "mae.i"

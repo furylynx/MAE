@@ -19,6 +19,9 @@ public class MaeJavaJNI {
     }
   }
 
+  public final static native long new_IniReader(String jarg1);
+  public final static native void delete_IniReader(long jarg1);
+  public final static native String IniReader_getValue(long jarg1, IniReader jarg1_, String jarg2, String jarg3);
   public final static native int INVALID_BONE_get();
   public final static native int HEAD_get();
   public final static native int LEFT_UPPER_ARM_get();
