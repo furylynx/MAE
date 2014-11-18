@@ -1,7 +1,11 @@
 package Controller;
 
+import java.util.List;
+
 import maejava.Bone;
+import maejava.BoneVector;
 import maejava.ColumnDefinition;
+import maejava.ColumnDefinitionVector;
 import maejava.GeneralSkeletonVector;
 import maejava.LabanSequence;
 import maejava.LabanSequenceVector;
@@ -25,14 +29,26 @@ public class SensorThread implements Runnable {
 	 * 
 	 * @param info The sensor info object to which the data will be written.
 	 * @param startingTimeStamp The starting time stamp.
+	 * @param tolerance The tolerance to be set. Tolerance is given in beats (1 beat is 200ms).
+	 * @param bodyParts The body parts to be used.
+	 * @param columnDefinitions The column definitions to be used.
+	 * @param sequencesToRegister The sequence to be registered.
 	 */
-	public SensorThread(SensorInfo info, long startingTimeStamp) {
+	public SensorThread(SensorInfo info, long startingTimeStamp, double tolerance, BoneVector bodyParts, ColumnDefinitionVector columnDefinitions, List<LabanSequence> sequencesToRegister) {
 		this.setInfo(info);
-		this.running = false;
+		this.running = true;
 		
 		niteController = new NiteController(info.getDeviceInfo(), "SamplesConfig.xml");
 		
-		movementController = new WrappedMovementController(Bone.defaultBones(), ColumnDefinition.defaultDefinitions());
+		//framerate is assumed to be 30fps, pose buffer is set to 300 frames = 10 s
+		movementController = new WrappedMovementController(bodyParts, columnDefinitions, 300);
+		movementController.setRecognitionTolerance(tolerance);
+		
+		//register all sequences
+		for (LabanSequence sequence : sequencesToRegister)
+		{
+			movementController.registerSequence(sequence);
+		}
 	}
 
 	@Override
@@ -49,9 +65,14 @@ public class SensorThread implements Runnable {
 			//for simplification, the movement data is only analysed for the first user
 			if (!sensorData.empty() && sensorData.get(0) != null)
 			{
+				System.out.println(">> SensorThread.run - Sensor data received");
+				
 				//process sensor data
 				int timestamp = (int)(System.currentTimeMillis() - startingTimeStamp);
 				movementController.nextFrame(timestamp, sensorData.get(0));
+				
+				currentSequence = movementController.getCurrentSequence();
+				currentRecognition = movementController.getCurrentRecognition();
 			}
 			
 			//handle sensor data

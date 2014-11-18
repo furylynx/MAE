@@ -13,11 +13,6 @@ import org.apache.batik.util.XMLResourceDescriptor;
 import org.w3c.dom.svg.SVGDocument;
 
 public class SequencePanel extends JPanel {
-
-	/**
-	 * Serial version ID.
-	 */
-	private static final long serialVersionUID = -2062414238196829924L;
 	
 	private JSVGScrollPane svgPane;
 	private JSVGCanvas svgCanvas;
@@ -26,15 +21,19 @@ public class SequencePanel extends JPanel {
 		svgCanvas = new JSVGCanvas();
 		svgPane = new JSVGScrollPane(svgCanvas);
 
+		setLayout(new BorderLayout());
 		add(svgPane, BorderLayout.CENTER);
 	}
 
 	public void updateSVG(SVGDocument doc) {
 		svgCanvas.setSVGDocument(doc);
-		svgCanvas.repaint();
 	}
 
 	public void updateSVG(String svgString) {
+		
+		//TODO remove
+		System.out.println(">> SequencePanel.updateSVG");
+		
         StringReader reader = new StringReader(svgString);
         String uri = "nothing";
         
