@@ -23,6 +23,9 @@ virtual void \hyperlink{classmae_1_1i__movement__detector_a88d965f2b8d04e0681e2e
 virtual void \hyperlink{classmae_1_1i__movement__detector_a56a36a8a427feb34f970b9e259a1150f}{clear\-\_\-listeners} ()=0
 \item 
 virtual void \hyperlink{classmae_1_1i__movement__detector_a347855d153525d7e09f793ff2b17b58b}{notify\-\_\-listeners} (long timestamp, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ pose)=0
+\item 
+virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ \hyperlink{classmae_1_1i__movement__detector_a67db28512cb293217156fd8611322d75}{get\-\_\-current\-\_\-pose} () const =0
 \end{DoxyCompactItemize}
 
 
@@ -96,6 +99,22 @@ The detected movement sequence.
 
 
 Implemented in \hyperlink{classmae_1_1kp__movement__detector_a2aaa4c65a7735ac1d3ee201beb56b6b1}{mae\-::kp\-\_\-movement\-\_\-detector$<$ T, U $>$}.
+
+\hypertarget{classmae_1_1i__movement__detector_a67db28512cb293217156fd8611322d75}{\index{mae\-::i\-\_\-movement\-\_\-detector@{mae\-::i\-\_\-movement\-\_\-detector}!get\-\_\-current\-\_\-pose@{get\-\_\-current\-\_\-pose}}
+\index{get\-\_\-current\-\_\-pose@{get\-\_\-current\-\_\-pose}!mae::i_movement_detector@{mae\-::i\-\_\-movement\-\_\-detector}}
+\subsubsection[{get\-\_\-current\-\_\-pose}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ virtual std\-::shared\-\_\-ptr$<${\bf general\-\_\-pose}$>$ {\bf mae\-::i\-\_\-movement\-\_\-detector}$<$ T, U $>$\-::get\-\_\-current\-\_\-pose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1i__movement__detector_a67db28512cb293217156fd8611322d75}
+Returns the last processed pose.
+
+\begin{DoxyReturn}{Returns}
+The last processed pose. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classmae_1_1kp__movement__detector_a0cf1bb06689f4a983daed5a5fc1935c6}{mae\-::kp\-\_\-movement\-\_\-detector$<$ T, U $>$}.
 
 \hypertarget{classmae_1_1i__movement__detector_a347855d153525d7e09f793ff2b17b58b}{\index{mae\-::i\-\_\-movement\-\_\-detector@{mae\-::i\-\_\-movement\-\_\-detector}!notify\-\_\-listeners@{notify\-\_\-listeners}}
 \index{notify\-\_\-listeners@{notify\-\_\-listeners}!mae::i_movement_detector@{mae\-::i\-\_\-movement\-\_\-detector}}

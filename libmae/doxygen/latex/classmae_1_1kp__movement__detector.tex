@@ -29,6 +29,9 @@ virtual void \hyperlink{classmae_1_1kp__movement__detector_a5333495e30be2b0d6205
 virtual void \hyperlink{classmae_1_1kp__movement__detector_a55fb6a221a2d067db480055a2dfb7a66}{notify\-\_\-listeners} (long timestamp, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ pose)
 \item 
 virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ \hyperlink{classmae_1_1kp__movement__detector_a0cf1bb06689f4a983daed5a5fc1935c6}{get\-\_\-current\-\_\-pose} () const 
+\item 
+virtual std\-::shared\-\_\-ptr\\*
 $<$ \hyperlink{classmae_1_1i__pose__detector}{i\-\_\-pose\-\_\-detector}$<$ T $>$ $>$ \hyperlink{classmae_1_1kp__movement__detector_a3ec1a3667020a0a43552c4f45d7c8967}{get\-\_\-pose\-\_\-detector} () const 
 \item 
 virtual std\-::shared\-\_\-ptr\\*
@@ -155,6 +158,22 @@ The detected movement sequence.
 
 
 Implements \hyperlink{classmae_1_1i__movement__detector_a7b3e09f127d318b5f794e056e40b3746}{mae\-::i\-\_\-movement\-\_\-detector$<$ T, U $>$}.
+
+\hypertarget{classmae_1_1kp__movement__detector_a0cf1bb06689f4a983daed5a5fc1935c6}{\index{mae\-::kp\-\_\-movement\-\_\-detector@{mae\-::kp\-\_\-movement\-\_\-detector}!get\-\_\-current\-\_\-pose@{get\-\_\-current\-\_\-pose}}
+\index{get\-\_\-current\-\_\-pose@{get\-\_\-current\-\_\-pose}!mae::kp_movement_detector@{mae\-::kp\-\_\-movement\-\_\-detector}}
+\subsubsection[{get\-\_\-current\-\_\-pose}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-pose} $>$ {\bf mae\-::kp\-\_\-movement\-\_\-detector}$<$ T, U $>$\-::get\-\_\-current\-\_\-pose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1kp__movement__detector_a0cf1bb06689f4a983daed5a5fc1935c6}
+Returns the last processed pose.
+
+\begin{DoxyReturn}{Returns}
+The last processed pose. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classmae_1_1i__movement__detector_a67db28512cb293217156fd8611322d75}{mae\-::i\-\_\-movement\-\_\-detector$<$ T, U $>$}.
 
 \hypertarget{classmae_1_1kp__movement__detector_abbd7316e733802319ee2487728c008e5}{\index{mae\-::kp\-\_\-movement\-\_\-detector@{mae\-::kp\-\_\-movement\-\_\-detector}!get\-\_\-kp\-\_\-detector@{get\-\_\-kp\-\_\-detector}}
 \index{get\-\_\-kp\-\_\-detector@{get\-\_\-kp\-\_\-detector}!mae::kp_movement_detector@{mae\-::kp\-\_\-movement\-\_\-detector}}

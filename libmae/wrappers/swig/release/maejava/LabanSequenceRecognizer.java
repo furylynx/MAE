@@ -37,40 +37,32 @@ public class LabanSequenceRecognizer extends LabanSequenceSequenceRecognizer {
     super.delete();
   }
 
-  public LabanSequenceRecognizer(double framerate, boolean debug) {
-    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_0(framerate, debug), true);
-  }
-
-  public LabanSequenceRecognizer(double framerate) {
-    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_1(framerate), true);
+  public LabanSequenceRecognizer(boolean debug) {
+    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_0(debug), true);
   }
 
   public LabanSequenceRecognizer() {
-    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_2(), true);
+    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_1(), true);
   }
 
-  public LabanSequenceRecognizer(ColumnDefinitionVector column_definitions, long beats_per_measure, long beat_duration, ETimeUnit time_unit, double framerate, boolean debug) {
-    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_3(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, debug), true);
-  }
-
-  public LabanSequenceRecognizer(ColumnDefinitionVector column_definitions, long beats_per_measure, long beat_duration, ETimeUnit time_unit, double framerate) {
-    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_4(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue(), framerate), true);
+  public LabanSequenceRecognizer(ColumnDefinitionVector column_definitions, long beats_per_measure, long beat_duration, ETimeUnit time_unit, boolean debug) {
+    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_2(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue(), debug), true);
   }
 
   public LabanSequenceRecognizer(ColumnDefinitionVector column_definitions, long beats_per_measure, long beat_duration, ETimeUnit time_unit) {
-    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_5(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue()), true);
+    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_3(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration, time_unit.swigValue()), true);
   }
 
   public LabanSequenceRecognizer(ColumnDefinitionVector column_definitions, long beats_per_measure, long beat_duration) {
-    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_6(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration), true);
+    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_4(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, beats_per_measure, beat_duration), true);
   }
 
   public LabanSequenceRecognizer(ColumnDefinitionVector column_definitions, long beats_per_measure) {
-    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_7(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, beats_per_measure), true);
+    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_5(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, beats_per_measure), true);
   }
 
   public LabanSequenceRecognizer(ColumnDefinitionVector column_definitions) {
-    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_8(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions), true);
+    this(MaeJavaJNI.new_LabanSequenceRecognizer__SWIG_6(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions), true);
   }
 
   public void setRecognitionTolerance(double tolerance) {
@@ -106,8 +98,8 @@ public class LabanSequenceRecognizer extends LabanSequenceSequenceRecognizer {
     return MaeJavaJNI.LabanSequenceRecognizer_getSequenceLength(swigCPtr, this, LabanSequence.getCPtr(sequence), sequence);
   }
 
-  public LabanSequenceVector recognizeSequence(LabanSequence sequence, BoneVector body_parts) {
-    return new LabanSequenceVector(MaeJavaJNI.LabanSequenceRecognizer_recognizeSequence(swigCPtr, this, LabanSequence.getCPtr(sequence), sequence, BoneVector.getCPtr(body_parts), body_parts), true);
+  public LabanSequenceVector recognizeSequence(double framerate, LabanSequence sequence, BoneVector body_parts) {
+    return new LabanSequenceVector(MaeJavaJNI.LabanSequenceRecognizer_recognizeSequence(swigCPtr, this, framerate, LabanSequence.getCPtr(sequence), sequence, BoneVector.getCPtr(body_parts), body_parts), true);
   }
 
   public String str() {

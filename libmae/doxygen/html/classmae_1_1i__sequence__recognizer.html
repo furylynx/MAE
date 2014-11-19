@@ -95,33 +95,245 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac3e87eabdeec0e8cd9d083d1cb67274f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3e87eabdeec0e8cd9d083d1cb67274f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>register_sequence</b> (std::shared_ptr&lt; U &gt; sequence)=0</td></tr>
+<tr class="memitem:ac3e87eabdeec0e8cd9d083d1cb67274f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__sequence__recognizer.html#ac3e87eabdeec0e8cd9d083d1cb67274f">register_sequence</a> (std::shared_ptr&lt; U &gt; sequence)=0</td></tr>
 <tr class="separator:ac3e87eabdeec0e8cd9d083d1cb67274f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23681e6e91a56a02db5942869e3bb57b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23681e6e91a56a02db5942869e3bb57b"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>deregister_sequence</b> (std::shared_ptr&lt; U &gt; sequence)=0</td></tr>
+<tr class="memitem:a23681e6e91a56a02db5942869e3bb57b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__sequence__recognizer.html#a23681e6e91a56a02db5942869e3bb57b">deregister_sequence</a> (std::shared_ptr&lt; U &gt; sequence)=0</td></tr>
 <tr class="separator:a23681e6e91a56a02db5942869e3bb57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c809ed240ff511a881efe38a6f174d8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c809ed240ff511a881efe38a6f174d8"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>deregister_sequence</b> (unsigned int list_index)=0</td></tr>
+<tr class="memitem:a3c809ed240ff511a881efe38a6f174d8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__sequence__recognizer.html#a3c809ed240ff511a881efe38a6f174d8">deregister_sequence</a> (unsigned int list_index)=0</td></tr>
 <tr class="separator:a3c809ed240ff511a881efe38a6f174d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19a8b974b8920c64508ae13d91662366"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19a8b974b8920c64508ae13d91662366"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>clear_registered_sequences</b> ()=0</td></tr>
+<tr class="memitem:a19a8b974b8920c64508ae13d91662366"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__sequence__recognizer.html#a19a8b974b8920c64508ae13d91662366">clear_registered_sequences</a> ()=0</td></tr>
 <tr class="separator:a19a8b974b8920c64508ae13d91662366"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeed1cb575ad382406f5b2e30aa553a6c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeed1cb575ad382406f5b2e30aa553a6c"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>get_sequence_length</b> (std::shared_ptr&lt; U &gt; sequence)=0</td></tr>
-<tr class="separator:aeed1cb575ad382406f5b2e30aa553a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75078a38eb028e343195505fc6c1e9dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75078a38eb028e343195505fc6c1e9dd"></a>
-virtual std::vector<br class="typebreak"/>
-&lt; std::shared_ptr&lt; U &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>recognize_sequence</b> (std::shared_ptr&lt; U &gt; sequence, std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt; body_parts)=0</td></tr>
-<tr class="separator:a75078a38eb028e343195505fc6c1e9dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d3e370dc45d9914dcb07b33f730336e"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__sequence__recognizer.html#a5d3e370dc45d9914dcb07b33f730336e">get_sequence_length</a> (std::shared_ptr&lt; U &gt; sequence) const =0</td></tr>
+<tr class="separator:a5d3e370dc45d9914dcb07b33f730336e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8013670ca210f801bc8940bb2a541f21"><td class="memItemLeft" align="right" valign="top">virtual std::vector<br class="typebreak"/>
+&lt; std::shared_ptr&lt; U &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__sequence__recognizer.html#a8013670ca210f801bc8940bb2a541f21">recognize_sequence</a> (double framerate, std::shared_ptr&lt; U &gt; sequence, std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt; body_parts)=0</td></tr>
+<tr class="separator:a8013670ca210f801bc8940bb2a541f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a19a8b974b8920c64508ae13d91662366"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classmae_1_1i__sequence__recognizer.html">mae::i_sequence_recognizer</a>&lt; U &gt;::clear_registered_sequences </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Clears the registered sequences. </p>
+
+<p>Implemented in <a class="el" href="classmae_1_1fl_1_1laban_1_1laban__sequence__recognizer.html#a4eaa30d1cd8064e381765a2b3385a248">mae::fl::laban::laban_sequence_recognizer</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a23681e6e91a56a02db5942869e3bb57b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool <a class="el" href="classmae_1_1i__sequence__recognizer.html">mae::i_sequence_recognizer</a>&lt; U &gt;::deregister_sequence </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; U &gt;&#160;</td>
+          <td class="paramname"><em>sequence</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Removes the sequence from the recognizer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sequence</td><td>The sequence to be deregistered. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the sequence was registered. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3c809ed240ff511a881efe38a6f174d8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool <a class="el" href="classmae_1_1i__sequence__recognizer.html">mae::i_sequence_recognizer</a>&lt; U &gt;::deregister_sequence </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>list_index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Removes the sequence from the recognizer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list_index</td><td>The index of the sequence in the list. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the sequence was registered. </dd></dl>
+
+<p>Implemented in <a class="el" href="classmae_1_1fl_1_1laban_1_1laban__sequence__recognizer.html#ac3fb568e668228472ea3a1ff0124898e">mae::fl::laban::laban_sequence_recognizer</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5d3e370dc45d9914dcb07b33f730336e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int <a class="el" href="classmae_1_1i__sequence__recognizer.html">mae::i_sequence_recognizer</a>&lt; U &gt;::get_sequence_length </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; U &gt;&#160;</td>
+          <td class="paramname"><em>sequence</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the length of the sequence in milliseconds.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sequence</td><td>The sequence. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The length of the sequence. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8013670ca210f801bc8940bb2a541f21"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt;std::shared_ptr&lt;U&gt; &gt; <a class="el" href="classmae_1_1i__sequence__recognizer.html">mae::i_sequence_recognizer</a>&lt; U &gt;::recognize_sequence </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>framerate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; U &gt;&#160;</td>
+          <td class="paramname"><em>sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt;&#160;</td>
+          <td class="paramname"><em>body_parts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Recognized subsequences in the sequence for the given body parts.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">framerate</td><td>The framerate to be applied. </td></tr>
+    <tr><td class="paramname">sequence</td><td>The sequences to be looked at. </td></tr>
+    <tr><td class="paramname">body_parts</td><td>The body parts. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>All matches. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac3e87eabdeec0e8cd9d083d1cb67274f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classmae_1_1i__sequence__recognizer.html">mae::i_sequence_recognizer</a>&lt; U &gt;::register_sequence </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; U &gt;&#160;</td>
+          <td class="paramname"><em>sequence</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Registers the sequence to the recognizer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sequence</td><td>The sequence. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/mae/<a class="el" href="i__sequence__recognizer_8hpp_source.html">i_sequence_recognizer.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 29 2014 18:06:13 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 19 2014 12:26:16 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

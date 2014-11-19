@@ -102,6 +102,20 @@ namespace mae
 			virtual void set_no_buffer_size_update(bool updates);
 
 			/**
+			 * Sets the framerate to be applied.
+			 *
+			 * @param framerate The framerate
+			 */
+			virtual void set_framerate(double framerate);
+
+			/**
+			 * Returns the currently applied framerate.
+			 *
+			 * @return The framerate.
+			 */
+			virtual double get_framerate() const;
+
+			/**
 			 * Clears the buffer of currently present movements.
 			 */
 			virtual void clear_buffer();
@@ -265,9 +279,9 @@ namespace mae
 			std::cout << "creating movement controller." << std::endl;
 		}
 
-		this->debug_ = debug;
-		this->framerate_ = framerate;
-		this->body_parts_ = body_parts;
+		debug_ = debug;
+		framerate_ = framerate;
+		body_parts_ = body_parts;
 		buffer_size_ = pose_buffer_size;
 		no_buffer_size_update_ = false;
 
@@ -303,7 +317,7 @@ namespace mae
 
 			if (isr_ != nullptr)
 			{
-				current_recognition_ = isr_->recognize_sequence(sequence, body_parts_);
+				current_recognition_ = isr_->recognize_sequence(framerate_, sequence, body_parts_);
 
 				if (current_recognition_.size() > 0)
 				{
@@ -421,6 +435,18 @@ namespace mae
 	std::vector<std::shared_ptr<U> > movement_controller<T, U>::get_current_recognition() const
 	{
 		return current_recognition_;
+	}
+
+	template<typename T, typename U>
+	void movement_controller<T, U>::set_framerate(double framerate)
+	{
+		framerate_ = framerate;
+	}
+
+	template<typename T, typename U>
+	double movement_controller<T, U>::get_framerate() const
+	{
+		return framerate_;
 	}
 
 	template<typename T, typename U>

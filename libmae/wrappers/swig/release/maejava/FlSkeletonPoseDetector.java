@@ -35,8 +35,8 @@ public class FlSkeletonPoseDetector {
     }
   }
 
-  public GeneralPose pose(FlSkeleton skeleton, BoneVector body_parts, GeneralPose previous_pose) {
-    long cPtr = MaeJavaJNI.FlSkeletonPoseDetector_pose(swigCPtr, this, FlSkeleton.getCPtr(skeleton), skeleton, BoneVector.getCPtr(body_parts), body_parts, GeneralPose.getCPtr(previous_pose), previous_pose);
+  public GeneralPose pose(double framerate, FlSkeleton skeleton, BoneVector body_parts, GeneralPose previous_pose) {
+    long cPtr = MaeJavaJNI.FlSkeletonPoseDetector_pose(swigCPtr, this, framerate, FlSkeleton.getCPtr(skeleton), skeleton, BoneVector.getCPtr(body_parts), body_parts, GeneralPose.getCPtr(previous_pose), previous_pose);
     return (cPtr == 0) ? null : new GeneralPose(cPtr, true);
   }
 

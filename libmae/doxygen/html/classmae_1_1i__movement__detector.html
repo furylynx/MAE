@@ -118,6 +118,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a56a36a8a427feb34f970b9e259a1150f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347855d153525d7e09f793ff2b17b58b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__movement__detector.html#a347855d153525d7e09f793ff2b17b58b">notify_listeners</a> (long timestamp, std::shared_ptr&lt; <a class="el" href="classmae_1_1general__pose.html">general_pose</a> &gt; pose)=0</td></tr>
 <tr class="separator:a347855d153525d7e09f793ff2b17b58b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67db28512cb293217156fd8611322d75"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classmae_1_1general__pose.html">general_pose</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__movement__detector.html#a67db28512cb293217156fd8611322d75">get_current_pose</a> () const =0</td></tr>
+<tr class="separator:a67db28512cb293217156fd8611322d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="af6724fa4c8ddb032411825168e4b02d4"></a>
@@ -272,6 +275,35 @@ template&lt;typename T , typename U &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a67db28512cb293217156fd8611322d75"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::shared_ptr&lt;<a class="el" href="classmae_1_1general__pose.html">general_pose</a>&gt; <a class="el" href="classmae_1_1i__movement__detector.html">mae::i_movement_detector</a>&lt; T, U &gt;::get_current_pose </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the last processed pose.</p>
+<dl class="section return"><dt>Returns</dt><dd>The last processed pose. </dd></dl>
+
+<p>Implemented in <a class="el" href="classmae_1_1kp__movement__detector.html#a0cf1bb06689f4a983daed5a5fc1935c6">mae::kp_movement_detector&lt; T, U &gt;</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a347855d153525d7e09f793ff2b17b58b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -394,7 +426,7 @@ template&lt;typename T , typename U &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 29 2014 18:06:13 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 19 2014 12:26:16 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
