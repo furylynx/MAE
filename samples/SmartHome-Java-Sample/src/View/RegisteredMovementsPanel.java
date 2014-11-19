@@ -24,6 +24,7 @@ import org.apache.batik.util.XMLResourceDescriptor;
 
 import maejava.LabanSequence;
 
+
 public class RegisteredMovementsPanel extends JPanel {
 
 	List<LabanSequence> registeredSequences;
