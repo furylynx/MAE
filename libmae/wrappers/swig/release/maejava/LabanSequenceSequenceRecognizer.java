@@ -55,8 +55,8 @@ public class LabanSequenceSequenceRecognizer {
     return MaeJavaJNI.LabanSequenceSequenceRecognizer_getSequenceLength(swigCPtr, this, LabanSequence.getCPtr(sequence), sequence);
   }
 
-  public LabanSequenceVector recognizeSequence(LabanSequence sequence, BoneVector body_parts) {
-    return new LabanSequenceVector(MaeJavaJNI.LabanSequenceSequenceRecognizer_recognizeSequence(swigCPtr, this, LabanSequence.getCPtr(sequence), sequence, BoneVector.getCPtr(body_parts), body_parts), true);
+  public LabanSequenceVector recognizeSequence(double framerate, LabanSequence sequence, BoneVector body_parts) {
+    return new LabanSequenceVector(MaeJavaJNI.LabanSequenceSequenceRecognizer_recognizeSequence(swigCPtr, this, framerate, LabanSequence.getCPtr(sequence), sequence, BoneVector.getCPtr(body_parts), body_parts), true);
   }
 
 }

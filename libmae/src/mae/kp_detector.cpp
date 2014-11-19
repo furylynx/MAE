@@ -21,7 +21,7 @@ namespace mae
 
 	}
 
-	std::shared_ptr<general_enriched_pose> kp_detector::estimate_frame(std::shared_ptr<general_pose> current_pose,
+	std::shared_ptr<general_enriched_pose> kp_detector::estimate_frame(double framerate, std::shared_ptr<general_pose> current_pose,
 			std::list<std::shared_ptr<general_enriched_pose> > previous_sequence, std::vector<bone> body_parts)
 	{
 

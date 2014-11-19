@@ -109,10 +109,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac1fd2fc2b97bbc404e08f535647c47e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32f047751311a4e179d7cdad365bcadc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a32f047751311a4e179d7cdad365bcadc">set_no_buffer_size_update</a> (bool updates)</td></tr>
 <tr class="separator:a32f047751311a4e179d7cdad365bcadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f99fd37e6d7459d311ba3cbcccbdea1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a6f99fd37e6d7459d311ba3cbcccbdea1">set_framerate</a> (double framerate)</td></tr>
+<tr class="separator:a6f99fd37e6d7459d311ba3cbcccbdea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7f0769f77719733e2c73b9830d670fa"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#af7f0769f77719733e2c73b9830d670fa">get_framerate</a> () const </td></tr>
+<tr class="separator:af7f0769f77719733e2c73b9830d670fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a694dc82c3222059711fa3a2ac6eb8ec2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a694dc82c3222059711fa3a2ac6eb8ec2">clear_buffer</a> ()</td></tr>
 <tr class="separator:a694dc82c3222059711fa3a2ac6eb8ec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ce565a08a9b4efdee6b2f00b02e33e1"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; U &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a1ce565a08a9b4efdee6b2f00b02e33e1">get_current_sequence</a> ()</td></tr>
-<tr class="separator:a1ce565a08a9b4efdee6b2f00b02e33e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8047034c7af70d1be6c63a33c8c7192c"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; U &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a8047034c7af70d1be6c63a33c8c7192c">get_current_sequence</a> () const </td></tr>
+<tr class="separator:a8047034c7af70d1be6c63a33c8c7192c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6d4e2103bb880f25e43b93b6d83053a"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classmae_1_1general__pose.html">general_pose</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#af6d4e2103bb880f25e43b93b6d83053a">get_current_pose</a> () const </td></tr>
+<tr class="separator:af6d4e2103bb880f25e43b93b6d83053a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58a04cf526d0deeffa7d4820619c41b5"><td class="memItemLeft" align="right" valign="top">virtual std::vector<br class="typebreak"/>
+&lt; std::shared_ptr&lt; U &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a58a04cf526d0deeffa7d4820619c41b5">get_current_recognition</a> () const </td></tr>
+<tr class="separator:a58a04cf526d0deeffa7d4820619c41b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a150591c820312528d5b11e32646455"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a7a150591c820312528d5b11e32646455">add_listener</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1i__pose__listener.html">i_pose_listener</a> &gt; pose_listener)</td></tr>
 <tr class="separator:a7a150591c820312528d5b11e32646455"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d77a42ac7427ae562d042ebbc6ce30b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a5d77a42ac7427ae562d042ebbc6ce30b">remove_listener</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1i__pose__listener.html">i_pose_listener</a> &gt; pose_listener)</td></tr>
@@ -173,7 +183,7 @@ template&lt;typename T, typename U&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>framerate</em> = <code>1.0/30.0</code>, </td>
+          <td class="paramname"><em>framerate</em> = <code>1.0&#160;/&#160;30.0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -243,7 +253,7 @@ template&lt;typename T, typename U&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>framerate</em> = <code>1.0/30.0</code>, </td>
+          <td class="paramname"><em>framerate</em> = <code>1.0&#160;/&#160;30.0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -485,7 +495,61 @@ template&lt;typename T , typename U&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a1ce565a08a9b4efdee6b2f00b02e33e1"></a>
+<a class="anchor" id="af6d4e2103bb880f25e43b93b6d83053a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classmae_1_1general__pose.html">general_pose</a> &gt; <a class="el" href="classmae_1_1movement__controller.html">mae::movement_controller</a>&lt; T, U &gt;::get_current_pose </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the last processed pose.</p>
+<dl class="section return"><dt>Returns</dt><dd>The last processed pose. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a58a04cf526d0deeffa7d4820619c41b5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::shared_ptr&lt; U &gt; &gt; <a class="el" href="classmae_1_1movement__controller.html">mae::movement_controller</a>&lt; T, U &gt;::get_current_recognition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the currently recognized sequences.</p>
+<dl class="section return"><dt>Returns</dt><dd>The sequences. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8047034c7af70d1be6c63a33c8c7192c"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -498,7 +562,7 @@ template&lt;typename T , typename U &gt; </div>
           <td class="memname">std::shared_ptr&lt; U &gt; <a class="el" href="classmae_1_1movement__controller.html">mae::movement_controller</a>&lt; T, U &gt;::get_current_sequence </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -509,6 +573,33 @@ template&lt;typename T , typename U &gt; </div>
 </div><div class="memdoc">
 <p>Returns the currently generated sequence from the skeleton stream.</p>
 <dl class="section return"><dt>Returns</dt><dd>The sequence. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af7f0769f77719733e2c73b9830d670fa"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classmae_1_1movement__controller.html">mae::movement_controller</a>&lt; T, U &gt;::get_framerate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the currently applied framerate.</p>
+<dl class="section return"><dt>Returns</dt><dd>The framerate. </dd></dl>
 
 </div>
 </div>
@@ -830,6 +921,39 @@ template&lt;typename T , typename U&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a6f99fd37e6d7459d311ba3cbcccbdea1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmae_1_1movement__controller.html">mae::movement_controller</a>&lt; T, U &gt;::set_framerate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>framerate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets the framerate to be applied.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">framerate</td><td>The framerate </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a32f047751311a4e179d7cdad365bcadc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -869,7 +993,7 @@ template&lt;typename T , typename U &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 29 2014 18:06:14 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 19 2014 12:26:17 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

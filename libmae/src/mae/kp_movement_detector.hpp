@@ -205,7 +205,7 @@ namespace mae
 
 		if (ipd_)
 		{
-			std::shared_ptr<general_pose> pose = ipd_->pose(skeleton, body_parts, previous_pose_);
+			std::shared_ptr<general_pose> pose = ipd_->pose(framerate, skeleton, body_parts, previous_pose_);
 
 			//update previous pose
 			previous_pose_ = pose;
@@ -215,7 +215,7 @@ namespace mae
 
 			if (ikpd_)
 			{
-				std::shared_ptr<general_enriched_pose> enriched_pose = ikpd_->estimate_frame(pose, poses_, body_parts);
+				std::shared_ptr<general_enriched_pose> enriched_pose = ikpd_->estimate_frame(framerate, pose, poses_, body_parts);
 
 				poses_.push_front(enriched_pose);
 				if (poses_.size() > pose_buffer_size_)

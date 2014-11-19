@@ -35,44 +35,40 @@ public class DecisionForest {
     }
   }
 
-  public DecisionForest(ColumnDefinitionVector column_definitions, IntVector reserved_columns, long beats_per_measure, long beat_duration, ETimeUnit time_unit, double framerate, IMovementDecisionMaker dec_maker, RewritingForest rw, boolean cooldown) {
-    this(MaeJavaJNI.new_DecisionForest__SWIG_0(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, IMovementDecisionMaker.getCPtr(dec_maker), RewritingForest.getCPtr(rw), rw, cooldown), true);
+  public DecisionForest(ColumnDefinitionVector column_definitions, IntVector reserved_columns, long beats_per_measure, long beat_duration, ETimeUnit time_unit, IMovementDecisionMaker dec_maker, RewritingForest rw, boolean cooldown) {
+    this(MaeJavaJNI.new_DecisionForest__SWIG_0(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), IMovementDecisionMaker.getCPtr(dec_maker), RewritingForest.getCPtr(rw), rw, cooldown), true);
   }
 
-  public DecisionForest(ColumnDefinitionVector column_definitions, IntVector reserved_columns, long beats_per_measure, long beat_duration, ETimeUnit time_unit, double framerate, IMovementDecisionMaker dec_maker, RewritingForest rw) {
-    this(MaeJavaJNI.new_DecisionForest__SWIG_1(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, IMovementDecisionMaker.getCPtr(dec_maker), RewritingForest.getCPtr(rw), rw), true);
+  public DecisionForest(ColumnDefinitionVector column_definitions, IntVector reserved_columns, long beats_per_measure, long beat_duration, ETimeUnit time_unit, IMovementDecisionMaker dec_maker, RewritingForest rw) {
+    this(MaeJavaJNI.new_DecisionForest__SWIG_1(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), IMovementDecisionMaker.getCPtr(dec_maker), RewritingForest.getCPtr(rw), rw), true);
   }
 
-  public DecisionForest(ColumnDefinitionVector column_definitions, IntVector reserved_columns, long beats_per_measure, long beat_duration, ETimeUnit time_unit, double framerate, IMovementDecisionMaker dec_maker) {
-    this(MaeJavaJNI.new_DecisionForest__SWIG_2(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate, IMovementDecisionMaker.getCPtr(dec_maker)), true);
-  }
-
-  public DecisionForest(ColumnDefinitionVector column_definitions, IntVector reserved_columns, long beats_per_measure, long beat_duration, ETimeUnit time_unit, double framerate) {
-    this(MaeJavaJNI.new_DecisionForest__SWIG_3(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), framerate), true);
+  public DecisionForest(ColumnDefinitionVector column_definitions, IntVector reserved_columns, long beats_per_measure, long beat_duration, ETimeUnit time_unit, IMovementDecisionMaker dec_maker) {
+    this(MaeJavaJNI.new_DecisionForest__SWIG_2(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue(), IMovementDecisionMaker.getCPtr(dec_maker)), true);
   }
 
   public DecisionForest(ColumnDefinitionVector column_definitions, IntVector reserved_columns, long beats_per_measure, long beat_duration, ETimeUnit time_unit) {
-    this(MaeJavaJNI.new_DecisionForest__SWIG_4(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue()), true);
+    this(MaeJavaJNI.new_DecisionForest__SWIG_3(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration, time_unit.swigValue()), true);
   }
 
   public DecisionForest(ColumnDefinitionVector column_definitions, IntVector reserved_columns, long beats_per_measure, long beat_duration) {
-    this(MaeJavaJNI.new_DecisionForest__SWIG_5(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration), true);
+    this(MaeJavaJNI.new_DecisionForest__SWIG_4(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns, beats_per_measure, beat_duration), true);
   }
 
   public DecisionForest(ColumnDefinitionVector column_definitions, IntVector reserved_columns, long beats_per_measure) {
-    this(MaeJavaJNI.new_DecisionForest__SWIG_6(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns, beats_per_measure), true);
+    this(MaeJavaJNI.new_DecisionForest__SWIG_5(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns, beats_per_measure), true);
   }
 
   public DecisionForest(ColumnDefinitionVector column_definitions, IntVector reserved_columns) {
-    this(MaeJavaJNI.new_DecisionForest__SWIG_7(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns), true);
+    this(MaeJavaJNI.new_DecisionForest__SWIG_6(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, IntVector.getCPtr(reserved_columns), reserved_columns), true);
   }
 
   public DecisionForest(ColumnDefinitionVector column_definitions) {
-    this(MaeJavaJNI.new_DecisionForest__SWIG_8(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions), true);
+    this(MaeJavaJNI.new_DecisionForest__SWIG_7(ColumnDefinitionVector.getCPtr(column_definitions), column_definitions), true);
   }
 
   public DecisionForest() {
-    this(MaeJavaJNI.new_DecisionForest__SWIG_9(), true);
+    this(MaeJavaJNI.new_DecisionForest__SWIG_8(), true);
   }
 
   public void setRecognitionTolerance(double tolerance) {
@@ -124,8 +120,8 @@ public class DecisionForest {
     return new LabanSequenceList(MaeJavaJNI.DecisionForest_getSequences(swigCPtr, this), true);
   }
 
-  public LabanSequenceVector findSubmatches(LabanSequence whole_sequence, BoneVector body_parts) {
-    return new LabanSequenceVector(MaeJavaJNI.DecisionForest_findSubmatches(swigCPtr, this, LabanSequence.getCPtr(whole_sequence), whole_sequence, BoneVector.getCPtr(body_parts), body_parts), true);
+  public LabanSequenceVector findSubmatches(double framerate, LabanSequence whole_sequence, BoneVector body_parts) {
+    return new LabanSequenceVector(MaeJavaJNI.DecisionForest_findSubmatches(swigCPtr, this, framerate, LabanSequence.getCPtr(whole_sequence), whole_sequence, BoneVector.getCPtr(body_parts), body_parts), true);
   }
 
   public String str() {
