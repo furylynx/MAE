@@ -4,5 +4,5 @@ var searchData=
   ['equals_5fval',['equals_val',['../classmae_1_1general__joint.html#a03511aad23481250ca6389ace91d9c4f',1,'mae::general_joint']]],
   ['erase',['erase',['../classmae_1_1hierarchy__element.html#ab2484909e7a0d989f339f2234382da5d',1,'mae::hierarchy_element']]],
   ['erase_5fat',['erase_at',['../classmae_1_1hierarchy__element.html#ae2f8cb1ff8cff0d33756341a4735091d',1,'mae::hierarchy_element']]],
-  ['estimate_5fframe',['estimate_frame',['../classmae_1_1i__kp__detector.html#a023a2719cd16be679c1101a9c27d21ac',1,'mae::i_kp_detector::estimate_frame()'],['../classmae_1_1kp__detector.html#a7aa02dc662f0a0abbefb0051fa783787',1,'mae::kp_detector::estimate_frame()']]]
+  ['estimate_5fframe',['estimate_frame',['../classmae_1_1i__kp__detector.html#a42a950416d5bc959544c0138a8526847',1,'mae::i_kp_detector::estimate_frame()'],['../classmae_1_1kp__detector.html#a782a911f14f742f1ddbe4df9cdeb8f7c',1,'mae::kp_detector::estimate_frame()']]]
 ];
