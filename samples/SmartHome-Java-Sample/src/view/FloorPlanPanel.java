@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -7,8 +7,8 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import Model.PositionInfo;
-import Model.SensorInfo;
+import model.PositionInfo;
+import model.SensorInfo;
 
 public class FloorPlanPanel extends JPanel {
 	

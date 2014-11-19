@@ -1,6 +1,7 @@
-package View;
+package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,47 +18,31 @@ import javax.swing.JPanel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import org.apache.batik.bridge.ViewBox;
 import org.apache.batik.dom.svg.SAXSVGDocumentFactory;
 import org.apache.batik.swing.JSVGCanvas;
-import org.apache.batik.swing.JSVGScrollPane;
 import org.apache.batik.util.XMLResourceDescriptor;
+import org.w3c.dom.svg.SVGDocument;
+import org.w3c.dom.svg.SVGSVGElement;
 
 import maejava.LabanSequence;
 
 public class RegisteredMovementsPanel extends JPanel {
 
 	List<LabanSequence> registeredSequences;
-	JList<LabanSequence> comboBox;
-	Map<LabanSequence, JSVGScrollPane> svgPanels;
+	JList<LabanSequence> sequencesJList;
 
-	JSVGScrollPane activePane;
+	JSVGCanvas activePane;
 
 	public RegisteredMovementsPanel(List<LabanSequence> registeredSequences) {
 		this.registeredSequences = registeredSequences;
-		svgPanels = new HashMap<LabanSequence, JSVGScrollPane>();
+
 		setLayout(new BorderLayout());
 
-		comboBox = new JList<LabanSequence>(registeredSequences.toArray(new LabanSequence[0]));
-		
-		for (LabanSequence sequence : registeredSequences) {
-			JSVGCanvas canvas = new JSVGCanvas();
+		sequencesJList = new JList<LabanSequence>(
+				registeredSequences.toArray(new LabanSequence[0]));
 
-			StringReader reader = new StringReader(sequence.svg(1920, 1080));
-			String uri = "nothing";
-
-			String parser = XMLResourceDescriptor.getXMLParserClassName();
-			SAXSVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
-
-			try {
-				canvas.setSVGDocument(f.createSVGDocument(uri, reader));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-			svgPanels.put(sequence, new JSVGScrollPane(canvas));
-		} 
-		
-		comboBox.setCellRenderer(new DefaultListCellRenderer() {
+		sequencesJList.setCellRenderer(new DefaultListCellRenderer() {
 			/**
 			 * Serial version ID.
 			 */
@@ -67,42 +52,75 @@ public class RegisteredMovementsPanel extends JPanel {
 			public Component getListCellRendererComponent(JList list,
 					Object value, int index, boolean isSelected,
 					boolean cellHasFocus) {
-				if (value != null)
-				{
+				if (value != null) {
 					LabanSequence sequence = (LabanSequence) value;
 					value = sequence.getTitle();
 				}
-				
+
 				return super.getListCellRendererComponent(list, value, index,
 						isSelected, cellHasFocus);
 			}
 		});
 
-		comboBox.addListSelectionListener(new ListSelectionListener() {
-			
+		sequencesJList.addListSelectionListener(new ListSelectionListener() {
+
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
+				@SuppressWarnings("unchecked")
 				JList<LabanSequence> combo = (JList<LabanSequence>) e
 						.getSource();
 				LabanSequence selectedSequence = (LabanSequence) combo
 						.getSelectedValue();
-
+				
 				if (activePane != null) {
 					remove(activePane);
 				}
+				
+				JSVGCanvas canvas = new JSVGCanvas();
+				canvas.setDisableInteractions(true);
 
-				activePane = svgPanels.get(selectedSequence);
+				StringReader reader = new StringReader(selectedSequence.svg(1920, 1080));
+				String uri = "nothing";
+
+				String parser = XMLResourceDescriptor.getXMLParserClassName();
+				SAXSVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
+
+				SVGDocument svgDoc = null;
+				
+				try {
+					svgDoc = f.createSVGDocument(uri, reader);
+				} catch (IOException ex) {
+					ex.printStackTrace();
+				}
+
+				if (svgDoc != null) {
+					SVGSVGElement svgRoot=(SVGSVGElement)svgDoc.getRootElement();
+					svgRoot.setAttribute(ViewBox.SVG_VIEW_BOX_ATTRIBUTE,"0 0 1920 1080");
+
+					canvas.setSVGDocument(svgDoc);
+				}
+
+				activePane = canvas;
+
 
 				if (activePane != null) {
 					add(activePane, BorderLayout.CENTER);
+					activePane.revalidate();
+					activePane.repaint();
 				}
 				
+				revalidate();
+				repaint();
+
 			}
+		});
+
+		add(sequencesJList, BorderLayout.WEST);
+		
+		for (int i = 0; i < registeredSequences.size(); i++)
+		{
+			sequencesJList.setSelectedIndex(i);
 		}
-		);
-
-
-		add(comboBox, BorderLayout.WEST);
 
 	}
 

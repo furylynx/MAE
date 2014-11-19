@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.LayoutManager;
@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import maejava.LabanSequence;
-import Model.PositionInfo;
-import Model.SensorInfo;
+import model.PositionInfo;
+import model.SensorInfo;
 
 public class SmartHomePanel extends JPanel implements Observer {
 
@@ -64,8 +64,7 @@ public class SmartHomePanel extends JPanel implements Observer {
 				
 				if (sensorInfo.getCurrentSequence() != null)
 				{
-					sequencePanel.updateSVG(sensorInfo.getCurrentSequence().svg(
-							sequencePanel.getWidth(), sequencePanel.getHeight()));
+					sequencePanel.update(sensorInfo.getCurrentSequence());
 				}
 			}
 

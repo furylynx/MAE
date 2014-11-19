@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import maejava.LabanSequence;
 import maejava.LabanSequenceVector;
 import maejavawrapper.WrappedMovementController;
 import maenitejava.NiteController;
-import Model.SensorInfo;
+import model.SensorInfo;
 
 public class SensorThread implements Runnable {
 

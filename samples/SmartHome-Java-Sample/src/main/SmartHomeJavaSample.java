@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.swing.JFrame;
 
+import view.SmartHomePanel;
+import controller.SensorThread;
 import maejava.Bone;
 import maejava.BoneVector;
 import maejava.ColumnDefinition;
@@ -19,10 +21,8 @@ import maejava.LabanSequence;
 import maejava.LabanSequenceReader;
 import maenitejava.DeviceInfo;
 import maenitejava.NiteFarm;
-import Controller.SensorThread;
-import Model.PositionInfo;
-import Model.SensorInfo;
-import View.SmartHomePanel;
+import model.PositionInfo;
+import model.SensorInfo;
 
 public class SmartHomeJavaSample {
 
@@ -75,12 +75,20 @@ public class SmartHomeJavaSample {
 				String serialNumber = iniReader.getValue("device" + i,
 						"serialnumber");
 
-				DeviceInfo deviceInfo = NiteFarm.getDeviceInfo(serialNumber);
+				DeviceInfo deviceInfo = null;
+				try {
+					deviceInfo = NiteFarm.getDeviceInfo(serialNumber);
+				} catch (Exception e) {
+					System.err.println("Device with serial '" + serialNumber
+							+ "' not available.");
+				}
 
-				deviceStrings.add(deviceInfo.getDeviceName());
+				if (deviceInfo != null) {
+					deviceStrings.add(deviceInfo.getDeviceName());
 
-				deviceList.add(new SensorInfo(posList.get(positionId),
-						deviceInfo));
+					deviceList.add(new SensorInfo(posList.get(positionId),
+							deviceInfo));
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
