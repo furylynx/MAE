@@ -17,7 +17,7 @@ virtual void \hyperlink{classmae_1_1fl_1_1fl__pose__detector_a807c41e01fed7a7290
 virtual double \hyperlink{classmae_1_1fl_1_1fl__pose__detector_a5347e97f3685d7168a182e7e373f09cf}{get\-\_\-hysteresis\-\_\-val} () const 
 \item 
 virtual std\-::shared\-\_\-ptr\\*
-$<$ \hyperlink{classmae_1_1general__pose}{mae\-::general\-\_\-pose} $>$ \hyperlink{classmae_1_1fl_1_1fl__pose__detector_af8283b9b73fcc1bf7ea5a4220c2ecd55}{pose} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1fl__skeleton}{fl\-\_\-skeleton} $>$ skeleton, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ previous\-\_\-pose)
+$<$ \hyperlink{classmae_1_1general__pose}{mae\-::general\-\_\-pose} $>$ \hyperlink{classmae_1_1fl_1_1fl__pose__detector_a3a0f6afa25ce9bc25154e93e671edd23}{pose} (double framerate, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1fl__skeleton}{fl\-\_\-skeleton} $>$ skeleton, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ previous\-\_\-pose)
 \item 
 virtual std\-::shared\-\_\-ptr\\*
 $<$ \hyperlink{classmae_1_1general__pose}{mae\-::general\-\_\-pose} $>$ \hyperlink{classmae_1_1fl_1_1fl__pose__detector_ae7f558696efe7f55cf4895bffd234665}{vector\-\_\-pose} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1fl__skeleton}{fl\-\_\-skeleton} $>$ skeleton, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ previous\-\_\-pose)
@@ -74,19 +74,22 @@ Returns the hysteresis threshold value.
 \begin{DoxyReturn}{Returns}
 The value. 
 \end{DoxyReturn}
-\hypertarget{classmae_1_1fl_1_1fl__pose__detector_af8283b9b73fcc1bf7ea5a4220c2ecd55}{\index{mae\-::fl\-::fl\-\_\-pose\-\_\-detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}!pose@{pose}}
+\hypertarget{classmae_1_1fl_1_1fl__pose__detector_a3a0f6afa25ce9bc25154e93e671edd23}{\index{mae\-::fl\-::fl\-\_\-pose\-\_\-detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}!pose@{pose}}
 \index{pose@{pose}!mae::fl::fl_pose_detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}}
 \subsubsection[{pose}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-pose} $>$ mae\-::fl\-::fl\-\_\-pose\-\_\-detector\-::pose (
 \begin{DoxyParamCaption}
+\item[{double}]{framerate, }
 \item[{std\-::shared\-\_\-ptr$<$ {\bf fl\-\_\-skeleton} $>$}]{skeleton, }
 \item[{std\-::vector$<$ {\bf bone} $>$}]{body\-\_\-parts, }
 \item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-pose} $>$}]{previous\-\_\-pose}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__pose__detector_af8283b9b73fcc1bf7ea5a4220c2ecd55}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__pose__detector_a3a0f6afa25ce9bc25154e93e671edd23}
 Processes the skeleton in order to return the pose for each body part.
 
 
 \begin{DoxyParams}{Parameters}
+{\em framerate} & The framerate. \\
+\hline
 {\em skeleton} & The skeleton. \\
 \hline
 {\em body\-\_\-parts} & The processed body parts. \\

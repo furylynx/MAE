@@ -87,6 +87,14 @@ public class FlSkeletonLabanSequenceMovementController {
     MaeJavaJNI.FlSkeletonLabanSequenceMovementController_setNoBufferSizeUpdate(swigCPtr, this, updates);
   }
 
+  public void setFramerate(double framerate) {
+    MaeJavaJNI.FlSkeletonLabanSequenceMovementController_setFramerate(swigCPtr, this, framerate);
+  }
+
+  public double getFramerate() {
+    return MaeJavaJNI.FlSkeletonLabanSequenceMovementController_getFramerate(swigCPtr, this);
+  }
+
   public void clearBuffer() {
     MaeJavaJNI.FlSkeletonLabanSequenceMovementController_clearBuffer(swigCPtr, this);
   }

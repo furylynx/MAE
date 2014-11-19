@@ -7183,40 +7183,42 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1FlSkeletonPoseDetector(J
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonPoseDetector_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonPoseDetector_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_) {
   jlong jresult = 0 ;
   mae::i_pose_detector< mae::fl::fl_skeleton > *arg1 = (mae::i_pose_detector< mae::fl::fl_skeleton > *) 0 ;
-  std::shared_ptr< mae::fl::fl_skeleton > arg2 ;
-  std::vector< mae::bone > arg3 ;
-  std::shared_ptr< mae::general_pose > arg4 ;
+  double arg2 ;
+  std::shared_ptr< mae::fl::fl_skeleton > arg3 ;
+  std::vector< mae::bone > arg4 ;
+  std::shared_ptr< mae::general_pose > arg5 ;
   std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::fl_skeleton > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
-  std::shared_ptr< mae::general_pose > *argp4 ;
+  std::shared_ptr< mae::fl::fl_skeleton > *argp3 ;
+  std::vector< mae::bone > *argp4 ;
+  std::shared_ptr< mae::general_pose > *argp5 ;
   std::shared_ptr< mae::general_pose > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  (void)jarg2_;
   (void)jarg3_;
   (void)jarg4_;
+  (void)jarg5_;
   
   smartarg1 = *(std::shared_ptr<  mae::i_pose_detector<mae::fl::fl_skeleton> > **)&jarg1;
   arg1 = (mae::i_pose_detector<mae::fl::fl_skeleton> *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
+  arg2 = (double)jarg2; 
+  argp3 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  argp4 = *(std::vector< mae::bone > **)&jarg4; 
+  if (!argp4) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
     return 0;
   }
-  arg3 = *argp3; 
-  argp4 = *(std::shared_ptr< mae::general_pose > **)&jarg4; 
-  if (argp4) arg4 = *argp4; 
+  arg4 = *argp4; 
+  argp5 = *(std::shared_ptr< mae::general_pose > **)&jarg5; 
+  if (argp5) arg5 = *argp5; 
   {
     try {
-      result = (arg1)->pose(arg2,arg3,arg4);
+      result = (arg1)->pose(arg2,arg3,arg4,arg5);
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7371,40 +7373,42 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_FlPoseDetector_1getHysteresis
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlPoseDetector_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlPoseDetector_1pose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_) {
   jlong jresult = 0 ;
   mae::fl::fl_pose_detector *arg1 = (mae::fl::fl_pose_detector *) 0 ;
-  std::shared_ptr< mae::fl::fl_skeleton > arg2 ;
-  std::vector< mae::bone > arg3 ;
-  std::shared_ptr< mae::general_pose > arg4 ;
+  double arg2 ;
+  std::shared_ptr< mae::fl::fl_skeleton > arg3 ;
+  std::vector< mae::bone > arg4 ;
+  std::shared_ptr< mae::general_pose > arg5 ;
   std::shared_ptr< mae::fl::fl_pose_detector > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::fl_skeleton > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
-  std::shared_ptr< mae::general_pose > *argp4 ;
+  std::shared_ptr< mae::fl::fl_skeleton > *argp3 ;
+  std::vector< mae::bone > *argp4 ;
+  std::shared_ptr< mae::general_pose > *argp5 ;
   std::shared_ptr< mae::general_pose > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  (void)jarg2_;
   (void)jarg3_;
   (void)jarg4_;
+  (void)jarg5_;
   
   smartarg1 = *(std::shared_ptr<  mae::fl::fl_pose_detector > **)&jarg1;
   arg1 = (mae::fl::fl_pose_detector *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
+  arg2 = (double)jarg2; 
+  argp3 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  argp4 = *(std::vector< mae::bone > **)&jarg4; 
+  if (!argp4) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
     return 0;
   }
-  arg3 = *argp3; 
-  argp4 = *(std::shared_ptr< mae::general_pose > **)&jarg4; 
-  if (argp4) arg4 = *argp4; 
+  arg4 = *argp4; 
+  argp5 = *(std::shared_ptr< mae::general_pose > **)&jarg5; 
+  if (argp5) arg5 = *argp5; 
   {
     try {
-      result = (arg1)->pose(arg2,arg3,arg4);
+      result = (arg1)->pose(arg2,arg3,arg4,arg5);
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12237,28 +12241,27 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IMovementVectorVectorDec
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jdouble jarg6, jlong jarg7, jlong jarg8, jobject jarg8_, jboolean jarg9) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jlong jarg6, jlong jarg7, jobject jarg7_, jboolean jarg8) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
   unsigned int arg3 ;
   unsigned int arg4 ;
   mae::fl::laban::e_time_unit arg5 ;
-  double arg6 ;
-  std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > arg7 ;
-  std::shared_ptr< mae::fl::laban::rewriting_forest > arg8 ;
-  bool arg9 ;
+  std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > arg6 ;
+  std::shared_ptr< mae::fl::laban::rewriting_forest > arg7 ;
+  bool arg8 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *argp1 ;
   std::vector< int > *argp2 ;
-  std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > *argp7 ;
-  std::shared_ptr< mae::fl::laban::rewriting_forest > *argp8 ;
+  std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > *argp6 ;
+  std::shared_ptr< mae::fl::laban::rewriting_forest > *argp7 ;
   mae::fl::laban::decision_forest *result = 0 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
-  (void)jarg8_;
+  (void)jarg7_;
   argp1 = *(std::vector< std::shared_ptr< mae::fl::laban::column_definition > > **)&jarg1; 
   if (!argp1) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::column_definition > >");
@@ -12274,69 +12277,11 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_10(
   arg3 = (unsigned int)jarg3; 
   arg4 = (unsigned int)jarg4; 
   arg5 = (mae::fl::laban::e_time_unit)jarg5; 
-  arg6 = (double)jarg6; 
-  argp7 = *(std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > **)&jarg7; 
+  argp6 = *(std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > **)&jarg6; 
+  if (argp6) arg6 = *argp6; 
+  argp7 = *(std::shared_ptr< mae::fl::laban::rewriting_forest > **)&jarg7; 
   if (argp7) arg7 = *argp7; 
-  argp8 = *(std::shared_ptr< mae::fl::laban::rewriting_forest > **)&jarg8; 
-  if (argp8) arg8 = *argp8; 
-  arg9 = jarg9 ? true : false; 
-  {
-    try {
-      result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9);
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
-      };
-    }
-  }
-  
-  *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::decision_forest >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jdouble jarg6, jlong jarg7, jlong jarg8, jobject jarg8_) {
-  jlong jresult = 0 ;
-  std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
-  std::vector< int > arg2 ;
-  unsigned int arg3 ;
-  unsigned int arg4 ;
-  mae::fl::laban::e_time_unit arg5 ;
-  double arg6 ;
-  std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > arg7 ;
-  std::shared_ptr< mae::fl::laban::rewriting_forest > arg8 ;
-  std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *argp1 ;
-  std::vector< int > *argp2 ;
-  std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > *argp7 ;
-  std::shared_ptr< mae::fl::laban::rewriting_forest > *argp8 ;
-  mae::fl::laban::decision_forest *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  (void)jarg8_;
-  argp1 = *(std::vector< std::shared_ptr< mae::fl::laban::column_definition > > **)&jarg1; 
-  if (!argp1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::column_definition > >");
-    return 0;
-  }
-  arg1 = *argp1; 
-  argp2 = *(std::vector< int > **)&jarg2; 
-  if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< int >");
-    return 0;
-  }
-  arg2 = *argp2; 
-  arg3 = (unsigned int)jarg3; 
-  arg4 = (unsigned int)jarg4; 
-  arg5 = (mae::fl::laban::e_time_unit)jarg5; 
-  arg6 = (double)jarg6; 
-  argp7 = *(std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > **)&jarg7; 
-  if (argp7) arg7 = *argp7; 
-  argp8 = *(std::shared_ptr< mae::fl::laban::rewriting_forest > **)&jarg8; 
-  if (argp8) arg8 = *argp8; 
+  arg8 = jarg8 ? true : false; 
   {
     try {
       result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
@@ -12353,24 +12298,26 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_11(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jdouble jarg6, jlong jarg7) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jlong jarg6, jlong jarg7, jobject jarg7_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
   unsigned int arg3 ;
   unsigned int arg4 ;
   mae::fl::laban::e_time_unit arg5 ;
-  double arg6 ;
-  std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > arg7 ;
+  std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > arg6 ;
+  std::shared_ptr< mae::fl::laban::rewriting_forest > arg7 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *argp1 ;
   std::vector< int > *argp2 ;
-  std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > *argp7 ;
+  std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > *argp6 ;
+  std::shared_ptr< mae::fl::laban::rewriting_forest > *argp7 ;
   mae::fl::laban::decision_forest *result = 0 ;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   (void)jarg2_;
+  (void)jarg7_;
   argp1 = *(std::vector< std::shared_ptr< mae::fl::laban::column_definition > > **)&jarg1; 
   if (!argp1) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::column_definition > >");
@@ -12386,8 +12333,9 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_12(
   arg3 = (unsigned int)jarg3; 
   arg4 = (unsigned int)jarg4; 
   arg5 = (mae::fl::laban::e_time_unit)jarg5; 
-  arg6 = (double)jarg6; 
-  argp7 = *(std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > **)&jarg7; 
+  argp6 = *(std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > **)&jarg6; 
+  if (argp6) arg6 = *argp6; 
+  argp7 = *(std::shared_ptr< mae::fl::laban::rewriting_forest > **)&jarg7; 
   if (argp7) arg7 = *argp7; 
   {
     try {
@@ -12405,16 +12353,17 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_12(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jdouble jarg6) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5, jlong jarg6) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
   unsigned int arg3 ;
   unsigned int arg4 ;
   mae::fl::laban::e_time_unit arg5 ;
-  double arg6 ;
+  std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > arg6 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *argp1 ;
   std::vector< int > *argp2 ;
+  std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > *argp6 ;
   mae::fl::laban::decision_forest *result = 0 ;
   
   (void)jenv;
@@ -12436,7 +12385,8 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_13(
   arg3 = (unsigned int)jarg3; 
   arg4 = (unsigned int)jarg4; 
   arg5 = (mae::fl::laban::e_time_unit)jarg5; 
-  arg6 = (double)jarg6; 
+  argp6 = *(std::shared_ptr< mae::fl::laban::i_decision_maker< mae::fl::laban::i_movement > > **)&jarg6; 
+  if (argp6) arg6 = *argp6; 
   {
     try {
       result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4,arg5,arg6);
@@ -12453,7 +12403,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_13(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4, jint jarg5) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
@@ -12499,7 +12449,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_14(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
@@ -12543,7 +12493,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_15(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
@@ -12585,7 +12535,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_16(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< int > arg2 ;
@@ -12625,7 +12575,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_17(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *argp1 ;
@@ -12656,7 +12606,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_18(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_19(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_18(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::decision_forest *result = 0 ;
   
@@ -13030,35 +12980,37 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1getSequences(JN
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1findSubmatches(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1findSubmatches(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
   jlong jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::vector< mae::bone > arg3 ;
+  double arg2 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
+  std::vector< mae::bone > arg4 ;
   std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp3 ;
+  std::vector< mae::bone > *argp4 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  (void)jarg2_;
   (void)jarg3_;
+  (void)jarg4_;
   
   smartarg1 = *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jarg1;
   arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
+  arg2 = (double)jarg2; 
+  argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  argp4 = *(std::vector< mae::bone > **)&jarg4; 
+  if (!argp4) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
     return 0;
   }
-  arg3 = *argp3; 
+  arg4 = *argp4; 
   {
     try {
-      result = (arg1)->find_submatches(arg2,arg3);
+      result = (arg1)->find_submatches(arg2,arg3,arg4);
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13670,35 +13622,37 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceRecognizer_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceRecognizer_1recognizeSequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceRecognizer_1recognizeSequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
   jlong jresult = 0 ;
   mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::vector< mae::bone > arg3 ;
+  double arg2 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
+  std::vector< mae::bone > arg4 ;
   std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp3 ;
+  std::vector< mae::bone > *argp4 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  (void)jarg2_;
   (void)jarg3_;
+  (void)jarg4_;
   
   smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
   arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
+  arg2 = (double)jarg2; 
+  argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  argp4 = *(std::vector< mae::bone > **)&jarg4; 
+  if (!argp4) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
     return 0;
   }
-  arg3 = *argp3; 
+  arg4 = *argp4; 
   {
     try {
-      result = (arg1)->recognize_sequence(arg2,arg3);
+      result = (arg1)->recognize_sequence(arg2,arg3,arg4);
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13710,40 +13664,14 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceRecognizer
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jdouble jarg1, jboolean jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jboolean jarg1) {
   jlong jresult = 0 ;
-  double arg1 ;
-  bool arg2 ;
+  bool arg1 ;
   mae::fl::laban::laban_sequence_recognizer *result = 0 ;
   
   (void)jenv;
   (void)jcls;
-  arg1 = (double)jarg1; 
-  arg2 = jarg2 ? true : false; 
-  {
-    try {
-      result = (mae::fl::laban::laban_sequence_recognizer *)new mae::fl::laban::laban_sequence_recognizer(arg1,arg2);
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
-      };
-    }
-  }
-  
-  *(std::shared_ptr<  mae::fl::laban::laban_sequence_recognizer > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::laban_sequence_recognizer >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jdouble jarg1) {
-  jlong jresult = 0 ;
-  double arg1 ;
-  mae::fl::laban::laban_sequence_recognizer *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  arg1 = (double)jarg1; 
+  arg1 = jarg1 ? true : false; 
   {
     try {
       result = (mae::fl::laban::laban_sequence_recognizer *)new mae::fl::laban::laban_sequence_recognizer(arg1);
@@ -13760,7 +13688,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_12(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_11(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence_recognizer *result = 0 ;
   
@@ -13782,14 +13710,13 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4, jdouble jarg5, jboolean jarg6) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4, jboolean jarg5) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   unsigned int arg2 ;
   unsigned int arg3 ;
   mae::fl::laban::e_time_unit arg4 ;
-  double arg5 ;
-  bool arg6 ;
+  bool arg5 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *argp1 ;
   mae::fl::laban::laban_sequence_recognizer *result = 0 ;
   
@@ -13805,47 +13732,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
   arg2 = (unsigned int)jarg2; 
   arg3 = (unsigned int)jarg3; 
   arg4 = (mae::fl::laban::e_time_unit)jarg4; 
-  arg5 = (double)jarg5; 
-  arg6 = jarg6 ? true : false; 
-  {
-    try {
-      result = (mae::fl::laban::laban_sequence_recognizer *)new mae::fl::laban::laban_sequence_recognizer(arg1,arg2,arg3,arg4,arg5,arg6);
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
-      };
-    }
-  }
-  
-  *(std::shared_ptr<  mae::fl::laban::laban_sequence_recognizer > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::laban_sequence_recognizer >(result SWIG_NO_NULL_DELETER_1) : 0;
-  
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4, jdouble jarg5) {
-  jlong jresult = 0 ;
-  std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
-  unsigned int arg2 ;
-  unsigned int arg3 ;
-  mae::fl::laban::e_time_unit arg4 ;
-  double arg5 ;
-  std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *argp1 ;
-  mae::fl::laban::laban_sequence_recognizer *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  argp1 = *(std::vector< std::shared_ptr< mae::fl::laban::column_definition > > **)&jarg1; 
-  if (!argp1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::column_definition > >");
-    return 0;
-  }
-  arg1 = *argp1; 
-  arg2 = (unsigned int)jarg2; 
-  arg3 = (unsigned int)jarg3; 
-  arg4 = (mae::fl::laban::e_time_unit)jarg4; 
-  arg5 = (double)jarg5; 
+  arg5 = jarg5 ? true : false; 
   {
     try {
       result = (mae::fl::laban::laban_sequence_recognizer *)new mae::fl::laban::laban_sequence_recognizer(arg1,arg2,arg3,arg4,arg5);
@@ -13862,7 +13749,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_13(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3, jint jarg4) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   unsigned int arg2 ;
@@ -13899,7 +13786,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jlong jarg3) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   unsigned int arg2 ;
@@ -13934,7 +13821,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_17(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   unsigned int arg2 ;
@@ -13967,7 +13854,7 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_18(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_1SWIG_16(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > arg1 ;
   std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *argp1 ;
@@ -14234,35 +14121,37 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1getSequ
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1recognizeSequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1recognizeSequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jobject jarg4_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > arg2 ;
-  std::vector< mae::bone > arg3 ;
+  double arg2 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
+  std::vector< mae::bone > arg4 ;
   std::shared_ptr< mae::fl::laban::laban_sequence_recognizer > *smartarg1 = 0 ;
-  std::shared_ptr< mae::fl::laban::laban_sequence > *argp2 ;
-  std::vector< mae::bone > *argp3 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence > *argp3 ;
+  std::vector< mae::bone > *argp4 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
-  (void)jarg2_;
   (void)jarg3_;
+  (void)jarg4_;
   
   smartarg1 = *(std::shared_ptr<  mae::fl::laban::laban_sequence_recognizer > **)&jarg1;
   arg1 = (mae::fl::laban::laban_sequence_recognizer *)(smartarg1 ? smartarg1->get() : 0); 
-  argp2 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg2; 
-  if (argp2) arg2 = *argp2; 
-  argp3 = *(std::vector< mae::bone > **)&jarg3; 
-  if (!argp3) {
+  arg2 = (double)jarg2; 
+  argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  argp4 = *(std::vector< mae::bone > **)&jarg4; 
+  if (!argp4) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
     return 0;
   }
-  arg3 = *argp3; 
+  arg4 = *argp4; 
   {
     try {
-      result = (arg1)->recognize_sequence(arg2,arg3);
+      result = (arg1)->recognize_sequence(arg2,arg3,arg4);
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15503,6 +15392,50 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
       };
     }
   }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementController_1setFramerate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  double arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  arg2 = (double)jarg2; 
+  {
+    try {
+      (arg1)->set_framerate(arg2);
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementController_1getFramerate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jdouble jresult = 0 ;
+  mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
+  double result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
+  {
+    try {
+      result = (double)((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > const *)arg1)->get_framerate();
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jdouble)result; 
+  return jresult;
 }
 
 
