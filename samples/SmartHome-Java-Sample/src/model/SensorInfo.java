@@ -21,6 +21,8 @@ public class SensorInfo extends Observable {
 	private LabanSequenceVector currentRecognition;
 
 	private double movingRate;
+	
+	private int personsTracked;
 
 	// TODO other useful info that can be displayed??
 
@@ -65,6 +67,16 @@ public class SensorInfo extends Observable {
 		this.currentSequence = currentSequence;
 		this.currentRecognition = currentRecognition;
 
+		//set number of tracked persons
+		personsTracked = 0;
+		for (int i = 0; i < sensorData.size(); i++)
+		{
+			if (sensorData.get(i) != null)
+			{
+				personsTracked++;
+			}
+		}
+		
 		// TODO calculate the moving rate
 
 		// notify observers
@@ -160,6 +172,20 @@ public class SensorInfo extends Observable {
 	 */
 	public void setMovingRate(double movingRate) {
 		this.movingRate = movingRate;
+	}
+
+	/**
+	 * @return the personsTracked
+	 */
+	public int getPersonsTracked() {
+		return personsTracked;
+	}
+
+	/**
+	 * @param personsTracked the personsTracked to set
+	 */
+	public void setPersonsTracked(int personsTracked) {
+		this.personsTracked = personsTracked;
 	}
 
 }
