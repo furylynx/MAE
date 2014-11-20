@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="libs/batik-1.7/batik-svgpp.jar"/>
 	<classpathentry kind="lib" path="libs/batik-1.7/batik-ttf2svg.jar"/>
 	<classpathentry kind="lib" path="libs/batik-1.7/batik.jar"/>
+	<classpathentry kind="lib" path="libs/svgsalamander/svgSalamander.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
