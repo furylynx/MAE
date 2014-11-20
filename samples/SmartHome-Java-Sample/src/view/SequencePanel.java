@@ -19,6 +19,7 @@ import org.w3c.dom.svg.SVGSVGElement;
 public class SequencePanel extends JPanel {
 	
 	private JSVGCanvas svgCanvas;
+	
 
 	public SequencePanel() {
 		svgCanvas = new JSVGCanvas();
