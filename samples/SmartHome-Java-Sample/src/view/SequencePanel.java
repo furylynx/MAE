@@ -16,6 +16,7 @@ import org.apache.batik.util.XMLResourceDescriptor;
 import org.w3c.dom.svg.SVGDocument;
 import org.w3c.dom.svg.SVGSVGElement;
 
+
 public class SequencePanel extends JPanel {
 	
 	private JSVGCanvas svgCanvas;
