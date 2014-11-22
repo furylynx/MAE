@@ -10,13 +10,12 @@ import maejava.LabanSequence;
 public class SequencePanel extends JPanel {
 
 	private JSVGPanel svgPanel;
-	private Object mutex;
 
+	
 	/**
 	 * Creates a new sequence panel to prsent a laban sequence.
 	 */
 	public SequencePanel() {
-		mutex = new Object();
 
 		setLayout(new BorderLayout());
 		setDoubleBuffered(true);
