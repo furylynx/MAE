@@ -8,9 +8,20 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include src/model/subdir.mk
--include src/fl/subdir.mk
--include src/controller/subdir.mk
+-include wrappers/swig/release/subdir.mk
+-include src/mae/math/subdir.mk
+-include src/mae/fl/laban/ps/subdir.mk
+-include src/mae/fl/laban/mv/subdir.mk
+-include src/mae/fl/laban/subdir.mk
+-include src/mae/fl/subdir.mk
+-include src/mae/subdir.mk
+-include Release-Win64/wrappers/swig/release/subdir.mk
+-include Release-Win64/src/mae/math/subdir.mk
+-include Release-Win64/src/mae/fl/laban/ps/subdir.mk
+-include Release-Win64/src/mae/fl/laban/mv/subdir.mk
+-include Release-Win64/src/mae/fl/laban/subdir.mk
+-include Release-Win64/src/mae/fl/subdir.mk
+-include Release-Win64/src/mae/subdir.mk
 -include subdir.mk
 -include objects.mk
 
