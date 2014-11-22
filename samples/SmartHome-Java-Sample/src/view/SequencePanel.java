@@ -12,6 +12,7 @@ public class SequencePanel extends JPanel {
 	private JSVGPanel svgPanel;
 	private Object mutex;
 
+	
 	/**
 	 * Creates a new sequence panel to prsent a laban sequence.
 	 */
