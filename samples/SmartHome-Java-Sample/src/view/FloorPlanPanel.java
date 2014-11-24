@@ -18,6 +18,8 @@ public class FloorPlanPanel extends JPanel {
 
 	List<PositionInfo> positions;
 	Map<String, SensorInfo> sensorInfosMap;
+	Map<PositionInfo, Double> lightIntensity;
+	Map<PositionInfo, Double> musicIntensity;
 
 	Object mutex;
 

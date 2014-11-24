@@ -1,5 +1,8 @@
 package model;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 
 import maejava.GeneralSkeletonVector;
@@ -20,6 +23,9 @@ public class SensorInfo extends Observable {
 
 	private LabanSequenceVector currentRecognition;
 
+	List<Integer> bodyParts;
+	Map<Integer, Double> movingRatePerBodyPart;
+	
 	private double movingRate;
 	
 	private int personsTracked;
@@ -34,9 +40,12 @@ public class SensorInfo extends Observable {
 	 * @param deviceInfo
 	 *            The device info.
 	 */
-	public SensorInfo(PositionInfo position, DeviceInfo deviceInfo) {
+	public SensorInfo(PositionInfo position, DeviceInfo deviceInfo, List<Integer> bodyParts) {
 		this.position = position;
 		this.deviceInfo = deviceInfo;
+		this.bodyParts = bodyParts;
+		
+		movingRatePerBodyPart = new HashMap<Integer, Double>();
 	}
 
 	/**
@@ -47,9 +56,12 @@ public class SensorInfo extends Observable {
 	 * @param serialNumber
 	 *            The serial number of the device to be used.
 	 */
-	public SensorInfo(PositionInfo position, String serialNumber) {
+	public SensorInfo(PositionInfo position, String serialNumber, List<Integer> bodyParts) {
 		this.position = position;
 		this.deviceInfo = NiteFarm.getDeviceInfo(serialNumber);
+		this.bodyParts = bodyParts;
+		
+		movingRatePerBodyPart = new HashMap<Integer, Double>();
 	}
 
 	/**
@@ -77,8 +89,21 @@ public class SensorInfo extends Observable {
 			}
 		}
 		
-		// TODO calculate the moving rate
-
+		// calculate the moving rate
+		if (currentSequence != null)
+		{
+			movingRate = currentSequence.getMovements().size()/(bodyParts.size()*currentSequence.getMeasures());
+			
+			for (Integer bodyPart : bodyParts)
+			{
+				movingRatePerBodyPart.put(bodyPart, (double)currentSequence.getColumnMovements(bodyPart).size()/currentSequence.getMeasures());
+			}
+		}
+		else
+		{
+			movingRate = 0.0;
+		}
+		
 		// notify observers
 		setChanged();
 		notifyObservers();
@@ -186,6 +211,34 @@ public class SensorInfo extends Observable {
 	 */
 	public void setPersonsTracked(int personsTracked) {
 		this.personsTracked = personsTracked;
+	}
+
+	/**
+	 * @return the bodyParts
+	 */
+	public List<Integer> getBodyParts() {
+		return bodyParts;
+	}
+
+	/**
+	 * @param bodyParts the bodyParts to set
+	 */
+	public void setBodyParts(List<Integer> bodyParts) {
+		this.bodyParts = bodyParts;
+	}
+
+	/**
+	 * @return the movingRatePerBodyPart
+	 */
+	public Map<Integer, Double> getMovingRatePerBodyPart() {
+		return movingRatePerBodyPart;
+	}
+
+	/**
+	 * @param movingRatePerBodyPart the movingRatePerBodyPart to set
+	 */
+	public void setMovingRatePerBodyPart(Map<Integer, Double> movingRatePerBodyPart) {
+		this.movingRatePerBodyPart = movingRatePerBodyPart;
 	}
 
 }

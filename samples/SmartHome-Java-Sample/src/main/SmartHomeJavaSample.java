@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -66,6 +67,44 @@ public class SmartHomeJavaSample {
 			}
 		}
 
+		// read tolerance and bodyparts
+
+		double tolerance = 2.0;
+		String bodyPartsString = "";
+		String sequencesDir = "sequences" + File.separator;
+		try {
+			tolerance = Double.parseDouble(iniReader.getValue("general",
+					"tolerance"));
+			bodyPartsString = iniReader.getValue("general", "bodyparts");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		BoneVector bodyParts = new BoneVector();
+		List<Integer> bodyPartsList = new LinkedList<Integer>();
+		ColumnDefinitionVector columnDefinitions = new ColumnDefinitionVector();
+
+		if (bodyPartsString.length() > 0) {
+			String[] bodyPartsSplit = bodyPartsString.split(",");
+
+			for (String str : bodyPartsSplit) {
+				try {
+					EBone eb = EBoneC.parse(str.trim());
+					Bone b = new Bone(eb);
+					bodyParts.pushBack(b);
+					bodyPartsList.add(b.getId());
+
+					if (Math.abs(b.getId()) != 1 && Math.abs(b.getId()) != 2
+							&& Math.abs(b.getId()) != 4) {
+						// generate column definition for the bone
+						columnDefinitions.pushBack(new ColumnDefinition(eb));
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
 		List<SensorInfo> deviceList = new ArrayList<SensorInfo>();
 		List<String> deviceStrings = new ArrayList<String>();
 		for (int i = 0; i < deviceCount; i++) {
@@ -87,47 +126,10 @@ public class SmartHomeJavaSample {
 					deviceStrings.add(deviceInfo.getDeviceName());
 
 					deviceList.add(new SensorInfo(posList.get(positionId),
-							deviceInfo));
+							deviceInfo, bodyPartsList));
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
-			}
-		}
-
-		// read tolerance and bodyparts
-
-		double tolerance = 2.0;
-		String bodyPartsString = "";
-		String sequencesDir = "sequences" + File.separator;
-		try {
-			tolerance = Double.parseDouble(iniReader.getValue("general",
-					"tolerance"));
-			bodyPartsString = iniReader.getValue("general", "bodyparts");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		BoneVector bodyParts = Bone.defaultBones();
-		ColumnDefinitionVector columnDefinitions = ColumnDefinition
-				.defaultDefinitions();
-
-		if (bodyPartsString.length() > 0) {
-			String[] bodyPartsSplit = bodyPartsString.split(",");
-
-			for (String str : bodyPartsSplit) {
-				try {
-					EBone eb = EBoneC.parse(str.trim());
-					Bone b = new Bone(eb);
-					bodyParts.pushBack(b);
-
-					if (Math.abs(b.getId()) != 1 && Math.abs(b.getId()) != 2
-							&& Math.abs(b.getId()) != 4) {
-						// generate column definition for the bone
-						columnDefinitions.pushBack(new ColumnDefinition(eb));
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 			}
 		}
 
