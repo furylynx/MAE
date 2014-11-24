@@ -9,7 +9,6 @@ public class SequencePanel extends JPanel {
 
 	private JSVGPanel svgPanel;
 
-	
 	/**
 	 * Creates a new sequence panel to prsent a laban sequence.
 	 */
