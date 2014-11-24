@@ -18,8 +18,8 @@ public class FloorPlanPanel extends JPanel {
 
 	List<PositionInfo> positions;
 	Map<String, SensorInfo> sensorInfosMap;
-	Map<PositionInfo, Double> lightIntensity;
-	Map<PositionInfo, Double> musicIntensity;
+	Map<PositionInfo, Double> lightIntensities;
+	Map<PositionInfo, Double> musicIntensities;
 
 	Object mutex;
 
@@ -47,9 +47,6 @@ public class FloorPlanPanel extends JPanel {
 		}
 
 		setLayout(new BorderLayout());
-
-		// TODO do things in here
-		// draw floor plan, add user info(s) when updated
 	}
 
 	public void paintComponent(Graphics g) {
@@ -57,40 +54,47 @@ public class FloorPlanPanel extends JPanel {
 
 		synchronized (mutex) {
 
+			// get scale factor
+			double scaleFactor = (double) getWidth() / (maxXPos + 20);
+
+			if ((double) getHeight() / (maxYPos + 20) < scaleFactor) {
+				scaleFactor = (double) getHeight() / (maxYPos + 20);
+			}
+
 			// Draw Text
 			for (PositionInfo info : positions) {
 
-				double scaleFactor = (double) getWidth() / (maxXPos + 20);
+				// draw rect; set color according to light intensity
+				double pLightIntensity = (lightIntensities.get(info) == null) ? 0.0
+						: lightIntensities.get(info);
+				g.setColor(new Color((int) (100 + 155 * pLightIntensity),
+						(int) (100 + 155 * pLightIntensity),
+						(int) (100 + 155 * pLightIntensity)));
 
-				if ((double) getHeight() / (maxYPos + 20) < scaleFactor) {
-					scaleFactor = (double) getHeight() / (maxYPos + 20);
-				}
+				int rectXPos = (int) ((info.getXpos() + 10) * scaleFactor);
+				int rectYPos = (int) ((info.getYpos() + 10) * scaleFactor);
+				int rectWidth = (int) (info.getWidth() * scaleFactor);
+				int rectHeight = (int) (info.getHeight() * scaleFactor);
 
-				// TODO select color
-				g.setColor(Color.GRAY.brighter());
+				g.fillRect(rectXPos, rectYPos, rectWidth, rectHeight);
 
-				// TODO make relative
-				g.fillRect((int) ((info.getXpos() + 10) * scaleFactor),
-						(int) ((info.getYpos() + 10) * scaleFactor),
-						(int) (info.getWidth() * scaleFactor),
-						(int) (info.getHeight() * scaleFactor));
+				g.setColor(Color.BLACK);
+				g.drawRect(rectXPos, rectYPos, rectWidth, rectHeight);
 
+				// -- draw tracked persons
 				List<SensorInfo> sensorInfos = getSensorInfos(info
 						.getPositionId());
 				if (!sensorInfos.isEmpty()) {
-					
-					
-					//handle tracked persons
+
+					// handle tracked persons
 					int personsTracked = 0;
-					
-					for (SensorInfo sensorInfo : sensorInfos)
-					{
+
+					for (SensorInfo sensorInfo : sensorInfos) {
 						personsTracked += sensorInfo.getPersonsTracked();
 					}
 
 					// draw persons
 					for (int i = 0; i < personsTracked; i++) {
-						// TODO make relative
 						g.setColor(Color.BLUE.brighter());
 						g.fillRect(
 								(int) ((info.getXpos() + 10 + 10 + i * 20) * scaleFactor),
@@ -103,10 +107,12 @@ public class FloorPlanPanel extends JPanel {
 								(int) (8 * scaleFactor),
 								(int) (8 * scaleFactor));
 					}
-
-					// TODO draw other things
-
 				}
+
+				// -- draw music
+				double pMusicIntensity = (musicIntensities.get(info) == null) ? 0.0
+						: musicIntensities.get(info);
+				// TODO draw other things
 			}
 		}
 	}
