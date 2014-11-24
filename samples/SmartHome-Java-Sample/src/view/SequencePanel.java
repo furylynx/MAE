@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import maejava.LabanSequence;
 
+
 public class SequencePanel extends JPanel {
 
 	private JSVGPanel svgPanel;
