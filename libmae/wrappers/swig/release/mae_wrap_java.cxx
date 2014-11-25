@@ -1472,6 +1472,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IniReader(JNIEnv *jenv, jc
   {
     try {
       result = (mae::ini_reader *)new mae::ini_reader(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1492,6 +1496,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IniReader(JNIEnv *jenv, 
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -1531,6 +1539,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IniReader_1getValue(JNIEnv *j
   {
     try {
       result = (arg1)->get_value(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1551,6 +1563,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_INVALID_1BONE_1get(JNIEnv *jenv,
   {
     try {
       result = (mae::e_bone)mae::e_bone::INVALID_BONE;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1571,6 +1587,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_HEAD_1get(JNIEnv *jenv, jclass j
   {
     try {
       result = (mae::e_bone)mae::e_bone::HEAD;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1591,6 +1611,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1UPPER_1ARM_1get(JNIEnv *je
   {
     try {
       result = (mae::e_bone)mae::e_bone::LEFT_UPPER_ARM;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1611,6 +1635,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1FOREARM_1get(JNIEnv *jenv,
   {
     try {
       result = (mae::e_bone)mae::e_bone::LEFT_FOREARM;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1631,6 +1659,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1WHOLE_1ARM_1get(JNIEnv *je
   {
     try {
       result = (mae::e_bone)mae::e_bone::LEFT_WHOLE_ARM;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1651,6 +1683,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1UPPER_1ARM_1get(JNIEnv *j
   {
     try {
       result = (mae::e_bone)mae::e_bone::RIGHT_UPPER_ARM;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1671,6 +1707,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1FOREARM_1get(JNIEnv *jenv
   {
     try {
       result = (mae::e_bone)mae::e_bone::RIGHT_FOREARM;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1691,6 +1731,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1WHOLE_1ARM_1get(JNIEnv *j
   {
     try {
       result = (mae::e_bone)mae::e_bone::RIGHT_WHOLE_ARM;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1711,6 +1755,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1THIGH_1get(JNIEnv *jenv, j
   {
     try {
       result = (mae::e_bone)mae::e_bone::LEFT_THIGH;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1731,6 +1779,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1SHANK_1get(JNIEnv *jenv, j
   {
     try {
       result = (mae::e_bone)mae::e_bone::LEFT_SHANK;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1751,6 +1803,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1WHOLE_1LEG_1get(JNIEnv *je
   {
     try {
       result = (mae::e_bone)mae::e_bone::LEFT_WHOLE_LEG;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1771,6 +1827,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1THIGH_1get(JNIEnv *jenv, 
   {
     try {
       result = (mae::e_bone)mae::e_bone::RIGHT_THIGH;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1791,6 +1851,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1SHANK_1get(JNIEnv *jenv, 
   {
     try {
       result = (mae::e_bone)mae::e_bone::RIGHT_SHANK;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1811,6 +1875,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1WHOLE_1LEG_1get(JNIEnv *j
   {
     try {
       result = (mae::e_bone)mae::e_bone::RIGHT_WHOLE_LEG;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1833,6 +1901,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_EBoneC_1str(JNIEnv *jenv, jcl
   {
     try {
       result = mae::e_bone_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1855,6 +1927,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EBoneC_1toInt(JNIEnv *jenv, jcla
   {
     try {
       result = (int)mae::e_bone_c::to_int(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1875,6 +1951,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EBoneC_1vec(JNIEnv *jenv, jclas
   {
     try {
       result = mae::e_bone_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1904,6 +1984,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EBoneC_1parse(JNIEnv *jenv, jcla
   {
     try {
       result = (mae::e_bone)mae::e_bone_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1924,6 +2008,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EBoneC(JNIEnv *jenv, jclas
   {
     try {
       result = (mae::e_bone_c *)new mae::e_bone_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1944,6 +2032,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EBoneC(JNIEnv *jenv, jcl
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -1962,6 +2054,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IntVector_1_1SWIG_10(JNIEn
   {
     try {
       result = (std::vector< int > *)new std::vector< int >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1984,6 +2080,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IntVector_1_1SWIG_11(JNIEn
   {
     try {
       result = (std::vector< int > *)new std::vector< int >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2007,6 +2107,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IntVector_1size(JNIEnv *jenv, j
   {
     try {
       result = ((std::vector< int > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2030,6 +2134,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IntVector_1capacity(JNIEnv *jen
   {
     try {
       result = ((std::vector< int > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2053,6 +2161,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntVector_1reserve(JNIEnv *jenv,
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2074,6 +2186,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IntVector_1empty(JNIEnv *jen
   {
     try {
       result = (bool)((std::vector< int > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2095,6 +2211,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntVector_1clear(JNIEnv *jenv, j
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2118,6 +2238,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntVector_1pushBack(JNIEnv *jenv
   {
     try {
       (arg1)->push_back((std::vector< int >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2148,6 +2272,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_IntVector_1get(JNIEnv *jenv, jcl
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2182,6 +2310,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntVector_1set(JNIEnv *jenv, jcl
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2200,6 +2332,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IntVector(JNIEnv *jenv, 
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2218,6 +2354,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EBoneVector_1_1SWIG_10(JNI
   {
     try {
       result = (std::vector< mae::e_bone > *)new std::vector< mae::e_bone >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2240,6 +2380,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EBoneVector_1_1SWIG_11(JNI
   {
     try {
       result = (std::vector< mae::e_bone > *)new std::vector< mae::e_bone >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2263,6 +2407,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EBoneVector_1size(JNIEnv *jenv,
   {
     try {
       result = ((std::vector< mae::e_bone > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2286,6 +2434,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EBoneVector_1capacity(JNIEnv *j
   {
     try {
       result = ((std::vector< mae::e_bone > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2309,6 +2461,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EBoneVector_1reserve(JNIEnv *jen
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2330,6 +2486,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EBoneVector_1empty(JNIEnv *j
   {
     try {
       result = (bool)((std::vector< mae::e_bone > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2351,6 +2511,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EBoneVector_1clear(JNIEnv *jenv,
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2374,6 +2538,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EBoneVector_1pushBack(JNIEnv *je
   {
     try {
       (arg1)->push_back((std::vector< enum mae::e_bone >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2404,6 +2572,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EBoneVector_1get(JNIEnv *jenv, j
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2438,6 +2610,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EBoneVector_1set(JNIEnv *jenv, j
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2456,6 +2632,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EBoneVector(JNIEnv *jenv
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2474,6 +2654,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Bone_1_1SWIG_10(JNIEnv *je
   {
     try {
       result = (mae::bone *)new mae::bone();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2511,6 +2695,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Bone_1_1SWIG_11(JNIEnv *je
   {
     try {
       result = (mae::bone *)new mae::bone(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2550,6 +2738,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Bone_1_1SWIG_12(JNIEnv *je
   {
     try {
       result = (mae::bone *)new mae::bone(arg1,arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2574,6 +2766,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Bone_1_1SWIG_13(JNIEnv *je
   {
     try {
       result = (mae::bone *)new mae::bone(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2599,6 +2795,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1Bone(JNIEnv *jenv, jclas
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2623,6 +2823,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_Bone_1getId(JNIEnv *jenv, jclass
   {
     try {
       result = (int)((mae::bone const *)arg1)->get_id();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2649,6 +2853,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Bone_1getName(JNIEnv *jenv, j
   {
     try {
       result = ((mae::bone const *)arg1)->get_name();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2675,6 +2883,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_Bone_1getFrom(JNIEnv *jenv, jcla
   {
     try {
       result = (int)((mae::bone const *)arg1)->get_from();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2701,6 +2913,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_Bone_1getTo(JNIEnv *jenv, jclass
   {
     try {
       result = (int)((mae::bone const *)arg1)->get_to();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2727,6 +2943,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_Bone_1hasMiddleJoint(JNIEnv 
   {
     try {
       result = (bool)((mae::bone const *)arg1)->has_middle_joint();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2753,6 +2973,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_Bone_1getMiddleJoint(JNIEnv *jen
   {
     try {
       result = (int)((mae::bone const *)arg1)->get_middle_joint();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2773,6 +2997,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Bone_1defaultBones(JNIEnv *jenv
   {
     try {
       result = mae::bone::default_bones();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2817,6 +3045,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1BoneVector_1_1SWIG_10(JNIE
   {
     try {
       result = (std::vector< mae::bone > *)new std::vector< mae::bone >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2839,6 +3071,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1BoneVector_1_1SWIG_11(JNIE
   {
     try {
       result = (std::vector< mae::bone > *)new std::vector< mae::bone >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2862,6 +3098,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_BoneVector_1size(JNIEnv *jenv, 
   {
     try {
       result = ((std::vector< mae::bone > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2885,6 +3125,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_BoneVector_1capacity(JNIEnv *je
   {
     try {
       result = ((std::vector< mae::bone > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2908,6 +3152,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_BoneVector_1reserve(JNIEnv *jenv
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2929,6 +3177,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_BoneVector_1empty(JNIEnv *je
   {
     try {
       result = (bool)((std::vector< mae::bone > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2950,6 +3202,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_BoneVector_1clear(JNIEnv *jenv, 
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2977,6 +3233,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_BoneVector_1pushBack(JNIEnv *jen
   {
     try {
       (arg1)->push_back((std::vector< mae::bone >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3007,6 +3267,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_BoneVector_1get(JNIEnv *jenv, j
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3045,6 +3309,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_BoneVector_1set(JNIEnv *jenv, jc
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3063,6 +3331,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1BoneVector(JNIEnv *jenv,
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3081,6 +3353,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1StringVector_1_1SWIG_10(JN
   {
     try {
       result = (std::vector< std::string > *)new std::vector< std::string >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3103,6 +3379,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1StringVector_1_1SWIG_11(JN
   {
     try {
       result = (std::vector< std::string > *)new std::vector< std::string >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3126,6 +3406,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_StringVector_1size(JNIEnv *jenv
   {
     try {
       result = ((std::vector< std::string > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3149,6 +3433,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_StringVector_1capacity(JNIEnv *
   {
     try {
       result = ((std::vector< std::string > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3172,6 +3460,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_StringVector_1reserve(JNIEnv *je
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3193,6 +3485,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_StringVector_1empty(JNIEnv *
   {
     try {
       result = (bool)((std::vector< std::string > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3214,6 +3510,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_StringVector_1clear(JNIEnv *jenv
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3243,6 +3543,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_StringVector_1pushBack(JNIEnv *j
   {
     try {
       (arg1)->push_back((std::vector< std::string >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3273,6 +3577,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_StringVector_1get(JNIEnv *jen
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3313,6 +3621,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_StringVector_1set(JNIEnv *jenv, 
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3331,6 +3643,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1StringVector(JNIEnv *jen
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3349,6 +3665,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralPose(JNIEnv *jenv, 
   {
     try {
       result = (mae::general_pose *)new mae::general_pose();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3374,6 +3694,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1GeneralPose(JNIEnv *jenv
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3400,6 +3724,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralPose_1setDirection(JNIEnv
   {
     try {
       (arg1)->set_direction(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3426,6 +3754,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_GeneralPose_1getDirection(JNIEnv
   {
     try {
       result = (int)((mae::general_pose const *)arg1)->get_direction(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3456,6 +3788,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralPose_1setDistance(JNIEnv 
   {
     try {
       (arg1)->set_distance(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3484,6 +3820,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_GeneralPose_1getDistance(JNIE
   {
     try {
       result = (double)((mae::general_pose const *)arg1)->get_distance(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3512,6 +3852,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralPose_1setRotation(JNIEnv 
   {
     try {
       (arg1)->set_rotation(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3538,6 +3882,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_GeneralPose_1getRotation(JNIE
   {
     try {
       result = (double)((mae::general_pose const *)arg1)->get_rotation(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3564,6 +3912,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_GeneralPose_1getBodyParts(JNIEn
   {
     try {
       result = ((mae::general_pose const *)arg1)->get_body_parts();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3590,6 +3942,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_GeneralPose_1getDirections(JNIE
   {
     try {
       result = ((mae::general_pose const *)arg1)->get_directions();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3610,6 +3966,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IntList(JNIEnv *jenv, jcla
   {
     try {
       result = (std::list< int > *)new std::list< int >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3633,6 +3993,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IntList_1size(JNIEnv *jenv, jcl
   {
     try {
       result = ((std::list< int > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3656,6 +4020,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IntList_1empty(JNIEnv *jenv,
   {
     try {
       result = (bool)((std::list< int > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3677,6 +4045,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntList_1clear(JNIEnv *jenv, jcl
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3700,6 +4072,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntList_1pushBack(JNIEnv *jenv, 
   {
     try {
       (arg1)->push_back((std::list< int >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3730,6 +4106,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_IntList_1get(JNIEnv *jenv, jclas
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3750,6 +4130,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IntList(JNIEnv *jenv, jc
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3768,6 +4152,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IPoseListener(JNIEnv *je
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3794,6 +4182,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IPoseListener_1onPose(JNIEnv *je
   {
     try {
       (arg1)->on_pose(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3812,6 +4204,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralEnrichedPose_1_1SWI
   {
     try {
       result = (mae::general_enriched_pose *)new mae::general_enriched_pose();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3839,6 +4235,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralEnrichedPose_1_1SWI
   {
     try {
       result = (mae::general_enriched_pose *)new mae::general_enriched_pose(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3864,6 +4264,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1GeneralEnrichedPose(JNIE
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3890,6 +4294,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralEnrichedPose_1setKeyPose(
   {
     try {
       (arg1)->set_key_pose(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3916,6 +4324,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_GeneralEnrichedPose_1isKeyPo
   {
     try {
       result = (bool)(arg1)->is_key_pose(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3944,6 +4356,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralEnrichedPose_1setInMotion
   {
     try {
       (arg1)->set_in_motion(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3970,6 +4386,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_GeneralEnrichedPose_1isInMot
   {
     try {
       result = (bool)(arg1)->is_in_motion(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -3990,6 +4410,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EnrichedPoseList(JNIEnv *j
   {
     try {
       result = (std::list< std::shared_ptr< mae::general_enriched_pose > > *)new std::list< std::shared_ptr< mae::general_enriched_pose > >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4013,6 +4437,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EnrichedPoseList_1size(JNIEnv *
   {
     try {
       result = ((std::list< std::shared_ptr< mae::general_enriched_pose > > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4036,6 +4464,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EnrichedPoseList_1empty(JNIE
   {
     try {
       result = (bool)((std::list< std::shared_ptr< mae::general_enriched_pose > > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4057,6 +4489,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EnrichedPoseList_1clear(JNIEnv *
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -4080,6 +4516,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EnrichedPoseList_1pushBack(JNIEn
   {
     try {
       (arg1)->push_back((std::list< std::shared_ptr< mae::general_enriched_pose > >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -4110,6 +4550,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EnrichedPoseList_1get(JNIEnv *j
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4130,6 +4574,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EnrichedPoseList(JNIEnv 
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -4148,6 +4596,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Hierarchy_1_1SWIG_10(JNIEn
   {
     try {
       result = (mae::hierarchy *)new mae::hierarchy();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4175,6 +4627,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Hierarchy_1_1SWIG_11(JNIEn
   {
     try {
       result = (mae::hierarchy *)new mae::hierarchy(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4200,6 +4656,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1Hierarchy(JNIEnv *jenv, 
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -4224,6 +4684,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1getRoot(JNIEnv *jenv
   {
     try {
       result = ((mae::hierarchy const *)arg1)->get_root();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4253,6 +4717,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1setRoot(JNIEnv *jenv,
   {
     try {
       (arg1)->set_root(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -4277,6 +4745,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1getElementSequence(J
   {
     try {
       result = (arg1)->get_element_sequence();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4305,6 +4777,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1at(JNIEnv *jenv, jcl
   {
     try {
       result = (mae::hierarchy_element *)((mae::hierarchy const *)arg1)->at(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4333,6 +4809,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1str(JNIEnv *jenv, 
   {
     try {
       result = ((mae::hierarchy const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4353,6 +4833,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1defaultHierarchy(JNI
   {
     try {
       result = mae::hierarchy::default_hierarchy();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4373,6 +4857,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1HierarchyElementVector_1_1
   {
     try {
       result = (std::vector< std::shared_ptr< mae::hierarchy_element > > *)new std::vector< std::shared_ptr< mae::hierarchy_element > >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4395,6 +4883,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1HierarchyElementVector_1_1
   {
     try {
       result = (std::vector< std::shared_ptr< mae::hierarchy_element > > *)new std::vector< std::shared_ptr< mae::hierarchy_element > >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4418,6 +4910,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_HierarchyElementVector_1size(JN
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::hierarchy_element > > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4441,6 +4937,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_HierarchyElementVector_1capacit
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::hierarchy_element > > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4464,6 +4964,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElementVector_1reserve(
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -4485,6 +4989,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_HierarchyElementVector_1empt
   {
     try {
       result = (bool)((std::vector< std::shared_ptr< mae::hierarchy_element > > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4506,6 +5014,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElementVector_1clear(JN
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -4529,6 +5041,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElementVector_1pushBack
   {
     try {
       (arg1)->push_back((std::vector< std::shared_ptr< mae::hierarchy_element > >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -4559,6 +5075,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_HierarchyElementVector_1get(JNI
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4593,6 +5113,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElementVector_1set(JNIE
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -4611,6 +5135,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1HierarchyElementVector(J
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -4644,6 +5172,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1HierarchyElement_1_1SWIG_1
   {
     try {
       result = (mae::hierarchy_element *)new mae::hierarchy_element(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4679,6 +5211,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1HierarchyElement_1_1SWIG_1
   {
     try {
       result = (mae::hierarchy_element *)new mae::hierarchy_element(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4712,6 +5248,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1HierarchyElement_1_1SWIG_1
   {
     try {
       result = (mae::hierarchy_element *)new mae::hierarchy_element(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4737,6 +5277,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1HierarchyElement(JNIEnv 
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -4761,6 +5305,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1getId(JNIEnv *
   {
     try {
       result = (int)((mae::hierarchy_element const *)arg1)->get_id();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4787,6 +5335,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1getName(JNI
   {
     try {
       result = ((mae::hierarchy_element const *)arg1)->get_name();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4813,6 +5365,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1isTorsoJoi
   {
     try {
       result = (bool)((mae::hierarchy_element const *)arg1)->is_torso_joint();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4839,6 +5395,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1isDummy(JN
   {
     try {
       result = (bool)((mae::hierarchy_element const *)arg1)->is_dummy();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4865,6 +5425,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1getParent(JNI
   {
     try {
       result = (mae::hierarchy_element *)((mae::hierarchy_element const *)arg1)->get_parent();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4893,6 +5457,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1isParent(J
   {
     try {
       result = (bool)((mae::hierarchy_element const *)arg1)->is_parent();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4921,6 +5489,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1isParentOf
   {
     try {
       result = (bool)((mae::hierarchy_element const *)arg1)->is_parent_of(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4947,6 +5519,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1getChildren(J
   {
     try {
       result = ((mae::hierarchy_element const *)arg1)->get_children();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -4978,6 +5554,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1pushFront_1_1S
   {
     try {
       (arg1)->push_front(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5005,6 +5585,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1pushFront_1_1S
   {
     try {
       (arg1)->push_front(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5036,6 +5620,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1insert_1_1SWIG
   {
     try {
       (arg1)->insert(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5065,6 +5653,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1insert_1_1SWIG
   {
     try {
       (arg1)->insert(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5094,6 +5686,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1pushBack_1_1SW
   {
     try {
       (arg1)->push_back(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5121,6 +5717,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1pushBack_1_1SW
   {
     try {
       (arg1)->push_back(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5147,6 +5747,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1erase_1_1SWIG_
   {
     try {
       (arg1)->erase(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5171,6 +5775,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1erase_1_1SWIG_
   {
     try {
       (arg1)->erase(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5197,6 +5805,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1eraseAt_1_1SWI
   {
     try {
       (arg1)->erase_at(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5221,6 +5833,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1eraseAt_1_1SWI
   {
     try {
       (arg1)->erase_at(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5245,6 +5861,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1clear_1_1SWIG_
   {
     try {
       (arg1)->clear(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5267,6 +5887,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1clear_1_1SWIG_
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5291,6 +5915,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1getElementSeq
   {
     try {
       result = (arg1)->get_element_sequence();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5319,6 +5947,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1str_1_1SWIG
   {
     try {
       result = ((mae::hierarchy_element const *)arg1)->str(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5345,6 +5977,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_HierarchyElement_1str_1_1SWIG
   {
     try {
       result = ((mae::hierarchy_element const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5365,6 +6001,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Vec3d_1_1SWIG_10(JNIEnv *j
   {
     try {
       result = (mae::math::vec3d *)new mae::math::vec3d();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5393,6 +6033,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Vec3d_1_1SWIG_11(JNIEnv *j
   {
     try {
       result = (mae::math::vec3d *)new mae::math::vec3d(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5418,6 +6062,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1Vec3d(JNIEnv *jenv, jcla
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5442,6 +6090,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_Vec3d_1setX(JNIEnv *jenv, jclass
   {
     try {
       (arg1)->set_x(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5466,6 +6118,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_Vec3d_1getX(JNIEnv *jenv, jcl
   {
     try {
       result = (double)((mae::math::vec3d const *)arg1)->get_x();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5492,6 +6148,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_Vec3d_1setY(JNIEnv *jenv, jclass
   {
     try {
       (arg1)->set_y(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5516,6 +6176,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_Vec3d_1getY(JNIEnv *jenv, jcl
   {
     try {
       result = (double)((mae::math::vec3d const *)arg1)->get_y();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5542,6 +6206,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_Vec3d_1setZ(JNIEnv *jenv, jclass
   {
     try {
       (arg1)->set_z(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5566,6 +6234,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_Vec3d_1getZ(JNIEnv *jenv, jcl
   {
     try {
       result = (double)((mae::math::vec3d const *)arg1)->get_z();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5592,6 +6264,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Vec3d_1str(JNIEnv *jenv, jcla
   {
     try {
       result = ((mae::math::vec3d const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5615,6 +6291,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1GeneralJoint(JNIEnv *jen
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5633,6 +6313,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralJoint_1_1SWIG_10(JN
   {
     try {
       result = (mae::general_joint *)new mae::general_joint();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5665,6 +6349,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralJoint_1_1SWIG_11(JN
   {
     try {
       result = (mae::general_joint *)new mae::general_joint(arg1,arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5695,6 +6383,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralJoint_1_1SWIG_12(JN
   {
     try {
       result = (mae::general_joint *)new mae::general_joint(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5723,6 +6415,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralJoint_1_1SWIG_13(JN
   {
     try {
       result = (mae::general_joint *)new mae::general_joint(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5754,6 +6450,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralJoint_1_1SWIG_14(JN
   {
     try {
       result = (mae::general_joint *)new mae::general_joint(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5783,6 +6483,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralJoint_1_1SWIG_15(JN
   {
     try {
       result = (mae::general_joint *)new mae::general_joint(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5810,6 +6514,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralJoint_1_1SWIG_16(JN
   {
     try {
       result = (mae::general_joint *)new mae::general_joint(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5838,6 +6546,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1setX(JNIEnv *jenv,
   {
     try {
       (arg1)->set_x(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5862,6 +6574,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1getX(JNIEnv *je
   {
     try {
       result = (double)((mae::general_joint const *)arg1)->get_x();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5888,6 +6604,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1setY(JNIEnv *jenv,
   {
     try {
       (arg1)->set_y(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5912,6 +6632,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1getY(JNIEnv *je
   {
     try {
       result = (double)((mae::general_joint const *)arg1)->get_y();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5938,6 +6662,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1setZ(JNIEnv *jenv,
   {
     try {
       (arg1)->set_z(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -5962,6 +6690,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1getZ(JNIEnv *je
   {
     try {
       result = (double)((mae::general_joint const *)arg1)->get_z();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -5988,6 +6720,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1setValid(JNIEnv *j
   {
     try {
       (arg1)->set_valid(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6012,6 +6748,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1isValid(JNIEnv
   {
     try {
       result = (bool)((mae::general_joint const *)arg1)->is_valid();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6038,6 +6778,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1setConfidence(JNIE
   {
     try {
       (arg1)->set_confidence(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6062,6 +6806,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1getConfidence(J
   {
     try {
       result = (double)(arg1)->get_confidence();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6088,6 +6836,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1setRotation(JNIEnv
   {
     try {
       (arg1)->set_rotation(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6112,6 +6864,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1getRotation(JNI
   {
     try {
       result = (double)(arg1)->get_rotation();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6138,6 +6894,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1vec(JNIEnv *jenv,
   {
     try {
       result = (arg1)->vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6174,6 +6934,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1equalsVal(JNIE
   {
     try {
       result = (bool)((mae::general_joint const *)arg1)->equals_val(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6205,6 +6969,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1equals(JNIEnv 
   {
     try {
       result = (bool)((mae::general_joint const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6231,6 +6999,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_GeneralJoint_1str(JNIEnv *jen
   {
     try {
       result = ((mae::general_joint const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6251,6 +7023,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Basis_1_1SWIG_10(JNIEnv *j
   {
     try {
       result = (mae::math::basis *)new mae::math::basis();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6293,6 +7069,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Basis_1_1SWIG_11(JNIEnv *j
   {
     try {
       result = (mae::math::basis *)new mae::math::basis(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6318,6 +7098,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1Basis(JNIEnv *jenv, jcla
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6342,6 +7126,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Basis_1getU(JNIEnv *jenv, jclas
   {
     try {
       result = ((mae::math::basis const *)arg1)->get_u();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6368,6 +7156,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Basis_1getR(JNIEnv *jenv, jclas
   {
     try {
       result = ((mae::math::basis const *)arg1)->get_r();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6394,6 +7186,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Basis_1getT(JNIEnv *jenv, jclas
   {
     try {
       result = ((mae::math::basis const *)arg1)->get_t();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6420,6 +7216,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Basis_1getPositionVector(JNIEnv
   {
     try {
       result = ((mae::math::basis const *)arg1)->get_position_vector();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6449,6 +7249,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_Basis_1setU(JNIEnv *jenv, jclass
   {
     try {
       (arg1)->set_u(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6476,6 +7280,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_Basis_1setR(JNIEnv *jenv, jclass
   {
     try {
       (arg1)->set_r(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6503,6 +7311,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_Basis_1setT(JNIEnv *jenv, jclass
   {
     try {
       (arg1)->set_t(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6530,6 +7342,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_Basis_1setPositionVector(JNIEnv 
   {
     try {
       (arg1)->set_position_vector(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6554,6 +7370,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Basis_1str(JNIEnv *jenv, jcla
   {
     try {
       result = ((mae::math::basis const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6574,6 +7394,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralSkeleton_1_1SWIG_10
   {
     try {
       result = (mae::general_skeleton *)new mae::general_skeleton();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6601,6 +7425,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralSkeleton_1_1SWIG_11
   {
     try {
       result = (mae::general_skeleton *)new mae::general_skeleton(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6626,6 +7454,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1GeneralSkeleton(JNIEnv *
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6655,6 +7487,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralSkeleton_1setJoint(JNIEnv
   {
     try {
       (arg1)->set_joint(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6681,6 +7517,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_GeneralSkeleton_1getJoint(JNIEn
   {
     try {
       result = ((mae::general_skeleton const *)arg1)->get_joint(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6707,6 +7547,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_GeneralSkeleton_1getHierarchy(J
   {
     try {
       result = ((mae::general_skeleton const *)arg1)->get_hierarchy();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6736,6 +7580,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralSkeleton_1setHierarchy(JN
   {
     try {
       (arg1)->set_hierarchy(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6763,6 +7611,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralSkeleton_1setTopDown(JNIE
   {
     try {
       (arg1)->set_top_down(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6787,6 +7639,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_GeneralSkeleton_1getTopDown(JNI
   {
     try {
       result = ((mae::general_skeleton const *)arg1)->get_top_down();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6816,6 +7672,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralSkeleton_1setRightLeft(JN
   {
     try {
       (arg1)->set_right_left(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6840,6 +7700,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_GeneralSkeleton_1getRightLeft(J
   {
     try {
       result = ((mae::general_skeleton const *)arg1)->get_right_left();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6869,6 +7733,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralSkeleton_1setWeight(JNIEn
   {
     try {
       (arg1)->set_weight(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6893,6 +7761,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_GeneralSkeleton_1getWeight(JNIE
   {
     try {
       result = ((mae::general_skeleton const *)arg1)->get_weight();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6919,6 +7791,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_GeneralSkeleton_1str(JNIEnv *
   {
     try {
       result = ((mae::general_skeleton const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6945,6 +7821,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_GeneralSkeleton_1plyStr(JNIEn
   {
     try {
       result = ((mae::general_skeleton const *)arg1)->ply_str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -6978,6 +7858,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralSkeleton_1plyFile(JNIEnv 
   {
     try {
       ((mae::general_skeleton const *)arg1)->ply_file(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -6996,6 +7880,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlSkeleton(JNIEnv *jenv, j
   {
     try {
       result = (mae::fl::fl_skeleton *)new mae::fl::fl_skeleton();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7021,6 +7909,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1FlSkeleton(JNIEnv *jenv,
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -7048,6 +7940,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeleton_1setTorsoBasis(JNIEnv
   {
     try {
       (arg1)->set_torso_basis(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -7072,6 +7968,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeleton_1getTorsoBasis(JNIEn
   {
     try {
       result = ((mae::fl::fl_skeleton const *)arg1)->get_torso_basis();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7101,6 +8001,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeleton_1setOrigSkeleton(JNIE
   {
     try {
       (arg1)->set_orig_skeleton(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -7125,6 +8029,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeleton_1getOrigSkeleton(JNI
   {
     try {
       result = ((mae::fl::fl_skeleton const *)arg1)->get_orig_skeleton();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7151,6 +8059,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_FlSkeleton_1str(JNIEnv *jenv,
   {
     try {
       result = ((mae::fl::fl_skeleton const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7174,6 +8086,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1FlSkeletonPoseDetector(J
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -7219,6 +8135,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonPoseDetector_1pose(JN
   {
     try {
       result = (arg1)->pose(arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7243,6 +8163,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlPoseDetector_1_1SWIG_10(
   {
     try {
       result = (mae::fl::fl_pose_detector *)new mae::fl::fl_pose_detector(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7267,6 +8191,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlPoseDetector_1_1SWIG_11(
   {
     try {
       result = (mae::fl::fl_pose_detector *)new mae::fl::fl_pose_detector(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7289,6 +8217,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlPoseDetector_1_1SWIG_12(
   {
     try {
       result = (mae::fl::fl_pose_detector *)new mae::fl::fl_pose_detector();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7314,6 +8246,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1FlPoseDetector(JNIEnv *j
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -7338,6 +8274,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlPoseDetector_1setHysteresisVal
   {
     try {
       (arg1)->set_hysteresis_val(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -7362,6 +8302,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_FlPoseDetector_1getHysteresis
   {
     try {
       result = (double)((mae::fl::fl_pose_detector const *)arg1)->get_hysteresis_val();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7409,6 +8353,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlPoseDetector_1pose(JNIEnv *je
   {
     try {
       result = (arg1)->pose(arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7454,6 +8402,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlPoseDetector_1vectorPose(JNIE
   {
     try {
       result = (arg1)->vector_pose(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7474,6 +8426,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_FlPoseDetector_1defaultHyster
   {
     try {
       result = (double)mae::fl::fl_pose_detector::default_hysteresis_val();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7497,6 +8453,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IPreSign(JNIEnv *jenv, j
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -7532,6 +8492,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IPreSign_1xml_1_1SWIG_10(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::i_pre_sign const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7560,6 +8524,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IPreSign_1xml_1_1SWIG_11(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::i_pre_sign const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7586,6 +8554,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IPreSign_1xml_1_1SWIG_12(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::i_pre_sign const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7631,6 +8603,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IPreSign_1svg_1_1SWIG_10(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::i_pre_sign const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7674,6 +8650,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IPreSign_1svg_1_1SWIG_11(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::i_pre_sign const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7705,6 +8685,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IPreSign_1equals(JNIEnv *jen
   {
     try {
       result = (bool)((mae::fl::laban::ps::i_pre_sign const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7732,6 +8716,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ColumnDefinition_1_1SWIG_1
   {
     try {
       result = (mae::fl::laban::column_definition *)new mae::fl::laban::column_definition(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7756,6 +8744,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ColumnDefinition_1_1SWIG_1
   {
     try {
       result = (mae::fl::laban::column_definition *)new mae::fl::laban::column_definition(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7781,6 +8773,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ColumnDefinition(JNIEnv 
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -7805,6 +8801,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ColumnDefinition_1getColumnIndex
   {
     try {
       result = (int)((mae::fl::laban::column_definition const *)arg1)->get_column_index();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7831,6 +8831,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ColumnDefinition_1getPreSign(JN
   {
     try {
       result = ((mae::fl::laban::column_definition const *)arg1)->get_pre_sign();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7868,6 +8872,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ColumnDefinition_1xml_1_1SWIG
   {
     try {
       result = ((mae::fl::laban::column_definition const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7896,6 +8904,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ColumnDefinition_1xml_1_1SWIG
   {
     try {
       result = ((mae::fl::laban::column_definition const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7922,6 +8934,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ColumnDefinition_1xml_1_1SWIG
   {
     try {
       result = ((mae::fl::laban::column_definition const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7958,6 +8974,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ColumnDefinition_1svg(JNIEnv 
   {
     try {
       result = ((mae::fl::laban::column_definition const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -7989,6 +9009,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ColumnDefinition_1equals(JNI
   {
     try {
       result = (bool)((mae::fl::laban::column_definition const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8009,6 +9033,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ColumnDefinition_1defaultDefini
   {
     try {
       result = mae::fl::laban::column_definition::default_definitions();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8029,6 +9057,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ColumnDefinitionVector_1_1
   {
     try {
       result = (std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *)new std::vector< std::shared_ptr< mae::fl::laban::column_definition > >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8051,6 +9083,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ColumnDefinitionVector_1_1
   {
     try {
       result = (std::vector< std::shared_ptr< mae::fl::laban::column_definition > > *)new std::vector< std::shared_ptr< mae::fl::laban::column_definition > >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8074,6 +9110,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ColumnDefinitionVector_1size(JN
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::fl::laban::column_definition > > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8097,6 +9137,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ColumnDefinitionVector_1capacit
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::fl::laban::column_definition > > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8120,6 +9164,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ColumnDefinitionVector_1reserve(
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -8141,6 +9189,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ColumnDefinitionVector_1empt
   {
     try {
       result = (bool)((std::vector< std::shared_ptr< mae::fl::laban::column_definition > > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8162,6 +9214,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ColumnDefinitionVector_1clear(JN
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -8185,6 +9241,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ColumnDefinitionVector_1pushBack
   {
     try {
       (arg1)->push_back((std::vector< std::shared_ptr< mae::fl::laban::column_definition > >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -8215,6 +9275,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ColumnDefinitionVector_1get(JNI
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8249,6 +9313,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ColumnDefinitionVector_1set(JNIE
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -8267,6 +9335,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ColumnDefinitionVector(J
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -8288,6 +9360,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IMovement(JNIEnv *jenv, 
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -8312,6 +9388,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_IMovement_1getColumn(JNIEnv *jen
   {
     try {
       result = (int)((mae::fl::laban::i_movement const *)arg1)->get_column();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8338,6 +9418,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IMovement_1getMeasure(JNIEnv *j
   {
     try {
       result = (unsigned int)((mae::fl::laban::i_movement const *)arg1)->get_measure();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8364,6 +9448,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_IMovement_1getBeat(JNIEnv *je
   {
     try {
       result = (double)((mae::fl::laban::i_movement const *)arg1)->get_beat();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8390,6 +9478,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_IMovement_1getDuration(JNIEnv
   {
     try {
       result = (double)((mae::fl::laban::i_movement const *)arg1)->get_duration();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8421,6 +9513,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IMovement_1equals(JNIEnv *je
   {
     try {
       result = (bool)((mae::fl::laban::i_movement const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8452,6 +9548,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IMovement_1symbolEquals(JNIE
   {
     try {
       result = (bool)((mae::fl::laban::i_movement const *)arg1)->symbol_equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8489,6 +9589,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IMovement_1xml_1_1SWIG_10(JNI
   {
     try {
       result = ((mae::fl::laban::i_movement const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8517,6 +9621,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IMovement_1xml_1_1SWIG_11(JNI
   {
     try {
       result = ((mae::fl::laban::i_movement const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8543,6 +9651,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IMovement_1xml_1_1SWIG_12(JNI
   {
     try {
       result = ((mae::fl::laban::i_movement const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8579,6 +9691,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IMovement_1svg(JNIEnv *jenv, 
   {
     try {
       result = ((mae::fl::laban::i_movement const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8620,6 +9736,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IMovement_1recreate(JNIEnv *jen
   {
     try {
       result = ((mae::fl::laban::i_movement const *)arg1)->recreate(arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8646,6 +9766,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IMovement_1str(JNIEnv *jenv, 
   {
     try {
       result = ((mae::fl::laban::i_movement const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8666,6 +9790,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IntIntMap_1_1SWIG_10(JNIEn
   {
     try {
       result = (std::map< int,int > *)new std::map< int,int >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8693,6 +9821,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IntIntMap_1_1SWIG_11(JNIEn
   {
     try {
       result = (std::map< int,int > *)new std::map< int,int >((std::map< int,int > const &)*arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8716,6 +9848,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IntIntMap_1size(JNIEnv *jenv, j
   {
     try {
       result = (unsigned int)((std::map< int,int > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8739,6 +9875,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IntIntMap_1empty(JNIEnv *jen
   {
     try {
       result = (bool)((std::map< int,int > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8760,6 +9900,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntIntMap_1clear(JNIEnv *jenv, j
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -8792,6 +9936,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_IntIntMap_1get(JNIEnv *jenv, jcl
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8821,6 +9969,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntIntMap_1set(JNIEnv *jenv, jcl
   {
     try {
       std_map_Sl_int_Sc_int_Sg__set(arg1,(int const &)*arg2,(int const &)*arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -8851,6 +10003,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntIntMap_1del(JNIEnv *jenv, jcl
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -8876,6 +10032,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IntIntMap_1hasKey(JNIEnv *je
   {
     try {
       result = (bool)std_map_Sl_int_Sc_int_Sg__has_key(arg1,(int const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8896,6 +10056,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IntIntMap(JNIEnv *jenv, 
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -8916,6 +10080,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ETimeUnitC_1str(JNIEnv *jenv,
   {
     try {
       result = mae::fl::laban::e_time_unit_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8936,6 +10104,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ETimeUnitC_1vec(JNIEnv *jenv, j
   {
     try {
       result = mae::fl::laban::e_time_unit_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8965,6 +10137,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ETimeUnitC_1parse(JNIEnv *jenv, 
   {
     try {
       result = (mae::fl::laban::e_time_unit)mae::fl::laban::e_time_unit_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -8985,6 +10161,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ETimeUnitC(JNIEnv *jenv, j
   {
     try {
       result = (mae::fl::laban::e_time_unit_c *)new mae::fl::laban::e_time_unit_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9005,6 +10185,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ETimeUnitC(JNIEnv *jenv,
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9023,6 +10207,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ETimeUnitVector_1_1SWIG_10
   {
     try {
       result = (std::vector< mae::fl::laban::e_time_unit > *)new std::vector< mae::fl::laban::e_time_unit >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9045,6 +10233,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ETimeUnitVector_1_1SWIG_11
   {
     try {
       result = (std::vector< mae::fl::laban::e_time_unit > *)new std::vector< mae::fl::laban::e_time_unit >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9068,6 +10260,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ETimeUnitVector_1size(JNIEnv *j
   {
     try {
       result = ((std::vector< mae::fl::laban::e_time_unit > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9091,6 +10287,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ETimeUnitVector_1capacity(JNIEn
   {
     try {
       result = ((std::vector< mae::fl::laban::e_time_unit > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9114,6 +10314,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ETimeUnitVector_1reserve(JNIEnv 
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9135,6 +10339,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ETimeUnitVector_1empty(JNIEn
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::e_time_unit > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9156,6 +10364,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ETimeUnitVector_1clear(JNIEnv *j
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9179,6 +10391,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ETimeUnitVector_1pushBack(JNIEnv
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::e_time_unit >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9209,6 +10425,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ETimeUnitVector_1get(JNIEnv *jen
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9243,6 +10463,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ETimeUnitVector_1set(JNIEnv *jen
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9261,6 +10485,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ETimeUnitVector(JNIEnv *
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9279,6 +10507,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequence_1_1SWIG_10(J
   {
     try {
       result = (mae::fl::laban::laban_sequence *)new mae::fl::laban::laban_sequence();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9327,6 +10559,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequence_1_1SWIG_11(J
   {
     try {
       result = (mae::fl::laban::laban_sequence *)new mae::fl::laban::laban_sequence(arg1,arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9352,6 +10588,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1LabanSequence(JNIEnv *je
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9376,6 +10616,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getVersion(JNI
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->get_version();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9409,6 +10653,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1setAuthors(JNIEnv
   {
     try {
       (arg1)->set_authors(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9440,6 +10688,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1addAuthor(JNIEnv 
   {
     try {
       (arg1)->add_author(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9464,6 +10716,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getAuthors(JNIEn
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->get_authors();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9497,6 +10753,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1setTitle(JNIEnv *
   {
     try {
       (arg1)->set_title(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9521,6 +10781,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getTitle(JNIEn
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->get_title();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9554,6 +10818,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1setDescription(JN
   {
     try {
       (arg1)->set_description(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9578,6 +10846,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getDescription
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->get_description();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9604,6 +10876,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1setMeasures(JNIEn
   {
     try {
       (arg1)->set_measures(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9628,6 +10904,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getMeasures(JNIE
   {
     try {
       result = (unsigned int)((mae::fl::laban::laban_sequence const *)arg1)->get_measures();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9654,6 +10934,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1setTimeUnit(JNIEn
   {
     try {
       (arg1)->set_time_unit(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9678,6 +10962,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getTimeUnit(JNIEn
   {
     try {
       result = (mae::fl::laban::e_time_unit)((mae::fl::laban::laban_sequence const *)arg1)->get_time_unit();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9704,6 +10992,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1setBeatDuration(J
   {
     try {
       (arg1)->set_beat_duration(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9728,6 +11020,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getBeatDuration(
   {
     try {
       result = (unsigned int)((mae::fl::laban::laban_sequence const *)arg1)->get_beat_duration();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9754,6 +11050,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1setBeats(JNIEnv *
   {
     try {
       (arg1)->set_beats(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9778,6 +11078,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getBeats(JNIEnv 
   {
     try {
       result = (unsigned int)((mae::fl::laban::laban_sequence const *)arg1)->get_beats();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9811,6 +11115,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1setColumnDefiniti
   {
     try {
       (arg1)->set_column_definitions(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9838,6 +11146,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1addColumnDefiniti
   {
     try {
       (arg1)->add_column_definition(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9862,6 +11174,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getColumnDefinit
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->get_column_definitions();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9890,6 +11206,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getColumnDefinit
   {
     try {
       result = (arg1)->get_column_definition(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9914,6 +11234,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1clearColumnDefini
   {
     try {
       (arg1)->clear_column_definitions();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9938,6 +11262,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getColumns(JNIEn
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->get_columns();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -9971,6 +11299,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1setMovements(JNIE
   {
     try {
       (arg1)->set_movements(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -9995,6 +11327,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getMovements(JNI
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->get_movements();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10024,6 +11360,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1addMovement(JNIEn
   {
     try {
       (arg1)->add_movement(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -10050,6 +11390,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getColumnMovemen
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->get_column_movements(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10076,6 +11420,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1getLastMovement(
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->get_last_movement();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10100,6 +11448,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1clearMovements(JN
   {
     try {
       (arg1)->clear_movements();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -10137,6 +11489,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1xml_1_1SWIG_10
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->xml(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10167,6 +11523,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1xml_1_1SWIG_11
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10195,6 +11555,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1xml_1_1SWIG_12
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10221,6 +11585,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1xml_1_1SWIG_13
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10256,6 +11624,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1xmlNamespaceHe
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->xml_namespace_header(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10282,6 +11654,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1xmlNamespaceHe
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->xml_namespace_header();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10308,6 +11684,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1xmlSchemaLocat
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->xml_schema_location();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10334,6 +11714,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1xmlNamespaceUr
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->xml_namespace_uri();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10367,6 +11751,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1xmlFile(JNIEnv *j
   {
     try {
       ((mae::fl::laban::laban_sequence const *)arg1)->xml_file(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -10395,6 +11783,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1svg(JNIEnv *je
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->svg(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10432,6 +11824,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1svgFile_1_1SWIG_1
   {
     try {
       ((mae::fl::laban::laban_sequence const *)arg1)->svg_file(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -10465,6 +11861,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1svgFile_1_1SWIG_1
   {
     try {
       ((mae::fl::laban::laban_sequence const *)arg1)->svg_file(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -10496,6 +11896,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1svgFile_1_1SWIG_1
   {
     try {
       ((mae::fl::laban::laban_sequence const *)arg1)->svg_file(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -10520,6 +11924,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1str(JNIEnv *je
   {
     try {
       result = ((mae::fl::laban::laban_sequence const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10540,6 +11948,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1defaultBeatDurat
   {
     try {
       result = (unsigned int)mae::fl::laban::laban_sequence::default_beat_duration();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10560,6 +11972,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1defaultBeatsPerM
   {
     try {
       result = (unsigned int)mae::fl::laban::laban_sequence::default_beats_per_measure();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10580,6 +11996,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1defaultTimeUnit(J
   {
     try {
       result = (mae::fl::laban::e_time_unit)mae::fl::laban::laban_sequence::default_time_unit();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10600,6 +12020,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequence_1defaultColumns(J
   {
     try {
       result = mae::fl::laban::laban_sequence::default_columns();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10620,6 +12044,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IMovementVector_1_1SWIG_10
   {
     try {
       result = (std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *)new std::vector< std::shared_ptr< mae::fl::laban::i_movement > >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10642,6 +12070,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IMovementVector_1_1SWIG_11
   {
     try {
       result = (std::vector< std::shared_ptr< mae::fl::laban::i_movement > > *)new std::vector< std::shared_ptr< mae::fl::laban::i_movement > >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10665,6 +12097,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IMovementVector_1size(JNIEnv *j
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::fl::laban::i_movement > > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10688,6 +12124,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IMovementVector_1capacity(JNIEn
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::fl::laban::i_movement > > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10711,6 +12151,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IMovementVector_1reserve(JNIEnv 
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -10732,6 +12176,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IMovementVector_1empty(JNIEn
   {
     try {
       result = (bool)((std::vector< std::shared_ptr< mae::fl::laban::i_movement > > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10753,6 +12201,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IMovementVector_1clear(JNIEnv *j
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -10776,6 +12228,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IMovementVector_1pushBack(JNIEnv
   {
     try {
       (arg1)->push_back((std::vector< std::shared_ptr< mae::fl::laban::i_movement > >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -10806,6 +12262,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IMovementVector_1get(JNIEnv *je
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10840,6 +12300,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IMovementVector_1set(JNIEnv *jen
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -10858,6 +12322,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IMovementVector(JNIEnv *
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -10879,6 +12347,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IMovementDecisionMaker(J
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -10903,6 +12375,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IMovementDecisionMaker_1setRecog
   {
     try {
       (arg1)->set_recognition_tolerance(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -10927,6 +12403,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_IMovementDecisionMaker_1getRe
   {
     try {
       result = (double)(arg1)->get_recognition_tolerance();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -10973,6 +12453,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IMovementDecisionMaker_1deci
   {
     try {
       result = (bool)(arg1)->decide_match(arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11019,6 +12503,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IMovementDecisionMaker_1deci
   {
     try {
       result = (bool)(arg1)->decide_insertion(arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11051,6 +12539,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IMovementDecisionMaker_1posi
   {
     try {
       result = (bool)(arg1)->position_okay(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11079,6 +12571,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RewritingForest_1_1SWIG_10
   {
     try {
       result = (mae::fl::laban::rewriting_forest *)new mae::fl::laban::rewriting_forest(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11107,6 +12603,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RewritingForest_1_1SWIG_11
   {
     try {
       result = (mae::fl::laban::rewriting_forest *)new mae::fl::laban::rewriting_forest(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11133,6 +12633,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RewritingForest_1_1SWIG_12
   {
     try {
       result = (mae::fl::laban::rewriting_forest *)new mae::fl::laban::rewriting_forest(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11157,6 +12661,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RewritingForest_1_1SWIG_13
   {
     try {
       result = (mae::fl::laban::rewriting_forest *)new mae::fl::laban::rewriting_forest(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11179,6 +12687,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RewritingForest_1_1SWIG_14
   {
     try {
       result = (mae::fl::laban::rewriting_forest *)new mae::fl::laban::rewriting_forest();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11218,6 +12730,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RewritingForest_1_1SWIG_15
   {
     try {
       result = (mae::fl::laban::rewriting_forest *)new mae::fl::laban::rewriting_forest(arg1,arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11255,6 +12771,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RewritingForest_1_1SWIG_16
   {
     try {
       result = (mae::fl::laban::rewriting_forest *)new mae::fl::laban::rewriting_forest(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11290,6 +12810,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RewritingForest_1_1SWIG_17
   {
     try {
       result = (mae::fl::laban::rewriting_forest *)new mae::fl::laban::rewriting_forest(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11323,6 +12847,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RewritingForest_1_1SWIG_18
   {
     try {
       result = (mae::fl::laban::rewriting_forest *)new mae::fl::laban::rewriting_forest(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11354,6 +12882,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RewritingForest_1_1SWIG_19
   {
     try {
       result = (mae::fl::laban::rewriting_forest *)new mae::fl::laban::rewriting_forest(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11379,6 +12911,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1RewritingForest(JNIEnv *
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -11403,6 +12939,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_RewritingForest_1getTolerance
   {
     try {
       result = (double)(arg1)->get_tolerance();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11429,6 +12969,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_RewritingForest_1setTolerance(JN
   {
     try {
       (arg1)->set_tolerance(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -11462,6 +13006,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_RewritingForest_1replacements(J
   {
     try {
       result = (arg1)->replacements(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11499,6 +13047,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_RewritingForest_1addRule_1_1SWIG
   {
     try {
       (arg1)->add_rule(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -11525,6 +13077,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_RewritingForest_1addRule_1_1SWIG
   {
     try {
       (arg1)->add_rule(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -11549,6 +13105,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RewritingForest_1str(JNIEnv *
   {
     try {
       result = (arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11569,6 +13129,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IMovementVectorVector_1_1S
   {
     try {
       result = (std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *)new std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11593,6 +13157,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IMovementVectorVector_1_1S
   {
     try {
       result = (std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > *)new std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11621,6 +13189,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVector_1size(JNI
   {
     try {
       result = ((std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11647,6 +13219,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVector_1capacity
   {
     try {
       result = ((std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11673,6 +13249,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVector_1reserve(J
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -11697,6 +13277,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVector_1empty
   {
     try {
       result = (bool)((std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11721,6 +13305,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVector_1clear(JNI
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -11750,6 +13338,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVector_1pushBack(
   {
     try {
       (arg1)->push_back((std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -11783,6 +13375,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVector_1get(JNIE
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11823,6 +13419,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVector_1set(JNIEn
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -11844,6 +13444,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IMovementVectorVector(JN
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -11875,6 +13479,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IMovementVectorVectorDecis
   {
     try {
       result = (mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *)new mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > >(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11901,6 +13509,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IMovementVectorVectorDecis
   {
     try {
       result = (mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > *)new mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11926,6 +13538,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IMovementVectorVectorDec
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -11950,6 +13566,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVectorDecisionVa
   {
     try {
       result = (arg1)->get_sequence();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11976,6 +13596,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVectorDecisionVa
   {
     try {
       result = (arg1)->get_value();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -11996,6 +13620,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IMovementVectorVectorDecis
   {
     try {
       result = (std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *)new std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12018,6 +13646,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IMovementVectorVectorDecis
   {
     try {
       result = (std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > *)new std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12041,6 +13673,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVectorDecisionVa
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12064,6 +13700,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVectorDecisionVa
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12087,6 +13727,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVectorDecisionVal
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -12108,6 +13752,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVectorDecisio
   {
     try {
       result = (bool)((std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12129,6 +13777,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVectorDecisionVal
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -12151,6 +13803,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVectorDecisionVal
   {
     try {
       (arg1)->push_back((std::vector< std::shared_ptr< mae::fl::laban::decision_value< mae::fl::laban::i_movement,std::vector< std::vector< std::shared_ptr< mae::fl::laban::i_movement > > > > > >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -12181,6 +13837,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVectorDecisionVa
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12214,6 +13874,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IMovementVectorVectorDecisionVal
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -12232,6 +13896,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IMovementVectorVectorDec
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -12285,6 +13953,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_10(
   {
     try {
       result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12340,6 +14012,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_11(
   {
     try {
       result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12390,6 +14066,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_12(
   {
     try {
       result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12436,6 +14116,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_13(
   {
     try {
       result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12480,6 +14164,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_14(
   {
     try {
       result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12522,6 +14210,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_15(
   {
     try {
       result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12562,6 +14254,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_16(
   {
     try {
       result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12593,6 +14289,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_17(
   {
     try {
       result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12615,6 +14315,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DecisionForest_1_1SWIG_18(
   {
     try {
       result = (mae::fl::laban::decision_forest *)new mae::fl::laban::decision_forest();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12640,6 +14344,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1DecisionForest(JNIEnv *j
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -12664,6 +14372,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1setRecognitionTo
   {
     try {
       (arg1)->set_recognition_tolerance(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -12688,6 +14400,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1setCooldown(JNIE
   {
     try {
       (arg1)->set_cooldown(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -12712,6 +14428,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1getCooldown(
   {
     try {
       result = (bool)((mae::fl::laban::decision_forest const *)arg1)->get_cooldown();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12743,6 +14463,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1getSequenceLengt
   {
     try {
       result = (int)((mae::fl::laban::decision_forest const *)arg1)->get_sequence_length(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12772,6 +14496,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1addSequence(JNIE
   {
     try {
       (arg1)->add_sequence(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -12801,6 +14529,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1removeSequen
   {
     try {
       result = (bool)(arg1)->remove_sequence(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12829,6 +14561,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1removeSequen
   {
     try {
       result = (bool)(arg1)->remove_sequence(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12853,6 +14589,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1clear(JNIEnv *je
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -12888,6 +14628,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1addRewritingRule
   {
     try {
       (arg1)->add_rewriting_rule(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -12914,6 +14658,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1addRewritingRule
   {
     try {
       (arg1)->add_rewriting_rule(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -12943,6 +14691,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1recreateSequenc
   {
     try {
       result = (arg1)->recreate_sequence(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -12969,6 +14721,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1getSequences(JN
   {
     try {
       result = ((mae::fl::laban::decision_forest const *)arg1)->get_sequences();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13011,6 +14767,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1findSubmatches(
   {
     try {
       result = (arg1)->find_submatches(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13037,6 +14797,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1str(JNIEnv *j
   {
     try {
       result = ((mae::fl::laban::decision_forest const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13057,6 +14821,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceVector_1_1SWI
   {
     try {
       result = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *)new std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13079,6 +14847,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceVector_1_1SWI
   {
     try {
       result = (std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *)new std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13102,6 +14874,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceVector_1size(JNIEn
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13125,6 +14901,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceVector_1capacity(J
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13148,6 +14928,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceVector_1reserve(JNI
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -13169,6 +14953,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_LabanSequenceVector_1empty(J
   {
     try {
       result = (bool)((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13190,6 +14978,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceVector_1clear(JNIEn
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -13213,6 +15005,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceVector_1pushBack(JN
   {
     try {
       (arg1)->push_back((std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -13243,6 +15039,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceVector_1get(JNIEnv
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13277,6 +15077,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceVector_1set(JNIEnv 
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -13295,6 +15099,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1LabanSequenceVector(JNIE
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -13313,6 +15121,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceList(JNIEnv *
   {
     try {
       result = (std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > *)new std::list< std::shared_ptr< mae::fl::laban::laban_sequence > >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13336,6 +15148,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceList_1size(JNIEnv 
   {
     try {
       result = ((std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13359,6 +15175,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_LabanSequenceList_1empty(JNI
   {
     try {
       result = (bool)((std::list< std::shared_ptr< mae::fl::laban::laban_sequence > > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13380,6 +15200,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceList_1clear(JNIEnv 
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -13403,6 +15227,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceList_1pushBack(JNIE
   {
     try {
       (arg1)->push_back((std::list< std::shared_ptr< mae::fl::laban::laban_sequence > >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -13433,6 +15261,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceList_1get(JNIEnv *
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13453,6 +15285,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1LabanSequenceList(JNIEnv
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -13474,6 +15310,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1LabanSequenceSequenceRec
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -13501,6 +15341,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceRecognizer_
   {
     try {
       (arg1)->register_sequence(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -13530,6 +15374,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceRecogni
   {
     try {
       result = (bool)(arg1)->deregister_sequence(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13558,6 +15406,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceRecogni
   {
     try {
       result = (bool)(arg1)->deregister_sequence(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13582,6 +15434,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceRecognizer_
   {
     try {
       (arg1)->clear_registered_sequences();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -13611,6 +15467,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceRecognizer_
   {
     try {
       result = (int)((mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > const *)arg1)->get_sequence_length(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13653,6 +15513,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceRecognizer
   {
     try {
       result = (arg1)->recognize_sequence(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13675,6 +15539,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
   {
     try {
       result = (mae::fl::laban::laban_sequence_recognizer *)new mae::fl::laban::laban_sequence_recognizer(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13697,6 +15565,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
   {
     try {
       result = (mae::fl::laban::laban_sequence_recognizer *)new mae::fl::laban::laban_sequence_recognizer();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13736,6 +15608,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
   {
     try {
       result = (mae::fl::laban::laban_sequence_recognizer *)new mae::fl::laban::laban_sequence_recognizer(arg1,arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13773,6 +15649,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
   {
     try {
       result = (mae::fl::laban::laban_sequence_recognizer *)new mae::fl::laban::laban_sequence_recognizer(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13808,6 +15688,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
   {
     try {
       result = (mae::fl::laban::laban_sequence_recognizer *)new mae::fl::laban::laban_sequence_recognizer(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13841,6 +15725,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
   {
     try {
       result = (mae::fl::laban::laban_sequence_recognizer *)new mae::fl::laban::laban_sequence_recognizer(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13872,6 +15760,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceRecognizer_1_
   {
     try {
       result = (mae::fl::laban::laban_sequence_recognizer *)new mae::fl::laban::laban_sequence_recognizer(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13897,6 +15789,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1LabanSequenceRecognizer(
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -13921,6 +15817,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1setReco
   {
     try {
       (arg1)->set_recognition_tolerance(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -13945,6 +15845,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1getDec
   {
     try {
       result = ((mae::fl::laban::laban_sequence_recognizer const *)arg1)->get_decision_forest();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -13974,6 +15878,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1registe
   {
     try {
       (arg1)->register_sequence(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14003,6 +15911,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1der
   {
     try {
       result = (bool)(arg1)->deregister_sequence(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14031,6 +15943,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1der
   {
     try {
       result = (bool)(arg1)->deregister_sequence(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14055,6 +15971,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1clearRe
   {
     try {
       (arg1)->clear_registered_sequences();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14079,6 +15999,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1getReg
   {
     try {
       result = ((mae::fl::laban::laban_sequence_recognizer const *)arg1)->get_registered_sequences();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14110,6 +16034,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1getSequ
   {
     try {
       result = (int)((mae::fl::laban::laban_sequence_recognizer const *)arg1)->get_sequence_length(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14152,6 +16080,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1recogn
   {
     try {
       result = (arg1)->recognize_sequence(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14178,6 +16110,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1str(
   {
     try {
       result = ((mae::fl::laban::laban_sequence_recognizer const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14201,6 +16137,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1LabanSequenceSequenceGen
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14245,6 +16185,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceGenerator_
   {
     try {
       result = (arg1)->generate_sequence(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14267,6 +16211,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceGenerator_1_1
   {
     try {
       result = (mae::fl::laban::laban_sequence_generator *)new mae::fl::laban::laban_sequence_generator(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14289,6 +16237,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceGenerator_1_1
   {
     try {
       result = (mae::fl::laban::laban_sequence_generator *)new mae::fl::laban::laban_sequence_generator();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14328,6 +16280,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceGenerator_1_1
   {
     try {
       result = (mae::fl::laban::laban_sequence_generator *)new mae::fl::laban::laban_sequence_generator(arg1,arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14365,6 +16321,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceGenerator_1_1
   {
     try {
       result = (mae::fl::laban::laban_sequence_generator *)new mae::fl::laban::laban_sequence_generator(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14400,6 +16360,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceGenerator_1_1
   {
     try {
       result = (mae::fl::laban::laban_sequence_generator *)new mae::fl::laban::laban_sequence_generator(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14433,6 +16397,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceGenerator_1_1
   {
     try {
       result = (mae::fl::laban::laban_sequence_generator *)new mae::fl::laban::laban_sequence_generator(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14464,6 +16432,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceGenerator_1_1
   {
     try {
       result = (mae::fl::laban::laban_sequence_generator *)new mae::fl::laban::laban_sequence_generator(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14489,6 +16461,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1LabanSequenceGenerator(J
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14533,6 +16509,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceGenerator_1generat
   {
     try {
       result = (arg1)->generate_sequence(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14556,6 +16536,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1LabanSequenceSequenceLis
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14585,6 +16569,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceListener_1o
   {
     try {
       (arg1)->on_sequence(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14606,6 +16594,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1LabanSequenceRecognition
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14639,6 +16631,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognition_1listen
   {
     try {
       (arg1)->on_recognition(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14672,6 +16668,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognition_1listen
   {
     try {
       (arg1)->on_recognition(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14693,6 +16693,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1FlSkeletonLabanSequenceM
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14735,6 +16739,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovement
   {
     try {
       result = (arg1)->detect_movement(arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14761,6 +16769,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementD
   {
     try {
       (arg1)->set_buffer(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14783,6 +16795,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementD
   {
     try {
       (arg1)->clear_buffer();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14810,6 +16826,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementD
   {
     try {
       (arg1)->add_listener(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14837,6 +16857,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementD
   {
     try {
       (arg1)->remove_listener(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14859,6 +16883,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementD
   {
     try {
       (arg1)->clear_listeners();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14888,6 +16916,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementD
   {
     try {
       (arg1)->notify_listeners(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -14912,6 +16944,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovement
   {
     try {
       result = ((mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > const *)arg1)->get_current_pose();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14956,6 +16992,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlSkeletonLabanSequenceMov
   {
     try {
       result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(arg1,arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -14998,6 +17038,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlSkeletonLabanSequenceMov
   {
     try {
       result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(arg1,arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15038,6 +17082,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlSkeletonLabanSequenceMov
   {
     try {
       result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15076,6 +17124,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlSkeletonLabanSequenceMov
   {
     try {
       result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15123,6 +17175,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlSkeletonLabanSequenceMov
   {
     try {
       result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15168,6 +17224,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlSkeletonLabanSequenceMov
   {
     try {
       result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(arg1,arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15211,6 +17271,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlSkeletonLabanSequenceMov
   {
     try {
       result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(arg1,arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15252,6 +17316,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlSkeletonLabanSequenceMov
   {
     try {
       result = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *)new mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence >(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15272,6 +17340,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1FlSkeletonLabanSequenceM
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15298,6 +17370,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->next_frame(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15322,6 +17398,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->register_sequence(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15346,6 +17426,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->deregister_sequence(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15365,6 +17449,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->clear_registered_sequences();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15386,6 +17474,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->set_no_buffer_size_update(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15407,6 +17499,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->set_framerate(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15428,6 +17524,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMoveme
   {
     try {
       result = (double)((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > const *)arg1)->get_framerate();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15449,6 +17549,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->clear_buffer();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15470,6 +17574,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovement
   {
     try {
       result = ((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > const *)arg1)->get_current_sequence();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15493,6 +17601,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovement
   {
     try {
       result = ((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > const *)arg1)->get_current_pose();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15516,6 +17628,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovement
   {
     try {
       result = ((mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > const *)arg1)->get_current_recognition();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15542,6 +17658,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->add_listener(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15566,6 +17686,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->remove_listener(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15590,6 +17714,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->add_listener(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15614,6 +17742,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->remove_listener(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15638,6 +17770,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->add_listener(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15662,6 +17798,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->remove_listener(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15681,6 +17821,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->clear_listeners();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15707,6 +17851,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->notify_sequence_listeners(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15737,6 +17885,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   {
     try {
       (arg1)->notify_recognition_listeners(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -15758,6 +17910,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovement
   {
     try {
       result = (arg1)->get_movement_detector();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15781,6 +17937,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovement
   {
     try {
       result = (arg1)->get_sequence_recognizer();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15807,6 +17967,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15831,6 +17995,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15853,6 +18021,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15873,6 +18045,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15923,6 +18099,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -15971,6 +18151,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16017,6 +18201,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16061,6 +18249,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16103,6 +18295,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16143,6 +18339,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16181,6 +18381,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16236,6 +18440,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16289,6 +18497,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16340,6 +18552,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16389,6 +18605,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16436,6 +18656,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16481,6 +18705,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16524,6 +18752,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlMovementController_1_1SW
   {
     try {
       result = (mae::fl::fl_movement_controller *)new mae::fl::fl_movement_controller(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16544,6 +18776,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1FlMovementController(JNI
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -16570,6 +18806,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlMovementController_1nextFrame(
   {
     try {
       (arg1)->next_frame(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -16591,6 +18831,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlMovementController_1setRecogni
   {
     try {
       (arg1)->set_recognition_tolerance(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -16612,6 +18856,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlMovementController_1getLabanS
   {
     try {
       result = ((mae::fl::fl_movement_controller const *)arg1)->get_laban_sequence_recognizer();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16635,6 +18883,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlMovementController_1getLabanS
   {
     try {
       result = ((mae::fl::fl_movement_controller const *)arg1)->get_laban_sequence_generator();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16658,6 +18910,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlMovementController_1getFlPose
   {
     try {
       result = ((mae::fl::fl_movement_controller const *)arg1)->get_fl_pose_detector();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16732,6 +18988,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1BvhSpec(JNIEnv *jenv, jcla
   {
     try {
       result = (mae::fl::bvh_spec *)new mae::fl::bvh_spec(arg1,arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16757,6 +19017,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1BvhSpec(JNIEnv *jenv, jc
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -16781,6 +19045,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_BvhSpec_1getIdMap(JNIEnv *jenv,
   {
     try {
       result = ((mae::fl::bvh_spec const *)arg1)->get_id_map();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16807,6 +19075,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_BvhSpec_1getTorsoMap(JNIEnv *je
   {
     try {
       result = ((mae::fl::bvh_spec const *)arg1)->get_torso_map();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16833,6 +19105,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_BvhSpec_1getLeftAnchor(JNIEnv
   {
     try {
       result = (arg1)->get_left_anchor();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16859,6 +19135,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_BvhSpec_1getRightAnchor(JNIEn
   {
     try {
       result = (arg1)->get_right_anchor();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16885,6 +19165,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_BvhSpec_1getTopAnchor(JNIEnv 
   {
     try {
       result = (arg1)->get_top_anchor();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16911,6 +19195,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_BvhSpec_1getBottomAnchor(JNIE
   {
     try {
       result = (arg1)->get_bottom_anchor();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16931,6 +19219,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_BvhSpec_1defaultSpec(JNIEnv *je
   {
     try {
       result = mae::fl::bvh_spec::default_spec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16951,6 +19243,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1StringIntMap_1_1SWIG_10(JN
   {
     try {
       result = (std::map< std::string,int > *)new std::map< std::string,int >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -16978,6 +19274,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1StringIntMap_1_1SWIG_11(JN
   {
     try {
       result = (std::map< std::string,int > *)new std::map< std::string,int >((std::map< std::string,int > const &)*arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17001,6 +19301,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_StringIntMap_1size(JNIEnv *jenv
   {
     try {
       result = (unsigned int)((std::map< std::string,int > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17024,6 +19328,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_StringIntMap_1empty(JNIEnv *
   {
     try {
       result = (bool)((std::map< std::string,int > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17045,6 +19353,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_StringIntMap_1clear(JNIEnv *jenv
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17083,6 +19395,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_StringIntMap_1get(JNIEnv *jenv, 
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17118,6 +19434,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_StringIntMap_1set(JNIEnv *jenv, 
   {
     try {
       std_map_Sl_std_string_Sc_int_Sg__set(arg1,(std::string const &)*arg2,(int const &)*arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17154,6 +19474,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_StringIntMap_1del(JNIEnv *jenv, 
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17185,6 +19509,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_StringIntMap_1hasKey(JNIEnv 
   {
     try {
       result = (bool)std_map_Sl_std_string_Sc_int_Sg__has_key(arg1,(std::string const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17205,6 +19533,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1StringIntMap(JNIEnv *jen
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17223,6 +19555,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1StringBoolMap_1_1SWIG_10(J
   {
     try {
       result = (std::map< std::string,bool > *)new std::map< std::string,bool >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17250,6 +19586,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1StringBoolMap_1_1SWIG_11(J
   {
     try {
       result = (std::map< std::string,bool > *)new std::map< std::string,bool >((std::map< std::string,bool > const &)*arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17273,6 +19613,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_StringBoolMap_1size(JNIEnv *jen
   {
     try {
       result = (unsigned int)((std::map< std::string,bool > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17296,6 +19640,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_StringBoolMap_1empty(JNIEnv 
   {
     try {
       result = (bool)((std::map< std::string,bool > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17317,6 +19665,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_StringBoolMap_1clear(JNIEnv *jen
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17355,6 +19707,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_StringBoolMap_1get(JNIEnv *j
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17390,6 +19746,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_StringBoolMap_1set(JNIEnv *jenv,
   {
     try {
       std_map_Sl_std_string_Sc_bool_Sg__set(arg1,(std::string const &)*arg2,(bool const &)*arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17426,6 +19786,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_StringBoolMap_1del(JNIEnv *jenv,
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17457,6 +19821,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_StringBoolMap_1hasKey(JNIEnv
   {
     try {
       result = (bool)std_map_Sl_std_string_Sc_bool_Sg__has_key(arg1,(std::string const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17477,6 +19845,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1StringBoolMap(JNIEnv *je
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17495,6 +19867,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1BvhController(JNIEnv *jenv
   {
     try {
       result = (mae::fl::bvh_controller *)new mae::fl::bvh_controller();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17520,6 +19896,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1BvhController(JNIEnv *je
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17553,6 +19933,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_BvhController_1bvhStr_1_1SWIG
   {
     try {
       result = (arg1)->bvh_str(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17590,6 +19974,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_BvhController_1bvhStr_1_1SWIG
   {
     try {
       result = (arg1)->bvh_str(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17621,6 +20009,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_BvhController_1bvhStr_1_1SWIG
   {
     try {
       result = (arg1)->bvh_str(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17663,6 +20055,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_BvhController_1printBvhFile_1_1S
   {
     try {
       (arg1)->print_bvh_file(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17699,6 +20095,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_BvhController_1printBvhFile_1_1S
   {
     try {
       (arg1)->print_bvh_file(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17737,6 +20137,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_BvhController_1readBvhStr(JNIEn
   {
     try {
       result = (arg1)->read_bvh_str(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17777,6 +20181,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_BvhController_1readBvhFile(JNIE
   {
     try {
       result = (arg1)->read_bvh_file(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17797,6 +20205,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralSkeletonVector_1_1S
   {
     try {
       result = (std::vector< std::shared_ptr< mae::general_skeleton > > *)new std::vector< std::shared_ptr< mae::general_skeleton > >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17819,6 +20231,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralSkeletonVector_1_1S
   {
     try {
       result = (std::vector< std::shared_ptr< mae::general_skeleton > > *)new std::vector< std::shared_ptr< mae::general_skeleton > >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17842,6 +20258,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_GeneralSkeletonVector_1size(JNI
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::general_skeleton > > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17865,6 +20285,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_GeneralSkeletonVector_1capacity
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::general_skeleton > > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17888,6 +20312,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralSkeletonVector_1reserve(J
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17909,6 +20337,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_GeneralSkeletonVector_1empty
   {
     try {
       result = (bool)((std::vector< std::shared_ptr< mae::general_skeleton > > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -17930,6 +20362,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralSkeletonVector_1clear(JNI
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17953,6 +20389,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralSkeletonVector_1pushBack(
   {
     try {
       (arg1)->push_back((std::vector< std::shared_ptr< mae::general_skeleton > >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -17983,6 +20423,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_GeneralSkeletonVector_1get(JNIE
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18017,6 +20461,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_GeneralSkeletonVector_1set(JNIEn
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -18035,6 +20483,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1GeneralSkeletonVector(JN
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -18053,6 +20505,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralSkeletonVectorDoubl
   {
     try {
       result = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *)new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18084,6 +20540,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralSkeletonVectorDoubl
   {
     try {
       result = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *)new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double >(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18111,6 +20571,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1GeneralSkeletonVectorDoubl
   {
     try {
       result = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > *)new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double >((std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,double > const &)*arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18188,6 +20652,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1GeneralSkeletonVectorDou
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -18206,6 +20674,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1LabanSequenceReader(JNIEnv
   {
     try {
       result = (mae::fl::laban::laban_sequence_reader *)new mae::fl::laban::laban_sequence_reader();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18226,6 +20698,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1LabanSequenceReader(JNIE
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -18256,6 +20732,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceReader_1readSequen
   {
     try {
       result = (arg1)->read_sequence_file(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18288,6 +20768,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceReader_1readSequen
   {
     try {
       result = (arg1)->read_sequence_str(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18311,6 +20795,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ISymbol(JNIEnv *jenv, jc
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -18340,6 +20828,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ISymbol_1equals(JNIEnv *jenv
   {
     try {
       result = (bool)((mae::fl::laban::mv::i_symbol const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18377,6 +20869,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ISymbol_1xml_1_1SWIG_10(JNIEn
   {
     try {
       result = ((mae::fl::laban::mv::i_symbol const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18405,6 +20901,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ISymbol_1xml_1_1SWIG_11(JNIEn
   {
     try {
       result = ((mae::fl::laban::mv::i_symbol const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18431,6 +20931,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ISymbol_1xml_1_1SWIG_12(JNIEn
   {
     try {
       result = ((mae::fl::laban::mv::i_symbol const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18476,6 +20980,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ISymbol_1svg_1_1SWIG_10(JNIEn
   {
     try {
       result = ((mae::fl::laban::mv::i_symbol const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18519,6 +21027,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ISymbol_1svg_1_1SWIG_11(JNIEn
   {
     try {
       result = ((mae::fl::laban::mv::i_symbol const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18545,6 +21057,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ISymbol_1str(JNIEnv *jenv, jc
   {
     try {
       result = ((mae::fl::laban::mv::i_symbol const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18585,6 +21101,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Movement_1_1SWIG_10(JNIEnv
   {
     try {
       result = (mae::fl::laban::movement *)new mae::fl::laban::movement(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18622,6 +21142,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Movement_1_1SWIG_11(JNIEnv
   {
     try {
       result = (mae::fl::laban::movement *)new mae::fl::laban::movement(arg1,arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18657,6 +21181,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Movement_1_1SWIG_12(JNIEnv
   {
     try {
       result = (mae::fl::laban::movement *)new mae::fl::laban::movement(arg1,arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18682,6 +21210,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1Movement(JNIEnv *jenv, j
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -18706,6 +21238,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_Movement_1getColumn(JNIEnv *jenv
   {
     try {
       result = (int)((mae::fl::laban::movement const *)arg1)->get_column();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18732,6 +21268,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Movement_1getMeasure(JNIEnv *je
   {
     try {
       result = (unsigned int)((mae::fl::laban::movement const *)arg1)->get_measure();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18758,6 +21298,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_Movement_1getBeat(JNIEnv *jen
   {
     try {
       result = (double)((mae::fl::laban::movement const *)arg1)->get_beat();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18784,6 +21328,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_Movement_1getDuration(JNIEnv 
   {
     try {
       result = (double)((mae::fl::laban::movement const *)arg1)->get_duration();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18810,6 +21358,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Movement_1getPreSign(JNIEnv *je
   {
     try {
       result = ((mae::fl::laban::movement const *)arg1)->get_pre_sign();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18836,6 +21388,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_Movement_1getHold(JNIEnv *je
   {
     try {
       result = (bool)((mae::fl::laban::movement const *)arg1)->get_hold();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18862,6 +21418,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Movement_1getSymbol(JNIEnv *jen
   {
     try {
       result = ((mae::fl::laban::movement const *)arg1)->get_symbol();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18893,6 +21453,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_Movement_1equals(JNIEnv *jen
   {
     try {
       result = (bool)((mae::fl::laban::movement const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18924,6 +21488,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_Movement_1symbolEquals(JNIEn
   {
     try {
       result = (bool)((mae::fl::laban::movement const *)arg1)->symbol_equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18961,6 +21529,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Movement_1xml_1_1SWIG_10(JNIE
   {
     try {
       result = ((mae::fl::laban::movement const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -18989,6 +21561,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Movement_1xml_1_1SWIG_11(JNIE
   {
     try {
       result = ((mae::fl::laban::movement const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19015,6 +21591,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Movement_1xml_1_1SWIG_12(JNIE
   {
     try {
       result = ((mae::fl::laban::movement const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19051,6 +21631,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Movement_1svg(JNIEnv *jenv, j
   {
     try {
       result = ((mae::fl::laban::movement const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19092,6 +21676,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Movement_1recreate(JNIEnv *jenv
   {
     try {
       result = ((mae::fl::laban::movement const *)arg1)->recreate(arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19118,6 +21706,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Movement_1str(JNIEnv *jenv, j
   {
     try {
       result = ((mae::fl::laban::movement const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19140,6 +21732,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_EPathTypeC_1str(JNIEnv *jenv,
   {
     try {
       result = mae::fl::laban::e_path_type_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19160,6 +21756,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EPathTypeC_1vec(JNIEnv *jenv, j
   {
     try {
       result = mae::fl::laban::e_path_type_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19189,6 +21789,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EPathTypeC_1parse(JNIEnv *jenv, 
   {
     try {
       result = (mae::fl::laban::e_path_type)mae::fl::laban::e_path_type_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19209,6 +21813,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EPathTypeC(JNIEnv *jenv, j
   {
     try {
       result = (mae::fl::laban::e_path_type_c *)new mae::fl::laban::e_path_type_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19229,6 +21837,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EPathTypeC(JNIEnv *jenv,
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -19247,6 +21859,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EPathTypeVector_1_1SWIG_10
   {
     try {
       result = (std::vector< mae::fl::laban::e_path_type > *)new std::vector< mae::fl::laban::e_path_type >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19269,6 +21885,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EPathTypeVector_1_1SWIG_11
   {
     try {
       result = (std::vector< mae::fl::laban::e_path_type > *)new std::vector< mae::fl::laban::e_path_type >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19292,6 +21912,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EPathTypeVector_1size(JNIEnv *j
   {
     try {
       result = ((std::vector< mae::fl::laban::e_path_type > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19315,6 +21939,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EPathTypeVector_1capacity(JNIEn
   {
     try {
       result = ((std::vector< mae::fl::laban::e_path_type > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19338,6 +21966,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EPathTypeVector_1reserve(JNIEnv 
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -19359,6 +21991,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EPathTypeVector_1empty(JNIEn
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::e_path_type > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19380,6 +22016,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EPathTypeVector_1clear(JNIEnv *j
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -19403,6 +22043,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EPathTypeVector_1pushBack(JNIEnv
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::e_path_type >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -19433,6 +22077,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EPathTypeVector_1get(JNIEnv *jen
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19467,6 +22115,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EPathTypeVector_1set(JNIEnv *jen
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -19485,6 +22137,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EPathTypeVector(JNIEnv *
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -19511,6 +22167,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Path(JNIEnv *jenv, jclass 
   {
     try {
       result = (mae::fl::laban::path *)new mae::fl::laban::path(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19536,6 +22196,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1Path(JNIEnv *jenv, jclas
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -19560,6 +22224,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_Path_1getType(JNIEnv *jenv, jcla
   {
     try {
       result = (mae::fl::laban::e_path_type)((mae::fl::laban::path const *)arg1)->get_type();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19586,6 +22254,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_Path_1getColumn(JNIEnv *jenv, jc
   {
     try {
       result = (int)((mae::fl::laban::path const *)arg1)->get_column();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19612,6 +22284,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Path_1getMeasure(JNIEnv *jenv, 
   {
     try {
       result = (unsigned int)((mae::fl::laban::path const *)arg1)->get_measure();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19638,6 +22314,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_Path_1getBeat(JNIEnv *jenv, j
   {
     try {
       result = (double)((mae::fl::laban::path const *)arg1)->get_beat();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19664,6 +22344,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_Path_1getDuration(JNIEnv *jen
   {
     try {
       result = (double)((mae::fl::laban::path const *)arg1)->get_duration();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19695,6 +22379,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_Path_1equals(JNIEnv *jenv, j
   {
     try {
       result = (bool)((mae::fl::laban::path const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19726,6 +22414,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_Path_1symbolEquals(JNIEnv *j
   {
     try {
       result = (bool)((mae::fl::laban::path const *)arg1)->symbol_equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19763,6 +22455,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Path_1xml_1_1SWIG_10(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::path const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19791,6 +22487,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Path_1xml_1_1SWIG_11(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::path const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19817,6 +22517,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Path_1xml_1_1SWIG_12(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::path const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19853,6 +22557,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Path_1svg(JNIEnv *jenv, jclas
   {
     try {
       result = ((mae::fl::laban::path const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19894,6 +22602,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Path_1recreate(JNIEnv *jenv, jc
   {
     try {
       result = ((mae::fl::laban::path const *)arg1)->recreate(arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19920,6 +22632,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Path_1str(JNIEnv *jenv, jclas
   {
     try {
       result = ((mae::fl::laban::path const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19942,6 +22658,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ERelationshipTypeC_1str(JNIEn
   {
     try {
       result = mae::fl::laban::e_relationship_type_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19962,6 +22682,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ERelationshipTypeC_1vec(JNIEnv 
   {
     try {
       result = mae::fl::laban::e_relationship_type_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -19991,6 +22715,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ERelationshipTypeC_1parse(JNIEnv
   {
     try {
       result = (mae::fl::laban::e_relationship_type)mae::fl::laban::e_relationship_type_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20011,6 +22739,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ERelationshipTypeC(JNIEnv 
   {
     try {
       result = (mae::fl::laban::e_relationship_type_c *)new mae::fl::laban::e_relationship_type_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20031,6 +22763,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ERelationshipTypeC(JNIEn
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -20049,6 +22785,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ERelationshipTypeVector_1_
   {
     try {
       result = (std::vector< mae::fl::laban::e_relationship_type > *)new std::vector< mae::fl::laban::e_relationship_type >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20071,6 +22811,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ERelationshipTypeVector_1_
   {
     try {
       result = (std::vector< mae::fl::laban::e_relationship_type > *)new std::vector< mae::fl::laban::e_relationship_type >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20094,6 +22838,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ERelationshipTypeVector_1size(J
   {
     try {
       result = ((std::vector< mae::fl::laban::e_relationship_type > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20117,6 +22865,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ERelationshipTypeVector_1capaci
   {
     try {
       result = ((std::vector< mae::fl::laban::e_relationship_type > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20140,6 +22892,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ERelationshipTypeVector_1reserve
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -20161,6 +22917,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ERelationshipTypeVector_1emp
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::e_relationship_type > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20182,6 +22942,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ERelationshipTypeVector_1clear(J
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -20205,6 +22969,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ERelationshipTypeVector_1pushBac
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::e_relationship_type >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -20235,6 +23003,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ERelationshipTypeVector_1get(JNI
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20269,6 +23041,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ERelationshipTypeVector_1set(JNI
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -20287,6 +23063,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ERelationshipTypeVector(
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -20308,6 +23088,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IDynamicsSign(JNIEnv *je
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -20337,6 +23121,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IDynamicsSign_1equals(JNIEnv
   {
     try {
       result = (bool)((mae::fl::laban::mv::i_dynamics_sign const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20374,6 +23162,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IDynamicsSign_1xml_1_1SWIG_10
   {
     try {
       result = ((mae::fl::laban::mv::i_dynamics_sign const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20402,6 +23194,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IDynamicsSign_1xml_1_1SWIG_11
   {
     try {
       result = ((mae::fl::laban::mv::i_dynamics_sign const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20428,6 +23224,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IDynamicsSign_1xml_1_1SWIG_12
   {
     try {
       result = ((mae::fl::laban::mv::i_dynamics_sign const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20462,6 +23262,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RelationshipEndpoint_1_1SW
   {
     try {
       result = (mae::fl::laban::mv::relationship_endpoint *)new mae::fl::laban::mv::relationship_endpoint(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20493,6 +23297,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RelationshipEndpoint_1_1SW
   {
     try {
       result = (mae::fl::laban::mv::relationship_endpoint *)new mae::fl::laban::mv::relationship_endpoint(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20519,6 +23327,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RelationshipEndpoint_1_1SW
   {
     try {
       result = (mae::fl::laban::mv::relationship_endpoint *)new mae::fl::laban::mv::relationship_endpoint(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20544,6 +23356,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1RelationshipEndpoint(JNI
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -20568,6 +23384,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RelationshipEndpoint_1getColumn(
   {
     try {
       result = (int)((mae::fl::laban::mv::relationship_endpoint const *)arg1)->get_column();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20594,6 +23414,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_RelationshipEndpoint_1getPreSig
   {
     try {
       result = ((mae::fl::laban::mv::relationship_endpoint const *)arg1)->get_pre_sign();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20620,6 +23444,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_RelationshipEndpoint_1getDynami
   {
     try {
       result = ((mae::fl::laban::mv::relationship_endpoint const *)arg1)->get_dynamics();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20646,6 +23474,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_RelationshipEndpoint_1getAct
   {
     try {
       result = (bool)((mae::fl::laban::mv::relationship_endpoint const *)arg1)->get_active();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20683,6 +23515,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RelationshipEndpoint_1xml_1_1
   {
     try {
       result = ((mae::fl::laban::mv::relationship_endpoint const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20711,6 +23547,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RelationshipEndpoint_1xml_1_1
   {
     try {
       result = ((mae::fl::laban::mv::relationship_endpoint const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20737,6 +23577,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RelationshipEndpoint_1xml_1_1
   {
     try {
       result = ((mae::fl::laban::mv::relationship_endpoint const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20772,6 +23616,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_RelationshipEndpoint_1recreate(
   {
     try {
       result = ((mae::fl::laban::mv::relationship_endpoint const *)arg1)->recreate(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20803,6 +23651,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_RelationshipEndpoint_1equals
   {
     try {
       result = (bool)((mae::fl::laban::mv::relationship_endpoint const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20845,6 +23697,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RelationshipBow(JNIEnv *je
   {
     try {
       result = (mae::fl::laban::relationship_bow *)new mae::fl::laban::relationship_bow(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20870,6 +23726,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1RelationshipBow(JNIEnv *
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -20894,6 +23754,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1getType(JNIEnv 
   {
     try {
       result = (mae::fl::laban::e_relationship_type)((mae::fl::laban::relationship_bow const *)arg1)->get_type();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20920,6 +23784,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1getGrasping
   {
     try {
       result = (bool)((mae::fl::laban::relationship_bow const *)arg1)->get_grasping();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20946,6 +23814,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1getPassing(
   {
     try {
       result = (bool)((mae::fl::laban::relationship_bow const *)arg1)->get_passing();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20972,6 +23844,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1getHold(JNI
   {
     try {
       result = (bool)((mae::fl::laban::relationship_bow const *)arg1)->get_hold();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -20998,6 +23874,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1getLeftEndpoin
   {
     try {
       result = ((mae::fl::laban::relationship_bow const *)arg1)->get_left_endpoint();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21024,6 +23904,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1getRightEndpoi
   {
     try {
       result = ((mae::fl::laban::relationship_bow const *)arg1)->get_right_endpoint();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21050,6 +23934,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1getColumn(JNIEn
   {
     try {
       result = (int)((mae::fl::laban::relationship_bow const *)arg1)->get_column();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21076,6 +23964,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1getMeasure(JNI
   {
     try {
       result = (unsigned int)((mae::fl::laban::relationship_bow const *)arg1)->get_measure();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21102,6 +23994,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1getBeat(JNIE
   {
     try {
       result = (double)((mae::fl::laban::relationship_bow const *)arg1)->get_beat();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21128,6 +24024,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1getDuration(
   {
     try {
       result = (double)((mae::fl::laban::relationship_bow const *)arg1)->get_duration();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21159,6 +24059,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1equals(JNIE
   {
     try {
       result = (bool)((mae::fl::laban::relationship_bow const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21190,6 +24094,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1symbolEqual
   {
     try {
       result = (bool)((mae::fl::laban::relationship_bow const *)arg1)->symbol_equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21227,6 +24135,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1xml_1_1SWIG_
   {
     try {
       result = ((mae::fl::laban::relationship_bow const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21255,6 +24167,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1xml_1_1SWIG_
   {
     try {
       result = ((mae::fl::laban::relationship_bow const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21281,6 +24197,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1xml_1_1SWIG_
   {
     try {
       result = ((mae::fl::laban::relationship_bow const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21317,6 +24237,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1svg(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::relationship_bow const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21358,6 +24282,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1recreate(JNIEn
   {
     try {
       result = ((mae::fl::laban::relationship_bow const *)arg1)->recreate(arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21384,6 +24312,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1str(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::relationship_bow const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21407,6 +24339,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IDegreeSign(JNIEnv *jenv
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -21436,6 +24372,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IDegreeSign_1equals(JNIEnv *
   {
     try {
       result = (bool)((mae::fl::laban::mv::i_degree_sign const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21475,6 +24415,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IDegreeSign_1xml_1_1SWIG_10(J
   {
     try {
       result = ((mae::fl::laban::mv::i_degree_sign const *)arg1)->xml(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21512,6 +24456,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IDegreeSign_1xml_1_1SWIG_11(J
   {
     try {
       result = ((mae::fl::laban::mv::i_degree_sign const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21540,6 +24488,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IDegreeSign_1xml_1_1SWIG_12(J
   {
     try {
       result = ((mae::fl::laban::mv::i_degree_sign const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21566,6 +24518,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IDegreeSign_1xml_1_1SWIG_13(J
   {
     try {
       result = ((mae::fl::laban::mv::i_degree_sign const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21611,6 +24567,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IDegreeSign_1svg_1_1SWIG_10(J
   {
     try {
       result = ((mae::fl::laban::mv::i_degree_sign const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21654,6 +24614,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IDegreeSign_1svg_1_1SWIG_11(J
   {
     try {
       result = ((mae::fl::laban::mv::i_degree_sign const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21676,6 +24640,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ELevelC_1str(JNIEnv *jenv, jc
   {
     try {
       result = mae::fl::laban::mv::e_level_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21698,6 +24666,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ELevelC_1lvl(JNIEnv *jenv, jclas
   {
     try {
       result = (mae::fl::laban::mv::e_level)mae::fl::laban::mv::e_level_c::lvl(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21718,6 +24690,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ELevelC_1vec(JNIEnv *jenv, jcla
   {
     try {
       result = mae::fl::laban::mv::e_level_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21747,6 +24723,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ELevelC_1parse(JNIEnv *jenv, jcl
   {
     try {
       result = (mae::fl::laban::mv::e_level)mae::fl::laban::mv::e_level_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21767,6 +24747,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ELevelC(JNIEnv *jenv, jcla
   {
     try {
       result = (mae::fl::laban::mv::e_level_c *)new mae::fl::laban::mv::e_level_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21787,6 +24771,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ELevelC(JNIEnv *jenv, jc
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -21805,6 +24793,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ELevelVector_1_1SWIG_10(JN
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_level > *)new std::vector< mae::fl::laban::mv::e_level >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21827,6 +24819,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ELevelVector_1_1SWIG_11(JN
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_level > *)new std::vector< mae::fl::laban::mv::e_level >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21850,6 +24846,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ELevelVector_1size(JNIEnv *jenv
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_level > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21873,6 +24873,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ELevelVector_1capacity(JNIEnv *
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_level > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21896,6 +24900,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ELevelVector_1reserve(JNIEnv *je
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -21917,6 +24925,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ELevelVector_1empty(JNIEnv *
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::mv::e_level > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -21938,6 +24950,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ELevelVector_1clear(JNIEnv *jenv
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -21961,6 +24977,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ELevelVector_1pushBack(JNIEnv *j
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::mv::e_level >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -21991,6 +25011,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ELevelVector_1get(JNIEnv *jenv, 
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22025,6 +25049,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ELevelVector_1set(JNIEnv *jenv, 
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -22043,6 +25071,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ELevelVector(JNIEnv *jen
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -22065,6 +25097,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Pin(JNIEnv *jenv, jclass j
   {
     try {
       result = (mae::fl::laban::mv::pin *)new mae::fl::laban::mv::pin(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22090,6 +25126,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1Pin(JNIEnv *jenv, jclass
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -22114,6 +25154,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_Pin_1getLevel(JNIEnv *jenv, jcla
   {
     try {
       result = (mae::fl::laban::mv::e_level)((mae::fl::laban::mv::pin const *)arg1)->get_level();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22140,6 +25184,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_Pin_1getHorizontal(JNIEnv *jenv,
   {
     try {
       result = (int)((mae::fl::laban::mv::pin const *)arg1)->get_horizontal();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22171,6 +25219,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_Pin_1equals(JNIEnv *jenv, jc
   {
     try {
       result = (bool)((mae::fl::laban::mv::pin const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22210,6 +25262,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Pin_1xml_1_1SWIG_10(JNIEnv *j
   {
     try {
       result = ((mae::fl::laban::mv::pin const *)arg1)->xml(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22247,6 +25303,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Pin_1xml_1_1SWIG_11(JNIEnv *j
   {
     try {
       result = ((mae::fl::laban::mv::pin const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22275,6 +25335,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Pin_1xml_1_1SWIG_12(JNIEnv *j
   {
     try {
       result = ((mae::fl::laban::mv::pin const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22301,6 +25365,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Pin_1xml_1_1SWIG_13(JNIEnv *j
   {
     try {
       result = ((mae::fl::laban::mv::pin const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22346,6 +25414,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Pin_1svg_1_1SWIG_10(JNIEnv *j
   {
     try {
       result = ((mae::fl::laban::mv::pin const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22389,6 +25461,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Pin_1svg_1_1SWIG_11(JNIEnv *j
   {
     try {
       result = ((mae::fl::laban::mv::pin const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22418,6 +25494,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RoomDirection(JNIEnv *jenv
   {
     try {
       result = (mae::fl::laban::room_direction *)new mae::fl::laban::room_direction(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22443,6 +25523,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1RoomDirection(JNIEnv *je
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -22467,6 +25551,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1getColumn(JNIEnv 
   {
     try {
       result = (int)((mae::fl::laban::room_direction const *)arg1)->get_column();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22493,6 +25581,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1getMeasure(JNIEn
   {
     try {
       result = (unsigned int)((mae::fl::laban::room_direction const *)arg1)->get_measure();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22519,6 +25611,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1getBeat(JNIEnv
   {
     try {
       result = (double)((mae::fl::laban::room_direction const *)arg1)->get_beat();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22545,6 +25641,10 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1getDuration(JN
   {
     try {
       result = (double)((mae::fl::laban::room_direction const *)arg1)->get_duration();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22571,6 +25671,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1getDirection(JNI
   {
     try {
       result = ((mae::fl::laban::room_direction const *)arg1)->get_direction();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22602,6 +25706,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1equals(JNIEnv
   {
     try {
       result = (bool)((mae::fl::laban::room_direction const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22633,6 +25741,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1symbolEquals(
   {
     try {
       result = (bool)((mae::fl::laban::room_direction const *)arg1)->symbol_equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22670,6 +25782,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1xml_1_1SWIG_10
   {
     try {
       result = ((mae::fl::laban::room_direction const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22698,6 +25814,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1xml_1_1SWIG_11
   {
     try {
       result = ((mae::fl::laban::room_direction const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22724,6 +25844,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1xml_1_1SWIG_12
   {
     try {
       result = ((mae::fl::laban::room_direction const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22760,6 +25884,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1svg(JNIEnv *je
   {
     try {
       result = ((mae::fl::laban::room_direction const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22801,6 +25929,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1recreate(JNIEnv 
   {
     try {
       result = ((mae::fl::laban::room_direction const *)arg1)->recreate(arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22827,6 +25959,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1str(JNIEnv *je
   {
     try {
       result = ((mae::fl::laban::room_direction const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22849,6 +25985,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1AccentSign(JNIEnv *jenv, j
   {
     try {
       result = (mae::fl::laban::mv::accent_sign *)new mae::fl::laban::mv::accent_sign(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22874,6 +26014,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1AccentSign(JNIEnv *jenv,
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -22898,6 +26042,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_AccentSign_1getAccent(JNIEnv *j
   {
     try {
       result = (unsigned int)((mae::fl::laban::mv::accent_sign const *)arg1)->get_accent();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22929,6 +26077,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_AccentSign_1equals(JNIEnv *j
   {
     try {
       result = (bool)((mae::fl::laban::mv::accent_sign const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22966,6 +26118,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_AccentSign_1xml_1_1SWIG_10(JN
   {
     try {
       result = ((mae::fl::laban::mv::accent_sign const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -22994,6 +26150,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_AccentSign_1xml_1_1SWIG_11(JN
   {
     try {
       result = ((mae::fl::laban::mv::accent_sign const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23020,6 +26180,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_AccentSign_1xml_1_1SWIG_12(JN
   {
     try {
       result = ((mae::fl::laban::mv::accent_sign const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23042,6 +26206,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_EDynamicC_1str(JNIEnv *jenv, 
   {
     try {
       result = mae::fl::laban::mv::e_dynamic_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23062,6 +26230,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EDynamicC_1vec(JNIEnv *jenv, jc
   {
     try {
       result = mae::fl::laban::mv::e_dynamic_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23091,6 +26263,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EDynamicC_1parse(JNIEnv *jenv, j
   {
     try {
       result = (mae::fl::laban::mv::e_dynamic)mae::fl::laban::mv::e_dynamic_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23111,6 +26287,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EDynamicC(JNIEnv *jenv, jc
   {
     try {
       result = (mae::fl::laban::mv::e_dynamic_c *)new mae::fl::laban::mv::e_dynamic_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23131,6 +26311,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EDynamicC(JNIEnv *jenv, 
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -23149,6 +26333,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EDynamicVector_1_1SWIG_10(
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_dynamic > *)new std::vector< mae::fl::laban::mv::e_dynamic >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23171,6 +26359,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EDynamicVector_1_1SWIG_11(
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_dynamic > *)new std::vector< mae::fl::laban::mv::e_dynamic >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23194,6 +26386,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EDynamicVector_1size(JNIEnv *je
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_dynamic > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23217,6 +26413,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EDynamicVector_1capacity(JNIEnv
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_dynamic > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23240,6 +26440,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EDynamicVector_1reserve(JNIEnv *
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -23261,6 +26465,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EDynamicVector_1empty(JNIEnv
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::mv::e_dynamic > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23282,6 +26490,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EDynamicVector_1clear(JNIEnv *je
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -23305,6 +26517,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EDynamicVector_1pushBack(JNIEnv 
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::mv::e_dynamic >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -23335,6 +26551,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EDynamicVector_1get(JNIEnv *jenv
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23369,6 +26589,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EDynamicVector_1set(JNIEnv *jenv
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -23387,6 +26611,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EDynamicVector(JNIEnv *j
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -23407,6 +26635,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DynamicSign(JNIEnv *jenv, 
   {
     try {
       result = (mae::fl::laban::mv::dynamic_sign *)new mae::fl::laban::mv::dynamic_sign(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23432,6 +26664,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1DynamicSign(JNIEnv *jenv
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -23456,6 +26692,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_DynamicSign_1getDynamic(JNIEnv *
   {
     try {
       result = (mae::fl::laban::mv::e_dynamic)((mae::fl::laban::mv::dynamic_sign const *)arg1)->get_dynamic();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23487,6 +26727,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_DynamicSign_1equals(JNIEnv *
   {
     try {
       result = (bool)((mae::fl::laban::mv::dynamic_sign const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23524,6 +26768,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DynamicSign_1xml_1_1SWIG_10(J
   {
     try {
       result = ((mae::fl::laban::mv::dynamic_sign const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23552,6 +26800,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DynamicSign_1xml_1_1SWIG_11(J
   {
     try {
       result = ((mae::fl::laban::mv::dynamic_sign const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23578,6 +26830,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DynamicSign_1xml_1_1SWIG_12(J
   {
     try {
       result = ((mae::fl::laban::mv::dynamic_sign const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23600,6 +26856,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ECancelC_1str(JNIEnv *jenv, j
   {
     try {
       result = mae::fl::laban::mv::e_cancel_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23620,6 +26880,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ECancelC_1vec(JNIEnv *jenv, jcl
   {
     try {
       result = mae::fl::laban::mv::e_cancel_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23649,6 +26913,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ECancelC_1parse(JNIEnv *jenv, jc
   {
     try {
       result = (mae::fl::laban::mv::e_cancel)mae::fl::laban::mv::e_cancel_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23669,6 +26937,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ECancelC(JNIEnv *jenv, jcl
   {
     try {
       result = (mae::fl::laban::mv::e_cancel_c *)new mae::fl::laban::mv::e_cancel_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23689,6 +26961,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ECancelC(JNIEnv *jenv, j
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -23707,6 +26983,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ECancelVector_1_1SWIG_10(J
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_cancel > *)new std::vector< mae::fl::laban::mv::e_cancel >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23729,6 +27009,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ECancelVector_1_1SWIG_11(J
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_cancel > *)new std::vector< mae::fl::laban::mv::e_cancel >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23752,6 +27036,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ECancelVector_1size(JNIEnv *jen
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_cancel > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23775,6 +27063,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ECancelVector_1capacity(JNIEnv 
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_cancel > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23798,6 +27090,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ECancelVector_1reserve(JNIEnv *j
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -23819,6 +27115,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ECancelVector_1empty(JNIEnv 
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::mv::e_cancel > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23840,6 +27140,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ECancelVector_1clear(JNIEnv *jen
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -23863,6 +27167,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ECancelVector_1pushBack(JNIEnv *
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::mv::e_cancel >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -23893,6 +27201,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ECancelVector_1get(JNIEnv *jenv,
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23927,6 +27239,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ECancelVector_1set(JNIEnv *jenv,
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -23945,6 +27261,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ECancelVector(JNIEnv *je
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -23965,6 +27285,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1CancellationSymbol(JNIEnv 
   {
     try {
       result = (mae::fl::laban::mv::cancellation_symbol *)new mae::fl::laban::mv::cancellation_symbol(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -23990,6 +27314,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1CancellationSymbol(JNIEn
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -24014,6 +27342,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_CancellationSymbol_1getCancel(JN
   {
     try {
       result = (mae::fl::laban::mv::e_cancel)((mae::fl::laban::mv::cancellation_symbol const *)arg1)->get_cancel();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24045,6 +27377,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_CancellationSymbol_1equals(J
   {
     try {
       result = (bool)((mae::fl::laban::mv::cancellation_symbol const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24082,6 +27418,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_CancellationSymbol_1xml_1_1SW
   {
     try {
       result = ((mae::fl::laban::mv::cancellation_symbol const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24110,6 +27450,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_CancellationSymbol_1xml_1_1SW
   {
     try {
       result = ((mae::fl::laban::mv::cancellation_symbol const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24136,6 +27480,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_CancellationSymbol_1xml_1_1SW
   {
     try {
       result = ((mae::fl::laban::mv::cancellation_symbol const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24181,6 +27529,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_CancellationSymbol_1svg_1_1SW
   {
     try {
       result = ((mae::fl::laban::mv::cancellation_symbol const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24224,6 +27576,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_CancellationSymbol_1svg_1_1SW
   {
     try {
       result = ((mae::fl::laban::mv::cancellation_symbol const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24250,6 +27606,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_CancellationSymbol_1str(JNIEn
   {
     try {
       result = ((mae::fl::laban::mv::cancellation_symbol const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24272,6 +27632,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ESpaceC_1str(JNIEnv *jenv, jc
   {
     try {
       result = mae::fl::laban::mv::e_space_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24292,6 +27656,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ESpaceC_1vec(JNIEnv *jenv, jcla
   {
     try {
       result = mae::fl::laban::mv::e_space_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24321,6 +27689,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ESpaceC_1parse(JNIEnv *jenv, jcl
   {
     try {
       result = (mae::fl::laban::mv::e_space)mae::fl::laban::mv::e_space_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24341,6 +27713,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ESpaceC(JNIEnv *jenv, jcla
   {
     try {
       result = (mae::fl::laban::mv::e_space_c *)new mae::fl::laban::mv::e_space_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24361,6 +27737,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ESpaceC(JNIEnv *jenv, jc
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -24379,6 +27759,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ESpaceVector_1_1SWIG_10(JN
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_space > *)new std::vector< mae::fl::laban::mv::e_space >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24401,6 +27785,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ESpaceVector_1_1SWIG_11(JN
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_space > *)new std::vector< mae::fl::laban::mv::e_space >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24424,6 +27812,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ESpaceVector_1size(JNIEnv *jenv
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_space > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24447,6 +27839,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ESpaceVector_1capacity(JNIEnv *
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_space > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24470,6 +27866,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ESpaceVector_1reserve(JNIEnv *je
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -24491,6 +27891,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ESpaceVector_1empty(JNIEnv *
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::mv::e_space > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24512,6 +27916,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ESpaceVector_1clear(JNIEnv *jenv
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -24535,6 +27943,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ESpaceVector_1pushBack(JNIEnv *j
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::mv::e_space >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -24565,6 +27977,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ESpaceVector_1get(JNIEnv *jenv, 
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24599,6 +28015,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ESpaceVector_1set(JNIEnv *jenv, 
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -24617,6 +28037,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ESpaceVector(JNIEnv *jen
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -24637,6 +28061,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ESpaceDirectionC_1str(JNIEnv 
   {
     try {
       result = mae::fl::laban::mv::e_space_direction_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24657,6 +28085,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ESpaceDirectionC_1vec(JNIEnv *j
   {
     try {
       result = mae::fl::laban::mv::e_space_direction_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24686,6 +28118,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ESpaceDirectionC_1parse(JNIEnv *
   {
     try {
       result = (mae::fl::laban::mv::e_space_direction)mae::fl::laban::mv::e_space_direction_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24706,6 +28142,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ESpaceDirectionC(JNIEnv *j
   {
     try {
       result = (mae::fl::laban::mv::e_space_direction_c *)new mae::fl::laban::mv::e_space_direction_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24726,6 +28166,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ESpaceDirectionC(JNIEnv 
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -24744,6 +28188,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ESpaceDirectionVector_1_1S
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_space_direction > *)new std::vector< mae::fl::laban::mv::e_space_direction >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24766,6 +28214,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ESpaceDirectionVector_1_1S
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_space_direction > *)new std::vector< mae::fl::laban::mv::e_space_direction >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24789,6 +28241,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ESpaceDirectionVector_1size(JNI
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_space_direction > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24812,6 +28268,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ESpaceDirectionVector_1capacity
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_space_direction > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24835,6 +28295,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ESpaceDirectionVector_1reserve(J
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -24856,6 +28320,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ESpaceDirectionVector_1empty
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::mv::e_space_direction > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24877,6 +28345,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ESpaceDirectionVector_1clear(JNI
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -24900,6 +28372,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ESpaceDirectionVector_1pushBack(
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::mv::e_space_direction >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -24930,6 +28406,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ESpaceDirectionVector_1get(JNIEn
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -24964,6 +28444,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ESpaceDirectionVector_1set(JNIEn
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -24982,6 +28466,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ESpaceDirectionVector(JN
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -25006,6 +28494,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1SpaceMeasurement_1_1SWIG_1
   {
     try {
       result = (mae::fl::laban::mv::space_measurement *)new mae::fl::laban::mv::space_measurement(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25032,6 +28524,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1SpaceMeasurement_1_1SWIG_1
   {
     try {
       result = (mae::fl::laban::mv::space_measurement *)new mae::fl::laban::mv::space_measurement(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25057,6 +28553,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1SpaceMeasurement(JNIEnv 
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -25081,6 +28581,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_SpaceMeasurement_1getType(JNIEnv
   {
     try {
       result = (mae::fl::laban::mv::e_space)((mae::fl::laban::mv::space_measurement const *)arg1)->get_type();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25107,6 +28611,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_SpaceMeasurement_1getDegree(JNI
   {
     try {
       result = (unsigned int)((mae::fl::laban::mv::space_measurement const *)arg1)->get_degree();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25133,6 +28641,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_SpaceMeasurement_1getDirection(J
   {
     try {
       result = (mae::fl::laban::mv::e_space_direction)((mae::fl::laban::mv::space_measurement const *)arg1)->get_direction();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25164,6 +28676,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_SpaceMeasurement_1equals(JNI
   {
     try {
       result = (bool)((mae::fl::laban::mv::space_measurement const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25203,6 +28719,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_SpaceMeasurement_1xml_1_1SWIG
   {
     try {
       result = ((mae::fl::laban::mv::space_measurement const *)arg1)->xml(arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25240,6 +28760,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_SpaceMeasurement_1xml_1_1SWIG
   {
     try {
       result = ((mae::fl::laban::mv::space_measurement const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25268,6 +28792,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_SpaceMeasurement_1xml_1_1SWIG
   {
     try {
       result = ((mae::fl::laban::mv::space_measurement const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25294,6 +28822,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_SpaceMeasurement_1xml_1_1SWIG
   {
     try {
       result = ((mae::fl::laban::mv::space_measurement const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25339,6 +28871,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_SpaceMeasurement_1svg_1_1SWIG
   {
     try {
       result = ((mae::fl::laban::mv::space_measurement const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25382,6 +28918,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_SpaceMeasurement_1svg_1_1SWIG
   {
     try {
       result = ((mae::fl::laban::mv::space_measurement const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25408,6 +28948,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_SpaceMeasurement_1str(JNIEnv 
   {
     try {
       result = ((mae::fl::laban::mv::space_measurement const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25430,6 +28974,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_EDirectionC_1str(JNIEnv *jenv
   {
     try {
       result = mae::fl::laban::mv::e_direction_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25452,6 +29000,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EDirectionC_1dir(JNIEnv *jenv, j
   {
     try {
       result = (mae::fl::laban::mv::e_direction)mae::fl::laban::mv::e_direction_c::dir(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25472,6 +29024,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EDirectionC_1vec(JNIEnv *jenv, 
   {
     try {
       result = mae::fl::laban::mv::e_direction_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25501,6 +29057,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EDirectionC_1parse(JNIEnv *jenv,
   {
     try {
       result = (mae::fl::laban::mv::e_direction)mae::fl::laban::mv::e_direction_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25521,6 +29081,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EDirectionC(JNIEnv *jenv, 
   {
     try {
       result = (mae::fl::laban::mv::e_direction_c *)new mae::fl::laban::mv::e_direction_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25541,6 +29105,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EDirectionC(JNIEnv *jenv
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -25559,6 +29127,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EDirectionVector_1_1SWIG_1
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_direction > *)new std::vector< mae::fl::laban::mv::e_direction >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25581,6 +29153,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EDirectionVector_1_1SWIG_1
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_direction > *)new std::vector< mae::fl::laban::mv::e_direction >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25604,6 +29180,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EDirectionVector_1size(JNIEnv *
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_direction > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25627,6 +29207,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EDirectionVector_1capacity(JNIE
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_direction > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25650,6 +29234,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EDirectionVector_1reserve(JNIEnv
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -25671,6 +29259,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EDirectionVector_1empty(JNIE
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::mv::e_direction > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25692,6 +29284,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EDirectionVector_1clear(JNIEnv *
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -25715,6 +29311,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EDirectionVector_1pushBack(JNIEn
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::mv::e_direction >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -25745,6 +29345,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EDirectionVector_1get(JNIEnv *je
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25779,6 +29383,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EDirectionVector_1set(JNIEnv *je
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -25797,6 +29405,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EDirectionVector(JNIEnv 
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -25817,6 +29429,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_EContactHookC_1str(JNIEnv *je
   {
     try {
       result = mae::fl::laban::mv::e_contact_hook_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25837,6 +29453,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EContactHookC_1vec(JNIEnv *jenv
   {
     try {
       result = mae::fl::laban::mv::e_contact_hook_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25866,6 +29486,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EContactHookC_1parse(JNIEnv *jen
   {
     try {
       result = (mae::fl::laban::mv::e_contact_hook)mae::fl::laban::mv::e_contact_hook_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25886,6 +29510,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EContactHookC(JNIEnv *jenv
   {
     try {
       result = (mae::fl::laban::mv::e_contact_hook_c *)new mae::fl::laban::mv::e_contact_hook_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25906,6 +29534,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EContactHookC(JNIEnv *je
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -25924,6 +29556,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EContactHookVector_1_1SWIG
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_contact_hook > *)new std::vector< mae::fl::laban::mv::e_contact_hook >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25946,6 +29582,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EContactHookVector_1_1SWIG
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_contact_hook > *)new std::vector< mae::fl::laban::mv::e_contact_hook >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25969,6 +29609,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EContactHookVector_1size(JNIEnv
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_contact_hook > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -25992,6 +29636,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EContactHookVector_1capacity(JN
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_contact_hook > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26015,6 +29663,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EContactHookVector_1reserve(JNIE
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -26036,6 +29688,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EContactHookVector_1empty(JN
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::mv::e_contact_hook > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26057,6 +29713,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EContactHookVector_1clear(JNIEnv
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -26080,6 +29740,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EContactHookVector_1pushBack(JNI
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::mv::e_contact_hook >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -26110,6 +29774,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EContactHookVector_1get(JNIEnv *
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26144,6 +29812,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EContactHookVector_1set(JNIEnv *
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -26162,6 +29834,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EContactHookVector(JNIEn
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -26206,6 +29882,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DirectionSymbol_1_1SWIG_10
   {
     try {
       result = (mae::fl::laban::mv::direction_symbol *)new mae::fl::laban::mv::direction_symbol(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26252,6 +29932,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DirectionSymbol_1_1SWIG_11
   {
     try {
       result = (mae::fl::laban::mv::direction_symbol *)new mae::fl::laban::mv::direction_symbol(arg1,arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26293,6 +29977,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DirectionSymbol_1_1SWIG_12
   {
     try {
       result = (mae::fl::laban::mv::direction_symbol *)new mae::fl::laban::mv::direction_symbol(arg1,arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26329,6 +30017,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DirectionSymbol_1_1SWIG_13
   {
     try {
       result = (mae::fl::laban::mv::direction_symbol *)new mae::fl::laban::mv::direction_symbol(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26360,6 +30052,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DirectionSymbol_1_1SWIG_14
   {
     try {
       result = (mae::fl::laban::mv::direction_symbol *)new mae::fl::laban::mv::direction_symbol(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26386,6 +30082,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DirectionSymbol_1_1SWIG_15
   {
     try {
       result = (mae::fl::laban::mv::direction_symbol *)new mae::fl::laban::mv::direction_symbol(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26411,6 +30111,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1DirectionSymbol(JNIEnv *
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -26435,6 +30139,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1getVertical(JNI
   {
     try {
       result = (mae::fl::laban::mv::e_level)((mae::fl::laban::mv::direction_symbol const *)arg1)->get_vertical();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26461,6 +30169,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1getHorizontal(J
   {
     try {
       result = (mae::fl::laban::mv::e_direction)((mae::fl::laban::mv::direction_symbol const *)arg1)->get_horizontal();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26487,6 +30199,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1getModificatio
   {
     try {
       result = ((mae::fl::laban::mv::direction_symbol const *)arg1)->get_modification_pin();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26513,6 +30229,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1getRelationshi
   {
     try {
       result = ((mae::fl::laban::mv::direction_symbol const *)arg1)->get_relationship_pin();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26539,6 +30259,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1getDynamics(JN
   {
     try {
       result = ((mae::fl::laban::mv::direction_symbol const *)arg1)->get_dynamics();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26565,6 +30289,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1getSpaceMeasur
   {
     try {
       result = ((mae::fl::laban::mv::direction_symbol const *)arg1)->get_space_measurement();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26591,6 +30319,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1getContactHook(
   {
     try {
       result = (mae::fl::laban::mv::e_contact_hook)((mae::fl::laban::mv::direction_symbol const *)arg1)->get_contact_hook();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26622,6 +30354,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1equals(JNIE
   {
     try {
       result = (bool)((mae::fl::laban::mv::direction_symbol const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26659,6 +30395,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1xml_1_1SWIG_
   {
     try {
       result = ((mae::fl::laban::mv::direction_symbol const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26687,6 +30427,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1xml_1_1SWIG_
   {
     try {
       result = ((mae::fl::laban::mv::direction_symbol const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26713,6 +30457,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1xml_1_1SWIG_
   {
     try {
       result = ((mae::fl::laban::mv::direction_symbol const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26758,6 +30506,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1svg_1_1SWIG_
   {
     try {
       result = ((mae::fl::laban::mv::direction_symbol const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26801,6 +30553,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1svg_1_1SWIG_
   {
     try {
       result = ((mae::fl::laban::mv::direction_symbol const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26827,6 +30583,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1str(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::mv::direction_symbol const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26849,6 +30609,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ETurnDirectionC_1str(JNIEnv *
   {
     try {
       result = mae::fl::laban::mv::e_turn_direction_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26869,6 +30633,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ETurnDirectionC_1vec(JNIEnv *je
   {
     try {
       result = mae::fl::laban::mv::e_turn_direction_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26898,6 +30666,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ETurnDirectionC_1parse(JNIEnv *j
   {
     try {
       result = (mae::fl::laban::mv::e_turn_direction)mae::fl::laban::mv::e_turn_direction_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26918,6 +30690,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ETurnDirectionC(JNIEnv *je
   {
     try {
       result = (mae::fl::laban::mv::e_turn_direction_c *)new mae::fl::laban::mv::e_turn_direction_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26938,6 +30714,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ETurnDirectionC(JNIEnv *
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -26956,6 +30736,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ETurnDirectionVector_1_1SW
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_turn_direction > *)new std::vector< mae::fl::laban::mv::e_turn_direction >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -26978,6 +30762,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ETurnDirectionVector_1_1SW
   {
     try {
       result = (std::vector< mae::fl::laban::mv::e_turn_direction > *)new std::vector< mae::fl::laban::mv::e_turn_direction >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27001,6 +30789,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ETurnDirectionVector_1size(JNIE
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_turn_direction > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27024,6 +30816,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ETurnDirectionVector_1capacity(
   {
     try {
       result = ((std::vector< mae::fl::laban::mv::e_turn_direction > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27047,6 +30843,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ETurnDirectionVector_1reserve(JN
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -27068,6 +30868,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ETurnDirectionVector_1empty(
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::mv::e_turn_direction > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27089,6 +30893,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ETurnDirectionVector_1clear(JNIE
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -27112,6 +30920,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ETurnDirectionVector_1pushBack(J
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::mv::e_turn_direction >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -27142,6 +30954,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ETurnDirectionVector_1get(JNIEnv
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27176,6 +30992,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ETurnDirectionVector_1set(JNIEnv
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -27194,6 +31014,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ETurnDirectionVector(JNI
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -27224,6 +31048,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1TurnSymbol_1_1SWIG_10(JNIE
   {
     try {
       result = (mae::fl::laban::mv::turn_symbol *)new mae::fl::laban::mv::turn_symbol(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27253,6 +31081,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1TurnSymbol_1_1SWIG_11(JNIE
   {
     try {
       result = (mae::fl::laban::mv::turn_symbol *)new mae::fl::laban::mv::turn_symbol(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27277,6 +31109,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1TurnSymbol_1_1SWIG_12(JNIE
   {
     try {
       result = (mae::fl::laban::mv::turn_symbol *)new mae::fl::laban::mv::turn_symbol(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27302,6 +31138,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1TurnSymbol(JNIEnv *jenv,
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -27326,6 +31166,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_TurnSymbol_1getDirection(JNIEnv 
   {
     try {
       result = (mae::fl::laban::mv::e_turn_direction)((mae::fl::laban::mv::turn_symbol const *)arg1)->get_direction();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27352,6 +31196,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_TurnSymbol_1getDynamics(JNIEnv 
   {
     try {
       result = ((mae::fl::laban::mv::turn_symbol const *)arg1)->get_dynamics();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27378,6 +31226,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_TurnSymbol_1getDegree(JNIEnv *j
   {
     try {
       result = ((mae::fl::laban::mv::turn_symbol const *)arg1)->get_degree();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27409,6 +31261,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_TurnSymbol_1equals(JNIEnv *j
   {
     try {
       result = (bool)((mae::fl::laban::mv::turn_symbol const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27446,6 +31302,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_TurnSymbol_1xml_1_1SWIG_10(JN
   {
     try {
       result = ((mae::fl::laban::mv::turn_symbol const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27474,6 +31334,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_TurnSymbol_1xml_1_1SWIG_11(JN
   {
     try {
       result = ((mae::fl::laban::mv::turn_symbol const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27500,6 +31364,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_TurnSymbol_1xml_1_1SWIG_12(JN
   {
     try {
       result = ((mae::fl::laban::mv::turn_symbol const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27545,6 +31413,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_TurnSymbol_1svg_1_1SWIG_10(JN
   {
     try {
       result = ((mae::fl::laban::mv::turn_symbol const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27588,6 +31460,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_TurnSymbol_1svg_1_1SWIG_11(JN
   {
     try {
       result = ((mae::fl::laban::mv::turn_symbol const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27614,6 +31490,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_TurnSymbol_1str(JNIEnv *jenv,
   {
     try {
       result = ((mae::fl::laban::mv::turn_symbol const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27649,6 +31529,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1VibrationSymbol_1_1SWIG_10
   {
     try {
       result = (mae::fl::laban::mv::vibration_symbol *)new mae::fl::laban::mv::vibration_symbol(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27681,6 +31565,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1VibrationSymbol_1_1SWIG_11
   {
     try {
       result = (mae::fl::laban::mv::vibration_symbol *)new mae::fl::laban::mv::vibration_symbol(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27706,6 +31594,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1VibrationSymbol(JNIEnv *
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -27730,6 +31622,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_VibrationSymbol_1getDynamics(JN
   {
     try {
       result = ((mae::fl::laban::mv::vibration_symbol const *)arg1)->get_dynamics();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27756,6 +31652,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_VibrationSymbol_1getDisplacemen
   {
     try {
       result = ((mae::fl::laban::mv::vibration_symbol const *)arg1)->get_displacement1();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27782,6 +31682,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_VibrationSymbol_1getDisplacemen
   {
     try {
       result = ((mae::fl::laban::mv::vibration_symbol const *)arg1)->get_displacement2();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27813,6 +31717,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_VibrationSymbol_1equals(JNIE
   {
     try {
       result = (bool)((mae::fl::laban::mv::vibration_symbol const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27850,6 +31758,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_VibrationSymbol_1xml_1_1SWIG_
   {
     try {
       result = ((mae::fl::laban::mv::vibration_symbol const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27878,6 +31790,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_VibrationSymbol_1xml_1_1SWIG_
   {
     try {
       result = ((mae::fl::laban::mv::vibration_symbol const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27904,6 +31820,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_VibrationSymbol_1xml_1_1SWIG_
   {
     try {
       result = ((mae::fl::laban::mv::vibration_symbol const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27949,6 +31869,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_VibrationSymbol_1svg_1_1SWIG_
   {
     try {
       result = ((mae::fl::laban::mv::vibration_symbol const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -27992,6 +31916,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_VibrationSymbol_1svg_1_1SWIG_
   {
     try {
       result = ((mae::fl::laban::mv::vibration_symbol const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28018,6 +31946,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_VibrationSymbol_1str(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::mv::vibration_symbol const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28041,6 +31973,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IPart(JNIEnv *jenv, jcla
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -28076,6 +32012,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IPart_1xml_1_1SWIG_10(JNIEnv 
   {
     try {
       result = ((mae::fl::laban::ps::i_part const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28104,6 +32044,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IPart_1xml_1_1SWIG_11(JNIEnv 
   {
     try {
       result = ((mae::fl::laban::ps::i_part const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28130,6 +32074,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IPart_1xml_1_1SWIG_12(JNIEnv 
   {
     try {
       result = ((mae::fl::laban::ps::i_part const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28175,6 +32123,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IPart_1svg_1_1SWIG_10(JNIEnv 
   {
     try {
       result = ((mae::fl::laban::ps::i_part const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28218,6 +32170,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IPart_1svg_1_1SWIG_11(JNIEnv 
   {
     try {
       result = ((mae::fl::laban::ps::i_part const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28249,6 +32205,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IPart_1equals(JNIEnv *jenv, 
   {
     try {
       result = (bool)((mae::fl::laban::ps::i_part const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28272,6 +32232,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IEndpoint(JNIEnv *jenv, 
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -28307,6 +32271,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IEndpoint_1xml_1_1SWIG_10(JNI
   {
     try {
       result = ((mae::fl::laban::ps::i_endpoint const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28335,6 +32303,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IEndpoint_1xml_1_1SWIG_11(JNI
   {
     try {
       result = ((mae::fl::laban::ps::i_endpoint const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28361,6 +32333,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IEndpoint_1xml_1_1SWIG_12(JNI
   {
     try {
       result = ((mae::fl::laban::ps::i_endpoint const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28387,6 +32363,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IEndpoint_1getFixedEnd(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::ps::i_endpoint const *)arg1)->get_fixed_end();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28418,6 +32398,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IEndpoint_1equals_1_1SWIG_10
   {
     try {
       result = (bool)((mae::fl::laban::ps::i_endpoint const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28449,6 +32433,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IEndpoint_1equals_1_1SWIG_11
   {
     try {
       result = (bool)((mae::fl::laban::ps::i_endpoint const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28471,6 +32459,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_EAreaC_1str(JNIEnv *jenv, jcl
   {
     try {
       result = mae::fl::laban::ps::e_area_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28491,6 +32483,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EAreaC_1vec(JNIEnv *jenv, jclas
   {
     try {
       result = mae::fl::laban::ps::e_area_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28520,6 +32516,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EAreaC_1parse(JNIEnv *jenv, jcla
   {
     try {
       result = (mae::fl::laban::ps::e_area)mae::fl::laban::ps::e_area_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28540,6 +32540,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EAreaC(JNIEnv *jenv, jclas
   {
     try {
       result = (mae::fl::laban::ps::e_area_c *)new mae::fl::laban::ps::e_area_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28560,6 +32564,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EAreaC(JNIEnv *jenv, jcl
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -28578,6 +32586,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EAreaVector_1_1SWIG_10(JNI
   {
     try {
       result = (std::vector< mae::fl::laban::ps::e_area > *)new std::vector< mae::fl::laban::ps::e_area >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28600,6 +32612,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EAreaVector_1_1SWIG_11(JNI
   {
     try {
       result = (std::vector< mae::fl::laban::ps::e_area > *)new std::vector< mae::fl::laban::ps::e_area >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28623,6 +32639,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EAreaVector_1size(JNIEnv *jenv,
   {
     try {
       result = ((std::vector< mae::fl::laban::ps::e_area > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28646,6 +32666,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EAreaVector_1capacity(JNIEnv *j
   {
     try {
       result = ((std::vector< mae::fl::laban::ps::e_area > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28669,6 +32693,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EAreaVector_1reserve(JNIEnv *jen
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -28690,6 +32718,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EAreaVector_1empty(JNIEnv *j
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::ps::e_area > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28711,6 +32743,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EAreaVector_1clear(JNIEnv *jenv,
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -28734,6 +32770,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EAreaVector_1pushBack(JNIEnv *je
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::ps::e_area >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -28764,6 +32804,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EAreaVector_1get(JNIEnv *jenv, j
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28798,6 +32842,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EAreaVector_1set(JNIEnv *jenv, j
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -28816,6 +32864,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EAreaVector(JNIEnv *jenv
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -28836,6 +32888,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1AreaPart(JNIEnv *jenv, jcl
   {
     try {
       result = (mae::fl::laban::ps::area_part *)new mae::fl::laban::ps::area_part(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28861,6 +32917,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1AreaPart(JNIEnv *jenv, j
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -28885,6 +32945,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_AreaPart_1getArea(JNIEnv *jenv, 
   {
     try {
       result = (mae::fl::laban::ps::e_area)((mae::fl::laban::ps::area_part const *)arg1)->get_area();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28922,6 +32986,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_AreaPart_1xml_1_1SWIG_10(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::area_part const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28950,6 +33018,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_AreaPart_1xml_1_1SWIG_11(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::area_part const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -28976,6 +33048,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_AreaPart_1xml_1_1SWIG_12(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::area_part const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29021,6 +33097,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_AreaPart_1svg_1_1SWIG_10(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::area_part const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29064,6 +33144,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_AreaPart_1svg_1_1SWIG_11(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::area_part const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29090,6 +33174,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_AreaPart_1getFixedEnd(JNIEnv *j
   {
     try {
       result = ((mae::fl::laban::ps::area_part const *)arg1)->get_fixed_end();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29121,6 +33209,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_AreaPart_1equals_1_1SWIG_10(
   {
     try {
       result = (bool)((mae::fl::laban::ps::area_part const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29152,6 +33244,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_AreaPart_1equals_1_1SWIG_11(
   {
     try {
       result = (bool)((mae::fl::laban::ps::area_part const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29174,6 +33270,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ESideC_1str(JNIEnv *jenv, jcl
   {
     try {
       result = mae::fl::laban::ps::e_side_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29194,6 +33294,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ESideC_1vec(JNIEnv *jenv, jclas
   {
     try {
       result = mae::fl::laban::ps::e_side_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29223,6 +33327,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ESideC_1parse(JNIEnv *jenv, jcla
   {
     try {
       result = (mae::fl::laban::ps::e_side)mae::fl::laban::ps::e_side_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29243,6 +33351,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ESideC(JNIEnv *jenv, jclas
   {
     try {
       result = (mae::fl::laban::ps::e_side_c *)new mae::fl::laban::ps::e_side_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29263,6 +33375,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ESideC(JNIEnv *jenv, jcl
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -29281,6 +33397,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ESideVector_1_1SWIG_10(JNI
   {
     try {
       result = (std::vector< mae::fl::laban::ps::e_side > *)new std::vector< mae::fl::laban::ps::e_side >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29303,6 +33423,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ESideVector_1_1SWIG_11(JNI
   {
     try {
       result = (std::vector< mae::fl::laban::ps::e_side > *)new std::vector< mae::fl::laban::ps::e_side >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29326,6 +33450,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ESideVector_1size(JNIEnv *jenv,
   {
     try {
       result = ((std::vector< mae::fl::laban::ps::e_side > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29349,6 +33477,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ESideVector_1capacity(JNIEnv *j
   {
     try {
       result = ((std::vector< mae::fl::laban::ps::e_side > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29372,6 +33504,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ESideVector_1reserve(JNIEnv *jen
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -29393,6 +33529,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ESideVector_1empty(JNIEnv *j
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::ps::e_side > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29414,6 +33554,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ESideVector_1clear(JNIEnv *jenv,
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -29437,6 +33581,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ESideVector_1pushBack(JNIEnv *je
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::ps::e_side >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -29467,6 +33615,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ESideVector_1get(JNIEnv *jenv, j
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29501,6 +33653,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ESideVector_1set(JNIEnv *jenv, j
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -29519,6 +33675,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ESideVector(JNIEnv *jenv
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -29544,6 +33704,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1BodyPart(JNIEnv *jenv, jcl
   {
     try {
       result = (mae::fl::laban::ps::body_part *)new mae::fl::laban::ps::body_part(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29569,6 +33733,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1BodyPart(JNIEnv *jenv, j
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -29593,6 +33761,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_BodyPart_1getSide(JNIEnv *jenv, 
   {
     try {
       result = (mae::fl::laban::ps::e_side)((mae::fl::laban::ps::body_part const *)arg1)->get_side();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29619,6 +33791,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_BodyPart_1getPart(JNIEnv *jenv,
   {
     try {
       result = ((mae::fl::laban::ps::body_part const *)arg1)->get_part();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29656,6 +33832,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_BodyPart_1xml_1_1SWIG_10(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::body_part const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29684,6 +33864,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_BodyPart_1xml_1_1SWIG_11(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::body_part const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29710,6 +33894,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_BodyPart_1xml_1_1SWIG_12(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::body_part const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29755,6 +33943,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_BodyPart_1svg_1_1SWIG_10(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::body_part const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29798,6 +33990,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_BodyPart_1svg_1_1SWIG_11(JNIE
   {
     try {
       result = ((mae::fl::laban::ps::body_part const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29829,6 +34025,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_BodyPart_1equals(JNIEnv *jen
   {
     try {
       result = (bool)((mae::fl::laban::ps::body_part const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29852,6 +34052,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ILimb(JNIEnv *jenv, jcla
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -29887,6 +34091,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ILimb_1xml_1_1SWIG_10(JNIEnv 
   {
     try {
       result = ((mae::fl::laban::ps::i_limb const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29915,6 +34123,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ILimb_1xml_1_1SWIG_11(JNIEnv 
   {
     try {
       result = ((mae::fl::laban::ps::i_limb const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29941,6 +34153,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ILimb_1xml_1_1SWIG_12(JNIEnv 
   {
     try {
       result = ((mae::fl::laban::ps::i_limb const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -29972,6 +34188,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ILimb_1equals_1_1SWIG_10(JNI
   {
     try {
       result = (bool)((mae::fl::laban::ps::i_limb const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30003,6 +34223,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ILimb_1equals_1_1SWIG_11(JNI
   {
     try {
       result = (bool)((mae::fl::laban::ps::i_limb const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30033,6 +34257,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1CustomLimb_1_1SWIG_10(JNIE
   {
     try {
       result = (mae::fl::laban::ps::custom_limb *)new mae::fl::laban::ps::custom_limb(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30060,6 +34288,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1CustomLimb_1_1SWIG_11(JNIE
   {
     try {
       result = (mae::fl::laban::ps::custom_limb *)new mae::fl::laban::ps::custom_limb(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30085,6 +34317,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1CustomLimb(JNIEnv *jenv,
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -30109,6 +34345,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_CustomLimb_1getFixedEnd(JNIEnv 
   {
     try {
       result = ((mae::fl::laban::ps::custom_limb const *)arg1)->get_fixed_end();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30135,6 +34375,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_CustomLimb_1getExtremity(JNIEnv
   {
     try {
       result = ((mae::fl::laban::ps::custom_limb const *)arg1)->get_extremity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30172,6 +34416,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_CustomLimb_1xml_1_1SWIG_10(JN
   {
     try {
       result = ((mae::fl::laban::ps::custom_limb const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30200,6 +34448,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_CustomLimb_1xml_1_1SWIG_11(JN
   {
     try {
       result = ((mae::fl::laban::ps::custom_limb const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30226,6 +34478,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_CustomLimb_1xml_1_1SWIG_12(JN
   {
     try {
       result = ((mae::fl::laban::ps::custom_limb const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30271,6 +34527,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_CustomLimb_1svg_1_1SWIG_10(JN
   {
     try {
       result = ((mae::fl::laban::ps::custom_limb const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30314,6 +34574,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_CustomLimb_1svg_1_1SWIG_11(JN
   {
     try {
       result = ((mae::fl::laban::ps::custom_limb const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30345,6 +34609,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_CustomLimb_1equals_1_1SWIG_1
   {
     try {
       result = (bool)((mae::fl::laban::ps::custom_limb const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30376,6 +34644,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_CustomLimb_1equals_1_1SWIG_1
   {
     try {
       result = (bool)((mae::fl::laban::ps::custom_limb const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30398,6 +34670,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ELimbC_1str(JNIEnv *jenv, jcl
   {
     try {
       result = mae::fl::laban::ps::e_limb_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30418,6 +34694,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ELimbC_1vec(JNIEnv *jenv, jclas
   {
     try {
       result = mae::fl::laban::ps::e_limb_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30447,6 +34727,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ELimbC_1parse(JNIEnv *jenv, jcla
   {
     try {
       result = (mae::fl::laban::ps::e_limb)mae::fl::laban::ps::e_limb_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30467,6 +34751,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ELimbC(JNIEnv *jenv, jclas
   {
     try {
       result = (mae::fl::laban::ps::e_limb_c *)new mae::fl::laban::ps::e_limb_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30487,6 +34775,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ELimbC(JNIEnv *jenv, jcl
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -30505,6 +34797,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ELimbVector_1_1SWIG_10(JNI
   {
     try {
       result = (std::vector< mae::fl::laban::ps::e_limb > *)new std::vector< mae::fl::laban::ps::e_limb >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30527,6 +34823,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ELimbVector_1_1SWIG_11(JNI
   {
     try {
       result = (std::vector< mae::fl::laban::ps::e_limb > *)new std::vector< mae::fl::laban::ps::e_limb >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30550,6 +34850,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ELimbVector_1size(JNIEnv *jenv,
   {
     try {
       result = ((std::vector< mae::fl::laban::ps::e_limb > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30573,6 +34877,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ELimbVector_1capacity(JNIEnv *j
   {
     try {
       result = ((std::vector< mae::fl::laban::ps::e_limb > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30596,6 +34904,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ELimbVector_1reserve(JNIEnv *jen
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -30617,6 +34929,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ELimbVector_1empty(JNIEnv *j
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::ps::e_limb > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30638,6 +34954,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ELimbVector_1clear(JNIEnv *jenv,
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -30661,6 +34981,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ELimbVector_1pushBack(JNIEnv *je
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::ps::e_limb >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -30691,6 +35015,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ELimbVector_1get(JNIEnv *jenv, j
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30725,6 +35053,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ELimbVector_1set(JNIEnv *jenv, j
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -30743,6 +35075,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ELimbVector(JNIEnv *jenv
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -30763,6 +35099,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DefaultLimb(JNIEnv *jenv, 
   {
     try {
       result = (mae::fl::laban::ps::default_limb *)new mae::fl::laban::ps::default_limb(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30788,6 +35128,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1DefaultLimb(JNIEnv *jenv
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -30812,6 +35156,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_DefaultLimb_1getLimb(JNIEnv *jen
   {
     try {
       result = (mae::fl::laban::ps::e_limb)((mae::fl::laban::ps::default_limb const *)arg1)->get_limb();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30849,6 +35197,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DefaultLimb_1xml_1_1SWIG_10(J
   {
     try {
       result = ((mae::fl::laban::ps::default_limb const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30877,6 +35229,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DefaultLimb_1xml_1_1SWIG_11(J
   {
     try {
       result = ((mae::fl::laban::ps::default_limb const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30903,6 +35259,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DefaultLimb_1xml_1_1SWIG_12(J
   {
     try {
       result = ((mae::fl::laban::ps::default_limb const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30948,6 +35308,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DefaultLimb_1svg_1_1SWIG_10(J
   {
     try {
       result = ((mae::fl::laban::ps::default_limb const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -30991,6 +35355,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DefaultLimb_1svg_1_1SWIG_11(J
   {
     try {
       result = ((mae::fl::laban::ps::default_limb const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31022,6 +35390,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_DefaultLimb_1equals_1_1SWIG_
   {
     try {
       result = (bool)((mae::fl::laban::ps::default_limb const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31053,6 +35425,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_DefaultLimb_1equals_1_1SWIG_
   {
     try {
       result = (bool)((mae::fl::laban::ps::default_limb const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31075,6 +35451,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_EDigitC_1str(JNIEnv *jenv, jc
   {
     try {
       result = mae::fl::laban::ps::e_digit_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31095,6 +35475,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EDigitC_1vec(JNIEnv *jenv, jcla
   {
     try {
       result = mae::fl::laban::ps::e_digit_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31124,6 +35508,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EDigitC_1parse(JNIEnv *jenv, jcl
   {
     try {
       result = (mae::fl::laban::ps::e_digit)mae::fl::laban::ps::e_digit_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31144,6 +35532,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EDigitC(JNIEnv *jenv, jcla
   {
     try {
       result = (mae::fl::laban::ps::e_digit_c *)new mae::fl::laban::ps::e_digit_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31164,6 +35556,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EDigitC(JNIEnv *jenv, jc
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -31182,6 +35578,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EDigitVector_1_1SWIG_10(JN
   {
     try {
       result = (std::vector< mae::fl::laban::ps::e_digit > *)new std::vector< mae::fl::laban::ps::e_digit >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31204,6 +35604,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EDigitVector_1_1SWIG_11(JN
   {
     try {
       result = (std::vector< mae::fl::laban::ps::e_digit > *)new std::vector< mae::fl::laban::ps::e_digit >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31227,6 +35631,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EDigitVector_1size(JNIEnv *jenv
   {
     try {
       result = ((std::vector< mae::fl::laban::ps::e_digit > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31250,6 +35658,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EDigitVector_1capacity(JNIEnv *
   {
     try {
       result = ((std::vector< mae::fl::laban::ps::e_digit > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31273,6 +35685,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EDigitVector_1reserve(JNIEnv *je
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -31294,6 +35710,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EDigitVector_1empty(JNIEnv *
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::ps::e_digit > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31315,6 +35735,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EDigitVector_1clear(JNIEnv *jenv
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -31338,6 +35762,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EDigitVector_1pushBack(JNIEnv *j
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::ps::e_digit >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -31368,6 +35796,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EDigitVector_1get(JNIEnv *jenv, 
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31402,6 +35834,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EDigitVector_1set(JNIEnv *jenv, 
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -31420,6 +35856,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EDigitVector(JNIEnv *jen
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -31442,6 +35882,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1DigitPart(JNIEnv *jenv, jc
   {
     try {
       result = (mae::fl::laban::ps::digit_part *)new mae::fl::laban::ps::digit_part(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31467,6 +35911,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1DigitPart(JNIEnv *jenv, 
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -31491,6 +35939,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_DigitPart_1getDigit(JNIEnv *jenv
   {
     try {
       result = (mae::fl::laban::ps::e_digit)((mae::fl::laban::ps::digit_part const *)arg1)->get_digit();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31517,6 +35969,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DigitPart_1getKnuckle(JNIEnv *j
   {
     try {
       result = (unsigned int)((mae::fl::laban::ps::digit_part const *)arg1)->get_knuckle();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31554,6 +36010,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DigitPart_1xml_1_1SWIG_10(JNI
   {
     try {
       result = ((mae::fl::laban::ps::digit_part const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31582,6 +36042,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DigitPart_1xml_1_1SWIG_11(JNI
   {
     try {
       result = ((mae::fl::laban::ps::digit_part const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31608,6 +36072,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DigitPart_1xml_1_1SWIG_12(JNI
   {
     try {
       result = ((mae::fl::laban::ps::digit_part const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31653,6 +36121,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DigitPart_1svg_1_1SWIG_10(JNI
   {
     try {
       result = ((mae::fl::laban::ps::digit_part const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31696,6 +36168,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DigitPart_1svg_1_1SWIG_11(JNI
   {
     try {
       result = ((mae::fl::laban::ps::digit_part const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31722,6 +36198,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DigitPart_1getFixedEnd(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::ps::digit_part const *)arg1)->get_fixed_end();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31753,6 +36233,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_DigitPart_1equals_1_1SWIG_10
   {
     try {
       result = (bool)((mae::fl::laban::ps::digit_part const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31784,6 +36268,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_DigitPart_1equals_1_1SWIG_11
   {
     try {
       result = (bool)((mae::fl::laban::ps::digit_part const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31806,6 +36294,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ELimbSideC_1str(JNIEnv *jenv,
   {
     try {
       result = mae::fl::laban::ps::e_limb_side_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31826,6 +36318,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ELimbSideC_1vec(JNIEnv *jenv, j
   {
     try {
       result = mae::fl::laban::ps::e_limb_side_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31855,6 +36351,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ELimbSideC_1parse(JNIEnv *jenv, 
   {
     try {
       result = (mae::fl::laban::ps::e_limb_side)mae::fl::laban::ps::e_limb_side_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31875,6 +36375,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ELimbSideC(JNIEnv *jenv, j
   {
     try {
       result = (mae::fl::laban::ps::e_limb_side_c *)new mae::fl::laban::ps::e_limb_side_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31895,6 +36399,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ELimbSideC(JNIEnv *jenv,
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -31913,6 +36421,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ELimbSideVector_1_1SWIG_10
   {
     try {
       result = (std::vector< mae::fl::laban::ps::e_limb_side > *)new std::vector< mae::fl::laban::ps::e_limb_side >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31935,6 +36447,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ELimbSideVector_1_1SWIG_11
   {
     try {
       result = (std::vector< mae::fl::laban::ps::e_limb_side > *)new std::vector< mae::fl::laban::ps::e_limb_side >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31958,6 +36474,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ELimbSideVector_1size(JNIEnv *j
   {
     try {
       result = ((std::vector< mae::fl::laban::ps::e_limb_side > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -31981,6 +36501,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ELimbSideVector_1capacity(JNIEn
   {
     try {
       result = ((std::vector< mae::fl::laban::ps::e_limb_side > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32004,6 +36528,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ELimbSideVector_1reserve(JNIEnv 
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -32025,6 +36553,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_ELimbSideVector_1empty(JNIEn
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::ps::e_limb_side > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32046,6 +36578,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ELimbSideVector_1clear(JNIEnv *j
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -32069,6 +36605,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ELimbSideVector_1pushBack(JNIEnv
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::ps::e_limb_side >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -32099,6 +36639,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_ELimbSideVector_1get(JNIEnv *jen
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32133,6 +36677,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_ELimbSideVector_1set(JNIEnv *jen
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -32151,6 +36699,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ELimbSideVector(JNIEnv *
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -32176,6 +36728,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1SurfacePart(JNIEnv *jenv, 
   {
     try {
       result = (mae::fl::laban::ps::surface_part *)new mae::fl::laban::ps::surface_part(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32201,6 +36757,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1SurfacePart(JNIEnv *jenv
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -32225,6 +36785,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_SurfacePart_1getLimbSide(JNIEnv 
   {
     try {
       result = (mae::fl::laban::ps::e_limb_side)((mae::fl::laban::ps::surface_part const *)arg1)->get_limb_side();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32251,6 +36815,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_SurfacePart_1getLimb(JNIEnv *je
   {
     try {
       result = ((mae::fl::laban::ps::surface_part const *)arg1)->get_limb();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32288,6 +36856,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_SurfacePart_1xml_1_1SWIG_10(J
   {
     try {
       result = ((mae::fl::laban::ps::surface_part const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32316,6 +36888,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_SurfacePart_1xml_1_1SWIG_11(J
   {
     try {
       result = ((mae::fl::laban::ps::surface_part const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32342,6 +36918,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_SurfacePart_1xml_1_1SWIG_12(J
   {
     try {
       result = ((mae::fl::laban::ps::surface_part const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32387,6 +36967,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_SurfacePart_1svg_1_1SWIG_10(J
   {
     try {
       result = ((mae::fl::laban::ps::surface_part const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32430,6 +37014,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_SurfacePart_1svg_1_1SWIG_11(J
   {
     try {
       result = ((mae::fl::laban::ps::surface_part const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32461,6 +37049,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_SurfacePart_1equals(JNIEnv *
   {
     try {
       result = (bool)((mae::fl::laban::ps::surface_part const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32483,6 +37075,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_EJointC_1str(JNIEnv *jenv, jc
   {
     try {
       result = mae::fl::laban::ps::e_joint_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32503,6 +37099,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EJointC_1vec(JNIEnv *jenv, jcla
   {
     try {
       result = mae::fl::laban::ps::e_joint_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32532,6 +37132,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EJointC_1parse(JNIEnv *jenv, jcl
   {
     try {
       result = (mae::fl::laban::ps::e_joint)mae::fl::laban::ps::e_joint_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32552,6 +37156,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EJointC(JNIEnv *jenv, jcla
   {
     try {
       result = (mae::fl::laban::ps::e_joint_c *)new mae::fl::laban::ps::e_joint_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32572,6 +37180,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EJointC(JNIEnv *jenv, jc
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -32590,6 +37202,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EJointVector_1_1SWIG_10(JN
   {
     try {
       result = (std::vector< mae::fl::laban::ps::e_joint > *)new std::vector< mae::fl::laban::ps::e_joint >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32612,6 +37228,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EJointVector_1_1SWIG_11(JN
   {
     try {
       result = (std::vector< mae::fl::laban::ps::e_joint > *)new std::vector< mae::fl::laban::ps::e_joint >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32635,6 +37255,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EJointVector_1size(JNIEnv *jenv
   {
     try {
       result = ((std::vector< mae::fl::laban::ps::e_joint > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32658,6 +37282,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EJointVector_1capacity(JNIEnv *
   {
     try {
       result = ((std::vector< mae::fl::laban::ps::e_joint > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32681,6 +37309,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EJointVector_1reserve(JNIEnv *je
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -32702,6 +37334,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EJointVector_1empty(JNIEnv *
   {
     try {
       result = (bool)((std::vector< mae::fl::laban::ps::e_joint > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32723,6 +37359,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EJointVector_1clear(JNIEnv *jenv
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -32746,6 +37386,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EJointVector_1pushBack(JNIEnv *j
   {
     try {
       (arg1)->push_back((std::vector< enum mae::fl::laban::ps::e_joint >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -32776,6 +37420,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EJointVector_1get(JNIEnv *jenv, 
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32810,6 +37458,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EJointVector_1set(JNIEnv *jenv, 
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -32828,6 +37480,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EJointVector(JNIEnv *jen
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -32848,6 +37504,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1JointPart(JNIEnv *jenv, jc
   {
     try {
       result = (mae::fl::laban::ps::joint_part *)new mae::fl::laban::ps::joint_part(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32873,6 +37533,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1JointPart(JNIEnv *jenv, 
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -32897,6 +37561,10 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_JointPart_1getJoint(JNIEnv *jenv
   {
     try {
       result = (mae::fl::laban::ps::e_joint)((mae::fl::laban::ps::joint_part const *)arg1)->get_joint();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32934,6 +37602,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_JointPart_1xml_1_1SWIG_10(JNI
   {
     try {
       result = ((mae::fl::laban::ps::joint_part const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32962,6 +37634,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_JointPart_1xml_1_1SWIG_11(JNI
   {
     try {
       result = ((mae::fl::laban::ps::joint_part const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -32988,6 +37664,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_JointPart_1xml_1_1SWIG_12(JNI
   {
     try {
       result = ((mae::fl::laban::ps::joint_part const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33033,6 +37713,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_JointPart_1svg_1_1SWIG_10(JNI
   {
     try {
       result = ((mae::fl::laban::ps::joint_part const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33076,6 +37760,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_JointPart_1svg_1_1SWIG_11(JNI
   {
     try {
       result = ((mae::fl::laban::ps::joint_part const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33102,6 +37790,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_JointPart_1getFixedEnd(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::ps::joint_part const *)arg1)->get_fixed_end();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33133,6 +37825,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_JointPart_1equals_1_1SWIG_10
   {
     try {
       result = (bool)((mae::fl::laban::ps::joint_part const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33164,6 +37860,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_JointPart_1equals_1_1SWIG_11
   {
     try {
       result = (bool)((mae::fl::laban::ps::joint_part const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33202,6 +37902,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Prop_1_1SWIG_10(JNIEnv *je
   {
     try {
       result = (mae::fl::laban::ps::prop *)new mae::fl::laban::ps::prop(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33233,6 +37937,10 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Prop_1_1SWIG_11(JNIEnv *je
   {
     try {
       result = (mae::fl::laban::ps::prop *)new mae::fl::laban::ps::prop(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33258,6 +37966,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1Prop(JNIEnv *jenv, jclas
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -33282,6 +37994,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Prop_1getName(JNIEnv *jenv, j
   {
     try {
       result = ((mae::fl::laban::ps::prop const *)arg1)->get_name();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33308,6 +38024,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Prop_1getDescription(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::ps::prop const *)arg1)->get_description();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33345,6 +38065,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Prop_1xml_1_1SWIG_10(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::ps::prop const *)arg1)->xml(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33373,6 +38097,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Prop_1xml_1_1SWIG_11(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::ps::prop const *)arg1)->xml(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33399,6 +38127,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Prop_1xml_1_1SWIG_12(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::ps::prop const *)arg1)->xml();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33444,6 +38176,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Prop_1svg_1_1SWIG_10(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::ps::prop const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6,arg7);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33487,6 +38223,10 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Prop_1svg_1_1SWIG_11(JNIEnv *
   {
     try {
       result = ((mae::fl::laban::ps::prop const *)arg1)->svg(arg2,arg3,arg4,arg5,arg6);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -33518,6 +38258,10 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_Prop_1equals(JNIEnv *jenv, j
   {
     try {
       result = (bool)((mae::fl::laban::ps::prop const *)arg1)->equals(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 

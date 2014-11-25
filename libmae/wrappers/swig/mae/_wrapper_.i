@@ -50,6 +50,8 @@ SWIG_JAVABODY_TYPEWRAPPER(public, public, public, SWIGTYPE);
 %exception { 
     try {
         $action
+    } catch (std::exception &e) {
+        SWIG_exception(SWIG_RuntimeError, e.what());
     } catch (...) {
         SWIG_exception(SWIG_RuntimeError, "unknown exception");
     }
