@@ -784,6 +784,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1DeviceInfo(JNIEnv 
   {
     try {
       result = (mae::nite::device_info *)new mae::nite::device_info(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -809,6 +813,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_delete_1DeviceInfo(JNIEn
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -833,6 +841,10 @@ SWIGEXPORT jstring JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfo_1getDevice
   {
     try {
       result = ((mae::nite::device_info const *)arg1)->get_device_name();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -859,6 +871,10 @@ SWIGEXPORT jstring JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfo_1getDevice
   {
     try {
       result = ((mae::nite::device_info const *)arg1)->get_device_serial();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -885,6 +901,10 @@ SWIGEXPORT jstring JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfo_1getVendor
   {
     try {
       result = ((mae::nite::device_info const *)arg1)->get_vendor_name();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -911,6 +931,10 @@ SWIGEXPORT jstring JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfo_1getCreati
   {
     try {
       result = ((mae::nite::device_info const *)arg1)->get_creation_info();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -937,6 +961,10 @@ SWIGEXPORT jstring JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfo_1str(JNIEn
   {
     try {
       result = ((mae::nite::device_info const *)arg1)->str();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -970,6 +998,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteController_1_1
   {
     try {
       result = (mae::nite::nite_controller *)new mae::nite::nite_controller(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1003,6 +1035,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteController_1_1
   {
     try {
       result = (mae::nite::nite_controller *)new mae::nite::nite_controller(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1034,6 +1070,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteController_1_1
   {
     try {
       result = (mae::nite::nite_controller *)new mae::nite::nite_controller(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1074,6 +1114,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteController_1_1
   {
     try {
       result = (mae::nite::nite_controller *)new mae::nite::nite_controller(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1112,6 +1156,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteController_1_1
   {
     try {
       result = (mae::nite::nite_controller *)new mae::nite::nite_controller(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1148,6 +1196,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteController_1_1
   {
     try {
       result = (mae::nite::nite_controller *)new mae::nite::nite_controller(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1173,6 +1225,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_delete_1NiteController(J
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -1199,6 +1255,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteController_1waitFor
   {
     try {
       result = (arg1)->wait_for_update(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1225,6 +1285,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteController_1waitFor
   {
     try {
       result = (arg1)->wait_for_update();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1251,6 +1315,10 @@ SWIGEXPORT jboolean JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteController_1wasK
   {
     try {
       result = (bool)(arg1)->was_keyboard_hit();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1271,6 +1339,10 @@ SWIGEXPORT jboolean JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteController_1xnWa
   {
     try {
       result = (bool)mae::nite::nite_controller::xn_was_keyboard_hit();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1304,6 +1376,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_1
   {
     try {
       result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1337,6 +1413,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_1
   {
     try {
       result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1368,6 +1448,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_1
   {
     try {
       result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1403,6 +1487,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_1
   {
     try {
       result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1436,6 +1524,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_1
   {
     try {
       result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1467,6 +1559,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_1
   {
     try {
       result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1511,6 +1607,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_1
   {
     try {
       result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1553,6 +1653,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_1
   {
     try {
       result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1593,6 +1697,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_1
   {
     try {
       result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1628,6 +1736,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_1
   {
     try {
       result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1661,6 +1773,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_1
   {
     try {
       result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1692,6 +1808,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteFarm_1_1SWIG_1
   {
     try {
       result = (mae::nite::nite_farm *)new mae::nite::nite_farm(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1717,6 +1837,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_delete_1NiteFarm(JNIEnv 
   {
     try {
       (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -1748,6 +1872,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1addController_
   {
     try {
       (arg1)->add_controller(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -1784,6 +1912,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1addController_
   {
     try {
       (arg1)->add_controller(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -1811,6 +1943,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1addController_
   {
     try {
       (arg1)->add_controller(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -1837,6 +1973,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1waitForUpdate
   {
     try {
       result = (arg1)->wait_for_update(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1863,6 +2003,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1waitForUpdate
   {
     try {
       result = (arg1)->wait_for_update();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1891,6 +2035,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1waitForUpdate
   {
     try {
       result = (arg1)->wait_for_update_unmerged(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1917,6 +2065,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1waitForUpdate
   {
     try {
       result = (arg1)->wait_for_update_unmerged();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1945,6 +2097,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1waitForUpdate
   {
     try {
       result = (arg1)->wait_for_update_both(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1971,6 +2127,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1waitForUpdate
   {
     try {
       result = (arg1)->wait_for_update_both();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -1997,6 +2157,10 @@ SWIGEXPORT jboolean JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1wasKeyboar
   {
     try {
       result = (bool)(arg1)->was_keyboard_hit();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2017,6 +2181,10 @@ SWIGEXPORT jboolean JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1xnWasKeybo
   {
     try {
       result = (bool)mae::nite::nite_farm::xn_was_keyboard_hit();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2037,6 +2205,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1listAvailable
   {
     try {
       result = mae::nite::nite_farm::list_available_device_infos();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2066,6 +2238,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteFarm_1getDeviceInfo
   {
     try {
       result = mae::nite::nite_farm::get_device_info(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2086,6 +2262,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1GeneralSkeletonVec
   {
     try {
       result = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *)new std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2108,6 +2288,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1GeneralSkeletonVec
   {
     try {
       result = (std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > *)new std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2131,6 +2315,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVe
   {
     try {
       result = ((std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2154,6 +2342,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVe
   {
     try {
       result = ((std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2177,6 +2369,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVec
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2198,6 +2394,10 @@ SWIGEXPORT jboolean JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVecto
   {
     try {
       result = (bool)((std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2219,6 +2419,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVec
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2245,6 +2449,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVec
   {
     try {
       (arg1)->push_back((std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2275,6 +2483,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVe
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2312,6 +2524,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_GeneralSkeletonVectorVec
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2330,6 +2546,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_delete_1GeneralSkeletonV
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2348,6 +2568,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1GeneralSkeletonVec
   {
     try {
       result = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *)new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2386,6 +2610,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1GeneralSkeletonVec
   {
     try {
       result = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *)new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > >(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2413,6 +2641,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1GeneralSkeletonVec
   {
     try {
       result = (std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > *)new std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > >((std::pair< std::vector< std::shared_ptr< mae::general_skeleton > >,std::vector< std::vector< std::shared_ptr< mae::general_skeleton > > > > const &)*arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2491,6 +2723,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_delete_1GeneralSkeletonV
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2509,6 +2745,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteControllerVect
   {
     try {
       result = (std::vector< std::shared_ptr< mae::nite::nite_controller > > *)new std::vector< std::shared_ptr< mae::nite::nite_controller > >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2531,6 +2771,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1NiteControllerVect
   {
     try {
       result = (std::vector< std::shared_ptr< mae::nite::nite_controller > > *)new std::vector< std::shared_ptr< mae::nite::nite_controller > >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2554,6 +2798,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1s
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::nite::nite_controller > > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2577,6 +2825,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1c
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::nite::nite_controller > > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2600,6 +2852,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1re
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2621,6 +2877,10 @@ SWIGEXPORT jboolean JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector
   {
     try {
       result = (bool)((std::vector< std::shared_ptr< mae::nite::nite_controller > > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2642,6 +2902,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1cl
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2665,6 +2929,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1pu
   {
     try {
       (arg1)->push_back((std::vector< std::shared_ptr< mae::nite::nite_controller > >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2695,6 +2963,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1g
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2729,6 +3001,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_NiteControllerVector_1se
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2747,6 +3023,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_delete_1NiteControllerVe
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2765,6 +3045,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1DeviceInfoVector_1
   {
     try {
       result = (std::vector< std::shared_ptr< mae::nite::device_info > > *)new std::vector< std::shared_ptr< mae::nite::device_info > >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2787,6 +3071,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_new_1DeviceInfoVector_1
   {
     try {
       result = (std::vector< std::shared_ptr< mae::nite::device_info > > *)new std::vector< std::shared_ptr< mae::nite::device_info > >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2810,6 +3098,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1size(
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::nite::device_info > > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2833,6 +3125,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1capac
   {
     try {
       result = ((std::vector< std::shared_ptr< mae::nite::device_info > > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2856,6 +3152,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1reserv
   {
     try {
       (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2877,6 +3177,10 @@ SWIGEXPORT jboolean JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1em
   {
     try {
       result = (bool)((std::vector< std::shared_ptr< mae::nite::device_info > > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2898,6 +3202,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1clear(
   {
     try {
       (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2921,6 +3229,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1pushBa
   {
     try {
       (arg1)->push_back((std::vector< std::shared_ptr< mae::nite::device_info > >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -2951,6 +3263,10 @@ SWIGEXPORT jlong JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1get(J
         return 0;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
@@ -2985,6 +3301,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_DeviceInfoVector_1set(JN
         return ;
       }
       
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
@@ -3003,6 +3323,10 @@ SWIGEXPORT void JNICALL Java_maenitejava_MaeNiteJavaJNI_delete_1DeviceInfoVector
   {
     try {
       delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
     } catch (...) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
