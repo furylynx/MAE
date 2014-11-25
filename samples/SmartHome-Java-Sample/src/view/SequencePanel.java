@@ -8,6 +8,10 @@ import maejava.LabanSequence;
 
 public class SequencePanel extends JPanel {
 
+	/**
+	 * Serial ID.
+	 */
+	private static final long serialVersionUID = -4349034120314238114L;
 	private JSVGPanel svgPanel;
 
 	/**
