@@ -33,6 +33,4 @@ public class SequencePanel extends JPanel {
 		svgPanel.update(sequence.svg(svgPanel.getWidth(), svgPanel.getHeight()));
 
 	}
-	
-	
 }
