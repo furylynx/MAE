@@ -2,7 +2,7 @@
 <laban:score xmlns:laban="http://www.example.org/labanotation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/labanotation labanotation.xsd ">
    <laban:version>0.5</laban:version>
    <laban:author>furylynx</laban:author>
-   <laban:title>Cut Movement</laban:title>
+   <laban:title>LightsOn</laban:title>
    <laban:description></laban:description>
    <laban:staff>
       <laban:measures>1</laban:measures>

@@ -18,8 +18,13 @@ public class FloorPlanPanel extends JPanel {
 
 	List<PositionInfo> positions;
 	Map<String, SensorInfo> sensorInfosMap;
+
+	// TODO PositionID (int) instead of ObjectID
 	Map<PositionInfo, Double> lightIntensities;
+	Map<PositionInfo, Long> lightIntensitiesAnimationTimestamp;
+
 	Map<PositionInfo, Double> musicIntensities;
+	Map<PositionInfo, Long> musicIntensitiesAnimationTimestamp;
 
 	Object mutex;
 
@@ -34,6 +39,10 @@ public class FloorPlanPanel extends JPanel {
 		mutex = new Object();
 
 		sensorInfosMap = new HashMap<String, SensorInfo>();
+		lightIntensities = new HashMap<PositionInfo, Double>();
+		musicIntensities = new HashMap<PositionInfo, Double>();
+		lightIntensitiesAnimationTimestamp = new HashMap<PositionInfo, Long>();
+		musicIntensitiesAnimationTimestamp = new HashMap<PositionInfo, Long>();
 
 		// max positions
 		for (PositionInfo info : positions) {
@@ -67,6 +76,20 @@ public class FloorPlanPanel extends JPanel {
 				// draw rect; set color according to light intensity
 				double pLightIntensity = (lightIntensities.get(info) == null) ? 0.0
 						: lightIntensities.get(info);
+
+				if (lightIntensitiesAnimationTimestamp.get(info) != null) {
+					long timestampBegin = lightIntensitiesAnimationTimestamp
+							.get(info);
+					long timestampNow = System.currentTimeMillis();
+
+					if ((timestampNow - timestampBegin) >= 1000) {
+						lightIntensitiesAnimationTimestamp.remove(info);
+					} else {
+						pLightIntensity = (timestampNow - timestampBegin)
+								/ 1000.0 * pLightIntensity;
+					}
+				}
+
 				g.setColor(new Color((int) (100 + 155 * pLightIntensity),
 						(int) (100 + 155 * pLightIntensity),
 						(int) (100 + 155 * pLightIntensity)));
@@ -118,9 +141,31 @@ public class FloorPlanPanel extends JPanel {
 	}
 
 	public void updateSensorInfo(SensorInfo sensorInfo) {
+
 		synchronized (mutex) {
 			sensorInfosMap.put(sensorInfo.getDeviceInfo().getDeviceSerial(),
 					sensorInfo);
+
+			// check recognized sequences and do actions
+			if (sensorInfo.getCurrentRecognition() != null) {
+				for (int i = 0; i < sensorInfo.getCurrentRecognition().size(); i++) {
+					if ("LightsOn".equals(sensorInfo.getCurrentRecognition()
+							.get(i).getTitle().trim())) {
+						lightIntensities.put(sensorInfo.getPosition(), 1.0);
+						lightIntensitiesAnimationTimestamp.put(
+								sensorInfo.getPosition(),
+								System.currentTimeMillis());
+					} else if ("LightsOff".equals(sensorInfo
+							.getCurrentRecognition().get(i).getTitle().trim())) {
+						lightIntensities.put(sensorInfo.getPosition(), 0.0);
+						lightIntensitiesAnimationTimestamp.put(
+								sensorInfo.getPosition(),
+								System.currentTimeMillis());
+					}
+
+					// TODO dim and stuff
+				}
+			}
 		}
 
 		revalidate();

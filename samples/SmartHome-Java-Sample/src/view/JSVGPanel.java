@@ -27,7 +27,6 @@ public class JSVGPanel extends JPanel{
 	
 	public void update(SVGDiagram diagram)
 	{
-		System.out.println("DIAGRAM!");
 		this.svg = diagram;
 		revalidate();
 		repaint();
