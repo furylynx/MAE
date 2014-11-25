@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -19,12 +21,11 @@ public class FloorPlanPanel extends JPanel {
 	List<PositionInfo> positions;
 	Map<String, SensorInfo> sensorInfosMap;
 
-	// TODO PositionID (int) instead of ObjectID
-	Map<PositionInfo, Double> lightIntensities;
-	Map<PositionInfo, Long> lightIntensitiesAnimationTimestamp;
+	Map<Integer, Double> lightIntensities;
+	Map<Integer, Long> lightIntensitiesAnimationTimestamp;
 
-	Map<PositionInfo, Double> musicIntensities;
-	Map<PositionInfo, Long> musicIntensitiesAnimationTimestamp;
+	Map<Integer, Double> musicIntensities;
+	Map<Integer, Long> musicIntensitiesAnimationTimestamp;
 
 	Object mutex;
 
@@ -39,10 +40,10 @@ public class FloorPlanPanel extends JPanel {
 		mutex = new Object();
 
 		sensorInfosMap = new HashMap<String, SensorInfo>();
-		lightIntensities = new HashMap<PositionInfo, Double>();
-		musicIntensities = new HashMap<PositionInfo, Double>();
-		lightIntensitiesAnimationTimestamp = new HashMap<PositionInfo, Long>();
-		musicIntensitiesAnimationTimestamp = new HashMap<PositionInfo, Long>();
+		lightIntensities = new HashMap<Integer, Double>();
+		musicIntensities = new HashMap<Integer, Double>();
+		lightIntensitiesAnimationTimestamp = new HashMap<Integer, Long>();
+		musicIntensitiesAnimationTimestamp = new HashMap<Integer, Long>();
 
 		// max positions
 		for (PositionInfo info : positions) {
@@ -58,6 +59,7 @@ public class FloorPlanPanel extends JPanel {
 		setLayout(new BorderLayout());
 	}
 
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
@@ -74,16 +76,16 @@ public class FloorPlanPanel extends JPanel {
 			for (PositionInfo info : positions) {
 
 				// draw rect; set color according to light intensity
-				double pLightIntensity = (lightIntensities.get(info) == null) ? 0.0
-						: lightIntensities.get(info);
+				double pLightIntensity = (lightIntensities.get(info.getPositionId()) == null) ? 0.0
+						: lightIntensities.get(info.getPositionId());
 
-				if (lightIntensitiesAnimationTimestamp.get(info) != null) {
+				if (lightIntensitiesAnimationTimestamp.get(info.getPositionId()) != null) {
 					long timestampBegin = lightIntensitiesAnimationTimestamp
-							.get(info);
+							.get(info.getPositionId());
 					long timestampNow = System.currentTimeMillis();
 
 					if ((timestampNow - timestampBegin) >= 1000) {
-						lightIntensitiesAnimationTimestamp.remove(info);
+						lightIntensitiesAnimationTimestamp.remove(info.getPositionId());
 					} else {
 						pLightIntensity = (timestampNow - timestampBegin)
 								/ 1000.0 * pLightIntensity;
@@ -111,8 +113,10 @@ public class FloorPlanPanel extends JPanel {
 
 					// handle tracked persons
 					int personsTracked = 0;
+					List<Integer> offsetList = new LinkedList<Integer>();
 
 					for (SensorInfo sensorInfo : sensorInfos) {
+						offsetList.add(personsTracked);
 						personsTracked += sensorInfo.getPersonsTracked();
 					}
 
@@ -130,16 +134,35 @@ public class FloorPlanPanel extends JPanel {
 								(int) (8 * scaleFactor),
 								(int) (8 * scaleFactor));
 					}
+					
+					Iterator<SensorInfo> sensorInfoIterator = sensorInfos.iterator();
+					Iterator<Integer> offsetListIterator = offsetList.iterator();
+					while(offsetListIterator.hasNext() && sensorInfoIterator.hasNext())
+					{
+						int offsetIndex = offsetListIterator.next();
+						SensorInfo sensorInfo = sensorInfoIterator.next();
+								
+						
+						//TODO good color?
+						g.setColor(Color.ORANGE);
+						//TODO FONT?
+						g.drawString("M "+sensorInfo.getMovingRate(), (int) ((info.getXpos() + 10 + 10 + offsetIndex * 20) * scaleFactor), (int) ((info.getYpos() + 10 + 10 + 20) * scaleFactor));
+					}
 				}
 
 				// -- draw music
-				double pMusicIntensity = (musicIntensities.get(info) == null) ? 0.0
-						: musicIntensities.get(info);
+				double pMusicIntensity = (musicIntensities.get(info.getPositionId()) == null) ? 0.0
+						: musicIntensities.get(info.getPositionId());
 				// TODO draw other things
 			}
 		}
 	}
 
+	/**
+	 * Updates the sensor info for the next frame.
+	 * 
+	 * @param sensorInfo The sensor Info.
+	 */
 	public void updateSensorInfo(SensorInfo sensorInfo) {
 
 		synchronized (mutex) {
@@ -151,16 +174,27 @@ public class FloorPlanPanel extends JPanel {
 				for (int i = 0; i < sensorInfo.getCurrentRecognition().size(); i++) {
 					if ("LightsOn".equals(sensorInfo.getCurrentRecognition()
 							.get(i).getTitle().trim())) {
-						lightIntensities.put(sensorInfo.getPosition(), 1.0);
+						lightIntensities.put(sensorInfo.getPosition().getPositionId(), 1.0);
 						lightIntensitiesAnimationTimestamp.put(
-								sensorInfo.getPosition(),
+								sensorInfo.getPosition().getPositionId(),
 								System.currentTimeMillis());
 					} else if ("LightsOff".equals(sensorInfo
 							.getCurrentRecognition().get(i).getTitle().trim())) {
-						lightIntensities.put(sensorInfo.getPosition(), 0.0);
+						lightIntensities.put(sensorInfo.getPosition().getPositionId(), 0.0);
 						lightIntensitiesAnimationTimestamp.put(
-								sensorInfo.getPosition(),
+								sensorInfo.getPosition().getPositionId(),
 								System.currentTimeMillis());
+					} else if ("DimDown".equals(sensorInfo
+							.getCurrentRecognition().get(i).getTitle().trim())) {
+						
+						//TODO
+						lightIntensities.put(sensorInfo.getPosition().getPositionId(), 0.0);
+					} else if ("DimUp".equals(sensorInfo
+							.getCurrentRecognition().get(i).getTitle().trim())) {
+						
+						//TODO
+						lightIntensities.put(sensorInfo.getPosition().getPositionId(), 0.0);
+
 					}
 
 					// TODO dim and stuff
@@ -172,6 +206,12 @@ public class FloorPlanPanel extends JPanel {
 		repaint();
 	}
 
+	/**
+	 * Returns the sensor info related to the room with the position ID.
+	 * 
+	 * @param positionId The position ID.
+	 * @return The sensor information.
+	 */
 	public List<SensorInfo> getSensorInfos(int positionId) {
 		List<SensorInfo> result = new ArrayList<SensorInfo>();
 
