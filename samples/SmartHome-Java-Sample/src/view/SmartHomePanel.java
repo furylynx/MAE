@@ -3,7 +3,9 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.LayoutManager;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -11,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import maejava.LabanSequence;
+import maenitejava.DeviceInfo;
 import model.PositionInfo;
 import model.SensorInfo;
 
@@ -18,13 +21,13 @@ public class SmartHomePanel extends JPanel implements Observer {
 
 	JTabbedPane tabPane;
 
-	List<SequencePanel> sequencePanels;
+	Map<String, SequencePanel> sequencePanelsMap;
 	FloorPlanPanel floorPlanPanel;
 	RegisteredMovementsPanel registeredMovementsPanel;
 
-	public SmartHomePanel(List<String> tabTitles, List<PositionInfo> positions, List<LabanSequence> registeredSequences) {
+	public SmartHomePanel(List<DeviceInfo> devices, List<PositionInfo> positions, List<LabanSequence> registeredSequences) {
 		
-		sequencePanels = new ArrayList<SequencePanel>();
+		sequencePanelsMap = new HashMap<String, SequencePanel>();
 		tabPane = new JTabbedPane();
 
 		floorPlanPanel = new FloorPlanPanel(positions);
@@ -33,11 +36,11 @@ public class SmartHomePanel extends JPanel implements Observer {
 		registeredMovementsPanel = new RegisteredMovementsPanel(registeredSequences);
 		tabPane.addTab("Registered Gestures", registeredMovementsPanel);
 
-		if (!tabTitles.isEmpty()) {
-			for (String str : tabTitles) {
+		if (!devices.isEmpty()) {
+			for (DeviceInfo device : devices) {
 				SequencePanel sequencePanel = new SequencePanel();
-				sequencePanels.add(sequencePanel);
-				tabPane.addTab(str, sequencePanel);
+				sequencePanelsMap.put(device.getDeviceSerial(), sequencePanel);
+				tabPane.addTab(device.getDeviceName(), sequencePanel);
 			}
 		} else {
 			tabPane.addTab("--No Devices--", new NoDevicesPanel());
@@ -55,12 +58,10 @@ public class SmartHomePanel extends JPanel implements Observer {
 		if (o instanceof SensorInfo) {
 			SensorInfo sensorInfo = (SensorInfo) o;
 
-			if (sequencePanels.size() > sensorInfo.getPosition()
-					.getPositionId()) {
+			if (sequencePanelsMap.get(sensorInfo.getDeviceInfo().getDeviceSerial()) != null) {
 
 				// update sequence panel
-				SequencePanel sequencePanel = sequencePanels.get(sensorInfo
-						.getPosition().getPositionId());
+				SequencePanel sequencePanel = sequencePanelsMap.get(sensorInfo.getDeviceInfo().getDeviceSerial());
 				
 				if (sensorInfo.getCurrentSequence() != null)
 				{
