@@ -13,6 +13,8 @@ import java.util.Map.Entry;
 
 import javax.swing.JPanel;
 
+import maejava.ISymbol;
+import model.PoseInfo;
 import model.PositionInfo;
 import model.SensorInfo;
 
@@ -20,6 +22,8 @@ public class FloorPlanPanel extends JPanel {
 
 	List<PositionInfo> positions;
 	Map<String, SensorInfo> sensorInfosMap;
+	Map<String, PoseInfo> dimmingUpPoses;
+	Map<String, PoseInfo> dimmingDownPoses;
 
 	Map<Integer, Double> lightIntensities;
 	Map<Integer, Long> lightIntensitiesAnimationTimestamp;
@@ -44,6 +48,9 @@ public class FloorPlanPanel extends JPanel {
 		musicIntensities = new HashMap<Integer, Double>();
 		lightIntensitiesAnimationTimestamp = new HashMap<Integer, Long>();
 		musicIntensitiesAnimationTimestamp = new HashMap<Integer, Long>();
+
+		dimmingUpPoses = new HashMap<String, PoseInfo>();
+		dimmingDownPoses = new HashMap<String, PoseInfo>();
 
 		// max positions
 		for (PositionInfo info : positions) {
@@ -76,16 +83,19 @@ public class FloorPlanPanel extends JPanel {
 			for (PositionInfo info : positions) {
 
 				// draw rect; set color according to light intensity
-				double pLightIntensity = (lightIntensities.get(info.getPositionId()) == null) ? 0.0
-						: lightIntensities.get(info.getPositionId());
+				double pLightIntensity = (lightIntensities.get(info
+						.getPositionId()) == null) ? 0.0 : lightIntensities
+						.get(info.getPositionId());
 
-				if (lightIntensitiesAnimationTimestamp.get(info.getPositionId()) != null) {
+				if (lightIntensitiesAnimationTimestamp
+						.get(info.getPositionId()) != null) {
 					long timestampBegin = lightIntensitiesAnimationTimestamp
 							.get(info.getPositionId());
 					long timestampNow = System.currentTimeMillis();
 
 					if ((timestampNow - timestampBegin) >= 1000) {
-						lightIntensitiesAnimationTimestamp.remove(info.getPositionId());
+						lightIntensitiesAnimationTimestamp.remove(info
+								.getPositionId());
 					} else {
 						pLightIntensity = (timestampNow - timestampBegin)
 								/ 1000.0 * pLightIntensity;
@@ -134,25 +144,30 @@ public class FloorPlanPanel extends JPanel {
 								(int) (8 * scaleFactor),
 								(int) (8 * scaleFactor));
 					}
-					
-					Iterator<SensorInfo> sensorInfoIterator = sensorInfos.iterator();
-					Iterator<Integer> offsetListIterator = offsetList.iterator();
-					while(offsetListIterator.hasNext() && sensorInfoIterator.hasNext())
-					{
+
+					Iterator<SensorInfo> sensorInfoIterator = sensorInfos
+							.iterator();
+					Iterator<Integer> offsetListIterator = offsetList
+							.iterator();
+					while (offsetListIterator.hasNext()
+							&& sensorInfoIterator.hasNext()) {
 						int offsetIndex = offsetListIterator.next();
 						SensorInfo sensorInfo = sensorInfoIterator.next();
-								
-						
-						//TODO good color?
+
+						// TODO good color?
 						g.setColor(Color.ORANGE);
-						//TODO FONT?
-						g.drawString("M "+sensorInfo.getMovingRate(), (int) ((info.getXpos() + 10 + 10 + offsetIndex * 20) * scaleFactor), (int) ((info.getYpos() + 10 + 10 + 20) * scaleFactor));
+						// TODO FONT?
+						g.drawString(
+								"M " + sensorInfo.getMovingRate(),
+								(int) ((info.getXpos() + 10 + 10 + offsetIndex * 20) * scaleFactor),
+								(int) ((info.getYpos() + 10 + 10 + 20) * scaleFactor));
 					}
 				}
 
 				// -- draw music
-				double pMusicIntensity = (musicIntensities.get(info.getPositionId()) == null) ? 0.0
-						: musicIntensities.get(info.getPositionId());
+				double pMusicIntensity = (musicIntensities.get(info
+						.getPositionId()) == null) ? 0.0 : musicIntensities
+						.get(info.getPositionId());
 				// TODO draw other things
 			}
 		}
@@ -161,7 +176,8 @@ public class FloorPlanPanel extends JPanel {
 	/**
 	 * Updates the sensor info for the next frame.
 	 * 
-	 * @param sensorInfo The sensor Info.
+	 * @param sensorInfo
+	 *            The sensor Info.
 	 */
 	public void updateSensorInfo(SensorInfo sensorInfo) {
 
@@ -174,30 +190,100 @@ public class FloorPlanPanel extends JPanel {
 				for (int i = 0; i < sensorInfo.getCurrentRecognition().size(); i++) {
 					if ("LightsOn".equals(sensorInfo.getCurrentRecognition()
 							.get(i).getTitle().trim())) {
-						lightIntensities.put(sensorInfo.getPosition().getPositionId(), 1.0);
-						lightIntensitiesAnimationTimestamp.put(
-								sensorInfo.getPosition().getPositionId(),
-								System.currentTimeMillis());
+						lightIntensities.put(sensorInfo.getPosition()
+								.getPositionId(), 1.0);
+						lightIntensitiesAnimationTimestamp.put(sensorInfo
+								.getPosition().getPositionId(), System
+								.currentTimeMillis());
 					} else if ("LightsOff".equals(sensorInfo
 							.getCurrentRecognition().get(i).getTitle().trim())) {
-						lightIntensities.put(sensorInfo.getPosition().getPositionId(), 0.0);
-						lightIntensitiesAnimationTimestamp.put(
-								sensorInfo.getPosition().getPositionId(),
-								System.currentTimeMillis());
+						lightIntensities.put(sensorInfo.getPosition()
+								.getPositionId(), 0.0);
+						lightIntensitiesAnimationTimestamp.put(sensorInfo
+								.getPosition().getPositionId(), System
+								.currentTimeMillis());
 					} else if ("DimDown".equals(sensorInfo
 							.getCurrentRecognition().get(i).getTitle().trim())) {
-						
-						//TODO
-						lightIntensities.put(sensorInfo.getPosition().getPositionId(), 0.0);
+
+						if (dimmingUpPoses.get(sensorInfo.getDeviceInfo()
+								.getDeviceSerial()) == null) {
+							dimmingUpPoses.put(sensorInfo.getDeviceInfo()
+									.getDeviceSerial(), new PoseInfo(sensorInfo
+									.getCurrentRecognition().get(i)));
+						}
+
 					} else if ("DimUp".equals(sensorInfo
 							.getCurrentRecognition().get(i).getTitle().trim())) {
-						
-						//TODO
-						lightIntensities.put(sensorInfo.getPosition().getPositionId(), 0.0);
+
+						if (dimmingDownPoses.get(sensorInfo.getDeviceInfo()
+								.getDeviceSerial()) == null) {
+							dimmingDownPoses.put(sensorInfo.getDeviceInfo()
+									.getDeviceSerial(), new PoseInfo(sensorInfo
+									.getCurrentRecognition().get(i)));
+						}
 
 					}
 
-					// TODO dim and stuff
+					// dim the lights if pose is held
+					if (dimmingUpPoses.get(sensorInfo.getDeviceInfo()
+							.getDeviceSerial()) != null)
+					{
+						PoseInfo poseInfo = dimmingUpPoses.get(sensorInfo
+								.getDeviceInfo().getDeviceSerial());
+						if (poseInfo.matchingPose(sensorInfo
+								.getCurrentSequence())) {
+							if (lightIntensities.get(sensorInfo.getPosition()
+									.getPositionId()) != null) {
+								double intensity = lightIntensities
+										.get(sensorInfo.getPosition()
+												.getPositionId());
+								if (intensity < 0.005) {
+									intensity = 0;
+								} else {
+									intensity -= 0.005;
+								}
+
+								lightIntensities.put(sensorInfo.getPosition()
+										.getPositionId(), intensity);
+							} else {
+								lightIntensities.put(sensorInfo.getPosition()
+										.getPositionId(), 0.0);
+							}
+						} else {
+							dimmingUpPoses.remove(sensorInfo.getDeviceInfo()
+							.getDeviceSerial());
+						}
+					}
+					
+					if (dimmingDownPoses.get(sensorInfo.getDeviceInfo()
+							.getDeviceSerial()) != null)
+					{
+						PoseInfo poseInfo = dimmingDownPoses.get(sensorInfo
+								.getDeviceInfo().getDeviceSerial());
+						if (poseInfo.matchingPose(sensorInfo
+								.getCurrentSequence())) {
+							if (lightIntensities.get(sensorInfo.getPosition()
+									.getPositionId()) != null) {
+								double intensity = lightIntensities
+										.get(sensorInfo.getPosition()
+												.getPositionId());
+								if (intensity > 0.995) {
+									intensity = 1.0;
+								} else {
+									intensity += 0.005;
+								}
+
+								lightIntensities.put(sensorInfo.getPosition()
+										.getPositionId(), intensity);
+							} else {
+								lightIntensities.put(sensorInfo.getPosition()
+										.getPositionId(), 0.0);
+							}
+						} else {
+							dimmingDownPoses.remove(sensorInfo.getDeviceInfo()
+							.getDeviceSerial());
+						}
+					}
 				}
 			}
 		}
@@ -209,7 +295,8 @@ public class FloorPlanPanel extends JPanel {
 	/**
 	 * Returns the sensor info related to the room with the position ID.
 	 * 
-	 * @param positionId The position ID.
+	 * @param positionId
+	 *            The position ID.
 	 * @return The sensor information.
 	 */
 	public List<SensorInfo> getSensorInfos(int positionId) {
