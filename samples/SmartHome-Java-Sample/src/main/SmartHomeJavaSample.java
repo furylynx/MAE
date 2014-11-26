@@ -105,8 +105,8 @@ public class SmartHomeJavaSample {
 			}
 		}
 		
-		List<SensorInfo> deviceList = new ArrayList<SensorInfo>();
-		List<String> deviceStrings = new ArrayList<String>();
+		List<SensorInfo> sensorsList = new ArrayList<SensorInfo>();
+		List<DeviceInfo> devicesList = new LinkedList<DeviceInfo>();
 		for (int i = 0; i < deviceCount; i++) {
 			try {
 				int positionId = Integer.parseInt(iniReader.getValue("device"
@@ -123,10 +123,9 @@ public class SmartHomeJavaSample {
 				}
 
 				if (deviceInfo != null) {
-					deviceStrings.add(deviceInfo.getDeviceName());
-
-					deviceList.add(new SensorInfo(posList.get(positionId),
+					sensorsList.add(new SensorInfo(posList.get(positionId),
 							deviceInfo, bodyPartsList));
+					devicesList.add(deviceInfo);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -157,11 +156,11 @@ public class SmartHomeJavaSample {
 		// -- Initialize the GUI --
 
 		// initialize the panel
-		SmartHomePanel smartHomePanel = new SmartHomePanel(deviceStrings,
+		SmartHomePanel smartHomePanel = new SmartHomePanel(devicesList,
 				posList, sequencesToRegister);
 
 		// register panel as observer to all sensor infos
-		for (SensorInfo sensorInfo : deviceList) {
+		for (SensorInfo sensorInfo : sensorsList) {
 			sensorInfo.addObserver(smartHomePanel);
 		}
 
@@ -176,7 +175,7 @@ public class SmartHomeJavaSample {
 		frame.setVisible(true);
 
 		// -- Initialize the threads --
-		for (SensorInfo sensorInfo : deviceList) {
+		for (SensorInfo sensorInfo : sensorsList) {
 			(new Thread(new SensorThread(sensorInfo, timestampAtStartup,
 					tolerance, bodyParts, columnDefinitions,
 					sequencesToRegister))).start();
