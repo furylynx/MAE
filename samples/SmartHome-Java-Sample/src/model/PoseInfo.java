@@ -16,6 +16,12 @@ public class PoseInfo {
 	Map<Integer, ISymbol> poseMap;
 	Set<Integer> bodyPartsSet;
 
+	/**
+	 * Creates a new PoseInfo objects containing information on the last pose of the sequence.
+	 * Uses the map to create the pose.
+	 * 
+	 * @param poseMap The pose map
+	 */
 	public PoseInfo(Map<Integer, ISymbol> poseMap) {
 		this.poseMap = poseMap;
 		bodyPartsSet = new HashSet<Integer>();
@@ -25,6 +31,12 @@ public class PoseInfo {
 		}
 	}
 
+	/**
+	 * Creates a new PoseInfo objects containing information on the last pose of the sequence.
+	 * Generates the pose from the sequence.
+	 * 
+	 * @param sequence The sequence.
+	 */
 	public PoseInfo(LabanSequence sequence) {
 		for (int i = 0; i < sequence.getColumns().size(); i++) {
 			Integer bodyPart = sequence.getColumns().get(i);
@@ -48,19 +60,40 @@ public class PoseInfo {
 		}
 	}
 
+	/**
+	 * 	Creates a new, empty PoseInfo objects containing information on the last pose of the sequence.
+	 */
 	public PoseInfo() {
 		poseMap = new HashMap<Integer, ISymbol>();
 	}
 
+	/**
+	 * Sets the pose for the body part.
+	 * 
+	 * @param bodyPart The body part.
+	 * @param pose The symbol.
+	 */
 	public void setBodyPartPose(Integer bodyPart, ISymbol pose) {
 		poseMap.put(bodyPart, pose);
 		bodyPartsSet.add(bodyPart);
 	}
 
+	/**
+	 * Returns the pose for the body part.
+	 * 
+	 * @param bodyPart The body part.
+	 * @return The pose.
+	 */
 	public ISymbol getBodyPartPose(Integer bodyPart) {
 		return poseMap.get(bodyPart);
 	}
 
+	/**
+	 * Checks whether the sequence is matching the pose.
+	 * 
+	 * @param currentSequence The sequence to be checked. 
+	 * @return True if the pose is still held.
+	 */
 	public boolean matchingPose(LabanSequence currentSequence) {
 
 		for (Integer bodyPart : bodyPartsSet) {
