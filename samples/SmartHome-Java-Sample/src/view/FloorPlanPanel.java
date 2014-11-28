@@ -36,6 +36,11 @@ public class FloorPlanPanel extends JPanel {
 	int maxXPos;
 	int maxYPos;
 
+	/**
+	 * Creates a new floor plan panel.
+	 * 
+	 * @param positions The position info for all rooms.
+	 */
 	public FloorPlanPanel(List<PositionInfo> positions) {
 		this.positions = positions;
 		maxXPos = 0;
