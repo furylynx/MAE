@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -161,6 +162,8 @@ public class FloorPlanPanel extends JPanel {
 
 						// TODO good color?
 						g.setColor(Color.ORANGE);
+						
+						g.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, (int) ((info.getXpos() + 10 + 10 + offsetIndex * 20) * scaleFactor)));
 						// TODO FONT?
 						g.drawString(
 								"M " + sensorInfo.getMovingRate(),
