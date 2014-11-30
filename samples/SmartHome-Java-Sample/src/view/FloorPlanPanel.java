@@ -163,7 +163,7 @@ public class FloorPlanPanel extends JPanel {
 						// TODO good color?
 						g.setColor(Color.ORANGE);
 						
-						g.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, (int) ((info.getXpos() + 10 + 10 + offsetIndex * 20) * scaleFactor)));
+						g.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, (int) (4 * scaleFactor)));
 						// TODO FONT?
 						g.drawString(
 								"M " + sensorInfo.getMovingRate(),
