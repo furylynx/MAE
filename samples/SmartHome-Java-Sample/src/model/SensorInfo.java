@@ -92,11 +92,11 @@ public class SensorInfo extends Observable {
 		// calculate the moving rate
 		if (currentSequence != null)
 		{
-			movingRate = currentSequence.getMovements().size()/(bodyParts.size()*currentSequence.getMeasures());
+			movingRate = Math.round((double)currentSequence.getMovements().size()/(bodyParts.size()*currentSequence.getMeasures())*100.0)/100.0;
 			
 			for (Integer bodyPart : bodyParts)
 			{
-				movingRatePerBodyPart.put(bodyPart, (double)currentSequence.getColumnMovements(bodyPart).size()/currentSequence.getMeasures());
+				movingRatePerBodyPart.put(bodyPart, Math.round((double)currentSequence.getColumnMovements(bodyPart).size()/currentSequence.getMeasures()*100.0)/100.0);
 			}
 		}
 		else
