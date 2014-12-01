@@ -1,5 +1,6 @@
 package model;
 
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +31,7 @@ public class SensorInfo extends Observable {
 	
 	private int personsTracked;
 	
-	private long timestamp;
+	private BigInteger timestamp;
 
 
 	/**
@@ -72,7 +73,7 @@ public class SensorInfo extends Observable {
 	 * @param currentSequence
 	 * @param currentRecognition
 	 */
-	public void nextFrame(long timestamp, GeneralSkeletonVector sensorData,
+	public void nextFrame(BigInteger timestamp, GeneralSkeletonVector sensorData,
 			LabanSequence currentSequence,
 			LabanSequenceVector currentRecognition) {
 
@@ -248,7 +249,7 @@ public class SensorInfo extends Observable {
 	 * 
 	 * @return the timestamp
 	 */
-	public long getTimestamp() {
+	public BigInteger getTimestamp() {
 		return timestamp;
 	}
 
@@ -257,7 +258,7 @@ public class SensorInfo extends Observable {
 	 * 
 	 * @param timestamp the timestamp to set
 	 */
-	public void setTimestamp(long timestamp) {
+	public void setTimestamp(BigInteger timestamp) {
 		this.timestamp = timestamp;
 	}
 

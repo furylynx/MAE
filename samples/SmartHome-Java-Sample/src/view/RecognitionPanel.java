@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.math.BigInteger;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,11 +48,11 @@ public class RecognitionPanel extends JPanel {
 		add(recognitionList, BorderLayout.CENTER);
 	}
 	
-	public void addRecognition(long timestamp, LabanSequence recognizedSequence)
+	public void addRecognition(BigInteger timestamp, LabanSequence recognizedSequence)
 	{
 		if (recognizedSequence != null)
 		{
-			Date date = new Date(timestamp);
+			Date date = new Date(timestamp.longValue());
 			DateFormat format = new SimpleDateFormat("HH:mm:ss");
 			
 			recognitionListModel.addElement(format.format(date)+" "+recognizedSequence.getTitle());
@@ -63,7 +64,7 @@ public class RecognitionPanel extends JPanel {
 		}
 	}
 	
-	public void addRecognition(long timestamp, LabanSequenceVector recognizedSequences)
+	public void addRecognition(BigInteger timestamp, LabanSequenceVector recognizedSequences)
 	{
 		for(int i = 0; i < recognizedSequences.size(); i++)
 		{
