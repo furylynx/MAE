@@ -1,9 +1,11 @@
 package maejavawrapper;
 
+import java.math.BigInteger;
+
 import maejava.LabanSequence;
 
 
 public interface IJSequenceListener {
 
-	void onSequence(int timestamp, LabanSequence sequence);
+	void onSequence(BigInteger timestamp, LabanSequence sequence);
 }
