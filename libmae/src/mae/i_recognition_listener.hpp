@@ -17,6 +17,7 @@
 //global includes
 #include <vector>
 #include <memory>
+#include <cstdint>
 
 
 namespace mae
@@ -37,7 +38,7 @@ namespace mae
 			 * @param timestamp The associated timestamp.
 			 * @param sequences The recognized sequences.
 			 */
-			virtual void on_recognition(long timestamp, std::vector<std::shared_ptr<U> > sequences) = 0;
+			virtual void on_recognition(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences) = 0;
 
 			/**
 			 * Is invoked each time sequences were recognized and only titles of the sequences are present.
@@ -45,7 +46,7 @@ namespace mae
 			 * @param timestamp The associated timestamp.
 			 * @param sequences The recognized sequences.
 			 */
-			virtual void on_recognition(long timestamp, std::vector<std::string> title) = 0;
+			virtual void on_recognition(uint64_t timestamp, std::vector<std::string> title) = 0;
 	};
 
 } // namespace mae

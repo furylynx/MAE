@@ -24,6 +24,14 @@
 %shared_ptr(mae::fl::laban::ps::i_endpoint);
 %shared_ptr(mae::fl::laban::ps::custom_limb);
 
+//-- cast method
+%extend mae::fl::laban::ps::custom_limb {
+  static std::shared_ptr<mae::fl::laban::ps::custom_limb > cast_to_custom_limb(std::shared_ptr<mae::fl::laban::ps::i_part> base) 
+  {
+    return std::dynamic_pointer_cast<mae::fl::laban::ps::custom_limb>(base);
+  }
+}
+
 //-- Parse the original header file
 %include "../../../src/mae/fl/laban/ps/custom_limb.hpp"
 

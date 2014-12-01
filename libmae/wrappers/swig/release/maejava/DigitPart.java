@@ -82,4 +82,9 @@ public class DigitPart extends IEndpoint {
     return MaeJavaJNI.DigitPart_equals__SWIG_1(swigCPtr, this, IEndpoint.getCPtr(a), a);
   }
 
+  public static DigitPart castToDigitPart(IPart base) {
+    long cPtr = MaeJavaJNI.DigitPart_castToDigitPart(IPart.getCPtr(base), base);
+    return (cPtr == 0) ? null : new DigitPart(cPtr, true);
+  }
+
 }

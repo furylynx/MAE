@@ -70,7 +70,7 @@ namespace mae
 			 * @param body_parts The addressed body parts.
 			 * @return The detected movement sequence.
 			 */
-			virtual std::shared_ptr<U> detect_movement(long timestamp, double framerate, std::shared_ptr<T> skeleton,
+			virtual std::shared_ptr<U> detect_movement(uint64_t timestamp, double framerate, std::shared_ptr<T> skeleton,
 					std::vector<bone> body_parts);
 
 			/**
@@ -110,7 +110,7 @@ namespace mae
 			 * @param timestamp
 			 * @param pose
 			 */
-			virtual void notify_listeners(long timestamp, std::shared_ptr<general_pose> pose);
+			virtual void notify_listeners(uint64_t timestamp, std::shared_ptr<general_pose> pose);
 
 			/**
 			 * Returns the last processed pose.
@@ -193,7 +193,7 @@ namespace mae
 	}
 
 	template<typename T, typename U>
-	std::shared_ptr<U> kp_movement_detector<T, U>::detect_movement(long timestamp, double framerate,
+	std::shared_ptr<U> kp_movement_detector<T, U>::detect_movement(uint64_t timestamp, double framerate,
 			std::shared_ptr<T> skeleton, std::vector<bone> body_parts)
 	{
 		if (debug_)
@@ -273,7 +273,7 @@ namespace mae
 	}
 
 	template<typename T, typename U>
-	void kp_movement_detector<T, U>::notify_listeners(long timestamp, std::shared_ptr<general_pose> pose)
+	void kp_movement_detector<T, U>::notify_listeners(uint64_t timestamp, std::shared_ptr<general_pose> pose)
 	{
 		if (debug_ && listeners_.size() > 0)
 		{

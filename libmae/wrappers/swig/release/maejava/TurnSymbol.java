@@ -91,4 +91,9 @@ public class TurnSymbol extends ISymbol {
     return MaeJavaJNI.TurnSymbol_str(swigCPtr, this);
   }
 
+  public static TurnSymbol castToTurnSymbol(ISymbol base) {
+    long cPtr = MaeJavaJNI.TurnSymbol_castToTurnSymbol(ISymbol.getCPtr(base), base);
+    return (cPtr == 0) ? null : new TurnSymbol(cPtr, true);
+  }
+
 }

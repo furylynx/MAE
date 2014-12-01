@@ -26,6 +26,7 @@
 #include <vector>
 #include <iostream>
 #include <memory>
+#include <cstdint>
 
 namespace mae
 {
@@ -73,7 +74,7 @@ namespace mae
 			 * @param timestamp The timestamp for the skeleton.
 			 * @param skeleton The skeleton.
 			 */
-			virtual void next_frame(long timestamp, std::shared_ptr<T> skeleton);
+			virtual void next_frame(uint64_t timestamp, std::shared_ptr<T> skeleton);
 
 			/**
 			 * Registers a sequence to the controller in order to be recognized from the stream.
@@ -197,7 +198,7 @@ namespace mae
 			 * @param timestamp The timestamp.
 			 * @param sequence The sequence.
 			 */
-			virtual void notify_sequence_listeners(long timestamp, std::shared_ptr<U> sequence);
+			virtual void notify_sequence_listeners(uint64_t timestamp, std::shared_ptr<U> sequence);
 
 			/**
 			 * Notifies the recognition listeners on recognized sequences.
@@ -205,7 +206,7 @@ namespace mae
 			 * @param timestamp The timestamp.
 			 * @param sequences The recognized sequences.
 			 */
-			virtual void notify_recognition_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences);
+			virtual void notify_recognition_listeners(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences);
 
 			/**
 			 * Returns the movement detector which is registered to this controller.
@@ -302,7 +303,7 @@ namespace mae
 	}
 
 	template<typename T, typename U>
-	void movement_controller<T, U>::next_frame(long timestamp, std::shared_ptr<T> skeleton)
+	void movement_controller<T, U>::next_frame(uint64_t timestamp, std::shared_ptr<T> skeleton)
 	{
 		if (debug_)
 		{
@@ -508,7 +509,7 @@ namespace mae
 	}
 
 	template<typename T, typename U>
-	void movement_controller<T, U>::notify_sequence_listeners(long timestamp, std::shared_ptr<U> sequence)
+	void movement_controller<T, U>::notify_sequence_listeners(uint64_t timestamp, std::shared_ptr<U> sequence)
 	{
 		if (debug_ && sequence_listeners_.size() > 0)
 		{
@@ -523,7 +524,7 @@ namespace mae
 	}
 
 	template<typename T, typename U>
-	void movement_controller<T, U>::notify_recognition_listeners(long timestamp,
+	void movement_controller<T, U>::notify_recognition_listeners(uint64_t timestamp,
 			std::vector<std::shared_ptr<U> > sequences)
 	{
 		if (debug_ && recognition_listeners_.size() > 0)

@@ -74,4 +74,9 @@ public class BodyPart extends IPreSign {
     return MaeJavaJNI.BodyPart_equals(swigCPtr, this, IPreSign.getCPtr(a), a);
   }
 
+  public static BodyPart castToBodyPart(IPreSign base) {
+    long cPtr = MaeJavaJNI.BodyPart_castToBodyPart(IPreSign.getCPtr(base), base);
+    return (cPtr == 0) ? null : new BodyPart(cPtr, true);
+  }
+
 }

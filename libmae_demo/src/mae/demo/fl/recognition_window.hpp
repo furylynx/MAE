@@ -63,7 +63,7 @@ namespace mae
 					 * @param timestamp The associated timestamp.
 					 * @param sequences The recognized sequences.
 					 */
-					virtual void on_recognition(long timestamp, std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > sequences);
+					virtual void on_recognition(uint64_t timestamp, std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > sequences);
 
 					/**
 					 * Is invoked each time sequences were recognized and only titles of the sequences are present.
@@ -71,7 +71,7 @@ namespace mae
 					 * @param timestamp The associated timestamp.
 					 * @param sequences The recognized sequences.
 					 */
-					virtual void on_recognition(long timestamp, std::vector<std::string> title);
+					virtual void on_recognition(uint64_t timestamp, std::vector<std::string> title);
 
 				protected:
 					/**

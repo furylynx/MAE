@@ -10,6 +10,7 @@
 %include "swig_fixed_std_shared_ptr.i"
 %include "std_vector.i"
 %include "exception.i"
+%include "stdint.i"
 
 //-- module definition
 %module(directors="1") w_i_movement_detector

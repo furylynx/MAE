@@ -61,4 +61,9 @@ public class AccentSign extends IDynamicsSign {
     return MaeJavaJNI.AccentSign_xml__SWIG_2(swigCPtr, this);
   }
 
+  public static AccentSign castToAccentSign(IDynamicsSign base) {
+    long cPtr = MaeJavaJNI.AccentSign_castToAccentSign(IDynamicsSign.getCPtr(base), base);
+    return (cPtr == 0) ? null : new AccentSign(cPtr, true);
+  }
+
 }

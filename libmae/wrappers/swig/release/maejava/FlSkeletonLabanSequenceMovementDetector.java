@@ -35,7 +35,7 @@ public class FlSkeletonLabanSequenceMovementDetector {
     }
   }
 
-  public LabanSequence detectMovement(int timestamp, double framerate, FlSkeleton skeleton, BoneVector body_parts) {
+  public LabanSequence detectMovement(java.math.BigInteger timestamp, double framerate, FlSkeleton skeleton, BoneVector body_parts) {
     long cPtr = MaeJavaJNI.FlSkeletonLabanSequenceMovementDetector_detectMovement(swigCPtr, this, timestamp, framerate, FlSkeleton.getCPtr(skeleton), skeleton, BoneVector.getCPtr(body_parts), body_parts);
     return (cPtr == 0) ? null : new LabanSequence(cPtr, true);
   }
@@ -60,7 +60,7 @@ public class FlSkeletonLabanSequenceMovementDetector {
     MaeJavaJNI.FlSkeletonLabanSequenceMovementDetector_clearListeners(swigCPtr, this);
   }
 
-  public void notifyListeners(int timestamp, GeneralPose pose) {
+  public void notifyListeners(java.math.BigInteger timestamp, GeneralPose pose) {
     MaeJavaJNI.FlSkeletonLabanSequenceMovementDetector_notifyListeners(swigCPtr, this, timestamp, GeneralPose.getCPtr(pose), pose);
   }
 

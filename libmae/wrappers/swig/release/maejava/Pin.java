@@ -77,4 +77,9 @@ public class Pin extends IDegreeSign {
     return MaeJavaJNI.Pin_svg__SWIG_1(swigCPtr, this, identifier, posx, posy, width, height);
   }
 
+  public static Pin castToPin(IDegreeSign base) {
+    long cPtr = MaeJavaJNI.Pin_castToPin(IDegreeSign.getCPtr(base), base);
+    return (cPtr == 0) ? null : new Pin(cPtr, true);
+  }
+
 }

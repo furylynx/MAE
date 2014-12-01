@@ -77,4 +77,9 @@ public class Prop extends IPreSign {
     return MaeJavaJNI.Prop_equals(swigCPtr, this, IPreSign.getCPtr(a), a);
   }
 
+  public static Prop castToProp(IPreSign base) {
+    long cPtr = MaeJavaJNI.Prop_castToProp(IPreSign.getCPtr(base), base);
+    return (cPtr == 0) ? null : new Prop(cPtr, true);
+  }
+
 }

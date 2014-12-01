@@ -22,6 +22,13 @@
 %shared_ptr(mae::fl::laban::ps::i_limb);
 %shared_ptr(mae::fl::laban::ps::default_limb);
 
+//-- cast method
+%extend mae::fl::laban::ps::default_limb {
+  static std::shared_ptr<mae::fl::laban::ps::default_limb > cast_to_default_limb(std::shared_ptr<mae::fl::laban::ps::i_part> base) {
+    return std::dynamic_pointer_cast<mae::fl::laban::ps::default_limb>(base);
+  }
+}
+
 //-- Parse the original header file
 %include "../../../src/mae/fl/laban/ps/default_limb.hpp"
 

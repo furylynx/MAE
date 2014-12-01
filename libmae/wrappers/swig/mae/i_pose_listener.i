@@ -7,6 +7,7 @@
 //%include "std_shared_ptr.i"
 %include "swig_fixed_std_shared_ptr.i"
 %include "exception.i"
+%include "stdint.i"
 
 //%feature("director") mae::i_pose_listener; 
 

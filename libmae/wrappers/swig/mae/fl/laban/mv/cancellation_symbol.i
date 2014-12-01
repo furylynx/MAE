@@ -20,6 +20,13 @@
 %shared_ptr(mae::fl::laban::mv::i_symbol);
 %shared_ptr(mae::fl::laban::mv::cancellation_symbol);
 
+//-- cast method
+%extend mae::fl::laban::mv::cancellation_symbol {
+  static std::shared_ptr<mae::fl::laban::mv::cancellation_symbol> cast_to_cancellation_symbol(std::shared_ptr<mae::fl::laban::mv::i_symbol> base) {
+    return std::dynamic_pointer_cast<mae::fl::laban::mv::cancellation_symbol>(base);
+  }
+}
+
 //-- Parse the original header file
 %include "../../../src/mae/fl/laban/mv/cancellation_symbol.hpp"
 

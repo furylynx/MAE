@@ -35,7 +35,7 @@ public class LabanSequenceSequenceListener {
     }
   }
 
-  public void onSequence(int timestamp, LabanSequence sequence) {
+  public void onSequence(java.math.BigInteger timestamp, LabanSequence sequence) {
     MaeJavaJNI.LabanSequenceSequenceListener_onSequence(swigCPtr, this, timestamp, LabanSequence.getCPtr(sequence), sequence);
   }
 
