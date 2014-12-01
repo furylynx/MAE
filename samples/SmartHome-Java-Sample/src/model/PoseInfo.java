@@ -38,8 +38,11 @@ public class PoseInfo {
 	 * @param sequence The sequence.
 	 */
 	public PoseInfo(LabanSequence sequence) {
+		poseMap = new HashMap<Integer, ISymbol>();
+		bodyPartsSet = new HashSet<Integer>();
+		
 		for (int i = 0; i < sequence.getColumns().size(); i++) {
-			Integer bodyPart = sequence.getColumns().get(i);
+			int bodyPart = sequence.getColumns().get(i);
 
 			bodyPartsSet.add(bodyPart);
 			
@@ -65,6 +68,8 @@ public class PoseInfo {
 	 */
 	public PoseInfo() {
 		poseMap = new HashMap<Integer, ISymbol>();
+		
+		bodyPartsSet = new HashSet<Integer>();
 	}
 
 	/**
