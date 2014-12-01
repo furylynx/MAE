@@ -66,6 +66,9 @@ public class SensorThread implements Runnable {
 				System.out.println("Sequence is null.");
 			}
 		}
+		
+		//TODO remove
+		System.out.println(movementController.getLabanSequenceRecognizer().getDecisionForest().str());
 	}
 
 	@Override
