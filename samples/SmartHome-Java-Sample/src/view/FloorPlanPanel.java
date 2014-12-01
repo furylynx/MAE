@@ -14,7 +14,6 @@ import java.util.Map.Entry;
 
 import javax.swing.JPanel;
 
-import maejava.ISymbol;
 import model.PoseInfo;
 import model.PositionInfo;
 import model.SensorInfo;
