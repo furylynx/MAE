@@ -67,8 +67,8 @@ public class SensorThread implements Runnable {
 			}
 		}
 		
-		//TODO remove
-		System.out.println(movementController.getLabanSequenceRecognizer().getDecisionForest().str());
+		
+//		System.out.println(movementController.getLabanSequenceRecognizer().getDecisionForest().str());
 	}
 
 	@Override
