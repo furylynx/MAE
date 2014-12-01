@@ -178,7 +178,36 @@ public class FloorPlanPanel extends JPanel {
 				double pMusicIntensity = (musicIntensities.get(info
 						.getPositionId()) == null) ? 0.0 : musicIntensities
 						.get(info.getPositionId());
-				// TODO draw other things
+				
+				if (pMusicIntensity > 0.0)
+				{
+					g.setColor(Color.WHITE);
+					g.fillOval(
+							(int) ((info.getXpos()+info.getWidth() - 24) * scaleFactor),
+							(int) ((info.getYpos()+info.getHeight() - 26) * scaleFactor),
+							(int) (20 * scaleFactor),
+							(int) (20 * scaleFactor));
+					
+					g.setColor(Color.BLACK);
+					g.fillOval(
+							(int) ((info.getXpos()+info.getWidth() - 21) * scaleFactor),
+							(int) ((info.getYpos()+info.getHeight() - 17) * scaleFactor),
+							(int) (5 * scaleFactor),
+							(int) (5 * scaleFactor));
+					
+					g.fillOval(
+							(int) ((info.getXpos()+info.getWidth() - 14) * scaleFactor),
+							(int) ((info.getYpos()+info.getHeight() - 15) * scaleFactor),
+							(int) (5 * scaleFactor),
+							(int) (5 * scaleFactor));
+					
+					g.fillRect((int) ((info.getXpos()+info.getWidth() - 10) * scaleFactor), (int) ((info.getYpos()+info.getHeight() - 22) * scaleFactor), (int) (1 * scaleFactor), (int) (10 * scaleFactor));
+					g.fillRect((int) ((info.getXpos()+info.getWidth() - 17) * scaleFactor), (int) ((info.getYpos()+info.getHeight() - 22) * scaleFactor), (int) (1 * scaleFactor), (int) (8 * scaleFactor));
+					g.fillRect((int) ((info.getXpos()+info.getWidth() - 17) * scaleFactor), (int) ((info.getYpos()+info.getHeight() - 22) * scaleFactor), (int) (8 * scaleFactor), (int) (1 * scaleFactor));
+
+					//draw music symbol nicer
+				}
+
 			}
 		}
 	}
@@ -200,37 +229,32 @@ public class FloorPlanPanel extends JPanel {
 				for (int i = 0; i < sensorInfo.getCurrentRecognition().size(); i++) {
 					if ("LightsOn".equals(sensorInfo.getCurrentRecognition()
 							.get(i).getTitle().trim())) {
-						
-						//TODO remove
-						System.out.println(sensorInfo.getTimestamp() +" LightsOn");
-						
-						lightIntensities.put(sensorInfo.getPosition()
-								.getPositionId(), 1.0);
-						lightIntensitiesAnimationTimestamp.put(sensorInfo
-								.getPosition().getPositionId(), System
-								.currentTimeMillis());
+
+						if (lightIntensities.get(sensorInfo.getPosition()
+								.getPositionId()) == null
+								|| lightIntensities.get(sensorInfo
+										.getPosition().getPositionId()) == 0.0) {
+							lightIntensities.put(sensorInfo.getPosition()
+									.getPositionId(), 1.0);
+							lightIntensitiesAnimationTimestamp.put(sensorInfo
+									.getPosition().getPositionId(), System
+									.currentTimeMillis());
+						}
 					} else if ("LightsOff".equals(sensorInfo
 							.getCurrentRecognition().get(i).getTitle().trim())) {
-						
-						//TODO remove
-						System.out.println(sensorInfo.getTimestamp() +" LightsOff");
-						
-						lightIntensities.put(sensorInfo.getPosition()
-								.getPositionId(), 0.0);
-						lightIntensitiesAnimationTimestamp.put(sensorInfo
-								.getPosition().getPositionId(), System
-								.currentTimeMillis());
-					} else if ("DimDown".equals(sensorInfo
-							.getCurrentRecognition().get(i).getTitle().trim())) {
 
-						if (dimmingUpPoses.get(sensorInfo.getDeviceInfo()
-								.getDeviceSerial()) == null) {
-							dimmingUpPoses.put(sensorInfo.getDeviceInfo()
-									.getDeviceSerial(), new PoseInfo(sensorInfo
-									.getCurrentRecognition().get(i)));
+						if (lightIntensities.get(sensorInfo.getPosition()
+								.getPositionId()) == null
+								|| lightIntensities.get(sensorInfo
+										.getPosition().getPositionId()) > 0.0) {
+							lightIntensities.put(sensorInfo.getPosition()
+									.getPositionId(), 0.0);
+							lightIntensitiesAnimationTimestamp.put(sensorInfo
+									.getPosition().getPositionId(), System
+									.currentTimeMillis());
 						}
 
-					} else if ("DimUp".equals(sensorInfo
+					} else if ("DimDown".equals(sensorInfo
 							.getCurrentRecognition().get(i).getTitle().trim())) {
 
 						if (dimmingDownPoses.get(sensorInfo.getDeviceInfo()
@@ -240,6 +264,24 @@ public class FloorPlanPanel extends JPanel {
 									.getCurrentRecognition().get(i)));
 						}
 
+					} else if ("DimUp".equals(sensorInfo
+							.getCurrentRecognition().get(i).getTitle().trim())) {
+
+						if (dimmingUpPoses.get(sensorInfo.getDeviceInfo()
+								.getDeviceSerial()) == null) {
+							dimmingUpPoses.put(sensorInfo.getDeviceInfo()
+									.getDeviceSerial(), new PoseInfo(sensorInfo
+									.getCurrentRecognition().get(i)));
+						}
+
+					} else if ("MusicOn".equals(sensorInfo
+							.getCurrentRecognition().get(i).getTitle().trim())) {
+						musicIntensities.put(sensorInfo.getPosition()
+								.getPositionId(), 1.0);
+					} else if ("MusicOff".equals(sensorInfo
+							.getCurrentRecognition().get(i).getTitle().trim())) {
+						lightIntensities.put(sensorInfo.getPosition()
+								.getPositionId(), 0.0);
 					}
 
 					// dim the lights if pose is held

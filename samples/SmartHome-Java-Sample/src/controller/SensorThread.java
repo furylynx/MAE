@@ -1,5 +1,6 @@
 package controller;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import maejava.Bone;
@@ -77,7 +78,7 @@ public class SensorThread implements Runnable {
 			LabanSequence currentSequence = null;
 			LabanSequenceVector currentRecognition = null;
 			
-			int timestamp = (int) (System.currentTimeMillis() - startingTimeStamp);
+			BigInteger timestamp = BigInteger.valueOf(System.currentTimeMillis());
 
 			// for simplification, the movement data is only analysed for the
 			// first user
@@ -91,7 +92,7 @@ public class SensorThread implements Runnable {
 			}
 
 			// handle sensor data
-			info.nextFrame(timestamp + startingTimeStamp, sensorData, currentSequence, currentRecognition);
+			info.nextFrame(timestamp, sensorData, currentSequence, currentRecognition);
 		}
 	}
 
