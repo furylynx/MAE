@@ -20,6 +20,13 @@
 %shared_ptr(mae::fl::laban::mv::i_dynamics_sign);
 %shared_ptr(mae::fl::laban::mv::dynamic_sign);
 
+//-- cast method
+%extend mae::fl::laban::mv::dynamic_sign {
+  static std::shared_ptr<mae::fl::laban::mv::dynamic_sign> cast_to_dynamic_sign(std::shared_ptr<mae::fl::laban::mv::i_dynamics_sign> base) {
+    return std::dynamic_pointer_cast<mae::fl::laban::mv::dynamic_sign>(base);
+  }
+}
+
 //-- Parse the original header file
 %include "../../../src/mae/fl/laban/mv/dynamic_sign.hpp"
 

@@ -110,7 +110,7 @@ namespace mae
 
 			}
 
-			void sequence_window::on_sequence(long timestamp, std::shared_ptr<mae::fl::laban::laban_sequence> sequence)
+			void sequence_window::on_sequence(uint64_t timestamp, std::shared_ptr<mae::fl::laban::laban_sequence> sequence)
 			{
 				current_sequence_ = sequence;
 				repaint();

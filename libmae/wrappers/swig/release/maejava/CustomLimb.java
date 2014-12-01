@@ -83,4 +83,9 @@ public class CustomLimb extends ILimb {
     return MaeJavaJNI.CustomLimb_equals__SWIG_1(swigCPtr, this, ILimb.getCPtr(a), a);
   }
 
+  public static CustomLimb castToCustomLimb(IPart base) {
+    long cPtr = MaeJavaJNI.CustomLimb_castToCustomLimb(IPart.getCPtr(base), base);
+    return (cPtr == 0) ? null : new CustomLimb(cPtr, true);
+  }
+
 }

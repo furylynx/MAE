@@ -85,7 +85,7 @@ namespace mae
 			flpd_ = std::dynamic_pointer_cast<fl_pose_detector>(kp_det->get_pose_detector());
 		}
 
-		void fl_movement_controller::next_frame(long timestamp, std::shared_ptr<general_skeleton> skeleton)
+		void fl_movement_controller::next_frame(uint64_t timestamp, std::shared_ptr<general_skeleton> skeleton)
 		{
 			if (debug_)
 			{

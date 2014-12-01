@@ -19,6 +19,14 @@
 	#include "../../../src/mae/fl/laban/relationship_bow.hpp"
 %}
 
+//-- cast method
+%extend mae::fl::laban::relationship_bow {
+  static std::shared_ptr<mae::fl::laban::relationship_bow> cast_to_relationship_bow(std::shared_ptr<mae::fl::laban::i_movement> base) {
+    return std::dynamic_pointer_cast<mae::fl::laban::relationship_bow>(base);
+  }
+}
+
+
 //-- shared_ptr
 %shared_ptr(mae::fl::laban::i_movement);
 %shared_ptr(mae::fl::laban::mv::relationship_endpoint);

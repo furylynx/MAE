@@ -61,4 +61,9 @@ public class DynamicSign extends IDynamicsSign {
     return MaeJavaJNI.DynamicSign_xml__SWIG_2(swigCPtr, this);
   }
 
+  public static DynamicSign castToDynamicSign(IDynamicsSign base) {
+    long cPtr = MaeJavaJNI.DynamicSign_castToDynamicSign(IDynamicsSign.getCPtr(base), base);
+    return (cPtr == 0) ? null : new DynamicSign(cPtr, true);
+  }
+
 }

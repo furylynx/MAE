@@ -22,6 +22,15 @@
 %shared_ptr(mae::fl::laban::ps::i_endpoint);
 %shared_ptr(mae::fl::laban::ps::digit_part);
 
+//-- cast method
+%extend mae::fl::laban::ps::digit_part 
+{
+  static std::shared_ptr<mae::fl::laban::ps::digit_part > cast_to_digit_part(std::shared_ptr<mae::fl::laban::ps::i_part> base) 
+  {
+    return std::dynamic_pointer_cast<mae::fl::laban::ps::digit_part>(base);
+  }
+}
+
 //-- Parse the original header file
 %include "../../../src/mae/fl/laban/ps/digit_part.hpp"
 

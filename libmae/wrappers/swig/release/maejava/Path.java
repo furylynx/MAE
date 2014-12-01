@@ -94,4 +94,9 @@ public class Path extends IMovement {
     return MaeJavaJNI.Path_str(swigCPtr, this);
   }
 
+  public static Path castToPath(IMovement base) {
+    long cPtr = MaeJavaJNI.Path_castToPath(IMovement.getCPtr(base), base);
+    return (cPtr == 0) ? null : new Path(cPtr, true);
+  }
+
 }

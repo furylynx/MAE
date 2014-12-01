@@ -118,7 +118,7 @@ public class MaeJavaJNI {
   public final static native int IntList_get(long jarg1, IntList jarg1_, int jarg2);
   public final static native void delete_IntList(long jarg1);
   public final static native void delete_IPoseListener(long jarg1);
-  public final static native void IPoseListener_onPose(long jarg1, IPoseListener jarg1_, int jarg2, long jarg3, GeneralPose jarg3_);
+  public final static native void IPoseListener_onPose(long jarg1, IPoseListener jarg1_, java.math.BigInteger jarg2, long jarg3, GeneralPose jarg3_);
   public final static native long new_GeneralEnrichedPose__SWIG_0();
   public final static native long new_GeneralEnrichedPose__SWIG_1(long jarg1, GeneralPose jarg1_);
   public final static native void delete_GeneralEnrichedPose(long jarg1);
@@ -517,18 +517,18 @@ public class MaeJavaJNI {
   public final static native void delete_LabanSequenceGenerator(long jarg1);
   public final static native long LabanSequenceGenerator_generateSequence(long jarg1, LabanSequenceGenerator jarg1_, double jarg2, long jarg3, EnrichedPoseList jarg3_, long jarg4, BoneVector jarg4_);
   public final static native void delete_LabanSequenceSequenceListener(long jarg1);
-  public final static native void LabanSequenceSequenceListener_onSequence(long jarg1, LabanSequenceSequenceListener jarg1_, int jarg2, long jarg3, LabanSequence jarg3_);
+  public final static native void LabanSequenceSequenceListener_onSequence(long jarg1, LabanSequenceSequenceListener jarg1_, java.math.BigInteger jarg2, long jarg3, LabanSequence jarg3_);
   public final static native void delete_LabanSequenceRecognition_listener(long jarg1);
-  public final static native void LabanSequenceRecognition_listener_onRecognition__SWIG_0(long jarg1, LabanSequenceRecognition_listener jarg1_, int jarg2, long jarg3, LabanSequenceVector jarg3_);
-  public final static native void LabanSequenceRecognition_listener_onRecognition__SWIG_1(long jarg1, LabanSequenceRecognition_listener jarg1_, int jarg2, long jarg3, StringVector jarg3_);
+  public final static native void LabanSequenceRecognition_listener_onRecognition__SWIG_0(long jarg1, LabanSequenceRecognition_listener jarg1_, java.math.BigInteger jarg2, long jarg3, LabanSequenceVector jarg3_);
+  public final static native void LabanSequenceRecognition_listener_onRecognition__SWIG_1(long jarg1, LabanSequenceRecognition_listener jarg1_, java.math.BigInteger jarg2, long jarg3, StringVector jarg3_);
   public final static native void delete_FlSkeletonLabanSequenceMovementDetector(long jarg1);
-  public final static native long FlSkeletonLabanSequenceMovementDetector_detectMovement(long jarg1, FlSkeletonLabanSequenceMovementDetector jarg1_, int jarg2, double jarg3, long jarg4, FlSkeleton jarg4_, long jarg5, BoneVector jarg5_);
+  public final static native long FlSkeletonLabanSequenceMovementDetector_detectMovement(long jarg1, FlSkeletonLabanSequenceMovementDetector jarg1_, java.math.BigInteger jarg2, double jarg3, long jarg4, FlSkeleton jarg4_, long jarg5, BoneVector jarg5_);
   public final static native void FlSkeletonLabanSequenceMovementDetector_setBuffer(long jarg1, FlSkeletonLabanSequenceMovementDetector jarg1_, int jarg2);
   public final static native void FlSkeletonLabanSequenceMovementDetector_clearBuffer(long jarg1, FlSkeletonLabanSequenceMovementDetector jarg1_);
   public final static native void FlSkeletonLabanSequenceMovementDetector_addListener(long jarg1, FlSkeletonLabanSequenceMovementDetector jarg1_, long jarg2, IPoseListener jarg2_);
   public final static native void FlSkeletonLabanSequenceMovementDetector_removeListener(long jarg1, FlSkeletonLabanSequenceMovementDetector jarg1_, long jarg2, IPoseListener jarg2_);
   public final static native void FlSkeletonLabanSequenceMovementDetector_clearListeners(long jarg1, FlSkeletonLabanSequenceMovementDetector jarg1_);
-  public final static native void FlSkeletonLabanSequenceMovementDetector_notifyListeners(long jarg1, FlSkeletonLabanSequenceMovementDetector jarg1_, int jarg2, long jarg3, GeneralPose jarg3_);
+  public final static native void FlSkeletonLabanSequenceMovementDetector_notifyListeners(long jarg1, FlSkeletonLabanSequenceMovementDetector jarg1_, java.math.BigInteger jarg2, long jarg3, GeneralPose jarg3_);
   public final static native long FlSkeletonLabanSequenceMovementDetector_getCurrentPose(long jarg1, FlSkeletonLabanSequenceMovementDetector jarg1_);
   public final static native long new_FlSkeletonLabanSequenceMovementController__SWIG_0(long jarg1, FlSkeletonLabanSequenceMovementDetector jarg1_, long jarg2, long jarg3, BoneVector jarg3_, int jarg4, double jarg5, boolean jarg6);
   public final static native long new_FlSkeletonLabanSequenceMovementController__SWIG_1(long jarg1, FlSkeletonLabanSequenceMovementDetector jarg1_, long jarg2, long jarg3, BoneVector jarg3_, int jarg4, double jarg5);
@@ -539,7 +539,7 @@ public class MaeJavaJNI {
   public final static native long new_FlSkeletonLabanSequenceMovementController__SWIG_6(long jarg1, long jarg2, long jarg3, long jarg4, BoneVector jarg4_, int jarg5);
   public final static native long new_FlSkeletonLabanSequenceMovementController__SWIG_7(long jarg1, long jarg2, long jarg3, long jarg4, BoneVector jarg4_);
   public final static native void delete_FlSkeletonLabanSequenceMovementController(long jarg1);
-  public final static native void FlSkeletonLabanSequenceMovementController_nextFrame(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_, int jarg2, long jarg3, FlSkeleton jarg3_);
+  public final static native void FlSkeletonLabanSequenceMovementController_nextFrame(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_, java.math.BigInteger jarg2, long jarg3, FlSkeleton jarg3_);
   public final static native void FlSkeletonLabanSequenceMovementController_registerSequence(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_, long jarg2, LabanSequence jarg2_);
   public final static native void FlSkeletonLabanSequenceMovementController_deregisterSequence(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_, long jarg2, LabanSequence jarg2_);
   public final static native void FlSkeletonLabanSequenceMovementController_clearRegisteredSequences(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_);
@@ -557,8 +557,8 @@ public class MaeJavaJNI {
   public final static native void FlSkeletonLabanSequenceMovementController_addListener__SWIG_2(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_, long jarg2, LabanSequenceRecognition_listener jarg2_);
   public final static native void FlSkeletonLabanSequenceMovementController_removeListener__SWIG_2(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_, long jarg2, LabanSequenceRecognition_listener jarg2_);
   public final static native void FlSkeletonLabanSequenceMovementController_clearListeners(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_);
-  public final static native void FlSkeletonLabanSequenceMovementController_notifySequenceListeners(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_, int jarg2, long jarg3, LabanSequence jarg3_);
-  public final static native void FlSkeletonLabanSequenceMovementController_notifyRecognitionListeners(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_, int jarg2, long jarg3, LabanSequenceVector jarg3_);
+  public final static native void FlSkeletonLabanSequenceMovementController_notifySequenceListeners(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_, java.math.BigInteger jarg2, long jarg3, LabanSequence jarg3_);
+  public final static native void FlSkeletonLabanSequenceMovementController_notifyRecognitionListeners(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_, java.math.BigInteger jarg2, long jarg3, LabanSequenceVector jarg3_);
   public final static native long FlSkeletonLabanSequenceMovementController_getMovementDetector(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_);
   public final static native long FlSkeletonLabanSequenceMovementController_getSequenceRecognizer(long jarg1, FlSkeletonLabanSequenceMovementController jarg1_);
   public final static native long new_FlMovementController__SWIG_0(long jarg1, double jarg2, boolean jarg3);
@@ -580,7 +580,7 @@ public class MaeJavaJNI {
   public final static native long new_FlMovementController__SWIG_16(long jarg1, BoneVector jarg1_, long jarg2, ColumnDefinitionVector jarg2_, long jarg3, LabanSequenceGenerator jarg3_, long jarg4);
   public final static native long new_FlMovementController__SWIG_17(long jarg1, BoneVector jarg1_, long jarg2, ColumnDefinitionVector jarg2_, long jarg3, LabanSequenceGenerator jarg3_);
   public final static native void delete_FlMovementController(long jarg1);
-  public final static native void FlMovementController_nextFrame(long jarg1, FlMovementController jarg1_, int jarg2, long jarg3, GeneralSkeleton jarg3_);
+  public final static native void FlMovementController_nextFrame(long jarg1, FlMovementController jarg1_, java.math.BigInteger jarg2, long jarg3, GeneralSkeleton jarg3_);
   public final static native void FlMovementController_setRecognitionTolerance(long jarg1, FlMovementController jarg1_, double jarg2);
   public final static native long FlMovementController_getLabanSequenceRecognizer(long jarg1, FlMovementController jarg1_);
   public final static native long FlMovementController_getLabanSequenceGenerator(long jarg1, FlMovementController jarg1_);
@@ -673,6 +673,7 @@ public class MaeJavaJNI {
   public final static native String Movement_svg(long jarg1, Movement jarg1_, long jarg2, long jarg3, long jarg4, long jarg5, long jarg6);
   public final static native long Movement_recreate(long jarg1, Movement jarg1_, long jarg2, IntIntMap jarg2_, long jarg3, double jarg4, double jarg5);
   public final static native String Movement_str(long jarg1, Movement jarg1_);
+  public final static native long Movement_castToMovement(long jarg1, IMovement jarg1_);
   public final static native String EPathTypeC_str(int jarg1);
   public final static native long EPathTypeC_vec();
   public final static native int EPathTypeC_parse(String jarg1);
@@ -704,6 +705,7 @@ public class MaeJavaJNI {
   public final static native String Path_svg(long jarg1, Path jarg1_, long jarg2, long jarg3, long jarg4, long jarg5, long jarg6);
   public final static native long Path_recreate(long jarg1, Path jarg1_, long jarg2, IntIntMap jarg2_, long jarg3, double jarg4, double jarg5);
   public final static native String Path_str(long jarg1, Path jarg1_);
+  public final static native long Path_castToPath(long jarg1, IMovement jarg1_);
   public final static native String ERelationshipTypeC_str(int jarg1);
   public final static native long ERelationshipTypeC_vec();
   public final static native int ERelationshipTypeC_parse(String jarg1);
@@ -758,6 +760,7 @@ public class MaeJavaJNI {
   public final static native String RelationshipBow_svg(long jarg1, RelationshipBow jarg1_, long jarg2, long jarg3, long jarg4, long jarg5, long jarg6);
   public final static native long RelationshipBow_recreate(long jarg1, RelationshipBow jarg1_, long jarg2, IntIntMap jarg2_, long jarg3, double jarg4, double jarg5);
   public final static native String RelationshipBow_str(long jarg1, RelationshipBow jarg1_);
+  public final static native long RelationshipBow_castToRelationshipBow(long jarg1, IMovement jarg1_);
   public final static native void delete_IDegreeSign(long jarg1);
   public final static native boolean IDegreeSign_equals(long jarg1, IDegreeSign jarg1_, long jarg2, IDegreeSign jarg2_);
   public final static native String IDegreeSign_xml__SWIG_0(long jarg1, IDegreeSign jarg1_, long jarg2, String jarg3, boolean jarg4);
@@ -794,6 +797,7 @@ public class MaeJavaJNI {
   public final static native String Pin_xml__SWIG_3(long jarg1, Pin jarg1_);
   public final static native String Pin_svg__SWIG_0(long jarg1, Pin jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6, boolean jarg7);
   public final static native String Pin_svg__SWIG_1(long jarg1, Pin jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6);
+  public final static native long Pin_castToPin(long jarg1, IDegreeSign jarg1_);
   public final static native long new_RoomDirection(long jarg1, double jarg2, long jarg3, Pin jarg3_);
   public final static native void delete_RoomDirection(long jarg1);
   public final static native int RoomDirection_getColumn(long jarg1, RoomDirection jarg1_);
@@ -809,6 +813,7 @@ public class MaeJavaJNI {
   public final static native String RoomDirection_svg(long jarg1, RoomDirection jarg1_, long jarg2, long jarg3, long jarg4, long jarg5, long jarg6);
   public final static native long RoomDirection_recreate(long jarg1, RoomDirection jarg1_, long jarg2, IntIntMap jarg2_, long jarg3, double jarg4, double jarg5);
   public final static native String RoomDirection_str(long jarg1, RoomDirection jarg1_);
+  public final static native long RoomDirection_castToRoomDirection(long jarg1, IMovement jarg1_);
   public final static native long new_AccentSign(long jarg1);
   public final static native void delete_AccentSign(long jarg1);
   public final static native long AccentSign_getAccent(long jarg1, AccentSign jarg1_);
@@ -816,6 +821,7 @@ public class MaeJavaJNI {
   public final static native String AccentSign_xml__SWIG_0(long jarg1, AccentSign jarg1_, long jarg2, String jarg3);
   public final static native String AccentSign_xml__SWIG_1(long jarg1, AccentSign jarg1_, long jarg2);
   public final static native String AccentSign_xml__SWIG_2(long jarg1, AccentSign jarg1_);
+  public final static native long AccentSign_castToAccentSign(long jarg1, IDynamicsSign jarg1_);
   public final static native String EDynamicC_str(int jarg1);
   public final static native long EDynamicC_vec();
   public final static native int EDynamicC_parse(String jarg1);
@@ -839,6 +845,7 @@ public class MaeJavaJNI {
   public final static native String DynamicSign_xml__SWIG_0(long jarg1, DynamicSign jarg1_, long jarg2, String jarg3);
   public final static native String DynamicSign_xml__SWIG_1(long jarg1, DynamicSign jarg1_, long jarg2);
   public final static native String DynamicSign_xml__SWIG_2(long jarg1, DynamicSign jarg1_);
+  public final static native long DynamicSign_castToDynamicSign(long jarg1, IDynamicsSign jarg1_);
   public final static native String ECancelC_str(int jarg1);
   public final static native long ECancelC_vec();
   public final static native int ECancelC_parse(String jarg1);
@@ -865,6 +872,7 @@ public class MaeJavaJNI {
   public final static native String CancellationSymbol_svg__SWIG_0(long jarg1, CancellationSymbol jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6, boolean jarg7);
   public final static native String CancellationSymbol_svg__SWIG_1(long jarg1, CancellationSymbol jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6);
   public final static native String CancellationSymbol_str(long jarg1, CancellationSymbol jarg1_);
+  public final static native long CancellationSymbol_castToCancellationSymbol(long jarg1, ISymbol jarg1_);
   public final static native String ESpaceC_str(int jarg1);
   public final static native long ESpaceC_vec();
   public final static native int ESpaceC_parse(String jarg1);
@@ -911,6 +919,7 @@ public class MaeJavaJNI {
   public final static native String SpaceMeasurement_svg__SWIG_0(long jarg1, SpaceMeasurement jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6, boolean jarg7);
   public final static native String SpaceMeasurement_svg__SWIG_1(long jarg1, SpaceMeasurement jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6);
   public final static native String SpaceMeasurement_str(long jarg1, SpaceMeasurement jarg1_);
+  public final static native long SpaceMeasurement_castToSpaceMeasurement(long jarg1, IDegreeSign jarg1_);
   public final static native String EDirectionC_str(int jarg1);
   public final static native int EDirectionC_dir(int jarg1);
   public final static native long EDirectionC_vec();
@@ -965,6 +974,7 @@ public class MaeJavaJNI {
   public final static native String DirectionSymbol_svg__SWIG_0(long jarg1, DirectionSymbol jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6, boolean jarg7);
   public final static native String DirectionSymbol_svg__SWIG_1(long jarg1, DirectionSymbol jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6);
   public final static native String DirectionSymbol_str(long jarg1, DirectionSymbol jarg1_);
+  public final static native long DirectionSymbol_castToDirectionSymbol(long jarg1, ISymbol jarg1_);
   public final static native String ETurnDirectionC_str(int jarg1);
   public final static native long ETurnDirectionC_vec();
   public final static native int ETurnDirectionC_parse(String jarg1);
@@ -995,6 +1005,7 @@ public class MaeJavaJNI {
   public final static native String TurnSymbol_svg__SWIG_0(long jarg1, TurnSymbol jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6, boolean jarg7);
   public final static native String TurnSymbol_svg__SWIG_1(long jarg1, TurnSymbol jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6);
   public final static native String TurnSymbol_str(long jarg1, TurnSymbol jarg1_);
+  public final static native long TurnSymbol_castToTurnSymbol(long jarg1, ISymbol jarg1_);
   public final static native long new_VibrationSymbol__SWIG_0(long jarg1, Pin jarg1_, long jarg2, Pin jarg2_, long jarg3, IDynamicsSign jarg3_);
   public final static native long new_VibrationSymbol__SWIG_1(long jarg1, Pin jarg1_, long jarg2, Pin jarg2_);
   public final static native void delete_VibrationSymbol(long jarg1);
@@ -1008,6 +1019,7 @@ public class MaeJavaJNI {
   public final static native String VibrationSymbol_svg__SWIG_0(long jarg1, VibrationSymbol jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6, boolean jarg7);
   public final static native String VibrationSymbol_svg__SWIG_1(long jarg1, VibrationSymbol jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6);
   public final static native String VibrationSymbol_str(long jarg1, VibrationSymbol jarg1_);
+  public final static native long VibrationSymbol_castToVibrationSymbol(long jarg1, ISymbol jarg1_);
   public final static native void delete_IPart(long jarg1);
   public final static native String IPart_xml__SWIG_0(long jarg1, IPart jarg1_, long jarg2, String jarg3);
   public final static native String IPart_xml__SWIG_1(long jarg1, IPart jarg1_, long jarg2);
@@ -1049,6 +1061,7 @@ public class MaeJavaJNI {
   public final static native long AreaPart_getFixedEnd(long jarg1, AreaPart jarg1_);
   public final static native boolean AreaPart_equals__SWIG_0(long jarg1, AreaPart jarg1_, long jarg2, IPart jarg2_);
   public final static native boolean AreaPart_equals__SWIG_1(long jarg1, AreaPart jarg1_, long jarg2, IEndpoint jarg2_);
+  public final static native long AreaPart_castToAreaPart(long jarg1, IPart jarg1_);
   public final static native String ESideC_str(int jarg1);
   public final static native long ESideC_vec();
   public final static native int ESideC_parse(String jarg1);
@@ -1075,6 +1088,7 @@ public class MaeJavaJNI {
   public final static native String BodyPart_svg__SWIG_0(long jarg1, BodyPart jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6, boolean jarg7);
   public final static native String BodyPart_svg__SWIG_1(long jarg1, BodyPart jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6);
   public final static native boolean BodyPart_equals(long jarg1, BodyPart jarg1_, long jarg2, IPreSign jarg2_);
+  public final static native long BodyPart_castToBodyPart(long jarg1, IPreSign jarg1_);
   public final static native void delete_ILimb(long jarg1);
   public final static native String ILimb_xml__SWIG_0(long jarg1, ILimb jarg1_, long jarg2, String jarg3);
   public final static native String ILimb_xml__SWIG_1(long jarg1, ILimb jarg1_, long jarg2);
@@ -1093,6 +1107,7 @@ public class MaeJavaJNI {
   public final static native String CustomLimb_svg__SWIG_1(long jarg1, CustomLimb jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6);
   public final static native boolean CustomLimb_equals__SWIG_0(long jarg1, CustomLimb jarg1_, long jarg2, IPart jarg2_);
   public final static native boolean CustomLimb_equals__SWIG_1(long jarg1, CustomLimb jarg1_, long jarg2, ILimb jarg2_);
+  public final static native long CustomLimb_castToCustomLimb(long jarg1, IPart jarg1_);
   public final static native String ELimbC_str(int jarg1);
   public final static native long ELimbC_vec();
   public final static native int ELimbC_parse(String jarg1);
@@ -1119,6 +1134,7 @@ public class MaeJavaJNI {
   public final static native String DefaultLimb_svg__SWIG_1(long jarg1, DefaultLimb jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6);
   public final static native boolean DefaultLimb_equals__SWIG_0(long jarg1, DefaultLimb jarg1_, long jarg2, IPart jarg2_);
   public final static native boolean DefaultLimb_equals__SWIG_1(long jarg1, DefaultLimb jarg1_, long jarg2, ILimb jarg2_);
+  public final static native long DefaultLimb_castToDefaultLimb(long jarg1, IPart jarg1_);
   public final static native String EDigitC_str(int jarg1);
   public final static native long EDigitC_vec();
   public final static native int EDigitC_parse(String jarg1);
@@ -1147,6 +1163,7 @@ public class MaeJavaJNI {
   public final static native long DigitPart_getFixedEnd(long jarg1, DigitPart jarg1_);
   public final static native boolean DigitPart_equals__SWIG_0(long jarg1, DigitPart jarg1_, long jarg2, IPart jarg2_);
   public final static native boolean DigitPart_equals__SWIG_1(long jarg1, DigitPart jarg1_, long jarg2, IEndpoint jarg2_);
+  public final static native long DigitPart_castToDigitPart(long jarg1, IPart jarg1_);
   public final static native String ELimbSideC_str(int jarg1);
   public final static native long ELimbSideC_vec();
   public final static native int ELimbSideC_parse(String jarg1);
@@ -1173,6 +1190,7 @@ public class MaeJavaJNI {
   public final static native String SurfacePart_svg__SWIG_0(long jarg1, SurfacePart jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6, boolean jarg7);
   public final static native String SurfacePart_svg__SWIG_1(long jarg1, SurfacePart jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6);
   public final static native boolean SurfacePart_equals(long jarg1, SurfacePart jarg1_, long jarg2, IPart jarg2_);
+  public final static native long SurfacePart_castToSurfacePart(long jarg1, IPart jarg1_);
   public final static native String EJointC_str(int jarg1);
   public final static native long EJointC_vec();
   public final static native int EJointC_parse(String jarg1);
@@ -1200,6 +1218,7 @@ public class MaeJavaJNI {
   public final static native long JointPart_getFixedEnd(long jarg1, JointPart jarg1_);
   public final static native boolean JointPart_equals__SWIG_0(long jarg1, JointPart jarg1_, long jarg2, IPart jarg2_);
   public final static native boolean JointPart_equals__SWIG_1(long jarg1, JointPart jarg1_, long jarg2, IEndpoint jarg2_);
+  public final static native long JointPart_castToJointPart(long jarg1, IPart jarg1_);
   public final static native long new_Prop__SWIG_0(String jarg1, String jarg2);
   public final static native long new_Prop__SWIG_1(String jarg1);
   public final static native void delete_Prop(long jarg1);
@@ -1211,6 +1230,7 @@ public class MaeJavaJNI {
   public final static native String Prop_svg__SWIG_0(long jarg1, Prop jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6, boolean jarg7);
   public final static native String Prop_svg__SWIG_1(long jarg1, Prop jarg1_, String jarg2, double jarg3, double jarg4, double jarg5, double jarg6);
   public final static native boolean Prop_equals(long jarg1, Prop jarg1_, long jarg2, IPreSign jarg2_);
+  public final static native long Prop_castToProp(long jarg1, IPreSign jarg1_);
   public final static native long GeneralEnrichedPose_SWIGSmartPtrUpcast(long jarg1);
   public final static native long FlSkeleton_SWIGSmartPtrUpcast(long jarg1);
   public final static native long FlPoseDetector_SWIGSmartPtrUpcast(long jarg1);

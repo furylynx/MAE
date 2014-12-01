@@ -88,7 +88,7 @@ namespace mae
 				 * @param timestamp The timestamp.
 				 * @param sequences The sequences.
 				 */
-				virtual void notify_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences);
+				virtual void notify_listeners(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences);
 
 				/**
 				 * Notifies the listeners on a recognized sequence. Only the sequence titles are provided.
@@ -96,7 +96,7 @@ namespace mae
 				 * @param timestamp The timestamp.
 				 * @param sequences_titles The sequence titles.
 				 */
-				virtual void notify_listeners(long timestamp, std::vector<std::string> sequences_titles);
+				virtual void notify_listeners(uint64_t timestamp, std::vector<std::string> sequences_titles);
 
 			protected:
 
@@ -401,8 +401,7 @@ namespace mae
 			// main elements
 			//---------------
 
-			long timestamp = std::stol(mae::mxml::get_node_content(root_node, namespace_map, "timestamp", nsp, "0"));
-
+			uint64_t timestamp = std::stoull(mae::mxml::get_node_content(root_node, namespace_map, "timestamp", nsp, "0"));
 
 			if (!short_type)
 			{
@@ -532,7 +531,7 @@ namespace mae
 		}
 
 		template <typename U>
-		void client<U>::notify_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences)
+		void client<U>::notify_listeners(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences)
 		{
 			if (debug_)
 			{
@@ -556,7 +555,7 @@ namespace mae
 		}
 
 		template <typename U>
-		void client<U>::notify_listeners(long timestamp, std::vector<std::string> sequences_titles)
+		void client<U>::notify_listeners(uint64_t timestamp, std::vector<std::string> sequences_titles)
 		{
 			if (debug_)
 			{

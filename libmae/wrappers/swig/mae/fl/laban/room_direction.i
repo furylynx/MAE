@@ -24,6 +24,13 @@
 %shared_ptr(mae::fl::laban::mv::pin);
 %shared_ptr(mae::fl::laban::room_direction);
 
+//-- cast method
+%extend mae::fl::laban::room_direction {
+  static std::shared_ptr<mae::fl::laban::room_direction> cast_to_room_direction(std::shared_ptr<mae::fl::laban::i_movement> base) {
+    return std::dynamic_pointer_cast<mae::fl::laban::room_direction>(base);
+  }
+}
+
 //-- Parse the original header file
 %include "../../../src/mae/fl/laban/room_direction.hpp"
 

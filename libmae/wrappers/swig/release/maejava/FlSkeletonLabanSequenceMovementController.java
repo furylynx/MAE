@@ -67,7 +67,7 @@ public class FlSkeletonLabanSequenceMovementController {
     this(MaeJavaJNI.new_FlSkeletonLabanSequenceMovementController__SWIG_7(FlSkeletonPoseDetector.getCPtr(ipd), LabanSequenceSequenceGenerator.getCPtr(isg), LabanSequenceSequenceRecognizer.getCPtr(isr), BoneVector.getCPtr(body_parts), body_parts), true);
   }
 
-  public void nextFrame(int timestamp, FlSkeleton skeleton) {
+  public void nextFrame(java.math.BigInteger timestamp, FlSkeleton skeleton) {
     MaeJavaJNI.FlSkeletonLabanSequenceMovementController_nextFrame(swigCPtr, this, timestamp, FlSkeleton.getCPtr(skeleton), skeleton);
   }
 
@@ -141,11 +141,11 @@ public class FlSkeletonLabanSequenceMovementController {
     MaeJavaJNI.FlSkeletonLabanSequenceMovementController_clearListeners(swigCPtr, this);
   }
 
-  public void notifySequenceListeners(int timestamp, LabanSequence sequence) {
+  public void notifySequenceListeners(java.math.BigInteger timestamp, LabanSequence sequence) {
     MaeJavaJNI.FlSkeletonLabanSequenceMovementController_notifySequenceListeners(swigCPtr, this, timestamp, LabanSequence.getCPtr(sequence), sequence);
   }
 
-  public void notifyRecognitionListeners(int timestamp, LabanSequenceVector sequences) {
+  public void notifyRecognitionListeners(java.math.BigInteger timestamp, LabanSequenceVector sequences) {
     MaeJavaJNI.FlSkeletonLabanSequenceMovementController_notifyRecognitionListeners(swigCPtr, this, timestamp, LabanSequenceVector.getCPtr(sequences), sequences);
   }
 

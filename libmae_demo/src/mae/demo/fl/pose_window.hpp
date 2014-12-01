@@ -57,7 +57,7 @@ namespace mae
 				 * @param timestamp The associated timestamp.
 				 * @param pose The quantized pose.
 				 */
-				virtual void on_pose(long timestamp, std::shared_ptr<general_pose> pose);
+				virtual void on_pose(uint64_t timestamp, std::shared_ptr<general_pose> pose);
 
 			protected:
 				/**

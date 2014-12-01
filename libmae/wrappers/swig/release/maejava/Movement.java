@@ -112,4 +112,9 @@ public class Movement extends IMovement {
     return MaeJavaJNI.Movement_str(swigCPtr, this);
   }
 
+  public static Movement castToMovement(IMovement base) {
+    long cPtr = MaeJavaJNI.Movement_castToMovement(IMovement.getCPtr(base), base);
+    return (cPtr == 0) ? null : new Movement(cPtr, true);
+  }
+
 }

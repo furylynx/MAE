@@ -137,7 +137,7 @@ namespace mae
 				}
 			}
 
-			void laban_visualizer::png(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width, int height)
+			void laban_visualizer::bmp(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width, int height)
 			{
 				//generate surface
 				SDL_Surface* surface = SDL_CreateRGBSurface(0, width, height, (int)format_->BitsPerPixel, format_->Rmask, format_->Gmask, format_->Bmask, format_->Amask);

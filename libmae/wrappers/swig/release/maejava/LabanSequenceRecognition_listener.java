@@ -35,11 +35,11 @@ public class LabanSequenceRecognition_listener {
     }
   }
 
-  public void onRecognition(int timestamp, LabanSequenceVector sequences) {
+  public void onRecognition(java.math.BigInteger timestamp, LabanSequenceVector sequences) {
     MaeJavaJNI.LabanSequenceRecognition_listener_onRecognition__SWIG_0(swigCPtr, this, timestamp, LabanSequenceVector.getCPtr(sequences), sequences);
   }
 
-  public void onRecognition(int timestamp, StringVector title) {
+  public void onRecognition(java.math.BigInteger timestamp, StringVector title) {
     MaeJavaJNI.LabanSequenceRecognition_listener_onRecognition__SWIG_1(swigCPtr, this, timestamp, StringVector.getCPtr(title), title);
   }
 

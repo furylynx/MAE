@@ -107,7 +107,7 @@ public class FlMovementController extends FlSkeletonLabanSequenceMovementControl
     this(MaeJavaJNI.new_FlMovementController__SWIG_17(BoneVector.getCPtr(body_parts), body_parts, ColumnDefinitionVector.getCPtr(column_definitions), column_definitions, LabanSequenceGenerator.getCPtr(sequence_generator), sequence_generator), true);
   }
 
-  public void nextFrame(int timestamp, GeneralSkeleton skeleton) {
+  public void nextFrame(java.math.BigInteger timestamp, GeneralSkeleton skeleton) {
     MaeJavaJNI.FlMovementController_nextFrame(swigCPtr, this, timestamp, GeneralSkeleton.getCPtr(skeleton), skeleton);
   }
 

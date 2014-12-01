@@ -21,6 +21,13 @@
 %shared_ptr(mae::fl::laban::mv::i_degree_sign);
 %shared_ptr(mae::fl::laban::mv::pin);
 
+//-- cast method
+%extend mae::fl::laban::mv::pin {
+  static std::shared_ptr<mae::fl::laban::mv::pin> cast_to_pin(std::shared_ptr<mae::fl::laban::mv::i_degree_sign> base) {
+    return std::dynamic_pointer_cast<mae::fl::laban::mv::pin>(base);
+  }
+}
+
 //-- Parse the original header file
 %include "../../../src/mae/fl/laban/mv/pin.hpp"
 

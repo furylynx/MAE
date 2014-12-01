@@ -73,4 +73,9 @@ public class DefaultLimb extends ILimb {
     return MaeJavaJNI.DefaultLimb_equals__SWIG_1(swigCPtr, this, ILimb.getCPtr(a), a);
   }
 
+  public static DefaultLimb castToDefaultLimb(IPart base) {
+    long cPtr = MaeJavaJNI.DefaultLimb_castToDefaultLimb(IPart.getCPtr(base), base);
+    return (cPtr == 0) ? null : new DefaultLimb(cPtr, true);
+  }
+
 }

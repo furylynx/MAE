@@ -78,4 +78,9 @@ public class JointPart extends IEndpoint {
     return MaeJavaJNI.JointPart_equals__SWIG_1(swigCPtr, this, IEndpoint.getCPtr(a), a);
   }
 
+  public static JointPart castToJointPart(IPart base) {
+    long cPtr = MaeJavaJNI.JointPart_castToJointPart(IPart.getCPtr(base), base);
+    return (cPtr == 0) ? null : new JointPart(cPtr, true);
+  }
+
 }

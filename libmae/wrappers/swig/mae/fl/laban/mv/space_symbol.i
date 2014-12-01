@@ -24,6 +24,13 @@
 %shared_ptr(mae::fl::laban::mv::i_dynamics_sign);
 %shared_ptr(mae::fl::laban::mv::space_symbol);
 
+//-- cast method
+%extend mae::fl::laban::mv::space_symbol {
+  static std::shared_ptr<mae::fl::laban::mv::space_symbol > cast_to_space_symbol(std::shared_ptr<mae::fl::laban::mv::i_symbol> base) {
+    return std::dynamic_pointer_cast<mae::fl::laban::mv::space_symbol>(base);
+  }
+}
+
 //-- Parse the original header file
 %include "../../../src/mae/fl/laban/mv/space_symbol.hpp"
 

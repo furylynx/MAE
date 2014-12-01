@@ -200,7 +200,7 @@ namespace mae
 
 			}
 
-			void pose_window::on_pose(long timestamp, std::shared_ptr<general_pose> pose)
+			void pose_window::on_pose(uint64_t timestamp, std::shared_ptr<general_pose> pose)
 			{
 				current_pose_ = pose;
 

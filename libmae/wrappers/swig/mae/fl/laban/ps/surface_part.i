@@ -23,6 +23,13 @@
 %shared_ptr(mae::fl::laban::ps::i_limb);
 %shared_ptr(mae::fl::laban::ps::surface_part);
 
+//-- cast method
+%extend mae::fl::laban::ps::surface_part {
+  static std::shared_ptr<mae::fl::laban::ps::surface_part > cast_to_surface_part(std::shared_ptr<mae::fl::laban::ps::i_part> base) {
+    return std::dynamic_pointer_cast<mae::fl::laban::ps::surface_part>(base);
+  }
+}
+
 //-- Parse the original header file
 %include "../../../src/mae/fl/laban/ps/surface_part.hpp"
 

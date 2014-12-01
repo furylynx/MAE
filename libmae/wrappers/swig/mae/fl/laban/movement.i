@@ -26,6 +26,13 @@
 %shared_ptr(mae::fl::laban::ps::i_pre_sign);
 %shared_ptr(mae::fl::laban::movement);
 
+//-- cast method
+%extend mae::fl::laban::movement {
+  static std::shared_ptr<mae::fl::laban::movement> cast_to_movement(std::shared_ptr<mae::fl::laban::i_movement> base) {
+    return std::dynamic_pointer_cast<mae::fl::laban::movement>(base);
+  }
+}
+
 //-- Parse the original header file
 %include "../../../src/mae/fl/laban/movement.hpp"
 

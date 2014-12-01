@@ -35,7 +35,7 @@ public class IPoseListener {
     }
   }
 
-  public void onPose(int timestamp, GeneralPose pose) {
+  public void onPose(java.math.BigInteger timestamp, GeneralPose pose) {
     MaeJavaJNI.IPoseListener_onPose(swigCPtr, this, timestamp, GeneralPose.getCPtr(pose), pose);
   }
 
