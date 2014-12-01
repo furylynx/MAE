@@ -3,9 +3,7 @@ package controller;
 import java.math.BigInteger;
 import java.util.List;
 
-import maejava.Bone;
 import maejava.BoneVector;
-import maejava.ColumnDefinition;
 import maejava.ColumnDefinitionVector;
 import maejava.GeneralSkeletonVector;
 import maejava.LabanSequence;
