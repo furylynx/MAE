@@ -181,6 +181,13 @@ public class FloorPlanPanel extends JPanel {
 				
 				if (pMusicIntensity > 0.0)
 				{
+					g.setColor(Color.BLACK);
+					g.drawOval(
+							(int) ((info.getXpos()+info.getWidth() - 24) * scaleFactor),
+							(int) ((info.getYpos()+info.getHeight() - 26) * scaleFactor),
+							(int) (20 * scaleFactor),
+							(int) (20 * scaleFactor));
+					
 					g.setColor(Color.WHITE);
 					g.fillOval(
 							(int) ((info.getXpos()+info.getWidth() - 24) * scaleFactor),
@@ -204,8 +211,6 @@ public class FloorPlanPanel extends JPanel {
 					g.fillRect((int) ((info.getXpos()+info.getWidth() - 10) * scaleFactor), (int) ((info.getYpos()+info.getHeight() - 22) * scaleFactor), (int) (1 * scaleFactor), (int) (10 * scaleFactor));
 					g.fillRect((int) ((info.getXpos()+info.getWidth() - 17) * scaleFactor), (int) ((info.getYpos()+info.getHeight() - 22) * scaleFactor), (int) (1 * scaleFactor), (int) (8 * scaleFactor));
 					g.fillRect((int) ((info.getXpos()+info.getWidth() - 17) * scaleFactor), (int) ((info.getYpos()+info.getHeight() - 22) * scaleFactor), (int) (8 * scaleFactor), (int) (1 * scaleFactor));
-
-					//draw music symbol nicer
 				}
 
 			}
@@ -219,7 +224,7 @@ public class FloorPlanPanel extends JPanel {
 	 *            The sensor Info.
 	 */
 	public void updateSensorInfo(SensorInfo sensorInfo) {
-
+		
 		synchronized (mutex) {
 			sensorInfosMap.put(sensorInfo.getDeviceInfo().getDeviceSerial(),
 					sensorInfo);
@@ -256,7 +261,7 @@ public class FloorPlanPanel extends JPanel {
 
 					} else if ("DimDown".equals(sensorInfo
 							.getCurrentRecognition().get(i).getTitle().trim())) {
-
+						
 						if (dimmingDownPoses.get(sensorInfo.getDeviceInfo()
 								.getDeviceSerial()) == null) {
 							dimmingDownPoses.put(sensorInfo.getDeviceInfo()
@@ -266,7 +271,7 @@ public class FloorPlanPanel extends JPanel {
 
 					} else if ("DimUp".equals(sensorInfo
 							.getCurrentRecognition().get(i).getTitle().trim())) {
-
+						
 						if (dimmingUpPoses.get(sensorInfo.getDeviceInfo()
 								.getDeviceSerial()) == null) {
 							dimmingUpPoses.put(sensorInfo.getDeviceInfo()
@@ -276,72 +281,80 @@ public class FloorPlanPanel extends JPanel {
 
 					} else if ("MusicOn".equals(sensorInfo
 							.getCurrentRecognition().get(i).getTitle().trim())) {
+						
 						musicIntensities.put(sensorInfo.getPosition()
 								.getPositionId(), 1.0);
 					} else if ("MusicOff".equals(sensorInfo
 							.getCurrentRecognition().get(i).getTitle().trim())) {
-						lightIntensities.put(sensorInfo.getPosition()
+						
+						musicIntensities.put(sensorInfo.getPosition()
 								.getPositionId(), 0.0);
 					}
 
-					// dim the lights if pose is held
-					if (dimmingUpPoses.get(sensorInfo.getDeviceInfo()
-							.getDeviceSerial()) != null) {
-						PoseInfo poseInfo = dimmingUpPoses.get(sensorInfo
-								.getDeviceInfo().getDeviceSerial());
-						if (poseInfo.matchingPose(sensorInfo
-								.getCurrentSequence())) {
-							if (lightIntensities.get(sensorInfo.getPosition()
-									.getPositionId()) != null) {
-								double intensity = lightIntensities
-										.get(sensorInfo.getPosition()
-												.getPositionId());
-								if (intensity < 0.005) {
-									intensity = 0;
-								} else {
-									intensity -= 0.005;
-								}
 
-								lightIntensities.put(sensorInfo.getPosition()
-										.getPositionId(), intensity);
-							} else {
-								lightIntensities.put(sensorInfo.getPosition()
-										.getPositionId(), 0.0);
-							}
+
+				}
+			}
+			
+			// dim the lights if pose is held
+			if (dimmingUpPoses.get(sensorInfo.getDeviceInfo()
+					.getDeviceSerial()) != null) {
+				
+				PoseInfo poseInfo = dimmingUpPoses.get(sensorInfo
+						.getDeviceInfo().getDeviceSerial());
+				if (poseInfo.matchingPose(sensorInfo
+						.getCurrentSequence())) {
+					if (lightIntensities.get(sensorInfo.getPosition()
+							.getPositionId()) != null) {
+						double intensity = lightIntensities
+								.get(sensorInfo.getPosition()
+										.getPositionId());
+						if (intensity > 0.995) {
+							intensity = 1.0;
 						} else {
-							dimmingUpPoses.remove(sensorInfo.getDeviceInfo()
-									.getDeviceSerial());
+							intensity += 0.005;
 						}
+
+						lightIntensities.put(sensorInfo.getPosition()
+								.getPositionId(), intensity);
+					} else {
+						lightIntensities.put(sensorInfo.getPosition()
+								.getPositionId(), 0.0);
 					}
-
-					if (dimmingDownPoses.get(sensorInfo.getDeviceInfo()
-							.getDeviceSerial()) != null) {
-						PoseInfo poseInfo = dimmingDownPoses.get(sensorInfo
-								.getDeviceInfo().getDeviceSerial());
-						if (poseInfo.matchingPose(sensorInfo
-								.getCurrentSequence())) {
-							if (lightIntensities.get(sensorInfo.getPosition()
-									.getPositionId()) != null) {
-								double intensity = lightIntensities
-										.get(sensorInfo.getPosition()
-												.getPositionId());
-								if (intensity > 0.995) {
-									intensity = 1.0;
-								} else {
-									intensity += 0.005;
-								}
-
-								lightIntensities.put(sensorInfo.getPosition()
-										.getPositionId(), intensity);
-							} else {
-								lightIntensities.put(sensorInfo.getPosition()
-										.getPositionId(), 0.0);
-							}
+				} else {
+					
+					dimmingUpPoses.remove(sensorInfo.getDeviceInfo()
+							.getDeviceSerial());
+				}
+			}
+			
+			
+			if (dimmingDownPoses.get(sensorInfo.getDeviceInfo()
+					.getDeviceSerial()) != null) {
+				PoseInfo poseInfo = dimmingDownPoses.get(sensorInfo
+						.getDeviceInfo().getDeviceSerial());
+				if (poseInfo.matchingPose(sensorInfo
+						.getCurrentSequence())) {
+					if (lightIntensities.get(sensorInfo.getPosition()
+							.getPositionId()) != null) {
+						double intensity = lightIntensities
+								.get(sensorInfo.getPosition()
+										.getPositionId());
+						if (intensity > 0.995) {
+							intensity = 1.0;
 						} else {
-							dimmingDownPoses.remove(sensorInfo.getDeviceInfo()
-									.getDeviceSerial());
+							intensity += 0.005;
 						}
+
+						lightIntensities.put(sensorInfo.getPosition()
+								.getPositionId(), intensity);
+					} else {
+						lightIntensities.put(sensorInfo.getPosition()
+								.getPositionId(), 0.0);
 					}
+				} else {
+					dimmingDownPoses.remove(sensorInfo.getDeviceInfo()
+							.getDeviceSerial());
 				}
 			}
 		}
