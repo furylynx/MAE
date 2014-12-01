@@ -95,4 +95,9 @@ public class RoomDirection extends IMovement {
     return MaeJavaJNI.RoomDirection_str(swigCPtr, this);
   }
 
+  public static RoomDirection castToRoomDirection(IMovement base) {
+    long cPtr = MaeJavaJNI.RoomDirection_castToRoomDirection(IMovement.getCPtr(base), base);
+    return (cPtr == 0) ? null : new RoomDirection(cPtr, true);
+  }
+
 }

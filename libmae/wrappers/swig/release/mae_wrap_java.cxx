@@ -724,6 +724,9 @@ SWIGINTERN void std_vector_Sl_mae_bone_Sg__set(std::vector< mae::bone > *self,in
                     throw std::out_of_range("vector index out of range");
             }
 
+#include <stdint.h>		// Use the C99 official header
+
+
 	#include "../../../src/mae/i_sequence_listener.hpp"
 
 
@@ -1091,6 +1094,9 @@ SWIGINTERN void std_vector_Sl_std_shared_ptr_Sl_mae_general_skeleton_Sg__Sg__set
 
 	#include "../../../src/mae/fl/laban/movement.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::movement > mae_fl_laban_movement_cast_to_movement(std::shared_ptr< mae::fl::laban::i_movement > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::movement>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/e_path_type.hpp"
 
@@ -1111,6 +1117,9 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_e_path_type_Sg__set(std::vector< mae:
 
 	#include "../../../src/mae/fl/laban/path.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::path > mae_fl_laban_path_cast_to_path(std::shared_ptr< mae::fl::laban::i_movement > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::path>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/e_relationship_type.hpp"
 
@@ -1140,6 +1149,9 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_e_relationship_type_Sg__set(std::vect
 
 	#include "../../../src/mae/fl/laban/relationship_bow.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::relationship_bow > mae_fl_laban_relationship_bow_cast_to_relationship_bow(std::shared_ptr< mae::fl::laban::i_movement > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::relationship_bow>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/mv/i_degree_sign.hpp"
 
@@ -1163,12 +1175,21 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_mv_e_level_Sg__set(std::vector< mae::
 
 	#include "../../../src/mae/fl/laban/mv/pin.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::mv::pin > mae_fl_laban_mv_pin_cast_to_pin(std::shared_ptr< mae::fl::laban::mv::i_degree_sign > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::mv::pin>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/room_direction.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::room_direction > mae_fl_laban_room_direction_cast_to_room_direction(std::shared_ptr< mae::fl::laban::i_movement > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::room_direction>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/mv/accent_sign.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::mv::accent_sign > mae_fl_laban_mv_accent_sign_cast_to_accent_sign(std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::mv::accent_sign>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/mv/e_dynamic.hpp"
 
@@ -1189,6 +1210,9 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_mv_e_dynamic_Sg__set(std::vector< mae
 
 	#include "../../../src/mae/fl/laban/mv/dynamic_sign.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::mv::dynamic_sign > mae_fl_laban_mv_dynamic_sign_cast_to_dynamic_sign(std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::mv::dynamic_sign>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/mv/e_cancel.hpp"
 
@@ -1209,6 +1233,9 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_mv_e_cancel_Sg__set(std::vector< mae:
 
 	#include "../../../src/mae/fl/laban/mv/cancellation_symbol.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::mv::cancellation_symbol > mae_fl_laban_mv_cancellation_symbol_cast_to_cancellation_symbol(std::shared_ptr< mae::fl::laban::mv::i_symbol > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::mv::cancellation_symbol>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/mv/e_space.hpp"
 
@@ -1246,6 +1273,9 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_mv_e_space_direction_Sg__set(std::vec
 
 	#include "../../../src/mae/fl/laban/mv/space_measurement.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::mv::space_measurement > mae_fl_laban_mv_space_measurement_cast_to_space_measurement(std::shared_ptr< mae::fl::laban::mv::i_degree_sign > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::mv::space_measurement>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/mv/e_direction.hpp"
 
@@ -1283,6 +1313,9 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_mv_e_contact_hook_Sg__set(std::vector
 
 	#include "../../../src/mae/fl/laban/mv/direction_symbol.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::mv::direction_symbol > mae_fl_laban_mv_direction_symbol_cast_to_direction_symbol(std::shared_ptr< mae::fl::laban::mv::i_symbol > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::mv::direction_symbol>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/mv/e_turn_direction.hpp"
 
@@ -1303,9 +1336,15 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_mv_e_turn_direction_Sg__set(std::vect
 
 	#include "../../../src/mae/fl/laban/mv/turn_symbol.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::mv::turn_symbol > mae_fl_laban_mv_turn_symbol_cast_to_turn_symbol(std::shared_ptr< mae::fl::laban::mv::i_symbol > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::mv::turn_symbol>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/mv/vibration_symbol.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::mv::vibration_symbol > mae_fl_laban_mv_vibration_symbol_cast_to_vibration_symbol(std::shared_ptr< mae::fl::laban::mv::i_symbol > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::mv::vibration_symbol>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/ps/i_part.hpp"
 
@@ -1332,6 +1371,9 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_ps_e_area_Sg__set(std::vector< mae::f
 
 	#include "../../../src/mae/fl/laban/ps/area_part.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::ps::area_part > mae_fl_laban_ps_area_part_cast_to_area_part(std::shared_ptr< mae::fl::laban::ps::i_part > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::ps::area_part>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/ps/e_side.hpp"
 
@@ -1352,12 +1394,18 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_ps_e_side_Sg__set(std::vector< mae::f
 
 	#include "../../../src/mae/fl/laban/ps/body_part.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::ps::body_part > mae_fl_laban_ps_body_part_cast_to_body_part(std::shared_ptr< mae::fl::laban::ps::i_pre_sign > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::ps::body_part>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/ps/i_limb.hpp"
 
 
 	#include "../../../src/mae/fl/laban/ps/custom_limb.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::ps::custom_limb > mae_fl_laban_ps_custom_limb_cast_to_custom_limb(std::shared_ptr< mae::fl::laban::ps::i_part > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::ps::custom_limb>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/ps/e_limb.hpp"
 
@@ -1378,6 +1426,9 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_ps_e_limb_Sg__set(std::vector< mae::f
 
 	#include "../../../src/mae/fl/laban/ps/default_limb.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::ps::default_limb > mae_fl_laban_ps_default_limb_cast_to_default_limb(std::shared_ptr< mae::fl::laban::ps::i_part > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::ps::default_limb>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/ps/e_digit.hpp"
 
@@ -1398,6 +1449,9 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_ps_e_digit_Sg__set(std::vector< mae::
 
 	#include "../../../src/mae/fl/laban/ps/digit_part.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::ps::digit_part > mae_fl_laban_ps_digit_part_cast_to_digit_part(std::shared_ptr< mae::fl::laban::ps::i_part > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::ps::digit_part>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/ps/e_limb_side.hpp"
 
@@ -1418,6 +1472,9 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_ps_e_limb_side_Sg__set(std::vector< m
 
 	#include "../../../src/mae/fl/laban/ps/surface_part.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::ps::surface_part > mae_fl_laban_ps_surface_part_cast_to_surface_part(std::shared_ptr< mae::fl::laban::ps::i_part > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::ps::surface_part>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/ps/e_joint.hpp"
 
@@ -1438,9 +1495,15 @@ SWIGINTERN void std_vector_Sl_mae_fl_laban_ps_e_joint_Sg__set(std::vector< mae::
 
 	#include "../../../src/mae/fl/laban/ps/joint_part.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::ps::joint_part > mae_fl_laban_ps_joint_part_cast_to_joint_part(std::shared_ptr< mae::fl::laban::ps::i_part > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::ps::joint_part>(base);
+  }
 
 	#include "../../../src/mae/fl/laban/ps/prop.hpp"
 
+SWIGINTERN std::shared_ptr< mae::fl::laban::ps::prop > mae_fl_laban_ps_prop_cast_to_prop(std::shared_ptr< mae::fl::laban::ps::i_pre_sign > base){
+    return std::dynamic_pointer_cast<mae::fl::laban::ps::prop>(base);
+  }
 
 
 /* ---------------------------------------------------
@@ -4165,9 +4228,9 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IPoseListener(JNIEnv *je
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IPoseListener_1onPose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IPoseListener_1onPose(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jobject jarg2, jlong jarg3, jobject jarg3_) {
   mae::i_pose_listener *arg1 = (mae::i_pose_listener *) 0 ;
-  long arg2 ;
+  uint64_t arg2 ;
   std::shared_ptr< mae::general_pose > arg3 ;
   std::shared_ptr< mae::general_pose > *argp3 ;
   
@@ -4176,7 +4239,29 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IPoseListener_1onPose(JNIEnv *je
   (void)jarg1_;
   (void)jarg3_;
   arg1 = *(mae::i_pose_listener **)&jarg1; 
-  arg2 = (long)jarg2; 
+  {
+    jclass clazz;
+    jmethodID mid;
+    jbyteArray ba;
+    jbyte* bae;
+    jsize sz;
+    int i;
+    
+    if (!jarg2) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "BigInteger null");
+      return ;
+    }
+    clazz = jenv->GetObjectClass(jarg2);
+    mid = jenv->GetMethodID(clazz, "toByteArray", "()[B");
+    ba = (jbyteArray)jenv->CallObjectMethod(jarg2, mid);
+    bae = jenv->GetByteArrayElements(ba, 0);
+    sz = jenv->GetArrayLength(ba);
+    arg2 = 0;
+    for(i=0; i<sz; i++) {
+      arg2 = (arg2 << 8) | (uint64_t)(unsigned char)bae[i];
+    }
+    jenv->ReleaseByteArrayElements(ba, bae, 0);
+  }
   argp3 = *(std::shared_ptr< mae::general_pose > **)&jarg3; 
   if (argp3) arg3 = *argp3; 
   {
@@ -16549,9 +16634,9 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1LabanSequenceSequenceLis
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceListener_1onSequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceListener_1onSequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jobject jarg2, jlong jarg3, jobject jarg3_) {
   mae::i_sequence_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_listener< mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
+  uint64_t arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
   std::shared_ptr< mae::i_sequence_listener< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *argp3 ;
@@ -16563,7 +16648,29 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceListener_1o
   
   smartarg1 = *(std::shared_ptr<  mae::i_sequence_listener<mae::fl::laban::laban_sequence> > **)&jarg1;
   arg1 = (mae::i_sequence_listener<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (long)jarg2; 
+  {
+    jclass clazz;
+    jmethodID mid;
+    jbyteArray ba;
+    jbyte* bae;
+    jsize sz;
+    int i;
+    
+    if (!jarg2) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "BigInteger null");
+      return ;
+    }
+    clazz = jenv->GetObjectClass(jarg2);
+    mid = jenv->GetMethodID(clazz, "toByteArray", "()[B");
+    ba = (jbyteArray)jenv->CallObjectMethod(jarg2, mid);
+    bae = jenv->GetByteArrayElements(ba, 0);
+    sz = jenv->GetArrayLength(ba);
+    arg2 = 0;
+    for(i=0; i<sz; i++) {
+      arg2 = (arg2 << 8) | (uint64_t)(unsigned char)bae[i];
+    }
+    jenv->ReleaseByteArrayElements(ba, bae, 0);
+  }
   argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
   if (argp3) arg3 = *argp3; 
   {
@@ -16607,9 +16714,9 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1LabanSequenceRecognition
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognition_1listener_1onRecognition_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognition_1listener_1onRecognition_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jobject jarg2, jlong jarg3, jobject jarg3_) {
   mae::i_recognition_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
+  uint64_t arg2 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > arg3 ;
   std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *argp3 ;
@@ -16621,7 +16728,29 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognition_1listen
   
   smartarg1 = *(std::shared_ptr<  mae::i_recognition_listener<mae::fl::laban::laban_sequence> > **)&jarg1;
   arg1 = (mae::i_recognition_listener<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (long)jarg2; 
+  {
+    jclass clazz;
+    jmethodID mid;
+    jbyteArray ba;
+    jbyte* bae;
+    jsize sz;
+    int i;
+    
+    if (!jarg2) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "BigInteger null");
+      return ;
+    }
+    clazz = jenv->GetObjectClass(jarg2);
+    mid = jenv->GetMethodID(clazz, "toByteArray", "()[B");
+    ba = (jbyteArray)jenv->CallObjectMethod(jarg2, mid);
+    bae = jenv->GetByteArrayElements(ba, 0);
+    sz = jenv->GetArrayLength(ba);
+    arg2 = 0;
+    for(i=0; i<sz; i++) {
+      arg2 = (arg2 << 8) | (uint64_t)(unsigned char)bae[i];
+    }
+    jenv->ReleaseByteArrayElements(ba, bae, 0);
+  }
   argp3 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg3; 
   if (!argp3) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >");
@@ -16644,9 +16773,9 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognition_1listen
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognition_1listener_1onRecognition_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognition_1listener_1onRecognition_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jobject jarg2, jlong jarg3, jobject jarg3_) {
   mae::i_recognition_listener< mae::fl::laban::laban_sequence > *arg1 = (mae::i_recognition_listener< mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
+  uint64_t arg2 ;
   std::vector< std::string > arg3 ;
   std::shared_ptr< mae::i_recognition_listener< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
   std::vector< std::string > *argp3 ;
@@ -16658,7 +16787,29 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognition_1listen
   
   smartarg1 = *(std::shared_ptr<  mae::i_recognition_listener<mae::fl::laban::laban_sequence> > **)&jarg1;
   arg1 = (mae::i_recognition_listener<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (long)jarg2; 
+  {
+    jclass clazz;
+    jmethodID mid;
+    jbyteArray ba;
+    jbyte* bae;
+    jsize sz;
+    int i;
+    
+    if (!jarg2) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "BigInteger null");
+      return ;
+    }
+    clazz = jenv->GetObjectClass(jarg2);
+    mid = jenv->GetMethodID(clazz, "toByteArray", "()[B");
+    ba = (jbyteArray)jenv->CallObjectMethod(jarg2, mid);
+    bae = jenv->GetByteArrayElements(ba, 0);
+    sz = jenv->GetArrayLength(ba);
+    arg2 = 0;
+    for(i=0; i<sz; i++) {
+      arg2 = (arg2 << 8) | (uint64_t)(unsigned char)bae[i];
+    }
+    jenv->ReleaseByteArrayElements(ba, bae, 0);
+  }
   argp3 = *(std::vector< std::string > **)&jarg3; 
   if (!argp3) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::string >");
@@ -16706,10 +16857,10 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1FlSkeletonLabanSequenceM
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementDetector_1detectMovement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jdouble jarg3, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementDetector_1detectMovement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jobject jarg2, jdouble jarg3, jlong jarg4, jobject jarg4_, jlong jarg5, jobject jarg5_) {
   jlong jresult = 0 ;
   mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
+  uint64_t arg2 ;
   double arg3 ;
   std::shared_ptr< mae::fl::fl_skeleton > arg4 ;
   std::vector< mae::bone > arg5 ;
@@ -16726,7 +16877,29 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovement
   
   smartarg1 = *(std::shared_ptr<  mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > **)&jarg1;
   arg1 = (mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (long)jarg2; 
+  {
+    jclass clazz;
+    jmethodID mid;
+    jbyteArray ba;
+    jbyte* bae;
+    jsize sz;
+    int i;
+    
+    if (!jarg2) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "BigInteger null");
+      return 0;
+    }
+    clazz = jenv->GetObjectClass(jarg2);
+    mid = jenv->GetMethodID(clazz, "toByteArray", "()[B");
+    ba = (jbyteArray)jenv->CallObjectMethod(jarg2, mid);
+    bae = jenv->GetByteArrayElements(ba, 0);
+    sz = jenv->GetArrayLength(ba);
+    arg2 = 0;
+    for(i=0; i<sz; i++) {
+      arg2 = (arg2 << 8) | (uint64_t)(unsigned char)bae[i];
+    }
+    jenv->ReleaseByteArrayElements(ba, bae, 0);
+  }
   arg3 = (double)jarg3; 
   argp4 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg4; 
   if (argp4) arg4 = *argp4; 
@@ -16896,9 +17069,9 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementD
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementDetector_1notifyListeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementDetector_1notifyListeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jobject jarg2, jlong jarg3, jobject jarg3_) {
   mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
+  uint64_t arg2 ;
   std::shared_ptr< mae::general_pose > arg3 ;
   std::shared_ptr< mae::i_movement_detector< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
   std::shared_ptr< mae::general_pose > *argp3 ;
@@ -16910,7 +17083,29 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementD
   
   smartarg1 = *(std::shared_ptr<  mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> > **)&jarg1;
   arg1 = (mae::i_movement_detector<mae::fl::fl_skeleton,mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
-  arg2 = (long)jarg2; 
+  {
+    jclass clazz;
+    jmethodID mid;
+    jbyteArray ba;
+    jbyte* bae;
+    jsize sz;
+    int i;
+    
+    if (!jarg2) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "BigInteger null");
+      return ;
+    }
+    clazz = jenv->GetObjectClass(jarg2);
+    mid = jenv->GetMethodID(clazz, "toByteArray", "()[B");
+    ba = (jbyteArray)jenv->CallObjectMethod(jarg2, mid);
+    bae = jenv->GetByteArrayElements(ba, 0);
+    sz = jenv->GetArrayLength(ba);
+    arg2 = 0;
+    for(i=0; i<sz; i++) {
+      arg2 = (arg2 << 8) | (uint64_t)(unsigned char)bae[i];
+    }
+    jenv->ReleaseByteArrayElements(ba, bae, 0);
+  }
   argp3 = *(std::shared_ptr< mae::general_pose > **)&jarg3; 
   if (argp3) arg3 = *argp3; 
   {
@@ -17353,9 +17548,9 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1FlSkeletonLabanSequenceM
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementController_1nextFrame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementController_1nextFrame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jobject jarg2, jlong jarg3, jobject jarg3_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
+  uint64_t arg2 ;
   std::shared_ptr< mae::fl::fl_skeleton > arg3 ;
   std::shared_ptr< mae::fl::fl_skeleton > *argp3 ;
   
@@ -17364,7 +17559,29 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   (void)jarg1_;
   (void)jarg3_;
   arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
+  {
+    jclass clazz;
+    jmethodID mid;
+    jbyteArray ba;
+    jbyte* bae;
+    jsize sz;
+    int i;
+    
+    if (!jarg2) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "BigInteger null");
+      return ;
+    }
+    clazz = jenv->GetObjectClass(jarg2);
+    mid = jenv->GetMethodID(clazz, "toByteArray", "()[B");
+    ba = (jbyteArray)jenv->CallObjectMethod(jarg2, mid);
+    bae = jenv->GetByteArrayElements(ba, 0);
+    sz = jenv->GetArrayLength(ba);
+    arg2 = 0;
+    for(i=0; i<sz; i++) {
+      arg2 = (arg2 << 8) | (uint64_t)(unsigned char)bae[i];
+    }
+    jenv->ReleaseByteArrayElements(ba, bae, 0);
+  }
   argp3 = *(std::shared_ptr< mae::fl::fl_skeleton > **)&jarg3; 
   if (argp3) arg3 = *argp3; 
   {
@@ -17834,9 +18051,9 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementController_1notifySequenceListeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementController_1notifySequenceListeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jobject jarg2, jlong jarg3, jobject jarg3_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
+  uint64_t arg2 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > arg3 ;
   std::shared_ptr< mae::fl::laban::laban_sequence > *argp3 ;
   
@@ -17845,7 +18062,29 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   (void)jarg1_;
   (void)jarg3_;
   arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
+  {
+    jclass clazz;
+    jmethodID mid;
+    jbyteArray ba;
+    jbyte* bae;
+    jsize sz;
+    int i;
+    
+    if (!jarg2) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "BigInteger null");
+      return ;
+    }
+    clazz = jenv->GetObjectClass(jarg2);
+    mid = jenv->GetMethodID(clazz, "toByteArray", "()[B");
+    ba = (jbyteArray)jenv->CallObjectMethod(jarg2, mid);
+    bae = jenv->GetByteArrayElements(ba, 0);
+    sz = jenv->GetArrayLength(ba);
+    arg2 = 0;
+    for(i=0; i<sz; i++) {
+      arg2 = (arg2 << 8) | (uint64_t)(unsigned char)bae[i];
+    }
+    jenv->ReleaseByteArrayElements(ba, bae, 0);
+  }
   argp3 = *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jarg3; 
   if (argp3) arg3 = *argp3; 
   {
@@ -17864,9 +18103,9 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementController_1notifyRecognitionListeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementController_1notifyRecognitionListeners(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jobject jarg2, jlong jarg3, jobject jarg3_) {
   mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *arg1 = (mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > *) 0 ;
-  long arg2 ;
+  uint64_t arg2 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > arg3 ;
   std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > *argp3 ;
   
@@ -17875,7 +18114,29 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonLabanSequenceMovementC
   (void)jarg1_;
   (void)jarg3_;
   arg1 = *(mae::movement_controller< mae::fl::fl_skeleton,mae::fl::laban::laban_sequence > **)&jarg1; 
-  arg2 = (long)jarg2; 
+  {
+    jclass clazz;
+    jmethodID mid;
+    jbyteArray ba;
+    jbyte* bae;
+    jsize sz;
+    int i;
+    
+    if (!jarg2) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "BigInteger null");
+      return ;
+    }
+    clazz = jenv->GetObjectClass(jarg2);
+    mid = jenv->GetMethodID(clazz, "toByteArray", "()[B");
+    ba = (jbyteArray)jenv->CallObjectMethod(jarg2, mid);
+    bae = jenv->GetByteArrayElements(ba, 0);
+    sz = jenv->GetArrayLength(ba);
+    arg2 = 0;
+    for(i=0; i<sz; i++) {
+      arg2 = (arg2 << 8) | (uint64_t)(unsigned char)bae[i];
+    }
+    jenv->ReleaseByteArrayElements(ba, bae, 0);
+  }
   argp3 = *(std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > > **)&jarg3; 
   if (!argp3) {
     SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::fl::laban::laban_sequence > >");
@@ -18789,9 +19050,9 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1FlMovementController(JNI
 }
 
 
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlMovementController_1nextFrame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jlong jarg3, jobject jarg3_) {
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlMovementController_1nextFrame(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jobject jarg2, jlong jarg3, jobject jarg3_) {
   mae::fl::fl_movement_controller *arg1 = (mae::fl::fl_movement_controller *) 0 ;
-  long arg2 ;
+  uint64_t arg2 ;
   std::shared_ptr< mae::general_skeleton > arg3 ;
   std::shared_ptr< mae::general_skeleton > *argp3 ;
   
@@ -18800,7 +19061,29 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlMovementController_1nextFrame(
   (void)jarg1_;
   (void)jarg3_;
   arg1 = *(mae::fl::fl_movement_controller **)&jarg1; 
-  arg2 = (long)jarg2; 
+  {
+    jclass clazz;
+    jmethodID mid;
+    jbyteArray ba;
+    jbyte* bae;
+    jsize sz;
+    int i;
+    
+    if (!jarg2) {
+      SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "BigInteger null");
+      return ;
+    }
+    clazz = jenv->GetObjectClass(jarg2);
+    mid = jenv->GetMethodID(clazz, "toByteArray", "()[B");
+    ba = (jbyteArray)jenv->CallObjectMethod(jarg2, mid);
+    bae = jenv->GetByteArrayElements(ba, 0);
+    sz = jenv->GetArrayLength(ba);
+    arg2 = 0;
+    for(i=0; i<sz; i++) {
+      arg2 = (arg2 << 8) | (uint64_t)(unsigned char)bae[i];
+    }
+    jenv->ReleaseByteArrayElements(ba, bae, 0);
+  }
   argp3 = *(std::shared_ptr< mae::general_skeleton > **)&jarg3; 
   if (argp3) arg3 = *argp3; 
   {
@@ -21721,6 +22004,35 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Movement_1str(JNIEnv *jenv, j
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Movement_1castToMovement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg1 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp1 ;
+  std::shared_ptr< mae::fl::laban::movement > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_movement_cast_to_movement(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::movement > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::movement >(result) : 0; 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_EPathTypeC_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::e_path_type arg1 ;
@@ -22643,6 +22955,35 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Path_1str(JNIEnv *jenv, jclas
     }
   }
   jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Path_1castToPath(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg1 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp1 ;
+  std::shared_ptr< mae::fl::laban::path > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_path_cast_to_path(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::path > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::path >(result) : 0; 
   return jresult;
 }
 
@@ -24327,6 +24668,35 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1str(JNIEnv *
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_RelationshipBow_1castToRelationshipBow(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg1 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp1 ;
+  std::shared_ptr< mae::fl::laban::relationship_bow > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_relationship_bow_cast_to_relationship_bow(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::relationship_bow > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::relationship_bow >(result) : 0; 
+  return jresult;
+}
+
+
 SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IDegreeSign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::mv::i_degree_sign *arg1 = (mae::fl::laban::mv::i_degree_sign *) 0 ;
   std::shared_ptr< mae::fl::laban::mv::i_degree_sign > *smartarg1 = 0 ;
@@ -25476,6 +25846,35 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Pin_1svg_1_1SWIG_11(JNIEnv *j
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Pin_1castToPin(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::mv::i_degree_sign > arg1 ;
+  std::shared_ptr< mae::fl::laban::mv::i_degree_sign > *argp1 ;
+  std::shared_ptr< mae::fl::laban::mv::pin > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::mv::i_degree_sign > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_mv_pin_cast_to_pin(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::mv::pin > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::mv::pin >(result) : 0; 
+  return jresult;
+}
+
+
 SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1RoomDirection(JNIEnv *jenv, jclass jcls, jlong jarg1, jdouble jarg2, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   unsigned int arg1 ;
@@ -25974,6 +26373,35 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1str(JNIEnv *je
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_RoomDirection_1castToRoomDirection(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg1 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp1 ;
+  std::shared_ptr< mae::fl::laban::room_direction > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_room_direction_cast_to_room_direction(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::room_direction > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::room_direction >(result) : 0; 
+  return jresult;
+}
+
+
 SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1AccentSign(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   jlong jresult = 0 ;
   unsigned int arg1 ;
@@ -26191,6 +26619,35 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_AccentSign_1xml_1_1SWIG_12(JN
     }
   }
   jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_AccentSign_1castToAccentSign(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > arg1 ;
+  std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > *argp1 ;
+  std::shared_ptr< mae::fl::laban::mv::accent_sign > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_mv_accent_sign_cast_to_accent_sign(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::mv::accent_sign > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::mv::accent_sign >(result) : 0; 
   return jresult;
 }
 
@@ -26841,6 +27298,35 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DynamicSign_1xml_1_1SWIG_12(J
     }
   }
   jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DynamicSign_1castToDynamicSign(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > arg1 ;
+  std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > *argp1 ;
+  std::shared_ptr< mae::fl::laban::mv::dynamic_sign > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::mv::i_dynamics_sign > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_mv_dynamic_sign_cast_to_dynamic_sign(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::mv::dynamic_sign > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::mv::dynamic_sign >(result) : 0; 
   return jresult;
 }
 
@@ -27617,6 +28103,35 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_CancellationSymbol_1str(JNIEn
     }
   }
   jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_CancellationSymbol_1castToCancellationSymbol(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::mv::i_symbol > arg1 ;
+  std::shared_ptr< mae::fl::laban::mv::i_symbol > *argp1 ;
+  std::shared_ptr< mae::fl::laban::mv::cancellation_symbol > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::mv::i_symbol > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_mv_cancellation_symbol_cast_to_cancellation_symbol(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::mv::cancellation_symbol > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::mv::cancellation_symbol >(result) : 0; 
   return jresult;
 }
 
@@ -28959,6 +29474,35 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_SpaceMeasurement_1str(JNIEnv 
     }
   }
   jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_SpaceMeasurement_1castToSpaceMeasurement(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::mv::i_degree_sign > arg1 ;
+  std::shared_ptr< mae::fl::laban::mv::i_degree_sign > *argp1 ;
+  std::shared_ptr< mae::fl::laban::mv::space_measurement > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::mv::i_degree_sign > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_mv_space_measurement_cast_to_space_measurement(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::mv::space_measurement > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::mv::space_measurement >(result) : 0; 
   return jresult;
 }
 
@@ -30598,6 +31142,35 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1str(JNIEnv *
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DirectionSymbol_1castToDirectionSymbol(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::mv::i_symbol > arg1 ;
+  std::shared_ptr< mae::fl::laban::mv::i_symbol > *argp1 ;
+  std::shared_ptr< mae::fl::laban::mv::direction_symbol > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::mv::i_symbol > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_mv_direction_symbol_cast_to_direction_symbol(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::mv::direction_symbol > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::mv::direction_symbol >(result) : 0; 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ETurnDirectionC_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::mv::e_turn_direction arg1 ;
@@ -31505,6 +32078,35 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_TurnSymbol_1str(JNIEnv *jenv,
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_TurnSymbol_1castToTurnSymbol(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::mv::i_symbol > arg1 ;
+  std::shared_ptr< mae::fl::laban::mv::i_symbol > *argp1 ;
+  std::shared_ptr< mae::fl::laban::mv::turn_symbol > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::mv::i_symbol > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_mv_turn_symbol_cast_to_turn_symbol(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::mv::turn_symbol > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::mv::turn_symbol >(result) : 0; 
+  return jresult;
+}
+
+
 SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1VibrationSymbol_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
   jlong jresult = 0 ;
   std::shared_ptr< mae::fl::laban::mv::pin > arg1 ;
@@ -31957,6 +32559,35 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_VibrationSymbol_1str(JNIEnv *
     }
   }
   jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_VibrationSymbol_1castToVibrationSymbol(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::mv::i_symbol > arg1 ;
+  std::shared_ptr< mae::fl::laban::mv::i_symbol > *argp1 ;
+  std::shared_ptr< mae::fl::laban::mv::vibration_symbol > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::mv::i_symbol > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_mv_vibration_symbol_cast_to_vibration_symbol(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::mv::vibration_symbol > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::mv::vibration_symbol >(result) : 0; 
   return jresult;
 }
 
@@ -33259,6 +33890,35 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_AreaPart_1equals_1_1SWIG_11(
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_AreaPart_1castToAreaPart(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::ps::i_part > arg1 ;
+  std::shared_ptr< mae::fl::laban::ps::i_part > *argp1 ;
+  std::shared_ptr< mae::fl::laban::ps::area_part > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::ps::i_part > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_ps_area_part_cast_to_area_part(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::ps::area_part > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::ps::area_part >(result) : 0; 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ESideC_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::e_side arg1 ;
@@ -34040,6 +34700,35 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_BodyPart_1equals(JNIEnv *jen
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_BodyPart_1castToBodyPart(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::ps::i_pre_sign > arg1 ;
+  std::shared_ptr< mae::fl::laban::ps::i_pre_sign > *argp1 ;
+  std::shared_ptr< mae::fl::laban::ps::body_part > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::ps::i_pre_sign > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_ps_body_part_cast_to_body_part(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::ps::body_part > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::ps::body_part >(result) : 0; 
+  return jresult;
+}
+
+
 SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ILimb(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::ps::i_limb *arg1 = (mae::fl::laban::ps::i_limb *) 0 ;
   std::shared_ptr< mae::fl::laban::ps::i_limb > *smartarg1 = 0 ;
@@ -34655,6 +35344,35 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_CustomLimb_1equals_1_1SWIG_1
     }
   }
   jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_CustomLimb_1castToCustomLimb(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::ps::i_part > arg1 ;
+  std::shared_ptr< mae::fl::laban::ps::i_part > *argp1 ;
+  std::shared_ptr< mae::fl::laban::ps::custom_limb > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::ps::i_part > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_ps_custom_limb_cast_to_custom_limb(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::ps::custom_limb > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::ps::custom_limb >(result) : 0; 
   return jresult;
 }
 
@@ -35436,6 +36154,35 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_DefaultLimb_1equals_1_1SWIG_
     }
   }
   jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DefaultLimb_1castToDefaultLimb(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::ps::i_part > arg1 ;
+  std::shared_ptr< mae::fl::laban::ps::i_part > *argp1 ;
+  std::shared_ptr< mae::fl::laban::ps::default_limb > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::ps::i_part > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_ps_default_limb_cast_to_default_limb(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::ps::default_limb > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::ps::default_limb >(result) : 0; 
   return jresult;
 }
 
@@ -36283,6 +37030,35 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_DigitPart_1equals_1_1SWIG_11
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DigitPart_1castToDigitPart(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::ps::i_part > arg1 ;
+  std::shared_ptr< mae::fl::laban::ps::i_part > *argp1 ;
+  std::shared_ptr< mae::fl::laban::ps::digit_part > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::ps::i_part > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_ps_digit_part_cast_to_digit_part(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::ps::digit_part > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::ps::digit_part >(result) : 0; 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_ELimbSideC_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::fl::laban::ps::e_limb_side arg1 ;
@@ -37060,6 +37836,35 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_SurfacePart_1equals(JNIEnv *
     }
   }
   jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_SurfacePart_1castToSurfacePart(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::ps::i_part > arg1 ;
+  std::shared_ptr< mae::fl::laban::ps::i_part > *argp1 ;
+  std::shared_ptr< mae::fl::laban::ps::surface_part > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::ps::i_part > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_ps_surface_part_cast_to_surface_part(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::ps::surface_part > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::ps::surface_part >(result) : 0; 
   return jresult;
 }
 
@@ -37875,6 +38680,35 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_JointPart_1equals_1_1SWIG_11
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_JointPart_1castToJointPart(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::ps::i_part > arg1 ;
+  std::shared_ptr< mae::fl::laban::ps::i_part > *argp1 ;
+  std::shared_ptr< mae::fl::laban::ps::joint_part > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::ps::i_part > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_ps_joint_part_cast_to_joint_part(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::ps::joint_part > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::ps::joint_part >(result) : 0; 
+  return jresult;
+}
+
+
 SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Prop_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jstring jarg1, jstring jarg2) {
   jlong jresult = 0 ;
   std::string arg1 ;
@@ -38269,6 +39103,35 @@ SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_Prop_1equals(JNIEnv *jenv, j
     }
   }
   jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Prop_1castToProp(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::laban::ps::i_pre_sign > arg1 ;
+  std::shared_ptr< mae::fl::laban::ps::i_pre_sign > *argp1 ;
+  std::shared_ptr< mae::fl::laban::ps::prop > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::shared_ptr< mae::fl::laban::ps::i_pre_sign > **)&jarg1; 
+  if (argp1) arg1 = *argp1; 
+  {
+    try {
+      result = mae_fl_laban_ps_prop_cast_to_prop(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::laban::ps::prop > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::ps::prop >(result) : 0; 
   return jresult;
 }
 

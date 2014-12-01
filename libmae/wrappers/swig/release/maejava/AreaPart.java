@@ -78,4 +78,9 @@ public class AreaPart extends IEndpoint {
     return MaeJavaJNI.AreaPart_equals__SWIG_1(swigCPtr, this, IEndpoint.getCPtr(a), a);
   }
 
+  public static AreaPart castToAreaPart(IPart base) {
+    long cPtr = MaeJavaJNI.AreaPart_castToAreaPart(IPart.getCPtr(base), base);
+    return (cPtr == 0) ? null : new AreaPart(cPtr, true);
+  }
+
 }

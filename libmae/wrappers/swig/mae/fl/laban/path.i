@@ -22,6 +22,14 @@
 %shared_ptr(mae::fl::laban::i_movement);
 %shared_ptr(mae::fl::laban::path);
 
+//-- cast method
+%extend mae::fl::laban::path {
+  static std::shared_ptr<mae::fl::laban::path> cast_to_path(std::shared_ptr<mae::fl::laban::i_movement> base) {
+    return std::dynamic_pointer_cast<mae::fl::laban::path>(base);
+  }
+}
+
+
 //-- Parse the original header file
 %include "../../../src/mae/fl/laban/path.hpp"
 

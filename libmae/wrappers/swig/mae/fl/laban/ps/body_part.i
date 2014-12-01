@@ -22,6 +22,13 @@
 %shared_ptr(mae::fl::laban::ps::i_pre_sign);
 %shared_ptr(mae::fl::laban::ps::body_part);
 
+//-- cast method
+%extend mae::fl::laban::ps::body_part {
+  static std::shared_ptr<mae::fl::laban::ps::body_part > cast_to_body_part(std::shared_ptr<mae::fl::laban::ps::i_pre_sign> base) {
+    return std::dynamic_pointer_cast<mae::fl::laban::ps::body_part>(base);
+  }
+}
+
 //-- Parse the original header file
 %include "../../../src/mae/fl/laban/ps/body_part.hpp"
 

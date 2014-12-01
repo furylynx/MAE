@@ -121,4 +121,9 @@ public class DirectionSymbol extends ISymbol {
     return MaeJavaJNI.DirectionSymbol_str(swigCPtr, this);
   }
 
+  public static DirectionSymbol castToDirectionSymbol(ISymbol base) {
+    long cPtr = MaeJavaJNI.DirectionSymbol_castToDirectionSymbol(ISymbol.getCPtr(base), base);
+    return (cPtr == 0) ? null : new DirectionSymbol(cPtr, true);
+  }
+
 }

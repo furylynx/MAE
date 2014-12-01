@@ -89,4 +89,9 @@ public class SpaceMeasurement extends IDegreeSign {
     return MaeJavaJNI.SpaceMeasurement_str(swigCPtr, this);
   }
 
+  public static SpaceMeasurement castToSpaceMeasurement(IDegreeSign base) {
+    long cPtr = MaeJavaJNI.SpaceMeasurement_castToSpaceMeasurement(IDegreeSign.getCPtr(base), base);
+    return (cPtr == 0) ? null : new SpaceMeasurement(cPtr, true);
+  }
+
 }

@@ -74,4 +74,9 @@ public class SurfacePart extends IPart {
     return MaeJavaJNI.SurfacePart_equals(swigCPtr, this, IPart.getCPtr(a), a);
   }
 
+  public static SurfacePart castToSurfacePart(IPart base) {
+    long cPtr = MaeJavaJNI.SurfacePart_castToSurfacePart(IPart.getCPtr(base), base);
+    return (cPtr == 0) ? null : new SurfacePart(cPtr, true);
+  }
+
 }

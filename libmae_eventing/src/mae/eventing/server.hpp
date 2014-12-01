@@ -62,7 +62,7 @@ namespace mae
 				 * @param timestamp The timestamp.
 				 * @param sequences The recognized sequences.
 				 */
-				virtual void notify_clients(long timestamp, std::vector<std::shared_ptr<U> > sequences);
+				virtual void notify_clients(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences);
 
 				/**
 				 * Returns all registered registration managers.
@@ -100,7 +100,7 @@ namespace mae
 				 * @param timestamp The associated timestamp.
 				 * @param sequences The recognized sequences.
 				 */
-				virtual void on_recognition(long timestamp, std::vector<std::shared_ptr<U> > sequences);
+				virtual void on_recognition(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences);
 
 				/**
 				 * Is invoked each time sequences were recognized and only titles of the sequences are present.
@@ -108,7 +108,7 @@ namespace mae
 				 * @param timestamp The associated timestamp.
 				 * @param sequences The recognized sequences.
 				 */
-				virtual void on_recognition(long timestamp, std::vector<std::string> title);
+				virtual void on_recognition(uint64_t timestamp, std::vector<std::string> title);
 
 			protected:
 
@@ -139,7 +139,7 @@ namespace mae
 				 * @param short_message True if the message is intended to be short.
 				 * @return The message string.
 				 */
-				virtual std::string create_recognition_message(long timestamp, std::vector<std::shared_ptr<U> > sequences, bool short_message);
+				virtual std::string create_recognition_message(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences, bool short_message);
 
 				/**
 				 * Accepts a client and registers the requested message format.
@@ -624,7 +624,7 @@ namespace mae
 		}
 
 		template <typename T, typename U>
-		std::string server<T, U>::create_recognition_message(long timestamp, std::vector<std::shared_ptr<U> > sequences, bool short_message)
+		std::string server<T, U>::create_recognition_message(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences, bool short_message)
 		{
 			std::stringstream sstr;
 
@@ -656,7 +656,7 @@ namespace mae
 		}
 
 		template <typename T, typename U>
-		void server<T, U>::notify_clients(long timestamp, std::vector<std::shared_ptr<U> > sequences)
+		void server<T, U>::notify_clients(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences)
 		{
 			if (debug_)
 			{
@@ -695,13 +695,13 @@ namespace mae
 		}
 
 		template <typename T, typename U>
-		void server<T, U>::on_recognition(long timestamp, std::vector<std::shared_ptr<U> > sequences)
+		void server<T, U>::on_recognition(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences)
 		{
 			notify_clients(timestamp, sequences);
 		}
 
 		template <typename T, typename U>
-		void server<T, U>::on_recognition(long timestamp, std::vector<std::string> title)
+		void server<T, U>::on_recognition(uint64_t timestamp, std::vector<std::string> title)
 		{
 			//do nothing since the other method is doing all the work
 		}

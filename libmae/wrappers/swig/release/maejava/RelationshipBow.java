@@ -116,4 +116,9 @@ public class RelationshipBow extends IMovement {
     return MaeJavaJNI.RelationshipBow_str(swigCPtr, this);
   }
 
+  public static RelationshipBow castToRelationshipBow(IMovement base) {
+    long cPtr = MaeJavaJNI.RelationshipBow_castToRelationshipBow(IMovement.getCPtr(base), base);
+    return (cPtr == 0) ? null : new RelationshipBow(cPtr, true);
+  }
+
 }

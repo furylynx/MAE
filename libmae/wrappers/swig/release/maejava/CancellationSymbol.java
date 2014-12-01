@@ -73,4 +73,9 @@ public class CancellationSymbol extends ISymbol {
     return MaeJavaJNI.CancellationSymbol_str(swigCPtr, this);
   }
 
+  public static CancellationSymbol castToCancellationSymbol(ISymbol base) {
+    long cPtr = MaeJavaJNI.CancellationSymbol_castToCancellationSymbol(ISymbol.getCPtr(base), base);
+    return (cPtr == 0) ? null : new CancellationSymbol(cPtr, true);
+  }
+
 }

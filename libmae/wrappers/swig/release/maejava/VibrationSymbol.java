@@ -88,4 +88,9 @@ public class VibrationSymbol extends ISymbol {
     return MaeJavaJNI.VibrationSymbol_str(swigCPtr, this);
   }
 
+  public static VibrationSymbol castToVibrationSymbol(ISymbol base) {
+    long cPtr = MaeJavaJNI.VibrationSymbol_castToVibrationSymbol(ISymbol.getCPtr(base), base);
+    return (cPtr == 0) ? null : new VibrationSymbol(cPtr, true);
+  }
+
 }
