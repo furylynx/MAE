@@ -24,6 +24,7 @@ public class SmartHomePanel extends JPanel implements Observer {
 	Map<String, SequencePanel> sequencePanelsMap;
 	FloorPlanPanel floorPlanPanel;
 	RegisteredMovementsPanel registeredMovementsPanel;
+	RecognitionPanel recognitionPanel;
 
 	public SmartHomePanel(List<DeviceInfo> devices, List<PositionInfo> positions, List<LabanSequence> registeredSequences) {
 		
@@ -35,6 +36,9 @@ public class SmartHomePanel extends JPanel implements Observer {
 		
 		registeredMovementsPanel = new RegisteredMovementsPanel(registeredSequences);
 		tabPane.addTab("Registered Gestures", registeredMovementsPanel);
+		
+		recognitionPanel = new RecognitionPanel();
+		tabPane.addTab("Recognized Sequences", recognitionPanel);
 
 		if (!devices.isEmpty()) {
 			for (DeviceInfo device : devices) {
@@ -71,6 +75,12 @@ public class SmartHomePanel extends JPanel implements Observer {
 
 			// display information on floor plan
 			floorPlanPanel.updateSensorInfo(sensorInfo);
+			
+			if (sensorInfo.getCurrentRecognition() != null)
+			{
+				recognitionPanel.addRecognition(sensorInfo.getTimestamp(), sensorInfo.getCurrentRecognition());
+			}
+			
 		}
 	}
 

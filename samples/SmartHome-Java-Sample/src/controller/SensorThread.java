@@ -76,13 +76,14 @@ public class SensorThread implements Runnable {
 
 			LabanSequence currentSequence = null;
 			LabanSequenceVector currentRecognition = null;
+			
+			int timestamp = (int) (System.currentTimeMillis() - startingTimeStamp);
 
 			// for simplification, the movement data is only analysed for the
 			// first user
 			if (!sensorData.empty() && sensorData.get(0) != null) {
 
 				// process sensor data
-				int timestamp = (int) (System.currentTimeMillis() - startingTimeStamp);
 				movementController.nextFrame(timestamp, sensorData.get(0));
 
 				currentSequence = movementController.getCurrentSequence();
@@ -90,7 +91,7 @@ public class SensorThread implements Runnable {
 			}
 
 			// handle sensor data
-			info.nextFrame(sensorData, currentSequence, currentRecognition);
+			info.nextFrame(timestamp + startingTimeStamp, sensorData, currentSequence, currentRecognition);
 		}
 	}
 

@@ -200,6 +200,10 @@ public class FloorPlanPanel extends JPanel {
 				for (int i = 0; i < sensorInfo.getCurrentRecognition().size(); i++) {
 					if ("LightsOn".equals(sensorInfo.getCurrentRecognition()
 							.get(i).getTitle().trim())) {
+						
+						//TODO remove
+						System.out.println(sensorInfo.getTimestamp() +" LightsOn");
+						
 						lightIntensities.put(sensorInfo.getPosition()
 								.getPositionId(), 1.0);
 						lightIntensitiesAnimationTimestamp.put(sensorInfo
@@ -207,6 +211,10 @@ public class FloorPlanPanel extends JPanel {
 								.currentTimeMillis());
 					} else if ("LightsOff".equals(sensorInfo
 							.getCurrentRecognition().get(i).getTitle().trim())) {
+						
+						//TODO remove
+						System.out.println(sensorInfo.getTimestamp() +" LightsOff");
+						
 						lightIntensities.put(sensorInfo.getPosition()
 								.getPositionId(), 0.0);
 						lightIntensitiesAnimationTimestamp.put(sensorInfo

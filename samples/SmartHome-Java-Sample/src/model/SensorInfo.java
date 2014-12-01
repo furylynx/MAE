@@ -29,8 +29,9 @@ public class SensorInfo extends Observable {
 	private double movingRate;
 	
 	private int personsTracked;
+	
+	private long timestamp;
 
-	// TODO other useful info that can be displayed??
 
 	/**
 	 * Creates a new sensor info object.
@@ -71,10 +72,11 @@ public class SensorInfo extends Observable {
 	 * @param currentSequence
 	 * @param currentRecognition
 	 */
-	public void nextFrame(GeneralSkeletonVector sensorData,
+	public void nextFrame(long timestamp, GeneralSkeletonVector sensorData,
 			LabanSequence currentSequence,
 			LabanSequenceVector currentRecognition) {
 
+		this.timestamp = timestamp;
 		this.sensorData = sensorData;
 		this.currentSequence = currentSequence;
 		this.currentRecognition = currentRecognition;
@@ -239,6 +241,24 @@ public class SensorInfo extends Observable {
 	 */
 	public void setMovingRatePerBodyPart(Map<Integer, Double> movingRatePerBodyPart) {
 		this.movingRatePerBodyPart = movingRatePerBodyPart;
+	}
+
+	/**
+	 * Returns the timestamp of this frame used for the movement engine.
+	 * 
+	 * @return the timestamp
+	 */
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	/**
+	 * Sets the timestamp of this frame.
+	 * 
+	 * @param timestamp the timestamp to set
+	 */
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
 	}
 
 }
