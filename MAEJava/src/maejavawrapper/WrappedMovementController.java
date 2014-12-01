@@ -1,5 +1,6 @@
 package maejavawrapper;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -143,7 +144,7 @@ public class WrappedMovementController extends FlMovementController {
 	}
 
 	@Override
-	public void nextFrame(int timestamp, GeneralSkeleton skeleton) {
+	public void nextFrame(BigInteger timestamp, GeneralSkeleton skeleton) {
 		super.nextFrame(timestamp, skeleton);
 
 		notifySequenceListeners(timestamp, getCurrentSequence());
@@ -152,7 +153,7 @@ public class WrappedMovementController extends FlMovementController {
 	}
 
 	@Override
-	public void nextFrame(int timestamp, FlSkeleton skeleton) {
+	public void nextFrame(BigInteger timestamp, FlSkeleton skeleton) {
 		super.nextFrame(timestamp, skeleton);
 
 		notifySequenceListeners(timestamp, getCurrentSequence());
@@ -184,13 +185,13 @@ public class WrappedMovementController extends FlMovementController {
 		return poseListeners.remove(listener);
 	}
 
-	public void notifySequenceListeners(int timestamp, LabanSequence sequence) {
+	public void notifySequenceListeners(BigInteger timestamp, LabanSequence sequence) {
 		for (IJSequenceListener listener : sequenceListeners) {
 			listener.onSequence(timestamp, sequence);
 		}
 	}
 
-	public void notifyRecognitionListeners(int timestamp,
+	public void notifyRecognitionListeners(BigInteger timestamp,
 			LabanSequenceVector sequences) {
 		StringVector sequenceTitles = new StringVector();
 		for (int i = 0; i < sequences.size(); i++) {
@@ -203,7 +204,7 @@ public class WrappedMovementController extends FlMovementController {
 		}
 	}
 
-	public void notifyPoseListeners(int timestamp, GeneralPose pose) {
+	public void notifyPoseListeners(BigInteger timestamp, GeneralPose pose) {
 		for (IJPoseListener listener : poseListeners) {
 			listener.onPose(timestamp, pose);
 		}
