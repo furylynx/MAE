@@ -59,9 +59,29 @@ public class SmartHomeJavaSample {
 						"width"));
 				int height = Integer.parseInt(iniReader.getValue("room" + i,
 						"height"));
+				
+				int xdoor = 0;
+				int ydoor = 0;
+				int widthdoor = 0;
+				int heightdoor = 0;
+				
+				try{
+					xdoor = Integer.parseInt(iniReader.getValue("room" + i,
+						"xdoor"));
+					ydoor = Integer.parseInt(iniReader.getValue("room" + i,
+						"ydoor"));
+					widthdoor = Integer.parseInt(iniReader.getValue("room" + i,
+						"widthdoor"));
+					heightdoor = Integer.parseInt(iniReader.getValue("room" + i,
+						"heightdoor"));
+				}catch(Exception e)
+				{
+					
+				}
+				
 
 				posList.add(new PositionInfo(positionId, positionName, xpos,
-						ypos, width, height));
+						ypos, width, height, xdoor, ydoor, widthdoor, heightdoor));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
