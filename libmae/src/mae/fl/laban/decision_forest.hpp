@@ -62,12 +62,34 @@ namespace mae
 					virtual ~decision_forest();
 
 					/**
+					 * Returns the registered column definitions.
+					 *
+					 * @return The column definitions.
+					 */
+					virtual std::vector<std::shared_ptr<column_definition> > get_column_definitions() const;
+
+					/**
+					 * Returns the ids of all used columns.
+					 *
+					 * @return The column ids.
+					 */
+					virtual std::vector<int> get_column_ids() const;
+
+					/**
 					 * Sets the tolerance for the recognition. The tolerance is a value which represents the
 					 * number of beats of the labanotation which are tolerated in deviation.
 					 *
 					 * @param tolerance The tolerance to be accepted.
 					 */
 					virtual void set_recognition_tolerance(double tolerance);
+
+					/**
+					 * Returns the tolerance for the recognition. The tolerance is a value which represents the
+					 * number of beats of the labanotation which are tolerated in deviation.
+					 *
+					 * @return The tolerance.
+					 */
+					virtual double get_recognition_tolerance() const;
 
 					/**
 					 * Turns the cooldown mechanism on or off.
@@ -185,6 +207,7 @@ namespace mae
 
 					std::unordered_map<int, std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > > trees_;
 					std::list<std::shared_ptr<laban_sequence> > sequences_;
+					std::unordered_map<std::shared_ptr<laban_sequence>, std::shared_ptr<laban_sequence> > recreated_sequences_map_;
 
 					/**
 					 * Removes the sequence from the trees but not from the list (expects this to be done already).

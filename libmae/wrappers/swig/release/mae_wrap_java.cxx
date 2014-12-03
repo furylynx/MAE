@@ -14442,6 +14442,66 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1DecisionForest(JNIEnv *j
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1getColumnDefinitions(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
+  std::shared_ptr< mae::fl::laban::decision_forest const > *smartarg1 = 0 ;
+  std::vector< std::shared_ptr< mae::fl::laban::column_definition > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      result = ((mae::fl::laban::decision_forest const *)arg1)->get_column_definitions();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< std::shared_ptr< mae::fl::laban::column_definition > > **)&jresult = new std::vector< std::shared_ptr< mae::fl::laban::column_definition > >((const std::vector< std::shared_ptr< mae::fl::laban::column_definition > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1getColumnIds(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
+  std::shared_ptr< mae::fl::laban::decision_forest const > *smartarg1 = 0 ;
+  std::vector< int > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      result = ((mae::fl::laban::decision_forest const *)arg1)->get_column_ids();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< int > **)&jresult = new std::vector< int >((const std::vector< int > &)result); 
+  return jresult;
+}
+
+
 SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1setRecognitionTolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   double arg2 ;
@@ -14467,6 +14527,36 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1setRecognitionTo
       };
     }
   }
+}
+
+
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1getRecognitionTolerance(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jdouble jresult = 0 ;
+  mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
+  std::shared_ptr< mae::fl::laban::decision_forest const > *smartarg1 = 0 ;
+  double result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      result = (double)((mae::fl::laban::decision_forest const *)arg1)->get_recognition_tolerance();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jdouble)result; 
+  return jresult;
 }
 
 
