@@ -464,6 +464,7 @@ public class MaeJavaJNI {
   public final static native long DecisionForest_recreateSequence(long jarg1, DecisionForest jarg1_, long jarg2, LabanSequence jarg2_);
   public final static native long DecisionForest_getSequences(long jarg1, DecisionForest jarg1_);
   public final static native long DecisionForest_findSubmatches(long jarg1, DecisionForest jarg1_, double jarg2, long jarg3, LabanSequence jarg3_, long jarg4, BoneVector jarg4_);
+  public final static native double DecisionForest_distanceToLast(long jarg1, DecisionForest jarg1_, long jarg2, IMovement jarg2_, long jarg3, IMovement jarg3_);
   public final static native String DecisionForest_str(long jarg1, DecisionForest jarg1_);
   public final static native long new_LabanSequenceVector__SWIG_0();
   public final static native long new_LabanSequenceVector__SWIG_1(long jarg1);
