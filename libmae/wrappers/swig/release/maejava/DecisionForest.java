@@ -71,8 +71,20 @@ public class DecisionForest {
     this(MaeJavaJNI.new_DecisionForest__SWIG_8(), true);
   }
 
+  public ColumnDefinitionVector getColumnDefinitions() {
+    return new ColumnDefinitionVector(MaeJavaJNI.DecisionForest_getColumnDefinitions(swigCPtr, this), true);
+  }
+
+  public IntVector getColumnIds() {
+    return new IntVector(MaeJavaJNI.DecisionForest_getColumnIds(swigCPtr, this), true);
+  }
+
   public void setRecognitionTolerance(double tolerance) {
     MaeJavaJNI.DecisionForest_setRecognitionTolerance(swigCPtr, this, tolerance);
+  }
+
+  public double getRecognitionTolerance() {
+    return MaeJavaJNI.DecisionForest_getRecognitionTolerance(swigCPtr, this);
   }
 
   public void setCooldown(boolean cooldown) {
