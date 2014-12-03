@@ -386,15 +386,11 @@ public class FloorPlanPanel extends JPanel {
 
 					} else if ("MusicOn".equals(sensorInfo
 							.getCurrentRecognition().get(i).getTitle().trim())) {
-
-						System.out.println("Music On");
 						
 						musicIntensities.put(sensorInfo.getPosition()
 								.getPositionId(), 1.0);
 					} else if ("MusicOff".equals(sensorInfo
 							.getCurrentRecognition().get(i).getTitle().trim())) {
-
-						System.out.println("Music Off");
 						
 						musicIntensities.put(sensorInfo.getPosition()
 								.getPositionId(), 0.0);

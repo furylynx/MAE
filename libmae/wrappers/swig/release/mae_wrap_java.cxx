@@ -14957,6 +14957,46 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1findSubmatches(
 }
 
 
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1distanceToLast(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jobject jarg3_) {
+  jdouble jresult = 0 ;
+  mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg2 ;
+  std::shared_ptr< mae::fl::laban::i_movement > arg3 ;
+  std::shared_ptr< mae::fl::laban::decision_forest const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp2 ;
+  std::shared_ptr< mae::fl::laban::i_movement > *argp3 ;
+  double result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  (void)jarg3_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  argp3 = *(std::shared_ptr< mae::fl::laban::i_movement > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  {
+    try {
+      result = (double)((mae::fl::laban::decision_forest const *)arg1)->distance_to_last(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jdouble)result; 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
