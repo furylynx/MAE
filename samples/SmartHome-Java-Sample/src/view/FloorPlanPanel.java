@@ -225,6 +225,13 @@ public class FloorPlanPanel extends JPanel {
 		}
 	}
 
+	/**
+	 * Draws the light bulb symbol in the center of the enlightened room.
+	 * 
+	 * @param g
+	 * @param scaleFactor
+	 * @param info
+	 */
 	private void drawLamp(Graphics g, double scaleFactor, PositionInfo info) {
 
 		// TODO draw light bulb
@@ -264,6 +271,7 @@ public class FloorPlanPanel extends JPanel {
 		}
 
 	}
+	
 
 	/**
 	 * @param g
@@ -430,10 +438,10 @@ public class FloorPlanPanel extends JPanel {
 							.getPositionId()) != null) {
 						double intensity = lightIntensities.get(sensorInfo
 								.getPosition().getPositionId());
-						if (intensity > 0.995) {
-							intensity = 1.0;
+						if (intensity < 0.005) {
+							intensity = 0.0;
 						} else {
-							intensity += 0.005;
+							intensity -= 0.005;
 						}
 
 						lightIntensities.put(sensorInfo.getPosition()
