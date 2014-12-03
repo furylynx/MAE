@@ -185,6 +185,15 @@ namespace mae
 							std::shared_ptr<laban_sequence> whole_sequence, std::vector<bone> body_parts);
 
 					/**
+					 * Returns the distance to the last movement in beats.
+					 *
+					 * @param overall_last_movement The overall last movement.
+					 * @param column_last_movement The last movement of the column.
+					 * @return The distance to the last movement in beats.
+					 */
+					virtual double distance_to_last(std::shared_ptr<i_movement> overall_last_movement, std::shared_ptr<i_movement> column_last_movement) const;
+
+					/**
 					 * Returns the string representation for the decision forest.
 					 *
 					 * @return The string.

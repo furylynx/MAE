@@ -187,24 +187,26 @@ int main()
 		}
 
 		//add sequence window for demo purposes
+		std::shared_ptr<mae::demo::fl::sequence_window> swin = nullptr;
 		if (sequence_window)
 		{
-			std::shared_ptr<mae::demo::fl::sequence_window> swin = std::shared_ptr<mae::demo::fl::sequence_window>(
+			swin = std::shared_ptr<mae::demo::fl::sequence_window>(
 					new mae::demo::fl::sequence_window("LabaNiTE-Server"));
 			movement_controller.add_listener(swin);
 		}
 
+		std::shared_ptr<mae::demo::fl::pose_window> pwin = nullptr;
 		if (pose_window)
 		{
-			std::shared_ptr<mae::demo::fl::pose_window> pwin = std::shared_ptr<mae::demo::fl::pose_window>(
+			pwin = std::shared_ptr<mae::demo::fl::pose_window>(
 					new mae::demo::fl::pose_window("LabaNiTE-Server"));
 			movement_controller.add_listener(pwin);
 		}
 
+		std::shared_ptr<mae::demo::fl::recognition_window> rwin = nullptr;
 		if (recognition_window)
 		{
-			std::shared_ptr<mae::demo::fl::recognition_window> rwin =
-					std::shared_ptr<mae::demo::fl::recognition_window>(
+			rwin = std::shared_ptr<mae::demo::fl::recognition_window>(
 							new mae::demo::fl::recognition_window("LabaNiTE-Server"));
 			movement_controller.add_listener(rwin);
 		}
@@ -233,7 +235,7 @@ int main()
 		//process frames
 		//-----------------------
 		std::cout << "started processing..." << std::endl;
-		while (!nitef.was_keyboard_hit())
+		while (!nitef.was_keyboard_hit() && (swin == nullptr || !swin->is_closed()) && (pwin == nullptr || !pwin->is_closed()) && (rwin == nullptr || !rwin->is_closed()))
 		{
 			//update the windows (includes polling events and repainting)
 			mae::demo::sdl_window::update();
