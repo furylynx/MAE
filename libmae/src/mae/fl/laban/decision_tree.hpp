@@ -255,8 +255,9 @@ namespace mae
 				}
 				else
 				{
-					if ((!reverse_order && !root_->is_matching(whole_sequence.at(start_pos), nullptr, nullptr)) || (reverse_order && !root_->is_matching(whole_sequence.at(whole_sequence.size() - 1 - start_pos), nullptr, nullptr)))
+					if ((!reverse_order && !(root_->is_matching(whole_sequence.at(start_pos), nullptr, nullptr, false))) || (reverse_order && !(root_->is_matching(whole_sequence.at(whole_sequence.size() - 1 - start_pos), nullptr, nullptr, false))))
 					{
+						//root does not match the sequence, return empty vector
 						return std::vector<std::shared_ptr<decision_value<T, U> > >();
 					}
 					else
