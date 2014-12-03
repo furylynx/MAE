@@ -28,6 +28,10 @@ import model.SensorInfo;
 public class SmartHomeJavaSample {
 
 	public static void main(String[] args) {
+		
+		System.loadLibrary("mae");
+		System.loadLibrary("mae_nite");
+		
 		long timestampAtStartup = System.currentTimeMillis();
 
 		// -- read configuration file

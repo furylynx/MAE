@@ -1,6 +1,8 @@
 package maejavasample;
 
 
+import java.math.BigInteger;
+
 import maejava.Bone;
 import maejava.BvhController;
 import maejava.BvhSpec;
@@ -22,10 +24,10 @@ public class MAEJavaSample
 		
 		WrappedMovementController movementController = new WrappedMovementController(Bone.defaultBones(), ColumnDefinition.defaultDefinitions());
 		movementController.addListener(new IJSequenceListener() {
-
+			
 			@Override
-			public void onSequence(int timestamp, LabanSequence sequence) {
-				System.out.println("on sequence!");
+			public void onSequence(BigInteger timestamp, LabanSequence sequence) {
+				System.out.println(timestamp +" - on sequence!");
 			}
 		});
 		
@@ -43,7 +45,7 @@ public class MAEJavaSample
 //		}
 		
 		NiteController niteController = new NiteController("SamplesConfig.xml");
-		int frameCount = 0;
+		BigInteger frameCount = BigInteger.valueOf(0);
 		
 		while(!niteController.wasKeyboardHit())
 		{
@@ -56,7 +58,7 @@ public class MAEJavaSample
 				{
 					movementController.nextFrame(frameCount, skeleton);
 					
-					frameCount++;
+					frameCount.add(BigInteger.valueOf(1));
 					System.out.println("frames: "+frameCount);
 				}
 			}

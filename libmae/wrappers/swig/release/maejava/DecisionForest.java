@@ -136,6 +136,10 @@ public class DecisionForest {
     return new LabanSequenceVector(MaeJavaJNI.DecisionForest_findSubmatches(swigCPtr, this, framerate, LabanSequence.getCPtr(whole_sequence), whole_sequence, BoneVector.getCPtr(body_parts), body_parts), true);
   }
 
+  public double distanceToLast(IMovement overall_last_movement, IMovement column_last_movement) {
+    return MaeJavaJNI.DecisionForest_distanceToLast(swigCPtr, this, IMovement.getCPtr(overall_last_movement), overall_last_movement, IMovement.getCPtr(column_last_movement), column_last_movement);
+  }
+
   public String str() {
     return MaeJavaJNI.DecisionForest_str(swigCPtr, this);
   }
