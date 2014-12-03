@@ -485,7 +485,7 @@ namespace mae
 			template<typename T, typename U>
 			bool decision_node<T, U>::is_leaf()
 			{
-				return children_.size() == 0;
+				return (children_.size() == 0);
 			}
 
 			template<typename T, typename U>

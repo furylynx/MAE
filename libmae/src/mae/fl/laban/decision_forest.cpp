@@ -498,8 +498,7 @@ namespace mae
 													+ submatch_back->get_beat() + submatch_back->get_duration());
 
 									//position check is supposed to take care, that distance is not in area but only min dist is ok
-									bool check_startpose = (submatch_back->get_measure() == 0
-											&& decision_item->get_measure() != 0);
+									bool check_startpose = (submatch_back->get_measure() == 0);
 
 									if (decision_maker_->position_okay(dist_to_last, set_dist, check_startpose))
 									{
@@ -579,11 +578,14 @@ namespace mae
 
 				sstr << "--DECISION FOREST--" << std::endl;
 
-				for (unsigned int i = 0; i < column_ids_.size(); i++)
-				{
-					int column = column_ids_.at(i);
+				std::vector<int> colids = column_ids_;
+				std::sort (colids.begin(), colids.end());
 
-					sstr << "::column " << i << std::endl << std::endl;
+				for (unsigned int i = 0; i < colids.size(); i++)
+				{
+					int column = colids.at(i);
+
+					sstr << "::column " << column << std::endl << std::endl;
 
 					if (trees_.find(column) != trees_.end())
 					{
