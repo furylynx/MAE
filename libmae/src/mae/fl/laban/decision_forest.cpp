@@ -463,11 +463,8 @@ namespace mae
 						std::shared_ptr<i_movement> decision_item = column_sequence.back();
 						std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > tree_list;
 
-						double dist_to_last = (whole_sequence->get_last_movement()->get_measure() * beats_per_measure_
-								+ whole_sequence->get_last_movement()->get_beat()
-								+ whole_sequence->get_last_movement()->get_duration())
-								- (decision_item->get_measure() * beats_per_measure_ + decision_item->get_beat()
-										+ decision_item->get_duration());
+						//actual distance to the last movement of the sequence (whole sequence's last movement does the trick since the recognition is live)
+						double real_dist_to_last = distance_to_last(whole_sequence->get_last_movement(), decision_item);
 
 						//process all trees
 						if (trees_.find(body_part) != trees_.end())
@@ -491,16 +488,14 @@ namespace mae
 									//get set distance for the submatch
 									std::shared_ptr<laban_sequence> submatch_val = submatches.at(k)->get_value();
 									std::shared_ptr<i_movement> submatch_back = submatches.at(k)->get_sequence().back();
-									double set_dist = (submatch_val->get_last_movement()->get_measure()
-											* beats_per_measure_ + submatch_val->get_last_movement()->get_beat()
-											+ submatch_val->get_last_movement()->get_duration())
-											- (submatch_back->get_measure() * beats_per_measure_
-													+ submatch_back->get_beat() + submatch_back->get_duration());
+
+									//the target distance to the last movement
+									double set_dist_to_last = distance_to_last(submatch_val->get_last_movement(), submatch_back);
 
 									//position check is supposed to take care, that distance is not in area but only min dist is ok
 									bool check_startpose = (submatch_back->get_measure() == 0);
 
-									if (decision_maker_->position_okay(dist_to_last, set_dist, check_startpose))
+									if (decision_maker_->position_okay(real_dist_to_last, set_dist_to_last, check_startpose))
 									{
 										if (!cooldown_
 												|| cooldown_times_.find(submatches.at(k)->get_value())
@@ -572,6 +567,31 @@ namespace mae
 				return result;
 			}
 
+			double decision_forest::distance_to_last(std::shared_ptr<i_movement> overall_last_movement,
+					std::shared_ptr<i_movement> column_last_movement) const
+			{
+				double result = 0.0;
+
+				if (overall_last_movement->get_measure() > 0.0)
+				{
+					if (column_last_movement->get_measure() > 0.0)
+					{
+						result = (overall_last_movement->get_measure() * beats_per_measure_
+								+ overall_last_movement->get_beat() + overall_last_movement->get_duration())
+								- (column_last_movement->get_measure() * beats_per_measure_
+										+ column_last_movement->get_beat() + column_last_movement->get_duration());
+					}
+					else
+					{
+						result = (overall_last_movement->get_measure() * beats_per_measure_
+								+ overall_last_movement->get_beat() + overall_last_movement->get_duration())
+								- beats_per_measure_;
+					}
+				}
+
+				return result;
+			}
+
 			std::string decision_forest::str() const
 			{
 				std::stringstream sstr;
@@ -579,7 +599,7 @@ namespace mae
 				sstr << "--DECISION FOREST--" << std::endl;
 
 				std::vector<int> colids = column_ids_;
-				std::sort (colids.begin(), colids.end());
+				std::sort(colids.begin(), colids.end());
 
 				for (unsigned int i = 0; i < colids.size(); i++)
 				{
