@@ -448,7 +448,10 @@ public class MaeJavaJNI {
   public final static native long new_DecisionForest__SWIG_7(long jarg1, ColumnDefinitionVector jarg1_);
   public final static native long new_DecisionForest__SWIG_8();
   public final static native void delete_DecisionForest(long jarg1);
+  public final static native long DecisionForest_getColumnDefinitions(long jarg1, DecisionForest jarg1_);
+  public final static native long DecisionForest_getColumnIds(long jarg1, DecisionForest jarg1_);
   public final static native void DecisionForest_setRecognitionTolerance(long jarg1, DecisionForest jarg1_, double jarg2);
+  public final static native double DecisionForest_getRecognitionTolerance(long jarg1, DecisionForest jarg1_);
   public final static native void DecisionForest_setCooldown(long jarg1, DecisionForest jarg1_, boolean jarg2);
   public final static native boolean DecisionForest_getCooldown(long jarg1, DecisionForest jarg1_);
   public final static native int DecisionForest_getSequenceLength(long jarg1, DecisionForest jarg1_, long jarg2, LabanSequence jarg2_);

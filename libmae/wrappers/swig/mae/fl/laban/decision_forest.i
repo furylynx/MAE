@@ -46,3 +46,4 @@
 %template (ColumnDefinitionVector) std::vector<std::shared_ptr<mae::fl::laban::column_definition> >;
 %template (LabanSequenceVector) std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> >;
 %template (LabanSequenceList) std::list<std::shared_ptr<mae::fl::laban::laban_sequence> >;
+%template (IntVector) std::vector<int>;
