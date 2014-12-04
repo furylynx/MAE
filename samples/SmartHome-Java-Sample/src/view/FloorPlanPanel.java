@@ -164,6 +164,17 @@ public class FloorPlanPanel extends JPanel {
 						(int) Math.round((info.getYdoor() + 10) * scaleFactor),
 						(int) Math.round(info.getWidthdoor() * scaleFactor),
 						(int) Math.round(info.getHeightdoor() * scaleFactor));
+				
+				
+				//room name
+				if (info.getPositionType() != PositionType.TERRACE)
+				{
+					g.setColor(Color.ORANGE);
+					g.setFont(new Font(Font.SANS_SERIF, Font.PLAIN,
+							(int) (8 * scaleFactor)));
+					g.drawString(info.getPositionName().toUpperCase(), (int)((info.getXpos() + 10 +6)*scaleFactor), (int)((info.getYpos() + 10 + info.getHeight() - 8)*scaleFactor));
+				}
+				
 
 				// -- draw tracked persons
 				List<SensorInfo> sensorInfos = getSensorInfos(info
@@ -207,7 +218,7 @@ public class FloorPlanPanel extends JPanel {
 
 							g.setColor(Color.ORANGE);
 							g.setFont(new Font(Font.SANS_SERIF, Font.PLAIN,
-									(int) (4 * scaleFactor)));
+									(int) (8 * scaleFactor)));
 							g.drawString(
 									"M " + sensorInfo.getMovingRate(),
 									(int) ((info.getXpos() + 10 + 10 + offsetIndex * 20) * scaleFactor),
