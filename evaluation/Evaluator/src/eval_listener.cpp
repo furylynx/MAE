@@ -30,13 +30,13 @@ namespace eval
 		recognized_ = false;
 	}
 
-	void eval_listener::on_recognition(long timestamp,
+	void eval_listener::on_recognition(uint64_t timestamp,
 			std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > sequences)
 	{
 		recognized_ = true;
 	}
 
-	void eval_listener::on_recognition(long timestamp, std::vector<std::string> title)
+	void eval_listener::on_recognition(uint64_t timestamp, std::vector<std::string> title)
 	{
 		//do nothing
 	}
