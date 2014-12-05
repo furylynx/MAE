@@ -83,7 +83,7 @@
             <laban:duration>2.45</laban:duration>
             <laban:hold>false</laban:hold>
             <laban:direction>
-               <laban:vertical>middle</laban:vertical>
+               <laban:vertical>high</laban:vertical>
                <laban:horizontal>place</laban:horizontal>
             </laban:direction>
          </laban:movement>

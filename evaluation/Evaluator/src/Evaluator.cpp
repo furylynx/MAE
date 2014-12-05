@@ -30,7 +30,9 @@ int main()
 	std::cout << "===============" << std::endl << std::endl;
 
 	std::vector<std::string> directories
-	{ "bvhs/cut/", "bvhs/dontcare/" , "bvhs/indi/" , "bvhs/raise/" , "bvhs/sequential/" , "bvhs/wheel/"
+	{ "bvhs/cut/",
+		"bvhs/dontcare/",
+		"bvhs/indi/" , "bvhs/raise/" , "bvhs/sequential/" , "bvhs/wheel/"
 
 	//"bvhs/cut_single/"
 		};
@@ -45,7 +47,7 @@ int main()
 	};
 
 	bool performance_check = false;
-	unsigned int buffer_size = 350;
+	unsigned int buffer_size = 300;
 	double hysteresis_value = 30.5;
 
 	std::string rw_rules_file = "rw_rules.xml";
@@ -78,12 +80,12 @@ int main()
 
 	//body parts
 	std::vector<mae::bone> body_parts
-	{ mae::bone(mae::e_bone::LEFT_WHOLE_ARM), mae::bone(mae::e_bone::RIGHT_WHOLE_ARM), mae::bone(
-			mae::e_bone::RIGHT_UPPER_ARM), mae::bone(mae::e_bone::RIGHT_FOREARM) };
+	{ mae::bone(mae::e_bone::LEFT_WHOLE_ARM), mae::bone(mae::e_bone::RIGHT_WHOLE_ARM),
+		mae::bone(mae::e_bone::RIGHT_UPPER_ARM),
+				mae::bone(mae::e_bone::RIGHT_FOREARM) };
 	std::vector<std::shared_ptr<mae::fl::laban::column_definition> > column_definitions
-	{ std::shared_ptr<mae::fl::laban::column_definition>(
-			new mae::fl::laban::column_definition(mae::e_bone::RIGHT_UPPER_ARM)), std::shared_ptr<
-			mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(mae::e_bone::RIGHT_FOREARM)) };
+	{ std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(mae::e_bone::RIGHT_UPPER_ARM)),
+		std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(mae::e_bone::RIGHT_FOREARM)) };
 
 	//set up the movement controller
 	mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,

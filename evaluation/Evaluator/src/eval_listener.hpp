@@ -18,6 +18,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <cstdint>
 
 #include <mae/mae.hpp>
 
@@ -51,7 +52,7 @@ namespace eval
 			 * @param timestamp The associated timestamp.
 			 * @param sequences The recognized sequences.
 			 */
-			virtual void on_recognition(long timestamp,
+			virtual void on_recognition(uint64_t timestamp,
 					std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > sequences);
 
 			/**
@@ -60,7 +61,7 @@ namespace eval
 			 * @param timestamp The associated timestamp.
 			 * @param sequences The recognized sequences.
 			 */
-			virtual void on_recognition(long timestamp, std::vector<std::string> title);
+			virtual void on_recognition(uint64_t timestamp, std::vector<std::string> title);
 
 		private:
 			bool recognized_;
