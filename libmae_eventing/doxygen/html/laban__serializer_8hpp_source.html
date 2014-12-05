@@ -123,25 +123,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keyword">virtual</span> std::shared_ptr&lt;mae::fl::laban::laban_sequence&gt; <a class="code" href="classmae_1_1eventing_1_1fl_1_1laban__serializer.html#a67d675cf407100bfdb05375b27716674">deserialize</a>(std::string sequence);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                    mae::fl::laban::laban_sequence_reader laban_reader_;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            };</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    <span class="keyword">virtual</span> std::string <a class="code" href="classmae_1_1eventing_1_1fl_1_1laban__serializer.html#a1a0154974e5fd20e82026320b27d945d">get_title</a>(std::shared_ptr&lt;mae::fl::laban::laban_sequence&gt; sequence) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    mae::fl::laban::laban_sequence_reader laban_reader_;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        } <span class="comment">// namespace fl</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    } <span class="comment">// namespace eventing</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace mae</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif // LABAN_SERIALIZER_HPP_</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            };</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        } <span class="comment">// namespace fl</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    } <span class="comment">// namespace eventing</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;} <span class="comment">// namespace mae</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif // LABAN_SERIALIZER_HPP_</span></div>
 <div class="ttc" id="classmae_1_1eventing_1_1fl_1_1laban__serializer_html_a67d675cf407100bfdb05375b27716674"><div class="ttname"><a href="classmae_1_1eventing_1_1fl_1_1laban__serializer.html#a67d675cf407100bfdb05375b27716674">mae::eventing::fl::laban_serializer::deserialize</a></div><div class="ttdeci">virtual std::shared_ptr&lt; mae::fl::laban::laban_sequence &gt; deserialize(std::string sequence)</div><div class="ttdef"><b>Definition:</b> laban_serializer.cpp:45</div></div>
 <div class="ttc" id="classmae_1_1eventing_1_1fl_1_1laban__serializer_html_a03724d2bfeb0bdd28b9ad471d07c1d98"><div class="ttname"><a href="classmae_1_1eventing_1_1fl_1_1laban__serializer.html#a03724d2bfeb0bdd28b9ad471d07c1d98">mae::eventing::fl::laban_serializer::laban_serializer</a></div><div class="ttdeci">laban_serializer()</div><div class="ttdef"><b>Definition:</b> laban_serializer.cpp:17</div></div>
 <div class="ttc" id="classmae_1_1eventing_1_1fl_1_1laban__serializer_html"><div class="ttname"><a href="classmae_1_1eventing_1_1fl_1_1laban__serializer.html">mae::eventing::fl::laban_serializer</a></div><div class="ttdef"><b>Definition:</b> laban_serializer.hpp:28</div></div>
 <div class="ttc" id="classmae_1_1eventing_1_1i__sequence__serializer_html"><div class="ttname"><a href="classmae_1_1eventing_1_1i__sequence__serializer.html">mae::eventing::i_sequence_serializer</a></div><div class="ttdef"><b>Definition:</b> i_sequence_serializer.hpp:27</div></div>
 <div class="ttc" id="classmae_1_1eventing_1_1fl_1_1laban__serializer_html_a8b3e378b2289428fb8511df06b81a18a"><div class="ttname"><a href="classmae_1_1eventing_1_1fl_1_1laban__serializer.html#a8b3e378b2289428fb8511df06b81a18a">mae::eventing::fl::laban_serializer::serialize</a></div><div class="ttdeci">virtual std::string serialize(std::shared_ptr&lt; mae::fl::laban::laban_sequence &gt; sequence, bool short_type, bool no_header=false, unsigned int indent=0, std::string namesp=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> laban_serializer.cpp:25</div></div>
+<div class="ttc" id="classmae_1_1eventing_1_1fl_1_1laban__serializer_html_a1a0154974e5fd20e82026320b27d945d"><div class="ttname"><a href="classmae_1_1eventing_1_1fl_1_1laban__serializer.html#a1a0154974e5fd20e82026320b27d945d">mae::eventing::fl::laban_serializer::get_title</a></div><div class="ttdeci">virtual std::string get_title(std::shared_ptr&lt; mae::fl::laban::laban_sequence &gt; sequence) const </div><div class="ttdef"><b>Definition:</b> laban_serializer.cpp:50</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 6 2014 12:22:27 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 19 2014 12:35:24 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

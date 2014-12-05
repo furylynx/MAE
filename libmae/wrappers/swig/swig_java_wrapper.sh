@@ -1,7 +1,7 @@
   #!/bin/bash
 
 #file info (modify if required)
-INCONFIG="mae/mae.i"
+INCONFIG="mae/_wrapper_.i"
 OUTDIRJAVA="release/maejava/"
 OUTDIRCXX="release/"
 OUTFILECXX="mae_wrap"

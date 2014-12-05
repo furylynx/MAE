@@ -37,3 +37,10 @@ the Eclipse CDT platform.
 An easy way to build the engine is to use the eclipse project and modify the paths for the
 includes according to your system. Paths to the libraries might be required as well if they
 are not present in the system PATH.
+
+
+Documentation
+==================
+
+See doxygen/ folder for code documentation.
+

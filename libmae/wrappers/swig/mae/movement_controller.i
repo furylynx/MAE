@@ -1,6 +1,6 @@
- // movement_controller.i - SWIG interface
+//-- movement_controller.i - SWIG interface
 
-//custom includes
+//-- custom includes
 %include "bone.i"
 %include "i_sequence_listener.i"
 %include "i_recognition_listener.i"
@@ -11,27 +11,25 @@
 %include "i_pose_detector.i"
 %include "i_sequence_generator.i"
 
-
-//global includes
-%include "std_shared_ptr.i"
+//-- global includes
+//%include "std_shared_ptr.i"
+%include "swig_fixed_std_shared_ptr.i"
 %include "std_vector.i"
 %include "exception.i"
+%include "stdint.i"
 
-
-%module w_movement_controller
+//-- module definition
+%module(directors="1") w_movement_controller
 %{
 	#include "../../../src/mae/movement_controller.hpp"
 %}
 
-//shared_ptr
+//-- shared_ptr
 %shared_ptr(mae::i_pose_listener)
-//TODO interfaces with template args
-//TODO skeleton template arg
-//TODO sequence template arg
 
-//templates
-%template (bone_vector) std::vector<mae::bone>;
-//TODO 
- 
-// Parse the original header file
+//-- Parse the original header file
 %include "../../../src/mae/movement_controller.hpp"
+
+//-- templates
+%template (BoneVector) std::vector<mae::bone>;
+

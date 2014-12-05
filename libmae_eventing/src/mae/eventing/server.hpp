@@ -51,8 +51,9 @@ namespace mae
 				 * @param mov_controller The movement controller to which sequences are registered if any received from a client.
 				 * @param port The port to be worked on.
 				 * @param password The server password.
+				 * @param debug True for debug output.
 				 */
-				server(std::shared_ptr<i_sequence_serializer<U> > serializer, movement_controller<T,U>* mov_controller = nullptr, uint16_t port = cs_base::get_default_port(), std::string password = "");
+				server(std::shared_ptr<i_sequence_serializer<U> > serializer, movement_controller<T,U>* mov_controller = nullptr, uint16_t port = cs_base::get_default_port(), std::string password = "", bool debug = false);
 				virtual ~server();
 
 				/**
@@ -61,7 +62,7 @@ namespace mae
 				 * @param timestamp The timestamp.
 				 * @param sequences The recognized sequences.
 				 */
-				virtual void notify_clients(long timestamp, std::vector<std::shared_ptr<U> > sequences);
+				virtual void notify_clients(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences);
 
 				/**
 				 * Returns all registered registration managers.
@@ -99,7 +100,7 @@ namespace mae
 				 * @param timestamp The associated timestamp.
 				 * @param sequences The recognized sequences.
 				 */
-				virtual void on_recognition(long timestamp, std::vector<std::shared_ptr<U> > sequences);
+				virtual void on_recognition(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences);
 
 				/**
 				 * Is invoked each time sequences were recognized and only titles of the sequences are present.
@@ -107,7 +108,7 @@ namespace mae
 				 * @param timestamp The associated timestamp.
 				 * @param sequences The recognized sequences.
 				 */
-				virtual void on_recognition(long timestamp, std::vector<std::string> title);
+				virtual void on_recognition(uint64_t timestamp, std::vector<std::string> title);
 
 			protected:
 
@@ -138,7 +139,7 @@ namespace mae
 				 * @param short_message True if the message is intended to be short.
 				 * @return The message string.
 				 */
-				virtual std::string create_recognition_message(long timestamp, std::vector<std::shared_ptr<U> > sequences, bool short_message);
+				virtual std::string create_recognition_message(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences, bool short_message);
 
 				/**
 				 * Accepts a client and registers the requested message format.
@@ -156,6 +157,8 @@ namespace mae
 				virtual void remove_client(std::shared_ptr<boost::asio::ip::tcp::socket> connection);
 
 			private:
+				bool debug_;
+
 				uint16_t port_;
 				std::string password_;
 
@@ -266,8 +269,10 @@ namespace mae
 	{
 
 		template <typename T, typename U>
-		server<T, U>::server(std::shared_ptr<i_sequence_serializer<U> > serializer, movement_controller<T,U>* mov_controller, uint16_t port, std::string password)
+		server<T, U>::server(std::shared_ptr<i_sequence_serializer<U> > serializer, movement_controller<T,U>* mov_controller, uint16_t port, std::string password, bool debug)
 		{
+			debug_ = debug;
+
 			port_ = port;
 			password_ = password;
 			serializer_ = serializer;
@@ -323,6 +328,11 @@ namespace mae
 		template <typename T, typename U>
 		void server<T, U>::begin_write(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message)
 		{
+			if (debug_)
+			{
+				std::cout << "server: sending a message to a client." << std::endl;
+			}
+
 			connection->async_send(boost::asio::buffer(message.c_str(), message.size()), boost::bind(&server::on_write, this, connection, boost::asio::placeholders::error));
 		}
 
@@ -411,6 +421,11 @@ namespace mae
 			}
 			else
 			{
+				if (debug_)
+				{
+					std::cout << "server: a message was read completely. Try to parse now." << std::endl;
+				}
+
 				if (state == 0)
 				{
 					handle_initial_message(connection, message, password_);
@@ -503,11 +518,23 @@ namespace mae
 			{
 				accept_client(client, type_short);
 			}
+			else
+			{
+				if (debug_)
+				{
+					std::cout << "server: the client is declined since the password was incorrect." << std::endl;
+				}
+			}
 		}
 
 		template <typename T, typename U>
 		void server<T, U>::handle_further_message(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message)
 		{
+			if (debug_)
+			{
+				std::cout << "server: handling a sequence to be registered." << std::endl;
+			}
+
 			std::stringstream sstr;
 			sstr << message;
 
@@ -538,6 +565,11 @@ namespace mae
 
 			if (sequence != nullptr)
 			{
+				if (debug_)
+				{
+					std::cout << "server: registering the sequence." << std::endl;
+				}
+
 				register_sequence(sequence);
 			}
 		}
@@ -545,6 +577,11 @@ namespace mae
 		template <typename T, typename U>
 		void server<T, U>::accept_client(std::shared_ptr<boost::asio::ip::tcp::socket> connection, bool short_message)
 		{
+			if (debug_)
+			{
+				std::cout << "server: the client is accepted." << std::endl;
+			}
+
 			msg_types_.insert(std::make_pair(connection, short_message));
 			connections_.push_back(connection);
 
@@ -554,6 +591,11 @@ namespace mae
 		template <typename T, typename U>
 		void server<T, U>::remove_client(std::shared_ptr<boost::asio::ip::tcp::socket> connection)
 		{
+			if (debug_)
+			{
+				std::cout << "server: a client is removed." << std::endl;
+			}
+
 			connection->close();
 
 			for (std::vector<std::shared_ptr<boost::asio::ip::tcp::socket> >::iterator it = connections_.begin(); it != connections_.end(); it++)
@@ -570,6 +612,11 @@ namespace mae
 		template <typename T, typename U>
 		void server<T, U>::register_sequence(std::shared_ptr<U> sequence)
 		{
+			if (debug_)
+			{
+				std::cout << "server: registering a sequence to the movement controller." << std::endl;
+			}
+
 			if (movement_controller_ != nullptr)
 			{
 				movement_controller_->register_sequence(sequence);
@@ -577,7 +624,7 @@ namespace mae
 		}
 
 		template <typename T, typename U>
-		std::string server<T, U>::create_recognition_message(long timestamp, std::vector<std::shared_ptr<U> > sequences, bool short_message)
+		std::string server<T, U>::create_recognition_message(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences, bool short_message)
 		{
 			std::stringstream sstr;
 
@@ -609,8 +656,13 @@ namespace mae
 		}
 
 		template <typename T, typename U>
-		void server<T, U>::notify_clients(long timestamp, std::vector<std::shared_ptr<U> > sequences)
+		void server<T, U>::notify_clients(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences)
 		{
+			if (debug_)
+			{
+				std::cout << "server: notify clients about a recognized sequence." << std::endl;
+			}
+
 			//iterate all registered clients and notify them
 			for (unsigned int i = 0; i < connections_.size(); i++)
 			{
@@ -643,15 +695,15 @@ namespace mae
 		}
 
 		template <typename T, typename U>
-		void server<T, U>::on_recognition(long timestamp, std::vector<std::shared_ptr<U> > sequences)
+		void server<T, U>::on_recognition(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences)
 		{
 			notify_clients(timestamp, sequences);
 		}
 
 		template <typename T, typename U>
-		void server<T, U>::on_recognition(long timestamp, std::vector<std::string> title)
+		void server<T, U>::on_recognition(uint64_t timestamp, std::vector<std::string> title)
 		{
-			//do nothing
+			//do nothing since the other method is doing all the work
 		}
 
 	} // namespace eventing

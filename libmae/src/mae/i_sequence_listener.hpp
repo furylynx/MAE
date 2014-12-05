@@ -16,6 +16,7 @@
 
 //global includes
 #include <memory>
+#include <cstdint>
 
 namespace mae
 {
@@ -34,7 +35,7 @@ namespace mae
 			 * @param timestamp The associated timestamp.
 			 * @param sequence The generated sequence.
 			 */
-			virtual void on_sequence(long timestamp, std::shared_ptr<U> sequence) = 0;
+			virtual void on_sequence(uint64_t timestamp, std::shared_ptr<U> sequence) = 0;
 	};
 
 } // namespace mae

@@ -1,23 +1,26 @@
-// e_relationship_type.i - SWIG interface
+//-- e_relationship_type.i - SWIG interface
  
-//custom includes
+//-- custom includes
+//...
  
-//global includes
+//-- global includes
 %include "std_string.i"
 %include "std_vector.i"
 %include "exception.i"
 
 
-//module definition
-%module w_e_relationship_type
+//-- module definition
+%module(directors="1") w_e_relationship_type
 %{
 	#include "../../../src/mae/fl/laban/e_relationship_type.hpp"
 %}
 
-//shared_ptr
+//-- shared_ptr
+//...
 
-//templates
-%template(int_vector) std::vector<int>;
-
-// Parse the original header file
+//-- Parse the original header file
 %include "../../../src/mae/fl/laban/e_relationship_type.hpp"
+
+//-- templates
+%template(IntVector) std::vector<int>;
+%template(ERelationshipTypeVector) std::vector<mae::fl::laban::e_relationship_type>;

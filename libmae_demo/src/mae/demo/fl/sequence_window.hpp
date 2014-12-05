@@ -59,7 +59,7 @@ namespace mae
 					 * @param timestamp The associated timestamp.
 					 * @param sequence The generated sequence.
 					 */
-					virtual void on_sequence(long timestamp, std::shared_ptr<mae::fl::laban::laban_sequence> sequence);
+					virtual void on_sequence(uint64_t timestamp, std::shared_ptr<mae::fl::laban::laban_sequence> sequence);
 
 				protected:
 					/**

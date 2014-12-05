@@ -14,9 +14,9 @@ namespace mae
 		namespace fl
 		{
 
-			fl_client::fl_client(std::string uri, uint16_t port, std::string password, bool short_sequences)
+			fl_client::fl_client(std::string uri, uint16_t port, std::string password, bool short_sequences, bool debug)
 			: client(std::shared_ptr<i_sequence_serializer<mae::fl::laban::laban_sequence> >(
-					new laban_serializer()), uri, port, password, short_sequences)
+					new laban_serializer()), uri, port, password, short_sequences, debug)
 			{
 			}
 

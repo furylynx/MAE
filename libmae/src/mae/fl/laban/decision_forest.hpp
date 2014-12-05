@@ -44,7 +44,6 @@ namespace mae
 					 * @param beats_per_measure The number of beats per measure.
 					 * @param beat_duration The duration of a single beat.
 					 * @param time_unit The time unit used by the scores.
-					 * @param framerate The framerate.
 					 * @param dec_maker The decision maker to compare movements.
 					 * @param rw The rewriting forest. If not set not rewriting rules are applied.
 					 * @param cooldown True for applying a cooldown on the recognized sequences.
@@ -56,12 +55,25 @@ namespace mae
 									laban_sequence::default_beats_per_measure(), unsigned int beat_duration =
 									laban_sequence::default_beat_duration(), e_time_unit time_unit =
 									laban_sequence::default_time_unit(),
-									double framerate = 1.0/30.0,
 							std::shared_ptr<i_decision_maker<i_movement> > dec_maker = nullptr,
 							std::shared_ptr<rewriting_forest> rw = nullptr,
 							bool cooldown = true
 							);
 					virtual ~decision_forest();
+
+					/**
+					 * Returns the registered column definitions.
+					 *
+					 * @return The column definitions.
+					 */
+					virtual std::vector<std::shared_ptr<column_definition> > get_column_definitions() const;
+
+					/**
+					 * Returns the ids of all used columns.
+					 *
+					 * @return The column ids.
+					 */
+					virtual std::vector<int> get_column_ids() const;
 
 					/**
 					 * Sets the tolerance for the recognition. The tolerance is a value which represents the
@@ -70,6 +82,14 @@ namespace mae
 					 * @param tolerance The tolerance to be accepted.
 					 */
 					virtual void set_recognition_tolerance(double tolerance);
+
+					/**
+					 * Returns the tolerance for the recognition. The tolerance is a value which represents the
+					 * number of beats of the labanotation which are tolerated in deviation.
+					 *
+					 * @return The tolerance.
+					 */
+					virtual double get_recognition_tolerance() const;
 
 					/**
 					 * Turns the cooldown mechanism on or off.
@@ -161,8 +181,17 @@ namespace mae
 					 * @param body_parts All the body parts that are meant to be taken into account.
 					 * @return All matching sequences.
 					 */
-					virtual std::vector<std::shared_ptr<laban_sequence> > find_submatches(
+					virtual std::vector<std::shared_ptr<laban_sequence> > find_submatches(double framerate,
 							std::shared_ptr<laban_sequence> whole_sequence, std::vector<bone> body_parts);
+
+					/**
+					 * Returns the distance to the last movement in beats.
+					 *
+					 * @param overall_last_movement The overall last movement.
+					 * @param column_last_movement The last movement of the column.
+					 * @return The distance to the last movement in beats.
+					 */
+					virtual double distance_to_last(std::shared_ptr<i_movement> overall_last_movement, std::shared_ptr<i_movement> column_last_movement) const;
 
 					/**
 					 * Returns the string representation for the decision forest.
@@ -181,13 +210,13 @@ namespace mae
 
 					bool cooldown_;
 					std::unordered_map<std::shared_ptr<laban_sequence>, unsigned int> cooldown_times_;
-					double framerate_;
 
 					std::shared_ptr<i_decision_maker<i_movement> > decision_maker_;
 					std::shared_ptr<rewriting_forest> rewriting_forest_;
 
 					std::unordered_map<int, std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > > trees_;
 					std::list<std::shared_ptr<laban_sequence> > sequences_;
+					std::unordered_map<std::shared_ptr<laban_sequence>, std::shared_ptr<laban_sequence> > recreated_sequences_map_;
 
 					/**
 					 * Removes the sequence from the trees but not from the list (expects this to be done already).

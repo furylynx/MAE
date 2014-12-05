@@ -1,22 +1,25 @@
- // i_recognition_listener.i - SWIG interface
+//-- i_recognition_listener.i - SWIG interface
 
-//custom includes
+//-- custom includes
 
-//global includes
-%include "std_shared_ptr.i"
+//-- global includes
+//%include "std_shared_ptr.i"
+%include "swig_fixed_std_shared_ptr.i"
 %include "std_string.i"
+%include "stdint.i"
 
-%module w_i_recognition_listener
+//-- module definition
+%module(directors="1") w_i_recognition_listener
 %{
 	#include "../../../src/mae/i_recognition_listener.hpp"
 %}
 
-//shared_ptr
-//TODO sequence template arg
+//-- shared_ptr
+%shared_ptr(mae::i_recognition_listener);
 
-//templates
-%template(string_vector) std::vector<std::string>;
-//TODO vector of sequences template arg
-
-// Parse the original header file
+//-- Parse the original header file
 %include "../../../src/mae/i_recognition_listener.hpp"
+
+//-- templates
+%template(StringVector) std::vector<std::string>;
+

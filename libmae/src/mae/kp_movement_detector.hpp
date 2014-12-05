@@ -55,7 +55,8 @@ namespace mae
 			 * @param debug True if debug information is intended to be provided on the terminal.
 			 */
 			kp_movement_detector(std::shared_ptr<i_pose_detector<T> > ipd,
-					std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_kp_detector> ikpd, bool debug = false);
+					std::shared_ptr<i_sequence_generator<U> > isg, std::shared_ptr<i_kp_detector> ikpd, bool debug =
+							false);
 			virtual ~kp_movement_detector();
 
 			/**
@@ -69,7 +70,8 @@ namespace mae
 			 * @param body_parts The addressed body parts.
 			 * @return The detected movement sequence.
 			 */
-			virtual std::shared_ptr<U> detect_movement(long timestamp, double framerate, std::shared_ptr<T> skeleton, std::vector<bone> body_parts);
+			virtual std::shared_ptr<U> detect_movement(uint64_t timestamp, double framerate, std::shared_ptr<T> skeleton,
+					std::vector<bone> body_parts);
 
 			/**
 			 * Updates the buffer size.
@@ -108,7 +110,14 @@ namespace mae
 			 * @param timestamp
 			 * @param pose
 			 */
-			virtual void notify_listeners(long timestamp, std::shared_ptr<general_pose> pose);
+			virtual void notify_listeners(uint64_t timestamp, std::shared_ptr<general_pose> pose);
+
+			/**
+			 * Returns the last processed pose.
+			 *
+			 * @return The last processed pose.
+			 */
+			virtual std::shared_ptr<general_pose> get_current_pose() const;
 
 			/**
 			 * Returns the pose detector.
@@ -184,8 +193,8 @@ namespace mae
 	}
 
 	template<typename T, typename U>
-	std::shared_ptr<U> kp_movement_detector<T, U>::detect_movement(long timestamp, double framerate, std::shared_ptr<T> skeleton,
-			std::vector<bone> body_parts)
+	std::shared_ptr<U> kp_movement_detector<T, U>::detect_movement(uint64_t timestamp, double framerate,
+			std::shared_ptr<T> skeleton, std::vector<bone> body_parts)
 	{
 		if (debug_)
 		{
@@ -196,7 +205,7 @@ namespace mae
 
 		if (ipd_)
 		{
-			std::shared_ptr<general_pose> pose = ipd_->pose(skeleton, body_parts, previous_pose_);
+			std::shared_ptr<general_pose> pose = ipd_->pose(framerate, skeleton, body_parts, previous_pose_);
 
 			//update previous pose
 			previous_pose_ = pose;
@@ -206,7 +215,7 @@ namespace mae
 
 			if (ikpd_)
 			{
-				std::shared_ptr<general_enriched_pose> enriched_pose = ikpd_->estimate_frame(pose, poses_, body_parts);
+				std::shared_ptr<general_enriched_pose> enriched_pose = ikpd_->estimate_frame(framerate, pose, poses_, body_parts);
 
 				poses_.push_front(enriched_pose);
 				if (poses_.size() > pose_buffer_size_)
@@ -246,7 +255,8 @@ namespace mae
 	template<typename T, typename U>
 	void kp_movement_detector<T, U>::remove_listener(std::shared_ptr<i_pose_listener> listener)
 	{
-		for (std::list<std::shared_ptr<i_pose_listener> >::iterator it = listeners_.begin(); it != listeners_.end(); it++)
+		for (std::list<std::shared_ptr<i_pose_listener> >::iterator it = listeners_.begin(); it != listeners_.end();
+				it++)
 		{
 			if (listener == *it)
 			{
@@ -263,17 +273,27 @@ namespace mae
 	}
 
 	template<typename T, typename U>
-	void kp_movement_detector<T, U>::notify_listeners(long timestamp, std::shared_ptr<general_pose> pose)
+	void kp_movement_detector<T, U>::notify_listeners(uint64_t timestamp, std::shared_ptr<general_pose> pose)
 	{
 		if (debug_ && listeners_.size() > 0)
 		{
 			std::cout << "kp_movement_detector: notify (pose) listeners" << std::endl;
 		}
 
-		for (std::list<std::shared_ptr<i_pose_listener> >::iterator it = listeners_.begin(); it != listeners_.end(); it++)
+		for (std::list<std::shared_ptr<i_pose_listener> >::iterator it = listeners_.begin(); it != listeners_.end();
+				it++)
 		{
-			(*it)->on_pose(timestamp, pose);
+			if (*it != nullptr)
+			{
+				(*it)->on_pose(timestamp, pose);
+			}
 		}
+	}
+
+	template<typename T, typename U>
+	std::shared_ptr<general_pose> kp_movement_detector<T, U>::get_current_pose() const
+	{
+		return previous_pose_;
 	}
 
 	template<typename T, typename U>

@@ -1,18 +1,50 @@
 Readme
 ==================
 
-TODO general words on the libmae_demo library
+The Movement Analysis Engine is able to analyze movements and provide events based on a 
+described movements sequence (Labanotation). The engine can be used by other applications 
+for further movement processing and filtering in ambient spaces (i.e., smart environments).
+
+This is the eventing part including client-server communication to provide network events.
 
 
 
 Dependencies
 ==================
-libmae
-libboost
- (libboost_system)
+MAE
+Boost
+ 
+=> mae, boost_system
+
 
 
 Installation
 ==================
-TODO howto
+
+Usage in another project:
+
+In order to use the Movement Analysis Engine the library must be linked to the project
+and the headers must be included. Additionally, the dependencies must be met.
+
+___
+
+Compile MAE from source:
+
+When the engine is meant to be compiled, the headers for these libraries must be included. 
+The engine must be built with a compiler supporting C++11 or greater (for some compilers 
+this requires additional flags like GCC’s -std=c++0x). Besides, the flag for position 
+independent code might be required (e.g. GCC’s -fPIC). The indexer fix.hpp files might 
+produce errors and can be removed. They were introduced in order to fix indexer issues with 
+the Eclipse CDT platform.
+
+An easy way to build the engine is to use the eclipse project and modify the paths for the
+includes according to your system. Paths to the libraries might be required as well if they
+are not present in the system PATH.
+
+
+Documentation
+==================
+
+See doxygen/ folder for code documentation.
+
 

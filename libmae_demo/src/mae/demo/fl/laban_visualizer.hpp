@@ -66,7 +66,7 @@ namespace mae
 					 * @param window_width The image width.
 					 * @param window_height The image height.
 					 */
-					virtual void png(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width = 1920, int height = 1080);
+					virtual void bmp(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width = 1920, int height = 1080);
 
 				private:
 					std::shared_ptr<res::directions_handler> directions_handler_;

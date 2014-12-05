@@ -1,4 +1,4 @@
- // ps.i - SWIG interface
+//-- ps.i - SWIG interface
 
 %include "area_part.i"
 %include "body_part.i"

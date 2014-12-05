@@ -35,7 +35,7 @@ namespace mae {
 				 * @param body_parts The addressed body parts.
 				 * @return The detected movement sequence.
 				 */
-				virtual std::shared_ptr<U> detect_movement(long timestamp, double framerate, std::shared_ptr<T> skeleton, std::vector<bone> body_parts) = 0;
+				virtual std::shared_ptr<U> detect_movement(uint64_t timestamp, double framerate, std::shared_ptr<T> skeleton, std::vector<bone> body_parts) = 0;
 
 				/**
 				 * Updates the buffer size used to store the skeleton data.
@@ -74,7 +74,14 @@ namespace mae {
 				 * @param timestamp
 				 * @param pose
 				 */
-				virtual void notify_listeners(long timestamp, std::shared_ptr<general_pose> pose) = 0;
+				virtual void notify_listeners(uint64_t timestamp, std::shared_ptr<general_pose> pose) = 0;
+
+				/**
+				 * Returns the last processed pose.
+				 *
+				 * @return The last processed pose.
+				 */
+				virtual std::shared_ptr<general_pose> get_current_pose() const = 0;
 		};
 
 } // namespace mae

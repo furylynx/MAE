@@ -29,6 +29,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <cstdint>
 
 
 namespace mae {
@@ -93,7 +94,7 @@ namespace mae {
 				 * @param timestamp The timestamp on which the skeleton occured.
 				 * @param skeleton The skeleton data for the frame.
 				 */
-				virtual void next_frame(long timestamp, std::shared_ptr<general_skeleton> skeleton);
+				virtual void next_frame(uint64_t timestamp, std::shared_ptr<general_skeleton> skeleton);
 
 				/**
 				 * Sets the tolerance for the recognition. The tolerance is a value which represents the

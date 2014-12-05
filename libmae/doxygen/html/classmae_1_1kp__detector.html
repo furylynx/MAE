@@ -106,9 +106,9 @@ Inheritance diagram for mae::kp_detector:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acbf415da200c0e7345ea673898aa5d3f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1kp__detector.html#acbf415da200c0e7345ea673898aa5d3f">kp_detector</a> (bool debug=false)</td></tr>
 <tr class="separator:acbf415da200c0e7345ea673898aa5d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7aa02dc662f0a0abbefb0051fa783787"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
-&lt; <a class="el" href="classmae_1_1general__enriched__pose.html">general_enriched_pose</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1kp__detector.html#a7aa02dc662f0a0abbefb0051fa783787">estimate_frame</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1general__pose.html">general_pose</a> &gt; current_pose, std::list&lt; std::shared_ptr&lt; <a class="el" href="classmae_1_1general__enriched__pose.html">general_enriched_pose</a> &gt; &gt; previous_sequence, std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt; body_parts)</td></tr>
-<tr class="separator:a7aa02dc662f0a0abbefb0051fa783787"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a782a911f14f742f1ddbe4df9cdeb8f7c"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classmae_1_1general__enriched__pose.html">general_enriched_pose</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1kp__detector.html#a782a911f14f742f1ddbe4df9cdeb8f7c">estimate_frame</a> (double framerate, std::shared_ptr&lt; <a class="el" href="classmae_1_1general__pose.html">general_pose</a> &gt; current_pose, std::list&lt; std::shared_ptr&lt; <a class="el" href="classmae_1_1general__enriched__pose.html">general_enriched_pose</a> &gt; &gt; previous_sequence, std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt; body_parts)</td></tr>
+<tr class="separator:a782a911f14f742f1ddbe4df9cdeb8f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="acbf415da200c0e7345ea673898aa5d3f"></a>
@@ -135,7 +135,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a7aa02dc662f0a0abbefb0051fa783787"></a>
+<a class="anchor" id="a782a911f14f742f1ddbe4df9cdeb8f7c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -145,6 +145,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">std::shared_ptr&lt; <a class="el" href="classmae_1_1general__enriched__pose.html">general_enriched_pose</a> &gt; mae::kp_detector::estimate_frame </td>
           <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>framerate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classmae_1_1general__pose.html">general_pose</a> &gt;&#160;</td>
           <td class="paramname"><em>current_pose</em>, </td>
         </tr>
@@ -175,6 +181,7 @@ Public Member Functions</h2></td></tr>
 <p>Estimates the current frame and returns an enriched pose. Edits the given enriched poses, (e.g., sets key pose to false) but does not append the new enriched pose to the vector. Instead the new enriched pose is returned.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">framerate</td><td>The framerate. </td></tr>
     <tr><td class="paramname">currentPose</td><td>The currently processed pose. </td></tr>
     <tr><td class="paramname">previousSequence</td><td>The previous sequence which will be edited too. </td></tr>
     <tr><td class="paramname">bodyParts</td><td>All body parts that shall be processed. </td></tr>
@@ -183,7 +190,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The enriched pose. </dd></dl>
 
-<p>Implements <a class="el" href="classmae_1_1i__kp__detector.html#a023a2719cd16be679c1101a9c27d21ac">mae::i_kp_detector</a>.</p>
+<p>Implements <a class="el" href="classmae_1_1i__kp__detector.html#a42a950416d5bc959544c0138a8526847">mae::i_kp_detector</a>.</p>
 
 </div>
 </div>
@@ -194,7 +201,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 29 2014 18:06:14 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 19 2014 12:26:16 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

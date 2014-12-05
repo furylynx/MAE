@@ -32,12 +32,13 @@ namespace mae {
 				 * (e.g. sets key pose to false) but does not append the new enriched pose to the vector.
 				 * Instead the new enriched pose is returned.
 				 *
+				 * @param framerate The framerate.
 				 * @param currentPose The currently processed pose.
 				 * @param previousSequence The previous sequence which will be edited too.
 				 * @param bodyParts All body parts that shall be processed.
 				 * @return The enriched pose.
 				 */
-				virtual std::shared_ptr<general_enriched_pose> estimate_frame(std::shared_ptr<general_pose> currentPose, std::list<std::shared_ptr<general_enriched_pose> > previousSequence, std::vector<bone> bodyParts) = 0;
+				virtual std::shared_ptr<general_enriched_pose> estimate_frame(double framerate, std::shared_ptr<general_pose> currentPose, std::list<std::shared_ptr<general_enriched_pose> > previousSequence, std::vector<bone> bodyParts) = 0;
 		};
 
 } // namespace mae

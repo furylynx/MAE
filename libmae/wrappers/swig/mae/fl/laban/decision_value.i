@@ -1,24 +1,26 @@
-// decision_value.i - SWIG interface
- 
-//custom includes
+//-- decision_value.i - SWIG interface
 
- 
-//global includes
-%include "std_shared_ptr.i"
+//-- custom includes
+//...
+
+//-- global includes
+//%include "std_shared_ptr.i"
+%include "swig_fixed_std_shared_ptr.i"
 %include "std_string.i"
 %include "std_vector.i"
 %include "exception.i"
 
-
-//module definition
-%module w_decision_value
+//-- module definition
+%module(directors="1") w_decision_value
 %{
 	#include "../../../src/mae/fl/laban/decision_value.hpp"
 %}
 
-//shared_ptr
+//-- shared_ptr
+//...
 
-//templates
-
-// Parse the original header file
+//-- Parse the original header file
 %include "../../../src/mae/fl/laban/decision_value.hpp"
+
+//-- templates
+//...

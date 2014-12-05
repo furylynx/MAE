@@ -5,24 +5,27 @@
 \begin{DoxyCompactItemize}
 \item 
 virtual std\-::shared\-\_\-ptr\\*
-$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ \hyperlink{classmae_1_1i__pose__detector_a6c7e2412ecbad1665484ce5ac2837ef0}{pose} (std\-::shared\-\_\-ptr$<$ T $>$ skeleton, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ previous\-\_\-pose)=0
+$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ \hyperlink{classmae_1_1i__pose__detector_aebc5f509e4ac79b81d248301f229d127}{pose} (double framerate, std\-::shared\-\_\-ptr$<$ T $>$ skeleton, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ previous\-\_\-pose)=0
 \end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classmae_1_1i__pose__detector_a6c7e2412ecbad1665484ce5ac2837ef0}{\index{mae\-::i\-\_\-pose\-\_\-detector@{mae\-::i\-\_\-pose\-\_\-detector}!pose@{pose}}
+\hypertarget{classmae_1_1i__pose__detector_aebc5f509e4ac79b81d248301f229d127}{\index{mae\-::i\-\_\-pose\-\_\-detector@{mae\-::i\-\_\-pose\-\_\-detector}!pose@{pose}}
 \index{pose@{pose}!mae::i_pose_detector@{mae\-::i\-\_\-pose\-\_\-detector}}
 \subsubsection[{pose}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ virtual std\-::shared\-\_\-ptr$<${\bf general\-\_\-pose}$>$ {\bf mae\-::i\-\_\-pose\-\_\-detector}$<$ T $>$\-::pose (
 \begin{DoxyParamCaption}
+\item[{double}]{framerate, }
 \item[{std\-::shared\-\_\-ptr$<$ T $>$}]{skeleton, }
 \item[{std\-::vector$<$ {\bf bone} $>$}]{body\-\_\-parts, }
 \item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-pose} $>$}]{previous\-\_\-pose}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1i__pose__detector_a6c7e2412ecbad1665484ce5ac2837ef0}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1i__pose__detector_aebc5f509e4ac79b81d248301f229d127}
 Processes the skeleton in order to return the pose for each body part.
 
 
 \begin{DoxyParams}{Parameters}
+{\em framerate} & The framerate. \\
+\hline
 {\em skeleton} & The skeleton. \\
 \hline
 {\em body\-\_\-parts} & The processed body parts. \\

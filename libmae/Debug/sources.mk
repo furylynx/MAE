@@ -23,7 +23,18 @@ C_UPPER_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-src/model \
-src/fl \
-src/controller \
+wrappers/swig/release \
+src/mae \
+src/mae/math \
+src/mae/fl \
+src/mae/fl/laban \
+src/mae/fl/laban/ps \
+src/mae/fl/laban/mv \
+Release-Win64/wrappers/swig/release \
+Release-Win64/src/mae \
+Release-Win64/src/mae/math \
+Release-Win64/src/mae/fl \
+Release-Win64/src/mae/fl/laban \
+Release-Win64/src/mae/fl/laban/ps \
+Release-Win64/src/mae/fl/laban/mv \
 

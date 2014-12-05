@@ -103,7 +103,7 @@ namespace mae
 			return hysteresis_val_;
 		}
 
-		std::shared_ptr<general_pose> fl_pose_detector::pose(std::shared_ptr<fl_skeleton> skeleton,
+		std::shared_ptr<general_pose> fl_pose_detector::pose(double framerate, std::shared_ptr<fl_skeleton> skeleton,
 				std::vector<bone> body_parts, std::shared_ptr<general_pose> previous_pose)
 		{
 			if (debug_)

@@ -48,8 +48,9 @@ namespace mae
 				 * @param port The port on which the server operates.
 				 * @param password The password for the server.
 				 * @param short_sequences True for short sequences (e.g. only titles).
+				 * @param debug True for debug output.
 				 */
-				client(std::shared_ptr<i_sequence_serializer<U> > serializer, std::string uri, uint16_t port = cs_base::get_default_port(), std::string password = "", bool short_sequences = false);
+				client(std::shared_ptr<i_sequence_serializer<U> > serializer, std::string uri, uint16_t port = cs_base::get_default_port(), std::string password = "", bool short_sequences = false, bool debug = false);
 				virtual ~client();
 
 				/**
@@ -87,7 +88,7 @@ namespace mae
 				 * @param timestamp The timestamp.
 				 * @param sequences The sequences.
 				 */
-				virtual void notify_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences);
+				virtual void notify_listeners(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences);
 
 				/**
 				 * Notifies the listeners on a recognized sequence. Only the sequence titles are provided.
@@ -95,7 +96,7 @@ namespace mae
 				 * @param timestamp The timestamp.
 				 * @param sequences_titles The sequence titles.
 				 */
-				virtual void notify_listeners(long timestamp, std::vector<std::string> sequences_titles);
+				virtual void notify_listeners(uint64_t timestamp, std::vector<std::string> sequences_titles);
 
 			protected:
 
@@ -135,6 +136,8 @@ namespace mae
 				virtual void remove_connection(std::shared_ptr<boost::asio::ip::tcp::socket> connection);
 
 			private:
+				bool debug_;
+
 				std::string uri_;
 				uint16_t port_;
 				std::string password_;
@@ -224,8 +227,10 @@ namespace mae
 	namespace eventing
 	{
 		template <typename U>
-		client<U>::client(std::shared_ptr<i_sequence_serializer<U> > serializer, std::string uri, uint16_t port, std::string password, bool short_sequences)
+		client<U>::client(std::shared_ptr<i_sequence_serializer<U> > serializer, std::string uri, uint16_t port, std::string password, bool short_sequences, bool debug)
 		{
+			debug_ = debug;
+
 			uri = uri_;
 			port_ = port;
 			password_ = password;
@@ -264,6 +269,11 @@ namespace mae
 		template <typename U>
 		void client<U>::begin_write(std::shared_ptr<boost::asio::ip::tcp::socket> connection, std::string message, int state)
 		{
+			if (debug_)
+			{
+				std::cout << "client: sending message to the server." << std::endl;
+			}
+
 			connection->async_send(boost::asio::buffer(message.c_str(), message.size()), boost::bind(&client::on_write, this, connection, state, boost::asio::placeholders::error));
 		}
 
@@ -291,6 +301,11 @@ namespace mae
 		template <typename U>
 		void client<U>::begin_read(std::shared_ptr<boost::asio::ip::tcp::socket> connection)
 		{
+			if (debug_)
+			{
+				std::cout << "client: waiting for messages fromt the server." << std::endl;
+			}
+
 			//reset previously buffered messages
 			buffer_ = "";
 
@@ -337,12 +352,21 @@ namespace mae
 					remove_connection(connection);
 					return;
 				}
-				std::cerr << "The message could not be read, because an error occurred: " << error.message() << std::endl;
+
+				if (debug_)
+				{
+					std::cerr << "client: a message could not be read. An error occurred: " << error.message() << std::endl;
+				}
 
 				begin_read(socket_);
 			}
 			else
 			{
+				if (debug_)
+				{
+					std::cout << "client: a message was read completely and will be parsed now." << std::endl;
+				}
+
 				handle_recognition_message(message, short_sequences_);
 
 				//continue to read
@@ -377,8 +401,7 @@ namespace mae
 			// main elements
 			//---------------
 
-			long timestamp = std::stol(mae::mxml::get_node_content(root_node, namespace_map, "timestamp", nsp, "0"));
-
+			uint64_t timestamp = std::stoull(mae::mxml::get_node_content(root_node, namespace_map, "timestamp", nsp, "0"));
 
 			if (!short_type)
 			{
@@ -508,17 +531,37 @@ namespace mae
 		}
 
 		template <typename U>
-		void client<U>::notify_listeners(long timestamp, std::vector<std::shared_ptr<U> > sequences)
+		void client<U>::notify_listeners(uint64_t timestamp, std::vector<std::shared_ptr<U> > sequences)
 		{
+			if (debug_)
+			{
+				std::cout << "client: notify listeners about recognized sequences." << std::endl;
+			}
+
 			for (typename std::list<std::shared_ptr<i_recognition_listener<U> > >::iterator it = recognition_listeners_.begin(); it != recognition_listeners_.end(); it++)
 			{
 				(*it)->on_recognition(timestamp, sequences);
 			}
+
+
+			std::vector<std::string> sequence_titles;
+
+			for (unsigned int i = 0; i < sequences.size(); i++)
+			{
+				sequence_titles.push_back(serializer_->get_title(sequences.at(i)));
+			}
+
+			notify_listeners(timestamp, sequence_titles);
 		}
 
 		template <typename U>
-		void client<U>::notify_listeners(long timestamp, std::vector<std::string> sequences_titles)
+		void client<U>::notify_listeners(uint64_t timestamp, std::vector<std::string> sequences_titles)
 		{
+			if (debug_)
+			{
+				std::cout << "client: notify listeners about recognized sequence by providing the titles." << std::endl;
+			}
+
 			for (typename std::list<std::shared_ptr<i_recognition_listener<U> > >::iterator it = recognition_listeners_.begin(); it != recognition_listeners_.end(); it++)
 			{
 				(*it)->on_recognition(timestamp, sequences_titles);

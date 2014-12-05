@@ -24,7 +24,11 @@ namespace std {
         %rename(isEmpty) empty;
         bool empty() const;
         void clear();
-        %rename(add) push_back;
+
+        //modification by furylynx
+        //%rename(add) push_back;
+        //end modification
+        
         void push_back(const value_type& x);
         %extend {
             const_reference get(int i) throw (std::out_of_range) {
