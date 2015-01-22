@@ -1,0 +1,26 @@
+AC_INIT([libmae], 0.9.0)
+
+AM_INIT_AUTOMAKE
+
+AUTOMAKE_OPTIONS = subdir-objects
+
+# Use .cpp as default extension if no _SOURCES have been defined
+#AM_DEFAULT_SOURCE_EXT = .cpp
+
+#required packages
+PKG_CHECK_MODULES(OPENCV, opencv >= 2.4.8)
+AC_SUBST(OPENCV_CFLAGS)
+AC_SUBST(OPENCV_LIBS)
+
+PKG_CHECK_MODULES(XMLPP, libxml++-2.6 >= 2.6)
+AC_SUBST(XMLPP_CFLAGS)
+AC_SUBST(XMLPP_LIBS)
+
+AC_ENABLE_SHARED
+AC_DISABLE_STATIC
+AC_PROG_CXX
+
+LT_INIT
+
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
