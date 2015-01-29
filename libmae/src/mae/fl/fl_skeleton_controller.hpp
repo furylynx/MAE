@@ -30,6 +30,11 @@
 #include <memory>
 #include <iostream>
 
+//defines
+#ifndef M_PI_2
+#define M_PI_2		1.57079632679489661923
+#endif
+
 namespace mae
 {
 	namespace fl
