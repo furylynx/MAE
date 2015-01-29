@@ -72,13 +72,16 @@ namespace mae
 				std::vector<std::string> authors = mxml::get_node_contents(root_node, namespace_map, "author", nsp, "anonymous");
 
 				//staff elements
-				unsigned int measures = static_cast<unsigned int>(std::stoul(mxml::get_node_content(root_node, namespace_map, "staff/measures", nsp, "0")));
+				std::string measures_string = mxml::get_node_content(root_node, namespace_map, "staff/measures", nsp, "0");
+				unsigned int measures = static_cast<unsigned int>(std::atoi(measures_string.c_str()));
 
 				e_time_unit time_unit = e_time_unit_c::parse(mxml::get_node_content(root_node, namespace_map, "staff/timing/timeUnit", nsp, "NONE"));
 
-				unsigned int beat_duration = static_cast<unsigned int>(std::stoul(mxml::get_node_content(root_node, namespace_map, "staff/timing/measure/beatDuration", nsp, "0")));
+				std::string beat_duration_string = mxml::get_node_content(root_node, namespace_map, "staff/timing/measure/beatDuration", nsp, "0");
+				unsigned int beat_duration = static_cast<unsigned int>(std::atoi(beat_duration_string.c_str()));
 
-				unsigned int beats = static_cast<unsigned int>(std::stoul(mxml::get_node_content(root_node, namespace_map, "staff/timing/measure/beats", nsp, "0")));
+				std::string beats_string = mxml::get_node_content(root_node, namespace_map, "staff/timing/measure/beats", nsp, "0");
+				unsigned int beats = static_cast<unsigned int>(std::atoi(beats_string.c_str()));
 
 				//create the sequence and add additional information as well as columns and movements
 				result = std::shared_ptr<laban_sequence>(
@@ -149,7 +152,8 @@ namespace mae
 				std::shared_ptr<column_definition> result = nullptr;
 
 				//staff elements
-				unsigned int index = static_cast<unsigned int>(std::stoul(mxml::get_node_content(node, namespace_map, "index", nsp, "0")));
+				std::string index_string = mxml::get_node_content(node, namespace_map, "index", nsp, "0");
+				unsigned int index = static_cast<unsigned int>(std::atoi(index_string.c_str()));
 
 				std::shared_ptr<ps::i_pre_sign> pre_sign = laban_sequence_reader::read_pre_sign(node, namespace_map, nsp);
 
@@ -251,7 +255,8 @@ namespace mae
 						{
 							ps::e_digit digit = ps::e_digit_c::parse(mxml::get_node_content(node, namespace_map, "digit/digit", nsp, "NONE"));
 
-							unsigned int knuckle = static_cast<unsigned int>(std::stoul(mxml::get_node_content(node, namespace_map, "digit/joint", nsp, "0")));
+							std::string knuckle_string = mxml::get_node_content(node, namespace_map, "digit/joint", nsp, "0");
+							unsigned int knuckle = static_cast<unsigned int>(std::atoi(knuckle_string.c_str()));
 
 							result = std::shared_ptr<ps::i_endpoint>(new ps::digit_part(digit, knuckle));
 						}
@@ -336,13 +341,17 @@ namespace mae
 			{
 				std::shared_ptr<i_movement> result = nullptr;
 
-				int column = std::stoi(mxml::get_node_content(node, namespace_map, "column", nsp, "0"));
+				std::string column_string = mxml::get_node_content(node, namespace_map, "column", nsp, "0");
+				int column = std::atoi(column_string.c_str());
 
-				unsigned int measure = static_cast<unsigned int>(std::stoul(mxml::get_node_content(node, namespace_map, "measure", nsp, "0")));
+				std::string measure_string = mxml::get_node_content(node, namespace_map, "measure", nsp, "0");
+				unsigned int measure = static_cast<unsigned int>(std::atoi(measure_string.c_str()));
 
-				double beat = std::stod(mxml::get_node_content(node, namespace_map, "beat", nsp, "0"));
+				std::string beat_string = mxml::get_node_content(node, namespace_map, "beat", nsp, "0");
+				double beat = std::atof(beat_string.c_str());
 
-				double duration = std::stod(mxml::get_node_content(node, namespace_map, "duration", nsp, "0"));
+				std::string duration_string = mxml::get_node_content(node, namespace_map, "duration", nsp, "0");
+				double duration = std::atof(duration_string.c_str());
 
 
 				xmlpp::NodeSet pre_sign_node_set = node->find(mxml::get_xpath("preSign", nsp), *namespace_map);
@@ -437,7 +446,8 @@ namespace mae
 
 				mv::e_level vertical = mv::e_level_c::parse(mxml::get_node_content(node, namespace_map, "vertical", nsp, "NONE"));
 
-				int horizontal = std::stoi(mxml::get_node_content(node, namespace_map, "horizontal", nsp, "0"));
+				std::string horizontal_string = mxml::get_node_content(node, namespace_map, "horizontal", nsp, "0");
+				int horizontal = std::atoi(horizontal_string.c_str());
 
 				result = std::shared_ptr<mv::pin>(new mv::pin(vertical, horizontal));
 
@@ -450,7 +460,8 @@ namespace mae
 
 				mv::e_space vertical = mv::e_space_c::parse(mxml::get_node_content(node, namespace_map, "type", nsp, "NONE"));
 
-				unsigned int degree = static_cast<unsigned int>(std::stoul(mxml::get_node_content(node, namespace_map, "degree", nsp, "0")));
+				std::string degree_string = mxml::get_node_content(node, namespace_map, "degree", nsp, "0");
+				unsigned int degree = static_cast<unsigned int>(std::atoi(degree_string.c_str()));
 
 				mv::e_space_direction direction = mv::e_space_direction_c::parse(mxml::get_node_content(node, namespace_map, "direction", nsp, "NONE"));
 
@@ -468,7 +479,8 @@ namespace mae
 
 				if (accent_node_set.size() > 0)
 				{
-					unsigned int accent = static_cast<unsigned int>(std::stoul(mxml::get_node_content(node, namespace_map, "dynamics/accent", nsp, "0")));
+					std::string accent_string = mxml::get_node_content(node, namespace_map, "dynamics/accent", nsp, "0");
+					unsigned int accent = static_cast<unsigned int>(std::atoi(accent_string.c_str()));
 					result = std::shared_ptr<mv::i_dynamics_sign>(new mv::accent_sign(accent));
 				}
 				else
@@ -653,11 +665,14 @@ namespace mae
 			{
 				e_path_type type = e_path_type_c::parse(mxml::get_node_content(node, namespace_map, "type", nsp, "NONE"));;
 
-				unsigned int measure = static_cast<unsigned int>(std::stoul(mxml::get_node_content(node, namespace_map, "measure", nsp, "0")));
+				std::string measure_string = mxml::get_node_content(node, namespace_map, "measure", nsp, "0");
+				unsigned int measure = static_cast<unsigned int>(std::atoi(measure_string.c_str()));
 
-				double beat = std::stod(mxml::get_node_content(node, namespace_map, "beat", nsp, "0"));
+				std::string beat_string = mxml::get_node_content(node, namespace_map, "beat", nsp, "0");
+				double beat = std::atof(beat_string.c_str());
 
-				double duration = std::stod(mxml::get_node_content(node, namespace_map, "duration", nsp, "0"));
+				std::string duration_string = mxml::get_node_content(node, namespace_map, "duration", nsp, "0");
+				double duration = std::atof(duration_string.c_str());
 
 				std::shared_ptr<i_movement> result = std::shared_ptr<i_movement>(new path(type, measure, beat, duration));
 
@@ -667,9 +682,11 @@ namespace mae
 			std::shared_ptr<i_movement> laban_sequence_reader::read_room_direction(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 
-				unsigned int measure = static_cast<unsigned int>(std::stoul(mxml::get_node_content(node, namespace_map, "measure", nsp, "0")));
+				std::string measure_string = mxml::get_node_content(node, namespace_map, "measure", nsp, "0");
+				unsigned int measure = static_cast<unsigned int>(std::atoi(measure_string.c_str()));
 
-				double beat = std::stod(mxml::get_node_content(node, namespace_map, "beat", nsp, "0"));
+				std::string beat_string = mxml::get_node_content(node, namespace_map, "beat", nsp, "0");
+				double beat = std::atof(beat_string.c_str());
 
 				xmlpp::NodeSet direction_node_set = node->find(mxml::get_xpath("direction", nsp), *namespace_map);
 				std::shared_ptr<mv::pin> direction;
@@ -694,9 +711,11 @@ namespace mae
 
 				bool hold = mbool::parse(mxml::get_node_content(node, namespace_map, "hold", nsp, "false"));
 
-				unsigned int measure = static_cast<unsigned int>(std::stoul(mxml::get_node_content(node, namespace_map, "measure", nsp, "0")));
+				std::string measure_string = mxml::get_node_content(node, namespace_map, "measure", nsp, "0");
+				unsigned int measure = static_cast<unsigned int>(std::atoi(measure_string.c_str()));
 
-				double beat = std::stod(mxml::get_node_content(node, namespace_map, "beat", nsp, "0"));
+				std::string beat_string = mxml::get_node_content(node, namespace_map, "beat", nsp, "0");
+				double beat = std::atof(beat_string.c_str());
 
 				xmlpp::NodeSet left_relationship_endpoint_node_set = node->find(mxml::get_xpath("endPoints/left", nsp), *namespace_map);
 				std::shared_ptr<mv::relationship_endpoint> left;
@@ -722,7 +741,8 @@ namespace mae
 			std::shared_ptr<mv::relationship_endpoint> laban_sequence_reader::read_relationship_endpoint(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp)
 			{
 
-				int column = std::stoi(mxml::get_node_content(node, namespace_map, "column", nsp, "0"));
+				std::string column_string = mxml::get_node_content(node, namespace_map, "column", nsp, "0");
+				int column = std::atoi(column_string.c_str());
 
 				xmlpp::NodeSet pre_sign_node_set = node->find(mxml::get_xpath("preSign", nsp), *namespace_map);
 				std::shared_ptr<ps::i_pre_sign> pre_sign;
