@@ -533,7 +533,9 @@ namespace mae
 
 			std::pair<std::string::size_type, std::string::size_type> pos_frames = mstr::find_line(tmp, "frames:",
 					pos_motion);
-			int frames = std::stoi(std::string(tmp, pos_frames.first + 7, pos_frames.second - 7));
+
+			std::string frames_string = std::string(tmp, pos_frames.first + 7, pos_frames.second - 7);
+			int frames = std::atoi(frames_string.c_str());
 
 			std::string::size_type pos_motion_data = pos_frames.first + pos_frames.second + 1;
 
@@ -542,7 +544,8 @@ namespace mae
 					"frame time:", pos_motion_data);
 
 			//frames
-			frame_time = std::stod(std::string(tmp, pos_frame_time.first + 12, pos_frame_time.second - 12));
+			std::string frame_time_string = std::string(tmp, pos_frame_time.first + 12, pos_frame_time.second - 12);
+			frame_time = std::atof(frame_time_string.c_str());
 			pos_motion_data = pos_frame_time.first + pos_frame_time.second + 1;
 
 			std::istringstream tmp_sstr(std::string(tmp, pos_motion_data));

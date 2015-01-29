@@ -306,24 +306,27 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base.1126070203" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base">
 								<option id="gnu.cpp.compiler.option.include.paths.1778067152" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="C:/MinGW/include/"/>
-									<listOptionValue builtIn="false" value="C:/MinGW/include/opencv2/core/"/>
-									<listOptionValue builtIn="false" value="C:/MinGW/include/opencv2/"/>
-									<listOptionValue builtIn="false" value="C:/MinGW/include/libxml2"/>
-									<listOptionValue builtIn="false" value="C:/MinGW/include/glibmm-2.4"/>
-									<listOptionValue builtIn="false" value="C:/MinGW/lib/glibmm-2.4/include"/>
-									<listOptionValue builtIn="false" value="C:/MinGW/include/sigc++-2.0"/>
-									<listOptionValue builtIn="false" value="C:/MinGW/lib/sigc++-2.0/include"/>
-									<listOptionValue builtIn="false" value="C:/MinGW/include/glib-2.0"/>
-									<listOptionValue builtIn="false" value="C:/MinGW/lib/glib-2.0/include"/>
-									<listOptionValue builtIn="false" value="C:/MinGW/include/libxml++-2.6"/>
-									<listOptionValue builtIn="false" value="C:/MinGW/lib/libxml++-2.6/include"/>
-									<listOptionValue builtIn="false" value="C:/Programs/java/jdk1.8.0_05/include/"/>
-									<listOptionValue builtIn="false" value="C:/Programs/java/jdk1.8.0_05/include/win32/"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/include"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/include/libxml2"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/include/glibmm-2.4"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/include/sigc++-2.0"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/lib/sigc++-2.0/include"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/include/glib-2.0"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/include/libxml++-2.6"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/lib/glib-2.0/include"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/lib/libxml++-2.6/include"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/lib/glibmm-2.4/include"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/lib/gcc/mingw32/4.8.1/include/c++"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/lib/gcc/mingw32/4.8.1/include"/>
+									<listOptionValue builtIn="false" value="&quot;C:/Program Files/Java/jdk1.8.0_05/include/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/Program Files/Java/jdk1.8.0_05/include/win32/&quot;"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.optimization.level.564885800" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.optimization.level.564885800" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.debugging.level.394190462" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
-								<option id="gnu.cpp.compiler.option.dialect.std.621732306" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.dialect.std.621732306" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.default" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.other.pic.2124693382" name="Position Independent Code (-fPIC)" superClass="gnu.cpp.compiler.option.other.pic" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.other.other.25736618" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 " valueType="string"/>
+								<option id="gnu.cpp.compiler.option.dialect.flags.1870134137" name="Other dialect flags" superClass="gnu.cpp.compiler.option.dialect.flags" value="-std=c++11" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.565437167" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.mingw.base.618872303" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.mingw.base">
@@ -346,14 +349,84 @@
 								</option>
 								<option defaultValue="true" id="gnu.cpp.link.option.shared.1253159887" name="Shared (-shared)" superClass="gnu.cpp.link.option.shared" valueType="boolean"/>
 								<option id="gnu.cpp.link.option.paths.453995146" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="C:/MinGW/bin/"/>
-									<listOptionValue builtIn="false" value="C:/MinGW/lib/"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/bin/"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/lib/"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.959616434" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
 								</inputType>
 							</tool>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.config.gnu.so.release.1493648672.475660356.171668238">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.so.release.1493648672.475660356.171668238" moduleId="org.eclipse.cdt.core.settings" name="Release-W64-VC">
+				<externalSettings>
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/mae"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/mae/Release-W64-VC"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="mae" srcPrefixMapping="" srcRootPath=""/>
+					</externalSetting>
+				</externalSettings>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.PE" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="so" artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.sharedLib" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.sharedLib,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="Visual C release" id="cdt.managedbuild.config.gnu.so.release.1493648672.475660356.171668238" name="Release-W64-VC" parent="cdt.managedbuild.config.gnu.so.release">
+					<folderInfo id="cdt.managedbuild.config.gnu.so.release.1493648672.475660356.171668238." name="/" resourcePath="">
+						<toolChain id="org.eclipse.cdt.msvc.toolchain.dll.debug.1320662400" name="Microsoft Visual C++" superClass="org.eclipse.cdt.msvc.toolchain.dll.debug">
+							<targetPlatform id="org.eclipse.cdt.msvc.targetPlatform.dll.debug.649925645" superClass="org.eclipse.cdt.msvc.targetPlatform.dll.debug"/>
+							<builder buildPath="${workspace_loc:/mae}/Release-W64-VC" id="org.eclipse.cdt.msvc.builder.1248135800" name="CDT Internal Builder.Release-W64-VC" superClass="org.eclipse.cdt.msvc.builder"/>
+							<tool id="org.eclipse.cdt.msvc.cl.c.dll.debug.856067405" name="C Compiler (cl)" superClass="org.eclipse.cdt.msvc.cl.c.dll.debug">
+								<option id="org.eclipse.cdt.msvc.cl.option.optimization.1156770931" superClass="org.eclipse.cdt.msvc.cl.option.optimization"/>
+								<option id="org.eclipse.cdt.msvc.cl.option.debugFormat.1240560970" superClass="org.eclipse.cdt.msvc.cl.option.debugFormat"/>
+								<inputType id="org.eclipse.cdt.msvc.cl.inputType.c.1877258509" superClass="org.eclipse.cdt.msvc.cl.inputType.c"/>
+							</tool>
+							<tool id="org.eclipse.cdt.msvc.cl.dll.debug.1333377309" name="C++ Compiler (cl)" superClass="org.eclipse.cdt.msvc.cl.dll.debug">
+								<option id="org.eclipse.cdt.msvc.cl.option.includes.1206040894" superClass="org.eclipse.cdt.msvc.cl.option.includes" valueType="includePath">
+									<listOptionValue builtIn="false" value="C:/MinGW/include/"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/include"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/include/libxml2"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/include/glibmm-2.4"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/include/sigc++-2.0"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/lib/sigc++-2.0/include"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/include/glib-2.0"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/include/libxml++-2.6"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/lib/glib-2.0/include"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/lib/libxml++-2.6/include"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/3rdparty/lib/glibmm-2.4/include"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/lib/gcc/mingw32/4.8.1/include/c++"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/lib/gcc/mingw32/4.8.1/include"/>
+									<listOptionValue builtIn="false" value="&quot;C:/Program Files/Java/jdk1.8.0_05/include/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/Program Files/Java/jdk1.8.0_05/include/win32/&quot;"/>
+								</option>
+								<option id="org.eclipse.cdt.msvc.cl.option.optimization.106403885" superClass="org.eclipse.cdt.msvc.cl.option.optimization"/>
+								<option id="org.eclipse.cdt.msvc.cl.option.debugFormat.1088969956" superClass="org.eclipse.cdt.msvc.cl.option.debugFormat"/>
+								<inputType id="org.eclipse.cdt.msvc.cl.inputType.323988840" superClass="org.eclipse.cdt.msvc.cl.inputType"/>
+							</tool>
+							<tool id="org.eclipse.cdt.msvc.rc.dll.debug.1909998685" name="Resource Compiler (rc)" superClass="org.eclipse.cdt.msvc.rc.dll.debug">
+								<inputType id="org.eclipse.cdt.msvc.rc.inputType.702242260" superClass="org.eclipse.cdt.msvc.rc.inputType"/>
+							</tool>
+							<tool id="org.eclipse.cdt.msvc.link.dll.debug.1388491472" name="Linker (link)" superClass="org.eclipse.cdt.msvc.link.dll.debug">
+								<option id="org.eclipse.cdt.msvc.link.option.libraries.1170479707" superClass="org.eclipse.cdt.msvc.link.option.libraries" valueType="libs">
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_core"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="xml++-2.6"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="xml2"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="glibmm-2.4"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="gobject-2.0"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="sigc-2.0"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="glib-2.0"/>
+								</option>
+								<option defaultValue="true" id="org.eclipse.cdt.msvc.link.option.dll.556948219" superClass="org.eclipse.cdt.msvc.link.option.dll" valueType="boolean"/>
+								<inputType id="org.eclipse.cdt.msvc.link.inputType.1036510529" superClass="org.eclipse.cdt.msvc.link.inputType"/>
+							</tool>
+							<tool id="org.eclipse.cdt.msvc.lib.530221363" name="Library Manager (lib)" superClass="org.eclipse.cdt.msvc.lib"/>
 						</toolChain>
 					</folderInfo>
 				</configuration>
