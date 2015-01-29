@@ -7,6 +7,14 @@ environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.debug.6876918
 environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.debug.687691835.2138890711/C_INCLUDE_PATH/operation=remove
 environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.debug.687691835.2138890711/append=true
 environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.debug.687691835.2138890711/appendContributed=true
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.release.1493648672.475660356/CPATH/delimiter=;
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.release.1493648672.475660356/CPATH/operation=remove
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.release.1493648672.475660356/CPLUS_INCLUDE_PATH/delimiter=;
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.release.1493648672.475660356/CPLUS_INCLUDE_PATH/operation=remove
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.release.1493648672.475660356/C_INCLUDE_PATH/delimiter=;
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.release.1493648672.475660356/C_INCLUDE_PATH/operation=remove
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.release.1493648672.475660356/append=true
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.release.1493648672.475660356/appendContributed=true
 environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.release.1493648672.600187741/CPATH/delimiter=\:
 environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.release.1493648672.600187741/CPATH/operation=remove
 environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.so.release.1493648672.600187741/CPLUS_INCLUDE_PATH/delimiter=\:
@@ -19,6 +27,10 @@ environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.so.debug.6876918
 environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.so.debug.687691835.2138890711/LIBRARY_PATH/operation=remove
 environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.so.debug.687691835.2138890711/append=true
 environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.so.debug.687691835.2138890711/appendContributed=true
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.so.release.1493648672.475660356/LIBRARY_PATH/delimiter=;
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.so.release.1493648672.475660356/LIBRARY_PATH/operation=remove
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.so.release.1493648672.475660356/append=true
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.so.release.1493648672.475660356/appendContributed=true
 environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.so.release.1493648672.600187741/LIBRARY_PATH/delimiter=\:
 environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.so.release.1493648672.600187741/LIBRARY_PATH/operation=remove
 environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.so.release.1493648672.600187741/append=true
