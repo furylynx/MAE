@@ -213,7 +213,7 @@ namespace mae
 
 		for (unsigned int i = 0; i < split.size(); i++)
 		{
-			result.push_back(std::stod(split.at(i)));
+			result.push_back(std::atof(split.at(i).c_str()));
 		}
 
 		return result;
