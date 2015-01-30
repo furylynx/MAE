@@ -1,4 +1,4 @@
-Readme
+﻿Readme
 ==================
 
 The Movement Analysis Engine is able to analyze movements and provide events based on a 
@@ -8,11 +8,11 @@ for further movement processing and filtering in ambient spaces (i.e., smart env
 
 Dependencies
 ==================
-xml2
 xml++
 opencv2
 
-=> e.g. opencv_core, xml++-2.6, xml2, glibmm-2.4, gobject-2.0, sigc-2.0, glib-2.0
+When building, link against the following:
+opencv_core, xml++-2.6, xml2, glibmm-2.4, gobject-2.0, sigc-2.0, glib-2.0
 
 
 Installation
