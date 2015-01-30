@@ -1,4 +1,4 @@
-Readme
+﻿Readme
 ==================
 
 The Movement Analysis Engine is able to analyze movements and provide events based on a 
@@ -12,9 +12,11 @@ Dependencies
 ==================
 MAE
 SDL2
+SDL2 Images
 SDL TTF
 
-=> mae, SDL2, SDL2main, SDL2_images, SDL2_ttf
+When building, link against the following:
+mae, SDL2, SDL2main, SDL2_images, SDL2_ttf
 
 Installation
 ==================
