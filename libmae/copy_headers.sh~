@@ -1,6 +1,6 @@
 #! /bin/sh
 
-if [ -d include/ ]
+if [[ -f include/ ]]
 then
 	echo "clearing include/ folder"
 	rm -r include/*
