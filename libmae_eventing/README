@@ -1,4 +1,4 @@
-Readme
+﻿Readme
 ==================
 
 The Movement Analysis Engine is able to analyze movements and provide events based on a 
@@ -14,7 +14,8 @@ Dependencies
 MAE
 Boost
  
-=> mae, boost_system
+When building, link against the following:
+mae, boost_system
 
 
 
