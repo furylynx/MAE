@@ -7,6 +7,12 @@
 
 #include "bvh_controller.hpp"
 
+//internal includes
+#include "../math/internal_math.hh"
+
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/core.hpp>
+
 namespace mae
 {
 	namespace fl
@@ -249,25 +255,25 @@ namespace mae
 							pparent = pparent->get_parent();
 						}
 
-						cv::Vec3d old_vec = mae::math::math::joint_to_vec(data.at(0)->get_joint(elements.at(i)->get_id()))
-								- mae::math::math::joint_to_vec(data.at(0)->get_joint(pparent->get_id()));
-						cv::Vec3d new_vec = mae::math::math::joint_to_vec(data.at(skel_id)->get_joint(elements.at(i)->get_id()))
-								- mae::math::math::joint_to_vec(data.at(skel_id)->get_joint(pparent->get_id()));
+						cv::Vec3d old_vec = mae::math::internal_math::joint_to_vec(data.at(0)->get_joint(elements.at(i)->get_id()))
+								- mae::math::internal_math::joint_to_vec(data.at(0)->get_joint(pparent->get_id()));
+						cv::Vec3d new_vec = mae::math::internal_math::joint_to_vec(data.at(skel_id)->get_joint(elements.at(i)->get_id()))
+								- mae::math::internal_math::joint_to_vec(data.at(skel_id)->get_joint(pparent->get_id()));
 
 						//rotate old vector according to previous rotations
-						old_vec = mae::math::math::matrix_mul(rotations.at(pparent->get_id()), old_vec);
+						old_vec = mae::math::internal_math::matrix_mul(rotations.at(pparent->get_id()), old_vec);
 
 						//rotation
-						cv::Vec3d angles = mae::math::math::rotation_angles_zxy(old_vec, new_vec);
-						sstr << std::setprecision(2) << mae::math::math::rad_to_deg(angles[0]) << " " << std::setprecision(2)
-								<< mae::math::math::rad_to_deg(angles[1]) << " " << std::setprecision(2)
-								<< mae::math::math::rad_to_deg(angles[2]) << " ";
+						cv::Vec3d angles = mae::math::internal_math::rotation_angles_zxy(old_vec, new_vec);
+						sstr << std::setprecision(2) << mae::math::internal_math::rad_to_deg(angles[0]) << " " << std::setprecision(2)
+								<< mae::math::internal_math::rad_to_deg(angles[1]) << " " << std::setprecision(2)
+								<< mae::math::internal_math::rad_to_deg(angles[2]) << " ";
 
 						//update rotation matrix
 						rotations.insert(
 								std::make_pair(elements.at(i)->get_id(),
 										rotations.at(pparent->get_id())
-												* mae::math::math::matrix_rot_zxy(angles[0], angles[1], angles[2])));
+												* mae::math::internal_math::matrix_rot_zxy(angles[0], angles[1], angles[2])));
 					}
 				}
 
@@ -579,17 +585,17 @@ namespace mae
 						//joint is end site therefore has no motion information
 
 						//offset
-						cv::Vec3d orig_offset = mae::math::math::joint_to_vec(offset_skel->get_joint(joint_sequence.at(i)))
-								- mae::math::math::joint_to_vec(
+						cv::Vec3d orig_offset = mae::math::internal_math::joint_to_vec(offset_skel->get_joint(joint_sequence.at(i)))
+								- mae::math::internal_math::joint_to_vec(
 										offset_skel->get_joint(hy->at(joint_sequence.at(i))->get_parent()->get_id()));
 
-						cv::Vec3d new_offset = mae::math::math::matrix_mul(
+						cv::Vec3d new_offset = mae::math::internal_math::matrix_mul(
 								joint_rot_mat.at(hy->at(joint_sequence.at(i))->get_parent()->get_id()), orig_offset);
 
-						cv::Vec3d parent_pos = mae::math::math::joint_to_vec(
+						cv::Vec3d parent_pos = mae::math::internal_math::joint_to_vec(
 								next_skel->get_joint(hy->at(joint_sequence.at(i))->get_parent()->get_id()));
 
-						next_skel->set_joint(joint_sequence.at(i), mae::math::math::vec_to_joint(new_offset + parent_pos));
+						next_skel->set_joint(joint_sequence.at(i), mae::math::internal_math::vec_to_joint(new_offset + parent_pos));
 
 						joint_rot_mat.insert(
 								std::make_pair(joint_sequence.at(i),
@@ -614,7 +620,7 @@ namespace mae
 							rot_zeta = motion.at(m_read_offset + channels.at(3));
 							m_read_offset_tmp++;
 
-							rot_mats_tmp_vec.push_back(mae::math::math::matrix_rot_z(mae::math::math::deg_to_rad(rot_zeta)));
+							rot_mats_tmp_vec.push_back(mae::math::internal_math::matrix_rot_z(mae::math::math::deg_to_rad(rot_zeta)));
 						}
 
 						if (channels.at(4) != -1)
@@ -624,11 +630,11 @@ namespace mae
 
 							if (channels.at(4) < channels.at(3))
 							{
-								rot_mats_tmp_vec.push_front(mae::math::math::matrix_rot_x(mae::math::math::deg_to_rad(rot_xi)));
+								rot_mats_tmp_vec.push_front(mae::math::internal_math::matrix_rot_x(mae::math::math::deg_to_rad(rot_xi)));
 							}
 							else
 							{
-								rot_mats_tmp_vec.push_back(mae::math::math::matrix_rot_x(mae::math::math::deg_to_rad(rot_xi)));
+								rot_mats_tmp_vec.push_back(mae::math::internal_math::matrix_rot_x(mae::math::math::deg_to_rad(rot_xi)));
 							}
 						}
 
@@ -639,17 +645,17 @@ namespace mae
 
 							if (channels.at(5) < channels.at(3) && channels.at(5) < channels.at(4))
 							{
-								rot_mats_tmp_vec.push_front(mae::math::math::matrix_rot_y(mae::math::math::deg_to_rad(rot_ypsilon)));
+								rot_mats_tmp_vec.push_front(mae::math::internal_math::matrix_rot_y(mae::math::math::deg_to_rad(rot_ypsilon)));
 							}
 							else if (channels.at(5) > channels.at(3) && channels.at(5) > channels.at(4))
 							{
-								rot_mats_tmp_vec.push_back(mae::math::math::matrix_rot_y(mae::math::math::deg_to_rad(rot_ypsilon)));
+								rot_mats_tmp_vec.push_back(mae::math::internal_math::matrix_rot_y(mae::math::math::deg_to_rad(rot_ypsilon)));
 							}
 							else
 							{
 								std::list<cv::Mat>::iterator it = rot_mats_tmp_vec.begin();
 								it++;
-								rot_mats_tmp_vec.insert(it, mae::math::math::matrix_rot_y(mae::math::math::deg_to_rad(rot_ypsilon)));
+								rot_mats_tmp_vec.insert(it, mae::math::internal_math::matrix_rot_y(mae::math::math::deg_to_rad(rot_ypsilon)));
 							}
 						}
 
@@ -698,29 +704,29 @@ namespace mae
 						if (i == 0)
 						{
 							//handle root element
-							cv::Vec3d orig_offset = mae::math::math::joint_to_vec(offset_skel->get_joint(joint_sequence.at(i)));
-							next_skel->set_joint(joint_sequence.at(i), mae::math::math::vec_to_joint(orig_offset + motion_offset));
+							cv::Vec3d orig_offset = mae::math::internal_math::joint_to_vec(offset_skel->get_joint(joint_sequence.at(i)));
+							next_skel->set_joint(joint_sequence.at(i), mae::math::internal_math::vec_to_joint(orig_offset + motion_offset));
 						}
 						else
 						{
 							//handle any other element
-							cv::Vec3d orig_offset = mae::math::math::joint_to_vec(offset_skel->get_joint(joint_sequence.at(i)))
-									- mae::math::math::joint_to_vec(
+							cv::Vec3d orig_offset = mae::math::internal_math::joint_to_vec(offset_skel->get_joint(joint_sequence.at(i)))
+									- mae::math::internal_math::joint_to_vec(
 											offset_skel->get_joint(
 													hy->at(joint_sequence.at(i))->get_parent()->get_id()));
 							cv::Vec3d new_offset = orig_offset;
 							if (i != 0)
 							{
-								new_offset = mae::math::math::matrix_mul(
+								new_offset = mae::math::internal_math::matrix_mul(
 										joint_rot_mat.at(hy->at(joint_sequence.at(i))->get_parent()->get_id()),
 										orig_offset);
 							}
 
-							cv::Vec3d parent_pos = mae::math::math::joint_to_vec(
+							cv::Vec3d parent_pos = mae::math::internal_math::joint_to_vec(
 									next_skel->get_joint(hy->at(joint_sequence.at(i))->get_parent()->get_id()));
 
 							next_skel->set_joint(joint_sequence.at(i),
-									mae::math::math::vec_to_joint(new_offset + parent_pos + motion_offset));
+									mae::math::internal_math::vec_to_joint(new_offset + parent_pos + motion_offset));
 						}
 
 						m_read_offset += m_read_offset_tmp;
@@ -815,9 +821,9 @@ namespace mae
 				throw std::invalid_argument("bvh_controller: More than 3 values to parse for offset.");
 			}
 
-			cv::Vec3d el_position = mae::math::math::stdvec_to_vec3d(offset) + mae::math::math::joint_to_vec(parent_joint);
+			cv::Vec3d el_position = mae::math::internal_math::stdvec_to_vec3d(offset) + mae::math::internal_math::joint_to_vec(parent_joint);
 
-			return mae::math::math::vec_to_joint(el_position);
+			return mae::math::internal_math::vec_to_joint(el_position);
 		}
 
 		std::shared_ptr<hierarchy_element> bvh_controller::generate_hierarchy_element(std::shared_ptr<bvh_spec> spec,

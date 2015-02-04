@@ -12,7 +12,8 @@ src/mae/fl/bvh_controller.d: ../src/mae/fl/bvh_controller.cpp \
  ../src/mae/fl/../math/../fl/angular_joint.hpp \
  ../src/mae/fl/../math/../fl/../indexer_fix.hpp \
  ../src/mae/fl/../math/basis.hpp \
- ../src/mae/fl/../math/../general_joint.hpp
+ ../src/mae/fl/../math/../general_joint.hpp \
+ ../src/mae/fl/../math/internal_math.hh
 
 ../src/mae/fl/bvh_controller.hpp:
 
@@ -59,3 +60,5 @@ src/mae/fl/bvh_controller.d: ../src/mae/fl/bvh_controller.cpp \
 ../src/mae/fl/../math/basis.hpp:
 
 ../src/mae/fl/../math/../general_joint.hpp:
+
+../src/mae/fl/../math/internal_math.hh:

@@ -7,6 +7,13 @@
 
 #include "fl_skeleton_controller.hpp"
 
+//internal includes
+#include "../math/internal_math.hh"
+
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/core.hpp>
+
+
 namespace mae
 {
 	namespace fl
@@ -57,8 +64,8 @@ namespace mae
 			{
 				//calculate offset of each joint (is displayed in u,r,t coordinates)
 				result->set_joint(elements.at(i)->get_id(),
-						mae::math::math::vec_to_joint(
-								mae::math::math::project_to_basis(skeleton->get_joint(elements.at(i)->get_id())->vec(),
+						mae::math::internal_math::vec_to_joint(
+								mae::math::internal_math::project_to_basis(skeleton->get_joint(elements.at(i)->get_id())->vec(),
 										torso_basis, skeleton->get_joint(elements.at(i)->get_parent()->get_id())->vec() )));
 
 				//set confidence and rotation
@@ -155,8 +162,8 @@ namespace mae
 				throw std::invalid_argument("skeleton has either not top-down definition or the joints are invalid.");
 			}
 
-			cv::Vec3d joint_top = mae::math::math::joint_to_vec(skeleton->get_joint(top_down->get_from()));
-			cv::Vec3d joint_down = mae::math::math::joint_to_vec(skeleton->get_joint(top_down->get_to()));
+			cv::Vec3d joint_top = mae::math::internal_math::joint_to_vec(skeleton->get_joint(top_down->get_from()));
+			cv::Vec3d joint_down = mae::math::internal_math::joint_to_vec(skeleton->get_joint(top_down->get_to()));
 
 			if (cv::norm(joint_top - (joint_down + u)) < cv::norm(joint_top - joint_down))
 			{
@@ -171,8 +178,8 @@ namespace mae
 				throw std::invalid_argument("skeleton has either not right-left definition or the joints are invalid.");
 			}
 
-			cv::Vec3d joint_right = mae::math::math::joint_to_vec(skeleton->get_joint(right_left->get_from()));
-			cv::Vec3d joint_left = mae::math::math::joint_to_vec(skeleton->get_joint(right_left->get_to()));
+			cv::Vec3d joint_right = mae::math::internal_math::joint_to_vec(skeleton->get_joint(right_left->get_from()));
+			cv::Vec3d joint_left = mae::math::internal_math::joint_to_vec(skeleton->get_joint(right_left->get_to()));
 
 			if (cv::norm(joint_left - (joint_right + r)) > cv::norm(joint_left - joint_right))
 			{
@@ -186,13 +193,13 @@ namespace mae
 			{
 				//if weight is defined, manipulate the torso basis in order to represent the weight direction instead of top-down
 
-				cv::Vec3d w = mae::math::math::maevec_to_vec3d(skeleton->get_weight());
+				cv::Vec3d w = mae::math::internal_math::maevec_to_vec3d(skeleton->get_weight());
 
-				if (!mae::math::math::are_collinear(w, r))
+				if (!mae::math::internal_math::are_collinear(w, r))
 				{
-					if (!mae::math::math::are_collinear(w, t))
+					if (!mae::math::internal_math::are_collinear(w, t))
 					{
-						if (mae::math::math::calc_angle_half(w, u) < M_PI_2)
+						if (mae::math::internal_math::calc_angle_half(w, u) < M_PI_2)
 						{
 							//standing normally
 							u = w;
@@ -209,7 +216,7 @@ namespace mae
 					}
 					else
 					{
-						if (mae::math::math::calc_angle_half(w, t) < M_PI_2)
+						if (mae::math::internal_math::calc_angle_half(w, t) < M_PI_2)
 						{
 							//lying on stomach
 							u = w;
@@ -227,7 +234,7 @@ namespace mae
 				}
 				else
 				{
-					if (mae::math::math::calc_angle_half(w, r) < M_PI_2)
+					if (mae::math::internal_math::calc_angle_half(w, r) < M_PI_2)
 					{
 						//w and r point in the same direction
 						//lying on left side
@@ -246,11 +253,11 @@ namespace mae
 				}
 			}
 
-			cv::Vec3d position_vector = mae::math::math::joint_to_vec(skeleton->get_joint(elements.at(0)->get_id()));
+			cv::Vec3d position_vector = mae::math::internal_math::joint_to_vec(skeleton->get_joint(elements.at(0)->get_id()));
 
 			return std::shared_ptr<mae::math::basis>(
-					new mae::math::basis(mae::math::math::vec3d_to_maevec(position_vector), mae::math::math::vec3d_to_maevec(u),
-							mae::math::math::vec3d_to_maevec(r), mae::math::math::vec3d_to_maevec(t)));
+					new mae::math::basis(mae::math::internal_math::vec3d_to_maevec(position_vector), mae::math::internal_math::vec3d_to_maevec(u),
+							mae::math::internal_math::vec3d_to_maevec(r), mae::math::internal_math::vec3d_to_maevec(t)));
 		}
 
 	} // namespace fl

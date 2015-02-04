@@ -10,6 +10,7 @@ RM := rm -rf
 -include sources.mk
 -include src/mae/eventing/fl/subdir.mk
 -include src/mae/eventing/subdir.mk
+-include src/mae/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -45,7 +46,7 @@ all: libmae_eventing.so
 libmae_eventing.so: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -shared -o "libmae_eventing.so" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"/sda7/data/workspace-git/MAE/libmae/Release" -shared -o "libmae_eventing.so" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
