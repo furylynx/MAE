@@ -18,6 +18,7 @@
 #include <memory>
 #include <string>
 #include <sstream>
+#include <cmath>
 
 namespace mae
 {
@@ -83,6 +84,62 @@ namespace mae
 				 * @return z
 				 */
 				virtual double get_z() const;
+
+				/**
+				 * Adds the given vector's value to this vector's values and returns the result.
+				 *
+				 * This vector is not changed.
+				 *
+				 * @param vec The vector to be added.
+				 * @return The resulting vector.
+				 */
+				virtual std::shared_ptr<vec3d> add(std::shared_ptr<vec3d> vec) const;
+
+				/**
+				 * Subtracts the given vector's value from this vector's values and returns the result.
+				 *
+				 * This vector is not changed.
+				 *
+				 * @param vec The vector to be added.
+				 * @return The resulting vector.
+				 */
+				virtual std::shared_ptr<vec3d> subtract(std::shared_ptr<vec3d> vec) const;
+
+
+				/**
+				 * Returns the the normalized vector.
+				 *
+				 * This vector is not changed.
+				 *
+				 * @param vec The vector to be added.
+				 * @return The resulting vector.
+				 */
+				virtual std::shared_ptr<vec3d> normalize() const;
+
+				/**
+				 * Returns the value of the L2 norm for this vector.
+				 *
+				 * @return The norm value.
+				 */
+				virtual double l2_norm() const;
+
+
+				/**
+				 * Returns the result of the dot product between the two vectors.
+				 *
+				 * @param vec The vector.
+				 * @return The dot product.
+				 */
+				virtual double dot(std::shared_ptr<vec3d> vec) const;
+
+				/**
+				 * Returns the result of the cross product between the two vectors.
+				 *
+				 * @param vec The vector.
+				 * @return The cross product.
+				 */
+				virtual std::shared_ptr<vec3d> cross(std::shared_ptr<vec3d> vec) const;
+
 
 				/**
 				 * Returns the string representation for this object.

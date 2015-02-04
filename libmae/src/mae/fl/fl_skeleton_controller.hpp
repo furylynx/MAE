@@ -23,17 +23,10 @@
 #include "../math/math.hpp"
 
 //global includes
-#include <opencv2/core/core.hpp>
-#include <opencv2/opencv.hpp>
 #include <vector>
 #include <cmath>
 #include <memory>
 #include <iostream>
-
-//defines
-#ifndef M_PI_2
-#define M_PI_2		1.57079632679489661923
-#endif
 
 namespace mae
 {

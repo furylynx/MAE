@@ -76,11 +76,6 @@
 								<option id="gnu.cpp.link.option.libs.1612966715" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_core"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="xml++-2.6"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="xml2"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="glibmm-2.4"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="gobject-2.0"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="sigc-2.0"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="glib-2.0"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1747457861" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -134,8 +129,6 @@
 								<option id="gnu.cpp.compiler.option.include.paths.1023090402" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.8/include/"/>
 									<listOptionValue builtIn="false" value="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/"/>
-									<listOptionValue builtIn="false" value="/usr/include/opencv2/core/"/>
-									<listOptionValue builtIn="false" value="/usr/include/opencv2/"/>
 									<listOptionValue builtIn="false" value="/usr/include/c++/4.8/"/>
 									<listOptionValue builtIn="false" value="/usr/include/"/>
 									<listOptionValue builtIn="false" value="/usr/include/x86_64-linux-gnu/c++/4.8/bits"/>
@@ -174,11 +167,6 @@
 								<option id="gnu.cpp.link.option.libs.1816939837" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_core"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="xml++-2.6"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="xml2"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="glibmm-2.4"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="gobject-2.0"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="sigc-2.0"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="glib-2.0"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.485269782" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -315,10 +303,6 @@
 							<tool id="cdt.managedbuild.tool.gnu.archiver.mingw.base.1004395238" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.mingw.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base.1126070203" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base">
 								<option id="gnu.cpp.compiler.option.include.paths.1778067152" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;C:/Program Files/Java/jdk1.8.0_05/include/&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;C:/Program Files/Java/jdk1.8.0_05/include/win32/&quot;"/>
-									<listOptionValue builtIn="false" value="C:/MinGW-W64/mingw64/include/"/>
-									<listOptionValue builtIn="false" value="C:/MinGW-W64/mingw64/x86_64-w64-mingw32/include/c++"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/include/glibmm-2.4}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/include/sigc++-2.0}&quot;"/>
@@ -329,6 +313,10 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/include/libxml++-2.6}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/lib/glib-2.0/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/include/glib-2.0/}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../C:/Program Files/Java/jdk1.8.0_05/include/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../C:/Program Files/Java/jdk1.8.0_05/include/win32/&quot;"/>
+									<listOptionValue builtIn="false" value="../C:/MinGW-W64/mingw64/include/"/>
+									<listOptionValue builtIn="false" value="../C:/MinGW-W64/mingw64/x86_64-w64-mingw32/include/c++"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.optimization.level.564885800" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.debugging.level.394190462" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
@@ -352,11 +340,6 @@
 								<option id="gnu.cpp.link.option.libs.1571536731" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_core"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="xml++-2.6"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="xml2"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="glibmm-2.4"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="gobject-2.0"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="sigc-2.0"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="glib-2.0"/>
 								</option>
 								<option defaultValue="true" id="gnu.cpp.link.option.shared.1253159887" name="Shared (-shared)" superClass="gnu.cpp.link.option.shared" valueType="boolean"/>
 								<option id="gnu.cpp.link.option.paths.453995146" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">

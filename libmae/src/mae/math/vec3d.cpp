@@ -61,6 +61,45 @@ namespace mae
 			return z_;
 		}
 
+		std::shared_ptr<vec3d> vec3d::add(std::shared_ptr<vec3d> vec) const
+		{
+			return std::shared_ptr<vec3d>(new vec3d(x_ + vec->get_x(), y_ + vec->get_y(), z_ + vec->get_z()));
+		}
+
+		std::shared_ptr<vec3d> vec3d::subtract(std::shared_ptr<vec3d> vec) const
+		{
+			return std::shared_ptr<vec3d>(new vec3d(x_ - vec->get_x(), y_ - vec->get_y(), z_ - vec->get_z()));
+		}
+
+		std::shared_ptr<vec3d> vec3d::normalize() const
+		{
+			double norm = l2_norm();
+
+			if (norm == 0)
+			{
+				return nullptr;
+			}
+			else
+			{
+				return std::shared_ptr<vec3d>(new vec3d(x_/norm, y_/norm, z_/norm));
+			}
+		}
+
+		double vec3d::l2_norm() const
+		{
+			return std::sqrt(std::pow(x_, 2) + std::pow(y_, 2) + std::pow(z_, 2));
+		}
+
+		double vec3d::dot(std::shared_ptr<vec3d> vec) const
+		{
+			return (x_ * vec->get_x()) + (y_ * vec->get_y()) + (z_ * vec->get_z());
+		}
+
+		std::shared_ptr<vec3d> vec3d::cross(std::shared_ptr<vec3d> vec) const
+		{
+			return std::shared_ptr<vec3d>(new vec3d((y_*vec->get_z()) - (z_*vec->get_y()), (z_*vec->get_x()) - (x_*vec->get_z()), (x_*vec->get_y()) - (y_*vec->get_x())));
+		}
+
 		std::string vec3d::str() const
 		{
 			std::stringstream sstr;
