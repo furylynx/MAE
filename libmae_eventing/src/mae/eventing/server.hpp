@@ -16,6 +16,8 @@
 #include "i_registration_manager.hpp"
 #include "cs_base.hpp"
 
+#include "../mxml.hpp"
+
 
 //global includes
 #include <mae/mae.hpp>

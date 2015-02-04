@@ -3,8 +3,9 @@ src/mae/fl/laban/rewriting_rules_reader.d: \
  ../src/mae/fl/laban/rewriting_rules_reader.hpp \
  ../src/mae/fl/laban/../../indexer_fix.hpp \
  ../src/mae/fl/laban/decision_value.hpp \
- ../src/mae/fl/laban/i_movement.hpp ../src/mae/fl/laban/movement.hpp \
- ../src/mae/fl/laban/ps/i_pre_sign.hpp \
+ ../src/mae/fl/laban/i_movement.hpp \
+ ../src/mae/fl/laban/internal_rewriting_rules_reader.hh \
+ ../src/mae/fl/laban/movement.hpp ../src/mae/fl/laban/ps/i_pre_sign.hpp \
  ../src/mae/fl/laban/ps/../../../indexer_fix.hpp \
  ../src/mae/fl/laban/mv/i_symbol.hpp \
  ../src/mae/fl/laban/mv/../../../indexer_fix.hpp \
@@ -38,7 +39,7 @@ src/mae/fl/laban/rewriting_rules_reader.d: \
  ../src/mae/fl/laban/mv/e_space_direction.hpp \
  ../src/mae/fl/laban/mv/pin.hpp ../src/mae/fl/laban/../../mbool.hpp \
  ../src/mae/fl/laban/../../indexer_fix.hpp \
- ../src/mae/fl/laban/../../mstr.hpp ../src/mae/fl/laban/../../mxml.hpp \
+ ../src/mae/fl/laban/../../mstr.hpp \
  /usr/include/libxml++-2.6/libxml++/libxml++.h \
  /usr/include/libxml++-2.6/libxml++/exceptions/internal_error.h \
  /usr/include/libxml++-2.6/libxml++/exceptions/exception.h \
@@ -145,6 +146,8 @@ src/mae/fl/laban/rewriting_rules_reader.d: \
 
 ../src/mae/fl/laban/i_movement.hpp:
 
+../src/mae/fl/laban/internal_rewriting_rules_reader.hh:
+
 ../src/mae/fl/laban/movement.hpp:
 
 ../src/mae/fl/laban/ps/i_pre_sign.hpp:
@@ -220,8 +223,6 @@ src/mae/fl/laban/rewriting_rules_reader.d: \
 ../src/mae/fl/laban/../../indexer_fix.hpp:
 
 ../src/mae/fl/laban/../../mstr.hpp:
-
-../src/mae/fl/laban/../../mxml.hpp:
 
 /usr/include/libxml++-2.6/libxml++/libxml++.h:
 

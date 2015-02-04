@@ -21,7 +21,6 @@
 #include "../math/math.hpp"
 
 //global includes
-#include <opencv2/opencv.hpp>
 #include <unordered_map>
 #include <memory>
 #include <vector>
@@ -88,9 +87,10 @@ namespace mae
 				 * @return The default hysteresis threshold value.
 				 */
 				static double default_hysteresis_val();
+
 			private:
 				bool debug_;
-				std::unordered_map<int, cv::Vec3d> map_directions_;
+				std::unordered_map<int, std::shared_ptr<mae::math::vec3d> > map_directions_;
 				double hysteresis_val_;
 
 				const double PM_ACCEPT_DIST = 22.5;

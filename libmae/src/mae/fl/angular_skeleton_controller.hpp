@@ -20,23 +20,14 @@
 #include "../general_skeleton.hpp"
 #include "../i_skeleton_controller.hpp"
 #include "../e_joint.hpp"
-#include "../math/math.hpp"
 
 #include "../math/basis.hpp"
 
 //global includes
-#include <opencv2/core/core.hpp>
-#include <opencv2/opencv.hpp>
 #include <vector>
 #include <cmath>
 #include <memory>
 #include <iostream>
-
-//defines
-#ifndef M_PI
-#define M_PI           3.14159265358979323846
-#endif
-
 
 namespace mae
 {
@@ -65,7 +56,7 @@ namespace mae
 				 * @param t The t direction of the basis.
 				 * @return The specified skeleton.
 				 */
-				virtual std::shared_ptr<angular_skeleton> calculate_angular_skeleton(std::shared_ptr<general_skeleton> skeleton, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
+				virtual std::shared_ptr<angular_skeleton> calculate_angular_skeleton(std::shared_ptr<general_skeleton> skeleton, std::shared_ptr<mae::math::vec3d> u, std::shared_ptr<mae::math::vec3d> r, std::shared_ptr<mae::math::vec3d> t);
 
 				/**
 				 * Calculates first degree joints using a main direction.
@@ -79,7 +70,7 @@ namespace mae
 				 * @param md
 				 * @return
 				 */
-				static cv::Vec2d first_degree_md(std::shared_ptr<general_skeleton> skeleton, int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t, cv::Vec3d md);
+				static std::shared_ptr<angular_joint> first_degree_md(std::shared_ptr<general_skeleton> skeleton, int adjacent_joint, int outer_joint, std::shared_ptr<mae::math::vec3d> u, std::shared_ptr<mae::math::vec3d> r, std::shared_ptr<mae::math::vec3d> t, std::shared_ptr<mae::math::vec3d> md);
 
 				/**
 				 * Calculates the first degree joint using the plane to which r is the normal.
@@ -92,7 +83,7 @@ namespace mae
 				 * @param t
 				 * @return
 				 */
-				static cv::Vec2d first_degree_r(std::shared_ptr<general_skeleton> skeleton, int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
+				static std::shared_ptr<angular_joint> first_degree_r(std::shared_ptr<general_skeleton> skeleton, int adjacent_joint, int outer_joint, std::shared_ptr<mae::math::vec3d> u, std::shared_ptr<mae::math::vec3d> r, std::shared_ptr<mae::math::vec3d> t);
 
 				/**
 				 * Calculates the first degree joint which the general method.
@@ -105,7 +96,7 @@ namespace mae
 				 * @param t
 				 * @return
 				 */
-				static cv::Vec2d first_degree(std::shared_ptr<general_skeleton> skeleton, int adjacent_joint, int outer_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
+				static std::shared_ptr<angular_joint> first_degree(std::shared_ptr<general_skeleton> skeleton, int adjacent_joint, int outer_joint, std::shared_ptr<mae::math::vec3d> u, std::shared_ptr<mae::math::vec3d> r, std::shared_ptr<mae::math::vec3d> t);
 
 				/**
 				 * Calculates the second degree joint.
@@ -119,7 +110,7 @@ namespace mae
 				 * @param t
 				 * @return
 				 */
-				static cv::Vec2d second_degree(std::shared_ptr<general_skeleton> skeleton, int adjacent_joint, int outer_joint, int extremity_joint, cv::Vec3d u, cv::Vec3d r, cv::Vec3d t);
+				static std::shared_ptr<angular_joint> second_degree(std::shared_ptr<general_skeleton> skeleton, int adjacent_joint, int outer_joint, int extremity_joint, std::shared_ptr<mae::math::vec3d> u, std::shared_ptr<mae::math::vec3d> r, std::shared_ptr<mae::math::vec3d> t);
 
 			private:
 				bool debug_;

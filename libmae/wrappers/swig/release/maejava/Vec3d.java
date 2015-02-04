@@ -67,6 +67,34 @@ public class Vec3d {
     return MaeJavaJNI.Vec3d_getZ(swigCPtr, this);
   }
 
+  public Vec3d add(Vec3d vec) {
+    long cPtr = MaeJavaJNI.Vec3d_add(swigCPtr, this, Vec3d.getCPtr(vec), vec);
+    return (cPtr == 0) ? null : new Vec3d(cPtr, true);
+  }
+
+  public Vec3d subtract(Vec3d vec) {
+    long cPtr = MaeJavaJNI.Vec3d_subtract(swigCPtr, this, Vec3d.getCPtr(vec), vec);
+    return (cPtr == 0) ? null : new Vec3d(cPtr, true);
+  }
+
+  public Vec3d normalize() {
+    long cPtr = MaeJavaJNI.Vec3d_normalize(swigCPtr, this);
+    return (cPtr == 0) ? null : new Vec3d(cPtr, true);
+  }
+
+  public double l2Norm() {
+    return MaeJavaJNI.Vec3d_l2Norm(swigCPtr, this);
+  }
+
+  public double dot(Vec3d vec) {
+    return MaeJavaJNI.Vec3d_dot(swigCPtr, this, Vec3d.getCPtr(vec), vec);
+  }
+
+  public Vec3d cross(Vec3d vec) {
+    long cPtr = MaeJavaJNI.Vec3d_cross(swigCPtr, this, Vec3d.getCPtr(vec), vec);
+    return (cPtr == 0) ? null : new Vec3d(cPtr, true);
+  }
+
   public String str() {
     return MaeJavaJNI.Vec3d_str(swigCPtr, this);
   }

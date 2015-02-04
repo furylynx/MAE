@@ -189,6 +189,12 @@ public class MaeJavaJNI {
   public final static native double Vec3d_getY(long jarg1, Vec3d jarg1_);
   public final static native void Vec3d_setZ(long jarg1, Vec3d jarg1_, double jarg2);
   public final static native double Vec3d_getZ(long jarg1, Vec3d jarg1_);
+  public final static native long Vec3d_add(long jarg1, Vec3d jarg1_, long jarg2, Vec3d jarg2_);
+  public final static native long Vec3d_subtract(long jarg1, Vec3d jarg1_, long jarg2, Vec3d jarg2_);
+  public final static native long Vec3d_normalize(long jarg1, Vec3d jarg1_);
+  public final static native double Vec3d_l2Norm(long jarg1, Vec3d jarg1_);
+  public final static native double Vec3d_dot(long jarg1, Vec3d jarg1_, long jarg2, Vec3d jarg2_);
+  public final static native long Vec3d_cross(long jarg1, Vec3d jarg1_, long jarg2, Vec3d jarg2_);
   public final static native String Vec3d_str(long jarg1, Vec3d jarg1_);
   public final static native void delete_GeneralJoint(long jarg1);
   public final static native long new_GeneralJoint__SWIG_0();
@@ -790,6 +796,7 @@ public class MaeJavaJNI {
   public final static native int ELevelVector_get(long jarg1, ELevelVector jarg1_, int jarg2);
   public final static native void ELevelVector_set(long jarg1, ELevelVector jarg1_, int jarg2, int jarg3);
   public final static native void delete_ELevelVector(long jarg1);
+  public final static native double M_PI_get();
   public final static native long new_Pin(int jarg1, int jarg2);
   public final static native void delete_Pin(long jarg1);
   public final static native int Pin_getLevel(long jarg1, Pin jarg1_);

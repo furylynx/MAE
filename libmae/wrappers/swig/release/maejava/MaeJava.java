@@ -8,5 +8,5 @@
 
 package maejava;
 
-public class MaeJava {
+public class MaeJava implements MaeJavaConstants {
 }

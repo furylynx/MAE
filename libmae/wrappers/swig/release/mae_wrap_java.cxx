@@ -6334,6 +6334,206 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_Vec3d_1getZ(JNIEnv *jenv, jcl
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Vec3d_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jlong jresult = 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
+  std::shared_ptr< mae::math::vec3d > arg2 ;
+  std::shared_ptr< mae::math::vec3d const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::math::vec3d > *argp2 ;
+  std::shared_ptr< mae::math::vec3d > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::math::vec3d > **)&jarg1;
+  arg1 = (mae::math::vec3d *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::math::vec3d > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  {
+    try {
+      result = ((mae::math::vec3d const *)arg1)->add(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::math::vec3d > **)&jresult = result ? new std::shared_ptr< mae::math::vec3d >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Vec3d_1subtract(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jlong jresult = 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
+  std::shared_ptr< mae::math::vec3d > arg2 ;
+  std::shared_ptr< mae::math::vec3d const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::math::vec3d > *argp2 ;
+  std::shared_ptr< mae::math::vec3d > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::math::vec3d > **)&jarg1;
+  arg1 = (mae::math::vec3d *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::math::vec3d > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  {
+    try {
+      result = ((mae::math::vec3d const *)arg1)->subtract(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::math::vec3d > **)&jresult = result ? new std::shared_ptr< mae::math::vec3d >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Vec3d_1normalize(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
+  std::shared_ptr< mae::math::vec3d const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::math::vec3d > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::math::vec3d > **)&jarg1;
+  arg1 = (mae::math::vec3d *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      result = ((mae::math::vec3d const *)arg1)->normalize();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::math::vec3d > **)&jresult = result ? new std::shared_ptr< mae::math::vec3d >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_Vec3d_1l2Norm(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jdouble jresult = 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
+  std::shared_ptr< mae::math::vec3d const > *smartarg1 = 0 ;
+  double result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::math::vec3d > **)&jarg1;
+  arg1 = (mae::math::vec3d *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      result = (double)((mae::math::vec3d const *)arg1)->l2_norm();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jdouble)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_Vec3d_1dot(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jdouble jresult = 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
+  std::shared_ptr< mae::math::vec3d > arg2 ;
+  std::shared_ptr< mae::math::vec3d const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::math::vec3d > *argp2 ;
+  double result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::math::vec3d > **)&jarg1;
+  arg1 = (mae::math::vec3d *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::math::vec3d > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  {
+    try {
+      result = (double)((mae::math::vec3d const *)arg1)->dot(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jdouble)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Vec3d_1cross(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jlong jresult = 0 ;
+  mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
+  std::shared_ptr< mae::math::vec3d > arg2 ;
+  std::shared_ptr< mae::math::vec3d const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::math::vec3d > *argp2 ;
+  std::shared_ptr< mae::math::vec3d > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::math::vec3d > **)&jarg1;
+  arg1 = (mae::math::vec3d *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::math::vec3d > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  {
+    try {
+      result = ((mae::math::vec3d const *)arg1)->cross(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::math::vec3d > **)&jresult = result ? new std::shared_ptr< mae::math::vec3d >(result) : 0; 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Vec3d_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::math::vec3d *arg1 = (mae::math::vec3d *) 0 ;
@@ -25581,6 +25781,18 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ELevelVector(JNIEnv *jen
       };
     }
   }
+}
+
+
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_M_1PI_1get(JNIEnv *jenv, jclass jcls) {
+  jdouble jresult = 0 ;
+  double result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (double)(3.14159265358979323846);
+  jresult = (jdouble)result; 
+  return jresult;
 }
 
 

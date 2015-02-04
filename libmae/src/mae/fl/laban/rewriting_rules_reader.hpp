@@ -14,24 +14,12 @@
 //custom includes
 #include "decision_value.hpp"
 #include "i_movement.hpp"
-#include "movement.hpp"
-
-#include "mv/direction_symbol.hpp"
-
-#include "../../mbool.hpp"
-#include "../../mxml.hpp"
 
 
 //global includes
 #include <memory>
 #include <string>
-#include <sstream>
-#include <stdexcept>
-#include <iostream>
-#include <fstream>
-#include <vector>
 
-#include <libxml++/libxml++.h>
 
 namespace mae
 {
@@ -64,40 +52,6 @@ namespace mae
 					 * @return A shared pointer to the sequence.
 					 */
 					virtual std::vector<std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > > read_rules_str(std::string xml_string);
-
-
-				private:
-					/**
-					 * Parses the node and returns the rule.
-					 *
-					 * @param node The XML node.
-					 * @param namespace_map The namespace map.
-					 * @param nsp The namespace.
-					 * @return The rule.
-					 */
-					std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > read_rule(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
-
-					/**
-					 * Parses the node and returns the sequence for the rule.
-					 *
-					 * @param node The XML node.
-					 * @param namespace_map The namespace map.
-					 * @param nsp The namespace.
-					 * @return The sequence.
-					 */
-					std::vector<std::shared_ptr<i_movement> > read_rule_sequence(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
-
-					/**
-					 * Parses the node and returns the movement element.
-					 *
-					 * @param node The XML node.
-					 * @param namespace_map The namespace map.
-					 * @param nsp The namespace.
-					 * @return The movement element.
-					 */
-					std::shared_ptr<i_movement> read_element(xmlpp::Node* node, std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map, std::string nsp);
-
-
 
 			};
 

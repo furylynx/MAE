@@ -16,7 +16,8 @@ src/mae/fl/fl_skeleton_controller.d: \
  ../src/mae/fl/../math/../fl/angular_joint.hpp \
  ../src/mae/fl/../math/../fl/../indexer_fix.hpp \
  ../src/mae/fl/../math/basis.hpp \
- ../src/mae/fl/../math/../general_joint.hpp
+ ../src/mae/fl/../math/../general_joint.hpp \
+ ../src/mae/fl/../math/internal_math.hh
 
 ../src/mae/fl/fl_skeleton_controller.hpp:
 
@@ -75,3 +76,5 @@ src/mae/fl/fl_skeleton_controller.d: \
 ../src/mae/fl/../math/basis.hpp:
 
 ../src/mae/fl/../math/../general_joint.hpp:
+
+../src/mae/fl/../math/internal_math.hh:
