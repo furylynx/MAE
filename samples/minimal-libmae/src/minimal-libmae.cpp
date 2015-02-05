@@ -15,9 +15,7 @@ int main()
 	std::cout << ">> Hello libmae <<" << std::endl;
 
 	mae::math::vec3d vec = mae::math::vec3d(1,2,3);
-
 	std::cout << vec << std::endl;
-
 
 	return 0;
 }
