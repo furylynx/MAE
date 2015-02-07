@@ -59,12 +59,14 @@ public class BvhController {
     MaeJavaJNI.BvhController_printBvhFile__SWIG_1(swigCPtr, this, GeneralSkeleton.getCPtr(data), data, filename);
   }
 
-  public GeneralSkeletonVectorDoublePair readBvhStr(String bvh_str, BvhSpec spec) {
-    return new GeneralSkeletonVectorDoublePair(MaeJavaJNI.BvhController_readBvhStr(swigCPtr, this, bvh_str, BvhSpec.getCPtr(spec), spec), true);
+  public BvhData readBvhStr(String bvh_str, BvhSpec spec) {
+    long cPtr = MaeJavaJNI.BvhController_readBvhStr(swigCPtr, this, bvh_str, BvhSpec.getCPtr(spec), spec);
+    return (cPtr == 0) ? null : new BvhData(cPtr, true);
   }
 
-  public GeneralSkeletonVectorDoublePair readBvhFile(String filename, BvhSpec spec) {
-    return new GeneralSkeletonVectorDoublePair(MaeJavaJNI.BvhController_readBvhFile(swigCPtr, this, filename, BvhSpec.getCPtr(spec), spec), true);
+  public BvhData readBvhFile(String filename, BvhSpec spec) {
+    long cPtr = MaeJavaJNI.BvhController_readBvhFile(swigCPtr, this, filename, BvhSpec.getCPtr(spec), spec);
+    return (cPtr == 0) ? null : new BvhData(cPtr, true);
   }
 
 }
