@@ -21,12 +21,10 @@
 #include <memory>
 
 //NiTE includes
-#include <Linux-x86/XnPlatformLinux-x86.h>
 #include <XnOS.h>
 #include <XnOpenNI.h>
 #include <XnCodecIDs.h>
 #include <XnStatus.h>
-#include <Linux-x86/XnPlatformLinux-x86.h>
 #include <XnCppWrapper.h>
 
 
