@@ -16,6 +16,7 @@
 #include "../mstr.hpp"
 
 #include "bvh_spec.hpp"
+#include "bvh_data.hpp"
 
 #include "../math/math.hpp"
 
@@ -100,7 +101,7 @@ namespace mae
 				 * @param spec The specification for the reader.
 				 * @return The skeleton data.
 				 */
-				virtual std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> read_bvh_str(std::string bvh_str, std::shared_ptr<bvh_spec> spec);
+				virtual std::shared_ptr<bvh_data> read_bvh_str(std::string bvh_str, std::shared_ptr<bvh_spec> spec);
 
 				/**
 				 * Reads the BVH file. Uses a specification to define the IDs of the joints as well as the
@@ -110,7 +111,7 @@ namespace mae
 				 * @param spec The specification for the reader.
 				 * @return The skeleton data.
 				 */
-				virtual std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> read_bvh_file(std::string filename, std::shared_ptr<bvh_spec> spec);
+				virtual std::shared_ptr<bvh_data> read_bvh_file(std::string filename, std::shared_ptr<bvh_spec> spec);
 
 			private:
 				/**

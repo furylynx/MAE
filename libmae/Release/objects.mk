@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lopencv_core -lxml++-2.6
+LIBS := -lopencv_core -lxml++-2.6 -lxml2
 
