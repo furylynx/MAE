@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lOpenNI -lXnCore -lmae
+LIBS := -lmae -lOpenNI
 

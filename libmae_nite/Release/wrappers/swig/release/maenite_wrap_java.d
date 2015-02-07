@@ -6,8 +6,7 @@ wrappers/swig/release/maenite_wrap_java.d: \
  ../wrappers/swig/release/../../../src/mae/nite/../indexer_fix.hpp \
  ../wrappers/swig/release/../../../src/mae/nite/nite_controller.hpp \
  ../wrappers/swig/release/../../../src/mae/nite/device_info.hpp \
- /usr/include/ni/Linux-x86/XnPlatformLinux-x86.h /usr/include/ni/XnOS.h \
- /usr/include/ni/XnPlatform.h \
+ /usr/include/ni/XnOS.h /usr/include/ni/XnPlatform.h \
  /usr/include/ni/Linux-x86/XnPlatformLinux-x86.h \
  /usr/include/ni/XnMacros.h /usr/include/ni/XnStatusCodes.h \
  /usr/include/ni/XnStatus.h /usr/include/ni/XnOSStrings.h \
@@ -79,6 +78,7 @@ wrappers/swig/release/maenite_wrap_java.d: \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/../math/basis.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_spec.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_data.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl_movement_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl_pose_detector.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/../i_pose_detector.hpp \
@@ -193,8 +193,6 @@ wrappers/swig/release/maenite_wrap_java.d: \
 ../wrappers/swig/release/../../../src/mae/nite/nite_controller.hpp:
 
 ../wrappers/swig/release/../../../src/mae/nite/device_info.hpp:
-
-/usr/include/ni/Linux-x86/XnPlatformLinux-x86.h:
 
 /usr/include/ni/XnOS.h:
 
@@ -363,6 +361,8 @@ wrappers/swig/release/maenite_wrap_java.d: \
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_controller.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_spec.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_data.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl_movement_controller.hpp:
 

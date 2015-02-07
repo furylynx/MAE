@@ -8,6 +8,7 @@ CPP_SRCS += \
 ../src/mae/fl/angular_skeleton.cpp \
 ../src/mae/fl/angular_skeleton_controller.cpp \
 ../src/mae/fl/bvh_controller.cpp \
+../src/mae/fl/bvh_data.cpp \
 ../src/mae/fl/bvh_spec.cpp \
 ../src/mae/fl/e_fl_direction.cpp \
 ../src/mae/fl/e_fl_joint.cpp \
@@ -22,6 +23,7 @@ OBJS += \
 ./src/mae/fl/angular_skeleton.o \
 ./src/mae/fl/angular_skeleton_controller.o \
 ./src/mae/fl/bvh_controller.o \
+./src/mae/fl/bvh_data.o \
 ./src/mae/fl/bvh_spec.o \
 ./src/mae/fl/e_fl_direction.o \
 ./src/mae/fl/e_fl_joint.o \
@@ -36,6 +38,7 @@ CPP_DEPS += \
 ./src/mae/fl/angular_skeleton.d \
 ./src/mae/fl/angular_skeleton_controller.d \
 ./src/mae/fl/bvh_controller.d \
+./src/mae/fl/bvh_data.d \
 ./src/mae/fl/bvh_spec.d \
 ./src/mae/fl/e_fl_direction.d \
 ./src/mae/fl/e_fl_joint.d \

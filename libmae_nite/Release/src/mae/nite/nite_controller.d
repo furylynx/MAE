@@ -1,7 +1,6 @@
 src/mae/nite/nite_controller.d: ../src/mae/nite/nite_controller.cpp \
  ../src/mae/nite/nite_controller.hpp ../src/mae/nite/../indexer_fix.hpp \
- ../src/mae/nite/device_info.hpp \
- /usr/include/ni/Linux-x86/XnPlatformLinux-x86.h /usr/include/ni/XnOS.h \
+ ../src/mae/nite/device_info.hpp /usr/include/ni/XnOS.h \
  /usr/include/ni/XnPlatform.h \
  /usr/include/ni/Linux-x86/XnPlatformLinux-x86.h \
  /usr/include/ni/XnMacros.h /usr/include/ni/XnStatusCodes.h \
@@ -35,8 +34,6 @@ src/mae/nite/nite_controller.d: ../src/mae/nite/nite_controller.cpp \
 ../src/mae/nite/../indexer_fix.hpp:
 
 ../src/mae/nite/device_info.hpp:
-
-/usr/include/ni/Linux-x86/XnPlatformLinux-x86.h:
 
 /usr/include/ni/XnOS.h:
 
