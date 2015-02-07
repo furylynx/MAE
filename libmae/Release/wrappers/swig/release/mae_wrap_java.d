@@ -149,8 +149,10 @@ wrappers/swig/release/mae_wrap_java.d: \
  ../wrappers/swig/release/../../../src/mae/fl/laban/laban_sequence_recognizer.hpp \
  ../wrappers/swig/release/../../../src/mae/fl/../movement_controller.hpp \
  ../wrappers/swig/release/../../../src/mae/fl/bvh_spec.hpp \
+ ../wrappers/swig/release/../../../src/mae/fl/bvh_data.hpp \
  ../wrappers/swig/release/../../../src/mae/fl/bvh_controller.hpp \
  ../wrappers/swig/release/../../../src/mae/fl/bvh_spec.hpp \
+ ../wrappers/swig/release/../../../src/mae/fl/bvh_data.hpp \
  ../wrappers/swig/release/../../../src/mae/fl/laban/laban_sequence_reader.hpp \
  ../wrappers/swig/release/../../../src/mae/fl/laban/mv/i_symbol.hpp \
  ../wrappers/swig/release/../../../src/mae/fl/laban/movement.hpp \
@@ -502,9 +504,13 @@ wrappers/swig/release/mae_wrap_java.d: \
 
 ../wrappers/swig/release/../../../src/mae/fl/bvh_spec.hpp:
 
+../wrappers/swig/release/../../../src/mae/fl/bvh_data.hpp:
+
 ../wrappers/swig/release/../../../src/mae/fl/bvh_controller.hpp:
 
 ../wrappers/swig/release/../../../src/mae/fl/bvh_spec.hpp:
+
+../wrappers/swig/release/../../../src/mae/fl/bvh_data.hpp:
 
 ../wrappers/swig/release/../../../src/mae/fl/laban/laban_sequence_reader.hpp:
 

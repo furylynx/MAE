@@ -309,7 +309,7 @@ namespace mae
 			return print_bvh_file(result, filename);
 		}
 
-		std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> bvh_controller::read_bvh_str(
+		std::shared_ptr<bvh_data> bvh_controller::read_bvh_str(
 				std::string bvh_str, std::shared_ptr<bvh_spec> spec)
 		{
 			std::map<std::string, int> joint_str;
@@ -373,7 +373,7 @@ namespace mae
 				{
 					std::cout << "pos_bracket == npos. el_parent: " << h_parent->get_name() << std::endl;
 					//no bracket to follow, therefore syntax error
-					return std::make_pair(skeletons, frame_time);
+					return std::shared_ptr<bvh_data>(new bvh_data(skeletons, frame_time));
 				}
 				else if (pos_joint.first == std::string::npos)
 				{
@@ -463,7 +463,7 @@ namespace mae
 							std::cout << "no closing bracket found for end effector. el_joint: " << hy_end->get_name()
 									<< std::endl;
 							//no closing bracket found, therefore syntax error
-							return std::make_pair(skeletons, frame_time);
+							return std::shared_ptr<bvh_data>(new bvh_data(skeletons, frame_time));
 						}
 						read_pos++;
 					}
@@ -532,7 +532,7 @@ namespace mae
 			std::string::size_type pos_motion = tmp.find("motion");
 			if (pos_motion == std::string::npos)
 			{
-				return std::make_pair(skeletons, frame_time);
+				return std::shared_ptr<bvh_data>(new bvh_data(skeletons, frame_time));
 			}
 
 			//frames count
@@ -736,10 +736,10 @@ namespace mae
 				skeletons.push_back(next_skel);
 			}
 
-			return std::make_pair(skeletons, frame_time);
+			return std::shared_ptr<bvh_data>(new bvh_data(skeletons, frame_time));
 		}
 
-		std::pair<std::vector<std::shared_ptr<general_skeleton> >, double> bvh_controller::read_bvh_file(
+		std::shared_ptr<bvh_data> bvh_controller::read_bvh_file(
 				std::string filename, std::shared_ptr<bvh_spec> spec)
 		{
 			std::ifstream in_file(filename);
@@ -757,7 +757,7 @@ namespace mae
 			}
 			else
 			{
-				return std::make_pair(std::vector<std::shared_ptr<general_skeleton> >(), 0.0);
+				return std::shared_ptr<bvh_data>(new bvh_data(std::vector<std::shared_ptr<general_skeleton> >(), 0.0));
 			}
 		}
 

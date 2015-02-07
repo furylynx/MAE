@@ -2,6 +2,7 @@
  
 //-- custom includes
 %include "bvh_spec.i"
+%include "bvh_data.i"
 %include "../general_skeleton.i"
 
 //-- global includes
@@ -33,4 +34,4 @@
 
 //-- templates
 %template (GeneralSkeletonVector) std::vector<std::shared_ptr<mae::general_skeleton> >;
-%template (GeneralSkeletonVectorDoublePair) std::pair<std::vector<std::shared_ptr<mae::general_skeleton> >, double>;
+//%template (GeneralSkeletonVectorDoublePair) std::pair<std::vector<std::shared_ptr<mae::general_skeleton> >, double>;
