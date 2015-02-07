@@ -1,0 +1,18 @@
+modified openni files: 
+
+Win32MinGW*
+
+XnOS.h
+XnPlatform.h
+
+
+
+???
+XnCyclicQueueT
+XnCyclicStack
+XnEventT
+XnHashT
+XnListT
+XnQueueT
+XnStackT
+XnStringHashT
