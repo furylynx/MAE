@@ -1,0 +1,19 @@
+prefix=/win64/gtkmm_debug
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+datarootdir=${prefix}/share
+datadir=${datarootdir}
+includedir=${prefix}/include
+
+docdir=${datarootdir}/doc/libxml++-2.6
+doxytagfile=${docdir}/reference/libxml++-2.6.tag
+htmlrefdir=${docdir}/reference/html
+htmlrefpub=http://library.gnome.org/devel/libxml++/unstable/
+
+Name: libxml++
+Description: C++ wrapper for libxml
+Version: 2.30.1
+URL: http://libxmlplusplus.sourceforge.net/
+Requires: libxml-2.0 >= 2.6.1 glibmm-2.4 >= 2.4.0
+Libs: -L${libdir} -lxml++-2.6
+Cflags: -I${includedir}/libxml++-2.6 -I${libdir}/libxml++-2.6/include
