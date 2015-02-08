@@ -220,7 +220,7 @@
 								</option>
 								<option defaultValue="true" id="gnu.cpp.link.option.shared.75221440" name="Shared (-shared)" superClass="gnu.cpp.link.option.shared" valueType="boolean"/>
 								<option id="gnu.cpp.link.option.implname.1592766864" name="Import Library name (-Wl,--out-implib=)" superClass="gnu.cpp.link.option.implname" value="lib${ProjName}.dll.a" valueType="string"/>
-								<option id="gnu.cpp.link.option.paths.45409173" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
+								<option id="gnu.cpp.link.option.paths.45409173" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/Release-W64}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_nite/lib/win64/mingw/bin}&quot;"/>
 								</option>
@@ -232,7 +232,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="wrappers|lib|include|cccc_metrics" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="lib|include|cccc_metrics" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
