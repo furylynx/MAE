@@ -30,7 +30,7 @@ namespace mae
 			{
 					NONE_RELATIONSHIP_TYPE,
 					ADDRESS,
-					NEAR,
+					NEAR_RELATIONSHIP_TYPE,
 					TOUCH,
 					SUPPORT
 			};

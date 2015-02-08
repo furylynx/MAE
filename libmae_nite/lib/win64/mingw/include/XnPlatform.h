@@ -34,6 +34,7 @@
 #define XN_PLATFORM_LINUX_ARM 7
 #define XN_PLATFORM_MACOSX 8
 #define XN_PLATFORM_ANDROID_ARM 9
+#define XN_PLATFORM_WIN32MINGW 10
 
 #define XN_PLATFORM_IS_LITTLE_ENDIAN 1
 #define XN_PLATFORM_IS_BIG_ENDIAN    2
@@ -48,6 +49,10 @@
 //---------------------------------------------------------------------------
 
 #if defined(_WIN32) // Microsoft Visual Studio
+
+#ifdef __MINGW32__
+	#include "Win32MinGW/XnPlatformWin32MinGW.h"
+#else
 	#ifndef RC_INVOKED
 		#if _MSC_VER < 1300 // Before MSVC7 (2003)
 			#error Xiron Platform Abstraction Layer - Win32 - Microsoft Visual Studio versions below 2003 (7.0) are not supported!
@@ -59,6 +64,8 @@
 	#endif
 
 	#include "Win32/XnPlatformWin32.h"
+#endif
+
 #elif defined(ANDROID) && defined(__arm__)
 	#include "Android-Arm/XnPlatformAndroid-Arm.h"
 #elif (linux && (i386 || __x86_64__))

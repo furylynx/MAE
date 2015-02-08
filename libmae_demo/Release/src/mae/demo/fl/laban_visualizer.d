@@ -97,6 +97,7 @@ src/mae/demo/fl/laban_visualizer.d: \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/../math/basis.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_spec.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_data.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl_movement_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl_pose_detector.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/../i_pose_detector.hpp \
@@ -394,6 +395,8 @@ src/mae/demo/fl/laban_visualizer.d: \
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_controller.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_spec.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_data.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl_movement_controller.hpp:
 

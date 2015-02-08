@@ -21,7 +21,7 @@ namespace mae
 				{
 				case e_relationship_type::NONE_RELATIONSHIP_TYPE    			: return "none";
 				case e_relationship_type::ADDRESS			: return "address";
-				case e_relationship_type::NEAR   			: return "near";
+				case e_relationship_type::NEAR_RELATIONSHIP_TYPE : return "near";
                 case e_relationship_type::TOUCH          	: return "touch";
                 case e_relationship_type::SUPPORT         	: return "support";
 				}
@@ -34,7 +34,7 @@ namespace mae
 				std::vector<e_relationship_type> result;
 				result.push_back(e_relationship_type::NONE_RELATIONSHIP_TYPE    	);
 				result.push_back(e_relationship_type::ADDRESS	);
-				result.push_back(e_relationship_type::NEAR   	);
+				result.push_back(e_relationship_type::NEAR_RELATIONSHIP_TYPE   	);
 				result.push_back(e_relationship_type::TOUCH    );
 				result.push_back(e_relationship_type::SUPPORT  );
 				return result;

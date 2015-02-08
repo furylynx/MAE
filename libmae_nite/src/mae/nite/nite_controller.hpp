@@ -21,16 +21,11 @@
 #include <memory>
 
 //NiTE includes
-#include <XnOS.h>
-#include <XnOpenNI.h>
-#include <XnCodecIDs.h>
-#include <XnStatus.h>
 #include <XnCppWrapper.h>
-
-
 
 //mae includes
 #include <mae/general_skeleton.hpp>
+
 
 namespace mae
 {
