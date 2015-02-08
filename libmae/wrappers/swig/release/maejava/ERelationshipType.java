@@ -11,7 +11,7 @@ package maejava;
 public final class ERelationshipType {
   public final static ERelationshipType NONE_RELATIONSHIP_TYPE = new ERelationshipType("NONE_RELATIONSHIP_TYPE");
   public final static ERelationshipType ADDRESS = new ERelationshipType("ADDRESS");
-  public final static ERelationshipType NEAR = new ERelationshipType("NEAR");
+  public final static ERelationshipType NEAR_RELATIONSHIP_TYPE = new ERelationshipType("NEAR_RELATIONSHIP_TYPE");
   public final static ERelationshipType TOUCH = new ERelationshipType("TOUCH");
   public final static ERelationshipType SUPPORT = new ERelationshipType("SUPPORT");
 
@@ -49,7 +49,7 @@ public final class ERelationshipType {
     swigNext = this.swigValue+1;
   }
 
-  private static ERelationshipType[] swigValues = { NONE_RELATIONSHIP_TYPE, ADDRESS, NEAR, TOUCH, SUPPORT };
+  private static ERelationshipType[] swigValues = { NONE_RELATIONSHIP_TYPE, ADDRESS, NEAR_RELATIONSHIP_TYPE, TOUCH, SUPPORT };
   private static int swigNext = 0;
   private final int swigValue;
   private final String swigName;
