@@ -259,7 +259,7 @@ namespace mae
 						sstr << "\" />" << std::endl;
 					}
 				}
-				else if (type_ == e_relationship_type::NEAR)
+				else if (type_ == e_relationship_type::NEAR_RELATIONSHIP_TYPE)
 				{
 
 					sstr << "\t\t<path" << std::endl;
