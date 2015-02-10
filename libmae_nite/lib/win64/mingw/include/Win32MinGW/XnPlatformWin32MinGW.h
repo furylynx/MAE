@@ -55,6 +55,7 @@
 #include <assert.h>
 #include <float.h>
 #include <crtdbg.h>
+#include <stdint.h>
 
 //---------------------------------------------------------------------------
 // Platform Basic Definition
@@ -73,7 +74,7 @@
 // Basic Types
 //---------------------------------------------------------------------------
 /** Boolean TRUE/FALSE type. */ 
-typedef	unsigned int		XnBool;
+typedef	BOOL		XnBool;
 
 /** Signed character for strings. */ 
 typedef	char				XnChar;
@@ -99,9 +100,9 @@ typedef	int					XnInt32;
 typedef	unsigned int		XnUInt32;
 
 /** 64-bit signed integer. */ 
-typedef	long long			XnInt64;
+typedef	int64_t			XnInt64;
 /** 64-bit unsigned integer. */ 
-typedef	unsigned long long	XnUInt64;
+typedef	uint64_t	XnUInt64;
 
 /** natural signed integer. */ 
 typedef	int					XnInt;
@@ -160,7 +161,7 @@ typedef size_t				XnSizeT;
 // Files
 //---------------------------------------------------------------------------
 /** The maximum allowed file path size (in bytes). */ 
-#define XN_FILE_MAX_PATH 256
+#define XN_FILE_MAX_PATH MAX_PATH
 
 //---------------------------------------------------------------------------
 // Call backs
