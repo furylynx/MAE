@@ -198,6 +198,7 @@
 									<listOptionValue builtIn="false" value="C:/MinGW-W64/mingw64/x86_64-w64-mingw32/include/c++"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/include/}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_nite/lib/win64/mingw/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_nite/lib/win64/mingw/include/openni/}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.optimization.level.312658446" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.debugging.level.2095122696" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
