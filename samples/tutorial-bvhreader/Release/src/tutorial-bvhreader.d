@@ -1,4 +1,4 @@
-src/minimal-libmae.d: ../src/minimal-libmae.cpp \
+src/tutorial-bvhreader.d: ../src/tutorial-bvhreader.cpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/mae.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/indexer_fix.hpp \
