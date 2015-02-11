@@ -10,7 +10,9 @@ else
 fi
 
 cd src
-find . -name '*.hpp' -exec cp -iv --parents -t ../include/ {} +
+#find . -name '*.hpp' -exec cp -iv --parents -t ../include/ {} +
+# all headers (also .h headers and text files (licenses)
+find . \( -name '*.hpp' -o -name '*.h' -o -name '*.txt' \) -exec cp -iv --parents -t ../include/ {} +
 
 # exclude indexer_fix.hpp
 #find . \( -name '*.hpp' -a \! -name 'indexer_fix.hpp' \) -exec cp -iv --parents -t ../include/ {} +

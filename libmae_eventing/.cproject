@@ -198,20 +198,19 @@
 							<tool id="cdt.managedbuild.tool.gnu.archiver.mingw.base.992110135" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.mingw.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base.1698971909" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base">
 								<option id="gnu.cpp.compiler.option.include.paths.689545264" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/include/glibmm-2.4}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/include/sigc++-2.0}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/lib/sigc++-2.0/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/lib/libxml++-2.6/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/lib/glibmm-2.4/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/include/libxml2}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/include/libxml++-2.6}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/lib/glib-2.0/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/lib/win64/mingw/include/glib-2.0/}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/lib/win64/mingw/include/}&quot;"/>
 									<listOptionValue builtIn="false" value="C:/MinGW-W64/mingw64/include/"/>
 									<listOptionValue builtIn="false" value="C:/MinGW-W64/mingw64/x86_64-w64-mingw32/include/c++"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/lib/win64/mingw/include/}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/lib/win64/mingw/include/glibmm-2.4}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/lib/win64/mingw/include/sigc++-2.0}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/lib/win64/mingw/lib/sigc++-2.0/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/lib/win64/mingw/lib/libxml++-2.6/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/lib/win64/mingw/lib/glibmm-2.4/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/lib/win64/mingw/include/libxml2}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/lib/win64/mingw/include/libxml++-2.6}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/lib/win64/mingw/lib/glib-2.0/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_eventing/lib/win64/mingw/include/glib-2.0/}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.optimization.level.360595661" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.debugging.level.715666789" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
