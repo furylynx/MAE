@@ -1,14 +1,39 @@
-src/minimal-libmae.d: ../src/minimal-libmae.cpp \
- /sda7/data/workspace-git/MAE/libmae/include/mae/mae.hpp \
- /sda7/data/workspace-git/MAE/libmae/include/mae/bone.hpp \
+src/minimal-libmae_nite.d: ../src/minimal-libmae_nite.cpp \
+ /sda7/data/workspace-git/MAE/libmae_nite/include/mae/nite/nite.hpp \
+ /sda7/data/workspace-git/MAE/libmae_nite/include/mae/nite/nite_controller.hpp \
+ /sda7/data/workspace-git/MAE/libmae_nite/include/mae/nite/../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae_nite/include/mae/nite/device_info.hpp \
+ /usr/include/ni/XnOS.h /usr/include/ni/XnPlatform.h \
+ /usr/include/ni/Linux-x86/XnPlatformLinux-x86.h \
+ /usr/include/ni/XnMacros.h /usr/include/ni/XnStatusCodes.h \
+ /usr/include/ni/XnStatus.h /usr/include/ni/XnOSStrings.h \
+ /usr/include/ni/XnOSMemory.h /usr/include/ni/Linux-x86/XnOSLinux-x86.h \
+ /usr/include/ni/XnOpenNI.h /usr/include/ni/XnTypes.h \
+ /usr/include/ni/XnStatus.h /usr/include/ni/XnContext.h \
+ /usr/include/ni/XnTypes.h /usr/include/ni/XnQueries.h \
+ /usr/include/ni/XnPrdNodeInfoList.h /usr/include/ni/XnLicensing.h \
+ /usr/include/ni/XnUtils.h /usr/include/ni/XnModuleInterface.h \
+ /usr/include/ni/XnPrdNodeInfo.h /usr/include/ni/XnQueries.h \
+ /usr/include/ni/XnPrdNode.h /usr/include/ni/XnEnumerationErrors.h \
+ /usr/include/ni/XnVersion.h /usr/include/ni/XnCodecIDs.h \
+ /usr/include/ni/XnCppWrapper.h \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/general_skeleton.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/indexer_fix.hpp \
- /sda7/data/workspace-git/MAE/libmae/include/mae/e_bone.hpp \
- /sda7/data/workspace-git/MAE/libmae/include/mae/mstr.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/general_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/math/vec3d.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/math/../indexer_fix.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/hierarchy.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/e_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/mstr.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/hierarchy_element.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/e_bone.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/math/basis.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/math/vec3d.hpp \
+ /sda7/data/workspace-git/MAE/libmae_nite/include/mae/nite/nite_farm.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/mae.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/general_enriched_pose.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/general_pose.hpp \
- /sda7/data/workspace-git/MAE/libmae/include/mae/hierarchy.hpp \
- /sda7/data/workspace-git/MAE/libmae/include/mae/hierarchy_element.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/movement_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/kp_movement_detector.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/i_movement_detector.hpp \
@@ -23,11 +48,6 @@ src/minimal-libmae.d: ../src/minimal-libmae.cpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/i_skeleton_merger.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/i_skeleton_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/general_skeleton.hpp \
- /sda7/data/workspace-git/MAE/libmae/include/mae/general_joint.hpp \
- /sda7/data/workspace-git/MAE/libmae/include/mae/math/vec3d.hpp \
- /sda7/data/workspace-git/MAE/libmae/include/mae/math/../indexer_fix.hpp \
- /sda7/data/workspace-git/MAE/libmae/include/mae/math/basis.hpp \
- /sda7/data/workspace-git/MAE/libmae/include/mae/math/vec3d.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/ini_reader.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/mos.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/math/math.hpp \
@@ -157,25 +177,99 @@ src/minimal-libmae.d: ../src/minimal-libmae.cpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/ps/surface_part.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/ps/e_limb_side.hpp
 
-/sda7/data/workspace-git/MAE/libmae/include/mae/mae.hpp:
+/sda7/data/workspace-git/MAE/libmae_nite/include/mae/nite/nite.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/include/mae/bone.hpp:
+/sda7/data/workspace-git/MAE/libmae_nite/include/mae/nite/nite_controller.hpp:
+
+/sda7/data/workspace-git/MAE/libmae_nite/include/mae/nite/../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae_nite/include/mae/nite/device_info.hpp:
+
+/usr/include/ni/XnOS.h:
+
+/usr/include/ni/XnPlatform.h:
+
+/usr/include/ni/Linux-x86/XnPlatformLinux-x86.h:
+
+/usr/include/ni/XnMacros.h:
+
+/usr/include/ni/XnStatusCodes.h:
+
+/usr/include/ni/XnStatus.h:
+
+/usr/include/ni/XnOSStrings.h:
+
+/usr/include/ni/XnOSMemory.h:
+
+/usr/include/ni/Linux-x86/XnOSLinux-x86.h:
+
+/usr/include/ni/XnOpenNI.h:
+
+/usr/include/ni/XnTypes.h:
+
+/usr/include/ni/XnStatus.h:
+
+/usr/include/ni/XnContext.h:
+
+/usr/include/ni/XnTypes.h:
+
+/usr/include/ni/XnQueries.h:
+
+/usr/include/ni/XnPrdNodeInfoList.h:
+
+/usr/include/ni/XnLicensing.h:
+
+/usr/include/ni/XnUtils.h:
+
+/usr/include/ni/XnModuleInterface.h:
+
+/usr/include/ni/XnPrdNodeInfo.h:
+
+/usr/include/ni/XnQueries.h:
+
+/usr/include/ni/XnPrdNode.h:
+
+/usr/include/ni/XnEnumerationErrors.h:
+
+/usr/include/ni/XnVersion.h:
+
+/usr/include/ni/XnCodecIDs.h:
+
+/usr/include/ni/XnCppWrapper.h:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/general_skeleton.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/indexer_fix.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/include/mae/e_bone.hpp:
+/sda7/data/workspace-git/MAE/libmae/include/mae/general_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/math/vec3d.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/math/../indexer_fix.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/hierarchy.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/e_joint.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/mstr.hpp:
 
-/sda7/data/workspace-git/MAE/libmae/include/mae/e_joint.hpp:
+/sda7/data/workspace-git/MAE/libmae/include/mae/hierarchy_element.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/e_bone.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/math/basis.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/math/vec3d.hpp:
+
+/sda7/data/workspace-git/MAE/libmae_nite/include/mae/nite/nite_farm.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/mae.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/general_enriched_pose.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/general_pose.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/include/mae/hierarchy.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/include/mae/hierarchy_element.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/movement_controller.hpp:
 
@@ -204,16 +298,6 @@ src/minimal-libmae.d: ../src/minimal-libmae.cpp \
 /sda7/data/workspace-git/MAE/libmae/include/mae/i_skeleton_controller.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/general_skeleton.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/include/mae/general_joint.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/include/mae/math/vec3d.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/include/mae/math/../indexer_fix.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/include/mae/math/basis.hpp:
-
-/sda7/data/workspace-git/MAE/libmae/include/mae/math/vec3d.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/ini_reader.hpp:
 
