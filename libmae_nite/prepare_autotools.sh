@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/sh
 
 #TODO specify for each library
 LIB="libmae_nite.la"
