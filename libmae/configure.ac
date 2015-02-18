@@ -43,9 +43,6 @@ PKG_CHECK_MODULES(LIBXMLXX, libxml++-2.6 >= 2.6)
 AC_SUBST(LIBXMLXX_CFLAGS)
 AC_SUBST(LIBXMLXX_LIBS)
 
-#AC_ENABLE_SHARED
-#AC_DISABLE_STATIC
-
 #we have c++ code
 AC_PROG_CXX
 
@@ -55,6 +52,6 @@ AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
 #initialize lt - create a .so file in the end
 LT_INIT
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([libmae.pc Makefile include/Makefile])
 AC_CONFIG_MACRO_DIR([m4])
 AC_OUTPUT

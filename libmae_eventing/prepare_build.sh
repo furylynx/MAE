@@ -2,11 +2,6 @@
 
 #TODO check whether scripts were successful
 
-# build swig wrappers
-cd wrappers/swig/
-sh swig_java_wrapper.sh
-
-
 # copy header to include folder
 cd ../../
 sh copy_headers.sh
