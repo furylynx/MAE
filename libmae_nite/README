@@ -29,7 +29,18 @@ and the headers must be included. Additionally, the dependencies must be met.
 
 ___
 
-Compile MAE from source:
+Compile MAE from source (using autotools):
+
+type:
+./configure --prefix=/usr/lib/
+make
+sudo make install
+
+The install path can be changed (--prefix=).
+
+___
+
+Compile MAE from source (using the eclipse project):
 
 When the engine is meant to be compiled, the headers for these libraries must be included. 
 The engine must be built with a compiler supporting C++11 or greater (for some compilers 

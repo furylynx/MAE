@@ -29,7 +29,18 @@ and the headers must be included. Additionally, the dependencies must be met.
 
 ___
 
-Compile MAE from source:
+Compile MAE from source (using autotools):
+
+type:
+./configure --prefix=/usr/lib/ --with-boost-libdir=/usr/lib/x86_64-linux-gnu
+make
+sudo make install
+
+The boost libdir might differ in your system. Set the path to the path where boost is installed on your system. Besides, the install path can be changed too (--prefix=).
+
+___
+
+Compile MAE from source (eclipse project):
 
 When the engine is meant to be compiled, the headers for these libraries must be included. 
 The engine must be built with a compiler supporting C++11 or greater (for some compilers 
