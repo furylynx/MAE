@@ -2,7 +2,8 @@
 
 #TODO specify for each library
 LIB="libmae_eventing.la"
-RELEASE='0:0:9'
+RELEASE='0:1:0'
+#current:release:age
 
 
 

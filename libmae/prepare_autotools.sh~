@@ -2,7 +2,7 @@
 
 #TODO specify for each library
 LIB="libmae.la"
-RELEASE='0:1:0'
+RELEASE='0:090:0'
 #current:release:age
 
 
