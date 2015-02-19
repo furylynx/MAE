@@ -2,7 +2,7 @@
 
 #TODO specify for each library
 LIB="libmae_demo.la"
-RELEASE='0:9:0'
+RELEASE='0:0:9'
 
 
 
