@@ -9,7 +9,7 @@
 #define POSE_WINDOW_HPP_
 
 //eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#include "../indexer_fix.hpp"
 
 //custom includes
 #include "../sdl_window.hpp"

@@ -23,7 +23,7 @@ echo 'lib_LTLIBRARIES = '$LIB' \n' >> Makefile.am
 echo -n $LIBLA'_SOURCES = ' >> Makefile.am 
 
 # find all source files in the folders src/ and wrappers/ recursively and print them to the Makefile.am
-find . -type f \( -path "./src/*" -o -path "./wrappers/*" \)  \( -name *.cpp -o -name *.cxx -o -name *.c -o -name *.cc -o -name *.hh -o -name indexer_fix.hpp \) | sed 's/\.\///g' | sed ':a;N;$!ba;s/\n/ \\\n/g' >> Makefile.am 
+find . -type f \( -path "./src/*" -o -path "./wrappers/*" \)  \( -name *.cpp -o -name *.cxx -o -name *.c -o -name *.cc -o -name *.hh \) | sed 's/\.\///g' | sed ':a;N;$!ba;s/\n/ \\\n/g' >> Makefile.am 
 #find src/ -type f \( -name *.cpp -o -name *.cxx -o -name *.c -o -name *.cc -o -name *.h -o -name *.hpp \) | sed 's/\.\///g' | sed 's/$/ \\/' >> src/Makefile.am
 #find . -type f \( -path "./wrappers/*" \)  \( -name *.cpp -o -name *.cxx -o -name *.c -o -name *.cc -o -name *.h -o -name *.hpp \) | sed 's/\.\//\.\.\//g' | sed ':a;N;$!ba;s/\n/ \\\n/g' >> src/Makefile.am 
 
@@ -40,7 +40,7 @@ echo '\nACLOCAL_AMFLAGS = -I m4' >> Makefile.am
 echo -n '\nnobase_include_HEADERS = ' > include/Makefile.am 
 
 # find all header files in the folder include/ recursively and print them to the Makefile.am
-find . -type f -path "./include/*"  \( \( -name *.hpp -o -name *.h \) -a \! -name 'indexer_fix.hpp' \) | sed 's/\.\/include\///g' | sed ':a;N;$!ba;s/\n/ \\\n/g' >> include/Makefile.am 
+find . -type f -path "./include/*"  \( -name *.hpp -o -name *.h \) | sed 's/\.\/include\///g' | sed ':a;N;$!ba;s/\n/ \\\n/g' >> include/Makefile.am 
 
 # create a .pc.in file for pkg config
 echo 'prefix=@prefix@' > libmae_demo.pc.in
