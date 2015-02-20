@@ -9,7 +9,7 @@
 #define DIRECTIONS_HANDLER_HPP_
 
 //eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#include "../../indexer_fix.hpp"
 
 //custom includes
 #include "res.hpp"

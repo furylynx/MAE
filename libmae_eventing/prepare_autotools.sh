@@ -40,7 +40,7 @@ echo '\nACLOCAL_AMFLAGS = -I m4' >> Makefile.am
 echo -n '\nnobase_include_HEADERS = ' > include/Makefile.am 
 
 # find all header files in the folder include/ recursively and print them to the Makefile.am
-find . -type f -path "./include/*"  \( \( -name *.hpp -o -name *.h \) -a \! -name 'indexer_fix.hpp' \) | sed 's/\.\/include\///g' | sed ':a;N;$!ba;s/\n/ \\\n/g' >> include/Makefile.am 
+find . -type f -path "./include/*"  \( -name *.hpp -o -name *.h \) | sed 's/\.\/include\///g' | sed ':a;N;$!ba;s/\n/ \\\n/g' >> include/Makefile.am 
 
 
 
