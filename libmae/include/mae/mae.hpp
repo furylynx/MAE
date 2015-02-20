@@ -19,6 +19,7 @@
 #include "ini_reader.hpp"
 #include "mstr.hpp"
 #include "mos.hpp"
+#include "mbool.hpp"
 
 #include "math/math.hpp"
 #include "fl/fl.hpp"

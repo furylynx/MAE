@@ -9,7 +9,7 @@
 #define NITE_CONTROLLER_HPP_
 
 //eclipse indexer fix
-#include "../indexer_fix.hpp"
+#include "indexer_fix.hpp"
 
 //custom includes
 #include "device_info.hpp"
@@ -21,16 +21,11 @@
 #include <memory>
 
 //NiTE includes
-#include <XnOS.h>
-#include <XnOpenNI.h>
-#include <XnCodecIDs.h>
-#include <XnStatus.h>
 #include <XnCppWrapper.h>
-
-
 
 //mae includes
 #include <mae/general_skeleton.hpp>
+
 
 namespace mae
 {
