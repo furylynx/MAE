@@ -6,6 +6,8 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
+#define SDL_MAIN_HANDLED
+
 #include <cstddef>
 #include <iostream>
 
@@ -17,6 +19,8 @@
 #include <mae/mae.hpp>
 
 #include <boost/filesystem.hpp>
+
+
 
 int main()
 {

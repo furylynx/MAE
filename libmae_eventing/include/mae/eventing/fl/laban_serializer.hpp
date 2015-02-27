@@ -9,7 +9,7 @@
 #define LABAN_SERIALIZER_HPP_
 
 //eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#include "../indexer_fix.hpp"
 
 //custom includes
 #include "../i_sequence_serializer.hpp"
