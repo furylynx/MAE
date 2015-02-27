@@ -9,14 +9,14 @@
 #define SERVER_HPP_
 
 //eclipse indexer fix
-#include "../indexer_fix.hpp"
+#include "indexer_fix.hpp"
 
 //custom includes
 #include "i_sequence_serializer.hpp"
 #include "i_registration_manager.hpp"
 #include "cs_base.hpp"
 
-#include "../mxml.hpp"
+#include "mxml.hpp"
 
 
 //global includes
