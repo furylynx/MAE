@@ -254,8 +254,11 @@ namespace mae
 		template <typename U>
 		void client<U>::initialize()
 		{
+			std::stringstream port_sstr;
+			port_sstr << port_;
+
 			//start connection
-			boost::asio::ip::tcp::resolver::query query(uri_, std::to_string(port_));
+			boost::asio::ip::tcp::resolver::query query(uri_, port_sstr.str());
 			boost::asio::connect(*socket_, resolver_->resolve(query));
 
 			//send initiation message
@@ -402,7 +405,8 @@ namespace mae
 			// main elements
 			//---------------
 
-			uint64_t timestamp = std::stoull(mae::mxml::get_node_content(root_node, namespace_map, "timestamp", nsp, "0"));
+			std::string timestamp_str = mae::mxml::get_node_content(root_node, namespace_map, "timestamp", nsp, "0");
+			uint64_t timestamp = std::atol(timestamp_str.c_str());
 
 			if (!short_type)
 			{

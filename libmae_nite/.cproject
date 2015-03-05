@@ -239,6 +239,82 @@
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.config.gnu.so.release.657639893.426337050.280711866">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.so.release.657639893.426337050.280711866" moduleId="org.eclipse.cdt.core.settings" name="Release-W32">
+				<externalSettings>
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/mae_nite"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/mae_nite/Release-W32"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="mae_nite" srcPrefixMapping="" srcRootPath=""/>
+					</externalSetting>
+				</externalSettings>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.PE" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="dll" artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.sharedLib" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.sharedLib,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="Release build for win 32." errorParsers="org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser" id="cdt.managedbuild.config.gnu.so.release.657639893.426337050.280711866" name="Release-W32" parent="cdt.managedbuild.config.gnu.so.release" postannouncebuildStep="" postbuildStep="" preannouncebuildStep="" prebuildStep="">
+					<folderInfo id="cdt.managedbuild.config.gnu.so.release.657639893.426337050.280711866." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.mingw.base.267567805" name="MinGW GCC" superClass="cdt.managedbuild.toolchain.gnu.mingw.base">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.PE" id="cdt.managedbuild.target.gnu.platform.mingw.base.1452314977" name="Debug Platform" osList="win32" superClass="cdt.managedbuild.target.gnu.platform.mingw.base"/>
+							<builder buildPath="${workspace_loc:/mae_nite}/Release-W64" id="cdt.managedbuild.tool.gnu.builder.mingw.base.828120378" keepEnvironmentInBuildfile="false" name="CDT Internal Builder" superClass="cdt.managedbuild.tool.gnu.builder.mingw.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.mingw.base.1204373572" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.mingw.base">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.138741359" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.archiver.mingw.base.1443288414" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.mingw.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base.480703624" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base">
+								<option id="gnu.cpp.compiler.option.include.paths.1111556643" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;C:/Program Files/Java/jdk1.8.0_05/include/win32/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:/Program Files/Java/jdk1.8.0_05/include/&quot;"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/lib/gcc/mingw32/4.8.1/include/c++/"/>
+									<listOptionValue builtIn="false" value="C:/MinGW/include/"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/include/}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_nite/lib/win32/mingw/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_nite/lib/win32/mingw/include/openni/}&quot;"/>
+								</option>
+								<option id="gnu.cpp.compiler.option.optimization.level.1500748178" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.debugging.level.942806732" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.dialect.std.2015483145" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.c++11" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.dialect.flags.1098783719" name="Other dialect flags" superClass="gnu.cpp.compiler.option.dialect.flags" value="" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.358115439" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.mingw.base.210438987" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.mingw.base">
+								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.1299446579" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.debugging.level.484213426" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.dialect.std.836876780" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.c11" valueType="enumerated"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.213949888" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.mingw.base.2106726751" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.base">
+								<option defaultValue="true" id="gnu.c.link.option.shared.1805214760" name="Shared (-shared)" superClass="gnu.c.link.option.shared" valueType="boolean"/>
+							</tool>
+							<tool commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS} -Wl,--export-all-symbols" id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.base.149147311" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.base">
+								<option id="gnu.cpp.link.option.libs.1024509754" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="mae"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="OpenNI"/>
+								</option>
+								<option defaultValue="true" id="gnu.cpp.link.option.shared.1030402378" name="Shared (-shared)" superClass="gnu.cpp.link.option.shared" valueType="boolean"/>
+								<option id="gnu.cpp.link.option.implname.30588249" name="Import Library name (-Wl,--out-implib=)" superClass="gnu.cpp.link.option.implname" value="lib${ProjName}.dll.a" valueType="string"/>
+								<option id="gnu.cpp.link.option.paths.1427114462" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae/Release-W32/}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/mae_nite/lib/win32/mingw/bin/}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.498982838" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="lib|include|cccc_metrics" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="mae_nite.cdt.managedbuild.target.gnu.so.1527064808" name="Shared Library" projectType="cdt.managedbuild.target.gnu.so"/>
@@ -250,9 +326,6 @@
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.so.release.657639893.426337050;cdt.managedbuild.config.gnu.so.release.657639893.426337050.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base.893948672;cdt.managedbuild.tool.gnu.cpp.compiler.input.281618162">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.so.release.657639893;cdt.managedbuild.config.gnu.so.release.657639893.;cdt.managedbuild.tool.gnu.c.compiler.base.1424285322;cdt.managedbuild.tool.gnu.c.compiler.input.686984186">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.so.release.657639893;cdt.managedbuild.config.gnu.so.release.657639893.;cdt.managedbuild.tool.gnu.c.compiler.so.release.466232690;cdt.managedbuild.tool.gnu.c.compiler.input.1492501652">
@@ -267,16 +340,25 @@
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.so.release.657639893.426337050;cdt.managedbuild.config.gnu.so.release.657639893.426337050.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base.59437878;cdt.managedbuild.tool.gnu.cpp.compiler.input.1944272466">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.so.release.657639893;cdt.managedbuild.config.gnu.so.release.657639893.;cdt.managedbuild.tool.gnu.cpp.compiler.base.922239473;cdt.managedbuild.tool.gnu.cpp.compiler.input.1779470359">
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.so.release.657639893.426337050.280711866;cdt.managedbuild.config.gnu.so.release.657639893.426337050.280711866.;cdt.managedbuild.tool.gnu.c.compiler.mingw.base.210438987;cdt.managedbuild.tool.gnu.c.compiler.input.213949888">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.so.debug.1884964137;cdt.managedbuild.config.gnu.so.debug.1884964137.;cdt.managedbuild.tool.gnu.cpp.compiler.so.debug.239089449;cdt.managedbuild.tool.gnu.cpp.compiler.input.1686138955">
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.so.release.657639893.426337050.280711866;cdt.managedbuild.config.gnu.so.release.657639893.426337050.280711866.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base.480703624;cdt.managedbuild.tool.gnu.cpp.compiler.input.358115439">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.so.release.657639893.426337050;cdt.managedbuild.config.gnu.so.release.657639893.426337050.;cdt.managedbuild.tool.gnu.c.compiler.mingw.base.1484344984;cdt.managedbuild.tool.gnu.c.compiler.input.262425783">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.so.debug.1884964137;cdt.managedbuild.config.gnu.so.debug.1884964137.;cdt.managedbuild.tool.gnu.c.compiler.so.debug.1215818090;cdt.managedbuild.tool.gnu.c.compiler.input.239834271">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.so.release.657639893;cdt.managedbuild.config.gnu.so.release.657639893.;cdt.managedbuild.tool.gnu.c.compiler.base.1424285322;cdt.managedbuild.tool.gnu.c.compiler.input.686984186">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.so.release.657639893;cdt.managedbuild.config.gnu.so.release.657639893.;cdt.managedbuild.tool.gnu.cpp.compiler.base.922239473;cdt.managedbuild.tool.gnu.cpp.compiler.input.1779470359">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.so.debug.1884964137;cdt.managedbuild.config.gnu.so.debug.1884964137.;cdt.managedbuild.tool.gnu.cpp.compiler.so.debug.239089449;cdt.managedbuild.tool.gnu.cpp.compiler.input.1686138955">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 	</storageModule>
