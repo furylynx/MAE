@@ -62,7 +62,7 @@ int main()
 
 		if (ini_reader.get_value_nex("mae", "tolerance", &tolerance_str))
 		{
-			tolerance = std::stod(tolerance_str);
+			tolerance = std::atof(tolerance_str.c_str());
 		}
 
 		if (ini_reader.get_value_nex("mae", "debug", &debug_str))
@@ -76,7 +76,7 @@ int main()
 		ini_reader.get_value_nex("nite", "config_path", &config_path);
 		if (ini_reader.get_value_nex("nite", "max_users", &max_users_str))
 		{
-			max_users = std::stoul(max_users_str);
+			max_users = std::atol(max_users_str.c_str());
 		}
 
 		if (ini_reader.get_value_nex("demo", "sequence_window", &sequence_window_str))
@@ -94,7 +94,7 @@ int main()
 
 		if (ini_reader.get_value_nex("socket", "port", &port_str))
 		{
-			port = std::stoul(port_str);
+			port = std::atol(port_str.c_str());
 		}
 		ini_reader.get_value_nex("socket", "password", &password);
 
@@ -142,52 +142,63 @@ int main()
 		//read all sequences in the directory and register them to the controller
 		mae::fl::laban::laban_sequence_reader s_reader = mae::fl::laban::laban_sequence_reader();
 
-		if (boost::filesystem::is_directory(boost::filesystem::path(sequences_dir)))
+		try
 		{
-			boost::filesystem::path pp = boost::filesystem::path(sequences_dir);
-
-			std::cout << "registering files..." << std::endl;
-
-			for (boost::filesystem::directory_iterator it = boost::filesystem::directory_iterator(pp);
-					it != boost::filesystem::directory_iterator(); it++)
+			if (boost::filesystem::is_directory(boost::filesystem::path(sequences_dir)))
 			{
-				boost::filesystem::directory_entry entry = *it;
-				if (boost::filesystem::is_regular_file(entry.status()))
-				{
-					std::string file_path = entry.path().string();
-					std::string file_name = entry.path().filename().string();
+				boost::filesystem::path pp = boost::filesystem::path(sequences_dir);
 
-					if (file_name.rfind(".laban") == file_name.length() - 6)
+				std::cout << "registering files..." << std::endl;
+
+				for (boost::filesystem::directory_iterator it = boost::filesystem::directory_iterator(pp);
+						it != boost::filesystem::directory_iterator(); it++)
+				{
+					boost::filesystem::directory_entry entry = *it;
+					if (boost::filesystem::is_regular_file(entry.status()))
 					{
-						try
+						std::string file_path = entry.path().string();
+						std::string file_name = entry.path().filename().string();
+
+						if (file_name.rfind(".laban") == file_name.length() - 6)
 						{
-							std::shared_ptr<mae::fl::laban::laban_sequence> sequence = s_reader.read_sequence_file(
-									file_path);
-							if (sequence != nullptr)
+							try
 							{
-								std::cout << "registering \"" << sequence->get_title() << "\" from file '" << file_name
-										<< "'" << std::endl;
-								movement_controller.register_sequence(sequence);
-							}
-							else
+								std::shared_ptr<mae::fl::laban::laban_sequence> sequence = s_reader.read_sequence_file(
+										file_path);
+								if (sequence != nullptr)
+								{
+									std::cout << "registering \"" << sequence->get_title() << "\" from file '" << file_name
+											<< "'" << std::endl;
+									movement_controller.register_sequence(sequence);
+								}
+								else
+								{
+									std::cout << "!! Could not parse file '" << file_name << "'" << std::endl;
+								}
+							} catch (std::exception& e)
+							{
+								std::cout << "!! Could not parse file '" << file_name << "'" << std::endl;
+							} catch (...)
 							{
 								std::cout << "!! Could not parse file '" << file_name << "'" << std::endl;
 							}
-						} catch (std::exception& e)
-						{
-							std::cout << "!! Could not parse file '" << file_name << "'" << std::endl;
-						} catch (...)
-						{
-							std::cout << "!! Could not parse file '" << file_name << "'" << std::endl;
 						}
 					}
 				}
 			}
+			else
+			{
+				std::cout << "Directory '" << sequences_dir << "' does not exist! Quit program." << std::endl;
+				return 0;
+			}
 		}
-		else
+		catch (std::exception& e)
 		{
-			std::cout << "Directory '" << sequences_dir << "' does not exist! Quit program." << std::endl;
-			return 0;
+			std::cout << "Exception on sequence registration: " << e.what() << std::endl;
+		}
+		catch (...)
+		{
+			std::cerr << "unknown exception" << std::endl;
 		}
 
 		//add sequence window for demo purposes
