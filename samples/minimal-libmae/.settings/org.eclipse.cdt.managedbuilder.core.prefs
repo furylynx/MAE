@@ -1,4 +1,12 @@
 eclipse.preferences.version=1
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340.1119443784/CPATH/delimiter=;
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340.1119443784/CPATH/operation=remove
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340.1119443784/CPLUS_INCLUDE_PATH/delimiter=;
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340.1119443784/CPLUS_INCLUDE_PATH/operation=remove
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340.1119443784/C_INCLUDE_PATH/delimiter=;
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340.1119443784/C_INCLUDE_PATH/operation=remove
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340.1119443784/append=true
+environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340.1119443784/appendContributed=true
 environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340/CPATH/delimiter=;
 environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340/CPATH/operation=remove
 environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340/CPLUS_INCLUDE_PATH/delimiter=;
@@ -7,6 +15,10 @@ environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.3055
 environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340/C_INCLUDE_PATH/operation=remove
 environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340/append=true
 environment/buildEnvironmentInclude/cdt.managedbuild.config.gnu.exe.release.305531337.919129340/appendContributed=true
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.exe.release.305531337.919129340.1119443784/LIBRARY_PATH/delimiter=;
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.exe.release.305531337.919129340.1119443784/LIBRARY_PATH/operation=remove
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.exe.release.305531337.919129340.1119443784/append=true
+environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.exe.release.305531337.919129340.1119443784/appendContributed=true
 environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.exe.release.305531337.919129340/LIBRARY_PATH/delimiter=;
 environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.exe.release.305531337.919129340/LIBRARY_PATH/operation=remove
 environment/buildEnvironmentLibrary/cdt.managedbuild.config.gnu.exe.release.305531337.919129340/append=true
