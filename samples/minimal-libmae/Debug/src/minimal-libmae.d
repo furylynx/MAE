@@ -30,6 +30,7 @@ src/minimal-libmae.d: ../src/minimal-libmae.cpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/math/vec3d.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/ini_reader.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/mos.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/mbool.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/math/math.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/math/../fl/angular_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/math/../fl/../indexer_fix.hpp \
@@ -218,6 +219,8 @@ src/minimal-libmae.d: ../src/minimal-libmae.cpp \
 /sda7/data/workspace-git/MAE/libmae/include/mae/ini_reader.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/mos.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/mbool.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/math/math.hpp:
 
