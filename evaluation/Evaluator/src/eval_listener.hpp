@@ -34,16 +34,33 @@ namespace eval
 			virtual ~eval_listener();
 
 			/**
-			 * Returns true if a sequence was recognized since the last reset.
+			 * Returns true if a correct sequence was recognized since the last reset.
 			 *
 			 * @return True if recognized.
 			 */
 			virtual bool sequence_recognized();
 
 			/**
-			 * Resets the boolean for the recognition, allowing to check for the next recognition.
+			 * Returns true if a false sequence was recognized since the last reset.
+			 *
+			 * @return True if false positive.
 			 */
-			virtual void reset();
+			virtual bool sequence_false_positive();
+
+			/**
+			 * Adds a sequence in order to check for correctly or incorrectly recognized sequences (false positives).
+			 *
+			 * @param sequence The sequence to be added.
+			 * @param folder_name The folder name.
+			 */
+			virtual void add_sequence(std::shared_ptr<mae::fl::laban::laban_sequence> sequence, std::string folder_name);
+
+			/**
+			 * Resets the boolean for the recognition and false positive, allowing to check for the next recognition.
+			 *
+			 * @param folder_name
+			 */
+			virtual void reset(std::string folder_name);
 
 		protected:
 			/**
@@ -65,6 +82,11 @@ namespace eval
 
 		private:
 			bool recognized_;
+			bool false_positive_;
+
+			std::string current_folder_;
+
+			std::unordered_map<std::shared_ptr<mae::fl::laban::laban_sequence>, std::string> sequence_folder_map_;
 
 	};
 
