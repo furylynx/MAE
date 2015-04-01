@@ -38,7 +38,9 @@ int main()
 		};
 
 	std::vector<double> tolerances
-	{ 0.5, 1.0, 1.5, 2.0, 2.5,
+	{
+		0.5, 1.0, 1.5, 2.0,
+		//2.5,
 	3.0,
 	//3.5,
 	4.0,
@@ -53,9 +55,11 @@ int main()
 	std::string rw_rules_file = "rw_rules.xml";
 
 	std::vector<std::vector<int> > directory_recognized;
+	std::vector<std::vector<int> > directory_fp;
 	std::vector<std::vector<int> > directory_total;
 
 	std::vector<int> recognized;
+	std::vector<int> fp;
 	std::vector<int> total;
 
 	std::vector<std::string> sequence_titles;
@@ -63,17 +67,20 @@ int main()
 	for (unsigned int j = 0; j < tolerances.size(); j++)
 	{
 		total.push_back(0);
+		fp.push_back(0);
 		recognized.push_back(0);
 	}
 
 	for (unsigned int i = 0; i < directories.size(); i++)
 	{
 		directory_recognized.push_back(std::vector<int>());
+		directory_fp.push_back(std::vector<int>());
 		directory_total.push_back(std::vector<int>());
 
 		for (unsigned int j = 0; j < tolerances.size(); j++)
 		{
 			directory_recognized.at(i).push_back(0);
+			directory_fp.at(i).push_back(0);
 			directory_total.at(i).push_back(0);
 		}
 	}
@@ -93,6 +100,7 @@ int main()
 			mae::fl::laban::laban_sequence::default_beat_duration(),
 			mae::fl::laban::laban_sequence::default_time_unit(), 1.0 / 30.0, false);
 	movement_controller.get_fl_pose_detector()->set_hysteresis_val(hysteresis_value);
+	movement_controller.get_laban_sequence_recognizer()->get_decision_forest()->set_cooldown(false);
 
 	//add rewriting rules
 	mae::fl::laban::rewriting_rules_reader rw_reader = mae::fl::laban::rewriting_rules_reader();
@@ -148,6 +156,8 @@ int main()
 										<< "'" << std::endl;
 								movement_controller.register_sequence(sequence);
 
+								eval_listener->add_sequence(sequence, directory);
+
 								if (sequence_titles.size() == directory_id)
 								{
 									sequence_titles.push_back(sequence->get_title());
@@ -167,6 +177,19 @@ int main()
 					}
 				}
 			}
+		}
+	}
+
+	std::cout << std::endl << ">> All sequences registered. Trying to recognize sequences now..." << std::endl << std::endl;
+
+	for (unsigned int directory_id = 0; directory_id < directories.size(); directory_id++)
+	{
+		std::string directory = directories.at(directory_id);
+		std::cout << "*** " << directory << " ***" << std::endl;
+
+		if (boost::filesystem::is_directory(boost::filesystem::path(directory)))
+		{
+			boost::filesystem::path pp = boost::filesystem::path(directory);
 
 			//std::cout << movement_controller.get_laban_sequence_recognizer()->get_decision_forest()->str() << std::endl << std::endl;
 
@@ -184,14 +207,14 @@ int main()
 					{
 						//parse and send to movement controller
 						std::vector<std::shared_ptr<mae::general_skeleton> > skeleton_data = bvh_ctrl.read_bvh_file(
-								file_path, mae::fl::bvh_spec::default_spec()).first;
+								file_path, mae::fl::bvh_spec::default_spec())->get_skeleton_data();
 
 						for (unsigned int tolerance_id = 0; tolerance_id < tolerances.size(); tolerance_id++)
 						{
 							//update tolerance
 							double tolerance = tolerances.at(tolerance_id);
 							movement_controller.set_recognition_tolerance(tolerance);
-							eval_listener->reset();
+							eval_listener->reset(directory);
 
 							double max_dur = 0;
 							double mean_dur = 0;
@@ -259,6 +282,12 @@ int main()
 								std::cout << " -- " << file_path << " : not recognized with tolerance "
 										<< tolerances.at(tolerance_id) << " ## " << std::endl;
 							}
+
+							if (eval_listener->sequence_false_positive())
+							{
+								fp[tolerance_id]++;
+								directory_fp.at(directory_id)[tolerance_id]++;
+							}
 						}
 
 					}
@@ -266,7 +295,7 @@ int main()
 			}
 
 			//clear all registered sequences
-			movement_controller.clear_registered_sequences();
+			//movement_controller.clear_registered_sequences();
 
 		}
 
@@ -281,6 +310,9 @@ int main()
 		{
 			std::cout << "dir " << directories.at(i) << " - tolerance " << tolerances.at(j) << " => "
 					<< (double) directory_recognized.at(i).at(j) / directory_total.at(i).at(j) << " = " << directory_recognized.at(i).at(j) << "/" << directory_total.at(i).at(j) << std::endl;
+
+			std::cout << "\t false positive: "
+					<< (double) directory_fp.at(i).at(j) / directory_total.at(i).at(j) << " = " << directory_fp.at(i).at(j) << "/" << directory_total.at(i).at(j) << std::endl;
 		}
 	}
 
@@ -288,6 +320,7 @@ int main()
 	for (unsigned int j = 0; j < tolerances.size(); j++)
 	{
 		std::cout << "tolerance " << tolerances.at(j) << " => " << (double) recognized.at(j) / total.at(j) << " = " << recognized.at(j) << "/" << total.at(j) << std::endl;
+		std::cout << "\t false positive:" << (double) fp.at(j) / total.at(j) << " = " << fp.at(j) << "/" << total.at(j) << std::endl;
 	}
 
 	//LATEX table
