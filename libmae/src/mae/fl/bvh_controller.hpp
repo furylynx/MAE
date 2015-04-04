@@ -76,7 +76,7 @@ namespace mae
 				virtual std::string bvh_str(std::shared_ptr<general_skeleton> data);
 
 				/**
-				 * Prints the BVH file from the skeleton data using. Assumes the frame rate to be 30 fps.
+				 * Prints the BVH file for the skeleton data. Assumes the frame rate to be 30 fps.
 				 *
 				 * @param data The skeleton data.
 				 * @param filename The file name.
@@ -99,7 +99,7 @@ namespace mae
 				 *
 				 * @param bvh_str The BVH string.
 				 * @param spec The specification for the reader.
-				 * @return The skeleton data.
+				 * @return The bvh data.
 				 */
 				virtual std::shared_ptr<bvh_data> read_bvh_str(std::string bvh_str, std::shared_ptr<bvh_spec> spec);
 
@@ -109,7 +109,7 @@ namespace mae
 				 *
 				 * @param filename The BVH file name
 				 * @param spec The specification for the reader.
-				 * @return The skeleton data.
+				 * @return The bvh data.
 				 */
 				virtual std::shared_ptr<bvh_data> read_bvh_file(std::string filename, std::shared_ptr<bvh_spec> spec);
 
