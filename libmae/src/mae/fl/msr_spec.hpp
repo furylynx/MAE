@@ -13,9 +13,10 @@
 
 //custom includes
 #include "../hierarchy.hpp"
+#include "../hierarchy_element.hpp"
 
 //global includes
-#include <unordered_map>
+#include <map>
 #include <memory>
 #include <exception>
 
