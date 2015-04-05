@@ -16,6 +16,9 @@ CPP_SRCS += \
 ../src/mae/fl/fl_pose_detector.cpp \
 ../src/mae/fl/fl_skeleton.cpp \
 ../src/mae/fl/fl_skeleton_controller.cpp \
+../src/mae/fl/msr_data.cpp \
+../src/mae/fl/msr_data_controller.cpp \
+../src/mae/fl/msr_spec.cpp \
 ../src/mae/fl/skeleton_merger.cpp 
 
 OBJS += \
@@ -31,6 +34,9 @@ OBJS += \
 ./src/mae/fl/fl_pose_detector.o \
 ./src/mae/fl/fl_skeleton.o \
 ./src/mae/fl/fl_skeleton_controller.o \
+./src/mae/fl/msr_data.o \
+./src/mae/fl/msr_data_controller.o \
+./src/mae/fl/msr_spec.o \
 ./src/mae/fl/skeleton_merger.o 
 
 CPP_DEPS += \
@@ -46,6 +52,9 @@ CPP_DEPS += \
 ./src/mae/fl/fl_pose_detector.d \
 ./src/mae/fl/fl_skeleton.d \
 ./src/mae/fl/fl_skeleton_controller.d \
+./src/mae/fl/msr_data.d \
+./src/mae/fl/msr_data_controller.d \
+./src/mae/fl/msr_spec.d \
 ./src/mae/fl/skeleton_merger.d 
 
 

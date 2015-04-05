@@ -12,7 +12,7 @@ namespace mae
 	namespace fl
 	{
 
-		msr_spec::msr_spec(std::map<std::string, int> id_map, std::shared_ptr<hierarchy> hierarchy)
+		msr_spec::msr_spec(std::map<unsigned int, int> id_map, std::shared_ptr<hierarchy> hierarchy)
 		{
 			id_map_ = id_map;
 			hierarchy_ = hierarchy;
@@ -33,11 +33,11 @@ namespace mae
 			return hierarchy_;
 		}
 
-		static std::shared_ptr<msr_spec> msr_spec::default_spec()
+		std::shared_ptr<msr_spec> msr_spec::default_spec()
 		{
 			std::shared_ptr<hierarchy> h = hierarchy::default_hierarchy();
 
-			std::unordered_map<unsigned int, int> id_map;
+			std::map<unsigned int, int> id_map;
 
 			std::vector<std::shared_ptr<hierarchy_element> > h_elements = h->get_element_sequence();
 
