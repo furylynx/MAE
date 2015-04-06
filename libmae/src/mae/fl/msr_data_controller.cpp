@@ -101,9 +101,6 @@ namespace mae
 				throw std::invalid_argument("read_msr_str: begin_frame is greater than end_frame.");
 			}
 
-			std::map<unsigned int, int> id_map = spec->get_id_map();
-			std::shared_ptr<hierarchy> h = spec->get_hierarchy();
-
 			unsigned int frames = 0;
 			unsigned int amount_joints = 0;
 			std::size_t line_count = 0;
@@ -132,15 +129,15 @@ namespace mae
 
 			if (end_frame > frames)
 			{
-				std::cerr << "Max frame is greater than amount of frames" << std::endl;
+				end_frame = frames;
 			}
 
 
 			//advance in string until the demanded first frame is reached
-			handle_frames(stream, begin_frame, &line_count, false);
+			handle_frames(stream, begin_frame, amount_joints, &line_count, spec, false);
 
 			//read skeleton data
-			std::vector<std::shared_ptr<general_skeleton> > result_skeletons = handle_frames(stream, (end_frame-begin_frame), &line_count, true);
+			std::vector<std::shared_ptr<general_skeleton> > result_skeletons = handle_frames(stream, (end_frame-begin_frame), amount_joints, &line_count, spec, true);
 
 			return std::shared_ptr<msr_data>(new msr_data(result_skeletons, 1/30));
 		}
@@ -173,10 +170,11 @@ namespace mae
 					std::shared_ptr<hierarchy_element> element = h_elements.at(j);
 
 					std::shared_ptr<general_joint> joint = skeleton->get_joint(element->get_id());
+
+					//dummy line (contains screen pos and depth info in original files)
+					result_sstr << "0 0 0 0" << std::endl;
 					result_sstr << joint->get_x() << " " << joint->get_y() << " " << joint->get_z() << " " << joint->get_confidence() << std::endl;
 
-					//TODO line necessary?
-					result_sstr << "0 0 0 0" << std::endl;
 				}
 			}
 
@@ -205,9 +203,14 @@ namespace mae
 		}
 
 
-		std::vector<std::shared_ptr<general_skeleton> > msr_data_controller::handle_frames(std::basic_istream<char>& stream, std::size_t amount_frames, std::size_t* line_count, bool create_skeleton_data) const
+		std::vector<std::shared_ptr<general_skeleton> > msr_data_controller::handle_frames(std::basic_istream<char>& stream, std::size_t amount_frames, std::size_t amount_joints, std::size_t* line_count, std::shared_ptr<msr_spec> spec, bool create_skeleton_data) const
 		{
 			std::vector<std::shared_ptr<general_skeleton> > result;
+
+			std::map<unsigned int, int> id_map = spec->get_id_map();
+			std::shared_ptr<hierarchy> hierarchy = spec->get_hierarchy();
+			std::size_t lines_per_joint = spec->get_lines_per_joint();
+			std::size_t pos_line_index = spec->get_pos_line_index();
 
 			std::string line = "";
 
@@ -229,9 +232,65 @@ namespace mae
 					throw std::runtime_error(ex_sstr.str());
 				}
 
-				unsigned int amount_rows_per_frame = std::atoi(count_line_elements.at(0).c_str());
+				std::size_t amount_rows_per_frame = std::atoi(count_line_elements.at(0).c_str());
 
-				//TODO
+				if (create_skeleton_data)
+				{
+					//create new skeleton
+					std::shared_ptr<general_skeleton> skeleton = std::shared_ptr<general_skeleton>(new general_skeleton(hierarchy));
+
+					for (std::size_t i = 0; i < amount_rows_per_frame; i++)
+					{
+						while (mstr::trim(line).length() == 0)
+						{
+							std::getline(stream, line);
+							(*line_count)++;
+						}
+
+
+						if (i % lines_per_joint == pos_line_index && i < (amount_joints*lines_per_joint))
+						{
+							std::vector<std::string> joint_elements = mstr::split(line);
+
+							if (joint_elements.size() != 4)
+							{
+								std::stringstream ex_sstr;
+								ex_sstr << "Cannot parse the MSR data file. Invalid number of arguments on line " << *line_count;
+								throw std::runtime_error(ex_sstr.str());
+							}
+
+							unsigned int row_id = (unsigned int)(i/2);
+
+							//add joint to skeleton
+							if (id_map.find(row_id) != id_map.end())
+							{
+									int body_part = id_map.at(row_id);
+									double x = std::atof(joint_elements.at(0).c_str());
+									double y = std::atof(joint_elements.at(1).c_str());
+									double z = std::atof(joint_elements.at(2).c_str());
+									double confidence = std::atof(joint_elements.at(3).c_str());
+
+									skeleton->set_joint(body_part, std::shared_ptr<general_joint>(new general_joint(x, y, z, 0, confidence)));
+							}
+						}
+					}
+
+					//add skeleton to vector
+					result.push_back(skeleton);
+				}
+				else
+				{
+					//no skeleton data is required, just skip the lines
+
+					for (std::size_t i = 0; i < amount_rows_per_frame; i++)
+					{
+						while (mstr::trim(line).length() == 0)
+						{
+							std::getline(stream, line);
+							(*line_count)++;
+						}
+					}
+				}
 			}
 
 			return result;
