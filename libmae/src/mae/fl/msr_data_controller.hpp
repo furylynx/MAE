@@ -126,7 +126,7 @@ namespace mae
 
 
 			private:
-				std::vector<std::shared_ptr<general_skeleton> > handle_frames(std::basic_istream<char>& stream, std::size_t amount_frames, std::size_t* line_count, bool create_skeleton_data = true) const;
+				std::vector<std::shared_ptr<general_skeleton> > handle_frames(std::basic_istream<char>& stream, std::size_t amount_frames, std::size_t amount_joints, std::size_t* line_count, std::shared_ptr<msr_spec> spec, bool create_skeleton_data = true) const;
 
 		};
 
