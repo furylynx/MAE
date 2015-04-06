@@ -124,6 +124,10 @@ namespace mae
 				 */
 				virtual void print_msr_file(std::string filename, std::shared_ptr<general_skeleton> data) const;
 
+
+			private:
+				std::vector<std::shared_ptr<general_skeleton> > handle_frames(std::basic_istream<char>& stream, std::size_t amount_frames, std::size_t* line_count, bool create_skeleton_data = true) const;
+
 		};
 
 	} // namespace fl
