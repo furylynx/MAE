@@ -72,11 +72,18 @@ namespace mae
 				virtual std::size_t get_pos_line_index() const;
 
 				/**
-				 * Creates a default specification that fits the default hierarchy definition.
+				 * Creates a default specification that fits the default hierarchy definition (OpenNI/NiTE skeleton).
 				 *
 				 * @return The default specification.
 				 */
 				static std::shared_ptr<msr_spec> default_spec();
+
+				/**
+				 * Creates a default specification that fits the default msr hierarchy definition (Kinect skeleton).
+				 *
+				 * @return The specification.
+				 */
+				static std::shared_ptr<msr_spec> default_msr_spec();
 
 
 

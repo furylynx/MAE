@@ -7,6 +7,7 @@ src/mae/fl/fl_pose_detector.d: ../src/mae/fl/fl_pose_detector.cpp \
  ../src/mae/fl/fl_skeleton.hpp ../src/mae/fl/../general_skeleton.hpp \
  ../src/mae/fl/../general_joint.hpp ../src/mae/fl/../math/vec3d.hpp \
  ../src/mae/fl/../math/../indexer_fix.hpp ../src/mae/fl/../hierarchy.hpp \
+ ../src/mae/fl/../e_kinect_joint.hpp \
  ../src/mae/fl/../hierarchy_element.hpp ../src/mae/fl/../math/basis.hpp \
  ../src/mae/fl/../math/vec3d.hpp ../src/mae/fl/../math/vec3d.hpp \
  ../src/mae/fl/e_fl_direction.hpp ../src/mae/fl/../mstr.hpp \
@@ -51,6 +52,8 @@ src/mae/fl/fl_pose_detector.d: ../src/mae/fl/fl_pose_detector.cpp \
 ../src/mae/fl/../math/../indexer_fix.hpp:
 
 ../src/mae/fl/../hierarchy.hpp:
+
+../src/mae/fl/../e_kinect_joint.hpp:
 
 ../src/mae/fl/../hierarchy_element.hpp:
 
