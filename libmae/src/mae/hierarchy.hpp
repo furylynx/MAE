@@ -13,6 +13,7 @@
 
 //custom includes
 #include "e_joint.hpp"
+#include "e_kinect_joint.hpp"
 
 
 //global includes
@@ -68,7 +69,15 @@ namespace mae
 			 *
 			 * @return The sequence.
 			 */
-			virtual std::vector<std::shared_ptr<hierarchy_element> > get_element_sequence();
+			virtual std::vector<std::shared_ptr<hierarchy_element> > get_element_sequence() const;
+
+			/**
+			 * Returns the sorted element sequence containing all elements of this hierarchy.
+			 * The sequence is sorted by the element's IDs.
+			 *
+			 * @return The sorted sequence.
+			 */
+			std::vector<std::shared_ptr<hierarchy_element> > get_sorted_element_sequence() const;
 
 			/**
 			 * Returns the element with the given id. This is done in constant time.
@@ -87,12 +96,21 @@ namespace mae
 
 			/**
 			 * Returns a default hierarchy that fits the needs of the OpenNI/NiTE skeletons.
-			 * If the OpenNI/NiTE hierarchy is not sufficient and/or another hierarchy is
+			 * If none of the default hierarchies is sufficient and/or another hierarchy is
 			 * needed it must be constructed manually.
 			 *
 			 * @return The default hierarchy.
 			 */
 			static std::shared_ptr<hierarchy> default_hierarchy();
+
+			/**
+			 * Returns a default hierarchy that fits the needs of the Kinect SDK skeletons.
+			 * If none of the default hierarchies is sufficient and/or another hierarchy is
+			 * needed it must be constructed manually.
+			 *
+			 * @return The default kinect skeleton.
+			 */
+			static std::shared_ptr<hierarchy> default_kinect_hierarchy();
 
 		protected:
 			/**
