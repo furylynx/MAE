@@ -88,6 +88,17 @@ namespace mae
 			virtual hierarchy_element * const at(int element_id) const;
 
 			/**
+			 * Compares the two hierarchy_elements.
+			 *
+			 * @param lhs The first element.
+			 * @param rhs The second element.
+			 *
+			 * @return True if lhs is less than rhs.
+			 */
+			static bool compare_elements(const std::shared_ptr<hierarchy_element> &lhs, const std::shared_ptr<hierarchy_element> &rhs);
+
+
+			/**
 			 * Returns a string that represents the hierarchy containing all elements.
 			 *
 			 * @return The string representation.
@@ -111,6 +122,7 @@ namespace mae
 			 * @return The default kinect skeleton.
 			 */
 			static std::shared_ptr<hierarchy> default_kinect_hierarchy();
+
 
 		protected:
 			/**
