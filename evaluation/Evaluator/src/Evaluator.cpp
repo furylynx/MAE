@@ -30,16 +30,19 @@ int main()
 	std::cout << "===============" << std::endl << std::endl;
 
 	std::vector<std::string> directories
-	{ "bvhs/cut/",
-		"bvhs/dontcare/",
-		"bvhs/indi/" , "bvhs/raise/" , "bvhs/sequential/" , "bvhs/wheel/"
+	{
+//		"bvhs/cut/",
+//		"bvhs/dontcare/",
+//		"bvhs/indi/" , "bvhs/raise/" , "bvhs/sequential/" , "bvhs/wheel/"
 
-	//"bvhs/cut_single/"
+	"bvhs/testeval_clap/"
 		};
 
 	std::vector<double> tolerances
 	{
-		0.5, 1.0, 1.5, 2.0,
+		0.5,
+		1.0,
+		1.5, 2.0,
 		//2.5,
 	3.0,
 	//3.5,
@@ -89,10 +92,14 @@ int main()
 	std::vector<mae::bone> body_parts
 	{ mae::bone(mae::e_bone::LEFT_WHOLE_ARM), mae::bone(mae::e_bone::RIGHT_WHOLE_ARM),
 		mae::bone(mae::e_bone::RIGHT_UPPER_ARM),
-				mae::bone(mae::e_bone::RIGHT_FOREARM) };
+				mae::bone(mae::e_bone::RIGHT_FOREARM),
+				mae::bone(mae::e_bone::LEFT_UPPER_ARM),
+						mae::bone(mae::e_bone::LEFT_FOREARM) };
 	std::vector<std::shared_ptr<mae::fl::laban::column_definition> > column_definitions
 	{ std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(mae::e_bone::RIGHT_UPPER_ARM)),
-		std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(mae::e_bone::RIGHT_FOREARM)) };
+		std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(mae::e_bone::RIGHT_FOREARM)),
+		std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(mae::e_bone::LEFT_UPPER_ARM)),
+		std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(mae::e_bone::LEFT_FOREARM))};
 
 	//set up the movement controller
 	mae::fl::fl_movement_controller movement_controller = mae::fl::fl_movement_controller(body_parts,

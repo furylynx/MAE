@@ -70,7 +70,7 @@ namespace mae
 	{
 		std::vector<std::shared_ptr<hierarchy_element> > result = get_element_sequence();
 
-		//TODO do sorting
+		std::sort(result.begin(), result.end(), compare_elements);
 
 		return result;
 	}
@@ -88,6 +88,11 @@ namespace mae
 			// returns the element
 			return hashmap_elements.at(element_id);
 		}
+	}
+
+	bool hierarchy::compare_elements(const std::shared_ptr<hierarchy_element> &lhs, const std::shared_ptr<hierarchy_element> &rhs)
+	{
+		return lhs->get_id() < rhs->get_id();
 	}
 
 	std::shared_ptr<hierarchy> hierarchy::default_hierarchy()

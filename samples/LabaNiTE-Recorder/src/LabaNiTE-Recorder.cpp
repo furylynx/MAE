@@ -43,6 +43,7 @@ int main()
 
 	std::string sequence_path = "";
 	std::string bvh_path = "";
+	std::string plain_pos_path = "";
 
 	std::string config_path = "SamplesConfig.xml";
 
@@ -114,6 +115,15 @@ int main()
 	}
 	bvhsstr << sequence_title << ".bvh";
 	bvh_path = bvhsstr.str();
+
+	std::stringstream plainpossstr;
+	plainpossstr << sequences_dir;
+	if (sequences_dir.at(sequences_dir.length() - 1) != mae::mos::path_separator())
+	{
+		plainpossstr << mae::mos::path_separator();
+	}
+	plainpossstr << sequence_title << ".plainpos.txt";
+	plain_pos_path = plainpossstr.str();
 
 	//-----------------------
 	//set up the controller
@@ -243,19 +253,30 @@ int main()
 			stored_unmerged_skeletons.clear();
 			movement_controller.clear_buffer();
 		}
+
+		mae::demo::sdl_window::update();
 	}
 
 	std::cout << "Done recording. Print sequence to file." << std::endl;
 
 	std::shared_ptr<mae::fl::laban::laban_sequence> sequence = movement_controller.get_current_sequence();
-	sequence->xml_file(sequence_path);
-	std::string svg_path = sequence_path;
-	svg_path.append(".svg");
-	sequence->svg_file(svg_path);
+
+	if (sequence != nullptr)
+	{
+		sequence->xml_file(sequence_path);
+		std::string svg_path = sequence_path;
+		svg_path.append(".svg");
+		sequence->svg_file(svg_path);
+	}
 
 	std::cout << "Print bvh to file (" << bvh_path << ")...";
 	mae::fl::bvh_controller bvh = mae::fl::bvh_controller();
 	bvh.print_bvh_file(stored_merged_skeletons, bvh_path);
+	std::cout << "done." << std::endl;
+
+	std::cout << "Print plain position to file (" << plain_pos_path << ")...";
+	mae::fl::msr_data_controller msr = mae::fl::msr_data_controller();
+	msr.print_msr_file(plain_pos_path, stored_merged_skeletons);
 	std::cout << "done." << std::endl;
 
 	for(unsigned int i= 0; i < stored_unmerged_skeletons.size(); i++)
@@ -272,6 +293,19 @@ int main()
 
 		std::cout << "Print bvh to file (" << bvh_path_unmerged << ")...";
 		bvh.print_bvh_file(stored_unmerged_skeletons.at(i), bvh_path_unmerged);
+		std::cout << "done." << std::endl;
+
+		std::stringstream plainposx;
+		plainposx << sequences_dir;
+		if (sequences_dir.at(sequences_dir.length() - 1) != mae::mos::path_separator())
+		{
+			plainposx << mae::mos::path_separator();
+		}
+		plainposx << sequence_title << "_sensor" << i << ".plain.txt";
+		std::string plain_pos_path_unmerged = plainposx.str();
+
+		std::cout << "Print plain position to file (" << plain_pos_path_unmerged << ")...";
+		msr.print_msr_file(plain_pos_path_unmerged, stored_unmerged_skeletons.at(i));
 		std::cout << "done." << std::endl;
 	}
 
