@@ -8,6 +8,7 @@ CPP_SRCS += \
 ../src/mae/dummy_pose_listener.cpp \
 ../src/mae/e_bone.cpp \
 ../src/mae/e_joint.cpp \
+../src/mae/e_kinect_joint.cpp \
 ../src/mae/general_enriched_pose.cpp \
 ../src/mae/general_joint.cpp \
 ../src/mae/general_pose.cpp \
@@ -26,6 +27,7 @@ OBJS += \
 ./src/mae/dummy_pose_listener.o \
 ./src/mae/e_bone.o \
 ./src/mae/e_joint.o \
+./src/mae/e_kinect_joint.o \
 ./src/mae/general_enriched_pose.o \
 ./src/mae/general_joint.o \
 ./src/mae/general_pose.o \
@@ -44,6 +46,7 @@ CPP_DEPS += \
 ./src/mae/dummy_pose_listener.d \
 ./src/mae/e_bone.d \
 ./src/mae/e_joint.d \
+./src/mae/e_kinect_joint.d \
 ./src/mae/general_enriched_pose.d \
 ./src/mae/general_joint.d \
 ./src/mae/general_pose.d \

@@ -163,7 +163,7 @@ namespace mae
 				std::shared_ptr<general_skeleton> skeleton = data.at(i);
 				result_sstr << num_joints*2 << std::endl;
 
-				std::vector<std::shared_ptr<hierarchy_element> > h_elements = skeleton->get_hierarchy()->get_element_sequence();
+				std::vector<std::shared_ptr<hierarchy_element> > h_elements = skeleton->get_hierarchy()->get_sorted_element_sequence();
 
 				for (std::size_t j = 0; j < h_elements.size(); j++)
 				{
@@ -259,7 +259,7 @@ namespace mae
 								throw std::runtime_error(ex_sstr.str());
 							}
 
-							unsigned int row_id = (unsigned int)(i/2);
+							unsigned int row_id = (unsigned int)(i/lines_per_joint);
 
 							//add joint to skeleton
 							if (id_map.find(row_id) != id_map.end())

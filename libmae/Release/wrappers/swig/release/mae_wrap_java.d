@@ -33,6 +33,7 @@ wrappers/swig/release/mae_wrap_java.d: \
  ../wrappers/swig/release/../../../src/mae/i_sequence_listener.hpp \
  ../wrappers/swig/release/../../../src/mae/i_recognition_listener.hpp \
  ../wrappers/swig/release/../../../src/mae/hierarchy.hpp \
+ ../wrappers/swig/release/../../../src/mae/e_kinect_joint.hpp \
  ../wrappers/swig/release/../../../src/mae/hierarchy_element.hpp \
  ../wrappers/swig/release/../../../src/mae/math/vec3d.hpp \
  ../wrappers/swig/release/../../../src/mae/math/../indexer_fix.hpp \
@@ -271,6 +272,8 @@ wrappers/swig/release/mae_wrap_java.d: \
 ../wrappers/swig/release/../../../src/mae/i_recognition_listener.hpp:
 
 ../wrappers/swig/release/../../../src/mae/hierarchy.hpp:
+
+../wrappers/swig/release/../../../src/mae/e_kinect_joint.hpp:
 
 ../wrappers/swig/release/../../../src/mae/hierarchy_element.hpp:
 

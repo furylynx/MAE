@@ -51,7 +51,7 @@ namespace mae
 
 			std::map<unsigned int, int> id_map;
 
-			std::vector<std::shared_ptr<hierarchy_element> > h_elements = h->get_element_sequence();
+			std::vector<std::shared_ptr<hierarchy_element> > h_elements = h->get_sorted_element_sequence();
 
 			for (std::size_t i = 0; i < h_elements.size(); i++)
 			{
@@ -60,6 +60,22 @@ namespace mae
 
 			return std::shared_ptr<msr_spec>(new msr_spec(id_map, h, 2, 1));
 
+		}
+
+		std::shared_ptr<msr_spec> msr_spec::default_msr_spec()
+		{
+			std::shared_ptr<hierarchy> h = hierarchy::default_kinect_hierarchy();
+
+			std::map<unsigned int, int> id_map;
+
+			std::vector<std::shared_ptr<hierarchy_element> > h_elements = h->get_sorted_element_sequence();
+
+			for (std::size_t i = 0; i < h_elements.size(); i++)
+			{
+				id_map.insert(std::make_pair(i, h_elements.at(i)->get_id()));
+			}
+
+			return std::shared_ptr<msr_spec>(new msr_spec(id_map, h, 2, 1));
 		}
 
 	} // namespace fl
