@@ -1,10 +1,10 @@
 src/mae/demo/fl/laban_visualizer.d: \
  ../src/mae/demo/fl/laban_visualizer.cpp \
  ../src/mae/demo/fl/laban_visualizer.hpp \
- ../src/mae/demo/fl/../../indexer_fix.hpp ../src/mae/demo/fl/res/res.hpp \
- ../src/mae/demo/fl/res/../../../indexer_fix.hpp \
+ ../src/mae/demo/fl/../indexer_fix.hpp ../src/mae/demo/fl/res/res.hpp \
+ ../src/mae/demo/fl/res/../../indexer_fix.hpp \
  ../src/mae/demo/fl/res/../../mae_res.hpp \
- ../src/mae/demo/fl/res/../../../indexer_fix.hpp \
+ ../src/mae/demo/fl/res/../../indexer_fix.hpp \
  ../src/mae/demo/fl/res/laban_direction1.png.h \
  ../src/mae/demo/fl/res/laban_direction2.png.h \
  ../src/mae/demo/fl/res/laban_direction3.png.h \
@@ -73,6 +73,7 @@ src/mae/demo/fl/laban_visualizer.d: \
  /sda7/data/workspace-git/MAE/libmae/include/mae/math/vec3d.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/ini_reader.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/mos.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/mbool.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/math/math.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/math/../fl/angular_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/math/../fl/../indexer_fix.hpp \
@@ -202,15 +203,15 @@ src/mae/demo/fl/laban_visualizer.d: \
 
 ../src/mae/demo/fl/laban_visualizer.hpp:
 
-../src/mae/demo/fl/../../indexer_fix.hpp:
+../src/mae/demo/fl/../indexer_fix.hpp:
 
 ../src/mae/demo/fl/res/res.hpp:
 
-../src/mae/demo/fl/res/../../../indexer_fix.hpp:
+../src/mae/demo/fl/res/../../indexer_fix.hpp:
 
 ../src/mae/demo/fl/res/../../mae_res.hpp:
 
-../src/mae/demo/fl/res/../../../indexer_fix.hpp:
+../src/mae/demo/fl/res/../../indexer_fix.hpp:
 
 ../src/mae/demo/fl/res/laban_direction1.png.h:
 
@@ -347,6 +348,8 @@ src/mae/demo/fl/laban_visualizer.d: \
 /sda7/data/workspace-git/MAE/libmae/include/mae/ini_reader.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/mos.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/mbool.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/math/math.hpp:
 
