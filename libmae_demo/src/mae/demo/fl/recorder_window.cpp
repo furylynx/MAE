@@ -135,7 +135,28 @@ namespace mae
 				{
 					visualizer_->paint_sequence(graphics, current_sequence_, get_width(), get_height());
 
-					//TODO print small countdown in one corner...
+					//print the number in the mid
+					std::stringstream sstr;
+					sstr << countdown_ << " s";
+
+					TTF_Font* font = TTF_OpenFontRW(SDL_RWFromConstMem(res::droidsans_ttf.data, res::droidsans_ttf.size), 1, get_height()/10);
+
+					SDL_Surface* text = TTF_RenderText_Solid(font, sstr.str().c_str(), TEXTCOLOR_ORANGE);
+					SDL_Surface* text_sur = SDL_ConvertSurface(text, get_surface()->format, 0);
+
+					//Get rid of old loaded surface
+					SDL_FreeSurface(text);
+					text = nullptr;
+
+					SDL_Rect offset_scale = text_sur->clip_rect;
+					offset_scale.x = 10;
+					offset_scale.y = 10;
+
+					SDL_BlitScaled(text_sur, NULL, graphics, &offset_scale);
+
+					//free text surface
+					SDL_FreeSurface(text_sur);
+					text_sur = nullptr;
 				}
 				else
 				{
@@ -145,17 +166,16 @@ namespace mae
 						std::stringstream sstr;
 						sstr << countdown_ << " s";
 
-						SDL_Surface* text = TTF_RenderText_Solid(font_, sstr.str().c_str(), TEXTCOLOR);
+						TTF_Font* font = TTF_OpenFontRW(SDL_RWFromConstMem(res::droidsans_ttf.data, res::droidsans_ttf.size), 1, get_height()/3);
+
+						SDL_Surface* text = TTF_RenderText_Solid(font, sstr.str().c_str(), TEXTCOLOR_ORANGE);
 						SDL_Surface* text_sur = SDL_ConvertSurface(text, get_surface()->format, 0);
 
 						//Get rid of old loaded surface
 						SDL_FreeSurface(text);
 						text = nullptr;
 
-						SDL_Rect offset_scale;
-						offset_scale.w = get_width()/3;
-						offset_scale.h = (int)(text_sur->h*((get_width()/3.0)/text_sur->w));
-
+						SDL_Rect offset_scale = text_sur->clip_rect;
 						offset_scale.x = get_width()/2 - offset_scale.w/2;
 						offset_scale.y = get_height()/2 - offset_scale.h/2;
 
@@ -168,20 +188,18 @@ namespace mae
 					else
 					{
 						//print waiting for calibration or something
-						SDL_Surface* text = TTF_RenderText_Solid(font_, wait_str, TEXTCOLOR);
+						TTF_Font* font = TTF_OpenFontRW(SDL_RWFromConstMem(res::droidsans_ttf.data, res::droidsans_ttf.size), 1, get_height()/5);
+
+						SDL_Surface* text = TTF_RenderText_Solid(font, wait_str, TEXTCOLOR_ORANGE);
 						SDL_Surface* text_sur = SDL_ConvertSurface(text, get_surface()->format, 0);
 
 						//Get rid of old loaded surface
 						SDL_FreeSurface(text);
 						text = nullptr;
 
-						SDL_Rect offset_scale;
-						offset_scale.w = get_width()/3;
-						offset_scale.h = (int)(text_sur->h*((get_width()/3.0)/text_sur->w));
-
+						SDL_Rect offset_scale = text_sur->clip_rect;
 						offset_scale.x = get_width()/2 - offset_scale.w/2;
 						offset_scale.y = get_height()/2 - offset_scale.h/2;
-
 
 
 						SDL_BlitScaled(text_sur, NULL, graphics, &offset_scale);
