@@ -87,8 +87,7 @@ namespace mae
 
 					for (unsigned int j = 0; j < movements.size(); j++)
 					{
-						if (std::shared_ptr<mae::fl::laban::movement> mov = std::dynamic_pointer_cast<
-								mae::fl::laban::movement>(movements.at(j)))
+						if (std::shared_ptr<mae::fl::laban::movement> mov = std::dynamic_pointer_cast<mae::fl::laban::movement>(movements.at(j)))
 						{
 							if (std::shared_ptr<mae::fl::laban::mv::direction_symbol> symb = std::dynamic_pointer_cast<
 									mae::fl::laban::mv::direction_symbol>(mov->get_symbol()))
@@ -195,7 +194,7 @@ namespace mae
 				draw_line(graphics, right_bound, top_bound, right_bound, bottom_bound);
 
 				//draw beat and measure marks
-				for (unsigned int i = sequence->get_beats() + 1 ; i < sequence->get_measures() * sequence->get_beats(); i++)
+				for (unsigned int i = sequence->get_beats() + 1 ; i < (sequence->get_measures()+1) * sequence->get_beats(); i++)
 				{
 					int mark_pos_y = (int) (window_height - 55 - (i * beat_height));
 					if ((i % sequence->get_beats()) == 0)
