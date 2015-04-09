@@ -14,7 +14,7 @@ namespace mae
 	{
 		switch (joint)
 		{
-		case e_kinect_joint::INVALID_JOINT  	: return "INVALID";
+		case e_kinect_joint::INVALID_KINECTJOINT : return "INVALID";
 		case e_kinect_joint::WAIST         		: return "WAIST";
 		case e_kinect_joint::TORSO         		: return "TORSO";
         case e_kinect_joint::NECK          	   	: return "NECK";
@@ -59,7 +59,7 @@ namespace mae
 	std::vector<e_kinect_joint> e_kinect_joint_c::vec()
 	{
 		std::vector<e_kinect_joint> result;
-		result.push_back(e_kinect_joint::INVALID_JOINT  		 );
+		result.push_back(e_kinect_joint::INVALID_KINECTJOINT  		 );
 		result.push_back(e_kinect_joint::WAIST         	 );
 		result.push_back(e_kinect_joint::TORSO         	 );
 		result.push_back(e_kinect_joint::NECK          	);

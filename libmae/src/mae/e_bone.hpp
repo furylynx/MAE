@@ -37,7 +37,14 @@ namespace mae
 			LEFT_WHOLE_LEG 		= -	2,
 			RIGHT_THIGH 		= 	6, 		//Oberschenkel
 			RIGHT_SHANK 		= 	7, 		//Unterschenkel
-			RIGHT_WHOLE_LEG 	= 	2
+			RIGHT_WHOLE_LEG 	= 	2,
+
+			//bones provided by the kinect skeleton
+			RIGHT_HAND 	= 	10,
+			RIGHT_FOOT 	= 	11,
+			LEFT_HAND 	= 	-10,
+			LEFT_FOOT 	= 	-11,
+
 	};
 
 	class e_bone_c
