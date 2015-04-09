@@ -51,6 +51,10 @@ public class Bone {
     this(MaeJavaJNI.new_Bone__SWIG_3(eb.swigValue()), true);
   }
 
+  public Bone(EBone eb, BoneVector bones_set) {
+    this(MaeJavaJNI.new_Bone__SWIG_4(eb.swigValue(), BoneVector.getCPtr(bones_set), bones_set), true);
+  }
+
   public int getId() {
     return MaeJavaJNI.Bone_getId(swigCPtr, this);
   }
@@ -77,6 +81,10 @@ public class Bone {
 
   public static BoneVector defaultBones() {
     return new BoneVector(MaeJavaJNI.Bone_defaultBones(), true);
+  }
+
+  public static BoneVector defaultKinectBones() {
+    return new BoneVector(MaeJavaJNI.Bone_defaultKinectBones(), true);
   }
 
   public final static int rESERVEDTOPDOWN = MaeJavaJNI.Bone_rESERVEDTOPDOWN_get();

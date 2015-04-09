@@ -666,7 +666,7 @@ SWIGINTERN void SWIG_JavaException(JNIEnv *jenv, int code, const char *msg) {
 #include <stdexcept>
 
 
- 	#include "../../../src/mae/e_bone.hpp"
+ 	#include "../../../src/mae/e_kinect_joint.hpp"
 
 SWIGINTERN std::vector< int >::const_reference std_vector_Sl_int_Sg__get(std::vector< int > *self,int i){
                 int size = int(self->size());
@@ -682,6 +682,23 @@ SWIGINTERN void std_vector_Sl_int_Sg__set(std::vector< int > *self,int i,std::ve
                 else
                     throw std::out_of_range("vector index out of range");
             }
+SWIGINTERN std::vector< enum mae::e_kinect_joint >::const_reference std_vector_Sl_mae_e_kinect_joint_Sg__get(std::vector< mae::e_kinect_joint > *self,int i){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    return (*self)[i];
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+SWIGINTERN void std_vector_Sl_mae_e_kinect_joint_Sg__set(std::vector< mae::e_kinect_joint > *self,int i,std::vector< enum mae::e_kinect_joint >::value_type const &val){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    (*self)[i] = val;
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+
+ 	#include "../../../src/mae/e_bone.hpp"
+
 SWIGINTERN std::vector< enum mae::e_bone >::const_reference std_vector_Sl_mae_e_bone_Sg__get(std::vector< mae::e_bone > *self,int i){
                 int size = int(self->size());
                 if (i>=0 && i<size)
@@ -1087,6 +1104,36 @@ SWIGINTERN void std_vector_Sl_std_shared_ptr_Sl_mae_general_skeleton_Sg__Sg__set
 
 
 	#include "../../../src/mae/fl/bvh_controller.hpp"
+
+
+	#include "../../../src/mae/fl/msr_spec.hpp"
+
+SWIGINTERN int const &std_map_Sl_unsigned_SS_int_Sc_int_Sg__get(std::map< unsigned int,int > *self,unsigned int const &key){
+                std::map<unsigned int,int >::iterator i = self->find(key);
+                if (i != self->end())
+                    return i->second;
+                else
+                    throw std::out_of_range("key not found");
+            }
+SWIGINTERN void std_map_Sl_unsigned_SS_int_Sc_int_Sg__set(std::map< unsigned int,int > *self,unsigned int const &key,int const &x){
+                (*self)[key] = x;
+            }
+SWIGINTERN void std_map_Sl_unsigned_SS_int_Sc_int_Sg__del(std::map< unsigned int,int > *self,unsigned int const &key){
+                std::map<unsigned int,int >::iterator i = self->find(key);
+                if (i != self->end())
+                    self->erase(i);
+                else
+                    throw std::out_of_range("key not found");
+            }
+SWIGINTERN bool std_map_Sl_unsigned_SS_int_Sc_int_Sg__has_key(std::map< unsigned int,int > *self,unsigned int const &key){
+                std::map<unsigned int,int >::iterator i = self->find(key);
+                return i != self->end();
+            }
+
+	#include "../../../src/mae/fl/msr_data.hpp"
+
+
+	#include "../../../src/mae/fl/msr_data_controller.hpp"
 
 
 	#include "../../../src/mae/fl/laban/laban_sequence_reader.hpp"
@@ -1620,6 +1667,837 @@ SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_IniReader_1getValue(JNIEnv *j
 }
 
 
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_INVALID_1KINECTJOINT_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_kinect_joint result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_kinect_joint)mae::e_kinect_joint::INVALID_KINECTJOINT;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_EKinectJointC_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jstring jresult = 0 ;
+  mae::e_kinect_joint arg1 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (mae::e_kinect_joint)jarg1; 
+  {
+    try {
+      result = mae::e_kinect_joint_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EKinectJointC_1toInt(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jint jresult = 0 ;
+  mae::e_kinect_joint arg1 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (mae::e_kinect_joint)jarg1; 
+  {
+    try {
+      result = (int)mae::e_kinect_joint_c::to_int(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EKinectJointC_1vec(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::vector< mae::e_kinect_joint > result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = mae::e_kinect_joint_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< mae::e_kinect_joint > **)&jresult = new std::vector< mae::e_kinect_joint >((const std::vector< mae::e_kinect_joint > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EKinectJointC_1isDummy(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jboolean jresult = 0 ;
+  mae::e_kinect_joint arg1 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (mae::e_kinect_joint)jarg1; 
+  {
+    try {
+      result = (bool)mae::e_kinect_joint_c::is_dummy(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EKinectJointC_1isTorso(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jboolean jresult = 0 ;
+  mae::e_kinect_joint arg1 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (mae::e_kinect_joint)jarg1; 
+  {
+    try {
+      result = (bool)mae::e_kinect_joint_c::is_torso(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EKinectJointC_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+  jint jresult = 0 ;
+  std::string arg1 ;
+  mae::e_kinect_joint result;
+  
+  (void)jenv;
+  (void)jcls;
+  if(!jarg1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg1_pstr = (const char *)jenv->GetStringUTFChars(jarg1, 0); 
+  if (!arg1_pstr) return 0;
+  (&arg1)->assign(arg1_pstr);
+  jenv->ReleaseStringUTFChars(jarg1, arg1_pstr); 
+  {
+    try {
+      result = (mae::e_kinect_joint)mae::e_kinect_joint_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EKinectJointC(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  mae::e_kinect_joint_c *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_kinect_joint_c *)new mae::e_kinect_joint_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(mae::e_kinect_joint_c **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EKinectJointC(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  mae::e_kinect_joint_c *arg1 = (mae::e_kinect_joint_c *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(mae::e_kinect_joint_c **)&jarg1; 
+  {
+    try {
+      delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IntVector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::vector< int > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (std::vector< int > *)new std::vector< int >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< int > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IntVector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  jlong jresult = 0 ;
+  std::vector< int >::size_type arg1 ;
+  std::vector< int > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (std::vector< int >::size_type)jarg1; 
+  {
+    try {
+      result = (std::vector< int > *)new std::vector< int >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< int > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IntVector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
+  std::vector< int >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< int > **)&jarg1; 
+  {
+    try {
+      result = ((std::vector< int > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IntVector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
+  std::vector< int >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< int > **)&jarg1; 
+  {
+    try {
+      result = ((std::vector< int > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntVector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
+  std::vector< int >::size_type arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< int > **)&jarg1; 
+  arg2 = (std::vector< int >::size_type)jarg2; 
+  {
+    try {
+      (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IntVector_1empty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< int > **)&jarg1; 
+  {
+    try {
+      result = (bool)((std::vector< int > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntVector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< int > **)&jarg1; 
+  {
+    try {
+      (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntVector_1pushBack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
+  std::vector< int >::value_type *arg2 = 0 ;
+  std::vector< int >::value_type temp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< int > **)&jarg1; 
+  temp2 = (std::vector< int >::value_type)jarg2; 
+  arg2 = &temp2; 
+  {
+    try {
+      (arg1)->push_back((std::vector< int >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_IntVector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  jint jresult = 0 ;
+  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
+  int arg2 ;
+  std::vector< int >::value_type *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< int > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  {
+    try {
+      try {
+        result = (std::vector< int >::value_type *) &std_vector_Sl_int_Sg__get(arg1,arg2);
+      }
+      catch(std::out_of_range &_e) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+        return 0;
+      }
+      
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)*result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntVector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
+  int arg2 ;
+  std::vector< int >::value_type *arg3 = 0 ;
+  std::vector< int >::value_type temp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< int > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (std::vector< int >::value_type)jarg3; 
+  arg3 = &temp3; 
+  {
+    try {
+      try {
+        std_vector_Sl_int_Sg__set(arg1,arg2,(int const &)*arg3);
+      }
+      catch(std::out_of_range &_e) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+        return ;
+      }
+      
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IntVector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::vector< int > **)&jarg1; 
+  {
+    try {
+      delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EKinectJointVector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::vector< mae::e_kinect_joint > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (std::vector< mae::e_kinect_joint > *)new std::vector< mae::e_kinect_joint >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< mae::e_kinect_joint > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EKinectJointVector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  jlong jresult = 0 ;
+  std::vector< enum mae::e_kinect_joint >::size_type arg1 ;
+  std::vector< mae::e_kinect_joint > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (std::vector< enum mae::e_kinect_joint >::size_type)jarg1; 
+  {
+    try {
+      result = (std::vector< mae::e_kinect_joint > *)new std::vector< mae::e_kinect_joint >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< mae::e_kinect_joint > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EKinectJointVector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< mae::e_kinect_joint > *arg1 = (std::vector< mae::e_kinect_joint > *) 0 ;
+  std::vector< enum mae::e_kinect_joint >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_kinect_joint > **)&jarg1; 
+  {
+    try {
+      result = ((std::vector< mae::e_kinect_joint > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EKinectJointVector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< mae::e_kinect_joint > *arg1 = (std::vector< mae::e_kinect_joint > *) 0 ;
+  std::vector< enum mae::e_kinect_joint >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_kinect_joint > **)&jarg1; 
+  {
+    try {
+      result = ((std::vector< mae::e_kinect_joint > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EKinectJointVector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  std::vector< mae::e_kinect_joint > *arg1 = (std::vector< mae::e_kinect_joint > *) 0 ;
+  std::vector< enum mae::e_kinect_joint >::size_type arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_kinect_joint > **)&jarg1; 
+  arg2 = (std::vector< enum mae::e_kinect_joint >::size_type)jarg2; 
+  {
+    try {
+      (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EKinectJointVector_1empty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  std::vector< mae::e_kinect_joint > *arg1 = (std::vector< mae::e_kinect_joint > *) 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_kinect_joint > **)&jarg1; 
+  {
+    try {
+      result = (bool)((std::vector< mae::e_kinect_joint > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EKinectJointVector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  std::vector< mae::e_kinect_joint > *arg1 = (std::vector< mae::e_kinect_joint > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_kinect_joint > **)&jarg1; 
+  {
+    try {
+      (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EKinectJointVector_1pushBack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  std::vector< mae::e_kinect_joint > *arg1 = (std::vector< mae::e_kinect_joint > *) 0 ;
+  std::vector< enum mae::e_kinect_joint >::value_type *arg2 = 0 ;
+  std::vector< enum mae::e_kinect_joint >::value_type temp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_kinect_joint > **)&jarg1; 
+  temp2 = (std::vector< enum mae::e_kinect_joint >::value_type)jarg2; 
+  arg2 = &temp2; 
+  {
+    try {
+      (arg1)->push_back((std::vector< enum mae::e_kinect_joint >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EKinectJointVector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  jint jresult = 0 ;
+  std::vector< mae::e_kinect_joint > *arg1 = (std::vector< mae::e_kinect_joint > *) 0 ;
+  int arg2 ;
+  std::vector< enum mae::e_kinect_joint >::value_type *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_kinect_joint > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  {
+    try {
+      try {
+        result = (std::vector< enum mae::e_kinect_joint >::value_type *) &std_vector_Sl_mae_e_kinect_joint_Sg__get(arg1,arg2);
+      }
+      catch(std::out_of_range &_e) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+        return 0;
+      }
+      
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)*result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EKinectJointVector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+  std::vector< mae::e_kinect_joint > *arg1 = (std::vector< mae::e_kinect_joint > *) 0 ;
+  int arg2 ;
+  std::vector< enum mae::e_kinect_joint >::value_type *arg3 = 0 ;
+  std::vector< enum mae::e_kinect_joint >::value_type temp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_kinect_joint > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (std::vector< enum mae::e_kinect_joint >::value_type)jarg3; 
+  arg3 = &temp3; 
+  {
+    try {
+      try {
+        std_vector_Sl_mae_e_kinect_joint_Sg__set(arg1,arg2,(enum mae::e_kinect_joint const &)*arg3);
+      }
+      catch(std::out_of_range &_e) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+        return ;
+      }
+      
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EKinectJointVector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::vector< mae::e_kinect_joint > *arg1 = (std::vector< mae::e_kinect_joint > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::vector< mae::e_kinect_joint > **)&jarg1; 
+  {
+    try {
+      delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
 SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_INVALID_1BONE_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   mae::e_bone result;
@@ -1956,6 +2834,102 @@ SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1WHOLE_1LEG_1get(JNIEnv *j
 }
 
 
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1HAND_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_bone)mae::e_bone::RIGHT_HAND;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_RIGHT_1FOOT_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_bone)mae::e_bone::RIGHT_FOOT;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1HAND_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_bone)mae::e_bone::LEFT_HAND;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LEFT_1FOOT_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_bone)mae::e_bone::LEFT_FOOT;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_EBoneC_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
   jstring jresult = 0 ;
   mae::e_bone arg1 ;
@@ -2095,306 +3069,6 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EBoneC(JNIEnv *jenv, jcl
   (void)jenv;
   (void)jcls;
   arg1 = *(mae::e_bone_c **)&jarg1; 
-  {
-    try {
-      delete arg1;
-    } catch (std::exception &e) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
-      };
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
-      };
-    }
-  }
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IntVector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
-  std::vector< int > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  {
-    try {
-      result = (std::vector< int > *)new std::vector< int >();
-    } catch (std::exception &e) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
-      };
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
-      };
-    }
-  }
-  *(std::vector< int > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1IntVector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  jlong jresult = 0 ;
-  std::vector< int >::size_type arg1 ;
-  std::vector< int > *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  arg1 = (std::vector< int >::size_type)jarg1; 
-  {
-    try {
-      result = (std::vector< int > *)new std::vector< int >(arg1);
-    } catch (std::exception &e) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
-      };
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
-      };
-    }
-  }
-  *(std::vector< int > **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IntVector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
-  std::vector< int >::size_type result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< int > **)&jarg1; 
-  {
-    try {
-      result = ((std::vector< int > const *)arg1)->size();
-    } catch (std::exception &e) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
-      };
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
-      };
-    }
-  }
-  jresult = (jlong)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_IntVector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
-  std::vector< int >::size_type result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< int > **)&jarg1; 
-  {
-    try {
-      result = ((std::vector< int > const *)arg1)->capacity();
-    } catch (std::exception &e) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
-      };
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
-      };
-    }
-  }
-  jresult = (jlong)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntVector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
-  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
-  std::vector< int >::size_type arg2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< int > **)&jarg1; 
-  arg2 = (std::vector< int >::size_type)jarg2; 
-  {
-    try {
-      (arg1)->reserve(arg2);
-    } catch (std::exception &e) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
-      };
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
-      };
-    }
-  }
-}
-
-
-SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_IntVector_1empty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
-  bool result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< int > **)&jarg1; 
-  {
-    try {
-      result = (bool)((std::vector< int > const *)arg1)->empty();
-    } catch (std::exception &e) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
-      };
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
-      };
-    }
-  }
-  jresult = (jboolean)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntVector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< int > **)&jarg1; 
-  {
-    try {
-      (arg1)->clear();
-    } catch (std::exception &e) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
-      };
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
-      };
-    }
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntVector_1pushBack(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
-  std::vector< int >::value_type *arg2 = 0 ;
-  std::vector< int >::value_type temp2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< int > **)&jarg1; 
-  temp2 = (std::vector< int >::value_type)jarg2; 
-  arg2 = &temp2; 
-  {
-    try {
-      (arg1)->push_back((std::vector< int >::value_type const &)*arg2);
-    } catch (std::exception &e) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
-      };
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
-      };
-    }
-  }
-}
-
-
-SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_IntVector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jint jresult = 0 ;
-  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
-  int arg2 ;
-  std::vector< int >::value_type *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< int > **)&jarg1; 
-  arg2 = (int)jarg2; 
-  {
-    try {
-      try {
-        result = (std::vector< int >::value_type *) &std_vector_Sl_int_Sg__get(arg1,arg2);
-      }
-      catch(std::out_of_range &_e) {
-        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
-        return 0;
-      }
-      
-    } catch (std::exception &e) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
-      };
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
-      };
-    }
-  }
-  jresult = (jint)*result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_IntVector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
-  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
-  int arg2 ;
-  std::vector< int >::value_type *arg3 = 0 ;
-  std::vector< int >::value_type temp3 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(std::vector< int > **)&jarg1; 
-  arg2 = (int)jarg2; 
-  temp3 = (std::vector< int >::value_type)jarg3; 
-  arg3 = &temp3; 
-  {
-    try {
-      try {
-        std_vector_Sl_int_Sg__set(arg1,arg2,(int const &)*arg3);
-      }
-      catch(std::out_of_range &_e) {
-        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
-        return ;
-      }
-      
-    } catch (std::exception &e) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
-      };
-    } catch (...) {
-      {
-        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
-      };
-    }
-  }
-}
-
-
-SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1IntVector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
-  std::vector< int > *arg1 = (std::vector< int > *) 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  arg1 = *(std::vector< int > **)&jarg1; 
   {
     try {
       delete arg1;
@@ -2849,6 +3523,43 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Bone_1_1SWIG_13(JNIEnv *je
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Bone_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_) {
+  jlong jresult = 0 ;
+  mae::e_bone arg1 ;
+  std::vector< mae::bone > arg2 ;
+  std::vector< mae::bone > *argp2 ;
+  mae::bone *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg2_;
+  arg1 = (mae::e_bone)jarg1; 
+  argp2 = *(std::vector< mae::bone > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< mae::bone >");
+    return 0;
+  }
+  arg2 = *argp2; 
+  {
+    try {
+      result = (mae::bone *)new mae::bone(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  
+  *(std::shared_ptr<  mae::bone > **)&jresult = result ? new std::shared_ptr<  mae::bone >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
 SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1Bone(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::bone *arg1 = (mae::bone *) 0 ;
   std::shared_ptr< mae::bone > *smartarg1 = 0 ;
@@ -3063,6 +3774,30 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Bone_1defaultBones(JNIEnv *jenv
   {
     try {
       result = mae::bone::default_bones();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< mae::bone > **)&jresult = new std::vector< mae::bone >((const std::vector< mae::bone > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Bone_1defaultKinectBones(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::vector< mae::bone > result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = mae::bone::default_kinect_bones();
     } catch (std::exception &e) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
@@ -4821,18 +5556,48 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1setRoot(JNIEnv *jenv,
 SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1getElementSequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
-  std::shared_ptr< mae::hierarchy > *smartarg1 = 0 ;
+  std::shared_ptr< mae::hierarchy const > *smartarg1 = 0 ;
   std::vector< std::shared_ptr< mae::hierarchy_element > > result;
   
   (void)jenv;
   (void)jcls;
   (void)jarg1_;
   
-  smartarg1 = *(std::shared_ptr<  mae::hierarchy > **)&jarg1;
+  smartarg1 = *(std::shared_ptr< const mae::hierarchy > **)&jarg1;
   arg1 = (mae::hierarchy *)(smartarg1 ? smartarg1->get() : 0); 
   {
     try {
-      result = (arg1)->get_element_sequence();
+      result = ((mae::hierarchy const *)arg1)->get_element_sequence();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< std::shared_ptr< mae::hierarchy_element > > **)&jresult = new std::vector< std::shared_ptr< mae::hierarchy_element > >((const std::vector< std::shared_ptr< mae::hierarchy_element > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1getSortedElementSequence(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
+  std::shared_ptr< mae::hierarchy const > *smartarg1 = 0 ;
+  std::vector< std::shared_ptr< mae::hierarchy_element > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::hierarchy > **)&jarg1;
+  arg1 = (mae::hierarchy *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      result = ((mae::hierarchy const *)arg1)->get_sorted_element_sequence();
     } catch (std::exception &e) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
@@ -4882,6 +5647,38 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1at(JNIEnv *jenv, jcl
 }
 
 
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1compareElements(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jboolean jresult = 0 ;
+  std::shared_ptr< mae::hierarchy_element > *arg1 = 0 ;
+  std::shared_ptr< mae::hierarchy_element > *arg2 = 0 ;
+  std::shared_ptr< mae::hierarchy_element > tempnull1 ;
+  std::shared_ptr< mae::hierarchy_element > tempnull2 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = jarg1 ? *(std::shared_ptr< mae::hierarchy_element > **)&jarg1 : &tempnull1; 
+  arg2 = jarg2 ? *(std::shared_ptr< mae::hierarchy_element > **)&jarg2 : &tempnull2; 
+  {
+    try {
+      result = (bool)mae::hierarchy::compare_elements((std::shared_ptr< mae::hierarchy_element > const &)*arg1,(std::shared_ptr< mae::hierarchy_element > const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
 SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1str(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jstring jresult = 0 ;
   mae::hierarchy *arg1 = (mae::hierarchy *) 0 ;
@@ -4921,6 +5718,30 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1defaultHierarchy(JNI
   {
     try {
       result = mae::hierarchy::default_hierarchy();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::hierarchy > **)&jresult = result ? new std::shared_ptr< mae::hierarchy >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Hierarchy_1defaultKinectHierarchy(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::hierarchy > result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = mae::hierarchy::default_kinect_hierarchy();
     } catch (std::exception &e) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
@@ -21320,6 +22141,1170 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_BvhController_1readBvhFile(JNIE
   }
   *(std::shared_ptr< mae::fl::bvh_data > **)&jresult = result ? new std::shared_ptr< mae::fl::bvh_data >(result) : 0; 
   return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1MsrSpec(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3, jlong jarg4) {
+  jlong jresult = 0 ;
+  std::map< unsigned int,int > arg1 ;
+  std::shared_ptr< mae::hierarchy > arg2 ;
+  std::size_t arg3 ;
+  std::size_t arg4 ;
+  std::map< unsigned int,int > *argp1 ;
+  std::shared_ptr< mae::hierarchy > *argp2 ;
+  mae::fl::msr_spec *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  argp1 = *(std::map< unsigned int,int > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::map< unsigned int,int >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  argp2 = *(std::shared_ptr< mae::hierarchy > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  arg3 = (std::size_t)jarg3; 
+  arg4 = (std::size_t)jarg4; 
+  {
+    try {
+      result = (mae::fl::msr_spec *)new mae::fl::msr_spec(arg1,arg2,arg3,arg4);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  
+  *(std::shared_ptr<  mae::fl::msr_spec > **)&jresult = result ? new std::shared_ptr<  mae::fl::msr_spec >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1MsrSpec(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  mae::fl::msr_spec *arg1 = (mae::fl::msr_spec *) 0 ;
+  std::shared_ptr< mae::fl::msr_spec > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::msr_spec > **)&jarg1;
+  arg1 = (mae::fl::msr_spec *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_MsrSpec_1getIdMap(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::fl::msr_spec *arg1 = (mae::fl::msr_spec *) 0 ;
+  std::shared_ptr< mae::fl::msr_spec const > *smartarg1 = 0 ;
+  std::map< unsigned int,int > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_spec > **)&jarg1;
+  arg1 = (mae::fl::msr_spec *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      result = ((mae::fl::msr_spec const *)arg1)->get_id_map();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::map< unsigned int,int > **)&jresult = new std::map< unsigned int,int >((const std::map< unsigned int,int > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_MsrSpec_1getHierarchy(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::fl::msr_spec *arg1 = (mae::fl::msr_spec *) 0 ;
+  std::shared_ptr< mae::fl::msr_spec const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::hierarchy > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_spec > **)&jarg1;
+  arg1 = (mae::fl::msr_spec *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      result = ((mae::fl::msr_spec const *)arg1)->get_hierarchy();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::hierarchy > **)&jresult = result ? new std::shared_ptr< mae::hierarchy >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_MsrSpec_1getLinesPerJoint(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::fl::msr_spec *arg1 = (mae::fl::msr_spec *) 0 ;
+  std::shared_ptr< mae::fl::msr_spec const > *smartarg1 = 0 ;
+  std::size_t result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_spec > **)&jarg1;
+  arg1 = (mae::fl::msr_spec *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      result = ((mae::fl::msr_spec const *)arg1)->get_lines_per_joint();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_MsrSpec_1getPosLineIndex(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::fl::msr_spec *arg1 = (mae::fl::msr_spec *) 0 ;
+  std::shared_ptr< mae::fl::msr_spec const > *smartarg1 = 0 ;
+  std::size_t result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_spec > **)&jarg1;
+  arg1 = (mae::fl::msr_spec *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      result = ((mae::fl::msr_spec const *)arg1)->get_pos_line_index();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_MsrSpec_1defaultSpec(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::msr_spec > result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = mae::fl::msr_spec::default_spec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::msr_spec > **)&jresult = result ? new std::shared_ptr< mae::fl::msr_spec >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_MsrSpec_1defaultMsrSpec(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::shared_ptr< mae::fl::msr_spec > result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = mae::fl::msr_spec::default_msr_spec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::msr_spec > **)&jresult = result ? new std::shared_ptr< mae::fl::msr_spec >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1UIntIntMap_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::map< unsigned int,int > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (std::map< unsigned int,int > *)new std::map< unsigned int,int >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::map< unsigned int,int > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1UIntIntMap_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::map< unsigned int,int > *arg1 = 0 ;
+  std::map< unsigned int,int > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::map< unsigned int,int > **)&jarg1;
+  if (!arg1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "std::map< unsigned int,int > const & reference is null");
+    return 0;
+  } 
+  {
+    try {
+      result = (std::map< unsigned int,int > *)new std::map< unsigned int,int >((std::map< unsigned int,int > const &)*arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::map< unsigned int,int > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_UIntIntMap_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::map< unsigned int,int > *arg1 = (std::map< unsigned int,int > *) 0 ;
+  unsigned int result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::map< unsigned int,int > **)&jarg1; 
+  {
+    try {
+      result = (unsigned int)((std::map< unsigned int,int > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_UIntIntMap_1empty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  std::map< unsigned int,int > *arg1 = (std::map< unsigned int,int > *) 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::map< unsigned int,int > **)&jarg1; 
+  {
+    try {
+      result = (bool)((std::map< unsigned int,int > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_UIntIntMap_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  std::map< unsigned int,int > *arg1 = (std::map< unsigned int,int > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::map< unsigned int,int > **)&jarg1; 
+  {
+    try {
+      (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_UIntIntMap_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  jint jresult = 0 ;
+  std::map< unsigned int,int > *arg1 = (std::map< unsigned int,int > *) 0 ;
+  unsigned int *arg2 = 0 ;
+  unsigned int temp2 ;
+  int *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::map< unsigned int,int > **)&jarg1; 
+  temp2 = (unsigned int)jarg2; 
+  arg2 = &temp2; 
+  {
+    try {
+      try {
+        result = (int *) &std_map_Sl_unsigned_SS_int_Sc_int_Sg__get(arg1,(unsigned int const &)*arg2);
+      }
+      catch(std::out_of_range &_e) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+        return 0;
+      }
+      
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)*result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_UIntIntMap_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jint jarg3) {
+  std::map< unsigned int,int > *arg1 = (std::map< unsigned int,int > *) 0 ;
+  unsigned int *arg2 = 0 ;
+  int *arg3 = 0 ;
+  unsigned int temp2 ;
+  int temp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::map< unsigned int,int > **)&jarg1; 
+  temp2 = (unsigned int)jarg2; 
+  arg2 = &temp2; 
+  temp3 = (int)jarg3; 
+  arg3 = &temp3; 
+  {
+    try {
+      std_map_Sl_unsigned_SS_int_Sc_int_Sg__set(arg1,(unsigned int const &)*arg2,(int const &)*arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_UIntIntMap_1del(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  std::map< unsigned int,int > *arg1 = (std::map< unsigned int,int > *) 0 ;
+  unsigned int *arg2 = 0 ;
+  unsigned int temp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::map< unsigned int,int > **)&jarg1; 
+  temp2 = (unsigned int)jarg2; 
+  arg2 = &temp2; 
+  {
+    try {
+      try {
+        std_map_Sl_unsigned_SS_int_Sc_int_Sg__del(arg1,(unsigned int const &)*arg2);
+      }
+      catch(std::out_of_range &_e) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+        return ;
+      }
+      
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_UIntIntMap_1hasKey(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  jboolean jresult = 0 ;
+  std::map< unsigned int,int > *arg1 = (std::map< unsigned int,int > *) 0 ;
+  unsigned int *arg2 = 0 ;
+  unsigned int temp2 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::map< unsigned int,int > **)&jarg1; 
+  temp2 = (unsigned int)jarg2; 
+  arg2 = &temp2; 
+  {
+    try {
+      result = (bool)std_map_Sl_unsigned_SS_int_Sc_int_Sg__has_key(arg1,(unsigned int const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1UIntIntMap(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::map< unsigned int,int > *arg1 = (std::map< unsigned int,int > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::map< unsigned int,int > **)&jarg1; 
+  {
+    try {
+      delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1MsrData_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  mae::fl::msr_data *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::fl::msr_data *)new mae::fl::msr_data();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  
+  *(std::shared_ptr<  mae::fl::msr_data > **)&jresult = result ? new std::shared_ptr<  mae::fl::msr_data >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1MsrData_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > arg1 ;
+  double arg2 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > *argp1 ;
+  mae::fl::msr_data *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::general_skeleton > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  arg2 = (double)jarg2; 
+  {
+    try {
+      result = (mae::fl::msr_data *)new mae::fl::msr_data(arg1,arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  
+  *(std::shared_ptr<  mae::fl::msr_data > **)&jresult = result ? new std::shared_ptr<  mae::fl::msr_data >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1MsrData_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > arg1 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > *argp1 ;
+  mae::fl::msr_data *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  argp1 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg1; 
+  if (!argp1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::general_skeleton > >");
+    return 0;
+  }
+  arg1 = *argp1; 
+  {
+    try {
+      result = (mae::fl::msr_data *)new mae::fl::msr_data(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  
+  *(std::shared_ptr<  mae::fl::msr_data > **)&jresult = result ? new std::shared_ptr<  mae::fl::msr_data >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1MsrData(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  mae::fl::msr_data *arg1 = (mae::fl::msr_data *) 0 ;
+  std::shared_ptr< mae::fl::msr_data > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::msr_data > **)&jarg1;
+  arg1 = (mae::fl::msr_data *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_MsrData_1setSkeletonData(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  mae::fl::msr_data *arg1 = (mae::fl::msr_data *) 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > arg2 ;
+  std::shared_ptr< mae::fl::msr_data > *smartarg1 = 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > *argp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::msr_data > **)&jarg1;
+  arg1 = (mae::fl::msr_data *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::general_skeleton > >");
+    return ;
+  }
+  arg2 = *argp2; 
+  {
+    try {
+      (arg1)->set_skeleton_data(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_MsrData_1getSkeletonData(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  mae::fl::msr_data *arg1 = (mae::fl::msr_data *) 0 ;
+  std::shared_ptr< mae::fl::msr_data const > *smartarg1 = 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_data > **)&jarg1;
+  arg1 = (mae::fl::msr_data *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      result = ((mae::fl::msr_data const *)arg1)->get_skeleton_data();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jresult = new std::vector< std::shared_ptr< mae::general_skeleton > >((const std::vector< std::shared_ptr< mae::general_skeleton > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_MsrData_1setFramerate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jdouble jarg2) {
+  mae::fl::msr_data *arg1 = (mae::fl::msr_data *) 0 ;
+  double arg2 ;
+  std::shared_ptr< mae::fl::msr_data > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::msr_data > **)&jarg1;
+  arg1 = (mae::fl::msr_data *)(smartarg1 ? smartarg1->get() : 0); 
+  arg2 = (double)jarg2; 
+  {
+    try {
+      (arg1)->set_framerate(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_MsrData_1getFramerate(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jdouble jresult = 0 ;
+  mae::fl::msr_data *arg1 = (mae::fl::msr_data *) 0 ;
+  std::shared_ptr< mae::fl::msr_data const > *smartarg1 = 0 ;
+  double result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_data > **)&jarg1;
+  arg1 = (mae::fl::msr_data *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      result = (double)((mae::fl::msr_data const *)arg1)->get_framerate();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jdouble)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1MsrDataController(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  mae::fl::msr_data_controller *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::fl::msr_data_controller *)new mae::fl::msr_data_controller();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  
+  *(std::shared_ptr<  mae::fl::msr_data_controller > **)&jresult = result ? new std::shared_ptr<  mae::fl::msr_data_controller >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1MsrDataController(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  mae::fl::msr_data_controller *arg1 = (mae::fl::msr_data_controller *) 0 ;
+  std::shared_ptr< mae::fl::msr_data_controller > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::msr_data_controller > **)&jarg1;
+  arg1 = (mae::fl::msr_data_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      (void)arg1; delete smartarg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_MsrDataController_1readMsrFile_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
+  jlong jresult = 0 ;
+  mae::fl::msr_data_controller *arg1 = (mae::fl::msr_data_controller *) 0 ;
+  std::string arg2 ;
+  std::shared_ptr< mae::fl::msr_spec > arg3 ;
+  std::shared_ptr< mae::fl::msr_data_controller const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::msr_spec > *argp3 ;
+  std::shared_ptr< mae::fl::msr_data > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_data_controller > **)&jarg1;
+  arg1 = (mae::fl::msr_data_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  argp3 = *(std::shared_ptr< mae::fl::msr_spec > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  {
+    try {
+      result = ((mae::fl::msr_data_controller const *)arg1)->read_msr_file(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::msr_data > **)&jresult = result ? new std::shared_ptr< mae::fl::msr_data >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_MsrDataController_1readMsrFile_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jlong jarg5) {
+  jlong jresult = 0 ;
+  mae::fl::msr_data_controller *arg1 = (mae::fl::msr_data_controller *) 0 ;
+  std::string arg2 ;
+  std::shared_ptr< mae::fl::msr_spec > arg3 ;
+  unsigned int arg4 ;
+  unsigned int arg5 ;
+  std::shared_ptr< mae::fl::msr_data_controller const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::msr_spec > *argp3 ;
+  std::shared_ptr< mae::fl::msr_data > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_data_controller > **)&jarg1;
+  arg1 = (mae::fl::msr_data_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  argp3 = *(std::shared_ptr< mae::fl::msr_spec > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  arg4 = (unsigned int)jarg4; 
+  arg5 = (unsigned int)jarg5; 
+  {
+    try {
+      result = ((mae::fl::msr_data_controller const *)arg1)->read_msr_file(arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::msr_data > **)&jresult = result ? new std::shared_ptr< mae::fl::msr_data >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_MsrDataController_1readMsrStr_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
+  jlong jresult = 0 ;
+  mae::fl::msr_data_controller *arg1 = (mae::fl::msr_data_controller *) 0 ;
+  std::string arg2 ;
+  std::shared_ptr< mae::fl::msr_spec > arg3 ;
+  std::shared_ptr< mae::fl::msr_data_controller const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::msr_spec > *argp3 ;
+  std::shared_ptr< mae::fl::msr_data > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_data_controller > **)&jarg1;
+  arg1 = (mae::fl::msr_data_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  argp3 = *(std::shared_ptr< mae::fl::msr_spec > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  {
+    try {
+      result = ((mae::fl::msr_data_controller const *)arg1)->read_msr_str(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::msr_data > **)&jresult = result ? new std::shared_ptr< mae::fl::msr_data >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_MsrDataController_1readMsrStr_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_, jlong jarg4, jlong jarg5) {
+  jlong jresult = 0 ;
+  mae::fl::msr_data_controller *arg1 = (mae::fl::msr_data_controller *) 0 ;
+  std::string arg2 ;
+  std::shared_ptr< mae::fl::msr_spec > arg3 ;
+  unsigned int arg4 ;
+  unsigned int arg5 ;
+  std::shared_ptr< mae::fl::msr_data_controller const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::fl::msr_spec > *argp3 ;
+  std::shared_ptr< mae::fl::msr_data > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_data_controller > **)&jarg1;
+  arg1 = (mae::fl::msr_data_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  argp3 = *(std::shared_ptr< mae::fl::msr_spec > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  arg4 = (unsigned int)jarg4; 
+  arg5 = (unsigned int)jarg5; 
+  {
+    try {
+      result = ((mae::fl::msr_data_controller const *)arg1)->read_msr_str(arg2,arg3,arg4,arg5);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::shared_ptr< mae::fl::msr_data > **)&jresult = result ? new std::shared_ptr< mae::fl::msr_data >(result) : 0; 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_MsrDataController_1msrStr_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jstring jresult = 0 ;
+  mae::fl::msr_data_controller *arg1 = (mae::fl::msr_data_controller *) 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > arg2 ;
+  std::shared_ptr< mae::fl::msr_data_controller const > *smartarg1 = 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > *argp2 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_data_controller > **)&jarg1;
+  arg1 = (mae::fl::msr_data_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::general_skeleton > >");
+    return 0;
+  }
+  arg2 = *argp2; 
+  {
+    try {
+      result = ((mae::fl::msr_data_controller const *)arg1)->msr_str(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_MsrDataController_1msrStr_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jstring jresult = 0 ;
+  mae::fl::msr_data_controller *arg1 = (mae::fl::msr_data_controller *) 0 ;
+  std::shared_ptr< mae::general_skeleton > arg2 ;
+  std::shared_ptr< mae::fl::msr_data_controller const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::general_skeleton > *argp2 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_data_controller > **)&jarg1;
+  arg1 = (mae::fl::msr_data_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  argp2 = *(std::shared_ptr< mae::general_skeleton > **)&jarg2; 
+  if (argp2) arg2 = *argp2; 
+  {
+    try {
+      result = ((mae::fl::msr_data_controller const *)arg1)->msr_str(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_MsrDataController_1printMsrFile_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
+  mae::fl::msr_data_controller *arg1 = (mae::fl::msr_data_controller *) 0 ;
+  std::string arg2 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > arg3 ;
+  std::shared_ptr< mae::fl::msr_data_controller const > *smartarg1 = 0 ;
+  std::vector< std::shared_ptr< mae::general_skeleton > > *argp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_data_controller > **)&jarg1;
+  arg1 = (mae::fl::msr_data_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return ;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return ;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  argp3 = *(std::vector< std::shared_ptr< mae::general_skeleton > > **)&jarg3; 
+  if (!argp3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< std::shared_ptr< mae::general_skeleton > >");
+    return ;
+  }
+  arg3 = *argp3; 
+  {
+    try {
+      ((mae::fl::msr_data_controller const *)arg1)->print_msr_file(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_MsrDataController_1printMsrFile_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jobject jarg3_) {
+  mae::fl::msr_data_controller *arg1 = (mae::fl::msr_data_controller *) 0 ;
+  std::string arg2 ;
+  std::shared_ptr< mae::general_skeleton > arg3 ;
+  std::shared_ptr< mae::fl::msr_data_controller const > *smartarg1 = 0 ;
+  std::shared_ptr< mae::general_skeleton > *argp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg3_;
+  
+  smartarg1 = *(std::shared_ptr< const mae::fl::msr_data_controller > **)&jarg1;
+  arg1 = (mae::fl::msr_data_controller *)(smartarg1 ? smartarg1->get() : 0); 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return ;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return ;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  argp3 = *(std::shared_ptr< mae::general_skeleton > **)&jarg3; 
+  if (argp3) arg3 = *argp3; 
+  {
+    try {
+      ((mae::fl::msr_data_controller const *)arg1)->print_msr_file(arg2,arg3);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
 }
 
 

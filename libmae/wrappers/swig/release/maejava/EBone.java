@@ -23,6 +23,10 @@ public final class EBone {
   public final static EBone RIGHT_THIGH = new EBone("RIGHT_THIGH", MaeJavaJNI.RIGHT_THIGH_get());
   public final static EBone RIGHT_SHANK = new EBone("RIGHT_SHANK", MaeJavaJNI.RIGHT_SHANK_get());
   public final static EBone RIGHT_WHOLE_LEG = new EBone("RIGHT_WHOLE_LEG", MaeJavaJNI.RIGHT_WHOLE_LEG_get());
+  public final static EBone RIGHT_HAND = new EBone("RIGHT_HAND", MaeJavaJNI.RIGHT_HAND_get());
+  public final static EBone RIGHT_FOOT = new EBone("RIGHT_FOOT", MaeJavaJNI.RIGHT_FOOT_get());
+  public final static EBone LEFT_HAND = new EBone("LEFT_HAND", MaeJavaJNI.LEFT_HAND_get());
+  public final static EBone LEFT_FOOT = new EBone("LEFT_FOOT", MaeJavaJNI.LEFT_FOOT_get());
 
   public final int swigValue() {
     return swigValue;
@@ -58,7 +62,7 @@ public final class EBone {
     swigNext = this.swigValue+1;
   }
 
-  private static EBone[] swigValues = { INVALID_BONE, HEAD, LEFT_UPPER_ARM, LEFT_FOREARM, LEFT_WHOLE_ARM, RIGHT_UPPER_ARM, RIGHT_FOREARM, RIGHT_WHOLE_ARM, LEFT_THIGH, LEFT_SHANK, LEFT_WHOLE_LEG, RIGHT_THIGH, RIGHT_SHANK, RIGHT_WHOLE_LEG };
+  private static EBone[] swigValues = { INVALID_BONE, HEAD, LEFT_UPPER_ARM, LEFT_FOREARM, LEFT_WHOLE_ARM, RIGHT_UPPER_ARM, RIGHT_FOREARM, RIGHT_WHOLE_ARM, LEFT_THIGH, LEFT_SHANK, LEFT_WHOLE_LEG, RIGHT_THIGH, RIGHT_SHANK, RIGHT_WHOLE_LEG, RIGHT_HAND, RIGHT_FOOT, LEFT_HAND, LEFT_FOOT };
   private static int swigNext = 0;
   private final int swigValue;
   private final String swigName;

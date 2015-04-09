@@ -14,6 +14,7 @@
 //custom includes
 #include "e_bone.hpp"
 #include "e_joint.hpp"
+#include "e_kinect_joint.hpp"
 
 //global includes
 #include <string>
@@ -65,11 +66,19 @@ namespace mae
 			bone(int id, std::string name, int from, int to, int middle_joint);
 
 			/**
-			 * Creates a bone from the e_bone enum value.
+			 * Creates a bone from the e_bone enum value by referring to the default bones.
 			 *
-			 * @param eb
+			 * @param eb The bone enum value.
 			 */
 			bone(e_bone eb);
+
+			/**
+			 * Creates a bone from the e_bone enum value by referring to the given bones.
+			 *
+			 * @param eb The bone enum value.
+			 * @param bones_set The bones set to be searched for the enum value.
+			 */
+			bone(e_bone eb, std::vector<bone> bones_set);
 			virtual ~bone();
 
 			/**
@@ -115,12 +124,20 @@ namespace mae
 
 			/**
 			 * Returns a default bones vector that fits the needs of the OpenNI/NiTE
-			 * skeletons. If the OpenNI/NiTE hierarchy is not sufficient and/or other
+			 * skeletons. If the default hierarchies are not sufficient and/or other
 			 * bones are needed it must be constructed manually.
 			 *
-			 * @return The default hierarchy.
+			 * @return The default bones.
 			 */
 			static std::vector<bone> default_bones();
+
+			/**
+			 * Returns the default bones for the kinect skeleton.  If the default hierarchies are not sufficient and/or other
+			 * bones are needed it must be constructed manually.
+			 *
+			 * @return The kinect bones.
+			 */
+			static std::vector<bone> default_kinect_bones();
 
 			/**
 			 * The reserved value for the top-down bone. This bone is used for the general skeleton.
@@ -142,6 +159,10 @@ namespace mae
 			int middle_joint_;
 
 			static std::vector<bone> default_bones_;
+			static std::vector<bone> default_kinect_bones_;
+
+
+			void initialize_by_e_bone(e_bone eb, std::vector<bone> bones_set);
 	};
 
 } // namespace mae

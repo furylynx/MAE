@@ -24,7 +24,7 @@ namespace mae
 
 	enum class e_kinect_joint : int
 	{
-			INVALID_JOINT = 0,
+			INVALID_KINECTJOINT = 0,
 			WAIST,
 			TORSO,
 			NECK,
