@@ -14,7 +14,7 @@ namespace mae
 	{
 		switch (bone)
 		{
-		case e_bone::INVALID_BONE    			: return "INVALID";
+		case e_bone::INVALID_BONE    		: return "INVALID";
 		case e_bone::HEAD           		: return "HEAD";
 		case e_bone::LEFT_UPPER_ARM 		: return "LEFT_UPPER_ARM";
         case e_bone::LEFT_FOREARM           : return "LEFT_FOREARM";
@@ -28,6 +28,10 @@ namespace mae
 		case e_bone::RIGHT_THIGH			: return "RIGHT_THIGH";
 		case e_bone::RIGHT_SHANK        	: return "RIGHT_SHANK";
 		case e_bone::RIGHT_WHOLE_LEG        : return "RIGHT_WHOLE_LEG";
+		case e_bone::RIGHT_HAND 			: return "RIGHT_HAND";
+		case e_bone::RIGHT_FOOT 			: return "RIGHT_FOOT";
+		case e_bone::LEFT_HAND 				: return "LEFT_HAND";
+		case e_bone::LEFT_FOOT 				: return "LEFT_FOOT";
 		}
 
 		throw std::invalid_argument("Enum value not listed in the str() method");
@@ -41,7 +45,7 @@ namespace mae
 	std::vector<e_bone> e_bone_c::vec()
 	{
 		std::vector<e_bone> result;
-		result.push_back(e_bone::INVALID_BONE    		);
+		result.push_back(e_bone::INVALID_BONE    	);
 		result.push_back(e_bone::HEAD           	);
 		result.push_back(e_bone::LEFT_UPPER_ARM 	);
 		result.push_back(e_bone::LEFT_FOREARM    	);
@@ -55,6 +59,10 @@ namespace mae
 		result.push_back(e_bone::RIGHT_THIGH		);
 		result.push_back(e_bone::RIGHT_SHANK     	);
 		result.push_back(e_bone::RIGHT_WHOLE_LEG 	);
+		result.push_back(e_bone::RIGHT_HAND 		);
+		result.push_back(e_bone::RIGHT_FOOT 		);
+		result.push_back(e_bone::LEFT_HAND 			);
+		result.push_back(e_bone::LEFT_FOOT 			);
 
 		return result;
 	}

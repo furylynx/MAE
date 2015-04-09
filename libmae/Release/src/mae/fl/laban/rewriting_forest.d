@@ -27,6 +27,7 @@ src/mae/fl/laban/rewriting_forest.d: \
  ../src/mae/fl/laban/../../e_bone.hpp ../src/mae/fl/laban/../../mstr.hpp \
  ../src/mae/fl/laban/../../bone.hpp ../src/mae/fl/laban/../../e_bone.hpp \
  ../src/mae/fl/laban/../../e_joint.hpp \
+ ../src/mae/fl/laban/../../e_kinect_joint.hpp \
  ../src/mae/fl/laban/ps/area_part.hpp \
  ../src/mae/fl/laban/ps/i_endpoint.hpp ../src/mae/fl/laban/ps/i_part.hpp \
  ../src/mae/fl/laban/ps/e_area.hpp \
@@ -116,6 +117,8 @@ src/mae/fl/laban/rewriting_forest.d: \
 ../src/mae/fl/laban/../../e_bone.hpp:
 
 ../src/mae/fl/laban/../../e_joint.hpp:
+
+../src/mae/fl/laban/../../e_kinect_joint.hpp:
 
 ../src/mae/fl/laban/ps/area_part.hpp:
 

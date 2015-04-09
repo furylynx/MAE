@@ -5,10 +5,12 @@ wrappers/swig/release/mae_wrap_java.d: \
  ../wrappers/swig/release/../../../src/mae/ini_reader.hpp \
  ../wrappers/swig/release/../../../src/mae/indexer_fix.hpp \
  ../wrappers/swig/release/../../../src/mae/mstr.hpp \
+ ../wrappers/swig/release/../../../src/mae/e_kinect_joint.hpp \
  ../wrappers/swig/release/../../../src/mae/e_bone.hpp \
  ../wrappers/swig/release/../../../src/mae/bone.hpp \
  ../wrappers/swig/release/../../../src/mae/e_bone.hpp \
  ../wrappers/swig/release/../../../src/mae/e_joint.hpp \
+ ../wrappers/swig/release/../../../src/mae/e_kinect_joint.hpp \
  ../wrappers/swig/release/../../../src/mae/i_sequence_listener.hpp \
  ../wrappers/swig/release/../../../src/mae/i_recognition_listener.hpp \
  ../wrappers/swig/release/../../../src/mae/general_pose.hpp \
@@ -33,7 +35,6 @@ wrappers/swig/release/mae_wrap_java.d: \
  ../wrappers/swig/release/../../../src/mae/i_sequence_listener.hpp \
  ../wrappers/swig/release/../../../src/mae/i_recognition_listener.hpp \
  ../wrappers/swig/release/../../../src/mae/hierarchy.hpp \
- ../wrappers/swig/release/../../../src/mae/e_kinect_joint.hpp \
  ../wrappers/swig/release/../../../src/mae/hierarchy_element.hpp \
  ../wrappers/swig/release/../../../src/mae/math/vec3d.hpp \
  ../wrappers/swig/release/../../../src/mae/math/../indexer_fix.hpp \
@@ -154,6 +155,13 @@ wrappers/swig/release/mae_wrap_java.d: \
  ../wrappers/swig/release/../../../src/mae/fl/bvh_controller.hpp \
  ../wrappers/swig/release/../../../src/mae/fl/bvh_spec.hpp \
  ../wrappers/swig/release/../../../src/mae/fl/bvh_data.hpp \
+ ../wrappers/swig/release/../../../src/mae/fl/msr_spec.hpp \
+ ../wrappers/swig/release/../../../src/mae/fl/../hierarchy.hpp \
+ ../wrappers/swig/release/../../../src/mae/fl/../hierarchy_element.hpp \
+ ../wrappers/swig/release/../../../src/mae/fl/msr_data.hpp \
+ ../wrappers/swig/release/../../../src/mae/fl/msr_data_controller.hpp \
+ ../wrappers/swig/release/../../../src/mae/fl/msr_data.hpp \
+ ../wrappers/swig/release/../../../src/mae/fl/msr_spec.hpp \
  ../wrappers/swig/release/../../../src/mae/fl/laban/laban_sequence_reader.hpp \
  ../wrappers/swig/release/../../../src/mae/fl/laban/mv/i_symbol.hpp \
  ../wrappers/swig/release/../../../src/mae/fl/laban/movement.hpp \
@@ -217,6 +225,8 @@ wrappers/swig/release/mae_wrap_java.d: \
 
 ../wrappers/swig/release/../../../src/mae/mstr.hpp:
 
+../wrappers/swig/release/../../../src/mae/e_kinect_joint.hpp:
+
 ../wrappers/swig/release/../../../src/mae/e_bone.hpp:
 
 ../wrappers/swig/release/../../../src/mae/bone.hpp:
@@ -224,6 +234,8 @@ wrappers/swig/release/mae_wrap_java.d: \
 ../wrappers/swig/release/../../../src/mae/e_bone.hpp:
 
 ../wrappers/swig/release/../../../src/mae/e_joint.hpp:
+
+../wrappers/swig/release/../../../src/mae/e_kinect_joint.hpp:
 
 ../wrappers/swig/release/../../../src/mae/i_sequence_listener.hpp:
 
@@ -272,8 +284,6 @@ wrappers/swig/release/mae_wrap_java.d: \
 ../wrappers/swig/release/../../../src/mae/i_recognition_listener.hpp:
 
 ../wrappers/swig/release/../../../src/mae/hierarchy.hpp:
-
-../wrappers/swig/release/../../../src/mae/e_kinect_joint.hpp:
 
 ../wrappers/swig/release/../../../src/mae/hierarchy_element.hpp:
 
@@ -514,6 +524,20 @@ wrappers/swig/release/mae_wrap_java.d: \
 ../wrappers/swig/release/../../../src/mae/fl/bvh_spec.hpp:
 
 ../wrappers/swig/release/../../../src/mae/fl/bvh_data.hpp:
+
+../wrappers/swig/release/../../../src/mae/fl/msr_spec.hpp:
+
+../wrappers/swig/release/../../../src/mae/fl/../hierarchy.hpp:
+
+../wrappers/swig/release/../../../src/mae/fl/../hierarchy_element.hpp:
+
+../wrappers/swig/release/../../../src/mae/fl/msr_data.hpp:
+
+../wrappers/swig/release/../../../src/mae/fl/msr_data_controller.hpp:
+
+../wrappers/swig/release/../../../src/mae/fl/msr_data.hpp:
+
+../wrappers/swig/release/../../../src/mae/fl/msr_spec.hpp:
 
 ../wrappers/swig/release/../../../src/mae/fl/laban/laban_sequence_reader.hpp:
 

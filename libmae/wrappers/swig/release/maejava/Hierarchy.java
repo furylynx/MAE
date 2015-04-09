@@ -56,9 +56,17 @@ public class Hierarchy {
     return new HierarchyElementVector(MaeJavaJNI.Hierarchy_getElementSequence(swigCPtr, this), true);
   }
 
+  public HierarchyElementVector getSortedElementSequence() {
+    return new HierarchyElementVector(MaeJavaJNI.Hierarchy_getSortedElementSequence(swigCPtr, this), true);
+  }
+
   public HierarchyElement at(int element_id) {
     long cPtr = MaeJavaJNI.Hierarchy_at(swigCPtr, this, element_id);
     return (cPtr == 0) ? null : new HierarchyElement(cPtr, true);
+  }
+
+  public static boolean compareElements(HierarchyElement lhs, HierarchyElement rhs) {
+    return MaeJavaJNI.Hierarchy_compareElements(HierarchyElement.getCPtr(lhs), lhs, HierarchyElement.getCPtr(rhs), rhs);
   }
 
   public String str() {
@@ -67,6 +75,11 @@ public class Hierarchy {
 
   public static Hierarchy defaultHierarchy() {
     long cPtr = MaeJavaJNI.Hierarchy_defaultHierarchy();
+    return (cPtr == 0) ? null : new Hierarchy(cPtr, true);
+  }
+
+  public static Hierarchy defaultKinectHierarchy() {
+    long cPtr = MaeJavaJNI.Hierarchy_defaultKinectHierarchy();
     return (cPtr == 0) ? null : new Hierarchy(cPtr, true);
   }
 

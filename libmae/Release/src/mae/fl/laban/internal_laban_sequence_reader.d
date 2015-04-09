@@ -10,6 +10,7 @@ src/mae/fl/laban/internal_laban_sequence_reader.d: \
  ../src/mae/fl/laban/../../e_bone.hpp ../src/mae/fl/laban/../../bone.hpp \
  ../src/mae/fl/laban/../../e_bone.hpp \
  ../src/mae/fl/laban/../../e_joint.hpp \
+ ../src/mae/fl/laban/../../e_kinect_joint.hpp \
  ../src/mae/fl/laban/../../math/math.hpp \
  ../src/mae/fl/laban/../../math/../indexer_fix.hpp \
  ../src/mae/fl/laban/../../math/../fl/angular_joint.hpp \
@@ -200,6 +201,8 @@ src/mae/fl/laban/internal_laban_sequence_reader.d: \
 ../src/mae/fl/laban/../../e_bone.hpp:
 
 ../src/mae/fl/laban/../../e_joint.hpp:
+
+../src/mae/fl/laban/../../e_kinect_joint.hpp:
 
 ../src/mae/fl/laban/../../math/math.hpp:
 
