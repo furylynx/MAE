@@ -19,6 +19,7 @@
 #include <string>
 #include <vector>
 #include <cstdint>
+#include <set>
 
 #include <mae/mae.hpp>
 
@@ -87,6 +88,7 @@ namespace eval
 			std::string current_folder_;
 
 			std::unordered_map<std::shared_ptr<mae::fl::laban::laban_sequence>, std::string> sequence_folder_map_;
+			std::set<std::shared_ptr<mae::fl::laban::laban_sequence> > false_positive_set_;
 
 	};
 

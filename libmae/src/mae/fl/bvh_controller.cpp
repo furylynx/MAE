@@ -182,7 +182,6 @@ namespace mae
 					sstr << "Xrotation" << " " << "Yrotation" << std::endl;
 				}
 			}
-			std::cout << "closing brackets (end)" << std::endl;
 
 			//closing brackets
 			while (indent_count > 0)
@@ -230,7 +229,6 @@ namespace mae
 			//------------------------------
 			// 	> motion data for other frames
 			//------------------------------
-			std::cout << "print motion" << std::endl;
 			for (unsigned int skel_id = 1; skel_id < data.size(); skel_id++)
 			{
 				//torso location

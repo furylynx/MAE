@@ -11,6 +11,7 @@ namespace mae
 {
 
 	std::vector<bone> bone::default_bones_ = std::vector<bone>();
+	std::vector<bone> bone::default_kinect_bones_ = std::vector<bone>();
 
 	bone::bone()
 	{
