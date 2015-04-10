@@ -33,7 +33,7 @@ std::string construct_path(std::string dir, std::string title, int index, std::s
 		sstr << index;
 	}
 
-	if (sensor_index >= 0)
+	if (sensor+_index >= 0)
 	{
 		sstr << "_sensor" << sensor_index;
 	}
