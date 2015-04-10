@@ -43,6 +43,7 @@ namespace eval
 
 		recognized_ = false;
 		false_positive_ = false;
+		false_positive_set_.clear();
 	}
 
 	void eval_listener::on_recognition(uint64_t timestamp,
@@ -66,14 +67,22 @@ namespace eval
 				}
 				else
 				{
-					std::cout << "! false positive : " << s->get_title() << std::endl;
-					false_positive_ = true;
+					if (false_positive_set_.find(s) == false_positive_set_.end())
+					{
+						std::cout << "! false positive : " << s->get_title() << std::endl;
+						false_positive_ = true;
+						false_positive_set_.insert(s);
+					}
 				}
 			}
 			else
 			{
-				std::cout << "! false positive (not registered) : " << s->get_title() << std::endl;
-				false_positive_ = true;
+				if (false_positive_set_.find(s) == false_positive_set_.end())
+				{
+					std::cout << "! false positive (not registered) : " << s->get_title() << std::endl;
+					false_positive_ = true;
+					false_positive_set_.insert(s);
+				}
 			}
 		}
 	}

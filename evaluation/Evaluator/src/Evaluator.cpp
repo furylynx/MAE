@@ -35,19 +35,40 @@ int main()
 //		"bvhs/dontcare/",
 //		"bvhs/indi/" , "bvhs/raise/" , "bvhs/sequential/" , "bvhs/wheel/"
 
-	"bvhs/testeval_clap/"
+//	"evaluation_bvhs_ya/clap/",
+//	"evaluation_bvhs_ya/dontcare/",
+//	"evaluation_bvhs_ya/hammer/",
+//	"evaluation_bvhs_ya/pinch/",
+//	"evaluation_bvhs_ya/rotation/",
+//	"evaluation_bvhs_ya/scrolldown/",
+//	"evaluation_bvhs_ya/scrollup/",
+//	"evaluation_bvhs_ya/swipe/",
+//	"evaluation_bvhs_ya/throw/",
+//	"evaluation_bvhs_ya/wave/"
+
+		"evaluation_bvhs/clap/",
+		"evaluation_bvhs/dontcare/",
+		"evaluation_bvhs/hammer/",
+		"evaluation_bvhs/pinch/",
+		"evaluation_bvhs/rotation/",
+		"evaluation_bvhs/scrolldown/",
+		"evaluation_bvhs/scrollup/",
+		"evaluation_bvhs/swipe/",
+		"evaluation_bvhs/throw/",
+		"evaluation_bvhs/wave/"
+
 		};
 
 	std::vector<double> tolerances
 	{
-		0.5,
-		1.0,
-		1.5, 2.0,
-		//2.5,
-	3.0,
-	//3.5,
-	4.0,
-	//4.5,
+//		0.5,
+//		1.0,
+//		1.5, 2.0,
+//		//2.5,
+//	3.0,
+//	//3.5,
+//	4.0,
+//	//4.5,
 	5.0,
 	};
 
