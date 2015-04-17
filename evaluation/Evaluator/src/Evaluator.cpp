@@ -61,15 +61,18 @@ int main()
 
 	std::vector<double> tolerances
 	{
-//		0.5,
-//		1.0,
-//		1.5, 2.0,
-//		//2.5,
-//	3.0,
-//	//3.5,
-//	4.0,
-//	//4.5,
+		0.5,
+		1.0,
+		1.5,
+		2.0,
+		//2.5,
+	3.0,
+	//3.5,
+	4.0,
+	//4.5,
 	5.0,
+//	6.0,
+//	10.0
 	};
 
 	bool performance_check = false;
@@ -311,7 +314,7 @@ int main()
 										<< tolerances.at(tolerance_id) << " ## " << std::endl;
 							}
 
-							if (eval_listener->sequence_false_positive())
+							if (!eval_listener->sequence_recognized() && eval_listener->sequence_false_positive())
 							{
 								fp[tolerance_id]++;
 								directory_fp.at(directory_id)[tolerance_id]++;
