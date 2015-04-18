@@ -186,14 +186,11 @@ int main(int argc, char *argv[])
 		{
 			outfile.append(".svg");
 			sequence->svg_file(outfile, w, h);
-
-			outfile.append(".laban");
-			sequence->xml_file(outfile);
 		}
 		else
 		{
 			outfile.append(".bmp");
-			visualizer.png(outfile, sequence, w, h);
+			visualizer.bmp(outfile, sequence, w, h);
 		}
 
 		std::cout << "generated " << outfile << std::endl;
