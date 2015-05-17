@@ -77,6 +77,11 @@ namespace mae
 				decision_forest_->clear();
 			}
 
+			void laban_sequence_recognizer::clear_buffer()
+			{
+				decision_forest_->clear_buffer();
+			}
+
 			std::list<std::shared_ptr<laban_sequence> > laban_sequence_recognizer::get_registered_sequences() const
 			{
 				return decision_forest_->get_sequences();

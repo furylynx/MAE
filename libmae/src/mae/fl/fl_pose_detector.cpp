@@ -244,5 +244,10 @@ namespace mae
 			return 25;
 		}
 
+		void fl_pose_detector::clear_buffer()
+		{
+
+		}
+
 	} // namespace fl
 } // namespace mae

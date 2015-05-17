@@ -50,6 +50,11 @@ namespace mae
 			virtual std::shared_ptr<general_enriched_pose> estimate_frame(double framerate, std::shared_ptr<general_pose> current_pose,
 					std::list<std::shared_ptr<general_enriched_pose> > previous_sequence, std::vector<bone> body_parts);
 
+			/**
+			 * Clears the buffer used to store the data.
+			 */
+			virtual void clear_buffer();
+
 		private:
 			bool debug_;
 			const unsigned int RANGE_KP = 5; //10 ??

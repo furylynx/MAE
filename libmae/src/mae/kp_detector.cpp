@@ -127,4 +127,9 @@ namespace mae
 		return result;
 	}
 
+	void kp_detector::clear_buffer()
+	{
+
+	}
+
 } // namespace mae
