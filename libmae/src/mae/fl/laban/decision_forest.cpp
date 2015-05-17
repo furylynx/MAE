@@ -390,6 +390,15 @@ namespace mae
 				recreated_sequences_map_.clear();
 			}
 
+			void decision_forest::clear_buffer()
+			{
+				//TODO clear the cooldown/sequence recognized buffer (new symbol)
+
+				cooldown_times_.clear();
+
+
+			}
+
 			void decision_forest::add_rewriting_rule(std::vector<std::shared_ptr<i_movement> > sequence,
 					std::shared_ptr<std::vector<std::vector<std::shared_ptr<i_movement> > > > replacements)
 			{

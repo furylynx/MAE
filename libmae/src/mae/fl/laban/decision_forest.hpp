@@ -144,6 +144,11 @@ namespace mae
 					virtual void clear();
 
 					/**
+					 * Clears the buffer.
+					 */
+					virtual void clear_buffer();
+
+					/**
 					 * Adds a rewriting rule to the forest.
 					 *
 					 * @param sequence The sequence.
@@ -199,6 +204,7 @@ namespace mae
 					 * @return The string.
 					 */
 					virtual std::string str() const;
+
 
 				private:
 					std::vector<std::shared_ptr<column_definition> > column_definitions_;
