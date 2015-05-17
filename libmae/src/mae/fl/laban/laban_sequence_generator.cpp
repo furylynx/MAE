@@ -156,6 +156,11 @@ namespace mae
 				return sequence;
 			}
 
+			void laban_sequence_generator::clear_buffer()
+			{
+
+			}
+
 		} // namespace laban
 	} // namespace fl
 } // namespace mae

@@ -88,6 +88,11 @@ namespace mae
 				 */
 				static double default_hysteresis_val();
 
+				/**
+				 * Clears the buffer used to store the data.
+				 */
+				virtual void clear_buffer();
+
 			private:
 				bool debug_;
 				std::unordered_map<int, std::shared_ptr<mae::math::vec3d> > map_directions_;
