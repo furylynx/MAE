@@ -54,6 +54,15 @@ namespace mae
 				virtual std::shared_ptr<fl_skeleton> specified_skeleton(std::shared_ptr<general_skeleton> skeleton);
 
 				/**
+				 * Generates the specified skeleton from the general skeleton using the given torso basis.
+				 *
+				 * @param skeleton The skeleton to be translated.
+				 * @param torso_basis The torso basis meant to be used.
+				 * @return The specified skeleton.
+				 */
+				virtual std::shared_ptr<fl_skeleton> specified_skeleton(std::shared_ptr<general_skeleton> skeleton, std::shared_ptr<mae::math::basis> torso_basis);
+
+				/**
 				 * Creates the torso basis for the given general skeleton.
 				 *
 				 * @param skeleton The skeleton.

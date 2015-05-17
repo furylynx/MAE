@@ -31,6 +31,12 @@ namespace mae
 		std::shared_ptr<fl_skeleton> fl_skeleton_controller::specified_skeleton(
 				std::shared_ptr<general_skeleton> skeleton)
 		{
+			return specified_skeleton(skeleton, nullptr);
+		}
+
+		std::shared_ptr<fl_skeleton> fl_skeleton_controller::specified_skeleton(
+				std::shared_ptr<general_skeleton> skeleton, std::shared_ptr<mae::math::basis> torso_basis)
+		{
 			if (debug_)
 			{
 				std::cout << "fl_skeleton_controller: specified skeleton" << std::endl;
@@ -39,7 +45,11 @@ namespace mae
 			//-----
 			//calculate the torso basis
 			//-----
-			std::shared_ptr<mae::math::basis> torso_basis = create_torso_basis(skeleton);
+			if (torso_basis == nullptr)
+			{
+				//std::shared_ptr<mae::math::basis>
+				torso_basis = create_torso_basis(skeleton);
+			}
 
 			//-----
 			//set up the result
