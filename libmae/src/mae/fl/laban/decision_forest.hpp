@@ -24,6 +24,7 @@
 #include <stdexcept>
 #include <vector>
 #include <unordered_map>
+#include <unordered_set>
 #include <list>
 
 
@@ -215,7 +216,7 @@ namespace mae
 					e_time_unit time_unit_;
 
 					bool cooldown_;
-					std::unordered_map<std::shared_ptr<laban_sequence>, unsigned int> cooldown_times_;
+					std::unordered_set<std::shared_ptr<laban_sequence> > cooldown_set_;
 
 					std::shared_ptr<i_decision_maker<i_movement> > decision_maker_;
 					std::shared_ptr<rewriting_forest> rewriting_forest_;
@@ -230,7 +231,23 @@ namespace mae
 					 */
 					bool remove_sequence_p(std::shared_ptr<laban_sequence> sequence);
 
+					/**
+					 * Handles the entries in the cooldown map according to the next frame.
+					 * All sequences for which a pose has changed are removed from the map.
+					 *
+					 * @param whole_sequence The whole sequence to be processed.
+					 * @param body_parts All the body parts that are meant to be taken into account.
+					 */
+					void update_cooldown_next_frame(std::shared_ptr<laban_sequence> whole_sequence, std::vector<bone> body_parts);
 
+					/**
+					 * Updates the cooldown map for the recognized sequences.
+					 *
+					 * @param whole_sequence The whole sequence to be processed.
+					 * @param body_parts All the body parts that are meant to be taken into account.
+					 * @param recognition The recognized sequences.
+					 */
+					void update_cooldown_recognized(std::shared_ptr<laban_sequence> whole_sequence, std::vector<bone> body_parts, std::vector<std::shared_ptr<laban_sequence> > recognition);
 
 			};
 		} // namespace laban

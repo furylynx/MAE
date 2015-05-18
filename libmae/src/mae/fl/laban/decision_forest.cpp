@@ -91,6 +91,7 @@ namespace mae
 			void decision_forest::set_cooldown(bool cooldown)
 			{
 				cooldown_ = cooldown;
+				cooldown_set_.clear();
 			}
 
 			bool decision_forest::get_cooldown() const
@@ -388,15 +389,12 @@ namespace mae
 				trees_.clear();
 				sequences_.clear();
 				recreated_sequences_map_.clear();
+				clear_buffer();
 			}
 
 			void decision_forest::clear_buffer()
 			{
-				//TODO clear the cooldown/sequence recognized buffer (new symbol)
-
-				cooldown_times_.clear();
-
-
+				cooldown_set_.clear();
 			}
 
 			void decision_forest::add_rewriting_rule(std::vector<std::shared_ptr<i_movement> > sequence,
@@ -422,15 +420,7 @@ namespace mae
 
 				if (cooldown_)
 				{
-					//update cooldown times
-					for (std::list<std::shared_ptr<laban_sequence> >::iterator it = sequences_.begin();
-							it != sequences_.end(); it++)
-					{
-						if (cooldown_times_.find(*it) != cooldown_times_.end() && cooldown_times_.at(*it) > 0)
-						{
-							cooldown_times_[*it]--;
-						}
-					}
+					update_cooldown_next_frame(whole_sequence, body_parts);
 				}
 
 				std::vector<std::shared_ptr<laban_sequence> > result;
@@ -454,8 +444,8 @@ namespace mae
 
 							if (recreated_sequence->get_column_movements(body_part).size() == 0)
 							{
-								if (!cooldown_ || cooldown_times_.find(*it) == cooldown_times_.end()
-										|| cooldown_times_.at(*it) == 0)
+								//append sequence if cooldown is deactivated or sequence is not listed in the cooldown map
+								if (!cooldown_ || cooldown_set_.find(*it) == cooldown_set_.end())
 								{
 									tmp_seqs.push_back(
 											std::shared_ptr<decision_value<i_movement, laban_sequence> >(
@@ -499,17 +489,17 @@ namespace mae
 									std::shared_ptr<i_movement> submatch_back = submatches.at(k)->get_sequence().back();
 
 									//the target distance to the last movement
-									double set_dist_to_last = distance_to_last(submatch_val->get_last_movement(), submatch_back);
+									double set_dist_to_last = distance_to_last(submatch_val->get_last_movement(),
+											submatch_back);
 
 									//position check is supposed to take care, that distance is not in area but only min dist is ok
 									bool check_startpose = (submatch_back->get_measure() == 0);
 
-									if (decision_maker_->position_okay(real_dist_to_last, set_dist_to_last, check_startpose))
+									if (decision_maker_->position_okay(real_dist_to_last, set_dist_to_last,
+											check_startpose))
 									{
-										if (!cooldown_
-												|| cooldown_times_.find(submatches.at(k)->get_value())
-														== cooldown_times_.end()
-												|| cooldown_times_.at(submatches.at(k)->get_value()) == 0)
+										//append sequence if cooldown is deactivated or sequence is not listed in the cooldown map
+										if (!cooldown_ || cooldown_set_.find(submatches.at(k)->get_value()) == cooldown_set_.end())
 										{
 											//append to tmp_seqs
 											tmp_seqs.push_back(submatches.at(k));
@@ -558,23 +548,55 @@ namespace mae
 
 				if (cooldown_)
 				{
-					//reset cooldowns for recognized sequences to max
-					for (unsigned int i = 0; i < result.size(); i++)
-					{
-						if (cooldown_times_.find(result.at(i)) != cooldown_times_.end())
-						{
-							int cooldown_frames = std::ceil(get_sequence_length(result.at(i)) / (framerate * 1000.0));
-							cooldown_times_[result.at(i)] = cooldown_frames;
-						}
-						else
-						{
-							cooldown_times_.insert(std::make_pair(result.at(i), get_sequence_length(result.at(i))));
-						}
-					}
+					update_cooldown_recognized(whole_sequence, body_parts, result);
 				}
 
 				return result;
 			}
+
+			void decision_forest::update_cooldown_next_frame(std::shared_ptr<laban_sequence> whole_sequence, std::vector<bone> body_parts)
+			{
+				std::vector<std::shared_ptr<laban_sequence> > to_remove;
+
+				//check all sequences in the cooldown set for new movements
+				for (std::unordered_set<std::shared_ptr<laban_sequence> >::iterator it =
+								cooldown_set_.begin(); it != cooldown_set_.end(); it++)
+				{
+					std::shared_ptr<laban_sequence> cooldown_seq = *it;
+
+					for (std::size_t i = 0; i < body_parts.size(); i++)
+					{
+						int column_id = body_parts.at(i).get_id();
+
+						std::vector<std::shared_ptr<i_movement> > cooldown_column = cooldown_seq->get_column_movements(column_id);
+						std::vector<std::shared_ptr<i_movement> > whole_sequence_column = whole_sequence->get_column_movements(column_id);
+
+						if (cooldown_column.size() != 0)
+						{
+							if (whole_sequence_column.size() == 0 || !(cooldown_column.back()->symbol_equals(whole_sequence_column.back())))
+							{
+								to_remove.push_back(cooldown_seq);
+							}
+						}
+					}
+				}
+
+				//remove all sequences that had a movement
+				for (std::size_t i = 0; i < to_remove.size(); i++)
+				{
+					cooldown_set_.erase(to_remove.at(i));
+				}
+			}
+
+
+			void decision_forest::update_cooldown_recognized(std::shared_ptr<laban_sequence> whole_sequence, std::vector<bone> body_parts, std::vector<std::shared_ptr<laban_sequence> > recognition)
+			{
+				for(std::size_t i = 0; i < recognition.size(); i++)
+				{
+					cooldown_set_.insert(recognition.at(i));
+				}
+			}
+
 
 			double decision_forest::distance_to_last(std::shared_ptr<i_movement> overall_last_movement,
 					std::shared_ptr<i_movement> column_last_movement) const
