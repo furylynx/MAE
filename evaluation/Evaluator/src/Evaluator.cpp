@@ -61,14 +61,14 @@ int main()
 
 	std::vector<double> tolerances
 	{
-		0.5,
-		1.0,
-		1.5,
-		2.0,
-		//2.5,
-	3.0,
-	//3.5,
-	4.0,
+//		0.5,
+//		1.0,
+//		1.5,
+//		2.0,
+//		//2.5,
+//	3.0,
+//	//3.5,
+//	4.0,
 	//4.5,
 	5.0,
 //	6.0,
@@ -131,7 +131,7 @@ int main()
 			mae::fl::laban::laban_sequence::default_beat_duration(),
 			mae::fl::laban::laban_sequence::default_time_unit(), 1.0 / 30.0, false);
 	movement_controller.get_fl_pose_detector()->set_hysteresis_val(hysteresis_value);
-	movement_controller.get_laban_sequence_recognizer()->get_decision_forest()->set_cooldown(false);
+	movement_controller.get_laban_sequence_recognizer()->get_decision_forest()->set_cooldown(true);
 
 	//add rewriting rules
 	mae::fl::laban::rewriting_rules_reader rw_reader = mae::fl::laban::rewriting_rules_reader();

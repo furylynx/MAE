@@ -55,6 +55,11 @@ namespace mae
 			virtual void clear_registered_sequences() = 0;
 
 			/**
+			 * Clears the buffer.
+			 */
+			virtual void clear_buffer() = 0;
+
+			/**
 			 * Returns the length of the sequence in milliseconds.
 			 *
 			 * @param sequence The sequence.

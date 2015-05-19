@@ -74,6 +74,11 @@ namespace mae
 				virtual std::shared_ptr<laban_sequence> generate_sequence(double framerate,
 						std::list<std::shared_ptr<general_enriched_pose> > key_poses, std::vector<bone> body_parts);
 
+				/**
+				 * Clears the buffer.
+				 */
+				virtual void clear_buffer();
+
 			private:
 				bool debug_;
 				std::vector<std::shared_ptr<column_definition> > column_definitions_;
