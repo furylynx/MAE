@@ -244,6 +244,21 @@ namespace mae
 	{
 		poses_.clear();
 		previous_pose_ = nullptr;
+
+		if (ipd_ != nullptr)
+		{
+			ipd_->clear_buffer();
+		}
+
+		if (ikpd_ != nullptr)
+		{
+			ikpd_->clear_buffer();
+		}
+
+		if (isg_ != nullptr)
+		{
+			isg_->clear_buffer();
+		}
 	}
 
 	template<typename T, typename U>

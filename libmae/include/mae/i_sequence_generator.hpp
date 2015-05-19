@@ -36,6 +36,11 @@ namespace mae {
 				 * @return The sequence.
 				 */
 				virtual std::shared_ptr<U> generate_sequence(double framerate, std::list<std::shared_ptr<general_enriched_pose> > keyPoses, std::vector<bone> bodyParts) = 0;
+
+				/**
+				 * Clears the buffer used to store the data.
+				 */
+				virtual void clear_buffer() = 0;
 		};
 
 } // namespace mae

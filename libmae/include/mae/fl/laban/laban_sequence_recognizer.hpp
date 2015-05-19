@@ -102,6 +102,11 @@ namespace mae
 					virtual void clear_registered_sequences();
 
 					/**
+					 * Clears the buffer.
+					 */
+					virtual void clear_buffer();
+
+					/**
 					 * Returns all registered sequences.
 					 *
 					 * @return All sequences.

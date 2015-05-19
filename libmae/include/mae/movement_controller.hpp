@@ -411,6 +411,11 @@ namespace mae
 		{
 			imd_->clear_buffer();
 		}
+
+		if (isr_ != nullptr)
+		{
+			isr_->clear_buffer();
+		}
 	}
 
 	template<typename T, typename U>

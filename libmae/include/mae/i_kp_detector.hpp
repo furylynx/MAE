@@ -39,6 +39,11 @@ namespace mae {
 				 * @return The enriched pose.
 				 */
 				virtual std::shared_ptr<general_enriched_pose> estimate_frame(double framerate, std::shared_ptr<general_pose> currentPose, std::list<std::shared_ptr<general_enriched_pose> > previousSequence, std::vector<bone> bodyParts) = 0;
+
+				/**
+				 * Clears the buffer used to store the data.
+				 */
+				virtual void clear_buffer() = 0;
 		};
 
 } // namespace mae
