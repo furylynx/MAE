@@ -35,6 +35,11 @@ namespace mae {
 				 * @return The pose.
 				 */
 				virtual std::shared_ptr<general_pose> pose(double framerate, std::shared_ptr<T> skeleton, std::vector<bone> body_parts, std::shared_ptr<general_pose> previous_pose) = 0;
+
+				/**
+				 * Clears the buffer used to store the data.
+				 */
+				virtual void clear_buffer() = 0;
 		};
 
 } // namespace mae

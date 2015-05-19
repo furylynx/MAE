@@ -56,6 +56,7 @@ namespace eval
 
 		for (std::size_t i = 0; i < sequences.size(); i++)
 		{
+
 			std::shared_ptr<mae::fl::laban::laban_sequence> s = sequences.at(i);
 			if (sequence_folder_map_.find(s) != sequence_folder_map_.end())
 			{
