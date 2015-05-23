@@ -107,14 +107,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0762584eb4f74834d1bde00d3c131100"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a633e933c666d3dbe85a596e8c9ad122e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1fl_1_1bvh__controller.html#a633e933c666d3dbe85a596e8c9ad122e">print_bvh_file</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1general__skeleton.html">general_skeleton</a> &gt; data, std::string filename)</td></tr>
 <tr class="separator:a633e933c666d3dbe85a596e8c9ad122e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba192edbbf023aa45a88c5bcf3f398a1"><td class="memItemLeft" align="right" valign="top">virtual std::pair&lt; std::vector<br class="typebreak"/>
-&lt; std::shared_ptr<br class="typebreak"/>
-&lt; <a class="el" href="classmae_1_1general__skeleton.html">general_skeleton</a> &gt; &gt;, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1fl_1_1bvh__controller.html#aba192edbbf023aa45a88c5bcf3f398a1">read_bvh_str</a> (std::string <a class="el" href="classmae_1_1fl_1_1bvh__controller.html#ae7fff0274ebbd9456df0055948710711">bvh_str</a>, std::shared_ptr&lt; <a class="el" href="classmae_1_1fl_1_1bvh__spec.html">bvh_spec</a> &gt; spec)</td></tr>
-<tr class="separator:aba192edbbf023aa45a88c5bcf3f398a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2425453447ade4ab13bb21297084e015"><td class="memItemLeft" align="right" valign="top">virtual std::pair&lt; std::vector<br class="typebreak"/>
-&lt; std::shared_ptr<br class="typebreak"/>
-&lt; <a class="el" href="classmae_1_1general__skeleton.html">general_skeleton</a> &gt; &gt;, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1fl_1_1bvh__controller.html#a2425453447ade4ab13bb21297084e015">read_bvh_file</a> (std::string filename, std::shared_ptr&lt; <a class="el" href="classmae_1_1fl_1_1bvh__spec.html">bvh_spec</a> &gt; spec)</td></tr>
-<tr class="separator:a2425453447ade4ab13bb21297084e015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc644c031f7ecb9b1feb687705b5619c"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="classmae_1_1fl_1_1bvh__data.html">bvh_data</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1fl_1_1bvh__controller.html#afc644c031f7ecb9b1feb687705b5619c">read_bvh_str</a> (std::string <a class="el" href="classmae_1_1fl_1_1bvh__controller.html#ae7fff0274ebbd9456df0055948710711">bvh_str</a>, std::shared_ptr&lt; <a class="el" href="classmae_1_1fl_1_1bvh__spec.html">bvh_spec</a> &gt; spec)</td></tr>
+<tr class="separator:afc644c031f7ecb9b1feb687705b5619c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a355b9af004a3b11ae0036c62181567ce"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="classmae_1_1fl_1_1bvh__data.html">bvh_data</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1fl_1_1bvh__controller.html#a355b9af004a3b11ae0036c62181567ce">read_bvh_file</a> (std::string filename, std::shared_ptr&lt; <a class="el" href="classmae_1_1fl_1_1bvh__spec.html">bvh_spec</a> &gt; spec)</td></tr>
+<tr class="separator:a355b9af004a3b11ae0036c62181567ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a38904c7bed56dfef82deae0169b5f5de"></a>
@@ -272,7 +268,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Prints the BVH file from the skeleton data using. Assumes the frame rate to be 30 fps.</p>
+<p>Prints the BVH file for the skeleton data. Assumes the frame rate to be 30 fps.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>The skeleton data. </td></tr>
@@ -325,7 +321,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2425453447ade4ab13bb21297084e015"></a>
+<a class="anchor" id="a355b9af004a3b11ae0036c62181567ce"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -333,7 +329,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::pair&lt; std::vector&lt; std::shared_ptr&lt; <a class="el" href="classmae_1_1general__skeleton.html">general_skeleton</a> &gt; &gt;, double &gt; mae::fl::bvh_controller::read_bvh_file </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classmae_1_1fl_1_1bvh__data.html">bvh_data</a> &gt; mae::fl::bvh_controller::read_bvh_file </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
@@ -364,11 +360,11 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The skeleton data. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The bvh data. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="aba192edbbf023aa45a88c5bcf3f398a1"></a>
+<a class="anchor" id="afc644c031f7ecb9b1feb687705b5619c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -376,7 +372,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::pair&lt; std::vector&lt; std::shared_ptr&lt; <a class="el" href="classmae_1_1general__skeleton.html">general_skeleton</a> &gt; &gt;, double &gt; mae::fl::bvh_controller::read_bvh_str </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classmae_1_1fl_1_1bvh__data.html">bvh_data</a> &gt; mae::fl::bvh_controller::read_bvh_str </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>bvh_str</em>, </td>
@@ -407,7 +403,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The skeleton data. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The bvh data. </dd></dl>
 
 </div>
 </div>
@@ -418,7 +414,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2014 12:26:17 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 23 2015 18:35:40 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

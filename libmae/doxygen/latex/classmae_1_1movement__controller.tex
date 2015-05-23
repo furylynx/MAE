@@ -8,7 +8,7 @@
 \item 
 \hyperlink{classmae_1_1movement__controller_ac0ef0a57b48e4fb5f8c28168ea68f9e4}{movement\-\_\-controller} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1i__pose__detector}{i\-\_\-pose\-\_\-detector}$<$ T $>$ $>$ ipd, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1i__sequence__generator}{i\-\_\-sequence\-\_\-generator}$<$ U $>$ $>$ isg, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1i__sequence__recognizer}{i\-\_\-sequence\-\_\-recognizer}$<$ U $>$ $>$ isr, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts, int pose\-\_\-buffer\-\_\-size=0, double framerate=1.\-0/30.\-0, bool debug=false)
 \item 
-virtual void \hyperlink{classmae_1_1movement__controller_aa153304725199cb7d4664a0f450ec934}{next\-\_\-frame} (long timestamp, std\-::shared\-\_\-ptr$<$ T $>$ skeleton)
+virtual void \hyperlink{classmae_1_1movement__controller_a54f9cf019174baf78a5fba4fa2703952}{next\-\_\-frame} (uint64\-\_\-t timestamp, std\-::shared\-\_\-ptr$<$ T $>$ skeleton)
 \item 
 virtual void \hyperlink{classmae_1_1movement__controller_a67781bb43d01fcecfd4ab7c70c670bb9}{register\-\_\-sequence} (std\-::shared\-\_\-ptr$<$ U $>$ sequence)
 \item 
@@ -46,9 +46,9 @@ virtual void \hyperlink{classmae_1_1movement__controller_aafbffa6c9a0d2b73b2036f
 \item 
 virtual void \hyperlink{classmae_1_1movement__controller_adac2b632e8be6b8e2556005e79b187c3}{clear\-\_\-listeners} ()
 \item 
-virtual void \hyperlink{classmae_1_1movement__controller_a8e11558479a37a804102c94cfddde14d}{notify\-\_\-sequence\-\_\-listeners} (long timestamp, std\-::shared\-\_\-ptr$<$ U $>$ sequence)
+virtual void \hyperlink{classmae_1_1movement__controller_a2bd72c0cb02311a7cddb4bd8898d8028}{notify\-\_\-sequence\-\_\-listeners} (uint64\-\_\-t timestamp, std\-::shared\-\_\-ptr$<$ U $>$ sequence)
 \item 
-virtual void \hyperlink{classmae_1_1movement__controller_a3b69de4b97cf639e621692ec8c8a9258}{notify\-\_\-recognition\-\_\-listeners} (long timestamp, std\-::vector$<$ std\-::shared\-\_\-ptr$<$ U $>$ $>$ sequences)
+virtual void \hyperlink{classmae_1_1movement__controller_af4bba61aefd94014f007192bf4b0da46}{notify\-\_\-recognition\-\_\-listeners} (uint64\-\_\-t timestamp, std\-::vector$<$ std\-::shared\-\_\-ptr$<$ U $>$ $>$ sequences)
 \item 
 virtual std\-::shared\-\_\-ptr\\*
 $<$ \hyperlink{classmae_1_1i__movement__detector}{i\-\_\-movement\-\_\-detector}$<$ T, U $>$ $>$ \hyperlink{classmae_1_1movement__controller_ad3d0a125556f02ce12a2ca7faf5c1cf3}{get\-\_\-movement\-\_\-detector} ()
@@ -272,14 +272,14 @@ Returns the sequence recognizer which is registered to this controller.
 \begin{DoxyReturn}{Returns}
 The sequence recognizer. 
 \end{DoxyReturn}
-\hypertarget{classmae_1_1movement__controller_aa153304725199cb7d4664a0f450ec934}{\index{mae\-::movement\-\_\-controller@{mae\-::movement\-\_\-controller}!next\-\_\-frame@{next\-\_\-frame}}
+\hypertarget{classmae_1_1movement__controller_a54f9cf019174baf78a5fba4fa2703952}{\index{mae\-::movement\-\_\-controller@{mae\-::movement\-\_\-controller}!next\-\_\-frame@{next\-\_\-frame}}
 \index{next\-\_\-frame@{next\-\_\-frame}!mae::movement_controller@{mae\-::movement\-\_\-controller}}
 \subsubsection[{next\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename U $>$ void {\bf mae\-::movement\-\_\-controller}$<$ T, U $>$\-::next\-\_\-frame (
 \begin{DoxyParamCaption}
-\item[{long}]{timestamp, }
+\item[{uint64\-\_\-t}]{timestamp, }
 \item[{std\-::shared\-\_\-ptr$<$ T $>$}]{skeleton}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1movement__controller_aa153304725199cb7d4664a0f450ec934}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1movement__controller_a54f9cf019174baf78a5fba4fa2703952}
 Processes the next frame.
 
 
@@ -289,14 +289,14 @@ Processes the next frame.
 {\em skeleton} & The skeleton. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classmae_1_1movement__controller_a3b69de4b97cf639e621692ec8c8a9258}{\index{mae\-::movement\-\_\-controller@{mae\-::movement\-\_\-controller}!notify\-\_\-recognition\-\_\-listeners@{notify\-\_\-recognition\-\_\-listeners}}
+\hypertarget{classmae_1_1movement__controller_af4bba61aefd94014f007192bf4b0da46}{\index{mae\-::movement\-\_\-controller@{mae\-::movement\-\_\-controller}!notify\-\_\-recognition\-\_\-listeners@{notify\-\_\-recognition\-\_\-listeners}}
 \index{notify\-\_\-recognition\-\_\-listeners@{notify\-\_\-recognition\-\_\-listeners}!mae::movement_controller@{mae\-::movement\-\_\-controller}}
 \subsubsection[{notify\-\_\-recognition\-\_\-listeners}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U$>$ void {\bf mae\-::movement\-\_\-controller}$<$ T, U $>$\-::notify\-\_\-recognition\-\_\-listeners (
 \begin{DoxyParamCaption}
-\item[{long}]{timestamp, }
+\item[{uint64\-\_\-t}]{timestamp, }
 \item[{std\-::vector$<$ std\-::shared\-\_\-ptr$<$ U $>$ $>$}]{sequences}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1movement__controller_a3b69de4b97cf639e621692ec8c8a9258}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1movement__controller_af4bba61aefd94014f007192bf4b0da46}
 Notifies the recognition listeners on recognized sequences.
 
 
@@ -306,14 +306,14 @@ Notifies the recognition listeners on recognized sequences.
 {\em sequences} & The recognized sequences. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classmae_1_1movement__controller_a8e11558479a37a804102c94cfddde14d}{\index{mae\-::movement\-\_\-controller@{mae\-::movement\-\_\-controller}!notify\-\_\-sequence\-\_\-listeners@{notify\-\_\-sequence\-\_\-listeners}}
+\hypertarget{classmae_1_1movement__controller_a2bd72c0cb02311a7cddb4bd8898d8028}{\index{mae\-::movement\-\_\-controller@{mae\-::movement\-\_\-controller}!notify\-\_\-sequence\-\_\-listeners@{notify\-\_\-sequence\-\_\-listeners}}
 \index{notify\-\_\-sequence\-\_\-listeners@{notify\-\_\-sequence\-\_\-listeners}!mae::movement_controller@{mae\-::movement\-\_\-controller}}
 \subsubsection[{notify\-\_\-sequence\-\_\-listeners}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U$>$ void {\bf mae\-::movement\-\_\-controller}$<$ T, U $>$\-::notify\-\_\-sequence\-\_\-listeners (
 \begin{DoxyParamCaption}
-\item[{long}]{timestamp, }
+\item[{uint64\-\_\-t}]{timestamp, }
 \item[{std\-::shared\-\_\-ptr$<$ U $>$}]{sequence}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1movement__controller_a8e11558479a37a804102c94cfddde14d}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1movement__controller_a2bd72c0cb02311a7cddb4bd8898d8028}
 Notifies the sequence listeners on a newly generated sequence.
 
 

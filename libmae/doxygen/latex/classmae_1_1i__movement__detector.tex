@@ -10,7 +10,7 @@ Inheritance diagram for mae\-:\-:i\-\_\-movement\-\_\-detector$<$ T, U $>$\-:\be
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual std\-::shared\-\_\-ptr$<$ U $>$ \hyperlink{classmae_1_1i__movement__detector_a7b3e09f127d318b5f794e056e40b3746}{detect\-\_\-movement} (long timestamp, double framerate, std\-::shared\-\_\-ptr$<$ T $>$ skeleton, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts)=0
+virtual std\-::shared\-\_\-ptr$<$ U $>$ \hyperlink{classmae_1_1i__movement__detector_aa3b5c4491ce4f11ef6a116ba05084f1a}{detect\-\_\-movement} (uint64\-\_\-t timestamp, double framerate, std\-::shared\-\_\-ptr$<$ T $>$ skeleton, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts)=0
 \item 
 virtual void \hyperlink{classmae_1_1i__movement__detector_a96a923c5bab2dbed81daf4cadc885497}{set\-\_\-buffer} (int size)=0
 \item 
@@ -22,7 +22,7 @@ virtual void \hyperlink{classmae_1_1i__movement__detector_a88d965f2b8d04e0681e2e
 \item 
 virtual void \hyperlink{classmae_1_1i__movement__detector_a56a36a8a427feb34f970b9e259a1150f}{clear\-\_\-listeners} ()=0
 \item 
-virtual void \hyperlink{classmae_1_1i__movement__detector_a347855d153525d7e09f793ff2b17b58b}{notify\-\_\-listeners} (long timestamp, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ pose)=0
+virtual void \hyperlink{classmae_1_1i__movement__detector_aebdc95347866bc2bc6b793383585fe2f}{notify\-\_\-listeners} (uint64\-\_\-t timestamp, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ pose)=0
 \item 
 virtual std\-::shared\-\_\-ptr\\*
 $<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ \hyperlink{classmae_1_1i__movement__detector_a67db28512cb293217156fd8611322d75}{get\-\_\-current\-\_\-pose} () const =0
@@ -70,16 +70,16 @@ Clears all listeners, which means removing them from the detector.
 
 Implemented in \hyperlink{classmae_1_1kp__movement__detector_a5333495e30be2b0d6205cd8266d2156d}{mae\-::kp\-\_\-movement\-\_\-detector$<$ T, U $>$}.
 
-\hypertarget{classmae_1_1i__movement__detector_a7b3e09f127d318b5f794e056e40b3746}{\index{mae\-::i\-\_\-movement\-\_\-detector@{mae\-::i\-\_\-movement\-\_\-detector}!detect\-\_\-movement@{detect\-\_\-movement}}
+\hypertarget{classmae_1_1i__movement__detector_aa3b5c4491ce4f11ef6a116ba05084f1a}{\index{mae\-::i\-\_\-movement\-\_\-detector@{mae\-::i\-\_\-movement\-\_\-detector}!detect\-\_\-movement@{detect\-\_\-movement}}
 \index{detect\-\_\-movement@{detect\-\_\-movement}!mae::i_movement_detector@{mae\-::i\-\_\-movement\-\_\-detector}}
 \subsubsection[{detect\-\_\-movement}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ virtual std\-::shared\-\_\-ptr$<$U$>$ {\bf mae\-::i\-\_\-movement\-\_\-detector}$<$ T, U $>$\-::detect\-\_\-movement (
 \begin{DoxyParamCaption}
-\item[{long}]{timestamp, }
+\item[{uint64\-\_\-t}]{timestamp, }
 \item[{double}]{framerate, }
 \item[{std\-::shared\-\_\-ptr$<$ T $>$}]{skeleton, }
 \item[{std\-::vector$<$ {\bf bone} $>$}]{body\-\_\-parts}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1i__movement__detector_a7b3e09f127d318b5f794e056e40b3746}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1i__movement__detector_aa3b5c4491ce4f11ef6a116ba05084f1a}
 Detects movement in the streamed skeleton sequence for the given body parts. Therefore, a buffer is required and the whole movement sequence for the buffer is returned.
 
 
@@ -98,7 +98,7 @@ The detected movement sequence.
 \end{DoxyReturn}
 
 
-Implemented in \hyperlink{classmae_1_1kp__movement__detector_a2aaa4c65a7735ac1d3ee201beb56b6b1}{mae\-::kp\-\_\-movement\-\_\-detector$<$ T, U $>$}.
+Implemented in \hyperlink{classmae_1_1kp__movement__detector_a05c206df200417ea7680eb9d8a5cb6b0}{mae\-::kp\-\_\-movement\-\_\-detector$<$ T, U $>$}.
 
 \hypertarget{classmae_1_1i__movement__detector_a67db28512cb293217156fd8611322d75}{\index{mae\-::i\-\_\-movement\-\_\-detector@{mae\-::i\-\_\-movement\-\_\-detector}!get\-\_\-current\-\_\-pose@{get\-\_\-current\-\_\-pose}}
 \index{get\-\_\-current\-\_\-pose@{get\-\_\-current\-\_\-pose}!mae::i_movement_detector@{mae\-::i\-\_\-movement\-\_\-detector}}
@@ -116,14 +116,14 @@ The last processed pose.
 
 Implemented in \hyperlink{classmae_1_1kp__movement__detector_a0cf1bb06689f4a983daed5a5fc1935c6}{mae\-::kp\-\_\-movement\-\_\-detector$<$ T, U $>$}.
 
-\hypertarget{classmae_1_1i__movement__detector_a347855d153525d7e09f793ff2b17b58b}{\index{mae\-::i\-\_\-movement\-\_\-detector@{mae\-::i\-\_\-movement\-\_\-detector}!notify\-\_\-listeners@{notify\-\_\-listeners}}
+\hypertarget{classmae_1_1i__movement__detector_aebdc95347866bc2bc6b793383585fe2f}{\index{mae\-::i\-\_\-movement\-\_\-detector@{mae\-::i\-\_\-movement\-\_\-detector}!notify\-\_\-listeners@{notify\-\_\-listeners}}
 \index{notify\-\_\-listeners@{notify\-\_\-listeners}!mae::i_movement_detector@{mae\-::i\-\_\-movement\-\_\-detector}}
 \subsubsection[{notify\-\_\-listeners}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ virtual void {\bf mae\-::i\-\_\-movement\-\_\-detector}$<$ T, U $>$\-::notify\-\_\-listeners (
 \begin{DoxyParamCaption}
-\item[{long}]{timestamp, }
+\item[{uint64\-\_\-t}]{timestamp, }
 \item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-pose} $>$}]{pose}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1i__movement__detector_a347855d153525d7e09f793ff2b17b58b}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1i__movement__detector_aebdc95347866bc2bc6b793383585fe2f}
 Notifies all listeners on the detection of a new pose.
 
 
@@ -135,7 +135,7 @@ Notifies all listeners on the detection of a new pose.
 \end{DoxyParams}
 
 
-Implemented in \hyperlink{classmae_1_1kp__movement__detector_a55fb6a221a2d067db480055a2dfb7a66}{mae\-::kp\-\_\-movement\-\_\-detector$<$ T, U $>$}.
+Implemented in \hyperlink{classmae_1_1kp__movement__detector_acdc61f7edc7fdaadb5134e6cabd04612}{mae\-::kp\-\_\-movement\-\_\-detector$<$ T, U $>$}.
 
 \hypertarget{classmae_1_1i__movement__detector_a88d965f2b8d04e0681e2e7cd42bd7331}{\index{mae\-::i\-\_\-movement\-\_\-detector@{mae\-::i\-\_\-movement\-\_\-detector}!remove\-\_\-listener@{remove\-\_\-listener}}
 \index{remove\-\_\-listener@{remove\-\_\-listener}!mae::i_movement_detector@{mae\-::i\-\_\-movement\-\_\-detector}}

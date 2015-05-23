@@ -17,7 +17,10 @@ virtual void \hyperlink{classmae_1_1hierarchy_ab4f151f5e91d7078d41e9b0d65ea88df}
 \item 
 virtual std\-::vector\\*
 $<$ std\-::shared\-\_\-ptr\\*
-$<$ \hyperlink{classmae_1_1hierarchy__element}{hierarchy\-\_\-element} $>$ $>$ \hyperlink{classmae_1_1hierarchy_a1f7df9e7e9d86e24a62359da3b8a72fe}{get\-\_\-element\-\_\-sequence} ()
+$<$ \hyperlink{classmae_1_1hierarchy__element}{hierarchy\-\_\-element} $>$ $>$ \hyperlink{classmae_1_1hierarchy_af1fbbc883b5b1d0c52974308a228a853}{get\-\_\-element\-\_\-sequence} () const 
+\item 
+std\-::vector$<$ std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1hierarchy__element}{hierarchy\-\_\-element} $>$ $>$ \hyperlink{classmae_1_1hierarchy_ad50fb8568b8db8e71399693831bd914f}{get\-\_\-sorted\-\_\-element\-\_\-sequence} () const 
 \item 
 virtual \hyperlink{classmae_1_1hierarchy__element}{hierarchy\-\_\-element} $\ast$const \hyperlink{classmae_1_1hierarchy_abc29a6cb37845624d40680f1c01ebd96}{at} (int element\-\_\-id) const 
 \item 
@@ -26,7 +29,11 @@ virtual std\-::string \hyperlink{classmae_1_1hierarchy_a09756b507aa2fefb8e54f854
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+static bool \hyperlink{classmae_1_1hierarchy_aedf23999466d28b1b15b0164db02d110}{compare\-\_\-elements} (const std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1hierarchy__element}{hierarchy\-\_\-element} $>$ \&lhs, const std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1hierarchy__element}{hierarchy\-\_\-element} $>$ \&rhs)
+\item 
 static std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1hierarchy}{hierarchy} $>$ \hyperlink{classmae_1_1hierarchy_a2d5a7b8af3c883a113bd3bf8756181e0}{default\-\_\-hierarchy} ()
+\item 
+static std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1hierarchy}{hierarchy} $>$ \hyperlink{classmae_1_1hierarchy_a37f364d66c4ee1e4b6e52ad47e0ba2e0}{default\-\_\-kinect\-\_\-hierarchy} ()
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -106,6 +113,26 @@ Returns the element with the given id. This is done in constant time.
 \begin{DoxyReturn}{Returns}
 A plain pointer to the element. 
 \end{DoxyReturn}
+\hypertarget{classmae_1_1hierarchy_aedf23999466d28b1b15b0164db02d110}{\index{mae\-::hierarchy@{mae\-::hierarchy}!compare\-\_\-elements@{compare\-\_\-elements}}
+\index{compare\-\_\-elements@{compare\-\_\-elements}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{compare\-\_\-elements}]{\setlength{\rightskip}{0pt plus 5cm}bool mae\-::hierarchy\-::compare\-\_\-elements (
+\begin{DoxyParamCaption}
+\item[{const std\-::shared\-\_\-ptr$<$ {\bf hierarchy\-\_\-element} $>$ \&}]{lhs, }
+\item[{const std\-::shared\-\_\-ptr$<$ {\bf hierarchy\-\_\-element} $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1hierarchy_aedf23999466d28b1b15b0164db02d110}
+Compares the two hierarchy\-\_\-elements.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & The first element. \\
+\hline
+{\em rhs} & The second element.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if lhs is less than rhs. 
+\end{DoxyReturn}
 \hypertarget{classmae_1_1hierarchy_a2d5a7b8af3c883a113bd3bf8756181e0}{\index{mae\-::hierarchy@{mae\-::hierarchy}!default\-\_\-hierarchy@{default\-\_\-hierarchy}}
 \index{default\-\_\-hierarchy@{default\-\_\-hierarchy}!mae::hierarchy@{mae\-::hierarchy}}
 \subsubsection[{default\-\_\-hierarchy}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf hierarchy} $>$ mae\-::hierarchy\-::default\-\_\-hierarchy (
@@ -113,18 +140,30 @@ A plain pointer to the element.
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1hierarchy_a2d5a7b8af3c883a113bd3bf8756181e0}
-Returns a default hierarchy that fits the needs of the Open\-N\-I/\-Ni\-T\-E skeletons. If the Open\-N\-I/\-Ni\-T\-E hierarchy is not sufficient and/or another hierarchy is needed it must be constructed manually.
+Returns a default hierarchy that fits the needs of the Open\-N\-I/\-Ni\-T\-E skeletons. If none of the default hierarchies is sufficient and/or another hierarchy is needed it must be constructed manually.
 
 \begin{DoxyReturn}{Returns}
 The default hierarchy. 
 \end{DoxyReturn}
-\hypertarget{classmae_1_1hierarchy_a1f7df9e7e9d86e24a62359da3b8a72fe}{\index{mae\-::hierarchy@{mae\-::hierarchy}!get\-\_\-element\-\_\-sequence@{get\-\_\-element\-\_\-sequence}}
+\hypertarget{classmae_1_1hierarchy_a37f364d66c4ee1e4b6e52ad47e0ba2e0}{\index{mae\-::hierarchy@{mae\-::hierarchy}!default\-\_\-kinect\-\_\-hierarchy@{default\-\_\-kinect\-\_\-hierarchy}}
+\index{default\-\_\-kinect\-\_\-hierarchy@{default\-\_\-kinect\-\_\-hierarchy}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{default\-\_\-kinect\-\_\-hierarchy}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf hierarchy} $>$ mae\-::hierarchy\-::default\-\_\-kinect\-\_\-hierarchy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1hierarchy_a37f364d66c4ee1e4b6e52ad47e0ba2e0}
+Returns a default hierarchy that fits the needs of the Kinect S\-D\-K skeletons. If none of the default hierarchies is sufficient and/or another hierarchy is needed it must be constructed manually.
+
+\begin{DoxyReturn}{Returns}
+The default kinect skeleton. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1hierarchy_af1fbbc883b5b1d0c52974308a228a853}{\index{mae\-::hierarchy@{mae\-::hierarchy}!get\-\_\-element\-\_\-sequence@{get\-\_\-element\-\_\-sequence}}
 \index{get\-\_\-element\-\_\-sequence@{get\-\_\-element\-\_\-sequence}!mae::hierarchy@{mae\-::hierarchy}}
 \subsubsection[{get\-\_\-element\-\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf hierarchy\-\_\-element} $>$ $>$ mae\-::hierarchy\-::get\-\_\-element\-\_\-sequence (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1hierarchy_a1f7df9e7e9d86e24a62359da3b8a72fe}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1hierarchy_af1fbbc883b5b1d0c52974308a228a853}
 Returns the element sequence containing all elements of this hierarchy.
 
 \begin{DoxyReturn}{Returns}
@@ -141,6 +180,18 @@ Returns a shared pointer to the root element.
 
 \begin{DoxyReturn}{Returns}
 The root element. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1hierarchy_ad50fb8568b8db8e71399693831bd914f}{\index{mae\-::hierarchy@{mae\-::hierarchy}!get\-\_\-sorted\-\_\-element\-\_\-sequence@{get\-\_\-sorted\-\_\-element\-\_\-sequence}}
+\index{get\-\_\-sorted\-\_\-element\-\_\-sequence@{get\-\_\-sorted\-\_\-element\-\_\-sequence}!mae::hierarchy@{mae\-::hierarchy}}
+\subsubsection[{get\-\_\-sorted\-\_\-element\-\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::shared\-\_\-ptr$<$ {\bf hierarchy\-\_\-element} $>$ $>$ mae\-::hierarchy\-::get\-\_\-sorted\-\_\-element\-\_\-sequence (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classmae_1_1hierarchy_ad50fb8568b8db8e71399693831bd914f}
+Returns the sorted element sequence containing all elements of this hierarchy. The sequence is sorted by the element's I\-Ds.
+
+\begin{DoxyReturn}{Returns}
+The sorted sequence. 
 \end{DoxyReturn}
 \hypertarget{classmae_1_1hierarchy_a430b470b34db741bb22552d2a534c733}{\index{mae\-::hierarchy@{mae\-::hierarchy}!remove\-\_\-element@{remove\-\_\-element}}
 \index{remove\-\_\-element@{remove\-\_\-element}!mae::hierarchy@{mae\-::hierarchy}}

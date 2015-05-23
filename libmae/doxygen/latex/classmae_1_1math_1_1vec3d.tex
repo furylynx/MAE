@@ -20,6 +20,18 @@ virtual void \hyperlink{classmae_1_1math_1_1vec3d_a2f447c43b1cce7f1e9d92a4a0632f
 \item 
 virtual double \hyperlink{classmae_1_1math_1_1vec3d_a9597a58bdb1692d0a96bdb6e1368255e}{get\-\_\-z} () const 
 \item 
+virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ \hyperlink{classmae_1_1math_1_1vec3d_a6cdd8d6e63078c444a048a4e68ae3819}{add} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ vec) const 
+\item 
+virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ \hyperlink{classmae_1_1math_1_1vec3d_ab01f1ea5f0178f1d363df0d6f5465cab}{subtract} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ vec) const 
+\item 
+virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ \hyperlink{classmae_1_1math_1_1vec3d_a3b96adb108c895bd488759ceecd40205}{normalize} () const 
+\item 
+virtual double \hyperlink{classmae_1_1math_1_1vec3d_aef0ce4fe306e9b6ae0dc26cb4ef123bf}{l2\-\_\-norm} () const 
+\item 
+virtual double \hyperlink{classmae_1_1math_1_1vec3d_a38ae714ef3e525af20c1a31b8c537406}{dot} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ vec) const 
+\item 
+virtual std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ \hyperlink{classmae_1_1math_1_1vec3d_aac2aed075aefc06722c7304f3d673eba}{cross} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1vec3d}{vec3d} $>$ vec) const 
+\item 
 virtual std\-::string \hyperlink{classmae_1_1math_1_1vec3d_a686b7876881d3ffa6c51f9a538998c4a}{str} () const 
 \end{DoxyCompactItemize}
 \subsection*{Friends}
@@ -62,6 +74,59 @@ Creates a new three dimensional vector.
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classmae_1_1math_1_1vec3d_a6cdd8d6e63078c444a048a4e68ae3819}{\index{mae\-::math\-::vec3d@{mae\-::math\-::vec3d}!add@{add}}
+\index{add@{add}!mae::math::vec3d@{mae\-::math\-::vec3d}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$ mae\-::math\-::vec3d\-::add (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{vec}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1vec3d_a6cdd8d6e63078c444a048a4e68ae3819}
+Adds the given vector's value to this vector's values and returns the result.
+
+This vector is not changed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting vector. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1vec3d_aac2aed075aefc06722c7304f3d673eba}{\index{mae\-::math\-::vec3d@{mae\-::math\-::vec3d}!cross@{cross}}
+\index{cross@{cross}!mae::math::vec3d@{mae\-::math\-::vec3d}}
+\subsubsection[{cross}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$ mae\-::math\-::vec3d\-::cross (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{vec}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1vec3d_aac2aed075aefc06722c7304f3d673eba}
+Returns the result of the cross product between the two vectors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cross product. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1vec3d_a38ae714ef3e525af20c1a31b8c537406}{\index{mae\-::math\-::vec3d@{mae\-::math\-::vec3d}!dot@{dot}}
+\index{dot@{dot}!mae::math::vec3d@{mae\-::math\-::vec3d}}
+\subsubsection[{dot}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::math\-::vec3d\-::dot (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{vec}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1vec3d_a38ae714ef3e525af20c1a31b8c537406}
+Returns the result of the dot product between the two vectors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The dot product. 
+\end{DoxyReturn}
 \hypertarget{classmae_1_1math_1_1vec3d_a5ece2226e5d958b7d194b7011523cb45}{\index{mae\-::math\-::vec3d@{mae\-::math\-::vec3d}!get\-\_\-x@{get\-\_\-x}}
 \index{get\-\_\-x@{get\-\_\-x}!mae::math::vec3d@{mae\-::math\-::vec3d}}
 \subsubsection[{get\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::math\-::vec3d\-::get\-\_\-x (
@@ -97,6 +162,37 @@ Returns the z value of this vector.
 
 \begin{DoxyReturn}{Returns}
 z 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1vec3d_aef0ce4fe306e9b6ae0dc26cb4ef123bf}{\index{mae\-::math\-::vec3d@{mae\-::math\-::vec3d}!l2\-\_\-norm@{l2\-\_\-norm}}
+\index{l2\-\_\-norm@{l2\-\_\-norm}!mae::math::vec3d@{mae\-::math\-::vec3d}}
+\subsubsection[{l2\-\_\-norm}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::math\-::vec3d\-::l2\-\_\-norm (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1vec3d_aef0ce4fe306e9b6ae0dc26cb4ef123bf}
+Returns the value of the L2 norm for this vector.
+
+\begin{DoxyReturn}{Returns}
+The norm value. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1vec3d_a3b96adb108c895bd488759ceecd40205}{\index{mae\-::math\-::vec3d@{mae\-::math\-::vec3d}!normalize@{normalize}}
+\index{normalize@{normalize}!mae::math::vec3d@{mae\-::math\-::vec3d}}
+\subsubsection[{normalize}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$ mae\-::math\-::vec3d\-::normalize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1vec3d_a3b96adb108c895bd488759ceecd40205}
+Returns the the normalized vector.
+
+This vector is not changed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting vector. 
 \end{DoxyReturn}
 \hypertarget{classmae_1_1math_1_1vec3d_af152b95813c55f7136cd876df08da688}{\index{mae\-::math\-::vec3d@{mae\-::math\-::vec3d}!set\-\_\-x@{set\-\_\-x}}
 \index{set\-\_\-x@{set\-\_\-x}!mae::math::vec3d@{mae\-::math\-::vec3d}}
@@ -151,6 +247,25 @@ Returns the string representation for this object.
 
 \begin{DoxyReturn}{Returns}
 The string. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1math_1_1vec3d_ab01f1ea5f0178f1d363df0d6f5465cab}{\index{mae\-::math\-::vec3d@{mae\-::math\-::vec3d}!subtract@{subtract}}
+\index{subtract@{subtract}!mae::math::vec3d@{mae\-::math\-::vec3d}}
+\subsubsection[{subtract}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$ mae\-::math\-::vec3d\-::subtract (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf vec3d} $>$}]{vec}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1math_1_1vec3d_ab01f1ea5f0178f1d363df0d6f5465cab}
+Subtracts the given vector's value from this vector's values and returns the result.
+
+This vector is not changed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & The vector to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting vector. 
 \end{DoxyReturn}
 
 

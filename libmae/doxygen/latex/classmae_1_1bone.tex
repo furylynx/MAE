@@ -12,6 +12,8 @@
 \item 
 \hyperlink{classmae_1_1bone_a53ddd0ed2b97fb1d1263882b4b4ad432}{bone} (e\-\_\-bone eb)
 \item 
+\hyperlink{classmae_1_1bone_a75ca635a0d3f627a1bbe5a3f1faf019a}{bone} (e\-\_\-bone eb, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ bones\-\_\-set)
+\item 
 virtual int \hyperlink{classmae_1_1bone_a5d2e2393dd57957ff28d29697bea0249}{get\-\_\-id} () const 
 \item 
 virtual std\-::string \hyperlink{classmae_1_1bone_aae7a08cddc8003110683412673208983}{get\-\_\-name} () const 
@@ -28,6 +30,8 @@ virtual int \hyperlink{classmae_1_1bone_a7f468c1bfe33063c40aed4a2377f7c2b}{get\-
 \begin{DoxyCompactItemize}
 \item 
 static std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ \hyperlink{classmae_1_1bone_a2d1dc38188f1eced8fdcfd787337286f}{default\-\_\-bones} ()
+\item 
+static std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ \hyperlink{classmae_1_1bone_a3f5e6886baa869e257702be6e8e35317}{default\-\_\-kinect\-\_\-bones} ()
 \end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
@@ -106,11 +110,28 @@ Please note that the id is used by the F\-L$\ast$ sequence generator to identify
 \item[{e\-\_\-bone}]{eb}
 \end{DoxyParamCaption}
 )}}\label{classmae_1_1bone_a53ddd0ed2b97fb1d1263882b4b4ad432}
-Creates a bone from the e\-\_\-bone enum value.
+Creates a bone from the e\-\_\-bone enum value by referring to the default bones.
 
 
 \begin{DoxyParams}{Parameters}
-{\em eb} & \\
+{\em eb} & The bone enum value. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmae_1_1bone_a75ca635a0d3f627a1bbe5a3f1faf019a}{\index{mae\-::bone@{mae\-::bone}!bone@{bone}}
+\index{bone@{bone}!mae::bone@{mae\-::bone}}
+\subsubsection[{bone}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::bone\-::bone (
+\begin{DoxyParamCaption}
+\item[{e\-\_\-bone}]{eb, }
+\item[{std\-::vector$<$ {\bf bone} $>$}]{bones\-\_\-set}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1bone_a75ca635a0d3f627a1bbe5a3f1faf019a}
+Creates a bone from the e\-\_\-bone enum value by referring to the given bones.
+
+
+\begin{DoxyParams}{Parameters}
+{\em eb} & The bone enum value. \\
+\hline
+{\em bones\-\_\-set} & The bones set to be searched for the enum value. \\
 \hline
 \end{DoxyParams}
 
@@ -123,10 +144,22 @@ Creates a bone from the e\-\_\-bone enum value.
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1bone_a2d1dc38188f1eced8fdcfd787337286f}
-Returns a default bones vector that fits the needs of the Open\-N\-I/\-Ni\-T\-E skeletons. If the Open\-N\-I/\-Ni\-T\-E hierarchy is not sufficient and/or other bones are needed it must be constructed manually.
+Returns a default bones vector that fits the needs of the Open\-N\-I/\-Ni\-T\-E skeletons. If the default hierarchies are not sufficient and/or other bones are needed it must be constructed manually.
 
 \begin{DoxyReturn}{Returns}
-The default hierarchy. 
+The default bones. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1bone_a3f5e6886baa869e257702be6e8e35317}{\index{mae\-::bone@{mae\-::bone}!default\-\_\-kinect\-\_\-bones@{default\-\_\-kinect\-\_\-bones}}
+\index{default\-\_\-kinect\-\_\-bones@{default\-\_\-kinect\-\_\-bones}!mae::bone@{mae\-::bone}}
+\subsubsection[{default\-\_\-kinect\-\_\-bones}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf bone} $>$ mae\-::bone\-::default\-\_\-kinect\-\_\-bones (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1bone_a3f5e6886baa869e257702be6e8e35317}
+Returns the default bones for the kinect skeleton. If the default hierarchies are not sufficient and/or other bones are needed it must be constructed manually.
+
+\begin{DoxyReturn}{Returns}
+The kinect bones. 
 \end{DoxyReturn}
 \hypertarget{classmae_1_1bone_ab67f78b8888f6a93fafcf90184189f86}{\index{mae\-::bone@{mae\-::bone}!get\-\_\-from@{get\-\_\-from}}
 \index{get\-\_\-from@{get\-\_\-from}!mae::bone@{mae\-::bone}}

@@ -107,8 +107,36 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a42a950416d5bc959544c0138a8526847"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classmae_1_1general__enriched__pose.html">general_enriched_pose</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__kp__detector.html#a42a950416d5bc959544c0138a8526847">estimate_frame</a> (double framerate, std::shared_ptr&lt; <a class="el" href="classmae_1_1general__pose.html">general_pose</a> &gt; currentPose, std::list&lt; std::shared_ptr&lt; <a class="el" href="classmae_1_1general__enriched__pose.html">general_enriched_pose</a> &gt; &gt; previousSequence, std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt; bodyParts)=0</td></tr>
 <tr class="separator:a42a950416d5bc959544c0138a8526847"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad08d7a1ada8501e4302c65dd277833f7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__kp__detector.html#ad08d7a1ada8501e4302c65dd277833f7">clear_buffer</a> ()=0</td></tr>
+<tr class="separator:ad08d7a1ada8501e4302c65dd277833f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad08d7a1ada8501e4302c65dd277833f7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void mae::i_kp_detector::clear_buffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Clears the buffer used to store the data. </p>
+
+<p>Implemented in <a class="el" href="classmae_1_1kp__detector.html#ad009c9de1b6385e7c3cd23fef98e296d">mae::kp_detector</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a42a950416d5bc959544c0138a8526847"></a>
 <div class="memitem">
 <div class="memproto">
@@ -174,7 +202,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2014 12:26:16 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 23 2015 18:35:39 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

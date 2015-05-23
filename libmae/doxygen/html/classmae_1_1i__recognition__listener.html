@@ -97,10 +97,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af243ddd9d09c2c8a27685a52b5e24da5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__recognition__listener.html#af243ddd9d09c2c8a27685a52b5e24da5">on_recognition</a> (long timestamp, std::vector&lt; std::shared_ptr&lt; U &gt; &gt; sequences)=0</td></tr>
-<tr class="separator:af243ddd9d09c2c8a27685a52b5e24da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a067c7e2b46f408c270c5cf6d81fe1317"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__recognition__listener.html#a067c7e2b46f408c270c5cf6d81fe1317">on_recognition</a> (long timestamp, std::vector&lt; std::string &gt; title)=0</td></tr>
-<tr class="separator:a067c7e2b46f408c270c5cf6d81fe1317"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace61997e2a43a260662c817674650a4a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__recognition__listener.html#ace61997e2a43a260662c817674650a4a">on_recognition</a> (uint64_t timestamp, std::vector&lt; std::shared_ptr&lt; U &gt; &gt; sequences)=0</td></tr>
+<tr class="separator:ace61997e2a43a260662c817674650a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f3d301a8a891363a24508448c5c5d1b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__recognition__listener.html#a5f3d301a8a891363a24508448c5c5d1b">on_recognition</a> (uint64_t timestamp, std::vector&lt; std::string &gt; title)=0</td></tr>
+<tr class="separator:a5f3d301a8a891363a24508448c5c5d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename U&gt;<br/>
@@ -108,7 +108,7 @@ class mae::i_recognition_listener&lt; U &gt;</h3>
 
 <p>Listener for poses. In notified each frame after the pose quantization. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="af243ddd9d09c2c8a27685a52b5e24da5"></a>
+<a class="anchor" id="ace61997e2a43a260662c817674650a4a"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -120,7 +120,7 @@ template&lt;typename U &gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="classmae_1_1i__recognition__listener.html">mae::i_recognition_listener</a>&lt; U &gt;::on_recognition </td>
           <td>(</td>
-          <td class="paramtype">long&#160;</td>
+          <td class="paramtype">uint64_t&#160;</td>
           <td class="paramname"><em>timestamp</em>, </td>
         </tr>
         <tr>
@@ -152,7 +152,7 @@ template&lt;typename U &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a067c7e2b46f408c270c5cf6d81fe1317"></a>
+<a class="anchor" id="a5f3d301a8a891363a24508448c5c5d1b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -164,7 +164,7 @@ template&lt;typename U &gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="classmae_1_1i__recognition__listener.html">mae::i_recognition_listener</a>&lt; U &gt;::on_recognition </td>
           <td>(</td>
-          <td class="paramtype">long&#160;</td>
+          <td class="paramtype">uint64_t&#160;</td>
           <td class="paramname"><em>timestamp</em>, </td>
         </tr>
         <tr>
@@ -202,7 +202,7 @@ template&lt;typename U &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2014 12:26:16 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 23 2015 18:35:39 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
