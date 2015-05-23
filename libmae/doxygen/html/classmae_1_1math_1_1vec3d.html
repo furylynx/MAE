@@ -112,6 +112,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2f447c43b1cce7f1e9d92a4a0632ff82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9597a58bdb1692d0a96bdb6e1368255e"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1math_1_1vec3d.html#a9597a58bdb1692d0a96bdb6e1368255e">get_z</a> () const </td></tr>
 <tr class="separator:a9597a58bdb1692d0a96bdb6e1368255e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cdd8d6e63078c444a048a4e68ae3819"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1math_1_1vec3d.html#a6cdd8d6e63078c444a048a4e68ae3819">add</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt; vec) const </td></tr>
+<tr class="separator:a6cdd8d6e63078c444a048a4e68ae3819"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab01f1ea5f0178f1d363df0d6f5465cab"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1math_1_1vec3d.html#ab01f1ea5f0178f1d363df0d6f5465cab">subtract</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt; vec) const </td></tr>
+<tr class="separator:ab01f1ea5f0178f1d363df0d6f5465cab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b96adb108c895bd488759ceecd40205"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1math_1_1vec3d.html#a3b96adb108c895bd488759ceecd40205">normalize</a> () const </td></tr>
+<tr class="separator:a3b96adb108c895bd488759ceecd40205"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef0ce4fe306e9b6ae0dc26cb4ef123bf"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1math_1_1vec3d.html#aef0ce4fe306e9b6ae0dc26cb4ef123bf">l2_norm</a> () const </td></tr>
+<tr class="separator:aef0ce4fe306e9b6ae0dc26cb4ef123bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38ae714ef3e525af20c1a31b8c537406"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1math_1_1vec3d.html#a38ae714ef3e525af20c1a31b8c537406">dot</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt; vec) const </td></tr>
+<tr class="separator:a38ae714ef3e525af20c1a31b8c537406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac2aed075aefc06722c7304f3d673eba"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1math_1_1vec3d.html#aac2aed075aefc06722c7304f3d673eba">cross</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt; vec) const </td></tr>
+<tr class="separator:aac2aed075aefc06722c7304f3d673eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a686b7876881d3ffa6c51f9a538998c4a"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1math_1_1vec3d.html#a686b7876881d3ffa6c51f9a538998c4a">str</a> () const </td></tr>
 <tr class="separator:a686b7876881d3ffa6c51f9a538998c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -181,6 +193,103 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a6cdd8d6e63078c444a048a4e68ae3819"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt; mae::math::vec3d::add </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Adds the given vector's value to this vector's values and returns the result.</p>
+<p>This vector is not changed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>The vector to be added. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The resulting vector. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aac2aed075aefc06722c7304f3d673eba"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt; mae::math::vec3d::cross </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the result of the cross product between the two vectors.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>The vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The cross product. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a38ae714ef3e525af20c1a31b8c537406"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double mae::math::vec3d::dot </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the result of the dot product between the two vectors.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>The vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The dot product. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a5ece2226e5d958b7d194b7011523cb45"></a>
 <div class="memitem">
 <div class="memproto">
@@ -253,6 +362,63 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns the z value of this vector.</p>
 <dl class="section return"><dt>Returns</dt><dd>z </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aef0ce4fe306e9b6ae0dc26cb4ef123bf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double mae::math::vec3d::l2_norm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the value of the L2 norm for this vector.</p>
+<dl class="section return"><dt>Returns</dt><dd>The norm value. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3b96adb108c895bd488759ceecd40205"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt; mae::math::vec3d::normalize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the the normalized vector.</p>
+<p>This vector is not changed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>The vector to be added. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The resulting vector. </dd></dl>
 
 </div>
 </div>
@@ -374,6 +540,39 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ab01f1ea5f0178f1d363df0d6f5465cab"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt; mae::math::vec3d::subtract </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1vec3d.html">vec3d</a> &gt;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Subtracts the given vector's value from this vector's values and returns the result.</p>
+<p>This vector is not changed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>The vector to be added. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The resulting vector. </dd></dl>
+
+</div>
+</div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
 <a class="anchor" id="a0639044d670a12dc86ce762c3370c731"></a>
 <div class="memitem">
@@ -468,7 +667,7 @@ Friends</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2014 12:26:28 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 23 2015 18:35:47 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

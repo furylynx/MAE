@@ -99,8 +99,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0a6d908fed45b190b0ce24faa879be47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0ef0a57b48e4fb5f8c28168ea68f9e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#ac0ef0a57b48e4fb5f8c28168ea68f9e4">movement_controller</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1i__pose__detector.html">i_pose_detector</a>&lt; T &gt; &gt; ipd, std::shared_ptr&lt; <a class="el" href="classmae_1_1i__sequence__generator.html">i_sequence_generator</a>&lt; U &gt; &gt; isg, std::shared_ptr&lt; <a class="el" href="classmae_1_1i__sequence__recognizer.html">i_sequence_recognizer</a>&lt; U &gt; &gt; isr, std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt; body_parts, int pose_buffer_size=0, double framerate=1.0/30.0, bool debug=false)</td></tr>
 <tr class="separator:ac0ef0a57b48e4fb5f8c28168ea68f9e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa153304725199cb7d4664a0f450ec934"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#aa153304725199cb7d4664a0f450ec934">next_frame</a> (long timestamp, std::shared_ptr&lt; T &gt; skeleton)</td></tr>
-<tr class="separator:aa153304725199cb7d4664a0f450ec934"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54f9cf019174baf78a5fba4fa2703952"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a54f9cf019174baf78a5fba4fa2703952">next_frame</a> (uint64_t timestamp, std::shared_ptr&lt; T &gt; skeleton)</td></tr>
+<tr class="separator:a54f9cf019174baf78a5fba4fa2703952"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67781bb43d01fcecfd4ab7c70c670bb9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a67781bb43d01fcecfd4ab7c70c670bb9">register_sequence</a> (std::shared_ptr&lt; U &gt; sequence)</td></tr>
 <tr class="separator:a67781bb43d01fcecfd4ab7c70c670bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b4bf0e71ad1c66fbea6cdae2913ef84"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a6b4bf0e71ad1c66fbea6cdae2913ef84">deregister_sequence</a> (std::shared_ptr&lt; U &gt; sequence)</td></tr>
@@ -137,10 +137,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aafbffa6c9a0d2b73b2036f07c484b6cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adac2b632e8be6b8e2556005e79b187c3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#adac2b632e8be6b8e2556005e79b187c3">clear_listeners</a> ()</td></tr>
 <tr class="separator:adac2b632e8be6b8e2556005e79b187c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e11558479a37a804102c94cfddde14d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a8e11558479a37a804102c94cfddde14d">notify_sequence_listeners</a> (long timestamp, std::shared_ptr&lt; U &gt; sequence)</td></tr>
-<tr class="separator:a8e11558479a37a804102c94cfddde14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b69de4b97cf639e621692ec8c8a9258"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a3b69de4b97cf639e621692ec8c8a9258">notify_recognition_listeners</a> (long timestamp, std::vector&lt; std::shared_ptr&lt; U &gt; &gt; sequences)</td></tr>
-<tr class="separator:a3b69de4b97cf639e621692ec8c8a9258"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bd72c0cb02311a7cddb4bd8898d8028"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#a2bd72c0cb02311a7cddb4bd8898d8028">notify_sequence_listeners</a> (uint64_t timestamp, std::shared_ptr&lt; U &gt; sequence)</td></tr>
+<tr class="separator:a2bd72c0cb02311a7cddb4bd8898d8028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4bba61aefd94014f007192bf4b0da46"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#af4bba61aefd94014f007192bf4b0da46">notify_recognition_listeners</a> (uint64_t timestamp, std::vector&lt; std::shared_ptr&lt; U &gt; &gt; sequences)</td></tr>
+<tr class="separator:af4bba61aefd94014f007192bf4b0da46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3d0a125556f02ce12a2ca7faf5c1cf3"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classmae_1_1i__movement__detector.html">i_movement_detector</a>&lt; T, U &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1movement__controller.html#ad3d0a125556f02ce12a2ca7faf5c1cf3">get_movement_detector</a> ()</td></tr>
 <tr class="separator:ad3d0a125556f02ce12a2ca7faf5c1cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -657,7 +657,7 @@ template&lt;typename T , typename U &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aa153304725199cb7d4664a0f450ec934"></a>
+<a class="anchor" id="a54f9cf019174baf78a5fba4fa2703952"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -669,7 +669,7 @@ template&lt;typename T, typename U &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classmae_1_1movement__controller.html">mae::movement_controller</a>&lt; T, U &gt;::next_frame </td>
           <td>(</td>
-          <td class="paramtype">long&#160;</td>
+          <td class="paramtype">uint64_t&#160;</td>
           <td class="paramname"><em>timestamp</em>, </td>
         </tr>
         <tr>
@@ -701,7 +701,7 @@ template&lt;typename T, typename U &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a3b69de4b97cf639e621692ec8c8a9258"></a>
+<a class="anchor" id="af4bba61aefd94014f007192bf4b0da46"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -713,7 +713,7 @@ template&lt;typename T , typename U&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classmae_1_1movement__controller.html">mae::movement_controller</a>&lt; T, U &gt;::notify_recognition_listeners </td>
           <td>(</td>
-          <td class="paramtype">long&#160;</td>
+          <td class="paramtype">uint64_t&#160;</td>
           <td class="paramname"><em>timestamp</em>, </td>
         </tr>
         <tr>
@@ -745,7 +745,7 @@ template&lt;typename T , typename U&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a8e11558479a37a804102c94cfddde14d"></a>
+<a class="anchor" id="a2bd72c0cb02311a7cddb4bd8898d8028"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -757,7 +757,7 @@ template&lt;typename T , typename U&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classmae_1_1movement__controller.html">mae::movement_controller</a>&lt; T, U &gt;::notify_sequence_listeners </td>
           <td>(</td>
-          <td class="paramtype">long&#160;</td>
+          <td class="paramtype">uint64_t&#160;</td>
           <td class="paramname"><em>timestamp</em>, </td>
         </tr>
         <tr>
@@ -993,7 +993,7 @@ template&lt;typename T , typename U &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2014 12:26:17 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 23 2015 18:35:39 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

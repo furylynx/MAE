@@ -11,6 +11,7 @@ var searchData=
   ['e_5ffl_5fjoint_5fc',['e_fl_joint_c',['../classmae_1_1fl_1_1e__fl__joint__c.html',1,'mae::fl']]],
   ['e_5fjoint_5fc',['e_joint_c',['../classmae_1_1e__joint__c.html',1,'mae']]],
   ['e_5fjoint_5fc',['e_joint_c',['../classmae_1_1fl_1_1laban_1_1ps_1_1e__joint__c.html',1,'mae::fl::laban::ps']]],
+  ['e_5fkinect_5fjoint_5fc',['e_kinect_joint_c',['../classmae_1_1e__kinect__joint__c.html',1,'mae']]],
   ['e_5flevel_5fc',['e_level_c',['../classmae_1_1fl_1_1laban_1_1mv_1_1e__level__c.html',1,'mae::fl::laban::mv']]],
   ['e_5flimb_5fc',['e_limb_c',['../classmae_1_1fl_1_1laban_1_1ps_1_1e__limb__c.html',1,'mae::fl::laban::ps']]],
   ['e_5flimb_5fside_5fc',['e_limb_side_c',['../classmae_1_1fl_1_1laban_1_1ps_1_1e__limb__side__c.html',1,'mae::fl::laban::ps']]],

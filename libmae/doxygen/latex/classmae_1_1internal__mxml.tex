@@ -1,0 +1,127 @@
+\hypertarget{classmae_1_1internal__mxml}{\section{mae\-:\-:internal\-\_\-mxml Class Reference}
+\label{classmae_1_1internal__mxml}\index{mae\-::internal\-\_\-mxml@{mae\-::internal\-\_\-mxml}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\-::string \hyperlink{classmae_1_1internal__mxml_a0ee360cc91fccaeb91d3ca9cc351aff5}{get\-\_\-xpath} (std\-::string element, std\-::string nsp=\char`\"{}\char`\"{})
+\item 
+static std\-::string \hyperlink{classmae_1_1internal__mxml_a56612af76266ba90274f987b857eb319}{get\-\_\-node\-\_\-content} (xmlpp\-::\-Node $\ast$parent\-\_\-node, std\-::shared\-\_\-ptr$<$ xmlpp\-::\-Node\-::\-Prefix\-Ns\-Map $>$ namespace\-\_\-map, std\-::string element, std\-::string nsp, std\-::string default\-\_\-return)
+\item 
+static std\-::vector$<$ std\-::string $>$ \hyperlink{classmae_1_1internal__mxml_a3d662e52684dcfc9c6fc51472215ee03}{get\-\_\-node\-\_\-contents} (xmlpp\-::\-Node $\ast$parent\-\_\-node, std\-::shared\-\_\-ptr$<$ xmlpp\-::\-Node\-::\-Prefix\-Ns\-Map $>$ namespace\-\_\-map, std\-::string element, std\-::string nsp, std\-::string default\-\_\-return)
+\item 
+static std\-::vector$<$ std\-::string $>$ \hyperlink{classmae_1_1internal__mxml_a23d40f90e3660c73c9427058729556e8}{get\-\_\-node\-\_\-contents} (xmlpp\-::\-Node $\ast$parent\-\_\-node, std\-::shared\-\_\-ptr$<$ xmlpp\-::\-Node\-::\-Prefix\-Ns\-Map $>$ namespace\-\_\-map, std\-::string element, std\-::string nsp)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1internal__mxml_a56612af76266ba90274f987b857eb319}{\index{mae\-::internal\-\_\-mxml@{mae\-::internal\-\_\-mxml}!get\-\_\-node\-\_\-content@{get\-\_\-node\-\_\-content}}
+\index{get\-\_\-node\-\_\-content@{get\-\_\-node\-\_\-content}!mae::internal_mxml@{mae\-::internal\-\_\-mxml}}
+\subsubsection[{get\-\_\-node\-\_\-content}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::internal\-\_\-mxml\-::get\-\_\-node\-\_\-content (
+\begin{DoxyParamCaption}
+\item[{xmlpp\-::\-Node $\ast$}]{parent\-\_\-node, }
+\item[{std\-::shared\-\_\-ptr$<$ xmlpp\-::\-Node\-::\-Prefix\-Ns\-Map $>$}]{namespace\-\_\-map, }
+\item[{std\-::string}]{element, }
+\item[{std\-::string}]{nsp, }
+\item[{std\-::string}]{default\-\_\-return}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1internal__mxml_a56612af76266ba90274f987b857eb319}
+Returns the content of a node if it can be found. Returns the default\-\_\-return parameter otherwise.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent\-\_\-node} & The parent node from which the lookup will start. \\
+\hline
+{\em namespace\-\_\-map} & The namespace map containing all namespaces. \\
+\hline
+{\em element} & The element to be looked for. \\
+\hline
+{\em nsp} & The namespace of the element. \\
+\hline
+{\em default\-\_\-return} & The default return value used if no node is found. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The node's content or the default return value. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1internal__mxml_a3d662e52684dcfc9c6fc51472215ee03}{\index{mae\-::internal\-\_\-mxml@{mae\-::internal\-\_\-mxml}!get\-\_\-node\-\_\-contents@{get\-\_\-node\-\_\-contents}}
+\index{get\-\_\-node\-\_\-contents@{get\-\_\-node\-\_\-contents}!mae::internal_mxml@{mae\-::internal\-\_\-mxml}}
+\subsubsection[{get\-\_\-node\-\_\-contents}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::string $>$ mae\-::internal\-\_\-mxml\-::get\-\_\-node\-\_\-contents (
+\begin{DoxyParamCaption}
+\item[{xmlpp\-::\-Node $\ast$}]{parent\-\_\-node, }
+\item[{std\-::shared\-\_\-ptr$<$ xmlpp\-::\-Node\-::\-Prefix\-Ns\-Map $>$}]{namespace\-\_\-map, }
+\item[{std\-::string}]{element, }
+\item[{std\-::string}]{nsp, }
+\item[{std\-::string}]{default\-\_\-return}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1internal__mxml_a3d662e52684dcfc9c6fc51472215ee03}
+Returns the contents of all found nodes if any. Returns the default\-\_\-return parameter otherwise.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent\-\_\-node} & The parent node from which the lookup will start. \\
+\hline
+{\em namespace\-\_\-map} & The namespace map containing all namespaces. \\
+\hline
+{\em element} & The elements name to be looked for. \\
+\hline
+{\em nsp} & The namespace of the element. \\
+\hline
+{\em default\-\_\-return} & The default return value used if no node is found. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The node's content or the default return value. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1internal__mxml_a23d40f90e3660c73c9427058729556e8}{\index{mae\-::internal\-\_\-mxml@{mae\-::internal\-\_\-mxml}!get\-\_\-node\-\_\-contents@{get\-\_\-node\-\_\-contents}}
+\index{get\-\_\-node\-\_\-contents@{get\-\_\-node\-\_\-contents}!mae::internal_mxml@{mae\-::internal\-\_\-mxml}}
+\subsubsection[{get\-\_\-node\-\_\-contents}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ std\-::string $>$ mae\-::internal\-\_\-mxml\-::get\-\_\-node\-\_\-contents (
+\begin{DoxyParamCaption}
+\item[{xmlpp\-::\-Node $\ast$}]{parent\-\_\-node, }
+\item[{std\-::shared\-\_\-ptr$<$ xmlpp\-::\-Node\-::\-Prefix\-Ns\-Map $>$}]{namespace\-\_\-map, }
+\item[{std\-::string}]{element, }
+\item[{std\-::string}]{nsp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1internal__mxml_a23d40f90e3660c73c9427058729556e8}
+Returns the contents of all found nodes if any. Returns an empty vector otherwise.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent\-\_\-node} & The parent node from which the lookup will start. \\
+\hline
+{\em namespace\-\_\-map} & The namespace map containing all namespaces. \\
+\hline
+{\em element} & The elements name to be looked for. \\
+\hline
+{\em nsp} & The namespace of the element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The node's contents or an empty vector. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1internal__mxml_a0ee360cc91fccaeb91d3ca9cc351aff5}{\index{mae\-::internal\-\_\-mxml@{mae\-::internal\-\_\-mxml}!get\-\_\-xpath@{get\-\_\-xpath}}
+\index{get\-\_\-xpath@{get\-\_\-xpath}!mae::internal_mxml@{mae\-::internal\-\_\-mxml}}
+\subsubsection[{get\-\_\-xpath}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::internal\-\_\-mxml\-::get\-\_\-xpath (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{element, }
+\item[{std\-::string}]{nsp = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classmae_1_1internal__mxml_a0ee360cc91fccaeb91d3ca9cc351aff5}
+Returns the correct xpath.
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & The element to be prefixed. \\
+\hline
+{\em nsp} & The namespace \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The xpath. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/internal\-\_\-mxml.\-hh\item 
+src/mae/internal\-\_\-mxml.\-cpp\end{DoxyCompactItemize}

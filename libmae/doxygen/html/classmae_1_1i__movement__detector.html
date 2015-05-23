@@ -104,8 +104,8 @@ Inheritance diagram for mae::i_movement_detector&lt; T, U &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7b3e09f127d318b5f794e056e40b3746"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; U &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__movement__detector.html#a7b3e09f127d318b5f794e056e40b3746">detect_movement</a> (long timestamp, double framerate, std::shared_ptr&lt; T &gt; skeleton, std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt; body_parts)=0</td></tr>
-<tr class="separator:a7b3e09f127d318b5f794e056e40b3746"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3b5c4491ce4f11ef6a116ba05084f1a"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; U &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__movement__detector.html#aa3b5c4491ce4f11ef6a116ba05084f1a">detect_movement</a> (uint64_t timestamp, double framerate, std::shared_ptr&lt; T &gt; skeleton, std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt; body_parts)=0</td></tr>
+<tr class="separator:aa3b5c4491ce4f11ef6a116ba05084f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96a923c5bab2dbed81daf4cadc885497"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__movement__detector.html#a96a923c5bab2dbed81daf4cadc885497">set_buffer</a> (int size)=0</td></tr>
 <tr class="separator:a96a923c5bab2dbed81daf4cadc885497"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73db186e7b58daa0923f00b285671172"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__movement__detector.html#a73db186e7b58daa0923f00b285671172">clear_buffer</a> ()=0</td></tr>
@@ -116,8 +116,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a88d965f2b8d04e0681e2e7cd42bd7331"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56a36a8a427feb34f970b9e259a1150f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__movement__detector.html#a56a36a8a427feb34f970b9e259a1150f">clear_listeners</a> ()=0</td></tr>
 <tr class="separator:a56a36a8a427feb34f970b9e259a1150f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347855d153525d7e09f793ff2b17b58b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__movement__detector.html#a347855d153525d7e09f793ff2b17b58b">notify_listeners</a> (long timestamp, std::shared_ptr&lt; <a class="el" href="classmae_1_1general__pose.html">general_pose</a> &gt; pose)=0</td></tr>
-<tr class="separator:a347855d153525d7e09f793ff2b17b58b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebdc95347866bc2bc6b793383585fe2f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__movement__detector.html#aebdc95347866bc2bc6b793383585fe2f">notify_listeners</a> (uint64_t timestamp, std::shared_ptr&lt; <a class="el" href="classmae_1_1general__pose.html">general_pose</a> &gt; pose)=0</td></tr>
+<tr class="separator:aebdc95347866bc2bc6b793383585fe2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67db28512cb293217156fd8611322d75"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classmae_1_1general__pose.html">general_pose</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1i__movement__detector.html#a67db28512cb293217156fd8611322d75">get_current_pose</a> () const =0</td></tr>
 <tr class="separator:a67db28512cb293217156fd8611322d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -214,7 +214,7 @@ template&lt;typename T , typename U &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a7b3e09f127d318b5f794e056e40b3746"></a>
+<a class="anchor" id="aa3b5c4491ce4f11ef6a116ba05084f1a"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -226,7 +226,7 @@ template&lt;typename T , typename U &gt; </div>
         <tr>
           <td class="memname">virtual std::shared_ptr&lt;U&gt; <a class="el" href="classmae_1_1i__movement__detector.html">mae::i_movement_detector</a>&lt; T, U &gt;::detect_movement </td>
           <td>(</td>
-          <td class="paramtype">long&#160;</td>
+          <td class="paramtype">uint64_t&#160;</td>
           <td class="paramname"><em>timestamp</em>, </td>
         </tr>
         <tr>
@@ -271,7 +271,7 @@ template&lt;typename T , typename U &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The detected movement sequence. </dd></dl>
 
-<p>Implemented in <a class="el" href="classmae_1_1kp__movement__detector.html#a2aaa4c65a7735ac1d3ee201beb56b6b1">mae::kp_movement_detector&lt; T, U &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classmae_1_1kp__movement__detector.html#a05c206df200417ea7680eb9d8a5cb6b0">mae::kp_movement_detector&lt; T, U &gt;</a>.</p>
 
 </div>
 </div>
@@ -304,7 +304,7 @@ template&lt;typename T , typename U &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a347855d153525d7e09f793ff2b17b58b"></a>
+<a class="anchor" id="aebdc95347866bc2bc6b793383585fe2f"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -316,7 +316,7 @@ template&lt;typename T , typename U &gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="classmae_1_1i__movement__detector.html">mae::i_movement_detector</a>&lt; T, U &gt;::notify_listeners </td>
           <td>(</td>
-          <td class="paramtype">long&#160;</td>
+          <td class="paramtype">uint64_t&#160;</td>
           <td class="paramname"><em>timestamp</em>, </td>
         </tr>
         <tr>
@@ -346,7 +346,7 @@ template&lt;typename T , typename U &gt; </div>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classmae_1_1kp__movement__detector.html#a55fb6a221a2d067db480055a2dfb7a66">mae::kp_movement_detector&lt; T, U &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classmae_1_1kp__movement__detector.html#acdc61f7edc7fdaadb5134e6cabd04612">mae::kp_movement_detector&lt; T, U &gt;</a>.</p>
 
 </div>
 </div>
@@ -426,7 +426,7 @@ template&lt;typename T , typename U &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2014 12:26:16 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 23 2015 18:35:39 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

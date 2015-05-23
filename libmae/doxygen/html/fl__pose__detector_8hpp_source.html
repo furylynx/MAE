@@ -109,60 +109,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../math/math.hpp&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">//global includes</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;opencv2/opencv.hpp&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>mae</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">namespace </span>fl</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classmae_1_1fl_1_1fl__pose__detector.html">   36</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html">fl_pose_detector</a>: <span class="keyword">public</span> <a class="code" href="classmae_1_1i__pose__detector.html">mae::i_pose_detector</a>&lt;fl_skeleton&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#a3e52ce649f55340ebcd5a2fec804278b">fl_pose_detector</a>(<span class="keywordtype">double</span> hysteresis_val = <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#adb2f046d501a87de9e5589b346ef3782">fl_pose_detector::default_hysteresis_val</a>(), <span class="keywordtype">bool</span> debug = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                <span class="keyword">virtual</span> ~<a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html">fl_pose_detector</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#a807c41e01fed7a729058b91ff4ff90f3">set_hysteresis_val</a>(<span class="keywordtype">double</span> hysteresis_val);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#a5347e97f3685d7168a182e7e373f09cf">get_hysteresis_val</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keyword">virtual</span> std::shared_ptr&lt;mae::general_pose&gt; <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#a3a0f6afa25ce9bc25154e93e671edd23">pose</a>(<span class="keywordtype">double</span> framerate, std::shared_ptr&lt;fl_skeleton&gt; skeleton,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        std::vector&lt;bone&gt; body_parts, std::shared_ptr&lt;general_pose&gt; previous_pose);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keyword">virtual</span> std::shared_ptr&lt;mae::general_pose&gt; <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#ae7f558696efe7f55cf4895bffd234665">vector_pose</a>(std::shared_ptr&lt;fl_skeleton&gt; skeleton,</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                                        std::vector&lt;bone&gt; body_parts, std::shared_ptr&lt;general_pose&gt; previous_pose);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#adb2f046d501a87de9e5589b346ef3782">default_hysteresis_val</a>();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordtype">bool</span> debug_;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                std::unordered_map&lt;int, cv::Vec3d&gt; map_directions_;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keywordtype">double</span> hysteresis_val_;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>mae</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">namespace </span>fl</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classmae_1_1fl_1_1fl__pose__detector.html">   35</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html">fl_pose_detector</a>: <span class="keyword">public</span> <a class="code" href="classmae_1_1i__pose__detector.html">mae::i_pose_detector</a>&lt;fl_skeleton&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#a3e52ce649f55340ebcd5a2fec804278b">fl_pose_detector</a>(<span class="keywordtype">double</span> hysteresis_val = <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#adb2f046d501a87de9e5589b346ef3782">fl_pose_detector::default_hysteresis_val</a>(), <span class="keywordtype">bool</span> debug = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="keyword">virtual</span> ~<a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html">fl_pose_detector</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#a807c41e01fed7a729058b91ff4ff90f3">set_hysteresis_val</a>(<span class="keywordtype">double</span> hysteresis_val);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#a5347e97f3685d7168a182e7e373f09cf">get_hysteresis_val</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keyword">virtual</span> std::shared_ptr&lt;mae::general_pose&gt; <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#a3a0f6afa25ce9bc25154e93e671edd23">pose</a>(<span class="keywordtype">double</span> framerate, std::shared_ptr&lt;fl_skeleton&gt; skeleton,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        std::vector&lt;bone&gt; body_parts, std::shared_ptr&lt;general_pose&gt; previous_pose);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keyword">virtual</span> std::shared_ptr&lt;mae::general_pose&gt; <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#ae7f558696efe7f55cf4895bffd234665">vector_pose</a>(std::shared_ptr&lt;fl_skeleton&gt; skeleton,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                                                        std::vector&lt;bone&gt; body_parts, std::shared_ptr&lt;general_pose&gt; previous_pose);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#adb2f046d501a87de9e5589b346ef3782">default_hysteresis_val</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classmae_1_1fl_1_1fl__pose__detector.html#ad15e75a020123c1608554f0dd693758a">clear_buffer</a>();</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> PM_ACCEPT_DIST = 22.5;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        };</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    } <span class="comment">// namespace fl</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;} <span class="comment">// namespace mae</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordtype">bool</span> debug_;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                std::unordered_map&lt;int, std::shared_ptr&lt;mae::math::vec3d&gt; &gt; map_directions_;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keywordtype">double</span> hysteresis_val_;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">double</span> PM_ACCEPT_DIST = 22.5;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif // FLPOSEDETECTOR_HPP_</span></div>
-<div class="ttc" id="classmae_1_1fl_1_1fl__pose__detector_html_adb2f046d501a87de9e5589b346ef3782"><div class="ttname"><a href="classmae_1_1fl_1_1fl__pose__detector.html#adb2f046d501a87de9e5589b346ef3782">mae::fl::fl_pose_detector::default_hysteresis_val</a></div><div class="ttdeci">static double default_hysteresis_val()</div><div class="ttdef"><b>Definition:</b> fl_pose_detector.cpp:249</div></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        };</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    } <span class="comment">// namespace fl</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;} <span class="comment">// namespace mae</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif // FLPOSEDETECTOR_HPP_</span></div>
+<div class="ttc" id="classmae_1_1fl_1_1fl__pose__detector_html_ad15e75a020123c1608554f0dd693758a"><div class="ttname"><a href="classmae_1_1fl_1_1fl__pose__detector.html#ad15e75a020123c1608554f0dd693758a">mae::fl::fl_pose_detector::clear_buffer</a></div><div class="ttdeci">virtual void clear_buffer()</div><div class="ttdef"><b>Definition:</b> fl_pose_detector.cpp:247</div></div>
+<div class="ttc" id="classmae_1_1fl_1_1fl__pose__detector_html_adb2f046d501a87de9e5589b346ef3782"><div class="ttname"><a href="classmae_1_1fl_1_1fl__pose__detector.html#adb2f046d501a87de9e5589b346ef3782">mae::fl::fl_pose_detector::default_hysteresis_val</a></div><div class="ttdeci">static double default_hysteresis_val()</div><div class="ttdef"><b>Definition:</b> fl_pose_detector.cpp:242</div></div>
 <div class="ttc" id="classmae_1_1fl_1_1fl__pose__detector_html_a5347e97f3685d7168a182e7e373f09cf"><div class="ttname"><a href="classmae_1_1fl_1_1fl__pose__detector.html#a5347e97f3685d7168a182e7e373f09cf">mae::fl::fl_pose_detector::get_hysteresis_val</a></div><div class="ttdeci">virtual double get_hysteresis_val() const </div><div class="ttdef"><b>Definition:</b> fl_pose_detector.cpp:101</div></div>
 <div class="ttc" id="classmae_1_1fl_1_1fl__pose__detector_html_a3a0f6afa25ce9bc25154e93e671edd23"><div class="ttname"><a href="classmae_1_1fl_1_1fl__pose__detector.html#a3a0f6afa25ce9bc25154e93e671edd23">mae::fl::fl_pose_detector::pose</a></div><div class="ttdeci">virtual std::shared_ptr&lt; mae::general_pose &gt; pose(double framerate, std::shared_ptr&lt; fl_skeleton &gt; skeleton, std::vector&lt; bone &gt; body_parts, std::shared_ptr&lt; general_pose &gt; previous_pose)</div><div class="ttdef"><b>Definition:</b> fl_pose_detector.cpp:106</div></div>
 <div class="ttc" id="classmae_1_1i__pose__detector_html"><div class="ttname"><a href="classmae_1_1i__pose__detector.html">mae::i_pose_detector</a></div><div class="ttdef"><b>Definition:</b> i_pose_detector.hpp:24</div></div>
 <div class="ttc" id="classmae_1_1fl_1_1fl__pose__detector_html_ae7f558696efe7f55cf4895bffd234665"><div class="ttname"><a href="classmae_1_1fl_1_1fl__pose__detector.html#ae7f558696efe7f55cf4895bffd234665">mae::fl::fl_pose_detector::vector_pose</a></div><div class="ttdeci">virtual std::shared_ptr&lt; mae::general_pose &gt; vector_pose(std::shared_ptr&lt; fl_skeleton &gt; skeleton, std::vector&lt; bone &gt; body_parts, std::shared_ptr&lt; general_pose &gt; previous_pose)</div><div class="ttdef"><b>Definition:</b> fl_pose_detector.cpp:117</div></div>
 <div class="ttc" id="classmae_1_1fl_1_1fl__pose__detector_html_a807c41e01fed7a729058b91ff4ff90f3"><div class="ttname"><a href="classmae_1_1fl_1_1fl__pose__detector.html#a807c41e01fed7a729058b91ff4ff90f3">mae::fl::fl_pose_detector::set_hysteresis_val</a></div><div class="ttdeci">virtual void set_hysteresis_val(double hysteresis_val)</div><div class="ttdef"><b>Definition:</b> fl_pose_detector.cpp:96</div></div>
-<div class="ttc" id="classmae_1_1fl_1_1fl__pose__detector_html"><div class="ttname"><a href="classmae_1_1fl_1_1fl__pose__detector.html">mae::fl::fl_pose_detector</a></div><div class="ttdef"><b>Definition:</b> fl_pose_detector.hpp:36</div></div>
+<div class="ttc" id="classmae_1_1fl_1_1fl__pose__detector_html"><div class="ttname"><a href="classmae_1_1fl_1_1fl__pose__detector.html">mae::fl::fl_pose_detector</a></div><div class="ttdef"><b>Definition:</b> fl_pose_detector.hpp:35</div></div>
 <div class="ttc" id="classmae_1_1fl_1_1fl__pose__detector_html_a3e52ce649f55340ebcd5a2fec804278b"><div class="ttname"><a href="classmae_1_1fl_1_1fl__pose__detector.html#a3e52ce649f55340ebcd5a2fec804278b">mae::fl::fl_pose_detector::fl_pose_detector</a></div><div class="ttdeci">fl_pose_detector(double hysteresis_val=fl_pose_detector::default_hysteresis_val(), bool debug=false)</div><div class="ttdef"><b>Definition:</b> fl_pose_detector.cpp:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2014 12:26:12 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 23 2015 18:35:36 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

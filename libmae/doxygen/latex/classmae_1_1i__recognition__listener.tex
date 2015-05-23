@@ -8,9 +8,9 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \hyperlink{classmae_1_1i__recognition__listener_af243ddd9d09c2c8a27685a52b5e24da5}{on\-\_\-recognition} (long timestamp, std\-::vector$<$ std\-::shared\-\_\-ptr$<$ U $>$ $>$ sequences)=0
+virtual void \hyperlink{classmae_1_1i__recognition__listener_ace61997e2a43a260662c817674650a4a}{on\-\_\-recognition} (uint64\-\_\-t timestamp, std\-::vector$<$ std\-::shared\-\_\-ptr$<$ U $>$ $>$ sequences)=0
 \item 
-virtual void \hyperlink{classmae_1_1i__recognition__listener_a067c7e2b46f408c270c5cf6d81fe1317}{on\-\_\-recognition} (long timestamp, std\-::vector$<$ std\-::string $>$ title)=0
+virtual void \hyperlink{classmae_1_1i__recognition__listener_a5f3d301a8a891363a24508448c5c5d1b}{on\-\_\-recognition} (uint64\-\_\-t timestamp, std\-::vector$<$ std\-::string $>$ title)=0
 \end{DoxyCompactItemize}
 
 
@@ -20,14 +20,14 @@ virtual void \hyperlink{classmae_1_1i__recognition__listener_a067c7e2b46f408c270
 Listener for poses. In notified each frame after the pose quantization. 
 
 \subsection{Member Function Documentation}
-\hypertarget{classmae_1_1i__recognition__listener_af243ddd9d09c2c8a27685a52b5e24da5}{\index{mae\-::i\-\_\-recognition\-\_\-listener@{mae\-::i\-\_\-recognition\-\_\-listener}!on\-\_\-recognition@{on\-\_\-recognition}}
+\hypertarget{classmae_1_1i__recognition__listener_ace61997e2a43a260662c817674650a4a}{\index{mae\-::i\-\_\-recognition\-\_\-listener@{mae\-::i\-\_\-recognition\-\_\-listener}!on\-\_\-recognition@{on\-\_\-recognition}}
 \index{on\-\_\-recognition@{on\-\_\-recognition}!mae::i_recognition_listener@{mae\-::i\-\_\-recognition\-\_\-listener}}
 \subsubsection[{on\-\_\-recognition}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename U $>$ virtual void {\bf mae\-::i\-\_\-recognition\-\_\-listener}$<$ U $>$\-::on\-\_\-recognition (
 \begin{DoxyParamCaption}
-\item[{long}]{timestamp, }
+\item[{uint64\-\_\-t}]{timestamp, }
 \item[{std\-::vector$<$ std\-::shared\-\_\-ptr$<$ U $>$ $>$}]{sequences}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1i__recognition__listener_af243ddd9d09c2c8a27685a52b5e24da5}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1i__recognition__listener_ace61997e2a43a260662c817674650a4a}
 Is invoked each time sequences were recognized and the sequences are present.
 
 
@@ -37,14 +37,14 @@ Is invoked each time sequences were recognized and the sequences are present.
 {\em sequences} & The recognized sequences. \\
 \hline
 \end{DoxyParams}
-\hypertarget{classmae_1_1i__recognition__listener_a067c7e2b46f408c270c5cf6d81fe1317}{\index{mae\-::i\-\_\-recognition\-\_\-listener@{mae\-::i\-\_\-recognition\-\_\-listener}!on\-\_\-recognition@{on\-\_\-recognition}}
+\hypertarget{classmae_1_1i__recognition__listener_a5f3d301a8a891363a24508448c5c5d1b}{\index{mae\-::i\-\_\-recognition\-\_\-listener@{mae\-::i\-\_\-recognition\-\_\-listener}!on\-\_\-recognition@{on\-\_\-recognition}}
 \index{on\-\_\-recognition@{on\-\_\-recognition}!mae::i_recognition_listener@{mae\-::i\-\_\-recognition\-\_\-listener}}
 \subsubsection[{on\-\_\-recognition}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename U $>$ virtual void {\bf mae\-::i\-\_\-recognition\-\_\-listener}$<$ U $>$\-::on\-\_\-recognition (
 \begin{DoxyParamCaption}
-\item[{long}]{timestamp, }
+\item[{uint64\-\_\-t}]{timestamp, }
 \item[{std\-::vector$<$ std\-::string $>$}]{title}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1i__recognition__listener_a067c7e2b46f408c270c5cf6d81fe1317}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmae_1_1i__recognition__listener_a5f3d301a8a891363a24508448c5c5d1b}
 Is invoked each time sequences were recognized and only titles of the sequences are present.
 
 

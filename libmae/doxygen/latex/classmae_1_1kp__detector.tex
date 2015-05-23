@@ -14,6 +14,8 @@ Inheritance diagram for mae\-:\-:kp\-\_\-detector\-:\begin{figure}[H]
 \item 
 virtual std\-::shared\-\_\-ptr\\*
 $<$ \hyperlink{classmae_1_1general__enriched__pose}{general\-\_\-enriched\-\_\-pose} $>$ \hyperlink{classmae_1_1kp__detector_a782a911f14f742f1ddbe4df9cdeb8f7c}{estimate\-\_\-frame} (double framerate, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ current\-\_\-pose, std\-::list$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__enriched__pose}{general\-\_\-enriched\-\_\-pose} $>$ $>$ previous\-\_\-sequence, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts)
+\item 
+virtual void \hyperlink{classmae_1_1kp__detector_ad009c9de1b6385e7c3cd23fef98e296d}{clear\-\_\-buffer} ()
 \end{DoxyCompactItemize}
 
 
@@ -35,6 +37,17 @@ Creates a new key pose detector.
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classmae_1_1kp__detector_ad009c9de1b6385e7c3cd23fef98e296d}{\index{mae\-::kp\-\_\-detector@{mae\-::kp\-\_\-detector}!clear\-\_\-buffer@{clear\-\_\-buffer}}
+\index{clear\-\_\-buffer@{clear\-\_\-buffer}!mae::kp_detector@{mae\-::kp\-\_\-detector}}
+\subsubsection[{clear\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::kp\-\_\-detector\-::clear\-\_\-buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1kp__detector_ad009c9de1b6385e7c3cd23fef98e296d}
+Clears the buffer used to store the data. 
+
+Implements \hyperlink{classmae_1_1i__kp__detector_ad08d7a1ada8501e4302c65dd277833f7}{mae\-::i\-\_\-kp\-\_\-detector}.
+
 \hypertarget{classmae_1_1kp__detector_a782a911f14f742f1ddbe4df9cdeb8f7c}{\index{mae\-::kp\-\_\-detector@{mae\-::kp\-\_\-detector}!estimate\-\_\-frame@{estimate\-\_\-frame}}
 \index{estimate\-\_\-frame@{estimate\-\_\-frame}!mae::kp_detector@{mae\-::kp\-\_\-detector}}
 \subsubsection[{estimate\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-enriched\-\_\-pose} $>$ mae\-::kp\-\_\-detector\-::estimate\-\_\-frame (

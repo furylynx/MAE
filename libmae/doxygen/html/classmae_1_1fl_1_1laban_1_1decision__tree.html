@@ -120,6 +120,10 @@ Public Member Functions</h2></td></tr>
 &lt; std::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classmae_1_1fl_1_1laban_1_1decision__value.html">decision_value</a>&lt; T, U &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1fl_1_1laban_1_1decision__tree.html#a6ab3d42b803e53fdc22879e42cae350a">find_matches</a> (std::vector&lt; std::shared_ptr&lt; T &gt; &gt; sequence, int start_pos=0, int end_pos=-1)</td></tr>
 <tr class="separator:a6ab3d42b803e53fdc22879e42cae350a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca7c181ff309b41f333f40488beb7d09"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1fl_1_1laban_1_1decision__tree.html#aca7c181ff309b41f333f40488beb7d09">is_root_matching</a> (std::shared_ptr&lt; T &gt; item) const </td></tr>
+<tr class="separator:aca7c181ff309b41f333f40488beb7d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af60af0e00fd8e2ea821b0572ef8f1871"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1fl_1_1laban_1_1decision__tree.html#af60af0e00fd8e2ea821b0572ef8f1871">is_root_insertion_matching</a> (std::shared_ptr&lt; T &gt; item) const </td></tr>
+<tr class="separator:af60af0e00fd8e2ea821b0572ef8f1871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7eeabd5b8259cb334d30fd493bfb5f98"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1fl_1_1laban_1_1decision__tree.html#a7eeabd5b8259cb334d30fd493bfb5f98">str</a> ()</td></tr>
 <tr class="separator:a7eeabd5b8259cb334d30fd493bfb5f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -387,6 +391,74 @@ template&lt;typename T , typename U &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="af60af0e00fd8e2ea821b0572ef8f1871"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classmae_1_1fl_1_1laban_1_1decision__tree.html">mae::fl::laban::decision_tree</a>&lt; T, U &gt;::is_root_insertion_matching </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns true if the root element matches the given item for a insertion.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>The item to be compared using the decision maker. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if matching. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aca7c181ff309b41f333f40488beb7d09"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classmae_1_1fl_1_1laban_1_1decision__tree.html">mae::fl::laban::decision_tree</a>&lt; T, U &gt;::is_root_matching </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns true if the root element matches the given item.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>The item to be compared using the decision maker. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if matching. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a5131ee63acd1d486b5f6941eca413797"></a>
 <div class="memitem">
 <div class="memproto">
@@ -488,7 +560,7 @@ template&lt;typename T , typename U &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2014 12:26:19 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 23 2015 18:35:41 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
