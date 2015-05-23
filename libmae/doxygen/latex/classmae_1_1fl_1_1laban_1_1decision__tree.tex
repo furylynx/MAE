@@ -29,6 +29,10 @@ virtual std\-::vector\\*
 $<$ std\-::shared\-\_\-ptr\\*
 $<$ \hyperlink{classmae_1_1fl_1_1laban_1_1decision__value}{decision\-\_\-value}$<$ T, U $>$ $>$ $>$ \hyperlink{classmae_1_1fl_1_1laban_1_1decision__tree_a6ab3d42b803e53fdc22879e42cae350a}{find\-\_\-matches} (std\-::vector$<$ std\-::shared\-\_\-ptr$<$ T $>$ $>$ sequence, int start\-\_\-pos=0, int end\-\_\-pos=-\/1)
 \item 
+virtual bool \hyperlink{classmae_1_1fl_1_1laban_1_1decision__tree_aca7c181ff309b41f333f40488beb7d09}{is\-\_\-root\-\_\-matching} (std\-::shared\-\_\-ptr$<$ T $>$ item) const 
+\item 
+virtual bool \hyperlink{classmae_1_1fl_1_1laban_1_1decision__tree_af60af0e00fd8e2ea821b0572ef8f1871}{is\-\_\-root\-\_\-insertion\-\_\-matching} (std\-::shared\-\_\-ptr$<$ T $>$ item) const 
+\item 
 virtual std\-::string \hyperlink{classmae_1_1fl_1_1laban_1_1decision__tree_a7eeabd5b8259cb334d30fd493bfb5f98}{str} ()
 \end{DoxyCompactItemize}
 
@@ -154,6 +158,40 @@ Returns true if the sequence is empty (meaning the not root is assigned or the w
 
 \begin{DoxyReturn}{Returns}
 True if empty. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__tree_af60af0e00fd8e2ea821b0572ef8f1871}{\index{mae\-::fl\-::laban\-::decision\-\_\-tree@{mae\-::fl\-::laban\-::decision\-\_\-tree}!is\-\_\-root\-\_\-insertion\-\_\-matching@{is\-\_\-root\-\_\-insertion\-\_\-matching}}
+\index{is\-\_\-root\-\_\-insertion\-\_\-matching@{is\-\_\-root\-\_\-insertion\-\_\-matching}!mae::fl::laban::decision_tree@{mae\-::fl\-::laban\-::decision\-\_\-tree}}
+\subsubsection[{is\-\_\-root\-\_\-insertion\-\_\-matching}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ bool {\bf mae\-::fl\-::laban\-::decision\-\_\-tree}$<$ T, U $>$\-::is\-\_\-root\-\_\-insertion\-\_\-matching (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ T $>$}]{item}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1decision__tree_af60af0e00fd8e2ea821b0572ef8f1871}
+Returns true if the root element matches the given item for a insertion.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The item to be compared using the decision maker. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if matching. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1fl_1_1laban_1_1decision__tree_aca7c181ff309b41f333f40488beb7d09}{\index{mae\-::fl\-::laban\-::decision\-\_\-tree@{mae\-::fl\-::laban\-::decision\-\_\-tree}!is\-\_\-root\-\_\-matching@{is\-\_\-root\-\_\-matching}}
+\index{is\-\_\-root\-\_\-matching@{is\-\_\-root\-\_\-matching}!mae::fl::laban::decision_tree@{mae\-::fl\-::laban\-::decision\-\_\-tree}}
+\subsubsection[{is\-\_\-root\-\_\-matching}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ bool {\bf mae\-::fl\-::laban\-::decision\-\_\-tree}$<$ T, U $>$\-::is\-\_\-root\-\_\-matching (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ T $>$}]{item}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1laban_1_1decision__tree_aca7c181ff309b41f333f40488beb7d09}
+Returns true if the root element matches the given item.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The item to be compared using the decision maker. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if matching. 
 \end{DoxyReturn}
 \hypertarget{classmae_1_1fl_1_1laban_1_1decision__tree_a5131ee63acd1d486b5f6941eca413797}{\index{mae\-::fl\-::laban\-::decision\-\_\-tree@{mae\-::fl\-::laban\-::decision\-\_\-tree}!remove\-\_\-where@{remove\-\_\-where}}
 \index{remove\-\_\-where@{remove\-\_\-where}!mae::fl::laban::decision_tree@{mae\-::fl\-::laban\-::decision\-\_\-tree}}

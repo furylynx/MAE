@@ -105,6 +105,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af18795cbd5a5394b5317d7e4a8878ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53ddd0ed2b97fb1d1263882b4b4ad432"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1bone.html#a53ddd0ed2b97fb1d1263882b4b4ad432">bone</a> (e_bone eb)</td></tr>
 <tr class="separator:a53ddd0ed2b97fb1d1263882b4b4ad432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75ca635a0d3f627a1bbe5a3f1faf019a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1bone.html#a75ca635a0d3f627a1bbe5a3f1faf019a">bone</a> (e_bone eb, std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt; bones_set)</td></tr>
+<tr class="separator:a75ca635a0d3f627a1bbe5a3f1faf019a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d2e2393dd57957ff28d29697bea0249"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1bone.html#a5d2e2393dd57957ff28d29697bea0249">get_id</a> () const </td></tr>
 <tr class="separator:a5d2e2393dd57957ff28d29697bea0249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae7a08cddc8003110683412673208983"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1bone.html#aae7a08cddc8003110683412673208983">get_name</a> () const </td></tr>
@@ -122,6 +124,8 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a2d1dc38188f1eced8fdcfd787337286f"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1bone.html#a2d1dc38188f1eced8fdcfd787337286f">default_bones</a> ()</td></tr>
 <tr class="separator:a2d1dc38188f1eced8fdcfd787337286f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f5e6886baa869e257702be6e8e35317"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1bone.html#a3f5e6886baa869e257702be6e8e35317">default_kinect_bones</a> ()</td></tr>
+<tr class="separator:a3f5e6886baa869e257702be6e8e35317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -265,10 +269,44 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Creates a bone from the e_bone enum value.</p>
+<p>Creates a bone from the e_bone enum value by referring to the default bones.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">eb</td><td></td></tr>
+    <tr><td class="paramname">eb</td><td>The bone enum value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a75ca635a0d3f627a1bbe5a3f1faf019a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">mae::bone::bone </td>
+          <td>(</td>
+          <td class="paramtype">e_bone&#160;</td>
+          <td class="paramname"><em>eb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt;&#160;</td>
+          <td class="paramname"><em>bones_set</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates a bone from the e_bone enum value by referring to the given bones.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eb</td><td>The bone enum value. </td></tr>
+    <tr><td class="paramname">bones_set</td><td>The bones set to be searched for the enum value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -296,8 +334,33 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns a default bones vector that fits the needs of the OpenNI/NiTE skeletons. If the OpenNI/NiTE hierarchy is not sufficient and/or other bones are needed it must be constructed manually.</p>
-<dl class="section return"><dt>Returns</dt><dd>The default hierarchy. </dd></dl>
+<p>Returns a default bones vector that fits the needs of the OpenNI/NiTE skeletons. If the default hierarchies are not sufficient and/or other bones are needed it must be constructed manually.</p>
+<dl class="section return"><dt>Returns</dt><dd>The default bones. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3f5e6886baa869e257702be6e8e35317"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt; mae::bone::default_kinect_bones </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the default bones for the kinect skeleton. If the default hierarchies are not sufficient and/or other bones are needed it must be constructed manually.</p>
+<dl class="section return"><dt>Returns</dt><dd>The kinect bones. </dd></dl>
 
 </div>
 </div>
@@ -501,7 +564,7 @@ Static Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2014 12:26:12 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 23 2015 18:35:37 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

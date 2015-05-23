@@ -14,7 +14,7 @@ Inheritance diagram for mae\-:\-:kp\-\_\-movement\-\_\-detector$<$ T, U $>$\-:\b
 \item 
 \hyperlink{classmae_1_1kp__movement__detector_af9f13d86055607188453c57721d6227a}{kp\-\_\-movement\-\_\-detector} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1i__pose__detector}{i\-\_\-pose\-\_\-detector}$<$ T $>$ $>$ ipd, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1i__sequence__generator}{i\-\_\-sequence\-\_\-generator}$<$ U $>$ $>$ isg, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1i__kp__detector}{i\-\_\-kp\-\_\-detector} $>$ ikpd, bool debug=false)
 \item 
-virtual std\-::shared\-\_\-ptr$<$ U $>$ \hyperlink{classmae_1_1kp__movement__detector_a2aaa4c65a7735ac1d3ee201beb56b6b1}{detect\-\_\-movement} (long timestamp, double framerate, std\-::shared\-\_\-ptr$<$ T $>$ skeleton, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts)
+virtual std\-::shared\-\_\-ptr$<$ U $>$ \hyperlink{classmae_1_1kp__movement__detector_a05c206df200417ea7680eb9d8a5cb6b0}{detect\-\_\-movement} (uint64\-\_\-t timestamp, double framerate, std\-::shared\-\_\-ptr$<$ T $>$ skeleton, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts)
 \item 
 virtual void \hyperlink{classmae_1_1kp__movement__detector_a673ed3ff4f7a5cd8a02cdbe254a4508e}{set\-\_\-buffer} (int size)
 \item 
@@ -26,7 +26,7 @@ virtual void \hyperlink{classmae_1_1kp__movement__detector_a6c93647920874e88c5b6
 \item 
 virtual void \hyperlink{classmae_1_1kp__movement__detector_a5333495e30be2b0d6205cd8266d2156d}{clear\-\_\-listeners} ()
 \item 
-virtual void \hyperlink{classmae_1_1kp__movement__detector_a55fb6a221a2d067db480055a2dfb7a66}{notify\-\_\-listeners} (long timestamp, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ pose)
+virtual void \hyperlink{classmae_1_1kp__movement__detector_acdc61f7edc7fdaadb5134e6cabd04612}{notify\-\_\-listeners} (uint64\-\_\-t timestamp, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ pose)
 \item 
 virtual std\-::shared\-\_\-ptr\\*
 $<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ \hyperlink{classmae_1_1kp__movement__detector_a0cf1bb06689f4a983daed5a5fc1935c6}{get\-\_\-current\-\_\-pose} () const 
@@ -129,16 +129,16 @@ Clears all listeners, which means removing them from the detector.
 
 Implements \hyperlink{classmae_1_1i__movement__detector_a56a36a8a427feb34f970b9e259a1150f}{mae\-::i\-\_\-movement\-\_\-detector$<$ T, U $>$}.
 
-\hypertarget{classmae_1_1kp__movement__detector_a2aaa4c65a7735ac1d3ee201beb56b6b1}{\index{mae\-::kp\-\_\-movement\-\_\-detector@{mae\-::kp\-\_\-movement\-\_\-detector}!detect\-\_\-movement@{detect\-\_\-movement}}
+\hypertarget{classmae_1_1kp__movement__detector_a05c206df200417ea7680eb9d8a5cb6b0}{\index{mae\-::kp\-\_\-movement\-\_\-detector@{mae\-::kp\-\_\-movement\-\_\-detector}!detect\-\_\-movement@{detect\-\_\-movement}}
 \index{detect\-\_\-movement@{detect\-\_\-movement}!mae::kp_movement_detector@{mae\-::kp\-\_\-movement\-\_\-detector}}
 \subsubsection[{detect\-\_\-movement}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ std\-::shared\-\_\-ptr$<$ U $>$ {\bf mae\-::kp\-\_\-movement\-\_\-detector}$<$ T, U $>$\-::detect\-\_\-movement (
 \begin{DoxyParamCaption}
-\item[{long}]{timestamp, }
+\item[{uint64\-\_\-t}]{timestamp, }
 \item[{double}]{framerate, }
 \item[{std\-::shared\-\_\-ptr$<$ T $>$}]{skeleton, }
 \item[{std\-::vector$<$ {\bf bone} $>$}]{body\-\_\-parts}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1kp__movement__detector_a2aaa4c65a7735ac1d3ee201beb56b6b1}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1kp__movement__detector_a05c206df200417ea7680eb9d8a5cb6b0}
 Detects movement in the streamed skeleton sequence for the given body parts. Therefore, a buffer is used and the whole movement sequence for the buffer is returned. Invokes the pose and key pose detectors as well as the sequence generator given to this detector.
 
 
@@ -157,7 +157,7 @@ The detected movement sequence.
 \end{DoxyReturn}
 
 
-Implements \hyperlink{classmae_1_1i__movement__detector_a7b3e09f127d318b5f794e056e40b3746}{mae\-::i\-\_\-movement\-\_\-detector$<$ T, U $>$}.
+Implements \hyperlink{classmae_1_1i__movement__detector_aa3b5c4491ce4f11ef6a116ba05084f1a}{mae\-::i\-\_\-movement\-\_\-detector$<$ T, U $>$}.
 
 \hypertarget{classmae_1_1kp__movement__detector_a0cf1bb06689f4a983daed5a5fc1935c6}{\index{mae\-::kp\-\_\-movement\-\_\-detector@{mae\-::kp\-\_\-movement\-\_\-detector}!get\-\_\-current\-\_\-pose@{get\-\_\-current\-\_\-pose}}
 \index{get\-\_\-current\-\_\-pose@{get\-\_\-current\-\_\-pose}!mae::kp_movement_detector@{mae\-::kp\-\_\-movement\-\_\-detector}}
@@ -211,14 +211,14 @@ Returns the sequence generator.
 \begin{DoxyReturn}{Returns}
 The generator. 
 \end{DoxyReturn}
-\hypertarget{classmae_1_1kp__movement__detector_a55fb6a221a2d067db480055a2dfb7a66}{\index{mae\-::kp\-\_\-movement\-\_\-detector@{mae\-::kp\-\_\-movement\-\_\-detector}!notify\-\_\-listeners@{notify\-\_\-listeners}}
+\hypertarget{classmae_1_1kp__movement__detector_acdc61f7edc7fdaadb5134e6cabd04612}{\index{mae\-::kp\-\_\-movement\-\_\-detector@{mae\-::kp\-\_\-movement\-\_\-detector}!notify\-\_\-listeners@{notify\-\_\-listeners}}
 \index{notify\-\_\-listeners@{notify\-\_\-listeners}!mae::kp_movement_detector@{mae\-::kp\-\_\-movement\-\_\-detector}}
 \subsubsection[{notify\-\_\-listeners}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ void {\bf mae\-::kp\-\_\-movement\-\_\-detector}$<$ T, U $>$\-::notify\-\_\-listeners (
 \begin{DoxyParamCaption}
-\item[{long}]{timestamp, }
+\item[{uint64\-\_\-t}]{timestamp, }
 \item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-pose} $>$}]{pose}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1kp__movement__detector_a55fb6a221a2d067db480055a2dfb7a66}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1kp__movement__detector_acdc61f7edc7fdaadb5134e6cabd04612}
 Notifies all listeners on the detection of a new pose.
 
 
@@ -230,7 +230,7 @@ Notifies all listeners on the detection of a new pose.
 \end{DoxyParams}
 
 
-Implements \hyperlink{classmae_1_1i__movement__detector_a347855d153525d7e09f793ff2b17b58b}{mae\-::i\-\_\-movement\-\_\-detector$<$ T, U $>$}.
+Implements \hyperlink{classmae_1_1i__movement__detector_aebdc95347866bc2bc6b793383585fe2f}{mae\-::i\-\_\-movement\-\_\-detector$<$ T, U $>$}.
 
 \hypertarget{classmae_1_1kp__movement__detector_a6c93647920874e88c5b6293617cfdca2}{\index{mae\-::kp\-\_\-movement\-\_\-detector@{mae\-::kp\-\_\-movement\-\_\-detector}!remove\-\_\-listener@{remove\-\_\-listener}}
 \index{remove\-\_\-listener@{remove\-\_\-listener}!mae::kp_movement_detector@{mae\-::kp\-\_\-movement\-\_\-detector}}

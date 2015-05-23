@@ -109,6 +109,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a782a911f14f742f1ddbe4df9cdeb8f7c"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classmae_1_1general__enriched__pose.html">general_enriched_pose</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1kp__detector.html#a782a911f14f742f1ddbe4df9cdeb8f7c">estimate_frame</a> (double framerate, std::shared_ptr&lt; <a class="el" href="classmae_1_1general__pose.html">general_pose</a> &gt; current_pose, std::list&lt; std::shared_ptr&lt; <a class="el" href="classmae_1_1general__enriched__pose.html">general_enriched_pose</a> &gt; &gt; previous_sequence, std::vector&lt; <a class="el" href="classmae_1_1bone.html">bone</a> &gt; body_parts)</td></tr>
 <tr class="separator:a782a911f14f742f1ddbe4df9cdeb8f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad009c9de1b6385e7c3cd23fef98e296d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1kp__detector.html#ad009c9de1b6385e7c3cd23fef98e296d">clear_buffer</a> ()</td></tr>
+<tr class="separator:ad009c9de1b6385e7c3cd23fef98e296d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="acbf415da200c0e7345ea673898aa5d3f"></a>
@@ -135,6 +137,32 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ad009c9de1b6385e7c3cd23fef98e296d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mae::kp_detector::clear_buffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Clears the buffer used to store the data. </p>
+
+<p>Implements <a class="el" href="classmae_1_1i__kp__detector.html#ad08d7a1ada8501e4302c65dd277833f7">mae::i_kp_detector</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a782a911f14f742f1ddbe4df9cdeb8f7c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -201,7 +229,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2014 12:26:16 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 23 2015 18:35:39 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -128,7 +128,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                            <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keyword">virtual</span> ~<a class="code" href="classmae_1_1kp__movement__detector.html">kp_movement_detector</a>();</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keyword">virtual</span> std::shared_ptr&lt;U&gt; <a class="code" href="classmae_1_1kp__movement__detector.html#a2aaa4c65a7735ac1d3ee201beb56b6b1">detect_movement</a>(<span class="keywordtype">long</span> timestamp, <span class="keywordtype">double</span> framerate, std::shared_ptr&lt;T&gt; skeleton,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keyword">virtual</span> std::shared_ptr&lt;U&gt; <a class="code" href="classmae_1_1kp__movement__detector.html#a05c206df200417ea7680eb9d8a5cb6b0">detect_movement</a>(uint64_t timestamp, <span class="keywordtype">double</span> framerate, std::shared_ptr&lt;T&gt; skeleton,</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    std::vector&lt;bone&gt; body_parts);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classmae_1_1kp__movement__detector.html#a673ed3ff4f7a5cd8a02cdbe254a4508e">set_buffer</a>(<span class="keywordtype">int</span> size);</div>
@@ -141,7 +141,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classmae_1_1kp__movement__detector.html#a5333495e30be2b0d6205cd8266d2156d">clear_listeners</a>();</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classmae_1_1kp__movement__detector.html#a55fb6a221a2d067db480055a2dfb7a66">notify_listeners</a>(<span class="keywordtype">long</span> timestamp, std::shared_ptr&lt;general_pose&gt; pose);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classmae_1_1kp__movement__detector.html#acdc61f7edc7fdaadb5134e6cabd04612">notify_listeners</a>(uint64_t timestamp, std::shared_ptr&lt;general_pose&gt; pose);</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keyword">virtual</span> std::shared_ptr&lt;general_pose&gt; <a class="code" href="classmae_1_1kp__movement__detector.html#a0cf1bb06689f4a983daed5a5fc1935c6">get_current_pose</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
@@ -204,7 +204,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a2aaa4c65a7735ac1d3ee201beb56b6b1">  196</a></span>&#160;    std::shared_ptr&lt;U&gt; <a class="code" href="classmae_1_1kp__movement__detector.html#a2aaa4c65a7735ac1d3ee201beb56b6b1">kp_movement_detector&lt;T, U&gt;::detect_movement</a>(<span class="keywordtype">long</span> timestamp, <span class="keywordtype">double</span> framerate,</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a05c206df200417ea7680eb9d8a5cb6b0">  196</a></span>&#160;    std::shared_ptr&lt;U&gt; <a class="code" href="classmae_1_1kp__movement__detector.html#a05c206df200417ea7680eb9d8a5cb6b0">kp_movement_detector&lt;T, U&gt;::detect_movement</a>(uint64_t timestamp, <span class="keywordtype">double</span> framerate,</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            std::shared_ptr&lt;T&gt; skeleton, std::vector&lt;bone&gt; body_parts)</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    {</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">if</span> (debug_)</div>
@@ -255,100 +255,115 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    {</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        poses_.clear();</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        previous_pose_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    }</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a53f506b2d9c5bb759908a125af33f97d">  250</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmae_1_1kp__movement__detector.html#a53f506b2d9c5bb759908a125af33f97d">kp_movement_detector&lt;T, U&gt;::add_listener</a>(std::shared_ptr&lt;i_pose_listener&gt; listener)</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    {</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        listeners_.push_back(listener);</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    }</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00256"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a6c93647920874e88c5b6293617cfdca2">  256</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmae_1_1kp__movement__detector.html#a6c93647920874e88c5b6293617cfdca2">kp_movement_detector&lt;T, U&gt;::remove_listener</a>(std::shared_ptr&lt;i_pose_listener&gt; listener)</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    {</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">for</span> (std::list&lt;std::shared_ptr&lt;i_pose_listener&gt; &gt;::iterator it = listeners_.begin(); it != listeners_.end();</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                it++)</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        {</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            <span class="keywordflow">if</span> (listener == *it)</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            {</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                listeners_.erase(it);</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            }</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        }</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    }</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00270"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a5333495e30be2b0d6205cd8266d2156d">  270</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmae_1_1kp__movement__detector.html#a5333495e30be2b0d6205cd8266d2156d">kp_movement_detector&lt;T, U&gt;::clear_listeners</a>()</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    {</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        listeners_.clear();</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    }</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00276"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a55fb6a221a2d067db480055a2dfb7a66">  276</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmae_1_1kp__movement__detector.html#a55fb6a221a2d067db480055a2dfb7a66">kp_movement_detector&lt;T, U&gt;::notify_listeners</a>(<span class="keywordtype">long</span> timestamp, std::shared_ptr&lt;general_pose&gt; pose)</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    {</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="keywordflow">if</span> (debug_ &amp;&amp; listeners_.size() &gt; 0)</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        {</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;kp_movement_detector: notify (pose) listeners&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keywordflow">if</span> (ipd_ != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        {</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            ipd_-&gt;clear_buffer();</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        }</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keywordflow">if</span> (ikpd_ != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        {</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            ikpd_-&gt;clear_buffer();</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        }</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">if</span> (isg_ != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        {</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            isg_-&gt;clear_buffer();</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        }</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    }</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a53f506b2d9c5bb759908a125af33f97d">  265</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmae_1_1kp__movement__detector.html#a53f506b2d9c5bb759908a125af33f97d">kp_movement_detector&lt;T, U&gt;::add_listener</a>(std::shared_ptr&lt;i_pose_listener&gt; listener)</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        listeners_.push_back(listener);</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    }</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a6c93647920874e88c5b6293617cfdca2">  271</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmae_1_1kp__movement__detector.html#a6c93647920874e88c5b6293617cfdca2">kp_movement_detector&lt;T, U&gt;::remove_listener</a>(std::shared_ptr&lt;i_pose_listener&gt; listener)</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    {</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">for</span> (std::list&lt;std::shared_ptr&lt;i_pose_listener&gt; &gt;::iterator it = listeners_.begin(); it != listeners_.end();</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                it++)</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        {</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            <span class="keywordflow">if</span> (listener == *it)</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            {</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                listeners_.erase(it);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            }</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        }</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordflow">for</span> (std::list&lt;std::shared_ptr&lt;i_pose_listener&gt; &gt;::iterator it = listeners_.begin(); it != listeners_.end();</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                it++)</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        {</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            <span class="keywordflow">if</span> (*it != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            {</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;                (*it)-&gt;on_pose(timestamp, pose);</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            }</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        }</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    }</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00294"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a0cf1bb06689f4a983daed5a5fc1935c6">  294</a></span>&#160;    std::shared_ptr&lt;general_pose&gt; <a class="code" href="classmae_1_1kp__movement__detector.html#a0cf1bb06689f4a983daed5a5fc1935c6">kp_movement_detector&lt;T, U&gt;::get_current_pose</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keywordflow">return</span> previous_pose_;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    }</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a3ec1a3667020a0a43552c4f45d7c8967">  300</a></span>&#160;    std::shared_ptr&lt;i_pose_detector&lt;T&gt; &gt; <a class="code" href="classmae_1_1kp__movement__detector.html#a3ec1a3667020a0a43552c4f45d7c8967">kp_movement_detector&lt;T, U&gt;::get_pose_detector</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keywordflow">return</span> ipd_;</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    }</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a9335521c8d5e9a10782272bec93a8674">  306</a></span>&#160;    std::shared_ptr&lt;i_sequence_generator&lt;U&gt; &gt; <a class="code" href="classmae_1_1kp__movement__detector.html#a9335521c8d5e9a10782272bec93a8674">kp_movement_detector&lt;T, U&gt;::get_sequence_generator</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordflow">return</span> isg_;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    }</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00312"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#abbd7316e733802319ee2487728c008e5">  312</a></span>&#160;    std::shared_ptr&lt;i_kp_detector&gt; <a class="code" href="classmae_1_1kp__movement__detector.html#abbd7316e733802319ee2487728c008e5">kp_movement_detector&lt;T, U&gt;::get_kp_detector</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="keywordflow">return</span> ikpd_;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    }</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;} <span class="comment">// namespace mae</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="preprocessor">#endif // KPMOVEMENTDETECTOR_HPP_</span></div>
-<div class="ttc" id="classmae_1_1kp__movement__detector_html_a9335521c8d5e9a10782272bec93a8674"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a9335521c8d5e9a10782272bec93a8674">mae::kp_movement_detector::get_sequence_generator</a></div><div class="ttdeci">virtual std::shared_ptr&lt; i_sequence_generator&lt; U &gt; &gt; get_sequence_generator() const </div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:306</div></div>
-<div class="ttc" id="classmae_1_1kp__movement__detector_html_a3ec1a3667020a0a43552c4f45d7c8967"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a3ec1a3667020a0a43552c4f45d7c8967">mae::kp_movement_detector::get_pose_detector</a></div><div class="ttdeci">virtual std::shared_ptr&lt; i_pose_detector&lt; T &gt; &gt; get_pose_detector() const </div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:300</div></div>
-<div class="ttc" id="classmae_1_1kp__movement__detector_html_a55fb6a221a2d067db480055a2dfb7a66"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a55fb6a221a2d067db480055a2dfb7a66">mae::kp_movement_detector::notify_listeners</a></div><div class="ttdeci">virtual void notify_listeners(long timestamp, std::shared_ptr&lt; general_pose &gt; pose)</div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:276</div></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    }</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00285"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a5333495e30be2b0d6205cd8266d2156d">  285</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmae_1_1kp__movement__detector.html#a5333495e30be2b0d6205cd8266d2156d">kp_movement_detector&lt;T, U&gt;::clear_listeners</a>()</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    {</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        listeners_.clear();</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    }</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#acdc61f7edc7fdaadb5134e6cabd04612">  291</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classmae_1_1kp__movement__detector.html#acdc61f7edc7fdaadb5134e6cabd04612">kp_movement_detector&lt;T, U&gt;::notify_listeners</a>(uint64_t timestamp, std::shared_ptr&lt;general_pose&gt; pose)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    {</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordflow">if</span> (debug_ &amp;&amp; listeners_.size() &gt; 0)</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        {</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;kp_movement_detector: notify (pose) listeners&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        }</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="keywordflow">for</span> (std::list&lt;std::shared_ptr&lt;i_pose_listener&gt; &gt;::iterator it = listeners_.begin(); it != listeners_.end();</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                it++)</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        {</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            <span class="keywordflow">if</span> (*it != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            {</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                (*it)-&gt;on_pose(timestamp, pose);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            }</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        }</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    }</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00309"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a0cf1bb06689f4a983daed5a5fc1935c6">  309</a></span>&#160;    std::shared_ptr&lt;general_pose&gt; <a class="code" href="classmae_1_1kp__movement__detector.html#a0cf1bb06689f4a983daed5a5fc1935c6">kp_movement_detector&lt;T, U&gt;::get_current_pose</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="keywordflow">return</span> previous_pose_;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    }</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a3ec1a3667020a0a43552c4f45d7c8967">  315</a></span>&#160;    std::shared_ptr&lt;i_pose_detector&lt;T&gt; &gt; <a class="code" href="classmae_1_1kp__movement__detector.html#a3ec1a3667020a0a43552c4f45d7c8967">kp_movement_detector&lt;T, U&gt;::get_pose_detector</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <span class="keywordflow">return</span> ipd_;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    }</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00321"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#a9335521c8d5e9a10782272bec93a8674">  321</a></span>&#160;    std::shared_ptr&lt;i_sequence_generator&lt;U&gt; &gt; <a class="code" href="classmae_1_1kp__movement__detector.html#a9335521c8d5e9a10782272bec93a8674">kp_movement_detector&lt;T, U&gt;::get_sequence_generator</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keywordflow">return</span> isg_;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00327"></a><span class="lineno"><a class="line" href="classmae_1_1kp__movement__detector.html#abbd7316e733802319ee2487728c008e5">  327</a></span>&#160;    std::shared_ptr&lt;i_kp_detector&gt; <a class="code" href="classmae_1_1kp__movement__detector.html#abbd7316e733802319ee2487728c008e5">kp_movement_detector&lt;T, U&gt;::get_kp_detector</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keywordflow">return</span> ikpd_;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    }</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;} <span class="comment">// namespace mae</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="preprocessor">#endif // KPMOVEMENTDETECTOR_HPP_</span></div>
+<div class="ttc" id="classmae_1_1kp__movement__detector_html_a9335521c8d5e9a10782272bec93a8674"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a9335521c8d5e9a10782272bec93a8674">mae::kp_movement_detector::get_sequence_generator</a></div><div class="ttdeci">virtual std::shared_ptr&lt; i_sequence_generator&lt; U &gt; &gt; get_sequence_generator() const </div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:321</div></div>
+<div class="ttc" id="classmae_1_1kp__movement__detector_html_a3ec1a3667020a0a43552c4f45d7c8967"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a3ec1a3667020a0a43552c4f45d7c8967">mae::kp_movement_detector::get_pose_detector</a></div><div class="ttdeci">virtual std::shared_ptr&lt; i_pose_detector&lt; T &gt; &gt; get_pose_detector() const </div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:315</div></div>
 <div class="ttc" id="classmae_1_1kp__movement__detector_html"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html">mae::kp_movement_detector</a></div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:32</div></div>
 <div class="ttc" id="classmae_1_1i__movement__detector_html"><div class="ttname"><a href="classmae_1_1i__movement__detector.html">mae::i_movement_detector</a></div><div class="ttdef"><b>Definition:</b> i_movement_detector.hpp:24</div></div>
+<div class="ttc" id="classmae_1_1kp__movement__detector_html_a05c206df200417ea7680eb9d8a5cb6b0"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a05c206df200417ea7680eb9d8a5cb6b0">mae::kp_movement_detector::detect_movement</a></div><div class="ttdeci">virtual std::shared_ptr&lt; U &gt; detect_movement(uint64_t timestamp, double framerate, std::shared_ptr&lt; T &gt; skeleton, std::vector&lt; bone &gt; body_parts)</div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:196</div></div>
 <div class="ttc" id="classmae_1_1kp__detector_html"><div class="ttname"><a href="classmae_1_1kp__detector.html">mae::kp_detector</a></div><div class="ttdef"><b>Definition:</b> kp_detector.hpp:27</div></div>
-<div class="ttc" id="classmae_1_1kp__movement__detector_html_a5333495e30be2b0d6205cd8266d2156d"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a5333495e30be2b0d6205cd8266d2156d">mae::kp_movement_detector::clear_listeners</a></div><div class="ttdeci">virtual void clear_listeners()</div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:270</div></div>
-<div class="ttc" id="classmae_1_1kp__movement__detector_html_a0cf1bb06689f4a983daed5a5fc1935c6"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a0cf1bb06689f4a983daed5a5fc1935c6">mae::kp_movement_detector::get_current_pose</a></div><div class="ttdeci">virtual std::shared_ptr&lt; general_pose &gt; get_current_pose() const </div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:294</div></div>
+<div class="ttc" id="classmae_1_1kp__movement__detector_html_a5333495e30be2b0d6205cd8266d2156d"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a5333495e30be2b0d6205cd8266d2156d">mae::kp_movement_detector::clear_listeners</a></div><div class="ttdeci">virtual void clear_listeners()</div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:285</div></div>
+<div class="ttc" id="classmae_1_1kp__movement__detector_html_a0cf1bb06689f4a983daed5a5fc1935c6"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a0cf1bb06689f4a983daed5a5fc1935c6">mae::kp_movement_detector::get_current_pose</a></div><div class="ttdeci">virtual std::shared_ptr&lt; general_pose &gt; get_current_pose() const </div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:309</div></div>
 <div class="ttc" id="classmae_1_1kp__movement__detector_html_a673ed3ff4f7a5cd8a02cdbe254a4508e"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a673ed3ff4f7a5cd8a02cdbe254a4508e">mae::kp_movement_detector::set_buffer</a></div><div class="ttdeci">virtual void set_buffer(int size)</div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:237</div></div>
 <div class="ttc" id="classmae_1_1kp__movement__detector_html_a8fec5ae9e1f209fdcbeba3f86b5c3059"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a8fec5ae9e1f209fdcbeba3f86b5c3059">mae::kp_movement_detector::clear_buffer</a></div><div class="ttdeci">virtual void clear_buffer()</div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:243</div></div>
 <div class="ttc" id="classmae_1_1kp__movement__detector_html_a895e056f1ce3653b3ed71aec98b17941"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a895e056f1ce3653b3ed71aec98b17941">mae::kp_movement_detector::kp_movement_detector</a></div><div class="ttdeci">kp_movement_detector(std::shared_ptr&lt; i_pose_detector&lt; T &gt; &gt; ipd, std::shared_ptr&lt; i_sequence_generator&lt; U &gt; &gt; isg, bool debug=false)</div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:162</div></div>
 <div class="ttc" id="classmae_1_1i__sequence__generator_html"><div class="ttname"><a href="classmae_1_1i__sequence__generator.html">mae::i_sequence_generator</a></div><div class="ttdef"><b>Definition:</b> i_sequence_generator.hpp:27</div></div>
 <div class="ttc" id="classmae_1_1i__pose__detector_html"><div class="ttname"><a href="classmae_1_1i__pose__detector.html">mae::i_pose_detector</a></div><div class="ttdef"><b>Definition:</b> i_pose_detector.hpp:24</div></div>
-<div class="ttc" id="classmae_1_1kp__movement__detector_html_a53f506b2d9c5bb759908a125af33f97d"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a53f506b2d9c5bb759908a125af33f97d">mae::kp_movement_detector::add_listener</a></div><div class="ttdeci">virtual void add_listener(std::shared_ptr&lt; i_pose_listener &gt; listener)</div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:250</div></div>
-<div class="ttc" id="classmae_1_1kp__movement__detector_html_a6c93647920874e88c5b6293617cfdca2"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a6c93647920874e88c5b6293617cfdca2">mae::kp_movement_detector::remove_listener</a></div><div class="ttdeci">virtual void remove_listener(std::shared_ptr&lt; i_pose_listener &gt; listener)</div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:256</div></div>
-<div class="ttc" id="classmae_1_1kp__movement__detector_html_a2aaa4c65a7735ac1d3ee201beb56b6b1"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a2aaa4c65a7735ac1d3ee201beb56b6b1">mae::kp_movement_detector::detect_movement</a></div><div class="ttdeci">virtual std::shared_ptr&lt; U &gt; detect_movement(long timestamp, double framerate, std::shared_ptr&lt; T &gt; skeleton, std::vector&lt; bone &gt; body_parts)</div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:196</div></div>
-<div class="ttc" id="classmae_1_1kp__movement__detector_html_abbd7316e733802319ee2487728c008e5"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#abbd7316e733802319ee2487728c008e5">mae::kp_movement_detector::get_kp_detector</a></div><div class="ttdeci">virtual std::shared_ptr&lt; i_kp_detector &gt; get_kp_detector() const </div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:312</div></div>
+<div class="ttc" id="classmae_1_1kp__movement__detector_html_a53f506b2d9c5bb759908a125af33f97d"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a53f506b2d9c5bb759908a125af33f97d">mae::kp_movement_detector::add_listener</a></div><div class="ttdeci">virtual void add_listener(std::shared_ptr&lt; i_pose_listener &gt; listener)</div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:265</div></div>
+<div class="ttc" id="classmae_1_1kp__movement__detector_html_a6c93647920874e88c5b6293617cfdca2"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#a6c93647920874e88c5b6293617cfdca2">mae::kp_movement_detector::remove_listener</a></div><div class="ttdeci">virtual void remove_listener(std::shared_ptr&lt; i_pose_listener &gt; listener)</div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:271</div></div>
+<div class="ttc" id="classmae_1_1kp__movement__detector_html_abbd7316e733802319ee2487728c008e5"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#abbd7316e733802319ee2487728c008e5">mae::kp_movement_detector::get_kp_detector</a></div><div class="ttdeci">virtual std::shared_ptr&lt; i_kp_detector &gt; get_kp_detector() const </div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:327</div></div>
+<div class="ttc" id="classmae_1_1kp__movement__detector_html_acdc61f7edc7fdaadb5134e6cabd04612"><div class="ttname"><a href="classmae_1_1kp__movement__detector.html#acdc61f7edc7fdaadb5134e6cabd04612">mae::kp_movement_detector::notify_listeners</a></div><div class="ttdeci">virtual void notify_listeners(uint64_t timestamp, std::shared_ptr&lt; general_pose &gt; pose)</div><div class="ttdef"><b>Definition:</b> kp_movement_detector.hpp:291</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2014 12:26:12 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 23 2015 18:35:36 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

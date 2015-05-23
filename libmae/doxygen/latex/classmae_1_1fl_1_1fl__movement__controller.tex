@@ -16,7 +16,7 @@ Inheritance diagram for mae\-:\-:fl\-:\-:fl\-\_\-movement\-\_\-controller\-:\beg
 \item 
 \hyperlink{classmae_1_1fl_1_1fl__movement__controller_a98b3787f9a66bddd9296b05bc44d530d}{fl\-\_\-movement\-\_\-controller} (std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts, std\-::vector$<$ std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1column__definition}{laban\-::column\-\_\-definition} $>$ $>$ column\-\_\-definitions, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence__generator}{mae\-::fl\-::laban\-::laban\-\_\-sequence\-\_\-generator} $>$ sequence\-\_\-generator, unsigned int pose\-\_\-buffer\-\_\-size=0, unsigned int beats\-\_\-per\-\_\-measure=\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence_a2e64362d5cfeb89eb8545cb064e63170}{laban\-::laban\-\_\-sequence\-::default\-\_\-beats\-\_\-per\-\_\-measure}(), unsigned int beat\-\_\-duration=\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence_ac7bf04cdac0c3aed6b8ee4a887e561d9}{laban\-::laban\-\_\-sequence\-::default\-\_\-beat\-\_\-duration}(), laban\-::e\-\_\-time\-\_\-unit time\-\_\-unit=\hyperlink{classmae_1_1fl_1_1laban_1_1laban__sequence_ada28215d43d85e983fe6129e9816eed2}{laban\-::laban\-\_\-sequence\-::default\-\_\-time\-\_\-unit}(), double framerate=1.\-0/30.\-0, bool debug=false)
 \item 
-virtual void \hyperlink{classmae_1_1fl_1_1fl__movement__controller_a3eafa33ebaf85a140bcafdd1670b368c}{next\-\_\-frame} (long timestamp, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__skeleton}{general\-\_\-skeleton} $>$ skeleton)
+virtual void \hyperlink{classmae_1_1fl_1_1fl__movement__controller_a5755257514da363508ec487cb0ae13fb}{next\-\_\-frame} (uint64\-\_\-t timestamp, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__skeleton}{general\-\_\-skeleton} $>$ skeleton)
 \item 
 virtual void \hyperlink{classmae_1_1fl_1_1fl__movement__controller_a0bdd94f763b740c612475df629dc3bcf}{set\-\_\-recognition\-\_\-tolerance} (double tolerance)
 \item 
@@ -164,14 +164,14 @@ Returns the laban sequence recognizer.
 \begin{DoxyReturn}{Returns}
 The recognizer. 
 \end{DoxyReturn}
-\hypertarget{classmae_1_1fl_1_1fl__movement__controller_a3eafa33ebaf85a140bcafdd1670b368c}{\index{mae\-::fl\-::fl\-\_\-movement\-\_\-controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}!next\-\_\-frame@{next\-\_\-frame}}
+\hypertarget{classmae_1_1fl_1_1fl__movement__controller_a5755257514da363508ec487cb0ae13fb}{\index{mae\-::fl\-::fl\-\_\-movement\-\_\-controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}!next\-\_\-frame@{next\-\_\-frame}}
 \index{next\-\_\-frame@{next\-\_\-frame}!mae::fl::fl_movement_controller@{mae\-::fl\-::fl\-\_\-movement\-\_\-controller}}
 \subsubsection[{next\-\_\-frame}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::fl\-\_\-movement\-\_\-controller\-::next\-\_\-frame (
 \begin{DoxyParamCaption}
-\item[{long}]{timestamp, }
+\item[{uint64\-\_\-t}]{timestamp, }
 \item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-skeleton} $>$}]{skeleton}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__movement__controller_a3eafa33ebaf85a140bcafdd1670b368c}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__movement__controller_a5755257514da363508ec487cb0ae13fb}
 Invokes the processing for a new frame. The skeleton provides the information which is the basis for any further calculations.
 
 

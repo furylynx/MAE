@@ -16,6 +16,9 @@ virtual std\-::shared\-\_\-ptr\\*
 $<$ \hyperlink{classmae_1_1fl_1_1fl__skeleton}{fl\-\_\-skeleton} $>$ \hyperlink{classmae_1_1fl_1_1fl__skeleton__controller_a0775153d13e802f14d2df3b5bcb51ff1}{specified\-\_\-skeleton} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__skeleton}{general\-\_\-skeleton} $>$ skeleton)
 \item 
 virtual std\-::shared\-\_\-ptr\\*
+$<$ \hyperlink{classmae_1_1fl_1_1fl__skeleton}{fl\-\_\-skeleton} $>$ \hyperlink{classmae_1_1fl_1_1fl__skeleton__controller_a56a49213e8c75d8a659148965413a5a6}{specified\-\_\-skeleton} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__skeleton}{general\-\_\-skeleton} $>$ skeleton, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1math_1_1basis}{mae\-::math\-::basis} $>$ torso\-\_\-basis)
+\item 
+virtual std\-::shared\-\_\-ptr\\*
 $<$ \hyperlink{classmae_1_1math_1_1basis}{mae\-::math\-::basis} $>$ \hyperlink{classmae_1_1fl_1_1fl__skeleton__controller_a54cfb81a3be142676d73654b271b46c2}{create\-\_\-torso\-\_\-basis} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__skeleton}{general\-\_\-skeleton} $>$ skeleton)
 \end{DoxyCompactItemize}
 
@@ -76,6 +79,26 @@ The specified skeleton.
 
 Implements \hyperlink{classmae_1_1i__skeleton__controller_a5142885efc960951334765e2c66052c2}{mae\-::i\-\_\-skeleton\-\_\-controller$<$ mae\-::fl\-::fl\-\_\-skeleton $>$}.
 
+\hypertarget{classmae_1_1fl_1_1fl__skeleton__controller_a56a49213e8c75d8a659148965413a5a6}{\index{mae\-::fl\-::fl\-\_\-skeleton\-\_\-controller@{mae\-::fl\-::fl\-\_\-skeleton\-\_\-controller}!specified\-\_\-skeleton@{specified\-\_\-skeleton}}
+\index{specified\-\_\-skeleton@{specified\-\_\-skeleton}!mae::fl::fl_skeleton_controller@{mae\-::fl\-::fl\-\_\-skeleton\-\_\-controller}}
+\subsubsection[{specified\-\_\-skeleton}]{\setlength{\rightskip}{0pt plus 5cm}std\-::shared\-\_\-ptr$<$ {\bf fl\-\_\-skeleton} $>$ mae\-::fl\-::fl\-\_\-skeleton\-\_\-controller\-::specified\-\_\-skeleton (
+\begin{DoxyParamCaption}
+\item[{std\-::shared\-\_\-ptr$<$ {\bf general\-\_\-skeleton} $>$}]{skeleton, }
+\item[{std\-::shared\-\_\-ptr$<$ {\bf mae\-::math\-::basis} $>$}]{torso\-\_\-basis}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__skeleton__controller_a56a49213e8c75d8a659148965413a5a6}
+Generates the specified skeleton from the general skeleton using the given torso basis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em skeleton} & The skeleton to be translated. \\
+\hline
+{\em torso\-\_\-basis} & The torso basis meant to be used. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The specified skeleton. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

@@ -141,23 +141,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keyword">virtual</span> std::shared_ptr&lt;laban_sequence&gt; <a class="code" href="classmae_1_1fl_1_1laban_1_1laban__sequence__generator.html#a6311b99a7bf78c2d9779d601ad88353e">generate_sequence</a>(<span class="keywordtype">double</span> framerate,</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                        std::list&lt;std::shared_ptr&lt;general_enriched_pose&gt; &gt; key_poses, std::vector&lt;bone&gt; body_parts);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordtype">bool</span> debug_;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                std::vector&lt;std::shared_ptr&lt;column_definition&gt; &gt; column_definitions_;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> beats_per_measure_;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> beat_duration_;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                e_time_unit time_unit_;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classmae_1_1fl_1_1laban_1_1laban__sequence__generator.html#a6916b1796631900891e63ddbc1b7d62a">clear_buffer</a>();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keywordtype">bool</span> debug_;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                std::vector&lt;std::shared_ptr&lt;column_definition&gt; &gt; column_definitions_;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        };</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        } <span class="comment">// namespace laban</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    } <span class="comment">// namespace fl</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;} <span class="comment">// namespace mae</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif // LABAN_SEQUENCE_GENERATOR_HPP_</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> beats_per_measure_;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> beat_duration_;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                e_time_unit time_unit_;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        };</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        } <span class="comment">// namespace laban</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    } <span class="comment">// namespace fl</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <span class="comment">// namespace mae</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif // LABAN_SEQUENCE_GENERATOR_HPP_</span></div>
 <div class="ttc" id="classmae_1_1fl_1_1laban_1_1laban__sequence_html_ada28215d43d85e983fe6129e9816eed2"><div class="ttname"><a href="classmae_1_1fl_1_1laban_1_1laban__sequence.html#ada28215d43d85e983fe6129e9816eed2">mae::fl::laban::laban_sequence::default_time_unit</a></div><div class="ttdeci">static e_time_unit default_time_unit()</div><div class="ttdef"><b>Definition:</b> laban_sequence.cpp:681</div></div>
 <div class="ttc" id="classmae_1_1fl_1_1laban_1_1laban__sequence__generator_html"><div class="ttname"><a href="classmae_1_1fl_1_1laban_1_1laban__sequence__generator.html">mae::fl::laban::laban_sequence_generator</a></div><div class="ttdef"><b>Definition:</b> laban_sequence_generator.hpp:45</div></div>
 <div class="ttc" id="classmae_1_1fl_1_1laban_1_1laban__sequence_html_ac7bf04cdac0c3aed6b8ee4a887e561d9"><div class="ttname"><a href="classmae_1_1fl_1_1laban_1_1laban__sequence.html#ac7bf04cdac0c3aed6b8ee4a887e561d9">mae::fl::laban::laban_sequence::default_beat_duration</a></div><div class="ttdeci">static unsigned int default_beat_duration()</div><div class="ttdef"><b>Definition:</b> laban_sequence.cpp:671</div></div>
@@ -165,10 +167,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classmae_1_1fl_1_1laban_1_1laban__sequence_html_a2e64362d5cfeb89eb8545cb064e63170"><div class="ttname"><a href="classmae_1_1fl_1_1laban_1_1laban__sequence.html#a2e64362d5cfeb89eb8545cb064e63170">mae::fl::laban::laban_sequence::default_beats_per_measure</a></div><div class="ttdeci">static unsigned int default_beats_per_measure()</div><div class="ttdef"><b>Definition:</b> laban_sequence.cpp:676</div></div>
 <div class="ttc" id="classmae_1_1fl_1_1laban_1_1laban__sequence__generator_html_a0a792b68242d577bf3a8a627aeeaf43d"><div class="ttname"><a href="classmae_1_1fl_1_1laban_1_1laban__sequence__generator.html#a0a792b68242d577bf3a8a627aeeaf43d">mae::fl::laban::laban_sequence_generator::laban_sequence_generator</a></div><div class="ttdeci">laban_sequence_generator(bool debug=false)</div><div class="ttdef"><b>Definition:</b> laban_sequence_generator.cpp:18</div></div>
 <div class="ttc" id="classmae_1_1i__sequence__generator_html"><div class="ttname"><a href="classmae_1_1i__sequence__generator.html">mae::i_sequence_generator</a></div><div class="ttdef"><b>Definition:</b> i_sequence_generator.hpp:27</div></div>
+<div class="ttc" id="classmae_1_1fl_1_1laban_1_1laban__sequence__generator_html_a6916b1796631900891e63ddbc1b7d62a"><div class="ttname"><a href="classmae_1_1fl_1_1laban_1_1laban__sequence__generator.html#a6916b1796631900891e63ddbc1b7d62a">mae::fl::laban::laban_sequence_generator::clear_buffer</a></div><div class="ttdeci">virtual void clear_buffer()</div><div class="ttdef"><b>Definition:</b> laban_sequence_generator.cpp:159</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2014 12:26:12 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 23 2015 18:35:36 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

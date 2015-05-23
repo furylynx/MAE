@@ -109,6 +109,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0775153d13e802f14d2df3b5bcb51ff1"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classmae_1_1fl_1_1fl__skeleton.html">fl_skeleton</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1fl_1_1fl__skeleton__controller.html#a0775153d13e802f14d2df3b5bcb51ff1">specified_skeleton</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1general__skeleton.html">general_skeleton</a> &gt; skeleton)</td></tr>
 <tr class="separator:a0775153d13e802f14d2df3b5bcb51ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56a49213e8c75d8a659148965413a5a6"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classmae_1_1fl_1_1fl__skeleton.html">fl_skeleton</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1fl_1_1fl__skeleton__controller.html#a56a49213e8c75d8a659148965413a5a6">specified_skeleton</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1general__skeleton.html">general_skeleton</a> &gt; skeleton, std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1basis.html">mae::math::basis</a> &gt; torso_basis)</td></tr>
+<tr class="separator:a56a49213e8c75d8a659148965413a5a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54cfb81a3be142676d73654b271b46c2"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classmae_1_1math_1_1basis.html">mae::math::basis</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmae_1_1fl_1_1fl__skeleton__controller.html#a54cfb81a3be142676d73654b271b46c2">create_torso_basis</a> (std::shared_ptr&lt; <a class="el" href="classmae_1_1general__skeleton.html">general_skeleton</a> &gt; skeleton)</td></tr>
 <tr class="separator:a54cfb81a3be142676d73654b271b46c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -204,6 +207,49 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a56a49213e8c75d8a659148965413a5a6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classmae_1_1fl_1_1fl__skeleton.html">fl_skeleton</a> &gt; mae::fl::fl_skeleton_controller::specified_skeleton </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classmae_1_1general__skeleton.html">general_skeleton</a> &gt;&#160;</td>
+          <td class="paramname"><em>skeleton</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classmae_1_1math_1_1basis.html">mae::math::basis</a> &gt;&#160;</td>
+          <td class="paramname"><em>torso_basis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Generates the specified skeleton from the general skeleton using the given torso basis.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">skeleton</td><td>The skeleton to be translated. </td></tr>
+    <tr><td class="paramname">torso_basis</td><td>The torso basis meant to be used. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The specified skeleton. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/mae/fl/<a class="el" href="fl__skeleton__controller_8hpp_source.html">fl_skeleton_controller.hpp</a></li>
 <li>src/mae/fl/fl_skeleton_controller.cpp</li>
@@ -211,7 +257,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 19 2014 12:26:18 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 23 2015 18:35:40 for libmae by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

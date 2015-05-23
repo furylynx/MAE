@@ -21,6 +21,8 @@ $<$ \hyperlink{classmae_1_1general__pose}{mae\-::general\-\_\-pose} $>$ \hyperli
 \item 
 virtual std\-::shared\-\_\-ptr\\*
 $<$ \hyperlink{classmae_1_1general__pose}{mae\-::general\-\_\-pose} $>$ \hyperlink{classmae_1_1fl_1_1fl__pose__detector_ae7f558696efe7f55cf4895bffd234665}{vector\-\_\-pose} (std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1fl_1_1fl__skeleton}{fl\-\_\-skeleton} $>$ skeleton, std\-::vector$<$ \hyperlink{classmae_1_1bone}{bone} $>$ body\-\_\-parts, std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1general__pose}{general\-\_\-pose} $>$ previous\-\_\-pose)
+\item 
+virtual void \hyperlink{classmae_1_1fl_1_1fl__pose__detector_ad15e75a020123c1608554f0dd693758a}{clear\-\_\-buffer} ()
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -50,6 +52,17 @@ Creates a new pose detector.
 
 
 \subsection{Member Function Documentation}
+\hypertarget{classmae_1_1fl_1_1fl__pose__detector_ad15e75a020123c1608554f0dd693758a}{\index{mae\-::fl\-::fl\-\_\-pose\-\_\-detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}!clear\-\_\-buffer@{clear\-\_\-buffer}}
+\index{clear\-\_\-buffer@{clear\-\_\-buffer}!mae::fl::fl_pose_detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}}
+\subsubsection[{clear\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}void mae\-::fl\-::fl\-\_\-pose\-\_\-detector\-::clear\-\_\-buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1fl_1_1fl__pose__detector_ad15e75a020123c1608554f0dd693758a}
+Clears the buffer used to store the data. 
+
+Implements \hyperlink{classmae_1_1i__pose__detector_a7d3582d4c9c8b4ae0f4a4e0fdb1b8f92}{mae\-::i\-\_\-pose\-\_\-detector$<$ fl\-\_\-skeleton $>$}.
+
 \hypertarget{classmae_1_1fl_1_1fl__pose__detector_adb2f046d501a87de9e5589b346ef3782}{\index{mae\-::fl\-::fl\-\_\-pose\-\_\-detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}!default\-\_\-hysteresis\-\_\-val@{default\-\_\-hysteresis\-\_\-val}}
 \index{default\-\_\-hysteresis\-\_\-val@{default\-\_\-hysteresis\-\_\-val}!mae::fl::fl_pose_detector@{mae\-::fl\-::fl\-\_\-pose\-\_\-detector}}
 \subsubsection[{default\-\_\-hysteresis\-\_\-val}]{\setlength{\rightskip}{0pt plus 5cm}double mae\-::fl\-::fl\-\_\-pose\-\_\-detector\-::default\-\_\-hysteresis\-\_\-val (
