@@ -71,4 +71,8 @@ public class FlPoseDetector extends FlSkeletonPoseDetector {
     return MaeJavaJNI.FlPoseDetector_defaultHysteresisVal();
   }
 
+  public void clearBuffer() {
+    MaeJavaJNI.FlPoseDetector_clearBuffer(swigCPtr, this);
+  }
+
 }

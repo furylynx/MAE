@@ -166,8 +166,7 @@ namespace mae
 								tree_list = trees_.at(column);
 								for (unsigned int j = 0; j < tree_list.size(); j++)
 								{
-									if (decision_maker_->decide_insertion(decision_item, nullptr,
-											tree_list.at(j)->get_root()->get_decision_item(), nullptr))
+									if (tree_list.at(j)->is_root_insertion_matching(decision_item))
 									{
 										//add in reverse order to tree
 										tree_list.at(j)->add_sequence(
@@ -414,6 +413,34 @@ namespace mae
 				return sequences_;
 			}
 
+			std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > decision_forest::get_sequences_with_empty_column_at(
+					int body_part)
+			{
+				std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > tmp_seqs;
+
+				//search for sequences that have this column empty (they are possible matches)
+				for (std::list<std::shared_ptr<laban_sequence> >::iterator it = sequences_.begin();
+						it != sequences_.end(); it++)
+				{
+					if (recreated_sequences_map_.find(*it) != recreated_sequences_map_.end())
+					{
+						std::shared_ptr<laban_sequence> recreated_sequence = recreated_sequences_map_.at(*it);
+						if (recreated_sequence->get_column_movements(body_part).size() == 0)
+						{
+							//append sequence if cooldown is deactivated or sequence is not listed in the cooldown map
+							if (!cooldown_ || cooldown_set_.find(*it) == cooldown_set_.end())
+							{
+								tmp_seqs.push_back(
+										std::shared_ptr<decision_value<i_movement, laban_sequence> >(
+												new decision_value<i_movement, laban_sequence>(
+														recreated_sequence->get_column_movements(body_part), *it)));
+							}
+						}
+					}
+				}
+				return tmp_seqs;
+			}
+
 			std::vector<std::shared_ptr<laban_sequence> > decision_forest::find_submatches(double framerate,
 					std::shared_ptr<laban_sequence> whole_sequence, std::vector<bone> body_parts)
 			{
@@ -432,29 +459,9 @@ namespace mae
 					std::vector<std::shared_ptr<i_movement> > column_sequence = whole_sequence->get_column_movements(
 							body_part);
 
-					std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > tmp_seqs;
-
-					//search for sequences that have this column empty (they are possible matches)
-					for (std::list<std::shared_ptr<laban_sequence> >::iterator it = sequences_.begin();
-							it != sequences_.end(); it++)
-					{
-						if (recreated_sequences_map_.find(*it) != recreated_sequences_map_.end())
-						{
-							std::shared_ptr<laban_sequence> recreated_sequence = recreated_sequences_map_.at(*it);
-
-							if (recreated_sequence->get_column_movements(body_part).size() == 0)
-							{
-								//append sequence if cooldown is deactivated or sequence is not listed in the cooldown map
-								if (!cooldown_ || cooldown_set_.find(*it) == cooldown_set_.end())
-								{
-									tmp_seqs.push_back(
-											std::shared_ptr<decision_value<i_movement, laban_sequence> >(
-													new decision_value<i_movement, laban_sequence>(
-															recreated_sequence->get_column_movements(body_part), *it)));
-								}
-							}
-						}
-					}
+					//get sequences that have the column empty. they are potential matches
+					std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > tmp_seqs =
+							get_sequences_with_empty_column_at(body_part);
 
 					if (column_sequence.size() != 0)
 					{
@@ -474,8 +481,7 @@ namespace mae
 						for (unsigned int j = 0; j < tree_list.size(); j++)
 						{
 							//find matching tree(s)
-							if (decision_maker_->decide_match(decision_item, nullptr,
-									tree_list.at(j)->get_root()->get_decision_item(), nullptr))
+							if (tree_list.at(j)->is_root_matching(decision_item))
 							{
 								//find submatches in reverse order
 

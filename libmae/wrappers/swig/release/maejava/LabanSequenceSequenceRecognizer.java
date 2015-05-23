@@ -51,6 +51,10 @@ public class LabanSequenceSequenceRecognizer {
     MaeJavaJNI.LabanSequenceSequenceRecognizer_clearRegisteredSequences(swigCPtr, this);
   }
 
+  public void clearBuffer() {
+    MaeJavaJNI.LabanSequenceSequenceRecognizer_clearBuffer(swigCPtr, this);
+  }
+
   public int getSequenceLength(LabanSequence sequence) {
     return MaeJavaJNI.LabanSequenceSequenceRecognizer_getSequenceLength(swigCPtr, this, LabanSequence.getCPtr(sequence), sequence);
   }

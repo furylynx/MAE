@@ -90,6 +90,10 @@ public class LabanSequenceRecognizer extends LabanSequenceSequenceRecognizer {
     MaeJavaJNI.LabanSequenceRecognizer_clearRegisteredSequences(swigCPtr, this);
   }
 
+  public void clearBuffer() {
+    MaeJavaJNI.LabanSequenceRecognizer_clearBuffer(swigCPtr, this);
+  }
+
   public LabanSequenceList getRegisteredSequences() {
     return new LabanSequenceList(MaeJavaJNI.LabanSequenceRecognizer_getRegisteredSequences(swigCPtr, this), true);
   }

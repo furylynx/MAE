@@ -9259,6 +9259,32 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_FlSkeletonPoseDetector_1pose(JN
 }
 
 
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlSkeletonPoseDetector_1clearBuffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::i_pose_detector< mae::fl::fl_skeleton > *arg1 = (mae::i_pose_detector< mae::fl::fl_skeleton > *) 0 ;
+  std::shared_ptr< mae::i_pose_detector< mae::fl::fl_skeleton > > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::i_pose_detector<mae::fl::fl_skeleton> > **)&jarg1;
+  arg1 = (mae::i_pose_detector<mae::fl::fl_skeleton> *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      (arg1)->clear_buffer();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
 SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1FlPoseDetector_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jdouble jarg1, jboolean jarg2) {
   jlong jresult = 0 ;
   double arg1 ;
@@ -9547,6 +9573,32 @@ SWIGEXPORT jdouble JNICALL Java_maejava_MaeJavaJNI_FlPoseDetector_1defaultHyster
   }
   jresult = (jdouble)result; 
   return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_FlPoseDetector_1clearBuffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::fl::fl_pose_detector *arg1 = (mae::fl::fl_pose_detector *) 0 ;
+  std::shared_ptr< mae::fl::fl_pose_detector > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::fl_pose_detector > **)&jarg1;
+  arg1 = (mae::fl::fl_pose_detector *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      (arg1)->clear_buffer();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
 }
 
 
@@ -15801,6 +15853,32 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1clear(JNIEnv *je
 }
 
 
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1clearBuffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
+  std::shared_ptr< mae::fl::laban::decision_forest > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::decision_forest > **)&jarg1;
+  arg1 = (mae::fl::laban::decision_forest *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      (arg1)->clear_buffer();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
 SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_DecisionForest_1addRewritingRule_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_, jlong jarg3) {
   mae::fl::laban::decision_forest *arg1 = (mae::fl::laban::decision_forest *) 0 ;
   std::vector< std::shared_ptr< mae::fl::laban::i_movement > > arg2 ;
@@ -16686,6 +16764,32 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceRecognizer_
 }
 
 
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceRecognizer_1clearBuffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> > **)&jarg1;
+  arg1 = (mae::i_sequence_recognizer<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      (arg1)->clear_buffer();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
 SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceRecognizer_1getSequenceLength(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
   jint jresult = 0 ;
   mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_recognizer< mae::fl::laban::laban_sequence > *) 0 ;
@@ -17223,6 +17327,32 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1clearRe
 }
 
 
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1clearBuffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence_recognizer > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::laban_sequence_recognizer > **)&jarg1;
+  arg1 = (mae::fl::laban::laban_sequence_recognizer *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      (arg1)->clear_buffer();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
 SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceRecognizer_1getRegisteredSequences(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jlong jresult = 0 ;
   mae::fl::laban::laban_sequence_recognizer *arg1 = (mae::fl::laban::laban_sequence_recognizer *) 0 ;
@@ -17436,6 +17566,32 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceGenerator_
   }
   *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(result) : 0; 
   return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceSequenceGenerator_1clearBuffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::i_sequence_generator< mae::fl::laban::laban_sequence > *arg1 = (mae::i_sequence_generator< mae::fl::laban::laban_sequence > *) 0 ;
+  std::shared_ptr< mae::i_sequence_generator< mae::fl::laban::laban_sequence > > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::i_sequence_generator<mae::fl::laban::laban_sequence> > **)&jarg1;
+  arg1 = (mae::i_sequence_generator<mae::fl::laban::laban_sequence> *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      (arg1)->clear_buffer();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
 }
 
 
@@ -17760,6 +17916,32 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_LabanSequenceGenerator_1generat
   }
   *(std::shared_ptr< mae::fl::laban::laban_sequence > **)&jresult = result ? new std::shared_ptr< mae::fl::laban::laban_sequence >(result) : 0; 
   return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_LabanSequenceGenerator_1clearBuffer(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  mae::fl::laban::laban_sequence_generator *arg1 = (mae::fl::laban::laban_sequence_generator *) 0 ;
+  std::shared_ptr< mae::fl::laban::laban_sequence_generator > *smartarg1 = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  
+  smartarg1 = *(std::shared_ptr<  mae::fl::laban::laban_sequence_generator > **)&jarg1;
+  arg1 = (mae::fl::laban::laban_sequence_generator *)(smartarg1 ? smartarg1->get() : 0); 
+  {
+    try {
+      (arg1)->clear_buffer();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
 }
 
 
