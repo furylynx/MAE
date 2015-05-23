@@ -40,4 +40,8 @@ public class LabanSequenceSequenceGenerator {
     return (cPtr == 0) ? null : new LabanSequence(cPtr, true);
   }
 
+  public void clearBuffer() {
+    MaeJavaJNI.LabanSequenceSequenceGenerator_clearBuffer(swigCPtr, this);
+  }
+
 }

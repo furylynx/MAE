@@ -115,6 +115,10 @@ public class DecisionForest {
     MaeJavaJNI.DecisionForest_clear(swigCPtr, this);
   }
 
+  public void clearBuffer() {
+    MaeJavaJNI.DecisionForest_clearBuffer(swigCPtr, this);
+  }
+
   public void addRewritingRule(IMovementVector sequence, IMovementVectorVector replacements) {
     MaeJavaJNI.DecisionForest_addRewritingRule__SWIG_0(swigCPtr, this, IMovementVector.getCPtr(sequence), sequence, IMovementVectorVector.getCPtr(replacements));
   }

@@ -40,4 +40,8 @@ public class FlSkeletonPoseDetector {
     return (cPtr == 0) ? null : new GeneralPose(cPtr, true);
   }
 
+  public void clearBuffer() {
+    MaeJavaJNI.FlSkeletonPoseDetector_clearBuffer(swigCPtr, this);
+  }
+
 }

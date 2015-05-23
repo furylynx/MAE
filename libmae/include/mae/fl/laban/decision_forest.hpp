@@ -206,6 +206,9 @@ namespace mae
 					 */
 					virtual std::string str() const;
 
+				protected:
+					std::vector<std::shared_ptr<decision_value<i_movement, laban_sequence> > > get_sequences_with_empty_column_at(
+							int body_part);
 
 				private:
 					std::vector<std::shared_ptr<column_definition> > column_definitions_;
