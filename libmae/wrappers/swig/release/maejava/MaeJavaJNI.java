@@ -286,6 +286,7 @@ public class MaeJavaJNI {
   public final static native String FlSkeleton_str(long jarg1, FlSkeleton jarg1_);
   public final static native void delete_FlSkeletonPoseDetector(long jarg1);
   public final static native long FlSkeletonPoseDetector_pose(long jarg1, FlSkeletonPoseDetector jarg1_, double jarg2, long jarg3, FlSkeleton jarg3_, long jarg4, BoneVector jarg4_, long jarg5, GeneralPose jarg5_);
+  public final static native void FlSkeletonPoseDetector_clearBuffer(long jarg1, FlSkeletonPoseDetector jarg1_);
   public final static native long new_FlPoseDetector__SWIG_0(double jarg1, boolean jarg2);
   public final static native long new_FlPoseDetector__SWIG_1(double jarg1);
   public final static native long new_FlPoseDetector__SWIG_2();
@@ -295,6 +296,7 @@ public class MaeJavaJNI {
   public final static native long FlPoseDetector_pose(long jarg1, FlPoseDetector jarg1_, double jarg2, long jarg3, FlSkeleton jarg3_, long jarg4, BoneVector jarg4_, long jarg5, GeneralPose jarg5_);
   public final static native long FlPoseDetector_vectorPose(long jarg1, FlPoseDetector jarg1_, long jarg2, FlSkeleton jarg2_, long jarg3, BoneVector jarg3_, long jarg4, GeneralPose jarg4_);
   public final static native double FlPoseDetector_defaultHysteresisVal();
+  public final static native void FlPoseDetector_clearBuffer(long jarg1, FlPoseDetector jarg1_);
   public final static native void delete_IPreSign(long jarg1);
   public final static native String IPreSign_xml__SWIG_0(long jarg1, IPreSign jarg1_, long jarg2, String jarg3);
   public final static native String IPreSign_xml__SWIG_1(long jarg1, IPreSign jarg1_, long jarg2);
@@ -494,6 +496,7 @@ public class MaeJavaJNI {
   public final static native boolean DecisionForest_removeSequence__SWIG_0(long jarg1, DecisionForest jarg1_, long jarg2, LabanSequence jarg2_);
   public final static native boolean DecisionForest_removeSequence__SWIG_1(long jarg1, DecisionForest jarg1_, long jarg2);
   public final static native void DecisionForest_clear(long jarg1, DecisionForest jarg1_);
+  public final static native void DecisionForest_clearBuffer(long jarg1, DecisionForest jarg1_);
   public final static native void DecisionForest_addRewritingRule__SWIG_0(long jarg1, DecisionForest jarg1_, long jarg2, IMovementVector jarg2_, long jarg3);
   public final static native void DecisionForest_addRewritingRule__SWIG_1(long jarg1, DecisionForest jarg1_, long jarg2);
   public final static native long DecisionForest_recreateSequence(long jarg1, DecisionForest jarg1_, long jarg2, LabanSequence jarg2_);
@@ -524,6 +527,7 @@ public class MaeJavaJNI {
   public final static native boolean LabanSequenceSequenceRecognizer_deregisterSequence__SWIG_0(long jarg1, LabanSequenceSequenceRecognizer jarg1_, long jarg2, LabanSequence jarg2_);
   public final static native boolean LabanSequenceSequenceRecognizer_deregisterSequence__SWIG_1(long jarg1, LabanSequenceSequenceRecognizer jarg1_, long jarg2);
   public final static native void LabanSequenceSequenceRecognizer_clearRegisteredSequences(long jarg1, LabanSequenceSequenceRecognizer jarg1_);
+  public final static native void LabanSequenceSequenceRecognizer_clearBuffer(long jarg1, LabanSequenceSequenceRecognizer jarg1_);
   public final static native int LabanSequenceSequenceRecognizer_getSequenceLength(long jarg1, LabanSequenceSequenceRecognizer jarg1_, long jarg2, LabanSequence jarg2_);
   public final static native long LabanSequenceSequenceRecognizer_recognizeSequence(long jarg1, LabanSequenceSequenceRecognizer jarg1_, double jarg2, long jarg3, LabanSequence jarg3_, long jarg4, BoneVector jarg4_);
   public final static native long new_LabanSequenceRecognizer__SWIG_0(boolean jarg1);
@@ -540,12 +544,14 @@ public class MaeJavaJNI {
   public final static native boolean LabanSequenceRecognizer_deregisterSequence__SWIG_0(long jarg1, LabanSequenceRecognizer jarg1_, long jarg2, LabanSequence jarg2_);
   public final static native boolean LabanSequenceRecognizer_deregisterSequence__SWIG_1(long jarg1, LabanSequenceRecognizer jarg1_, long jarg2);
   public final static native void LabanSequenceRecognizer_clearRegisteredSequences(long jarg1, LabanSequenceRecognizer jarg1_);
+  public final static native void LabanSequenceRecognizer_clearBuffer(long jarg1, LabanSequenceRecognizer jarg1_);
   public final static native long LabanSequenceRecognizer_getRegisteredSequences(long jarg1, LabanSequenceRecognizer jarg1_);
   public final static native int LabanSequenceRecognizer_getSequenceLength(long jarg1, LabanSequenceRecognizer jarg1_, long jarg2, LabanSequence jarg2_);
   public final static native long LabanSequenceRecognizer_recognizeSequence(long jarg1, LabanSequenceRecognizer jarg1_, double jarg2, long jarg3, LabanSequence jarg3_, long jarg4, BoneVector jarg4_);
   public final static native String LabanSequenceRecognizer_str(long jarg1, LabanSequenceRecognizer jarg1_);
   public final static native void delete_LabanSequenceSequenceGenerator(long jarg1);
   public final static native long LabanSequenceSequenceGenerator_generateSequence(long jarg1, LabanSequenceSequenceGenerator jarg1_, double jarg2, long jarg3, EnrichedPoseList jarg3_, long jarg4, BoneVector jarg4_);
+  public final static native void LabanSequenceSequenceGenerator_clearBuffer(long jarg1, LabanSequenceSequenceGenerator jarg1_);
   public final static native long new_LabanSequenceGenerator__SWIG_0(boolean jarg1);
   public final static native long new_LabanSequenceGenerator__SWIG_1();
   public final static native long new_LabanSequenceGenerator__SWIG_2(long jarg1, ColumnDefinitionVector jarg1_, long jarg2, long jarg3, int jarg4, boolean jarg5);
@@ -555,6 +561,7 @@ public class MaeJavaJNI {
   public final static native long new_LabanSequenceGenerator__SWIG_6(long jarg1, ColumnDefinitionVector jarg1_);
   public final static native void delete_LabanSequenceGenerator(long jarg1);
   public final static native long LabanSequenceGenerator_generateSequence(long jarg1, LabanSequenceGenerator jarg1_, double jarg2, long jarg3, EnrichedPoseList jarg3_, long jarg4, BoneVector jarg4_);
+  public final static native void LabanSequenceGenerator_clearBuffer(long jarg1, LabanSequenceGenerator jarg1_);
   public final static native void delete_LabanSequenceSequenceListener(long jarg1);
   public final static native void LabanSequenceSequenceListener_onSequence(long jarg1, LabanSequenceSequenceListener jarg1_, java.math.BigInteger jarg2, long jarg3, LabanSequence jarg3_);
   public final static native void delete_LabanSequenceRecognition_listener(long jarg1);

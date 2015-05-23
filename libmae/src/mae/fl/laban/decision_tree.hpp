@@ -117,6 +117,22 @@ namespace mae
 							int start_pos = 0, int end_pos = -1);
 
 					/**
+					 * Returns true if the root element matches the given item.
+					 *
+					 * @param item The item to be compared using the decision maker.
+					 * @return True if matching.
+					 */
+					virtual bool is_root_matching(std::shared_ptr<T> item) const;
+
+					/**
+					 * Returns true if the root element matches the given item for a insertion.
+					 *
+					 * @param item The item to be compared using the decision maker.
+					 * @return True if matching.
+					 */
+					virtual bool is_root_insertion_matching(std::shared_ptr<T> item) const;
+
+					/**
 					 * Returns the string representation for this tree.
 					 * @return The string.
 					 */
@@ -280,6 +296,18 @@ namespace mae
 					return root_->find_matches(sequence, start_pos, end_pos);
 				}
 			}
+
+			template<typename T, typename U>
+			bool decision_tree<T, U>::is_root_matching(std::shared_ptr<T> item) const {
+				return decision_maker_->decide_match(item, nullptr, root_->get_decision_item(), nullptr);
+			}
+
+			template<typename T, typename U>
+			bool decision_tree<T, U>::is_root_insertion_matching(std::shared_ptr<T> item) const {
+				return decision_maker_->decide_insertion(item, nullptr, root_->get_decision_item(), nullptr);
+			}
+
+
 
 			template<typename T, typename U>
 			std::string decision_tree<T, U>::str()
