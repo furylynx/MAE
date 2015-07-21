@@ -4,13 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/mae/eventing/cs_base.cpp 
+../src/mae/eventing/cs_base.cpp \
+../src/mae/eventing/mxml.cpp 
 
 OBJS += \
-./src/mae/eventing/cs_base.o 
+./src/mae/eventing/cs_base.o \
+./src/mae/eventing/mxml.o 
 
 CPP_DEPS += \
-./src/mae/eventing/cs_base.d 
+./src/mae/eventing/cs_base.d \
+./src/mae/eventing/mxml.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

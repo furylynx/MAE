@@ -1,9 +1,9 @@
 src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  ../src/mae/eventing/fl/fl_server.hpp \
- ../src/mae/eventing/fl/../../indexer_fix.hpp \
+ ../src/mae/eventing/fl/../indexer_fix.hpp \
  ../src/mae/eventing/fl/laban_serializer.hpp \
  ../src/mae/eventing/fl/../i_sequence_serializer.hpp \
- ../src/mae/eventing/fl/../../indexer_fix.hpp \
+ ../src/mae/eventing/fl/../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/laban_sequence.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/column_definition.hpp \
@@ -13,6 +13,7 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../e_bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../e_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../e_kinect_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../math/math.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../math/../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../math/../fl/angular_joint.hpp \
@@ -46,9 +47,7 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  ../src/mae/eventing/fl/../server.hpp \
  ../src/mae/eventing/fl/../i_sequence_serializer.hpp \
  ../src/mae/eventing/fl/../i_registration_manager.hpp \
- ../src/mae/eventing/fl/../cs_base.hpp \
- ../src/mae/eventing/fl/../../mxml.hpp \
- ../src/mae/eventing/fl/../../indexer_fix.hpp \
+ ../src/mae/eventing/fl/../cs_base.hpp ../src/mae/eventing/fl/../mxml.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/mae.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/general_enriched_pose.hpp \
@@ -56,6 +55,7 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/general_pose.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/hierarchy.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/e_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/e_kinect_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/hierarchy_element.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/movement_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/kp_movement_detector.hpp \
@@ -77,6 +77,7 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/ini_reader.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/mos.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/mbool.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/math/math.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/angular_skeleton_controller.hpp \
@@ -98,6 +99,11 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_spec.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_data.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/msr_data_controller.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/msr_data.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/msr_spec.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/../hierarchy.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/../hierarchy_element.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl_movement_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl_pose_detector.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/../i_pose_detector.hpp \
@@ -276,13 +282,13 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 
 ../src/mae/eventing/fl/fl_server.hpp:
 
-../src/mae/eventing/fl/../../indexer_fix.hpp:
+../src/mae/eventing/fl/../indexer_fix.hpp:
 
 ../src/mae/eventing/fl/laban_serializer.hpp:
 
 ../src/mae/eventing/fl/../i_sequence_serializer.hpp:
 
-../src/mae/eventing/fl/../../indexer_fix.hpp:
+../src/mae/eventing/fl/../indexer_fix.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/laban_sequence.hpp:
 
@@ -301,6 +307,8 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../e_bone.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../e_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../e_kinect_joint.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../math/math.hpp:
 
@@ -370,9 +378,7 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 
 ../src/mae/eventing/fl/../cs_base.hpp:
 
-../src/mae/eventing/fl/../../mxml.hpp:
-
-../src/mae/eventing/fl/../../indexer_fix.hpp:
+../src/mae/eventing/fl/../mxml.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/mae.hpp:
 
@@ -387,6 +393,8 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 /sda7/data/workspace-git/MAE/libmae/include/mae/hierarchy.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/e_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/e_kinect_joint.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/hierarchy_element.hpp:
 
@@ -430,6 +438,8 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/mos.hpp:
 
+/sda7/data/workspace-git/MAE/libmae/include/mae/mbool.hpp:
+
 /sda7/data/workspace-git/MAE/libmae/include/mae/math/math.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl.hpp:
@@ -471,6 +481,16 @@ src/mae/eventing/fl/fl_server.d: ../src/mae/eventing/fl/fl_server.cpp \
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_spec.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_data.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/msr_data_controller.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/msr_data.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/msr_spec.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/../hierarchy.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/../hierarchy_element.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl_movement_controller.hpp:
 

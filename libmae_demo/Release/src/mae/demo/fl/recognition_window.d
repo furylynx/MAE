@@ -49,6 +49,7 @@ src/mae/demo/fl/recognition_window.d: \
  /sda7/data/workspace-git/MAE/libmae/include/mae/e_bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/mstr.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/e_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/e_kinect_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/general_enriched_pose.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/general_pose.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/hierarchy.hpp \
@@ -100,6 +101,11 @@ src/mae/demo/fl/recognition_window.d: \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_spec.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_data.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/msr_data_controller.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/msr_data.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/msr_spec.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/../hierarchy.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/../hierarchy_element.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl_movement_controller.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl_pose_detector.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/../i_pose_detector.hpp \
@@ -305,6 +311,8 @@ src/mae/demo/fl/recognition_window.d: \
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/e_joint.hpp:
 
+/sda7/data/workspace-git/MAE/libmae/include/mae/e_kinect_joint.hpp:
+
 /sda7/data/workspace-git/MAE/libmae/include/mae/general_enriched_pose.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/general_pose.hpp:
@@ -406,6 +414,16 @@ src/mae/demo/fl/recognition_window.d: \
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_spec.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/bvh_data.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/msr_data_controller.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/msr_data.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/msr_spec.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/../hierarchy.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/../hierarchy_element.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/fl_movement_controller.hpp:
 

@@ -6,11 +6,11 @@
 CXX_SRCS += \
 ../wrappers/swig/release/mae_wrap_java.cxx 
 
-OBJS += \
-./wrappers/swig/release/mae_wrap_java.o 
-
 CXX_DEPS += \
 ./wrappers/swig/release/mae_wrap_java.d 
+
+OBJS += \
+./wrappers/swig/release/mae_wrap_java.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes

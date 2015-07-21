@@ -1,9 +1,9 @@
 src/mae/eventing/fl/laban_serializer.d: \
  ../src/mae/eventing/fl/laban_serializer.cpp \
  ../src/mae/eventing/fl/laban_serializer.hpp \
- ../src/mae/eventing/fl/../../indexer_fix.hpp \
+ ../src/mae/eventing/fl/../indexer_fix.hpp \
  ../src/mae/eventing/fl/../i_sequence_serializer.hpp \
- ../src/mae/eventing/fl/../../indexer_fix.hpp \
+ ../src/mae/eventing/fl/../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/laban_sequence.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/column_definition.hpp \
@@ -13,6 +13,7 @@ src/mae/eventing/fl/laban_serializer.d: \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../e_bone.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../e_joint.hpp \
+ /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../e_kinect_joint.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../math/math.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../math/../indexer_fix.hpp \
  /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../math/../fl/angular_joint.hpp \
@@ -46,11 +47,11 @@ src/mae/eventing/fl/laban_serializer.d: \
 
 ../src/mae/eventing/fl/laban_serializer.hpp:
 
-../src/mae/eventing/fl/../../indexer_fix.hpp:
+../src/mae/eventing/fl/../indexer_fix.hpp:
 
 ../src/mae/eventing/fl/../i_sequence_serializer.hpp:
 
-../src/mae/eventing/fl/../../indexer_fix.hpp:
+../src/mae/eventing/fl/../indexer_fix.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/laban_sequence.hpp:
 
@@ -69,6 +70,8 @@ src/mae/eventing/fl/laban_serializer.d: \
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../e_bone.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../e_joint.hpp:
+
+/sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../e_kinect_joint.hpp:
 
 /sda7/data/workspace-git/MAE/libmae/include/mae/fl/laban/../../math/math.hpp:
 
