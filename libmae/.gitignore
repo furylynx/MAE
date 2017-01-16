@@ -1,3 +1,38 @@
+# ignored files
+
+# autotools files
+INSTALL
+Makefile
+Makefile.am
+Makefile.in
+aclocal.m4
+/m4/
+/autom4te.cache/
+compile
+config.guess
+config.log
+config.status
+config.sub
+configure
+depcomp
+install-sh
+libmae.pc
+libmae.pc.in
+libtool
+ltmain.sh
+missing
+.libs/
+.deps/
+.dirstamp
+
+#object files
+*.o
+*.lo
+
+# Release folders
+/Release
 /Release-W64/
 /Release-W64-static/
 /Release-W32/
+
+/Debug/
