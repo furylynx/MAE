@@ -16,19 +16,19 @@ do
 	#handle glitch in the matrix...
 	if [ test -d "$JNI_INCLUDE_DIR/linux" ]; then
 		CPPFLAGS="$CPPFLAGS -I$JNI_INCLUDE_DIR/linux"
-	elif [ test -d "$JNI_INCLUDE_DIR/win32" ]; then 
+	elif [ test -d "$JNI_INCLUDE_DIR/win32" ]; then
 		CPPFLAGS="$CPPFLAGS -I$JNI_INCLUDE_DIR/win32"
-	elif [ test -d "$JNI_INCLUDE_DIR/genunix" ]; then 
+	elif [ test -d "$JNI_INCLUDE_DIR/genunix" ]; then
 		CPPFLAGS="$CPPFLAGS -I$JNI_INCLUDE_DIR/genunix"
-	elif [ test -d "$JNI_INCLUDE_DIR/bsdos" ]; then 
+	elif [ test -d "$JNI_INCLUDE_DIR/bsdos" ]; then
 		CPPFLAGS="$CPPFLAGS -I$JNI_INCLUDE_DIR/bsdos"
-	elif [ test -d "$JNI_INCLUDE_DIR/freebsd" ]; then 
+	elif [ test -d "$JNI_INCLUDE_DIR/freebsd" ]; then
 		CPPFLAGS="$CPPFLAGS -I$JNI_INCLUDE_DIR/freebsd"
-	elif [ test -d "$JNI_INCLUDE_DIR/darwin" ]; then 
+	elif [ test -d "$JNI_INCLUDE_DIR/darwin" ]; then
 		CPPFLAGS="$CPPFLAGS -I$JNI_INCLUDE_DIR/darwin"
-	elif [ test -d "$JNI_INCLUDE_DIR/alpha" ]; then 
+	elif [ test -d "$JNI_INCLUDE_DIR/alpha" ]; then
 		CPPFLAGS="$CPPFLAGS -I$JNI_INCLUDE_DIR/alpha"
-	elif [ test -d "$JNI_INCLUDE_DIR/solaris" ]; then 
+	elif [ test -d "$JNI_INCLUDE_DIR/solaris" ]; then
 		CPPFLAGS="$CPPFLAGS -I$JNI_INCLUDE_DIR/solaris"
 	fi
 done
@@ -47,7 +47,8 @@ AC_SUBST(LIBXMLXX_LIBS)
 AC_PROG_CXX
 
 #c++11 setup
-AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
+AX_CXX_COMPILE_STDCXX_11(noext,mandatory)
+#AX_CXX_COMPILE_STDCXX_11()
 
 #initialize lt - create a .so file in the end
 LT_INIT
