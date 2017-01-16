@@ -28,6 +28,7 @@ missing
 #object files
 *.o
 *.lo
+*.la
 
 # Release folders
 /Release
