@@ -20,7 +20,7 @@ echo 'pkgconfig_DATA = libmae_demo.pc' >> Makefile.am
 echo 'SUBDIRS = include \n' >> Makefile.am 
 
 echo 'lib_LTLIBRARIES = '$LIB' \n' >> Makefile.am 
-echo -n $LIBLA'_SOURCES = ' >> Makefile.am 
+echo $LIBLA'_SOURCES = \' >> Makefile.am 
 
 # find all source files in the folders src/ and wrappers/ recursively and print them to the Makefile.am
 find . -type f \( -path "./src/*" -o -path "./wrappers/*" \)  \( -name *.cpp -o -name *.cxx -o -name *.c -o -name *.cc -o -name *.hh \) | sed 's/\.\///g' | sed ':a;N;$!ba;s/\n/ \\\n/g' >> Makefile.am 
@@ -37,7 +37,7 @@ echo '\nACLOCAL_AMFLAGS = -I m4' >> Makefile.am
 
 # update makefile for includes...
 
-echo -n '\nnobase_include_HEADERS = ' > include/Makefile.am 
+echo '\nnobase_include_HEADERS = \' > include/Makefile.am 
 
 # find all header files in the folder include/ recursively and print them to the Makefile.am
 find . -type f -path "./include/*"  \( -name *.hpp -o -name *.h \) | sed 's/\.\/include\///g' | sed ':a;N;$!ba;s/\n/ \\\n/g' >> include/Makefile.am 
