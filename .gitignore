@@ -18,6 +18,12 @@ depcomp
 install-sh
 libmae.pc
 libmae.pc.in
+libmae_demo.pc
+libmae_demo.pc.in
+libmae_eventing.pc
+libmae_eventing.pc.in
+libmae_nite.pc
+libmae_nite.pc.in
 libtool
 ltmain.sh
 missing
