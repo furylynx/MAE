@@ -6,8 +6,8 @@ Makefile
 Makefile.am
 Makefile.in
 aclocal.m4
-/m4/
-/autom4te.cache/
+m4/
+autom4te.cache/
 compile
 config.guess
 config.log
@@ -31,9 +31,9 @@ missing
 *.la
 
 # Release folders
-/Release
-/Release-W64/
-/Release-W64-static/
-/Release-W32/
+Release
+Release-W64/
+Release-W64-static/
+Release-W32/
 
-/Debug/
+Debug/
