@@ -26,7 +26,7 @@ AC_SUBST(SDLTTF_LIBS)
 AC_PROG_CXX
 
 #c++11 setup
-AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
+AX_CXX_COMPILE_STDCXX_11(noext,mandatory)
 
 #initialize lt - create a .so file in the end
 LT_INIT
