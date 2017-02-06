@@ -1,0 +1,165 @@
+\hypertarget{classmae_1_1nite_1_1device__info}{\section{mae\-:\-:nite\-:\-:device\-\_\-info Class Reference}
+\label{classmae_1_1nite_1_1device__info}\index{mae\-::nite\-::device\-\_\-info@{mae\-::nite\-::device\-\_\-info}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmae_1_1nite_1_1device__info_a12c9f54dcd17a13dba7395e1c614156e}{device\-\_\-info} (std\-::string device\-\_\-name, std\-::string device\-\_\-serial, std\-::string vendor\-\_\-name, std\-::string creation\-\_\-info)
+\item 
+virtual std\-::string \hyperlink{classmae_1_1nite_1_1device__info_a146bb2e6d347c51e4884deda987a0694}{get\-\_\-device\-\_\-name} () const 
+\item 
+virtual std\-::string \hyperlink{classmae_1_1nite_1_1device__info_ab6a9a4aefb74b14184325421d9d044ca}{get\-\_\-device\-\_\-serial} () const 
+\item 
+virtual std\-::string \hyperlink{classmae_1_1nite_1_1device__info_abe6480f2e99988bde294113e8d2321ac}{get\-\_\-vendor\-\_\-name} () const 
+\item 
+virtual std\-::string \hyperlink{classmae_1_1nite_1_1device__info_ad4194bd00622daeb00426650e0c3f556}{get\-\_\-creation\-\_\-info} () const 
+\item 
+virtual std\-::string \hyperlink{classmae_1_1nite_1_1device__info_a30298bd4bec27d97886660d1164978b8}{str} () const 
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classmae_1_1nite_1_1device__info_a26004836b5d6132cf9b19c7b95aab888}{operator$<$$<$} (std\-::ostream \&os, const std\-::shared\-\_\-ptr$<$ \hyperlink{classmae_1_1nite_1_1device__info}{device\-\_\-info} $>$ \&obj)
+\item 
+std\-::ostream \& \hyperlink{classmae_1_1nite_1_1device__info_a1ff7d247ebb4625af718ff0874ad78ca}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classmae_1_1nite_1_1device__info}{device\-\_\-info} \&obj)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmae_1_1nite_1_1device__info_a12c9f54dcd17a13dba7395e1c614156e}{\index{mae\-::nite\-::device\-\_\-info@{mae\-::nite\-::device\-\_\-info}!device\-\_\-info@{device\-\_\-info}}
+\index{device\-\_\-info@{device\-\_\-info}!mae::nite::device_info@{mae\-::nite\-::device\-\_\-info}}
+\subsubsection[{device\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}mae\-::nite\-::device\-\_\-info\-::device\-\_\-info (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{device\-\_\-name, }
+\item[{std\-::string}]{device\-\_\-serial, }
+\item[{std\-::string}]{vendor\-\_\-name, }
+\item[{std\-::string}]{creation\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{classmae_1_1nite_1_1device__info_a12c9f54dcd17a13dba7395e1c614156e}
+Creates a new device info.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\-\_\-name} & The device name. \\
+\hline
+{\em device\-\_\-serial} & The device's serial number. \\
+\hline
+{\em vendor\-\_\-name} & The vendor name. \\
+\hline
+{\em creation\-\_\-info} & The creation info. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmae_1_1nite_1_1device__info_ad4194bd00622daeb00426650e0c3f556}{\index{mae\-::nite\-::device\-\_\-info@{mae\-::nite\-::device\-\_\-info}!get\-\_\-creation\-\_\-info@{get\-\_\-creation\-\_\-info}}
+\index{get\-\_\-creation\-\_\-info@{get\-\_\-creation\-\_\-info}!mae::nite::device_info@{mae\-::nite\-::device\-\_\-info}}
+\subsubsection[{get\-\_\-creation\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::nite\-::device\-\_\-info\-::get\-\_\-creation\-\_\-info (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1device__info_ad4194bd00622daeb00426650e0c3f556}
+The creation info is a string holding information on the creation of the device node.
+
+The info is split by slashes. The elements are 'id\-Vendor/id\-Product/\-Device\-Id'.
+
+\begin{DoxyReturn}{Returns}
+The creation info. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1nite_1_1device__info_a146bb2e6d347c51e4884deda987a0694}{\index{mae\-::nite\-::device\-\_\-info@{mae\-::nite\-::device\-\_\-info}!get\-\_\-device\-\_\-name@{get\-\_\-device\-\_\-name}}
+\index{get\-\_\-device\-\_\-name@{get\-\_\-device\-\_\-name}!mae::nite::device_info@{mae\-::nite\-::device\-\_\-info}}
+\subsubsection[{get\-\_\-device\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::nite\-::device\-\_\-info\-::get\-\_\-device\-\_\-name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1device__info_a146bb2e6d347c51e4884deda987a0694}
+Returns the device name.
+
+\begin{DoxyReturn}{Returns}
+The device name. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1nite_1_1device__info_ab6a9a4aefb74b14184325421d9d044ca}{\index{mae\-::nite\-::device\-\_\-info@{mae\-::nite\-::device\-\_\-info}!get\-\_\-device\-\_\-serial@{get\-\_\-device\-\_\-serial}}
+\index{get\-\_\-device\-\_\-serial@{get\-\_\-device\-\_\-serial}!mae::nite::device_info@{mae\-::nite\-::device\-\_\-info}}
+\subsubsection[{get\-\_\-device\-\_\-serial}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::nite\-::device\-\_\-info\-::get\-\_\-device\-\_\-serial (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1device__info_ab6a9a4aefb74b14184325421d9d044ca}
+Returns the device serial number.
+
+\begin{DoxyReturn}{Returns}
+The serial number. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1nite_1_1device__info_abe6480f2e99988bde294113e8d2321ac}{\index{mae\-::nite\-::device\-\_\-info@{mae\-::nite\-::device\-\_\-info}!get\-\_\-vendor\-\_\-name@{get\-\_\-vendor\-\_\-name}}
+\index{get\-\_\-vendor\-\_\-name@{get\-\_\-vendor\-\_\-name}!mae::nite::device_info@{mae\-::nite\-::device\-\_\-info}}
+\subsubsection[{get\-\_\-vendor\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::nite\-::device\-\_\-info\-::get\-\_\-vendor\-\_\-name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1device__info_abe6480f2e99988bde294113e8d2321ac}
+Returns the vendor name.
+
+\begin{DoxyReturn}{Returns}
+The vendor name. 
+\end{DoxyReturn}
+\hypertarget{classmae_1_1nite_1_1device__info_a30298bd4bec27d97886660d1164978b8}{\index{mae\-::nite\-::device\-\_\-info@{mae\-::nite\-::device\-\_\-info}!str@{str}}
+\index{str@{str}!mae::nite::device_info@{mae\-::nite\-::device\-\_\-info}}
+\subsubsection[{str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mae\-::nite\-::device\-\_\-info\-::str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmae_1_1nite_1_1device__info_a30298bd4bec27d97886660d1164978b8}
+Returns the string representation for this object.
+
+\begin{DoxyReturn}{Returns}
+The string representation. 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classmae_1_1nite_1_1device__info_a26004836b5d6132cf9b19c7b95aab888}{\index{mae\-::nite\-::device\-\_\-info@{mae\-::nite\-::device\-\_\-info}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!mae::nite::device_info@{mae\-::nite\-::device\-\_\-info}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const std\-::shared\-\_\-ptr$<$ {\bf device\-\_\-info} $>$ \&}]{obj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmae_1_1nite_1_1device__info_a26004836b5d6132cf9b19c7b95aab888}
+Prints the object to the stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+{\em obj} & The object to be printed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classmae_1_1nite_1_1device__info_a1ff7d247ebb4625af718ff0874ad78ca}{\index{mae\-::nite\-::device\-\_\-info@{mae\-::nite\-::device\-\_\-info}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!mae::nite::device_info@{mae\-::nite\-::device\-\_\-info}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf device\-\_\-info} \&}]{obj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmae_1_1nite_1_1device__info_a1ff7d247ebb4625af718ff0874ad78ca}
+Prints the object to the stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & \\
+\hline
+{\em obj} & The object to be printed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+src/mae/nite/device\-\_\-info.\-hpp\item 
+src/mae/nite/device\-\_\-info.\-cpp\end{DoxyCompactItemize}

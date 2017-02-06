@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module nite_controller-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="439" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="51" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="168" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="2.613" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.304" level="0" />
+<weighted_methods_per_class_unity value="19" level="0" />
+<weighted_methods_per_class_visibility value="2" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="14" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="42" />
+<lines_of_code value="23" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="48" level="0" />
+<lines_of_code_per_line_of_comment value="0.479" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>cb_user_lostuser(UserGenerator &amp;,XnUserID)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="129" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="434" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>cb_user_newuser(UserGenerator &amp;,XnUserID)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="121" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="418" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="13" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>cb_usercalibration_calibrationcomplete(SkeletonCapability &amp;,XnUserID,XnCalibrationStatus)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="155" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="471" />
+</extent>
+<lines_of_code value="38" level="1" />
+<McCabes_cyclomatic_complexity value="7" level="0" />
+<lines_of_comment value="9" level="0" />
+<lines_of_code_per_line_of_comment value="4.222" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.778" level="0" />
+</member_function>
+<member_function>
+<name>cb_usercalibration_calibrationstart(SkeletonCapability &amp;,XnUserID)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="146" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="460" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>cb_userpose_posedetected(PoseDetectionCapability &amp;,const XnChar *,XnUserID)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="138" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="445" />
+</extent>
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>check_rc(XnStatus,string)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="109" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="325" />
+</extent>
+<lines_of_code value="14" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>file_exists(const char *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="101" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="310" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>initialize()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="93" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="47" />
+</extent>
+<lines_of_code value="186" level="2" />
+<McCabes_cyclomatic_complexity value="21" level="1" />
+<lines_of_comment value="18" level="0" />
+<lines_of_code_per_line_of_comment value="10.333" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.167" level="0" />
+</member_function>
+<member_function>
+<name>nite_controller(shared_ptr,string,int,bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="62" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="30" />
+</extent>
+<lines_of_code value="11" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="8" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>nite_controller(string,int,bool)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="52" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="18" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="7" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>scb_user_lostuser(UserGenerator &amp;,XnUserID,void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="525" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>scb_user_newuser(UserGenerator &amp;,XnUserID,void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="516" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>scb_usercalibration_calibrationcomplete(SkeletonCapability &amp;,XnUserID,XnCalibrationStatus,void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="554" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>scb_usercalibration_calibrationstart(SkeletonCapability &amp;,XnUserID,void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="544" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>scb_userpose_posedetected(PoseDetectionCapability &amp;,const XnChar *,XnUserID,void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="534" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>wait_for_update(int)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="73" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="351" />
+</extent>
+<lines_of_code value="42" level="1" />
+<McCabes_cyclomatic_complexity value="7" level="0" />
+<lines_of_comment value="19" level="0" />
+<lines_of_code_per_line_of_comment value="2.211" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.368" level="0" />
+</member_function>
+<member_function>
+<name>was_keyboard_hit()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="80" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="341" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>xn_was_keyboard_hit()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="87" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="346" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>~nite_controller()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="63" />
+</extent>
+<extent>
+<description>definition</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="43" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>nite_controller</name>
+<client_module>
+</client_module>
+<supplier_module>
+<name>Context</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="161" />
+</extent>
+<name>PoseDetectionCapability</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="138" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="445" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="534" />
+</extent>
+<name>ScriptNode</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="162" />
+</extent>
+<name>SkeletonCapability</name>
+<visible>true</visible>
+<concrete>false</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="146" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="155" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="460" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="471" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="544" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="554" />
+</extent>
+<name>UserGenerator</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="121" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="129" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="163" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="418" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="434" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="516" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="525" />
+</extent>
+<name>XnBool</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="165" />
+</extent>
+<name>XnCalibrationStatus</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="155" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="472" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="555" />
+</extent>
+<name>XnChar</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="138" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="166" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="445" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="534" />
+</extent>
+<name>XnStatus</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="109" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="325" />
+</extent>
+<name>XnUserID</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="121" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="129" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="138" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="146" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="155" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="418" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="434" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="446" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="460" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="472" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="516" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="525" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="535" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="544" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="555" />
+</extent>
+<name>bool</name>
+<visible>false</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="52" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="62" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="159" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="174" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="18" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="31" />
+</extent>
+<name>shared_ptr</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="62" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="171" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="30" />
+</extent>
+<name>string</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="52" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="62" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="109" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="169" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="18" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="30" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="../src/mae/nite/nite_controller.cpp" line="325" />
+</extent>
+<name>vector</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="175" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="../src/mae/nite/nite_controller.hpp" line="176" />
+</extent>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>
