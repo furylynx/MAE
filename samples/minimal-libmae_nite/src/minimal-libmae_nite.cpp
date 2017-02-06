@@ -9,7 +9,9 @@
 #include <iostream>
 #include <exception>
 
+#include <ni/XnCppWrapper.h>
 #include <mae/nite/nite.hpp>
+
 
 int main()
 {
