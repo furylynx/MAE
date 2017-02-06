@@ -27,6 +27,7 @@
 #include <iostream>
 #include <memory>
 #include <cstdint>
+#include <cmath>
 
 namespace mae
 {

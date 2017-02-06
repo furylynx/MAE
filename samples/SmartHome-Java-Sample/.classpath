@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/batik-1.7/batik-rasterizer.jar"/>
+	<classpathentry kind="lib" path="libs/batik-1.7/batik-slideshow.jar"/>
+	<classpathentry kind="lib" path="libs/batik-1.7/batik-squiggle.jar"/>
+	<classpathentry kind="lib" path="libs/batik-1.7/batik-svgpp.jar"/>
+	<classpathentry kind="lib" path="libs/batik-1.7/batik-ttf2svg.jar"/>
+	<classpathentry kind="lib" path="libs/batik-1.7/batik.jar"/>
+	<classpathentry kind="lib" path="libs/svgsalamander/svgSalamander.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MAEJava"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MAENiteJava"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
