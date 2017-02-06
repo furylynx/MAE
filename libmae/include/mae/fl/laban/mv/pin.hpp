@@ -19,6 +19,7 @@
 #include <string>
 #include <sstream>
 #include <stdexcept>
+#include <cmath>
 
 //defines
 #ifndef M_PI
