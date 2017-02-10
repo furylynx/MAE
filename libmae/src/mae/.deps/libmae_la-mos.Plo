@@ -1,0 +1,8 @@
+src/mae/libmae_la-mos.lo: src/mae/mos.cpp /usr/include/stdc-predef.h \
+ src/mae/mos.hpp src/mae/indexer_fix.hpp
+
+/usr/include/stdc-predef.h:
+
+src/mae/mos.hpp:
+
+src/mae/indexer_fix.hpp:

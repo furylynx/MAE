@@ -1,0 +1,1390 @@
+src/mae/demo/fl/libmae_demo_la-recorder_window.lo: \
+ src/mae/demo/fl/recorder_window.cpp /usr/include/stdc-predef.h \
+ src/mae/demo/fl/recorder_window.hpp src/mae/demo/fl/../indexer_fix.hpp \
+ src/mae/demo/fl/../sdl_window.hpp src/mae/demo/fl/../indexer_fix.hpp \
+ src/mae/demo/fl/../sdl_window_item.hpp /usr/include/c++/6/string \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/os_defines.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/cpu_defines.h \
+ /usr/include/c++/6/bits/stringfwd.h /usr/include/c++/6/bits/memoryfwd.h \
+ /usr/include/c++/6/bits/char_traits.h \
+ /usr/include/c++/6/bits/stl_algobase.h \
+ /usr/include/c++/6/bits/functexcept.h \
+ /usr/include/c++/6/bits/exception_defines.h \
+ /usr/include/c++/6/bits/cpp_type_traits.h \
+ /usr/include/c++/6/ext/type_traits.h \
+ /usr/include/c++/6/ext/numeric_traits.h \
+ /usr/include/c++/6/bits/stl_pair.h /usr/include/c++/6/bits/move.h \
+ /usr/include/c++/6/bits/concept_check.h /usr/include/c++/6/type_traits \
+ /usr/include/c++/6/bits/stl_iterator_base_types.h \
+ /usr/include/c++/6/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/6/debug/assertions.h \
+ /usr/include/c++/6/bits/stl_iterator.h \
+ /usr/include/c++/6/bits/ptr_traits.h /usr/include/c++/6/debug/debug.h \
+ /usr/include/c++/6/bits/predefined_ops.h \
+ /usr/include/c++/6/bits/postypes.h /usr/include/c++/6/cwchar \
+ /usr/include/wchar.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/stddef.h /usr/include/xlocale.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar2.h /usr/include/c++/6/cstdint \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/stdint.h /usr/include/stdint.h \
+ /usr/include/c++/6/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/c++allocator.h \
+ /usr/include/c++/6/ext/new_allocator.h /usr/include/c++/6/new \
+ /usr/include/c++/6/exception \
+ /usr/include/c++/6/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/6/bits/exception_ptr.h \
+ /usr/include/c++/6/bits/nested_exception.h \
+ /usr/include/c++/6/bits/localefwd.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/c++locale.h \
+ /usr/include/c++/6/clocale /usr/include/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/6/iosfwd \
+ /usr/include/c++/6/cctype /usr/include/ctype.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /usr/include/c++/6/bits/ostream_insert.h \
+ /usr/include/c++/6/bits/cxxabi_forced.h \
+ /usr/include/c++/6/bits/stl_function.h \
+ /usr/include/c++/6/backward/binders.h \
+ /usr/include/c++/6/bits/range_access.h \
+ /usr/include/c++/6/initializer_list \
+ /usr/include/c++/6/bits/basic_string.h \
+ /usr/include/c++/6/ext/atomicity.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/gthr.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/atomic_word.h \
+ /usr/include/c++/6/ext/alloc_traits.h \
+ /usr/include/c++/6/bits/alloc_traits.h \
+ /usr/include/c++/6/ext/string_conversions.h /usr/include/c++/6/cstdlib \
+ /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/bits/select2.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib.h /usr/include/c++/6/cstdio \
+ /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h /usr/include/c++/6/cerrno \
+ /usr/include/errno.h /usr/include/x86_64-linux-gnu/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/c++/6/bits/functional_hash.h \
+ /usr/include/c++/6/bits/hash_bytes.h \
+ /usr/include/c++/6/bits/basic_string.tcc /usr/include/SDL2/SDL.h \
+ /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
+ /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
+ /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
+ /usr/include/c++/6/stdlib.h /usr/include/string.h \
+ /usr/include/x86_64-linux-gnu/bits/string3.h /usr/include/strings.h \
+ /usr/include/inttypes.h /usr/include/c++/6/math.h \
+ /usr/include/c++/6/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_val.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
+ /usr/include/x86_64-linux-gnu/bits/huge_vall.h \
+ /usr/include/x86_64-linux-gnu/bits/inf.h \
+ /usr/include/x86_64-linux-gnu/bits/nan.h \
+ /usr/include/x86_64-linux-gnu/bits/mathdef.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathinline.h /usr/include/iconv.h \
+ /usr/include/SDL2/SDL_assert.h /usr/include/SDL2/SDL_atomic.h \
+ /usr/include/SDL2/SDL_audio.h /usr/include/SDL2/SDL_error.h \
+ /usr/include/SDL2/SDL_endian.h /usr/include/SDL2/SDL_mutex.h \
+ /usr/include/SDL2/SDL_thread.h /usr/include/SDL2/SDL_rwops.h \
+ /usr/include/SDL2/SDL_clipboard.h /usr/include/SDL2/SDL_cpuinfo.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/mmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/xmmintrin.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/mm_malloc.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/emmintrin.h \
+ /usr/include/SDL2/SDL_events.h /usr/include/SDL2/SDL_video.h \
+ /usr/include/SDL2/SDL_pixels.h /usr/include/SDL2/SDL_rect.h \
+ /usr/include/SDL2/SDL_surface.h /usr/include/SDL2/SDL_blendmode.h \
+ /usr/include/SDL2/SDL_keyboard.h /usr/include/SDL2/SDL_keycode.h \
+ /usr/include/SDL2/SDL_scancode.h /usr/include/SDL2/SDL_mouse.h \
+ /usr/include/SDL2/SDL_joystick.h /usr/include/SDL2/SDL_gamecontroller.h \
+ /usr/include/SDL2/SDL_quit.h /usr/include/SDL2/SDL_gesture.h \
+ /usr/include/SDL2/SDL_touch.h /usr/include/SDL2/SDL_filesystem.h \
+ /usr/include/SDL2/SDL_haptic.h /usr/include/SDL2/SDL_hints.h \
+ /usr/include/SDL2/SDL_loadso.h /usr/include/SDL2/SDL_log.h \
+ /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h \
+ /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
+ /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
+ /usr/include/c++/6/iostream /usr/include/c++/6/ostream \
+ /usr/include/c++/6/ios /usr/include/c++/6/bits/ios_base.h \
+ /usr/include/c++/6/bits/locale_classes.h \
+ /usr/include/c++/6/bits/locale_classes.tcc \
+ /usr/include/c++/6/system_error \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/error_constants.h \
+ /usr/include/c++/6/stdexcept /usr/include/c++/6/streambuf \
+ /usr/include/c++/6/bits/streambuf.tcc \
+ /usr/include/c++/6/bits/basic_ios.h \
+ /usr/include/c++/6/bits/locale_facets.h /usr/include/c++/6/cwctype \
+ /usr/include/wctype.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/ctype_base.h \
+ /usr/include/c++/6/bits/streambuf_iterator.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/ctype_inline.h \
+ /usr/include/c++/6/bits/locale_facets.tcc \
+ /usr/include/c++/6/bits/basic_ios.tcc \
+ /usr/include/c++/6/bits/ostream.tcc /usr/include/c++/6/istream \
+ /usr/include/c++/6/bits/istream.tcc /usr/include/c++/6/memory \
+ /usr/include/c++/6/bits/stl_construct.h \
+ /usr/include/c++/6/bits/stl_uninitialized.h \
+ /usr/include/c++/6/bits/stl_tempbuf.h \
+ /usr/include/c++/6/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/6/typeinfo /usr/include/c++/6/ext/concurrence.h \
+ /usr/include/c++/6/bits/uses_allocator.h /usr/include/c++/6/functional \
+ /usr/include/c++/6/tuple /usr/include/c++/6/utility \
+ /usr/include/c++/6/bits/stl_relops.h /usr/include/c++/6/array \
+ /usr/include/c++/6/bits/unique_ptr.h \
+ /usr/include/c++/6/bits/shared_ptr.h \
+ /usr/include/c++/6/bits/shared_ptr_base.h \
+ /usr/include/c++/6/bits/allocated_ptr.h \
+ /usr/include/c++/6/ext/aligned_buffer.h \
+ /usr/include/c++/6/bits/shared_ptr_atomic.h \
+ /usr/include/c++/6/bits/atomic_base.h \
+ /usr/include/c++/6/backward/auto_ptr.h /usr/include/c++/6/vector \
+ /usr/include/c++/6/bits/stl_vector.h \
+ /usr/include/c++/6/bits/stl_bvector.h /usr/include/c++/6/bits/vector.tcc \
+ /usr/include/c++/6/thread /usr/include/c++/6/chrono \
+ /usr/include/c++/6/ratio /usr/include/c++/6/limits \
+ /usr/include/c++/6/ctime /usr/include/c++/6/bits/parse_numbers.h \
+ /usr/include/c++/6/mutex /usr/include/c++/6/bits/std_mutex.h \
+ /usr/include/SDL2/SDL_ttf.h /usr/include/SDL2/SDL.h \
+ src/mae/demo/fl/laban_visualizer.hpp src/mae/demo/fl/res/res.hpp \
+ src/mae/demo/fl/res/../../indexer_fix.hpp \
+ src/mae/demo/fl/res/../../mae_res.hpp \
+ src/mae/demo/fl/res/../../indexer_fix.hpp \
+ src/mae/demo/fl/res/laban_direction1.png.h \
+ src/mae/demo/fl/res/laban_direction2.png.h \
+ src/mae/demo/fl/res/laban_direction3.png.h \
+ src/mae/demo/fl/res/laban_direction4.png.h \
+ src/mae/demo/fl/res/laban_direction5.png.h \
+ src/mae/demo/fl/res/laban_direction6.png.h \
+ src/mae/demo/fl/res/laban_direction7.png.h \
+ src/mae/demo/fl/res/laban_direction8.png.h \
+ src/mae/demo/fl/res/laban_direction9.png.h \
+ src/mae/demo/fl/res/laban_direction10.png.h \
+ src/mae/demo/fl/res/laban_direction11.png.h \
+ src/mae/demo/fl/res/laban_direction12.png.h \
+ src/mae/demo/fl/res/laban_direction13.png.h \
+ src/mae/demo/fl/res/laban_direction14.png.h \
+ src/mae/demo/fl/res/laban_direction15.png.h \
+ src/mae/demo/fl/res/laban_direction16.png.h \
+ src/mae/demo/fl/res/laban_direction17.png.h \
+ src/mae/demo/fl/res/laban_direction18.png.h \
+ src/mae/demo/fl/res/laban_direction19.png.h \
+ src/mae/demo/fl/res/laban_direction20.png.h \
+ src/mae/demo/fl/res/laban_direction21.png.h \
+ src/mae/demo/fl/res/laban_direction22.png.h \
+ src/mae/demo/fl/res/laban_direction23.png.h \
+ src/mae/demo/fl/res/laban_direction24.png.h \
+ src/mae/demo/fl/res/laban_direction25.png.h \
+ src/mae/demo/fl/res/laban_direction26.png.h \
+ src/mae/demo/fl/res/laban_direction27.png.h \
+ src/mae/demo/fl/res/laban_direction28.png.h \
+ src/mae/demo/fl/res/laban_direction29.png.h \
+ src/mae/demo/fl/res/laban_direction30.png.h \
+ src/mae/demo/fl/res/laban_direction31.png.h \
+ src/mae/demo/fl/res/laban_direction32.png.h \
+ src/mae/demo/fl/res/laban_direction33.png.h \
+ src/mae/demo/fl/res/background0.png.h \
+ src/mae/demo/fl/res/droidsans.ttf.h \
+ src/mae/demo/fl/res/directions_handler.hpp src/mae/demo/fl/res/res.hpp \
+ /usr/local/include/mae/mae.hpp /usr/local/include/mae/bone.hpp \
+ /usr/local/include/mae/indexer_fix.hpp /usr/local/include/mae/e_bone.hpp \
+ /usr/local/include/mae/mstr.hpp /usr/include/c++/6/sstream \
+ /usr/include/c++/6/bits/sstream.tcc /usr/include/c++/6/algorithm \
+ /usr/include/c++/6/bits/stl_algo.h \
+ /usr/include/c++/6/bits/algorithmfwd.h \
+ /usr/include/c++/6/bits/stl_heap.h \
+ /usr/include/c++/6/bits/uniform_int_dist.h /usr/include/c++/6/locale \
+ /usr/include/c++/6/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/6/bits/codecvt.h \
+ /usr/include/c++/6/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/6/bits/locale_conv.h \
+ /usr/include/c++/6/bits/stringfwd.h /usr/include/c++/6/bits/allocator.h \
+ /usr/include/c++/6/bits/codecvt.h /usr/include/c++/6/bits/unique_ptr.h \
+ /usr/local/include/mae/e_joint.hpp \
+ /usr/local/include/mae/e_kinect_joint.hpp \
+ /usr/local/include/mae/general_enriched_pose.hpp \
+ /usr/local/include/mae/general_pose.hpp /usr/include/c++/6/unordered_map \
+ /usr/include/c++/6/bits/hashtable.h \
+ /usr/include/c++/6/bits/hashtable_policy.h \
+ /usr/include/c++/6/bits/unordered_map.h /usr/include/c++/6/list \
+ /usr/include/c++/6/bits/stl_list.h /usr/include/c++/6/bits/list.tcc \
+ /usr/local/include/mae/hierarchy.hpp \
+ /usr/local/include/mae/hierarchy_element.hpp \
+ /usr/local/include/mae/movement_controller.hpp \
+ /usr/local/include/mae/kp_movement_detector.hpp \
+ /usr/local/include/mae/i_movement_detector.hpp \
+ /usr/local/include/mae/i_pose_listener.hpp \
+ /usr/local/include/mae/i_pose_detector.hpp \
+ /usr/local/include/mae/i_sequence_generator.hpp \
+ /usr/local/include/mae/kp_detector.hpp \
+ /usr/local/include/mae/i_kp_detector.hpp /usr/include/c++/6/queue \
+ /usr/include/c++/6/deque /usr/include/c++/6/bits/stl_deque.h \
+ /usr/include/c++/6/bits/deque.tcc /usr/include/c++/6/bits/stl_queue.h \
+ /usr/local/include/mae/i_sequence_recognizer.hpp \
+ /usr/local/include/mae/i_sequence_listener.hpp \
+ /usr/local/include/mae/i_recognition_listener.hpp \
+ /usr/local/include/mae/i_skeleton_merger.hpp \
+ /usr/local/include/mae/i_skeleton_controller.hpp \
+ /usr/local/include/mae/general_skeleton.hpp \
+ /usr/local/include/mae/general_joint.hpp \
+ /usr/local/include/mae/math/vec3d.hpp \
+ /usr/local/include/mae/indexer_fix.hpp \
+ /usr/local/include/mae/math/basis.hpp \
+ /usr/local/include/mae/math/vec3d.hpp /usr/include/c++/6/fstream \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/c++io.h \
+ /usr/include/c++/6/bits/fstream.tcc \
+ /usr/local/include/mae/ini_reader.hpp /usr/local/include/mae/mos.hpp \
+ /usr/local/include/mae/mbool.hpp /usr/include/c++/6/iomanip \
+ /usr/include/c++/6/bits/quoted_string.h \
+ /usr/local/include/mae/math/math.hpp \
+ /usr/local/include/mae/fl/angular_joint.hpp \
+ /usr/local/include/mae/indexer_fix.hpp \
+ /usr/local/include/mae/math/basis.hpp \
+ /usr/local/include/mae/general_joint.hpp \
+ /usr/local/include/mae/fl/fl.hpp \
+ /usr/local/include/mae/fl/angular_skeleton_controller.hpp \
+ /usr/local/include/mae/fl/angular_skeleton.hpp \
+ /usr/local/include/mae/fl/angular_joint.hpp \
+ /usr/local/include/mae/general_skeleton.hpp \
+ /usr/local/include/mae/bone.hpp \
+ /usr/local/include/mae/fl/fl_skeleton_controller.hpp \
+ /usr/local/include/mae/fl/fl_skeleton.hpp \
+ /usr/local/include/mae/math/vec3d.hpp \
+ /usr/local/include/mae/fl/e_fl_joint.hpp /usr/local/include/mae/mstr.hpp \
+ /usr/local/include/mae/i_skeleton_controller.hpp \
+ /usr/local/include/mae/general_joint.hpp \
+ /usr/local/include/mae/e_joint.hpp /usr/local/include/mae/math/math.hpp \
+ /usr/local/include/mae/math/basis.hpp \
+ /usr/local/include/mae/fl/bvh_controller.hpp \
+ /usr/local/include/mae/fl/bvh_spec.hpp /usr/include/c++/6/map \
+ /usr/include/c++/6/bits/stl_tree.h /usr/include/c++/6/bits/stl_map.h \
+ /usr/include/c++/6/bits/stl_multimap.h \
+ /usr/local/include/mae/fl/bvh_data.hpp \
+ /usr/local/include/mae/fl/msr_data_controller.hpp \
+ /usr/local/include/mae/fl/msr_data.hpp \
+ /usr/local/include/mae/fl/msr_spec.hpp \
+ /usr/local/include/mae/hierarchy.hpp \
+ /usr/local/include/mae/hierarchy_element.hpp \
+ /usr/local/include/mae/fl/fl_movement_controller.hpp \
+ /usr/local/include/mae/fl/fl_pose_detector.hpp \
+ /usr/local/include/mae/i_pose_detector.hpp \
+ /usr/local/include/mae/fl/e_fl_direction.hpp \
+ /usr/local/include/mae/fl/laban/mv/e_direction.hpp \
+ /usr/local/include/mae/indexer_fix.hpp /usr/local/include/mae/mstr.hpp \
+ /usr/local/include/mae/fl/e_fl_direction.hpp \
+ /usr/local/include/mae/fl/laban/mv/e_level.hpp \
+ /usr/local/include/mae/fl/laban/laban_sequence.hpp \
+ /usr/local/include/mae/indexer_fix.hpp \
+ /usr/local/include/mae/fl/laban/column_definition.hpp \
+ /usr/local/include/mae/e_bone.hpp /usr/local/include/mae/bone.hpp \
+ /usr/local/include/mae/math/math.hpp \
+ /usr/local/include/mae/fl/laban/ps/i_pre_sign.hpp \
+ /usr/local/include/mae/indexer_fix.hpp \
+ /usr/local/include/mae/fl/laban/ps/area_part.hpp \
+ /usr/local/include/mae/fl/laban/ps/i_endpoint.hpp \
+ /usr/local/include/mae/fl/laban/ps/i_part.hpp \
+ /usr/local/include/mae/fl/laban/ps/e_area.hpp \
+ /usr/local/include/mae/mstr.hpp \
+ /usr/local/include/mae/fl/laban/ps/default_limb.hpp \
+ /usr/local/include/mae/fl/laban/ps/i_limb.hpp \
+ /usr/local/include/mae/fl/laban/ps/e_limb.hpp \
+ /usr/local/include/mae/fl/laban/ps/body_part.hpp \
+ /usr/local/include/mae/fl/laban/ps/i_pre_sign.hpp \
+ /usr/local/include/mae/fl/laban/ps/e_side.hpp \
+ /usr/local/include/mae/fl/laban/i_movement.hpp \
+ /usr/local/include/mae/fl/laban/movement.hpp \
+ /usr/local/include/mae/fl/laban/mv/i_symbol.hpp \
+ /usr/local/include/mae/fl/laban/e_time_unit.hpp \
+ /usr/local/include/mae/mstr.hpp \
+ /usr/local/include/mae/fl/laban/laban_sequence_generator.hpp \
+ /usr/local/include/mae/fl/laban/laban_sequence.hpp \
+ /usr/local/include/mae/fl/laban/mv/direction_symbol.hpp \
+ /usr/local/include/mae/fl/laban/mv/i_symbol.hpp \
+ /usr/local/include/mae/fl/laban/mv/e_level.hpp \
+ /usr/local/include/mae/fl/laban/mv/e_direction.hpp \
+ /usr/local/include/mae/fl/laban/mv/e_contact_hook.hpp \
+ /usr/local/include/mae/fl/laban/mv/i_dynamics_sign.hpp \
+ /usr/local/include/mae/fl/laban/mv/space_measurement.hpp \
+ /usr/local/include/mae/fl/laban/mv/i_degree_sign.hpp \
+ /usr/local/include/mae/fl/laban/mv/e_space.hpp \
+ /usr/local/include/mae/fl/laban/mv/e_space_direction.hpp \
+ /usr/local/include/mae/fl/laban/mv/pin.hpp \
+ /usr/local/include/mae/fl/laban/mv/e_level.hpp \
+ /usr/local/include/mae/fl/laban/mv/e_direction.hpp \
+ /usr/local/include/mae/fl/e_fl_direction.hpp \
+ /usr/local/include/mae/general_enriched_pose.hpp \
+ /usr/local/include/mae/i_sequence_generator.hpp \
+ /usr/include/c++/6/complex \
+ /usr/local/include/mae/fl/laban/laban_sequence_recognizer.hpp \
+ /usr/local/include/mae/fl/laban/decision_forest.hpp \
+ /usr/local/include/mae/fl/laban/decision_tree.hpp \
+ /usr/local/include/mae/fl/laban/decision_node.hpp \
+ /usr/local/include/mae/fl/laban/decision_value.hpp \
+ /usr/local/include/mae/fl/laban/i_decision_maker.hpp \
+ /usr/local/include/mae/fl/laban/decision_maker.hpp \
+ /usr/local/include/mae/fl/laban/path.hpp \
+ /usr/local/include/mae/fl/laban/e_path_type.hpp \
+ /usr/local/include/mae/fl/laban/room_direction.hpp \
+ /usr/local/include/mae/fl/laban/mv/pin.hpp \
+ /usr/local/include/mae/fl/laban/relationship_bow.hpp \
+ /usr/local/include/mae/fl/laban/e_relationship_type.hpp \
+ /usr/local/include/mae/fl/laban/mv/relationship_endpoint.hpp \
+ /usr/local/include/mae/fl/laban/ps/i_pre_sign.hpp \
+ /usr/local/include/mae/fl/laban/rewriting_forest.hpp \
+ /usr/local/include/mae/fl/laban/rewriting_decision_maker.hpp \
+ /usr/include/c++/6/unordered_set /usr/include/c++/6/bits/unordered_set.h \
+ /usr/local/include/mae/i_sequence_recognizer.hpp \
+ /usr/local/include/mae/movement_controller.hpp \
+ /usr/local/include/mae/fl/skeleton_merger.hpp \
+ /usr/local/include/mae/i_skeleton_merger.hpp \
+ /usr/local/include/mae/fl/laban/laban.hpp \
+ /usr/local/include/mae/fl/laban/laban_sequence_generator.hpp \
+ /usr/local/include/mae/fl/laban/laban_sequence_reader.hpp \
+ /usr/local/include/mae/fl/laban/laban_sequence_recognizer.hpp \
+ /usr/local/include/mae/fl/laban/rewriting_rules_reader.hpp \
+ /usr/local/include/mae/fl/laban/mv/mv.hpp \
+ /usr/local/include/mae/fl/laban/mv/accent_sign.hpp \
+ /usr/local/include/mae/fl/laban/mv/cancellation_symbol.hpp \
+ /usr/local/include/mae/fl/laban/mv/e_cancel.hpp \
+ /usr/local/include/mae/fl/laban/mv/direction_symbol.hpp \
+ /usr/local/include/mae/fl/laban/mv/dynamic_sign.hpp \
+ /usr/local/include/mae/fl/laban/mv/e_dynamic.hpp \
+ /usr/local/include/mae/fl/laban/mv/relationship_endpoint.hpp \
+ /usr/local/include/mae/fl/laban/mv/space_symbol.hpp \
+ /usr/local/include/mae/fl/laban/mv/turn_symbol.hpp \
+ /usr/local/include/mae/fl/laban/mv/e_turn_direction.hpp \
+ /usr/local/include/mae/fl/laban/mv/vibration_symbol.hpp \
+ /usr/local/include/mae/fl/laban/ps/ps.hpp \
+ /usr/local/include/mae/fl/laban/ps/area_part.hpp \
+ /usr/local/include/mae/fl/laban/ps/body_part.hpp \
+ /usr/local/include/mae/fl/laban/ps/custom_limb.hpp \
+ /usr/local/include/mae/fl/laban/ps/default_limb.hpp \
+ /usr/local/include/mae/fl/laban/ps/digit_part.hpp \
+ /usr/local/include/mae/fl/laban/ps/e_digit.hpp \
+ /usr/local/include/mae/fl/laban/ps/joint_part.hpp \
+ /usr/local/include/mae/fl/laban/ps/e_joint.hpp \
+ /usr/local/include/mae/fl/laban/ps/prop.hpp \
+ /usr/local/include/mae/fl/laban/ps/surface_part.hpp \
+ /usr/local/include/mae/fl/laban/ps/e_limb_side.hpp \
+ /usr/include/SDL2/SDL_image.h
+
+/usr/include/stdc-predef.h:
+
+src/mae/demo/fl/recorder_window.hpp:
+
+src/mae/demo/fl/../indexer_fix.hpp:
+
+src/mae/demo/fl/../sdl_window.hpp:
+
+src/mae/demo/fl/../indexer_fix.hpp:
+
+src/mae/demo/fl/../sdl_window_item.hpp:
+
+/usr/include/c++/6/string:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/c++config.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/os_defines.h:
+
+/usr/include/features.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/cpu_defines.h:
+
+/usr/include/c++/6/bits/stringfwd.h:
+
+/usr/include/c++/6/bits/memoryfwd.h:
+
+/usr/include/c++/6/bits/char_traits.h:
+
+/usr/include/c++/6/bits/stl_algobase.h:
+
+/usr/include/c++/6/bits/functexcept.h:
+
+/usr/include/c++/6/bits/exception_defines.h:
+
+/usr/include/c++/6/bits/cpp_type_traits.h:
+
+/usr/include/c++/6/ext/type_traits.h:
+
+/usr/include/c++/6/ext/numeric_traits.h:
+
+/usr/include/c++/6/bits/stl_pair.h:
+
+/usr/include/c++/6/bits/move.h:
+
+/usr/include/c++/6/bits/concept_check.h:
+
+/usr/include/c++/6/type_traits:
+
+/usr/include/c++/6/bits/stl_iterator_base_types.h:
+
+/usr/include/c++/6/bits/stl_iterator_base_funcs.h:
+
+/usr/include/c++/6/debug/assertions.h:
+
+/usr/include/c++/6/bits/stl_iterator.h:
+
+/usr/include/c++/6/bits/ptr_traits.h:
+
+/usr/include/c++/6/debug/debug.h:
+
+/usr/include/c++/6/bits/predefined_ops.h:
+
+/usr/include/c++/6/bits/postypes.h:
+
+/usr/include/c++/6/cwchar:
+
+/usr/include/wchar.h:
+
+/usr/include/stdio.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include/stdarg.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include/stddef.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:
+
+/usr/include/c++/6/cstdint:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/c++/6/bits/allocator.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/c++allocator.h:
+
+/usr/include/c++/6/ext/new_allocator.h:
+
+/usr/include/c++/6/new:
+
+/usr/include/c++/6/exception:
+
+/usr/include/c++/6/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/6/bits/exception_ptr.h:
+
+/usr/include/c++/6/bits/nested_exception.h:
+
+/usr/include/c++/6/bits/localefwd.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/c++locale.h:
+
+/usr/include/c++/6/clocale:
+
+/usr/include/locale.h:
+
+/usr/include/x86_64-linux-gnu/bits/locale.h:
+
+/usr/include/c++/6/iosfwd:
+
+/usr/include/c++/6/cctype:
+
+/usr/include/ctype.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap-16.h:
+
+/usr/include/c++/6/bits/ostream_insert.h:
+
+/usr/include/c++/6/bits/cxxabi_forced.h:
+
+/usr/include/c++/6/bits/stl_function.h:
+
+/usr/include/c++/6/backward/binders.h:
+
+/usr/include/c++/6/bits/range_access.h:
+
+/usr/include/c++/6/initializer_list:
+
+/usr/include/c++/6/bits/basic_string.h:
+
+/usr/include/c++/6/ext/atomicity.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/gthr.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/gthr-default.h:
+
+/usr/include/pthread.h:
+
+/usr/include/sched.h:
+
+/usr/include/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/timex.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/atomic_word.h:
+
+/usr/include/c++/6/ext/alloc_traits.h:
+
+/usr/include/c++/6/bits/alloc_traits.h:
+
+/usr/include/c++/6/ext/string_conversions.h:
+
+/usr/include/c++/6/cstdlib:
+
+/usr/include/stdlib.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/x86_64-linux-gnu/sys/types.h:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigset.h:
+
+/usr/include/x86_64-linux-gnu/bits/select2.h:
+
+/usr/include/x86_64-linux-gnu/sys/sysmacros.h:
+
+/usr/include/alloca.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib.h:
+
+/usr/include/c++/6/cstdio:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
+
+/usr/include/c++/6/cerrno:
+
+/usr/include/errno.h:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/c++/6/bits/functional_hash.h:
+
+/usr/include/c++/6/bits/hash_bytes.h:
+
+/usr/include/c++/6/bits/basic_string.tcc:
+
+/usr/include/SDL2/SDL.h:
+
+/usr/include/SDL2/SDL_main.h:
+
+/usr/include/SDL2/SDL_stdinc.h:
+
+/usr/include/SDL2/SDL_config.h:
+
+/usr/include/SDL2/SDL_platform.h:
+
+/usr/include/SDL2/begin_code.h:
+
+/usr/include/SDL2/close_code.h:
+
+/usr/include/c++/6/stdlib.h:
+
+/usr/include/string.h:
+
+/usr/include/x86_64-linux-gnu/bits/string3.h:
+
+/usr/include/strings.h:
+
+/usr/include/inttypes.h:
+
+/usr/include/c++/6/math.h:
+
+/usr/include/c++/6/cmath:
+
+/usr/include/math.h:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
+
+/usr/include/x86_64-linux-gnu/bits/huge_val.h:
+
+/usr/include/x86_64-linux-gnu/bits/huge_valf.h:
+
+/usr/include/x86_64-linux-gnu/bits/huge_vall.h:
+
+/usr/include/x86_64-linux-gnu/bits/inf.h:
+
+/usr/include/x86_64-linux-gnu/bits/nan.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathdef.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathinline.h:
+
+/usr/include/iconv.h:
+
+/usr/include/SDL2/SDL_assert.h:
+
+/usr/include/SDL2/SDL_atomic.h:
+
+/usr/include/SDL2/SDL_audio.h:
+
+/usr/include/SDL2/SDL_error.h:
+
+/usr/include/SDL2/SDL_endian.h:
+
+/usr/include/SDL2/SDL_mutex.h:
+
+/usr/include/SDL2/SDL_thread.h:
+
+/usr/include/SDL2/SDL_rwops.h:
+
+/usr/include/SDL2/SDL_clipboard.h:
+
+/usr/include/SDL2/SDL_cpuinfo.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include/mmintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include/xmmintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include/mm_malloc.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include/emmintrin.h:
+
+/usr/include/SDL2/SDL_events.h:
+
+/usr/include/SDL2/SDL_video.h:
+
+/usr/include/SDL2/SDL_pixels.h:
+
+/usr/include/SDL2/SDL_rect.h:
+
+/usr/include/SDL2/SDL_surface.h:
+
+/usr/include/SDL2/SDL_blendmode.h:
+
+/usr/include/SDL2/SDL_keyboard.h:
+
+/usr/include/SDL2/SDL_keycode.h:
+
+/usr/include/SDL2/SDL_scancode.h:
+
+/usr/include/SDL2/SDL_mouse.h:
+
+/usr/include/SDL2/SDL_joystick.h:
+
+/usr/include/SDL2/SDL_gamecontroller.h:
+
+/usr/include/SDL2/SDL_quit.h:
+
+/usr/include/SDL2/SDL_gesture.h:
+
+/usr/include/SDL2/SDL_touch.h:
+
+/usr/include/SDL2/SDL_filesystem.h:
+
+/usr/include/SDL2/SDL_haptic.h:
+
+/usr/include/SDL2/SDL_hints.h:
+
+/usr/include/SDL2/SDL_loadso.h:
+
+/usr/include/SDL2/SDL_log.h:
+
+/usr/include/SDL2/SDL_messagebox.h:
+
+/usr/include/SDL2/SDL_power.h:
+
+/usr/include/SDL2/SDL_render.h:
+
+/usr/include/SDL2/SDL_system.h:
+
+/usr/include/SDL2/SDL_timer.h:
+
+/usr/include/SDL2/SDL_version.h:
+
+/usr/include/c++/6/iostream:
+
+/usr/include/c++/6/ostream:
+
+/usr/include/c++/6/ios:
+
+/usr/include/c++/6/bits/ios_base.h:
+
+/usr/include/c++/6/bits/locale_classes.h:
+
+/usr/include/c++/6/bits/locale_classes.tcc:
+
+/usr/include/c++/6/system_error:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/error_constants.h:
+
+/usr/include/c++/6/stdexcept:
+
+/usr/include/c++/6/streambuf:
+
+/usr/include/c++/6/bits/streambuf.tcc:
+
+/usr/include/c++/6/bits/basic_ios.h:
+
+/usr/include/c++/6/bits/locale_facets.h:
+
+/usr/include/c++/6/cwctype:
+
+/usr/include/wctype.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/ctype_base.h:
+
+/usr/include/c++/6/bits/streambuf_iterator.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/ctype_inline.h:
+
+/usr/include/c++/6/bits/locale_facets.tcc:
+
+/usr/include/c++/6/bits/basic_ios.tcc:
+
+/usr/include/c++/6/bits/ostream.tcc:
+
+/usr/include/c++/6/istream:
+
+/usr/include/c++/6/bits/istream.tcc:
+
+/usr/include/c++/6/memory:
+
+/usr/include/c++/6/bits/stl_construct.h:
+
+/usr/include/c++/6/bits/stl_uninitialized.h:
+
+/usr/include/c++/6/bits/stl_tempbuf.h:
+
+/usr/include/c++/6/bits/stl_raw_storage_iter.h:
+
+/usr/include/c++/6/typeinfo:
+
+/usr/include/c++/6/ext/concurrence.h:
+
+/usr/include/c++/6/bits/uses_allocator.h:
+
+/usr/include/c++/6/functional:
+
+/usr/include/c++/6/tuple:
+
+/usr/include/c++/6/utility:
+
+/usr/include/c++/6/bits/stl_relops.h:
+
+/usr/include/c++/6/array:
+
+/usr/include/c++/6/bits/unique_ptr.h:
+
+/usr/include/c++/6/bits/shared_ptr.h:
+
+/usr/include/c++/6/bits/shared_ptr_base.h:
+
+/usr/include/c++/6/bits/allocated_ptr.h:
+
+/usr/include/c++/6/ext/aligned_buffer.h:
+
+/usr/include/c++/6/bits/shared_ptr_atomic.h:
+
+/usr/include/c++/6/bits/atomic_base.h:
+
+/usr/include/c++/6/backward/auto_ptr.h:
+
+/usr/include/c++/6/vector:
+
+/usr/include/c++/6/bits/stl_vector.h:
+
+/usr/include/c++/6/bits/stl_bvector.h:
+
+/usr/include/c++/6/bits/vector.tcc:
+
+/usr/include/c++/6/thread:
+
+/usr/include/c++/6/chrono:
+
+/usr/include/c++/6/ratio:
+
+/usr/include/c++/6/limits:
+
+/usr/include/c++/6/ctime:
+
+/usr/include/c++/6/bits/parse_numbers.h:
+
+/usr/include/c++/6/mutex:
+
+/usr/include/c++/6/bits/std_mutex.h:
+
+/usr/include/SDL2/SDL_ttf.h:
+
+/usr/include/SDL2/SDL.h:
+
+src/mae/demo/fl/laban_visualizer.hpp:
+
+src/mae/demo/fl/res/res.hpp:
+
+src/mae/demo/fl/res/../../indexer_fix.hpp:
+
+src/mae/demo/fl/res/../../mae_res.hpp:
+
+src/mae/demo/fl/res/../../indexer_fix.hpp:
+
+src/mae/demo/fl/res/laban_direction1.png.h:
+
+src/mae/demo/fl/res/laban_direction2.png.h:
+
+src/mae/demo/fl/res/laban_direction3.png.h:
+
+src/mae/demo/fl/res/laban_direction4.png.h:
+
+src/mae/demo/fl/res/laban_direction5.png.h:
+
+src/mae/demo/fl/res/laban_direction6.png.h:
+
+src/mae/demo/fl/res/laban_direction7.png.h:
+
+src/mae/demo/fl/res/laban_direction8.png.h:
+
+src/mae/demo/fl/res/laban_direction9.png.h:
+
+src/mae/demo/fl/res/laban_direction10.png.h:
+
+src/mae/demo/fl/res/laban_direction11.png.h:
+
+src/mae/demo/fl/res/laban_direction12.png.h:
+
+src/mae/demo/fl/res/laban_direction13.png.h:
+
+src/mae/demo/fl/res/laban_direction14.png.h:
+
+src/mae/demo/fl/res/laban_direction15.png.h:
+
+src/mae/demo/fl/res/laban_direction16.png.h:
+
+src/mae/demo/fl/res/laban_direction17.png.h:
+
+src/mae/demo/fl/res/laban_direction18.png.h:
+
+src/mae/demo/fl/res/laban_direction19.png.h:
+
+src/mae/demo/fl/res/laban_direction20.png.h:
+
+src/mae/demo/fl/res/laban_direction21.png.h:
+
+src/mae/demo/fl/res/laban_direction22.png.h:
+
+src/mae/demo/fl/res/laban_direction23.png.h:
+
+src/mae/demo/fl/res/laban_direction24.png.h:
+
+src/mae/demo/fl/res/laban_direction25.png.h:
+
+src/mae/demo/fl/res/laban_direction26.png.h:
+
+src/mae/demo/fl/res/laban_direction27.png.h:
+
+src/mae/demo/fl/res/laban_direction28.png.h:
+
+src/mae/demo/fl/res/laban_direction29.png.h:
+
+src/mae/demo/fl/res/laban_direction30.png.h:
+
+src/mae/demo/fl/res/laban_direction31.png.h:
+
+src/mae/demo/fl/res/laban_direction32.png.h:
+
+src/mae/demo/fl/res/laban_direction33.png.h:
+
+src/mae/demo/fl/res/background0.png.h:
+
+src/mae/demo/fl/res/droidsans.ttf.h:
+
+src/mae/demo/fl/res/directions_handler.hpp:
+
+src/mae/demo/fl/res/res.hpp:
+
+/usr/local/include/mae/mae.hpp:
+
+/usr/local/include/mae/bone.hpp:
+
+/usr/local/include/mae/indexer_fix.hpp:
+
+/usr/local/include/mae/e_bone.hpp:
+
+/usr/local/include/mae/mstr.hpp:
+
+/usr/include/c++/6/sstream:
+
+/usr/include/c++/6/bits/sstream.tcc:
+
+/usr/include/c++/6/algorithm:
+
+/usr/include/c++/6/bits/stl_algo.h:
+
+/usr/include/c++/6/bits/algorithmfwd.h:
+
+/usr/include/c++/6/bits/stl_heap.h:
+
+/usr/include/c++/6/bits/uniform_int_dist.h:
+
+/usr/include/c++/6/locale:
+
+/usr/include/c++/6/bits/locale_facets_nonio.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/time_members.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/messages_members.h:
+
+/usr/include/libintl.h:
+
+/usr/include/c++/6/bits/codecvt.h:
+
+/usr/include/c++/6/bits/locale_facets_nonio.tcc:
+
+/usr/include/c++/6/bits/locale_conv.h:
+
+/usr/include/c++/6/bits/stringfwd.h:
+
+/usr/include/c++/6/bits/allocator.h:
+
+/usr/include/c++/6/bits/codecvt.h:
+
+/usr/include/c++/6/bits/unique_ptr.h:
+
+/usr/local/include/mae/e_joint.hpp:
+
+/usr/local/include/mae/e_kinect_joint.hpp:
+
+/usr/local/include/mae/general_enriched_pose.hpp:
+
+/usr/local/include/mae/general_pose.hpp:
+
+/usr/include/c++/6/unordered_map:
+
+/usr/include/c++/6/bits/hashtable.h:
+
+/usr/include/c++/6/bits/hashtable_policy.h:
+
+/usr/include/c++/6/bits/unordered_map.h:
+
+/usr/include/c++/6/list:
+
+/usr/include/c++/6/bits/stl_list.h:
+
+/usr/include/c++/6/bits/list.tcc:
+
+/usr/local/include/mae/hierarchy.hpp:
+
+/usr/local/include/mae/hierarchy_element.hpp:
+
+/usr/local/include/mae/movement_controller.hpp:
+
+/usr/local/include/mae/kp_movement_detector.hpp:
+
+/usr/local/include/mae/i_movement_detector.hpp:
+
+/usr/local/include/mae/i_pose_listener.hpp:
+
+/usr/local/include/mae/i_pose_detector.hpp:
+
+/usr/local/include/mae/i_sequence_generator.hpp:
+
+/usr/local/include/mae/kp_detector.hpp:
+
+/usr/local/include/mae/i_kp_detector.hpp:
+
+/usr/include/c++/6/queue:
+
+/usr/include/c++/6/deque:
+
+/usr/include/c++/6/bits/stl_deque.h:
+
+/usr/include/c++/6/bits/deque.tcc:
+
+/usr/include/c++/6/bits/stl_queue.h:
+
+/usr/local/include/mae/i_sequence_recognizer.hpp:
+
+/usr/local/include/mae/i_sequence_listener.hpp:
+
+/usr/local/include/mae/i_recognition_listener.hpp:
+
+/usr/local/include/mae/i_skeleton_merger.hpp:
+
+/usr/local/include/mae/i_skeleton_controller.hpp:
+
+/usr/local/include/mae/general_skeleton.hpp:
+
+/usr/local/include/mae/general_joint.hpp:
+
+/usr/local/include/mae/math/vec3d.hpp:
+
+/usr/local/include/mae/indexer_fix.hpp:
+
+/usr/local/include/mae/math/basis.hpp:
+
+/usr/local/include/mae/math/vec3d.hpp:
+
+/usr/include/c++/6/fstream:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/basic_file.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/c++io.h:
+
+/usr/include/c++/6/bits/fstream.tcc:
+
+/usr/local/include/mae/ini_reader.hpp:
+
+/usr/local/include/mae/mos.hpp:
+
+/usr/local/include/mae/mbool.hpp:
+
+/usr/include/c++/6/iomanip:
+
+/usr/include/c++/6/bits/quoted_string.h:
+
+/usr/local/include/mae/math/math.hpp:
+
+/usr/local/include/mae/fl/angular_joint.hpp:
+
+/usr/local/include/mae/indexer_fix.hpp:
+
+/usr/local/include/mae/math/basis.hpp:
+
+/usr/local/include/mae/general_joint.hpp:
+
+/usr/local/include/mae/fl/fl.hpp:
+
+/usr/local/include/mae/fl/angular_skeleton_controller.hpp:
+
+/usr/local/include/mae/fl/angular_skeleton.hpp:
+
+/usr/local/include/mae/fl/angular_joint.hpp:
+
+/usr/local/include/mae/general_skeleton.hpp:
+
+/usr/local/include/mae/bone.hpp:
+
+/usr/local/include/mae/fl/fl_skeleton_controller.hpp:
+
+/usr/local/include/mae/fl/fl_skeleton.hpp:
+
+/usr/local/include/mae/math/vec3d.hpp:
+
+/usr/local/include/mae/fl/e_fl_joint.hpp:
+
+/usr/local/include/mae/mstr.hpp:
+
+/usr/local/include/mae/i_skeleton_controller.hpp:
+
+/usr/local/include/mae/general_joint.hpp:
+
+/usr/local/include/mae/e_joint.hpp:
+
+/usr/local/include/mae/math/math.hpp:
+
+/usr/local/include/mae/math/basis.hpp:
+
+/usr/local/include/mae/fl/bvh_controller.hpp:
+
+/usr/local/include/mae/fl/bvh_spec.hpp:
+
+/usr/include/c++/6/map:
+
+/usr/include/c++/6/bits/stl_tree.h:
+
+/usr/include/c++/6/bits/stl_map.h:
+
+/usr/include/c++/6/bits/stl_multimap.h:
+
+/usr/local/include/mae/fl/bvh_data.hpp:
+
+/usr/local/include/mae/fl/msr_data_controller.hpp:
+
+/usr/local/include/mae/fl/msr_data.hpp:
+
+/usr/local/include/mae/fl/msr_spec.hpp:
+
+/usr/local/include/mae/hierarchy.hpp:
+
+/usr/local/include/mae/hierarchy_element.hpp:
+
+/usr/local/include/mae/fl/fl_movement_controller.hpp:
+
+/usr/local/include/mae/fl/fl_pose_detector.hpp:
+
+/usr/local/include/mae/i_pose_detector.hpp:
+
+/usr/local/include/mae/fl/e_fl_direction.hpp:
+
+/usr/local/include/mae/fl/laban/mv/e_direction.hpp:
+
+/usr/local/include/mae/indexer_fix.hpp:
+
+/usr/local/include/mae/mstr.hpp:
+
+/usr/local/include/mae/fl/e_fl_direction.hpp:
+
+/usr/local/include/mae/fl/laban/mv/e_level.hpp:
+
+/usr/local/include/mae/fl/laban/laban_sequence.hpp:
+
+/usr/local/include/mae/indexer_fix.hpp:
+
+/usr/local/include/mae/fl/laban/column_definition.hpp:
+
+/usr/local/include/mae/e_bone.hpp:
+
+/usr/local/include/mae/bone.hpp:
+
+/usr/local/include/mae/math/math.hpp:
+
+/usr/local/include/mae/fl/laban/ps/i_pre_sign.hpp:
+
+/usr/local/include/mae/indexer_fix.hpp:
+
+/usr/local/include/mae/fl/laban/ps/area_part.hpp:
+
+/usr/local/include/mae/fl/laban/ps/i_endpoint.hpp:
+
+/usr/local/include/mae/fl/laban/ps/i_part.hpp:
+
+/usr/local/include/mae/fl/laban/ps/e_area.hpp:
+
+/usr/local/include/mae/mstr.hpp:
+
+/usr/local/include/mae/fl/laban/ps/default_limb.hpp:
+
+/usr/local/include/mae/fl/laban/ps/i_limb.hpp:
+
+/usr/local/include/mae/fl/laban/ps/e_limb.hpp:
+
+/usr/local/include/mae/fl/laban/ps/body_part.hpp:
+
+/usr/local/include/mae/fl/laban/ps/i_pre_sign.hpp:
+
+/usr/local/include/mae/fl/laban/ps/e_side.hpp:
+
+/usr/local/include/mae/fl/laban/i_movement.hpp:
+
+/usr/local/include/mae/fl/laban/movement.hpp:
+
+/usr/local/include/mae/fl/laban/mv/i_symbol.hpp:
+
+/usr/local/include/mae/fl/laban/e_time_unit.hpp:
+
+/usr/local/include/mae/mstr.hpp:
+
+/usr/local/include/mae/fl/laban/laban_sequence_generator.hpp:
+
+/usr/local/include/mae/fl/laban/laban_sequence.hpp:
+
+/usr/local/include/mae/fl/laban/mv/direction_symbol.hpp:
+
+/usr/local/include/mae/fl/laban/mv/i_symbol.hpp:
+
+/usr/local/include/mae/fl/laban/mv/e_level.hpp:
+
+/usr/local/include/mae/fl/laban/mv/e_direction.hpp:
+
+/usr/local/include/mae/fl/laban/mv/e_contact_hook.hpp:
+
+/usr/local/include/mae/fl/laban/mv/i_dynamics_sign.hpp:
+
+/usr/local/include/mae/fl/laban/mv/space_measurement.hpp:
+
+/usr/local/include/mae/fl/laban/mv/i_degree_sign.hpp:
+
+/usr/local/include/mae/fl/laban/mv/e_space.hpp:
+
+/usr/local/include/mae/fl/laban/mv/e_space_direction.hpp:
+
+/usr/local/include/mae/fl/laban/mv/pin.hpp:
+
+/usr/local/include/mae/fl/laban/mv/e_level.hpp:
+
+/usr/local/include/mae/fl/laban/mv/e_direction.hpp:
+
+/usr/local/include/mae/fl/e_fl_direction.hpp:
+
+/usr/local/include/mae/general_enriched_pose.hpp:
+
+/usr/local/include/mae/i_sequence_generator.hpp:
+
+/usr/include/c++/6/complex:
+
+/usr/local/include/mae/fl/laban/laban_sequence_recognizer.hpp:
+
+/usr/local/include/mae/fl/laban/decision_forest.hpp:
+
+/usr/local/include/mae/fl/laban/decision_tree.hpp:
+
+/usr/local/include/mae/fl/laban/decision_node.hpp:
+
+/usr/local/include/mae/fl/laban/decision_value.hpp:
+
+/usr/local/include/mae/fl/laban/i_decision_maker.hpp:
+
+/usr/local/include/mae/fl/laban/decision_maker.hpp:
+
+/usr/local/include/mae/fl/laban/path.hpp:
+
+/usr/local/include/mae/fl/laban/e_path_type.hpp:
+
+/usr/local/include/mae/fl/laban/room_direction.hpp:
+
+/usr/local/include/mae/fl/laban/mv/pin.hpp:
+
+/usr/local/include/mae/fl/laban/relationship_bow.hpp:
+
+/usr/local/include/mae/fl/laban/e_relationship_type.hpp:
+
+/usr/local/include/mae/fl/laban/mv/relationship_endpoint.hpp:
+
+/usr/local/include/mae/fl/laban/ps/i_pre_sign.hpp:
+
+/usr/local/include/mae/fl/laban/rewriting_forest.hpp:
+
+/usr/local/include/mae/fl/laban/rewriting_decision_maker.hpp:
+
+/usr/include/c++/6/unordered_set:
+
+/usr/include/c++/6/bits/unordered_set.h:
+
+/usr/local/include/mae/i_sequence_recognizer.hpp:
+
+/usr/local/include/mae/movement_controller.hpp:
+
+/usr/local/include/mae/fl/skeleton_merger.hpp:
+
+/usr/local/include/mae/i_skeleton_merger.hpp:
+
+/usr/local/include/mae/fl/laban/laban.hpp:
+
+/usr/local/include/mae/fl/laban/laban_sequence_generator.hpp:
+
+/usr/local/include/mae/fl/laban/laban_sequence_reader.hpp:
+
+/usr/local/include/mae/fl/laban/laban_sequence_recognizer.hpp:
+
+/usr/local/include/mae/fl/laban/rewriting_rules_reader.hpp:
+
+/usr/local/include/mae/fl/laban/mv/mv.hpp:
+
+/usr/local/include/mae/fl/laban/mv/accent_sign.hpp:
+
+/usr/local/include/mae/fl/laban/mv/cancellation_symbol.hpp:
+
+/usr/local/include/mae/fl/laban/mv/e_cancel.hpp:
+
+/usr/local/include/mae/fl/laban/mv/direction_symbol.hpp:
+
+/usr/local/include/mae/fl/laban/mv/dynamic_sign.hpp:
+
+/usr/local/include/mae/fl/laban/mv/e_dynamic.hpp:
+
+/usr/local/include/mae/fl/laban/mv/relationship_endpoint.hpp:
+
+/usr/local/include/mae/fl/laban/mv/space_symbol.hpp:
+
+/usr/local/include/mae/fl/laban/mv/turn_symbol.hpp:
+
+/usr/local/include/mae/fl/laban/mv/e_turn_direction.hpp:
+
+/usr/local/include/mae/fl/laban/mv/vibration_symbol.hpp:
+
+/usr/local/include/mae/fl/laban/ps/ps.hpp:
+
+/usr/local/include/mae/fl/laban/ps/area_part.hpp:
+
+/usr/local/include/mae/fl/laban/ps/body_part.hpp:
+
+/usr/local/include/mae/fl/laban/ps/custom_limb.hpp:
+
+/usr/local/include/mae/fl/laban/ps/default_limb.hpp:
+
+/usr/local/include/mae/fl/laban/ps/digit_part.hpp:
+
+/usr/local/include/mae/fl/laban/ps/e_digit.hpp:
+
+/usr/local/include/mae/fl/laban/ps/joint_part.hpp:
+
+/usr/local/include/mae/fl/laban/ps/e_joint.hpp:
+
+/usr/local/include/mae/fl/laban/ps/prop.hpp:
+
+/usr/local/include/mae/fl/laban/ps/surface_part.hpp:
+
+/usr/local/include/mae/fl/laban/ps/e_limb_side.hpp:
+
+/usr/include/SDL2/SDL_image.h:

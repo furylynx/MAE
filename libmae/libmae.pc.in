@@ -1,0 +1,11 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+Name: libmae
+Description: Base library of the Movement Analysis Engine (MAE) for analyzing movement using depth sensors and Labanotation.
+URL: https://github.com/furylynx/MAE
+Version: @VERSION@
+Requires: opencv >= 2.4.8, libxml++-2.6 >= 2.6
+Libs: -L${libdir} -lmae
+Cflags: -I${includedir}

@@ -1,0 +1,11 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+Name: libmae
+Description: Demo library of the Movement Analysis Engine (MAE) for analyzing movement using depth sensors and Labanotation.
+URL: https://github.com/furylynx/MAE
+Version: 0.9.0
+Requires: sdl2 >= 2.0.2, SDL2_image, SDL2_ttf
+Libs: -L${libdir} -lmae_demo
+Cflags: -I${includedir}

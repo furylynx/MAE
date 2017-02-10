@@ -1,0 +1,11 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+Name: libmae_eventing
+Description: Eventing library of the Movement Analysis Engine (MAE) for analyzing movement using depth sensors and Labanotation.
+URL: https://github.com/furylynx/MAE
+Version: @VERSION@
+Requires: libmae >= 0.9.0, libxml++-2.6 >= 2.6, libboost-system >= 1.5.3
+Libs: -L${libdir} -lmae_eventing
+Cflags: -I${includedir}
