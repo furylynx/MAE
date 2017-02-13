@@ -31,11 +31,9 @@ ___
 Compile MAE from source (using autotools):
 
 type:
-./configure --prefix=/usr/lib/
+cmake CMakeLists.txt
 make
 sudo make install
-
-The install path can be changed (--prefix=).
 
 ___
 
