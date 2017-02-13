@@ -35,6 +35,9 @@ missing
 *.o
 *.lo
 *.la
+*.dylib
+*.so
+*.a
 
 # Release folders
 Release
@@ -43,3 +46,14 @@ Release-W64-static/
 Release-W32/
 
 Debug/
+
+#cmake
+cmake-build-debug/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+*.cbp
+
+#ide
+.idea
