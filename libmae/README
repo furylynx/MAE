@@ -12,7 +12,7 @@ xml++
 opencv2
 
 When building, link against the following:
-opencv_core, xml++-2.6
+opencv_core, xml++-2.6, intl
 
 
 Installation
@@ -28,11 +28,10 @@ ___
 Compile MAE from source (using autotools):
 
 type:
-./configure --prefix=/usr/lib/
+cmake CMakeLists.txt
 make
 sudo make install
 
-The install path can be changed (--prefix=).
 
 ___
 
