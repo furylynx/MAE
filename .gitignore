@@ -30,6 +30,7 @@ missing
 .libs/
 .deps/
 .dirstamp
+*.pc
 
 #object files
 *.o
@@ -54,6 +55,16 @@ CMakeFiles/
 cmake_install.cmake
 install_manifest.txt
 *.cbp
+*Config.cmake
+*ConfigVersion.cmake
+Makefile
+install_manifest.txt
+cmake_install.cmake
 
 #ide
 .idea
+.project
+.settings/
+.cproject
+.directory
+
