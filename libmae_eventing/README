@@ -12,10 +12,11 @@ This is the eventing part including client-server communication to provide netwo
 Dependencies
 ==================
 MAE
-Boost
+xml++
+Boost (asio, system)
  
 When building, link against the following:
-mae, boost_system
+mae, xml++-2.6, boost_system
 
 
 
@@ -32,26 +33,9 @@ ___
 Compile MAE from source (using autotools):
 
 type:
-./configure --prefix=/usr/lib/ --with-boost-libdir=/usr/lib/x86_64-linux-gnu
+cmake CMakeLists.txt
 make
 sudo make install
-
-The boost libdir might differ in your system. Set the path to the path where boost is installed on your system. Besides, the install path can be changed too (--prefix=).
-
-___
-
-Compile MAE from source (eclipse project):
-
-When the engine is meant to be compiled, the headers for these libraries must be included. 
-The engine must be built with a compiler supporting C++11 or greater (for some compilers 
-this requires additional flags like GCC’s -std=c++0x). Besides, the flag for position 
-independent code might be required (e.g. GCC’s -fPIC). The indexer fix.hpp files might 
-produce errors and can be removed. They were introduced in order to fix indexer issues with 
-the Eclipse CDT platform.
-
-An easy way to build the engine is to use the eclipse project and modify the paths for the
-includes according to your system. Paths to the libraries might be required as well if they
-are not present in the system PATH.
 
 
 Documentation

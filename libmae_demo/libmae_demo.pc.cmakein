@@ -9,5 +9,5 @@ URL: @MYLIB_URL@
 Version: @MYLIB_VERSION_STRING@
 
 Requires: @MYLIB_REQUIRES@
-Libs: -L${libdir} -lmae
+Libs: -L${libdir} -l@MYLIB@
 Cflags: -I${includedir}
