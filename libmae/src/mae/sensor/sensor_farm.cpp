@@ -112,6 +112,17 @@ namespace mae
             return std::make_pair(merged, unmerged);
         }
 
+        bool sensor_farm::get_debug() const
+        {
+            return debug_;
+        }
+
+        unsigned int sensor_farm::get_max_users() const
+        {
+            return max_users_;
+        }
+
+
         void sensor_farm::sensor_run(std::shared_ptr<i_sensor> controller, unsigned int thread_id)
         {
             while (running_ && controller != nullptr)

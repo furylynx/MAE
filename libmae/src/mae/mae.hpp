@@ -23,5 +23,6 @@
 
 #include "math/math.hpp"
 #include "fl/fl.hpp"
+#include "sensor/sensor.hpp"
 
 #endif // MAE_HPP_
