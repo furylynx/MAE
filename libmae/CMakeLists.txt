@@ -294,3 +294,21 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake" "${CMAKE_CURREN
 # configure and install pkg config .pc file
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lib${MYLIB}.pc.cmakein ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc @ONLY)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc DESTINATION "${INSTALL_PKGCONFIG_DIR}")
+
+#run swig
+FIND_PACKAGE(SWIG REQUIRED)
+FIND_PACKAGE(Java REQUIRED)
+FIND_PACKAGE(JNI REQUIRED)
+
+INCLUDE(${SWIG_USE_FILE})
+include(UseJava)
+include(UseSWIG)
+
+include_directories(${JNI_INCLUDE_DIRS})
+
+set(CMAKE_SWIG_OUTDIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release)
+SET(CMAKE_SWIG_FLAGS -package maejava)
+
+SET_SOURCE_FILES_PROPERTIES(wrappers/swig/mae/_wrapper_.i PROPERTIES CPLUSPLUS ON)
+SWIG_ADD_MODULE(maejava Java wrappers/swig/mae/_wrapper_.i)
+SWIG_LINK_LIBRARIES(maejava mae)

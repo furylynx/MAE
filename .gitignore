@@ -61,6 +61,9 @@ Makefile
 install_manifest.txt
 cmake_install.cmake
 
+#swig
+*.jnilib
+
 #ide
 .idea
 .project
