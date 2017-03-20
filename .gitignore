@@ -39,7 +39,8 @@ missing
 *.dylib
 *.so
 *.a
-!.dll.a
+!*.dll.a
+*.jar
 
 # Release folders
 Release

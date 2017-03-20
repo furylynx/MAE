@@ -22,6 +22,8 @@ set(MYLIB_REQ_INTL_V "intl")
 set(MYLIB_REQ_INTL_VERSION "1.0")
 set(MYLIB_REQUIRES "${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}" )
 
+set(MYLIB_JNI maejava)
+
 # Define the project
 project(${MYLIB} VERSION ${MYLIB_VERSION_STRING})
 
@@ -244,6 +246,7 @@ set(INSTALL_PACKAGE_LOCATION lib/cmake/lib${MYLIB})
 set(INCLUDE_INSTALL_DIR include/ )
 set(LIB_INSTALL_DIR lib/ )
 set(BIN_INSTALL_DIR bin/ )
+set(JNI_INSTALL_DIR jni/ )
 set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/ )
 
 # We produce a shared library
@@ -295,7 +298,7 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake" "${CMAKE_CURREN
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lib${MYLIB}.pc.cmakein ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc @ONLY)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc DESTINATION "${INSTALL_PKGCONFIG_DIR}")
 
-#run swig
+# create java wrapper using swig
 FIND_PACKAGE(SWIG REQUIRED)
 FIND_PACKAGE(Java REQUIRED)
 FIND_PACKAGE(JNI REQUIRED)
@@ -307,8 +310,22 @@ include(UseSWIG)
 include_directories(${JNI_INCLUDE_DIRS})
 
 set(CMAKE_SWIG_OUTDIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release)
-SET(CMAKE_SWIG_FLAGS -package maejava)
+SET(CMAKE_SWIG_FLAGS -package ${MYLIB_JNI})
 
 SET_SOURCE_FILES_PROPERTIES(wrappers/swig/mae/_wrapper_.i PROPERTIES CPLUSPLUS ON)
-SWIG_ADD_MODULE(maejava Java wrappers/swig/mae/_wrapper_.i)
-SWIG_LINK_LIBRARIES(maejava mae)
+swig_add_module(${MYLIB_JNI} Java wrappers/swig/mae/_wrapper_.i)
+SWIG_LINK_LIBRARIES(${MYLIB_JNI} mae)
+
+ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
+        POST_BUILD
+        COMMAND cmake -E echo "Compiling Java files..."
+        COMMAND ${JAVA_COMPILE} ${CMAKE_SWIG_OUTDIR}/*.java -d ${CMAKE_SWIG_OUTDIR}
+        COMMAND cmake -E echo "Creating jar file..."
+        COMMAND ${JAVA_ARCHIVE} cf ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar ${CMAKE_SWIG_OUTDIR}/${MYLIB_JNI}
+        )
+
+install (TARGETS ${MYLIB_JNI}
+        LIBRARY DESTINATION ${JNI_INSTALL_DIR})
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar DESTINATION "${JNI_INSTALL_DIR}")
+
