@@ -39,6 +39,7 @@ missing
 *.dylib
 *.so
 *.a
+!.dll.a
 
 # Release folders
 Release
