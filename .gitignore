@@ -30,6 +30,7 @@ missing
 .libs/
 .deps/
 .dirstamp
+*.pc
 
 #object files
 *.o
@@ -38,6 +39,8 @@ missing
 *.dylib
 *.so
 *.a
+!*.dll.a
+*.jar
 
 # Release folders
 Release
@@ -61,8 +64,13 @@ Makefile
 *.dylib
 *.pc
 
+#swig
+*.jnilib
 
 #ide
 .idea
-
+.project
+.settings/
+.cproject
+.directory
 

@@ -15,7 +15,15 @@
 //...
 
 //global includes
-//...
+#ifdef WIN32
+	#include <conio.h>
+#else // linux
+    #include <cstdio>
+	#include <unistd.h>
+	#include <stdlib.h>
+	#include <termios.h>
+	#include <fcntl.h>
+#endif // WIN32
 
 namespace mae
 {
@@ -28,6 +36,13 @@ namespace mae
 			 * @return The separator char.
 			 */
 			static char path_separator();
+
+			/**
+			 * Returns true if the keyboard was hit since the start of the program.
+			 *
+			 * @return True if keyboard was hit.
+			 */
+			static bool was_keyboard_hit();
 	};
 
 } // namespace mae

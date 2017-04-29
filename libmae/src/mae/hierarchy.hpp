@@ -13,6 +13,7 @@
 
 //custom includes
 #include "e_joint.hpp"
+#include "e_hand_joint.hpp"
 #include "e_kinect_joint.hpp"
 
 
@@ -113,6 +114,15 @@ namespace mae
 			 * @return The default hierarchy.
 			 */
 			static std::shared_ptr<hierarchy> default_hierarchy();
+
+			/**
+			 * Returns a default hierarchy that fits the needs of the leap motion hand skeletons.
+			 * If none of the default hierarchies is sufficient and/or another hierarchy is
+			 * needed it must be constructed manually.
+			 *
+			 * @return The default hand hierarchy.
+			 */
+			static std::shared_ptr<hierarchy> default_hand_hierarchy(bool is_left);
 
 			/**
 			 * Returns a default hierarchy that fits the needs of the Kinect SDK skeletons.

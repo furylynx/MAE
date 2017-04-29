@@ -21,7 +21,7 @@
 %pragma(java) jniclasscode=%{
   static {
     try {
-        System.loadLibrary("mae");
+        System.loadLibrary("maejava");
     } catch (UnsatisfiedLinkError e) {
       System.err.println("Native code library failed to load. \n" + e);
       System.exit(1);

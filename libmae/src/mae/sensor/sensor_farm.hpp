@@ -12,6 +12,7 @@
 #include <vector>
 #include <stdexcept>
 #include <thread>
+#include <mutex>
 
 namespace mae
 {
@@ -88,6 +89,22 @@ namespace mae
                 virtual std::pair<std::vector<std::shared_ptr<mae::general_skeleton> >,
                         std::vector<std::vector<std::shared_ptr<mae::general_skeleton> > > > wait_for_update_both(
                         unsigned int each_n_frames = 1);
+
+            protected:
+                /**
+                 * Returns the debug flag.
+                 *
+                 * @return The debug flag.
+                 */
+                virtual bool get_debug() const;
+
+                /**
+                 * Returns the maximum users taken into account.
+                 *
+                 * @return The max users.
+                 */
+                virtual unsigned int get_max_users() const;
+
 
             private:
                 unsigned int max_users_;

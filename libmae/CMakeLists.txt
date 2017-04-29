@@ -1,11 +1,31 @@
 cmake_minimum_required(VERSION 3.6)
-project(mae)
 
-# Set the version
+# Set package infos
+set(MYLIB mae)
+
 set(MYLIB_VERSION_MAJOR 0)
 set(MYLIB_VERSION_MINOR 10)
 set(MYLIB_VERSION_PATCH 0)
 set(MYLIB_VERSION_STRING ${MYLIB_VERSION_MAJOR}.${MYLIB_VERSION_MINOR}.${MYLIB_VERSION_PATCH})
+
+set(MYLIB_DESCRIPTION "Base library of the Movement Analysis Engine (MAE) for analyzing movement using depth sensors and Labanotation.")
+set(MYLIB_URL "https://github.com/furylynx/MAE")
+
+set(MYLIB_REQ_OPENCV OpenCV)
+set(MYLIB_REQ_OPENCV_V opencv)
+set(MYLIB_REQ_OPENCV_VERSION "2.4.8")
+set(MYLIB_REQ_LIBXMLPP "LibXML++")
+set(MYLIB_REQ_LIBXMLPP_V "libxml++-2.6")
+set(MYLIB_REQ_LIBXMLPP_VERSION "2.6")
+set(MYLIB_REQ_INTL "Intl")
+set(MYLIB_REQ_INTL_V "intl")
+set(MYLIB_REQ_INTL_VERSION "1.0")
+set(MYLIB_REQUIRES "${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}" )
+
+set(MYLIB_JNI maejava)
+
+# Define the project
+project(${MYLIB} VERSION ${MYLIB_VERSION_STRING})
 
 # Use C++11
 set(CMAKE_CXX_STANDARD 11)
@@ -17,6 +37,8 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/dummy_pose_listener.hpp
         src/mae/e_bone.cpp
         src/mae/e_bone.hpp
+        src/mae/e_hand_joint.cpp
+        src/mae/e_hand_joint.hpp
         src/mae/e_joint.cpp
         src/mae/e_joint.hpp
         src/mae/e_kinect_joint.cpp
@@ -217,32 +239,95 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/movement_controller.hpp
         src/mae/mstr.cpp
         src/mae/mstr.hpp
-        src/mae/sensor/sensor_farm.cpp src/mae/sensor/sensor_farm.hpp src/mae/sensor/i_sensor.hpp src/mae/sensor/sensor_info.cpp src/mae/sensor/sensor_info.hpp)
+        src/mae/sensor/sensor_farm.cpp src/mae/sensor/sensor_farm.hpp src/mae/sensor/i_sensor.hpp src/mae/sensor/sensor_info.cpp src/mae/sensor/sensor_info.hpp src/mae/sensor/sensor.hpp)
+
+
+set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
+set(INSTALL_PACKAGE_LOCATION lib/cmake/lib${MYLIB})
+
+set(INCLUDE_INSTALL_DIR include/ )
+set(LIB_INSTALL_DIR lib/ )
+set(BIN_INSTALL_DIR bin/ )
+set(JNI_INSTALL_DIR jni/ )
+set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/ )
 
 # We produce a shared library
-add_library(mae SHARED ${SOURCE_FILES})
+add_library(${MYLIB} SHARED ${SOURCE_FILES})
 
 # Install specs
-install (TARGETS mae
-        ARCHIVE DESTINATION lib
-        LIBRARY DESTINATION lib
-        RUNTIME DESTINATION bin
+install (TARGETS ${MYLIB}
+        ARCHIVE DESTINATION ${LIB_INSTALL_DIR}
+        LIBRARY DESTINATION ${LIB_INSTALL_DIR}
+        RUNTIME DESTINATION ${BIN_INSTALL_DIR}
         )
 
-install(DIRECTORY src/ DESTINATION include FILES_MATCHING PATTERN "*.h*")
+install(DIRECTORY src/ DESTINATION ${INCLUDE_INSTALL_DIR} FILES_MATCHING PATTERN "*.h*")
 
 
 # Import additional modules (for libxml++ and libintl)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/Modules/")
 
 # Dependencies
-find_package ( LibXML++ REQUIRED )
-find_package ( OpenCV REQUIRED )
-find_package ( Intl REQUIRED )
+find_package ( ${MYLIB_REQ_LIBXMLPP} ${MYLIB_REQ_LIBXMLPP_VERSION} REQUIRED )
+find_package ( ${MYLIB_REQ_OPENCV} ${MYLIB_REQ_OPENCV_VERSION} REQUIRED )
+find_package ( ${MYLIB_REQ_INTL} REQUIRED )
 
-include_directories(${LibXML++_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
-target_link_libraries (mae ${Intl_LIBRARIES} ${LibXML++_LIBRARIES} ${OpenCV_LIBS})
+
+set (MYLIB_INCLUDE_DIRS ${LibXML++_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
+set (MYLIB_LIBRARIES ${Intl_LIBRARIES} ${LibXML++_LIBRARIES} ${OpenCV_LIBS} )
+
+include_directories(${MYLIB_INCLUDE_DIRS})
+target_link_libraries (${MYLIB} ${MYLIB_LIBRARIES} )
 
 # Target
-set_target_properties(mae PROPERTIES VERSION ${MYLIB_VERSION_STRING} SOVERSION ${MYLIB_VERSION_MAJOR})
+set_target_properties(${MYLIB} PROPERTIES VERSION ${MYLIB_VERSION_STRING} SOVERSION ${MYLIB_VERSION_MAJOR})
+
+# package (version) info
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+        "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}ConfigVersion.cmake"
+        VERSION ${MYLIB_VERSION_STRING}
+        COMPATIBILITY SameMajorVersion )
+
+configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/${MYLIB}Config.cmakein ${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake
+        INSTALL_DESTINATION ${LIB_INSTALL_DIR}/cmake/${MYLIB}
+        PATH_VARS INCLUDE_INSTALL_DIR SYSCONFIG_INSTALL_DIR)
+
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake" "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}ConfigVersion.cmake"
+        DESTINATION ${LIB_INSTALL_DIR}/${MYLIB}/cmake )
+
+# configure and install pkg config .pc file
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lib${MYLIB}.pc.cmakein ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc DESTINATION "${INSTALL_PKGCONFIG_DIR}")
+
+# create java wrapper using swig
+FIND_PACKAGE(SWIG REQUIRED)
+FIND_PACKAGE(Java REQUIRED)
+FIND_PACKAGE(JNI REQUIRED)
+
+INCLUDE(${SWIG_USE_FILE})
+include(UseJava)
+include(UseSWIG)
+
+include_directories(${JNI_INCLUDE_DIRS})
+
+set(CMAKE_SWIG_OUTDIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release)
+SET(CMAKE_SWIG_FLAGS -package ${MYLIB_JNI})
+
+SET_SOURCE_FILES_PROPERTIES(wrappers/swig/mae/_wrapper_.i PROPERTIES CPLUSPLUS ON)
+swig_add_module(${MYLIB_JNI} Java wrappers/swig/mae/_wrapper_.i)
+SWIG_LINK_LIBRARIES(${MYLIB_JNI} mae)
+
+ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
+        POST_BUILD
+        COMMAND cmake -E echo "Compiling Java files..."
+        COMMAND ${JAVA_COMPILE} ${CMAKE_SWIG_OUTDIR}/*.java -d ${CMAKE_SWIG_OUTDIR}
+        COMMAND cmake -E echo "Creating jar file..."
+        COMMAND ${JAVA_ARCHIVE} cf ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar ${CMAKE_SWIG_OUTDIR}/${MYLIB_JNI}
+        )
+
+install (TARGETS ${MYLIB_JNI}
+        LIBRARY DESTINATION ${JNI_INSTALL_DIR})
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar DESTINATION "${JNI_INSTALL_DIR}")
 

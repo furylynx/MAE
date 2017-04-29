@@ -1,10 +1,3 @@
-/*
- * Hierarchy.cpp
- *
- *  Created on: 15.06.2014
- *      Author: keks
- */
-
 #include "hierarchy_element.hpp"
 #include "hierarchy.hpp"
 
@@ -139,9 +132,105 @@ namespace mae
 		all_elements.at(e_joint_c::to_int(e_joint::TORSO 			))->push_back(all_elements.at(e_joint_c::to_int(e_joint::TRH 				)));
 		all_elements.at(e_joint_c::to_int(e_joint::TORSO 			))->push_back(all_elements.at(e_joint_c::to_int(e_joint::TN 				)));
 
-		std::shared_ptr<hierarchy> result = std::shared_ptr<hierarchy>(new hierarchy(all_elements.at(e_joint_c::to_int(e_joint::TORSO))));
+        //create hierarchy
+		return std::make_shared<hierarchy>(all_elements.at(e_joint_c::to_int(e_joint::TORSO)));
+	}
 
-		return result;
+	std::shared_ptr<hierarchy> hierarchy::default_hand_hierarchy(bool is_left)
+	{
+		//push all joints as hierarchy elements to joint
+		std::unordered_map<int, std::shared_ptr<hierarchy_element>> all_elements;
+		for (e_hand_joint j : e_hand_joint_c::vec())
+		{
+			all_elements.insert(std::make_pair(e_hand_joint_c::to_int(j),
+											   std::make_shared<hierarchy_element>(e_hand_joint_c::to_int(j), e_hand_joint_c::str(j), e_hand_joint_c::is_palm(j), e_hand_joint_c::is_dummy(j))));
+		}
+
+		//set parents
+		if (is_left)
+		{
+			//extremities
+			all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LPT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_THUMB_PROXIMAL_INTERPHALANGEAL_JOINT)));
+			all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_THUMB_PROXIMAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_THUMB_DISTAL_INTERPHALANGEAL_JOINT)));
+			all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_THUMB_DISTAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_THUMB_TIP)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_THUMB_TIP))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::END_LT)));
+
+			all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LPI))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_INDEX_FINGER_METACARPOPHALANGEAL_JOINT)));
+			all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_INDEX_FINGER_METACARPOPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_INDEX_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+			all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_INDEX_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_INDEX_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+			all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_INDEX_FINGER_DISTAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_INDEX_FINGER_TIP)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_INDEX_FINGER_TIP))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::END_LI)));
+
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LPM))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_MIDDLE_FINGER_METACARPOPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_MIDDLE_FINGER_METACARPOPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_MIDDLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_MIDDLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_MIDDLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_MIDDLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_MIDDLE_FINGER_TIP)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_MIDDLE_FINGER_TIP))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::END_LM)));
+
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LPR))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_RING_FINGER_METACARPOPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_RING_FINGER_METACARPOPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_RING_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_RING_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_RING_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_RING_FINGER_DISTAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_RING_FINGER_TIP)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_RING_FINGER_TIP))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::END_LR)));
+
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LPL))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_LITTLE_FINGER_METACARPOPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_LITTLE_FINGER_METACARPOPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_LITTLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_LITTLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_LITTLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_LITTLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_LITTLE_FINGER_TIP)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_LITTLE_FINGER_TIP))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::END_LL)));
+
+			//set palm
+			all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_WRIST))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LPT)));
+			all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_WRIST))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LPI)));
+			all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_WRIST))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LPM)));
+			all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_WRIST))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LPR)));
+			all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_WRIST))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LPL)));
+
+
+			return std::make_shared<hierarchy>(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::LEFT_WRIST)));
+		}
+		else
+		{
+            //extremities
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RPT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_THUMB_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_THUMB_PROXIMAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_THUMB_DISTAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_THUMB_DISTAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_THUMB_TIP)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_THUMB_TIP))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::END_RT)));
+
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RPI))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_INDEX_FINGER_METACARPOPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_INDEX_FINGER_METACARPOPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_INDEX_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_INDEX_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_INDEX_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_INDEX_FINGER_DISTAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_INDEX_FINGER_TIP)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_INDEX_FINGER_TIP))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::END_RI)));
+
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RPM))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_MIDDLE_FINGER_METACARPOPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_MIDDLE_FINGER_METACARPOPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_MIDDLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_MIDDLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_MIDDLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_MIDDLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_MIDDLE_FINGER_TIP)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_MIDDLE_FINGER_TIP))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::END_RM)));
+
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RPR))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_RING_FINGER_METACARPOPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_RING_FINGER_METACARPOPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_RING_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_RING_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_RING_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_RING_FINGER_DISTAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_RING_FINGER_TIP)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_RING_FINGER_TIP))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::END_RR)));
+
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RPL))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_LITTLE_FINGER_METACARPOPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_LITTLE_FINGER_METACARPOPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_LITTLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_LITTLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_LITTLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_LITTLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_LITTLE_FINGER_TIP)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_LITTLE_FINGER_TIP))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::END_RL)));
+
+            //set palm
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_WRIST))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RPT)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_WRIST))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RPI)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_WRIST))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RPM)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_WRIST))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RPR)));
+            all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_WRIST))->push_back(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RPL)));
+
+            //create hierarchy
+			return std::make_shared<hierarchy>(all_elements.at(e_hand_joint_c::to_int(e_hand_joint::RIGHT_WRIST)));
+		}
 	}
 
 	std::shared_ptr<hierarchy> hierarchy::default_kinect_hierarchy()
@@ -197,9 +286,8 @@ namespace mae
 		all_elements.at(e_kinect_joint_c::to_int(e_kinect_joint::WAIST 			))->push_back(all_elements.at(e_kinect_joint_c::to_int(e_kinect_joint::WRH 				)));
 		all_elements.at(e_kinect_joint_c::to_int(e_kinect_joint::WAIST 			))->push_back(all_elements.at(e_kinect_joint_c::to_int(e_kinect_joint::WT 				)));
 
-		std::shared_ptr<hierarchy> result = std::shared_ptr<hierarchy>(new hierarchy(all_elements.at(e_kinect_joint_c::to_int(e_kinect_joint::WAIST))));
-
-		return result;
+        //create hierarchy
+		return std::make_shared<hierarchy>(all_elements.at(e_kinect_joint_c::to_int(e_kinect_joint::WAIST)));
 	}
 
 	void hierarchy::add_element(hierarchy_element* element)

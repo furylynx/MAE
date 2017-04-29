@@ -10,6 +10,7 @@ Dependencies
 ==================
 xml++
 opencv2
+SWIG 3
 
 When building, link against the following:
 opencv_core, xml++-2.6, intl
@@ -23,6 +24,9 @@ Usage in another project:
 In order to use the Movement Analysis Engine the library must be linked to the project
 and the headers must be included. Additionally, the dependencies must be met.
 
+To provide the JNI dependency for SWIG, the JAVA_HOME environment variable must be set:
+
+export JAVA_HOME=/path/to/java_home
 ___
 
 Compile MAE from source (using autotools):
