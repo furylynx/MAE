@@ -54,6 +54,15 @@ CMakeFiles/
 cmake_install.cmake
 install_manifest.txt
 *.cbp
+!*ConfigVersion.cmake
+!Find*.cmake
+*.cmake
+Makefile
+*.dylib
+*.pc
+
 
 #ide
 .idea
+
+
