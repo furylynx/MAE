@@ -74,7 +74,7 @@ namespace mae
 		return hierarchy_;
 	}
 
-	void general_skeleton::set_hierarchy(std::shared_ptr<hierarchy> hierarchy)
+	void general_skeleton::set_hierarchy(std::shared_ptr<mae::hierarchy> hierarchy)
 	{
 		this->hierarchy_ = hierarchy;
 	}
@@ -92,8 +92,8 @@ namespace mae
 			}
 			else
 			{
-				if (!hierarchy_->at(top_down->get_from()) || !hierarchy_->at(top_down->get_from())->is_torso_joint()
-						|| !hierarchy_->at(top_down->get_to()) || !hierarchy_->at(top_down->get_to())->is_torso_joint())
+				if (!hierarchy_->at(top_down->get_from()) || !hierarchy_->at(top_down->get_from())->is_base_joint()
+						|| !hierarchy_->at(top_down->get_to()) || !hierarchy_->at(top_down->get_to())->is_base_joint())
 				{
 					std::cout << "no torso" << std::endl;
 					throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
@@ -121,8 +121,8 @@ namespace mae
 			}
 			else
 			{
-				if (!(hierarchy_->at(right_left->get_from())) || !(hierarchy_->at(right_left->get_from())->is_torso_joint())
-						|| !(hierarchy_->at(right_left->get_to())) || !(hierarchy_->at(right_left->get_to())->is_torso_joint()))
+				if (!(hierarchy_->at(right_left->get_from())) || !(hierarchy_->at(right_left->get_from())->is_base_joint())
+						|| !(hierarchy_->at(right_left->get_to())) || !(hierarchy_->at(right_left->get_to())->is_base_joint()))
 				{
 					throw std::invalid_argument("At least one of the right_left joints is not defined as a torso joint.");
 				}

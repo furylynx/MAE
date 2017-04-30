@@ -27,8 +27,8 @@ set(MYLIB_JNI maejava)
 # Define the project
 project(${MYLIB} VERSION ${MYLIB_VERSION_STRING})
 
-# Use C++11
-set(CMAKE_CXX_STANDARD 11)
+# Use C++14
+set(CMAKE_CXX_STANDARD 14)
 
 # Source files
 set(SOURCE_FILES src/mae/bone.cpp

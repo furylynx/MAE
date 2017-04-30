@@ -11,61 +11,67 @@
 namespace mae
 {
 
-	hierarchy_element::hierarchy_element(int id, std::string name, bool torso_joint, bool dummy)
+	hierarchy_element::hierarchy_element(int id, std::string name, bool base_joint, bool dummy)
 	{
-		this->id = id;
-		this->name = name;
-		this->torso_joint = torso_joint;
-		this->dummy = dummy;
+		this->id_ = id;
+		this->name_ = name;
+		this->base_joint_ = base_joint;
+		this->dummy_ = dummy;
 
-		this->parent = nullptr;
+		this->parent_ = nullptr;
 		this->hierarchy_ = nullptr;
 	}
 
 	hierarchy_element::~hierarchy_element()
 	{
 		//reset parent of children and hierarchy
-		for (unsigned int i = 0; i < children.size(); i++)
+		for (unsigned int i = 0; i < children_.size(); i++)
 		{
-			children.at(i)->update_ph(nullptr, nullptr, false, false);
+			children_.at(i)->update_ph(nullptr, nullptr, false, false);
 		}
 	}
 
 	int hierarchy_element::get_id() const
 	{
-		return id;
+		return id_;
 	}
 
 	std::string hierarchy_element::get_name() const
 	{
-		return name;
+		return name_;
 	}
 
 	bool hierarchy_element::is_torso_joint() const
 	{
-		return torso_joint;
+		return is_base_joint();
 	}
+
+	bool hierarchy_element::is_base_joint() const
+	{
+		return base_joint_;
+	}
+
 
 	bool hierarchy_element::is_dummy() const
 	{
-		return dummy;
+		return dummy_;
 	}
 
 	hierarchy_element * const hierarchy_element::get_parent() const
 	{
-		return parent;
+		return parent_;
 	}
 
 	bool hierarchy_element::is_parent() const
 	{
-		return !children.empty();
+		return !children_.empty();
 	}
 
 	bool hierarchy_element::is_parent_of(int element_id) const
 	{
-		for (unsigned int i = 0; i < children.size(); i++)
+		for (unsigned int i = 0; i < children_.size(); i++)
 		{
-			if (element_id == children.at(i)->get_id())
+			if (element_id == children_.at(i)->get_id())
 			{
 				return true;
 			}
@@ -76,12 +82,12 @@ namespace mae
 
 	std::vector<std::shared_ptr<hierarchy_element> > hierarchy_element::get_children() const
 	{
-		return children;
+		return children_;
 	}
 
 	void hierarchy_element::push_front(std::shared_ptr<hierarchy_element> child, bool fix_child)
 	{
-		children.insert(children.begin(), child);
+		children_.insert(children_.begin(), child);
 
 		//assign parent and hierarchy
 		child->update_ph(this, hierarchy_, false, true);
@@ -90,7 +96,7 @@ namespace mae
 
 	void hierarchy_element::insert(unsigned int pos, std::shared_ptr<hierarchy_element> child, bool fix_child)
 	{
-		children.insert(children.begin() + pos, child);
+		children_.insert(children_.begin() + pos, child);
 
 		//assign parent and hierarchy
 		child->update_ph(this, hierarchy_, false, true);
@@ -98,7 +104,7 @@ namespace mae
 
 	void hierarchy_element::push_back(std::shared_ptr<hierarchy_element> child, bool fix_child)
 	{
-		children.push_back(child);
+		children_.push_back(child);
 
 		if (fix_child)
 		{
@@ -109,9 +115,9 @@ namespace mae
 
 	void hierarchy_element::erase(int element_id, bool fix_child)
 	{
-		for (unsigned int i = 0; i < children.size(); i++)
+		for (unsigned int i = 0; i < children_.size(); i++)
 		{
-			if (children.at(i)->get_id() == element_id)
+			if (children_.at(i)->get_id() == element_id)
 			{
 				erase_at(i, fix_child);
 			}
@@ -120,13 +126,13 @@ namespace mae
 
 	void hierarchy_element::erase_at(unsigned int i, bool fix_child)
 	{
-		if (i < children.size())
+		if (i < children_.size())
 		{
 			if (fix_child)
 			{
-				children.at(i)->update_ph(nullptr, nullptr, false, false);
+				children_.at(i)->update_ph(nullptr, nullptr, false, false);
 			}
-			children.erase(children.begin() + i);
+			children_.erase(children_.begin() + i);
 		}
 	}
 
@@ -134,25 +140,25 @@ namespace mae
 	{
 		if (fix_child)
 		{
-			for (unsigned int i = 0; i < children.size(); i++)
+			for (unsigned int i = 0; i < children_.size(); i++)
 			{
-				children.at(i)->update_ph(nullptr, nullptr, false, false);
+				children_.at(i)->update_ph(nullptr, nullptr, false, false);
 			}
 		}
 
-		children.clear();
+		children_.clear();
 	}
 
 	std::vector<std::shared_ptr<hierarchy_element> > hierarchy_element::get_element_sequence()
 	{
 		std::vector<std::shared_ptr<hierarchy_element> > result;
 
-		for (unsigned int i = 0; i < children.size(); i++)
+		for (unsigned int i = 0; i < children_.size(); i++)
 		{
-			result.push_back(children.at(i));
+			result.push_back(children_.at(i));
 
 			std::vector<std::shared_ptr<hierarchy_element> > childrens_sequence =
-					children.at(i)->get_element_sequence();
+					children_.at(i)->get_element_sequence();
 			result.insert(result.end(), childrens_sequence.begin(), childrens_sequence.end());
 		}
 
@@ -168,24 +174,24 @@ namespace mae
 			sstr << "\t";
 		}
 
-		sstr << name;
-		sstr << " (" << id << ")";
+		sstr << name_;
+		sstr << " (" << id_ << ")";
 
-		if (dummy)
+		if (dummy_)
 		{
 			sstr << " #DUMMY_JOINT";
 		}
 
-		if (torso_joint)
+		if (base_joint_)
 		{
 			sstr << " #TORSO_JOINT";
 		}
 
 		sstr << std::endl;
 
-		for (unsigned int i = 0; i < children.size(); i++)
+		for (unsigned int i = 0; i < children_.size(); i++)
 		{
-			sstr << children.at(i)->str(offset + 1);
+			sstr << children_.at(i)->str(offset + 1);
 		}
 
 		return sstr.str();
@@ -194,11 +200,11 @@ namespace mae
 	void hierarchy_element::update_ph(hierarchy_element * const parent, hierarchy * const h, bool fix_parent,
 			bool fix_former_h)
 	{
-		if (this->parent != parent)
+		if (this->parent_ != parent)
 		{
-			hierarchy_element* former_parent = this->parent;
+			hierarchy_element* former_parent = this->parent_;
 
-			this->parent = parent;
+			this->parent_ = parent;
 
 			if (h && h->get_root().get() == this)
 			{
@@ -211,7 +217,7 @@ namespace mae
 			if (former_parent && fix_parent)
 			{
 				//remove this element from the former parent
-				former_parent->erase(id, false);
+				former_parent->erase(id_, false);
 			}
 		}
 
@@ -241,9 +247,9 @@ namespace mae
 				hierarchy_->add_element(this);
 			}
 
-			for (unsigned int i = 0; i < children.size(); i++)
+			for (unsigned int i = 0; i < children_.size(); i++)
 			{
-				children.at(i)->update_ph(this, hierarchy_, false, false);
+				children_.at(i)->update_ph(this, hierarchy_, false, false);
 			}
 		}
 

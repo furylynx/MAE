@@ -92,9 +92,10 @@ namespace mae {
 				 * is the basis for any further calculations.
 				 *
 				 * @param timestamp The timestamp on which the skeleton occured.
+				 * @param basis (optional) The basis as a reference system (e.g. the torso basis or the palm basis). Nullptr to construct basis from base joints.
 				 * @param skeleton The skeleton data for the frame.
 				 */
-				virtual void next_frame(uint64_t timestamp, std::shared_ptr<general_skeleton> skeleton);
+				virtual void next_frame(uint64_t timestamp, std::shared_ptr<general_skeleton> skeleton, std::shared_ptr<mae::math::basis> basis = nullptr);
 
 				/**
 				 * Sets the tolerance for the recognition. The tolerance is a value which represents the

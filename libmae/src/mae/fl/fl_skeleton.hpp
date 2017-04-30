@@ -43,16 +43,29 @@ namespace mae
 
 
 				/**
-				 * Sets the torso basis.
+				 * Sets the basis as a system of reference (formerly the torso basis).
+				 *
+				 * The directions are:
+				 * u The top-down or weight direction.
+				 * r The right-left direction.
+				 * t The direction standing on u and r (pointing to the front, e.g. from the torso).
+				 *
+				 * @param torso_basis The basis.
+				 */
+				//[[deprecated("Replaced by set_basis(...)")]]
+				virtual void set_torso_basis(std::shared_ptr<mae::math::basis> basis);
+
+				/**
+				 * Sets the basis as a system of reference (e.g. the torso basis or the palm basis).
 				 *
 				 * The directions are:
 				 * u The top-down or weight direction.
 				 * r The right-left direction.
 				 * t The direction standing on u and r (pointing from torso to the front).
 				 *
-				 * @param torso_basis The torso basis.
+				 * @param basis The basis as a system of reference (e.g. the torso basis or the palm basis).
 				 */
-				virtual void set_torso_basis(std::shared_ptr<mae::math::basis> torso_basis);
+				virtual void set_basis(std::shared_ptr<mae::math::basis> basis);
 
 				/**
 				 * Returns the torso basis.
@@ -64,7 +77,20 @@ namespace mae
 				 *
 				 * @return The torso basis.
 				 */
+				//[[deprecated("Replaced by get_basis()")]]
 				virtual std::shared_ptr<mae::math::basis> get_torso_basis() const;
+
+				/**
+				 * Returns the basis as a system of reference (e.g. the torso basis or the palm basis).
+				 *
+				 * The directions are:
+				 * u The top-down or weight direction.
+				 * r The right-left direction.
+				 * t The direction standing on u and r (pointing to the front).
+				 *
+				 * @return The basis a system of reference (e.g. the torso basis or the palm basis).
+				 */
+				virtual std::shared_ptr<mae::math::basis> get_basis() const;
 
 				/**
 				 * Sets the original general skeleton.
@@ -106,7 +132,7 @@ namespace mae
 				std::shared_ptr<general_skeleton> orig_skeleton_;
 
 				//central coordinate system
-				std::shared_ptr<mae::math::basis> torso_basis_;
+				std::shared_ptr<mae::math::basis> basis_;
 
 		};
 

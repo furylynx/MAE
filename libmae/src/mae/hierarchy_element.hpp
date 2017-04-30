@@ -1,15 +1,5 @@
-/*
- * HierarchyElement.hpp
- *
- *  Created on: 15.06.2014
- *      Author: keks
- */
-
 #ifndef HIERARCHYELEMENT_HPP_
 #define HIERARCHYELEMENT_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
 
 //custom includes
 //#include "Hierarchy.hpp"
@@ -34,16 +24,16 @@ namespace mae
 			 * Creates a new hierarchy element. Elements are defined by their id and
 			 * have a name that is printed whenever needed (e.g. for bvh export).
 			 *
-			 * Please note that at least three torso joints must be defined in order
+			 * Please note that at least three (correlated) base joints must be defined in order
 			 * to use the skeleton for the FL* motion controller.
 			 *
 			 *
 			 * @param id The id of the element.
 			 * @param name The name of the element.
-			 * @param torso_joint True if the joint is a torso joint.
+			 * @param base_joint True if the joint is a base joint (part of a system of reference, e.g. the torso or palm).
 			 * @param dummy True if the joint is a dummy joint.
 			 */
-			hierarchy_element(int id, std::string name, bool torso_joint = false, bool dummy = false);
+			hierarchy_element(int id, std::string name, bool base_joint = false, bool dummy = false);
 
 			/**
 			 * Destructs this element and fixes its children (parent and hierarchy).
@@ -65,12 +55,21 @@ namespace mae
 			virtual std::string get_name() const;
 
 			/**
-			 * Returns the torso joint property of the element. If torso joint is set
-			 * this joint is part of the torso.
+			 * Returns the base joint (formerly called torso joint) property of the element. If base joint is set
+			 * this joint is part of the basis (e.g. the torso, the palm or any other system of reference).
 			 *
-			 * @return True if this is a torso joint. False otherwise.
+			 * @return True if this is a base joint (formerly called torso joint). False otherwise.
 			 */
+			//[[deprecated("Replaced by is_base_joint()")]]
 			virtual bool is_torso_joint() const;
+
+			/**
+			 * Returns the base joint property of the element. If base joint is set
+			 * this joint is part of the basis (e.g. the torso, the palm or any other system of reference).
+			 *
+			 * @return True if this is a base joint. False otherwise.
+			 */
+			virtual bool is_base_joint() const;
 
 			/**
 			 * Returns the dummy property of this element. If the joint is a dummy joint
@@ -193,14 +192,14 @@ namespace mae
 			virtual hierarchy * const get_hierarchy() const;
 
 		private:
-			int id;
-			std::string name;
-			bool dummy;
-			bool torso_joint;
+			int id_;
+			std::string name_;
+			bool dummy_;
+			bool base_joint_;
 
-			std::vector<std::shared_ptr<hierarchy_element> > children;
+			std::vector<std::shared_ptr<hierarchy_element> > children_;
 
-			hierarchy_element* parent;
+			hierarchy_element* parent_;
 			hierarchy* hierarchy_;
 	};
 

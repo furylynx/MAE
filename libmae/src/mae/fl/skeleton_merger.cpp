@@ -38,7 +38,7 @@ namespace mae
 				}
 				else
 				{
-					bases.push_back(fl_ctrl->create_torso_basis(*it));
+					bases.push_back(fl_ctrl->create_basis(*it));
 
 					it++;
 				}

@@ -170,7 +170,7 @@ namespace mae
 						else
 						{
 							//get bone vector in {u,r,t}
-							std::shared_ptr<mae::math::basis> torso_basis = skeleton->get_torso_basis();
+							std::shared_ptr<mae::math::basis> torso_basis = skeleton->get_basis();
 
 							real_dir =
 									mae::math::math::project_to_basis(

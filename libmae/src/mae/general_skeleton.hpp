@@ -1,10 +1,3 @@
-/*
- * GeneralSkeleton.hpp
- *
- *  Created on: 15.05.2014
- *      Author: keks
- */
-
 #ifndef GENERALSKELETON_HPP_
 #define GENERALSKELETON_HPP_
 
@@ -70,13 +63,13 @@ namespace mae
 			 * Returns a shared pointer to the used hierarchy. If not hierarchy is set, a default hierarchy is assumed.
 			 * @return A shared pointer to the hierarchy.
 			 */
-			virtual std::shared_ptr<hierarchy> get_hierarchy() const;
+			virtual std::shared_ptr<mae::hierarchy> get_hierarchy() const;
 
 			/**
 			 * Sets the hierarchy
 			 * @param hierarchy  A smart pointer to the hierarchy.
 			 */
-			virtual void set_hierarchy(std::shared_ptr<hierarchy> hierarchy);
+			virtual void set_hierarchy(std::shared_ptr<mae::hierarchy> hierarchy);
 
 			/**
 			 * Sets the top-down direction of this skeleton by defining a bone. The bone must
