@@ -21,6 +21,7 @@
 #include "ps/area_part.hpp"
 #include "ps/default_limb.hpp"
 #include "ps/body_part.hpp"
+#include "ps/digit_part.hpp"
 
 //global includes
 #include <string>
@@ -52,6 +53,13 @@ namespace mae
 				 * @param eb The bone enum value.
 				 */
 				column_definition(mae::e_bone eb);
+
+                /**
+                 * Creates a new column definition for the given e_hand_bone enum value.
+                 *
+                 * @param eb The hand bone enum value.
+                 */
+                column_definition(mae::e_hand_bone ehb);
 
 				virtual ~column_definition();
 
@@ -104,6 +112,14 @@ namespace mae
 				 * @return The default column definitions.
 				 */
 				static std::vector<std::shared_ptr<column_definition> > default_definitions();
+
+                /**
+                 * Returns the default hand column definitions.
+                 *
+                 * @param is_left True for left hand. False otherwise.
+                 * @return The default column definitions.
+                 */
+                static std::vector<std::shared_ptr<column_definition> > default_hand_definitions(bool is_left);
 
 			private:
 				int column_index_;

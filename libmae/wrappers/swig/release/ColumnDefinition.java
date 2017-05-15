@@ -43,6 +43,10 @@ public class ColumnDefinition {
     this(MaeJavaJNI.new_ColumnDefinition__SWIG_1(eb.swigValue()), true);
   }
 
+  public ColumnDefinition(EHandBone ehb) {
+    this(MaeJavaJNI.new_ColumnDefinition__SWIG_2(ehb.swigValue()), true);
+  }
+
   public int getColumnIndex() {
     return MaeJavaJNI.ColumnDefinition_getColumnIndex(swigCPtr, this);
   }
@@ -74,6 +78,10 @@ public class ColumnDefinition {
 
   public static ColumnDefinitionVector defaultDefinitions() {
     return new ColumnDefinitionVector(MaeJavaJNI.ColumnDefinition_defaultDefinitions(), true);
+  }
+
+  public static ColumnDefinitionVector defaultHandDefinitions(boolean is_left) {
+    return new ColumnDefinitionVector(MaeJavaJNI.ColumnDefinition_defaultHandDefinitions(is_left), true);
   }
 
 }

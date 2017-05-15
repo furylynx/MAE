@@ -796,6 +796,23 @@ SWIGINTERN void std_vector_Sl_mae_e_bone_Sg__set(std::vector< mae::e_bone > *sel
                     throw std::out_of_range("vector index out of range");
             }
 
+ 	#include "../../../src/mae/e_hand_bone.hpp"
+
+SWIGINTERN std::vector< enum mae::e_hand_bone >::const_reference std_vector_Sl_mae_e_hand_bone_Sg__get(std::vector< mae::e_hand_bone > *self,int i){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    return (*self)[i];
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+SWIGINTERN void std_vector_Sl_mae_e_hand_bone_Sg__set(std::vector< mae::e_hand_bone > *self,int i,std::vector< enum mae::e_hand_bone >::value_type const &val){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    (*self)[i] = val;
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+
 	#include "../../../src/mae/bone.hpp"
 
 
@@ -1021,6 +1038,9 @@ SWIGINTERN void std_vector_Sl_std_shared_ptr_Sl_mae_fl_laban_i_movement_Sg__Sg__
                 else
                     throw std::out_of_range("vector index out of range");
             }
+
+ 	#include "../../../src/mae/e_hand_bone.hpp"
+
 
 	#include "../../../src/mae/bone.hpp"
 
@@ -3998,6 +4018,1523 @@ SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EBoneVector(JNIEnv *jenv
 }
 
 
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1INVALID_1HAND_1BONE_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::INVALID_HAND_BONE;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1THUMB_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_THUMB;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1INDEX_1FINGER_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_INDEX_FINGER;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1MIDDLE_1FINGER_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_MIDDLE_FINGER;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1RING_1FINGER_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_RING_FINGER;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1LITTLE_1FINGER_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_LITTLE_FINGER;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1THUMB_1PROXIMAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_THUMB_PROXIMAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1THUMB_1INTERMEDIATE_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_THUMB_INTERMEDIATE_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1THUMB_1DISTAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_THUMB_DISTAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1INDEX_1FINGER_1PROXIMAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_INDEX_FINGER_PROXIMAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1INDEX_1FINGER_1INTERMEDIATE_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_INDEX_FINGER_INTERMEDIATE_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1INDEX_1FINGER_1DISTAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_INDEX_FINGER_DISTAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1MIDDLE_1FINGER_1PROXIMAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_MIDDLE_FINGER_PROXIMAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1MIDDLE_1FINGER_1INTERMEDIATE_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_MIDDLE_FINGER_INTERMEDIATE_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1MIDDLE_1FINGER_1DISTAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_MIDDLE_FINGER_DISTAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1RING_1FINGER_1PROXIMAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_RING_FINGER_PROXIMAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1RING_1FINGER_1INTERMEDIATE_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_RING_FINGER_INTERMEDIATE_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1RING_1FINGER_1DISTAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_RING_FINGER_DISTAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1LITTLE_1FINGER_1PROXIMAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_LITTLE_FINGER_PROXIMAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1LITTLE_1FINGER_1INTERMEDIATE_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_LITTLE_FINGER_INTERMEDIATE_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1LEFT_1LITTLE_1FINGER_1DISTAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::LEFT_LITTLE_FINGER_DISTAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1THUMB_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_THUMB;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1INDEX_1FINGER_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_INDEX_FINGER;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1MIDDLE_1FINGER_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_MIDDLE_FINGER;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1RING_1FINGER_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_RING_FINGER;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1LITTLE_1FINGER_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_LITTLE_FINGER;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1THUMB_1PROXIMAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_THUMB_PROXIMAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1THUMB_1INTERMEDIATE_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_THUMB_INTERMEDIATE_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1THUMB_1DISTAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_THUMB_DISTAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1INDEX_1FINGER_1PROXIMAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_INDEX_FINGER_PROXIMAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1INDEX_1FINGER_1INTERMEDIATE_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_INDEX_FINGER_INTERMEDIATE_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1INDEX_1FINGER_1DISTAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_INDEX_FINGER_DISTAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1MIDDLE_1FINGER_1PROXIMAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_MIDDLE_FINGER_PROXIMAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1MIDDLE_1FINGER_1INTERMEDIATE_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_MIDDLE_FINGER_INTERMEDIATE_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1MIDDLE_1FINGER_1DISTAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_MIDDLE_FINGER_DISTAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1RING_1FINGER_1PROXIMAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_RING_FINGER_PROXIMAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1RING_1FINGER_1INTERMEDIATE_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_RING_FINGER_INTERMEDIATE_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1RING_1FINGER_1DISTAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_RING_FINGER_DISTAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1LITTLE_1FINGER_1PROXIMAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_LITTLE_FINGER_PROXIMAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1LITTLE_1FINGER_1INTERMEDIATE_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_LITTLE_FINGER_INTERMEDIATE_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBone_1RIGHT_1LITTLE_1FINGER_1DISTAL_1PHALANX_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone::RIGHT_LITTLE_FINGER_DISTAL_PHALANX;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_maejava_MaeJavaJNI_EHandBoneC_1str(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jstring jresult = 0 ;
+  mae::e_hand_bone arg1 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (mae::e_hand_bone)jarg1; 
+  {
+    try {
+      result = mae::e_hand_bone_c::str(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBoneC_1toInt(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jint jresult = 0 ;
+  mae::e_hand_bone arg1 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (mae::e_hand_bone)jarg1; 
+  {
+    try {
+      result = (int)mae::e_hand_bone_c::to_int(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EHandBoneC_1vec(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::vector< mae::e_hand_bone > result;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = mae::e_hand_bone_c::vec();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< mae::e_hand_bone > **)&jresult = new std::vector< mae::e_hand_bone >((const std::vector< mae::e_hand_bone > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EHandBoneC_1vecSide(JNIEnv *jenv, jclass jcls, jboolean jarg1) {
+  jlong jresult = 0 ;
+  bool arg1 ;
+  std::vector< mae::e_hand_bone > result;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = jarg1 ? true : false; 
+  {
+    try {
+      result = mae::e_hand_bone_c::vec_side(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< mae::e_hand_bone > **)&jresult = new std::vector< mae::e_hand_bone >((const std::vector< mae::e_hand_bone > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBoneC_1parse(JNIEnv *jenv, jclass jcls, jstring jarg1) {
+  jint jresult = 0 ;
+  std::string arg1 ;
+  mae::e_hand_bone result;
+  
+  (void)jenv;
+  (void)jcls;
+  if(!jarg1) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg1_pstr = (const char *)jenv->GetStringUTFChars(jarg1, 0); 
+  if (!arg1_pstr) return 0;
+  (&arg1)->assign(arg1_pstr);
+  jenv->ReleaseStringUTFChars(jarg1, arg1_pstr); 
+  {
+    try {
+      result = (mae::e_hand_bone)mae::e_hand_bone_c::parse(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EHandBoneC_1isLeft(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jboolean jresult = 0 ;
+  mae::e_hand_bone arg1 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (mae::e_hand_bone)jarg1; 
+  {
+    try {
+      result = (bool)mae::e_hand_bone_c::is_left(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EHandBoneC_1isRight(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jboolean jresult = 0 ;
+  mae::e_hand_bone arg1 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (mae::e_hand_bone)jarg1; 
+  {
+    try {
+      result = (bool)mae::e_hand_bone_c::is_right(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EHandBoneC(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  mae::e_hand_bone_c *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (mae::e_hand_bone_c *)new mae::e_hand_bone_c();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(mae::e_hand_bone_c **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EHandBoneC(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  mae::e_hand_bone_c *arg1 = (mae::e_hand_bone_c *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(mae::e_hand_bone_c **)&jarg1; 
+  {
+    try {
+      delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EHandBoneVector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::vector< mae::e_hand_bone > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (std::vector< mae::e_hand_bone > *)new std::vector< mae::e_hand_bone >();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< mae::e_hand_bone > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1EHandBoneVector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  jlong jresult = 0 ;
+  std::vector< enum mae::e_hand_bone >::size_type arg1 ;
+  std::vector< mae::e_hand_bone > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (std::vector< enum mae::e_hand_bone >::size_type)jarg1; 
+  {
+    try {
+      result = (std::vector< mae::e_hand_bone > *)new std::vector< mae::e_hand_bone >(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< mae::e_hand_bone > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EHandBoneVector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< mae::e_hand_bone > *arg1 = (std::vector< mae::e_hand_bone > *) 0 ;
+  std::vector< enum mae::e_hand_bone >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_hand_bone > **)&jarg1; 
+  {
+    try {
+      result = ((std::vector< mae::e_hand_bone > const *)arg1)->size();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_EHandBoneVector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< mae::e_hand_bone > *arg1 = (std::vector< mae::e_hand_bone > *) 0 ;
+  std::vector< enum mae::e_hand_bone >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_hand_bone > **)&jarg1; 
+  {
+    try {
+      result = ((std::vector< mae::e_hand_bone > const *)arg1)->capacity();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EHandBoneVector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  std::vector< mae::e_hand_bone > *arg1 = (std::vector< mae::e_hand_bone > *) 0 ;
+  std::vector< enum mae::e_hand_bone >::size_type arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_hand_bone > **)&jarg1; 
+  arg2 = (std::vector< enum mae::e_hand_bone >::size_type)jarg2; 
+  {
+    try {
+      (arg1)->reserve(arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_maejava_MaeJavaJNI_EHandBoneVector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  std::vector< mae::e_hand_bone > *arg1 = (std::vector< mae::e_hand_bone > *) 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_hand_bone > **)&jarg1; 
+  {
+    try {
+      result = (bool)((std::vector< mae::e_hand_bone > const *)arg1)->empty();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EHandBoneVector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  std::vector< mae::e_hand_bone > *arg1 = (std::vector< mae::e_hand_bone > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_hand_bone > **)&jarg1; 
+  {
+    try {
+      (arg1)->clear();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EHandBoneVector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  std::vector< mae::e_hand_bone > *arg1 = (std::vector< mae::e_hand_bone > *) 0 ;
+  std::vector< enum mae::e_hand_bone >::value_type *arg2 = 0 ;
+  std::vector< enum mae::e_hand_bone >::value_type temp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_hand_bone > **)&jarg1; 
+  temp2 = (std::vector< enum mae::e_hand_bone >::value_type)jarg2; 
+  arg2 = &temp2; 
+  {
+    try {
+      (arg1)->push_back((std::vector< enum mae::e_hand_bone >::value_type const &)*arg2);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT jint JNICALL Java_maejava_MaeJavaJNI_EHandBoneVector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  jint jresult = 0 ;
+  std::vector< mae::e_hand_bone > *arg1 = (std::vector< mae::e_hand_bone > *) 0 ;
+  int arg2 ;
+  std::vector< enum mae::e_hand_bone >::value_type *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_hand_bone > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  {
+    try {
+      try {
+        result = (std::vector< enum mae::e_hand_bone >::value_type *) &std_vector_Sl_mae_e_hand_bone_Sg__get(arg1,arg2);
+      }
+      catch(std::out_of_range &_e) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+        return 0;
+      }
+      
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  jresult = (jint)*result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_EHandBoneVector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
+  std::vector< mae::e_hand_bone > *arg1 = (std::vector< mae::e_hand_bone > *) 0 ;
+  int arg2 ;
+  std::vector< enum mae::e_hand_bone >::value_type *arg3 = 0 ;
+  std::vector< enum mae::e_hand_bone >::value_type temp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< mae::e_hand_bone > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (std::vector< enum mae::e_hand_bone >::value_type)jarg3; 
+  arg3 = &temp3; 
+  {
+    try {
+      try {
+        std_vector_Sl_mae_e_hand_bone_Sg__set(arg1,arg2,(enum mae::e_hand_bone const &)*arg3);
+      }
+      catch(std::out_of_range &_e) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+        return ;
+      }
+      
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1EHandBoneVector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::vector< mae::e_hand_bone > *arg1 = (std::vector< mae::e_hand_bone > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::vector< mae::e_hand_bone > **)&jarg1; 
+  {
+    try {
+      delete arg1;
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return ; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return ; 
+      };
+    }
+  }
+}
+
+
 SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Bone_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
   jlong jresult = 0 ;
   mae::bone *result = 0 ;
@@ -4136,7 +5673,35 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Bone_1_1SWIG_13(JNIEnv *je
 }
 
 
-SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Bone_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_) {
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Bone_1_1SWIG_14(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jlong jresult = 0 ;
+  mae::e_hand_bone arg1 ;
+  mae::bone *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (mae::e_hand_bone)jarg1; 
+  {
+    try {
+      result = (mae::bone *)new mae::bone(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  
+  *(std::shared_ptr<  mae::bone > **)&jresult = result ? new std::shared_ptr<  mae::bone >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1Bone_1_1SWIG_15(JNIEnv *jenv, jclass jcls, jint jarg1, jlong jarg2, jobject jarg2_) {
   jlong jresult = 0 ;
   mae::e_bone arg1 ;
   std::vector< mae::bone > arg2 ;
@@ -4411,6 +5976,32 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Bone_1defaultKinectBones(JNIEnv
   {
     try {
       result = mae::bone::default_kinect_bones();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< mae::bone > **)&jresult = new std::vector< mae::bone >((const std::vector< mae::bone > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_Bone_1defaultHandBones(JNIEnv *jenv, jclass jcls, jboolean jarg1) {
+  jlong jresult = 0 ;
+  bool arg1 ;
+  std::vector< mae::bone > result;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = jarg1 ? true : false; 
+  {
+    try {
+      result = mae::bone::default_hand_bones(arg1);
     } catch (std::exception &e) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
@@ -10655,6 +12246,34 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ColumnDefinition_1_1SWIG_1
 }
 
 
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_new_1ColumnDefinition_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jlong jresult = 0 ;
+  mae::e_hand_bone arg1 ;
+  mae::fl::laban::column_definition *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (mae::e_hand_bone)jarg1; 
+  {
+    try {
+      result = (mae::fl::laban::column_definition *)new mae::fl::laban::column_definition(arg1);
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  
+  *(std::shared_ptr<  mae::fl::laban::column_definition > **)&jresult = result ? new std::shared_ptr<  mae::fl::laban::column_definition >(result SWIG_NO_NULL_DELETER_1) : 0;
+  
+  return jresult;
+}
+
+
 SWIGEXPORT void JNICALL Java_maejava_MaeJavaJNI_delete_1ColumnDefinition(JNIEnv *jenv, jclass jcls, jlong jarg1) {
   mae::fl::laban::column_definition *arg1 = (mae::fl::laban::column_definition *) 0 ;
   std::shared_ptr< mae::fl::laban::column_definition > *smartarg1 = 0 ;
@@ -10927,6 +12546,32 @@ SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ColumnDefinition_1defaultDefini
   {
     try {
       result = mae::fl::laban::column_definition::default_definitions();
+    } catch (std::exception &e) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 
+      };
+    } catch (...) {
+      {
+        SWIG_JavaException(jenv, SWIG_RuntimeError, "unknown exception"); return 0; 
+      };
+    }
+  }
+  *(std::vector< std::shared_ptr< mae::fl::laban::column_definition > > **)&jresult = new std::vector< std::shared_ptr< mae::fl::laban::column_definition > >((const std::vector< std::shared_ptr< mae::fl::laban::column_definition > > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_maejava_MaeJavaJNI_ColumnDefinition_1defaultHandDefinitions(JNIEnv *jenv, jclass jcls, jboolean jarg1) {
+  jlong jresult = 0 ;
+  bool arg1 ;
+  std::vector< std::shared_ptr< mae::fl::laban::column_definition > > result;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = jarg1 ? true : false; 
+  {
+    try {
+      result = mae::fl::laban::column_definition::default_hand_definitions(arg1);
     } catch (std::exception &e) {
       {
         SWIG_JavaException(jenv, SWIG_RuntimeError, e.what()); return 0; 

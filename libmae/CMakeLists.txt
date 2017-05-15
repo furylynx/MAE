@@ -37,6 +37,8 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/dummy_pose_listener.hpp
         src/mae/e_bone.cpp
         src/mae/e_bone.hpp
+        src/mae/e_hand_bone.cpp
+        src/mae/e_hand_bone.hpp
         src/mae/e_hand_joint.cpp
         src/mae/e_hand_joint.hpp
         src/mae/e_joint.cpp

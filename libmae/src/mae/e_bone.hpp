@@ -1,10 +1,3 @@
-/*
- * e_bone.hpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
 #ifndef E_BONE_HPP_
 #define E_BONE_HPP_
 

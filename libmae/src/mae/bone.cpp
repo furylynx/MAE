@@ -1,10 +1,3 @@
-/*
- * bone.cpp
- *
- *  Created on: 18.06.2014
- *      Author: keks
- */
-
 #include "bone.hpp"
 
 namespace mae
@@ -12,6 +5,8 @@ namespace mae
 
 	std::vector<bone> bone::default_bones_ = std::vector<bone>();
 	std::vector<bone> bone::default_kinect_bones_ = std::vector<bone>();
+	std::vector<bone> bone::default_left_hand_bones_ = std::vector<bone>();
+	std::vector<bone> bone::default_right_hand_bones_ = std::vector<bone>();
 
 	bone::bone()
 	{
@@ -52,6 +47,15 @@ namespace mae
 		initialize_by_e_bone(eb, def_bones);
 	}
 
+	bone::bone(e_hand_bone ehb)
+	{
+		std::vector<bone> def_bones = bone::default_hand_bones(true);
+		std::vector<bone> def_bones_right = bone::default_hand_bones(false);
+		def_bones.insert(def_bones.end(), def_bones_right.begin(), def_bones_right.end());
+
+		initialize_by_e_hand_bone(ehb, def_bones);
+	}
+
 	bone::bone(e_bone eb, std::vector<bone> bones_set)
 	{
 		initialize_by_e_bone(eb, bones_set);
@@ -85,7 +89,39 @@ namespace mae
 
 		if (!e_bone_found)
 		{
-			throw std::invalid_argument("The bone was not found in default bones. Therefore, it could not be created.");
+            std::stringstream sstr;
+            sstr << "The bone (" << e_bone_c::str(eb) << ") was not found in default bones. Therefore, it could not be created.";
+            throw std::invalid_argument(sstr.str());
+		}
+	}
+
+	void bone::initialize_by_e_hand_bone(e_hand_bone ehb, std::vector<bone> bones_set)
+	{
+		bool e_bone_found = false;
+
+		//using for loop here and the default bone minimizes the effort for maintenance at cost of runtime
+		for (unsigned int i = 0; i < bones_set.size(); i++)
+		{
+			if (bones_set.at(i).get_id() == e_hand_bone_c::to_int(ehb))
+			{
+				bone b = bones_set.at(i);
+
+				id_ = b.get_id();
+				from_ = b.get_from();
+				to_ = b.get_to();
+				middle_ = b.has_middle_joint();
+				middle_joint_ = b.get_middle_joint();
+
+				e_bone_found = true;
+				break;
+			}
+		}
+
+		if (!e_bone_found)
+		{
+			std::stringstream sstr;
+			sstr << "The bone (" << e_hand_bone_c::str(ehb) << ") was not found in default bones. Therefore, it could not be created.";
+			throw std::invalid_argument(sstr.str());
 		}
 	}
 
@@ -264,5 +300,237 @@ namespace mae
 		}
 	}
 
+
+	std::vector<bone> bone::default_hand_bones(bool is_left)
+	{
+		if (default_left_hand_bones_.size() == 0 || default_right_hand_bones_.size() == 0)
+		{
+
+            std::vector<bone> left_hand;
+
+            left_hand.push_back(
+                    bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_THUMB), e_hand_bone_c::str(e_hand_bone::LEFT_THUMB),
+                         e_hand_joint_c::to_int(e_hand_joint::LEFT_WRIST),
+                         e_hand_joint_c::to_int(e_hand_joint::LEFT_THUMB_TIP)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_INDEX_FINGER),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_INDEX_FINGER),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_INDEX_FINGER_METACARPOPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_INDEX_FINGER_TIP)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_MIDDLE_FINGER),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_MIDDLE_FINGER),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_MIDDLE_FINGER_METACARPOPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_MIDDLE_FINGER_TIP)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_RING_FINGER),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_RING_FINGER),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_RING_FINGER_METACARPOPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_RING_FINGER_TIP)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_LITTLE_FINGER),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_LITTLE_FINGER),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_LITTLE_FINGER_METACARPOPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_LITTLE_FINGER_TIP)));
+
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_THUMB_PROXIMAL_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_THUMB_PROXIMAL_PHALANX),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_WRIST),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_THUMB_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_THUMB_INTERMEDIATE_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_THUMB_INTERMEDIATE_PHALANX),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_THUMB_PROXIMAL_INTERPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_THUMB_DISTAL_INTERPHALANGEAL_JOINT)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_THUMB_DISTAL_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_THUMB_DISTAL_PHALANX),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_THUMB_DISTAL_INTERPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_THUMB_TIP)));
+
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_INDEX_FINGER_PROXIMAL_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_INDEX_FINGER_PROXIMAL_PHALANX),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_INDEX_FINGER_METACARPOPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_INDEX_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_INDEX_FINGER_INTERMEDIATE_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_INDEX_FINGER_INTERMEDIATE_PHALANX),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_INDEX_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_INDEX_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_INDEX_FINGER_DISTAL_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_INDEX_FINGER_DISTAL_PHALANX),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_INDEX_FINGER_DISTAL_INTERPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_INDEX_FINGER_TIP)));
+
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_MIDDLE_FINGER_PROXIMAL_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_MIDDLE_FINGER_PROXIMAL_PHALANX),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_MIDDLE_FINGER_METACARPOPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_MIDDLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_MIDDLE_FINGER_INTERMEDIATE_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_MIDDLE_FINGER_INTERMEDIATE_PHALANX),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_MIDDLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_MIDDLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_MIDDLE_FINGER_DISTAL_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_MIDDLE_FINGER_DISTAL_PHALANX),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_MIDDLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_MIDDLE_FINGER_TIP)));
+
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_RING_FINGER_PROXIMAL_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_RING_FINGER_PROXIMAL_PHALANX),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_RING_FINGER_METACARPOPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_RING_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_RING_FINGER_INTERMEDIATE_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_RING_FINGER_INTERMEDIATE_PHALANX),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_RING_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_RING_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_RING_FINGER_DISTAL_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_RING_FINGER_DISTAL_PHALANX),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_RING_FINGER_DISTAL_INTERPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_RING_FINGER_TIP)));
+
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_LITTLE_FINGER_PROXIMAL_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_LITTLE_FINGER_PROXIMAL_PHALANX),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_LITTLE_FINGER_METACARPOPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_LITTLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_LITTLE_FINGER_INTERMEDIATE_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_LITTLE_FINGER_INTERMEDIATE_PHALANX),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_LITTLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_LITTLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            left_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::LEFT_LITTLE_FINGER_DISTAL_PHALANX),
+                                     e_hand_bone_c::str(e_hand_bone::LEFT_LITTLE_FINGER_DISTAL_PHALANX),
+                                     e_hand_joint_c::to_int(
+                                             e_hand_joint::LEFT_LITTLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT),
+                                     e_hand_joint_c::to_int(e_hand_joint::LEFT_LITTLE_FINGER_TIP)));
+
+            default_left_hand_bones_ = left_hand;
+
+            std::vector<bone> right_hand;
+
+            right_hand.push_back(
+                    bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_THUMB), e_hand_bone_c::str(e_hand_bone::RIGHT_THUMB),
+                         e_hand_joint_c::to_int(e_hand_joint::RIGHT_WRIST),
+                         e_hand_joint_c::to_int(e_hand_joint::RIGHT_THUMB_TIP)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_INDEX_FINGER),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_INDEX_FINGER), e_hand_joint_c::to_int(
+                            e_hand_joint::RIGHT_INDEX_FINGER_METACARPOPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_INDEX_FINGER_TIP)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_MIDDLE_FINGER),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_MIDDLE_FINGER), e_hand_joint_c::to_int(
+                            e_hand_joint::RIGHT_MIDDLE_FINGER_METACARPOPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_MIDDLE_FINGER_TIP)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_RING_FINGER),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_RING_FINGER),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_RING_FINGER_METACARPOPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_RING_FINGER_TIP)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_LITTLE_FINGER),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_LITTLE_FINGER), e_hand_joint_c::to_int(
+                            e_hand_joint::RIGHT_LITTLE_FINGER_METACARPOPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_LITTLE_FINGER_TIP)));
+
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_THUMB_PROXIMAL_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_THUMB_PROXIMAL_PHALANX),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_WRIST), e_hand_joint_c::to_int(
+                            e_hand_joint::RIGHT_THUMB_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_THUMB_INTERMEDIATE_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_THUMB_INTERMEDIATE_PHALANX),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_THUMB_PROXIMAL_INTERPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_THUMB_DISTAL_INTERPHALANGEAL_JOINT)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_THUMB_DISTAL_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_THUMB_DISTAL_PHALANX),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_THUMB_DISTAL_INTERPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_THUMB_TIP)));
+
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_INDEX_FINGER_PROXIMAL_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_INDEX_FINGER_PROXIMAL_PHALANX),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_INDEX_FINGER_METACARPOPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_INDEX_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_INDEX_FINGER_INTERMEDIATE_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_INDEX_FINGER_INTERMEDIATE_PHALANX),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_INDEX_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_INDEX_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_INDEX_FINGER_DISTAL_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_INDEX_FINGER_DISTAL_PHALANX),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_INDEX_FINGER_DISTAL_INTERPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_INDEX_FINGER_TIP)));
+
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_MIDDLE_FINGER_PROXIMAL_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_MIDDLE_FINGER_PROXIMAL_PHALANX),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_MIDDLE_FINGER_METACARPOPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_MIDDLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_MIDDLE_FINGER_INTERMEDIATE_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_MIDDLE_FINGER_INTERMEDIATE_PHALANX),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_MIDDLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_MIDDLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_MIDDLE_FINGER_DISTAL_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_MIDDLE_FINGER_DISTAL_PHALANX),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_MIDDLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_MIDDLE_FINGER_TIP)));
+
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_RING_FINGER_PROXIMAL_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_RING_FINGER_PROXIMAL_PHALANX),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_RING_FINGER_METACARPOPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_RING_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_RING_FINGER_INTERMEDIATE_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_RING_FINGER_INTERMEDIATE_PHALANX),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_RING_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_RING_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_RING_FINGER_DISTAL_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_RING_FINGER_DISTAL_PHALANX),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_RING_FINGER_DISTAL_INTERPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_RING_FINGER_TIP)));
+
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_LITTLE_FINGER_PROXIMAL_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_LITTLE_FINGER_PROXIMAL_PHALANX),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_LITTLE_FINGER_METACARPOPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_LITTLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_LITTLE_FINGER_INTERMEDIATE_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_LITTLE_FINGER_INTERMEDIATE_PHALANX),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_LITTLE_FINGER_PROXIMAL_INTERPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_LITTLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT)));
+            right_hand.push_back(bone(e_hand_bone_c::to_int(e_hand_bone::RIGHT_LITTLE_FINGER_DISTAL_PHALANX),
+                                      e_hand_bone_c::str(e_hand_bone::RIGHT_LITTLE_FINGER_DISTAL_PHALANX),
+                                      e_hand_joint_c::to_int(
+                                              e_hand_joint::RIGHT_LITTLE_FINGER_DISTAL_INTERPHALANGEAL_JOINT),
+                                      e_hand_joint_c::to_int(e_hand_joint::RIGHT_LITTLE_FINGER_TIP)));
+
+            default_right_hand_bones_ = right_hand;
+
+		}
+
+        if (is_left)
+        {
+            return default_left_hand_bones_;
+        }
+        else
+        {
+            return default_right_hand_bones_;
+        }
+	}
 
 } // namespace mae
