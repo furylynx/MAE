@@ -1,15 +1,5 @@
-/*
- * path.hpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
-#ifndef PATH_HPP_
-#define PATH_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_PATH_HPP_
+#define MAE_FL_LABAN_PATH_HPP_
 
 //custom includes
 #include "i_movement.hpp"
@@ -160,4 +150,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // PATH_HPP_
+#endif // MAE_FL_LABAN_PATH_HPP_

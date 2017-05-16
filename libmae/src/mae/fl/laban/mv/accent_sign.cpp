@@ -1,10 +1,3 @@
-/*
- * accent_sign.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "accent_sign.hpp"
 
 namespace mae

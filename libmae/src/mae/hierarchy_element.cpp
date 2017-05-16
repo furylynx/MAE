@@ -1,10 +1,3 @@
-/*
- * HierarchyElement.cpp
- *
- *  Created on: 15.06.2014
- *      Author: keks
- */
-
 #include "hierarchy_element.hpp"
 #include "hierarchy.hpp"
 

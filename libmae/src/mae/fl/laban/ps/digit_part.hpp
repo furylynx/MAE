@@ -1,15 +1,5 @@
-/*
- * digit_part.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef DIGIT_PART_HPP_
-#define DIGIT_PART_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_PS_DIGIT_PART_HPP_
+#define MAE_FL_LABAN_PS_DIGIT_PART_HPP_
 
 //custom includes
 #include "i_endpoint.hpp"
@@ -118,4 +108,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // DIGIT_PART_HPP_
+#endif // MAE_FL_LABAN_PS_DIGIT_PART_HPP_

@@ -1,10 +1,3 @@
-/*
- * ini_reader.cpp
- *
- *  Created on: 27.06.2014
- *      Author: keks
- */
-
 #include "ini_reader.hpp"
 
 namespace mae

@@ -1,15 +1,5 @@
-/*
- * msr_spec.hpp
- *
- *  Created on: 04.04.2015
- *      Author: keks
- */
-
-#ifndef MSR_SPEC_HPP_
-#define MSR_SPEC_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_FL_MSR_SPEC_HPP_
+#define MAE_FL_MSR_SPEC_HPP_
 
 //custom includes
 #include "../hierarchy.hpp"
@@ -99,4 +89,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // MSR_SPEC_HPP_
+#endif // MAE_FL_MSR_SPEC_HPP_

@@ -1,15 +1,5 @@
-/*
- * pose_listener.hpp
- *
- *  Created on: 23.06.2014
- *      Author: keks
- */
-
-#ifndef _I_POSE_LISTENER_HPP_
-#define _I_POSE_LISTENER_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_I_POSE_LISTENER_HPP_
+#define MAE_I_POSE_LISTENER_HPP_
 
 //custom includes
 #include "general_pose.hpp"
@@ -40,4 +30,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // POSE_LISTENER_HPP_
+#endif // MAE_I_POSE_LISTENER_HPP_

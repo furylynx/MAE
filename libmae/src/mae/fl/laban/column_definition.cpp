@@ -1,10 +1,3 @@
-/*
- * laban_column.cpp
- *
- *  Created on: 07.07.2014
- *      Author: keks
- */
-
 #include "column_definition.hpp"
 
 namespace mae

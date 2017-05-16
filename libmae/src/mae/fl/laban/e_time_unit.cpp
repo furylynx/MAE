@@ -1,10 +1,3 @@
-/*
- * e_time_unit.cpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
 #include "e_time_unit.hpp"
 
 namespace mae

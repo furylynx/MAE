@@ -1,10 +1,3 @@
-/*
- * e_turn_direction.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "e_turn_direction.hpp"
 
 namespace mae

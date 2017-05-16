@@ -1,15 +1,5 @@
-/*
- * decision_node.hpp
- *
- *  Created on: 12.08.2014
- *      Author: keks
- */
-
-#ifndef DECISION_NODE_HPP_
-#define DECISION_NODE_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_DECISION_NODE_HPP_
+#define MAE_FL_LABAN_DECISION_NODE_HPP_
 
 //custom includes
 #include "decision_value.hpp"
@@ -528,4 +518,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // DECISION_NODE_HPP_
+#endif // MAE_FL_LABAN_DECISION_NODE_HPP_

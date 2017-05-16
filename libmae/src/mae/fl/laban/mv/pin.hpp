@@ -1,15 +1,5 @@
-/*
- * pin.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef PIN_HPP_
-#define PIN_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_MV_PIN_HPP_
+#define MAE_FL_LABAN_MV_PIN_HPP_
 
 //custom includes
 #include "i_degree_sign.hpp"
@@ -106,4 +96,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // PIN_HPP_
+#endif // MAE_FL_LABAN_MV_PIN_HPP_

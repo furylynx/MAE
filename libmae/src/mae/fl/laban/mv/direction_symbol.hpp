@@ -1,15 +1,5 @@
-/*
- * direction_symbol.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef DIRECTION_SYMBOL_HPP_
-#define DIRECTION_SYMBOL_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_MV_DIRECTION_SYMBOL_HPP_
+#define MAE_FL_LABAN_MV_DIRECTION_SYMBOL_HPP_
 
 //custom includes
 #include "i_symbol.hpp"
@@ -166,4 +156,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // DIRECTION_SYMBOL_HPP_
+#endif // MAE_FL_LABAN_MV_DIRECTION_SYMBOL_HPP_

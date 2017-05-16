@@ -1,12 +1,5 @@
-/*
- * ISkeletonController.hpp
- *
- *  Created on: 21.05.2014
- *      Author: keks
- */
-
-#ifndef ISKELETONCONTROLLER_HPP_
-#define ISKELETONCONTROLLER_HPP_
+#ifndef MAE_ISKELETONCONTROLLER_HPP_
+#define MAE_ISKELETONCONTROLLER_HPP_
 
 //custom includes
 #include "general_skeleton.hpp"
@@ -34,4 +27,4 @@ namespace mae {
 
 } // namespace mae
 
-#endif // ISKELETONCONTROLLER_HPP_
+#endif // MAE_ISKELETONCONTROLLER_HPP_

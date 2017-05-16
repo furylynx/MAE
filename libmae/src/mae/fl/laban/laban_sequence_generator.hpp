@@ -1,15 +1,5 @@
-/*
- * laban_sequence_generator.hpp
- *
- *  Created on: 20.05.2014
- *      Author: keks
- */
-
-#ifndef LABAN_SEQUENCE_GENERATOR_HPP_
-#define LABAN_SEQUENCE_GENERATOR_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_LABAN_SEQUENCE_GENERATOR_HPP_
+#define MAE_FL_LABAN_LABAN_SEQUENCE_GENERATOR_HPP_
 
 //custom includes
 #include "laban_sequence.hpp"
@@ -95,4 +85,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // LABAN_SEQUENCE_GENERATOR_HPP_
+#endif // MAE_FL_LABAN_LABAN_SEQUENCE_GENERATOR_HPP_

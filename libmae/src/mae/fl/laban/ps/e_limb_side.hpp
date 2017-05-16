@@ -1,15 +1,5 @@
-/*
- * e_limb_side.h
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef E_LIMB_SIDE_H_
-#define E_LIMB_SIDE_H_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_PS_E_LIMB_SIDE_H_
+#define MAE_FL_LABAN_PS_E_LIMB_SIDE_H_
 
 //custom includes
 #include "../../../mstr.hpp"
@@ -73,4 +63,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // E_LIMB_SIDE_H_
+#endif // MAE_FL_LABAN_PS_E_LIMB_SIDE_H_

@@ -1,15 +1,5 @@
-/*
- * GeneralKeyPoseDetector.hpp
- *
- *  Created on: 29.05.2014
- *      Author: keks
- */
-
-#ifndef GENERALKEYPOSEDETECTOR_HPP_
-#define GENERALKEYPOSEDETECTOR_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_GENERALKEYPOSEDETECTOR_HPP_
+#define MAE_GENERALKEYPOSEDETECTOR_HPP_
 
 //custom includes
 #include "i_kp_detector.hpp"
@@ -63,4 +53,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // GENERALKEYPOSEDETECTOR_HPP_
+#endif // MAE_GENERALKEYPOSEDETECTOR_HPP_

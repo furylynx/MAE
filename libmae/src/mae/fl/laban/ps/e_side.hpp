@@ -1,15 +1,5 @@
-/*
- * e_side.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef E_SIDE_HPP_
-#define E_SIDE_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_PS_E_SIDE_HPP_
+#define MAE_FL_LABAN_PS_E_SIDE_HPP_
 
 //custom includes
 #include "../../../mstr.hpp"
@@ -67,4 +57,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // E_SIDE_HPP_
+#endif // MAE_FL_LABAN_PS_E_SIDE_HPP_

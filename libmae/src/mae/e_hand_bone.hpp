@@ -1,5 +1,5 @@
-#ifndef MAE_E_BONE_HPP_
-#define MAE_E_BONE_HPP_
+#ifndef MAE_E_HAND_BONE_HPP_
+#define MAE_E_HAND_BONE_HPP_
 
 //custom includes
 #include "mstr.hpp"
@@ -43,7 +43,7 @@ namespace mae
 
 			RIGHT_THUMB = 12,
 			RIGHT_INDEX_FINGER = 13,
-			RIGHT_MIDDLE_FINGER = -4,
+			RIGHT_MIDDLE_FINGER = 14,
 			RIGHT_RING_FINGER = 15,
 			RIGHT_LITTLE_FINGER = 16,
 
@@ -130,4 +130,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // MAE_E_BONE_HPP_
+#endif // MAE_E_HAND_BONE_HPP_

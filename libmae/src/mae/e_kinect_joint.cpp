@@ -1,10 +1,3 @@
-/*
- * e_joint.cpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
 #include "e_kinect_joint.hpp"
 
 namespace mae

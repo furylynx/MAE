@@ -1,10 +1,3 @@
-/*
- * e_space.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "e_space.hpp"
 
 namespace mae

@@ -1,15 +1,5 @@
-/*
- * decision_value.hpp
- *
- *  Created on: 14.08.2014
- *      Author: keks
- */
-
-#ifndef DECISION_VALUE_HPP_
-#define DECISION_VALUE_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_DECISION_VALUE_HPP_
+#define MAE_FL_LABAN_DECISION_VALUE_HPP_
 
 //custom includes
 //...
@@ -125,4 +115,4 @@ namespace mae
 }
 
 
-#endif // DECISION_VALUE_HPP_
+#endif // MAE_FL_LABAN_DECISION_VALUE_HPP_

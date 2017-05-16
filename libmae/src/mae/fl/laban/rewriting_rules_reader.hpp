@@ -1,15 +1,5 @@
-/*
- * rewriting_rules_reader.hpp
- *
- *  Created on: 27.08.2014
- *      Author: keks
- */
-
-#ifndef REWRITING_RULES_READER_HPP_
-#define REWRITING_RULES_READER_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_REWRITING_RULES_READER_HPP_
+#define MAE_FL_LABAN_REWRITING_RULES_READER_HPP_
 
 //custom includes
 #include "decision_value.hpp"
@@ -59,4 +49,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // REWRITING_RULES_READER_HPP_
+#endif // MAE_FL_LABAN_REWRITING_RULES_READER_HPP_

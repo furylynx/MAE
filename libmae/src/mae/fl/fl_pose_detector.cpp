@@ -1,10 +1,3 @@
-/*
- * FLPoseDetector.cpp
- *
- *  Created on: 29.05.2014
- *      Author: keks
- */
-
 #include "fl_pose_detector.hpp"
 
 namespace mae

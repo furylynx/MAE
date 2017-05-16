@@ -1,15 +1,5 @@
-/*
- * rewriting_rules.hpp
- *
- *  Created on: 13.08.2014
- *      Author: keks
- */
-
-#ifndef REWRITING_FOREST_HPP_
-#define REWRITING_FOREST_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_REWRITING_FOREST_HPP_
+#define MAE_FL_LABAN_REWRITING_FOREST_HPP_
 
 //custom includes
 #include "decision_tree.hpp"
@@ -132,4 +122,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // REWRITING_FOREST_HPP_
+#endif // MAE_FL_LABAN_REWRITING_FOREST_HPP_

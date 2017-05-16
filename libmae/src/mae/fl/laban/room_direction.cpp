@@ -1,10 +1,3 @@
-/*
- * room_direction.cpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
 #include "room_direction.hpp"
 
 namespace mae

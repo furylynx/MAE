@@ -1,15 +1,5 @@
-/*
- * dummy_pose_listener.hpp
- *
- *  Created on: 14.11.2014
- *      Author: keks
- */
-
-#ifndef DUMMY_POSE_LISTENER_HPP_
-#define DUMMY_POSE_LISTENER_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_DUMMY_POSE_LISTENER_HPP_
+#define MAE_DUMMY_POSE_LISTENER_HPP_
 
 //custom includes
 #include "i_pose_listener.hpp"
@@ -45,4 +35,4 @@ namespace mae
 	} // namespace demo
 } // namespace mae
 
-#endif // DUMMY_POSE_LISTENER_HPP_
+#endif // MAE_DUMMY_POSE_LISTENER_HPP_

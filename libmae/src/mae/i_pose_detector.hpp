@@ -1,15 +1,5 @@
-/*
- * IPoseDetector.hpp
- *
- *  Created on: 15.05.2014
- *      Author: keks
- */
-
-#ifndef IPOSEDETECTOR_HPP_
-#define IPOSEDETECTOR_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_IPOSEDETECTOR_HPP_
+#define MAE_IPOSEDETECTOR_HPP_
 
 //custom includes
 #include "general_pose.hpp"
@@ -44,4 +34,4 @@ namespace mae {
 
 } // namespace mae
 
-#endif // IPOSEDETECTOR_HPP_
+#endif // MAE_IPOSEDETECTOR_HPP_

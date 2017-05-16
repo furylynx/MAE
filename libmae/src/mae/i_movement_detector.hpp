@@ -1,15 +1,5 @@
-/*
- * IMovementDetector.hpp
- *
- *  Created on: 15.05.2014
- *      Author: keks
- */
-
-#ifndef IMOVEMENTDETECTOR_HPP_
-#define IMOVEMENTDETECTOR_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_IMOVEMENTDETECTOR_HPP_
+#define MAE_IMOVEMENTDETECTOR_HPP_
 
 //custom includes
 #include "i_pose_listener.hpp"
@@ -86,4 +76,4 @@ namespace mae {
 
 } // namespace mae
 
-#endif // IMOVEMENTDETECTOR_HPP_
+#endif // MAE_IMOVEMENTDETECTOR_HPP_

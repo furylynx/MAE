@@ -1,10 +1,3 @@
-/*
- * BVHController.cpp
- *
- *  Created on: 11.06.2014
- *      Author: keks
- */
-
 #include "bvh_controller.hpp"
 
 //internal includes

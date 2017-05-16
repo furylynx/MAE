@@ -1,10 +1,3 @@
-/*
- * angular_skeleton.cpp
- *
- *  Created on: 29.09.2014
- *      Author: keks
- */
-
 #include "angular_skeleton.hpp"
 
 namespace mae

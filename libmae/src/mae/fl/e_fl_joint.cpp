@@ -1,10 +1,3 @@
-/*
- * e_fl_joint.cpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
 #include "e_fl_joint.hpp"
 
 namespace mae

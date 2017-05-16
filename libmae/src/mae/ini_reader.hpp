@@ -1,15 +1,5 @@
-/*
- * ini_reader.hpp
- *
- *  Created on: 27.06.2014
- *      Author: keks
- */
-
-#ifndef INI_READER_HPP_
-#define INI_READER_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_INI_READER_HPP_
+#define MAE_INI_READER_HPP_
 
 //custom includes
 #include "mstr.hpp"
@@ -83,4 +73,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // INI_READER_HPP_
+#endif // MAE_INI_READER_HPP_

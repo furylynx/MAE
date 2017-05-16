@@ -5,11 +5,8 @@
  *      Author: keks
  */
 
-#ifndef E_TIME_UNIT_HPP_
-#define E_TIME_UNIT_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_E_TIME_UNIT_HPP_
+#define MAE_FL_LABAN_E_TIME_UNIT_HPP_
 
 //custom includes
 #include "../../mstr.hpp"
@@ -66,4 +63,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // E_TIME_UNIT_HPP_
+#endif // MAE_FL_LABAN_E_TIME_UNIT_HPP_

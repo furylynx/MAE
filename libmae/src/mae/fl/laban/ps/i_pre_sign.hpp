@@ -1,15 +1,5 @@
-/*
- * i_pre_sign.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef I_PRE_SIGN_HPP_
-#define I_PRE_SIGN_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_PS_I_PRE_SIGN_HPP_
+#define MAE_FL_LABAN_PS_I_PRE_SIGN_HPP_
 
 //custom includes
 //...
@@ -67,4 +57,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // I_PRE_SIGN_HPP_
+#endif // MAE_FL_LABAN_PS_I_PRE_SIGN_HPP_

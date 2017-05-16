@@ -1,10 +1,3 @@
-/*
- * general_skeleton.cpp
- *
- * Created on: 15.05.2014
- * Author: keks
- */
-
 #include "general_skeleton.hpp"
 
 namespace mae

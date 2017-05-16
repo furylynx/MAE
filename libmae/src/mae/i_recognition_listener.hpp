@@ -1,15 +1,5 @@
-/*
- * i_recognition_listener.hpp
- *
- *  Created on: 30.08.2014
- *      Author: keks
- */
-
-#ifndef I_RECOGNITION_LISTENER_HPP_
-#define I_RECOGNITION_LISTENER_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_I_RECOGNITION_LISTENER_HPP_
+#define MAE_I_RECOGNITION_LISTENER_HPP_
 
 //custom includes
 //...
@@ -51,4 +41,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // I_RECOGNITION_LISTENER_HPP_
+#endif // MAE_I_RECOGNITION_LISTENER_HPP_

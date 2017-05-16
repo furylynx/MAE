@@ -1,5 +1,5 @@
-#ifndef BONE_HPP_
-#define BONE_HPP_
+#ifndef MAE_BONE_HPP_
+#define MAE_BONE_HPP_
 
 
 //custom includes
@@ -178,4 +178,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // BONE_HPP_
+#endif // MAE_BONE_HPP_

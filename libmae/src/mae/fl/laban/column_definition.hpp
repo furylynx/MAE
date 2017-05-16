@@ -5,11 +5,8 @@
  *      Author: keks
  */
 
-#ifndef COLUMN_DEFINITION_HPP_
-#define COLUMN_DEFINITION_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_COLUMN_DEFINITION_HPP_
+#define MAE_FL_LABAN_COLUMN_DEFINITION_HPP_
 
 //custom includes
 #include "../../e_bone.hpp"
@@ -131,4 +128,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // LABAN_COLUMN_HPP_
+#endif // MAE_FL_LABAN_COLUMN_DEFINITION_HPP_

@@ -1,5 +1,5 @@
-#ifndef ANGULAR_SKELETON_HPP_
-#define ANGULAR_SKELETON_HPP_
+#ifndef MAE_FL_ANGULAR_SKELETON_HPP_
+#define MAE_FL_ANGULAR_SKELETON_HPP_
 
 //custom includes
 #include "angular_joint.hpp"
@@ -164,4 +164,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // ANGULAR_SKELETON_HPP_
+#endif // MAE_FL_ANGULAR_SKELETON_HPP_

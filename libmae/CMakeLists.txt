@@ -217,7 +217,6 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/i_sequence_recognizer.hpp
         src/mae/i_skeleton_controller.hpp
         src/mae/i_skeleton_merger.hpp
-        src/mae/indexer_fix.hpp
         src/mae/ini_reader.cpp
         src/mae/ini_reader.hpp
         src/mae/internal_mxml.cpp

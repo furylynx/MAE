@@ -1,10 +1,3 @@
-/*
- * vibration_symbol.cpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
 #include "vibration_symbol.hpp"
 
 namespace mae

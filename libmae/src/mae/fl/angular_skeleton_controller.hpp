@@ -1,8 +1,5 @@
-#ifndef ANGULAR_SKELETON_CONTROLLER_HPP_
-#define ANGULAR_SKELETON_CONTROLLER_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_FL_ANGULAR_SKELETON_CONTROLLER_HPP_
+#define MAE_FL_ANGULAR_SKELETON_CONTROLLER_HPP_
 
 //custom includes
 #include "angular_skeleton.hpp"
@@ -117,4 +114,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // ANGULAR_SKELETON_CONTROLLER_HPP_
+#endif // MAE_FL_ANGULAR_SKELETON_CONTROLLER_HPP_

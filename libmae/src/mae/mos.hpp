@@ -1,20 +1,12 @@
-/*
- * mos.hpp
- *
- *  Created on: 19.09.2014
- *      Author: keks
- */
-
-#ifndef MOS_HPP_
-#define MOS_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_MOS_HPP_
+#define MAE_MOS_HPP_
 
 //custom includes
 //...
 
 //global includes
+#include <chrono>
+
 #ifdef WIN32
 	#include <conio.h>
 #else // linux
@@ -43,8 +35,15 @@ namespace mae
 			 * @return True if keyboard was hit.
 			 */
 			static bool was_keyboard_hit();
+
+			/**
+			 * Returns the current system time in milliseconds. Thus, returns the number of milliseconds since the unix epoch.
+			 *
+			 * @return The milliseconds since the unix epoch.
+			 */
+			static uint64_t current_time_millis();
 	};
 
 } // namespace mae
 
-#endif // MOS_HPP_
+#endif // MAE_MOS_HPP_

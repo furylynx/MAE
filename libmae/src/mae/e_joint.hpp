@@ -1,15 +1,5 @@
-/*
- * e_joint.hpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
-#ifndef E_JOINT_HPP_
-#define E_JOINT_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_E_JOINT_HPP_
+#define MAE_E_JOINT_HPP_
 
 //custom includes
 #include "mstr.hpp"
@@ -60,7 +50,7 @@ namespace mae
 			/**
 			 * Returns the string representation for this enum value.
 			 *
-			 * @param unit The element.
+			 * @param joint The joint.
 			 * @return The string representation.
 			 */
 			static std::string str(e_joint joint);
@@ -108,4 +98,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // E_JOINT_HPP_
+#endif // MAE_E_JOINT_HPP_

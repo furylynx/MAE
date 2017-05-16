@@ -1,10 +1,3 @@
-/*
- * FLSkeleton.cpp
- *
- *  Created on: 20.05.2014
- *      Author: keks
- */
-
 #include "fl_skeleton.hpp"
 
 

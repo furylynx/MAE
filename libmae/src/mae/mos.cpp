@@ -1,9 +1,3 @@
-/*
- * mos.cpp
- *
- *  Created on: 19.09.2014
- */
-
 #include "mos.hpp"
 
 namespace mae
@@ -56,6 +50,11 @@ namespace mae
 
 			return 0;
 		#endif // WIN32
+	}
+
+	uint64_t mos::current_time_millis()
+	{
+		return (uint64_t) std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 	}
 
 } // namespace mae

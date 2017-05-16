@@ -1,10 +1,3 @@
-/*
- * labanmovement.cpp
- *
- *  Created on: 07.07.2014
- *      Author: keks
- */
-
 #include "movement.hpp"
 
 namespace mae

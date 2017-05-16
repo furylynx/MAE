@@ -1,15 +1,5 @@
-/*
- * e_joint.hpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
-#ifndef E_KINECT_JOINT_HPP_
-#define E_KINECT_JOINT_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_E_KINECT_JOINT_HPP_
+#define MAE_E_KINECT_JOINT_HPP_
 
 //custom includes
 #include "mstr.hpp"
@@ -115,4 +105,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // E_JOINT_HPP_
+#endif // MAE_E_KINECT_JOINT_HPP_

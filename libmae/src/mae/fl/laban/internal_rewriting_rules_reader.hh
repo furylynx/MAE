@@ -1,15 +1,5 @@
-/*
- * rewriting_rules_reader.hpp
- *
- *  Created on: 27.08.2014
- *      Author: furylynx
- */
-
-#ifndef INTERNAL_REWRITING_RULES_READER_HH_
-#define INTERNAL_REWRITING_RULES_READER_HH_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_INTERNAL_REWRITING_RULES_READER_HH_
+#define MAE_FL_LABAN_INTERNAL_REWRITING_RULES_READER_HH_
 
 //custom includes
 #include "decision_value.hpp"
@@ -107,4 +97,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // INTERNAL_REWRITING_RULES_READER_HH_
+#endif // MAE_FL_LABAN_INTERNAL_REWRITING_RULES_READER_HH_

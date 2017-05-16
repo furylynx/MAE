@@ -1,15 +1,5 @@
-/*
- * e_space_direction.h
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef E_SPACE_DIRECTION_H_
-#define E_SPACE_DIRECTION_H_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_MV_E_SPACE_DIRECTION_H_
+#define MAE_FL_LABAN_MV_E_SPACE_DIRECTION_H_
 
 //custom includes
 #include "../../../mstr.hpp"
@@ -74,4 +64,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // E_SPACE_DIRECTION_H_
+#endif // MAE_FL_LABAN_MV_E_SPACE_DIRECTION_H_

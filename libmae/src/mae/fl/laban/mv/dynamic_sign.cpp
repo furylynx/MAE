@@ -1,10 +1,3 @@
-/*
- * dynamics_sign.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "dynamic_sign.hpp"
 
 namespace mae

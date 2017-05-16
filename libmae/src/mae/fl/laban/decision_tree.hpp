@@ -1,15 +1,5 @@
-/*
- * decision_tree.hpp
- *
- *  Created on: 12.08.2014
- *      Author: keks
- */
-
-#ifndef DECISION_TREE_HPP_
-#define DECISION_TREE_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_DECISION_TREE_HPP_
+#define MAE_FL_LABAN_DECISION_TREE_HPP_
 
 //custom includes
 #include "decision_node.hpp"
@@ -327,4 +317,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // DECISION_TREE_HPP_
+#endif // MAE_FL_LABAN_DECISION_TREE_HPP_

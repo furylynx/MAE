@@ -1,10 +1,3 @@
-/*
- * GeneralKeyPoseDetector.cpp
- *
- *  Created on: 29.05.2014
- *      Author: keks
- */
-
 #include "kp_detector.hpp"
 
 

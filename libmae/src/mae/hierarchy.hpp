@@ -1,15 +1,5 @@
-/*
- * Hierarchy.hpp
- *
- *  Created on: 15.06.2014
- *      Author: keks
- */
-
 #ifndef HIERARCHY_HPP_
 #define HIERARCHY_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
 
 //custom includes
 #include "e_joint.hpp"

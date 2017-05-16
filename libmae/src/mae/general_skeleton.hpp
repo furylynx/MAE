@@ -1,8 +1,5 @@
-#ifndef GENERALSKELETON_HPP_
-#define GENERALSKELETON_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_GENERALSKELETON_HPP_
+#define MAE_GENERALSKELETON_HPP_
 
 //custom includes
 #include "general_joint.hpp"
@@ -180,4 +177,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // GENERALSKELETON_HPP_
+#endif // MAE_GENERALSKELETON_HPP_

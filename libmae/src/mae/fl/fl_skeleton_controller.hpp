@@ -1,15 +1,5 @@
-/*
- * FLSkeletonController.hpp
- *
- *  Created on: 21.05.2014
- *      Author: keks
- */
-
-#ifndef FLSKELETONCONTROLLER_HPP_
-#define FLSKELETONCONTROLLER_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_FL_FLSKELETONCONTROLLER_HPP_
+#define MAE_FL_FLSKELETONCONTROLLER_HPP_
 
 //custom includes
 #include "fl_skeleton.hpp"
@@ -79,4 +69,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif /* FLSKELETONCONTROLLER_HPP_ */
+#endif /* MAE_FL_FLSKELETONCONTROLLER_HPP_ */

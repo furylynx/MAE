@@ -1,10 +1,3 @@
-/*
- * bvhspec.cpp
- *
- *  Created on: 20.06.2014
- *      Author: keks
- */
-
 #include "bvh_spec.hpp"
 
 namespace mae

@@ -1,15 +1,5 @@
-/*
- * turn_symbol.hpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
-#ifndef TURN_SYMBOL_HPP_
-#define TURN_SYMBOL_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_MV_TURN_SYMBOL_HPP_
+#define MAE_FL_LABAN_MV_TURN_SYMBOL_HPP_
 
 //custom includes
 #include "i_symbol.hpp"
@@ -126,4 +116,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // TURN_SYMBOL_HPP_
+#endif // MAE_FL_LABAN_MV_TURN_SYMBOL_HPP_

@@ -1,15 +1,5 @@
-/*
- * space_measurement.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef SPACE_MEASUREMENT_HPP_
-#define SPACE_MEASUREMENT_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_MV_SPACE_MEASUREMENT_HPP_
+#define MAE_FL_LABAN_MV_SPACE_MEASUREMENT_HPP_
 
 //custom includes
 #include "i_degree_sign.hpp"
@@ -128,4 +118,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // SPACE_MEASUREMENT_HPP_
+#endif // MAE_FL_LABAN_MV_SPACE_MEASUREMENT_HPP_

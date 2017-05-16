@@ -1,10 +1,3 @@
-/*
- * e_area.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "e_area.hpp"
 
 namespace mae

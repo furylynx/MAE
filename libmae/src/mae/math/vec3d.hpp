@@ -1,15 +1,5 @@
-/*
- * vec3d.hpp
- *
- *  Created on: 29.09.2014
- *      Author: keks
- */
-
-#ifndef VEC3D_HPP_
-#define VEC3D_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_MATH_VEC3D_HPP_
+#define MAE_MATH_VEC3D_HPP_
 
 //custom includes
 //...
@@ -185,4 +175,4 @@ namespace mae
 	} // namespace math
 } // namespace mae
 
-#endif // VEC3D_HPP_
+#endif // MAE_MATH_VEC3D_HPP_

@@ -1,15 +1,5 @@
-/*
- * e_digit.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef E_DIGIT_HPP_
-#define E_DIGIT_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_PS_E_DIGIT_HPP_
+#define MAE_FL_LABAN_PS_E_DIGIT_HPP_
 
 //custom includes
 #include "../../../mstr.hpp"
@@ -75,4 +65,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // E_DIGIT_HPP_
+#endif // MAE_FL_LABAN_PS_E_DIGIT_HPP_

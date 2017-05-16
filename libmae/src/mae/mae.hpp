@@ -1,10 +1,3 @@
-/*
- * mae.hpp
- *
- *  Created on: 16.09.2014
- *      Author: keks
- */
-
 #ifndef MAE_HPP_
 #define MAE_HPP_
 

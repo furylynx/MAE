@@ -1,10 +1,3 @@
-/*
- * digit_part.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "digit_part.hpp"
 
 namespace mae

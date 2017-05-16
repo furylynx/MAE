@@ -1,8 +1,5 @@
-#ifndef BVHSPEC_HPP_
-#define BVHSPEC_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_FL_BVHSPEC_HPP_
+#define MAE_FL_BVHSPEC_HPP_
 
 //custom includes
 #include "../e_joint.hpp"
@@ -125,4 +122,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // BVHSPEC_HPP_
+#endif // MAE_FL_BVHSPEC_HPP_

@@ -1,10 +1,3 @@
-/*
- * e_fl_direction.cpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
 #include "e_fl_direction.hpp"
 
 namespace mae
