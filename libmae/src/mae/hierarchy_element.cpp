@@ -253,4 +253,14 @@ namespace mae
 		return hierarchy_;
 	}
 
+	bool hierarchy_element::are_attributes_equal(std::shared_ptr<hierarchy_element> a) const
+	{
+		if (nullptr == a)
+		{
+			return false;
+		}
+
+		return id_ == a->get_id() && name_ == a->get_name() && dummy_ == a->is_dummy() && base_joint_ == a->is_base_joint();
+	}
+
 } // namespace mae

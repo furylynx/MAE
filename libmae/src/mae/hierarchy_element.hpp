@@ -171,6 +171,14 @@ namespace mae
 			 */
 			virtual std::string str(int offset = 0) const;
 
+			/**
+			 * Returns true if the hierarchy elements are equal.
+			 *
+			 * @param a The hierarchy element to be compared to.
+			 * @return True if equal.
+			 */
+			virtual bool are_attributes_equal(std::shared_ptr<hierarchy_element> a) const;
+
 		protected:
 			/**
 			 * Updates the parent and the hierarchy of this element. This is done automatically

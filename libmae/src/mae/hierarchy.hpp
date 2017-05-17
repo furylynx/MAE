@@ -123,6 +123,14 @@ namespace mae
 			 */
 			static std::shared_ptr<hierarchy> default_kinect_hierarchy();
 
+            /**
+             * Returns true if the hierarchies are equal.
+             *
+             * @param a The hierarchy to be compared to.
+             * @return True if equal.
+             */
+            virtual bool equals(std::shared_ptr<hierarchy> a) const;
+
 
 		protected:
 			/**
@@ -142,9 +150,13 @@ namespace mae
 			virtual void remove_element(hierarchy_element * const element);
 
 		private:
-			std::shared_ptr<hierarchy_element> root;
+			std::shared_ptr<hierarchy_element> root_;
+			std::unordered_map<int, hierarchy_element * const > hashmap_elements_;
 
-			std::unordered_map<int, hierarchy_element * const > hashmap_elements;
+			static std::shared_ptr<hierarchy> default_hierarchy_;
+			static std::shared_ptr<hierarchy> default_left_hand_hierarchy_;
+			static std::shared_ptr<hierarchy> default_right_hand_hierarchy_;
+			static std::shared_ptr<hierarchy> default_kinect_hierarchy_;
 
 	};
 

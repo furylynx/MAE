@@ -25,6 +25,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <memory>
+#include <vector>
 
 namespace mae
 {
@@ -121,6 +122,10 @@ namespace mae
 			private:
 				int column_index_;
 				std::shared_ptr<ps::i_pre_sign> pre_sign_;
+
+				static std::vector<std::shared_ptr<column_definition> > default_definitions_;
+				static std::vector<std::shared_ptr<column_definition> > default_hand_definitions_;
+
 
 		};
 

@@ -166,11 +166,11 @@ namespace mae
 			}
 
 		private:
-			std::unordered_map<int, std::shared_ptr<general_joint> > hashmap_joints;
+			std::unordered_map<int, std::shared_ptr<general_joint> > hashmap_joints_;
 			std::shared_ptr<hierarchy> hierarchy_;
 
-			std::shared_ptr<bone> top_down;
-			std::shared_ptr<bone> right_left;
+			std::shared_ptr<bone> top_down_;
+			std::shared_ptr<bone> right_left_;
 
 			std::shared_ptr<mae::math::vec3d> weight_;
 	};

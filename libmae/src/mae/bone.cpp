@@ -157,11 +157,7 @@ namespace mae
 
 	std::vector<bone> bone::default_bones()
 	{
-		if (default_bones_.size() > 0)
-		{
-			return default_bones_;
-		}
-		else
+		if (0 == default_bones_.size())
 		{
 			std::vector<bone> result;
 
@@ -214,17 +210,14 @@ namespace mae
 							e_joint_c::to_int(e_joint::HEAD)));
 
 			default_bones_ = result;
-			return result;
 		}
+
+		return default_bones_;
 	}
 
 	std::vector<bone> bone::default_kinect_bones()
 	{
-		if (default_kinect_bones_.size() > 0)
-		{
-			return default_kinect_bones_;
-		}
-		else
+		if (0 == default_kinect_bones_.size() > 0)
 		{
 			std::vector<bone> result;
 
@@ -294,10 +287,10 @@ namespace mae
 							e_kinect_joint_c::to_int(e_kinect_joint::RIGHT_ANKLE), e_kinect_joint_c::to_int(e_kinect_joint::RIGHT_FOOT)));
 
 
-
 			default_kinect_bones_ = result;
-			return result;
 		}
+
+		return default_kinect_bones_;
 	}
 
 

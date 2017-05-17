@@ -7,6 +7,9 @@ namespace mae
 		namespace laban
 		{
 
+			std::vector<std::shared_ptr<column_definition> > column_definition::default_definitions_ = std::vector<std::shared_ptr<column_definition> >();
+			std::vector<std::shared_ptr<column_definition> > column_definition::default_hand_definitions_ = std::vector<std::shared_ptr<column_definition> >();
+
 			column_definition::column_definition(int column_index, std::shared_ptr<ps::i_pre_sign> pre_sign)
 			{
 				column_index_ = column_index;
@@ -253,37 +256,47 @@ namespace mae
 
 			std::vector<std::shared_ptr<column_definition> > column_definition::default_definitions()
 			{
-				std::vector<std::shared_ptr<column_definition> > result;
-
-				std::vector<mae::e_bone> ebones = mae::e_bone_c::vec();
-
-				for (unsigned int i = 0; i < ebones.size(); i++)
+				if (0 == default_definitions_.size())
 				{
-					if (std::abs(mae::e_bone_c::to_int(ebones.at(i))) > 2 && std::abs(mae::e_bone_c::to_int(ebones.at(i))) != 4)
+					std::vector<std::shared_ptr<column_definition> > result;
+
+					std::vector<mae::e_bone> ebones = mae::e_bone_c::vec();
+
+					for (unsigned int i = 0; i < ebones.size(); i++)
 					{
-						result.push_back(std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(ebones.at(i))));
+						if (std::abs(mae::e_bone_c::to_int(ebones.at(i))) > 2 && std::abs(mae::e_bone_c::to_int(ebones.at(i))) != 4)
+						{
+							result.push_back(std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(ebones.at(i))));
+						}
 					}
+
+					default_definitions_ = result;
 				}
 
-				return result;
+				return default_definitions_;
 			}
 
             std::vector<std::shared_ptr<column_definition> > column_definition::default_hand_definitions(bool is_left)
             {
-                std::vector<std::shared_ptr<column_definition> > result;
+				if (0 == default_hand_definitions_.size())
+				{
+					std::vector<std::shared_ptr<column_definition> > result;
 
-                std::vector<mae::e_hand_bone> ebones = mae::e_hand_bone_c::vec_side(is_left);
+					std::vector<mae::e_hand_bone> ebones = mae::e_hand_bone_c::vec_side(is_left);
 
-                for (unsigned int i = 0; i < ebones.size(); i++)
-                {
-                    if (e_hand_bone::INVALID_HAND_BONE != ebones.at(i))
-                    {
-                        result.push_back(std::shared_ptr<mae::fl::laban::column_definition>(
-                                new mae::fl::laban::column_definition(ebones.at(i))));
-                    }
-                }
+					for (unsigned int i = 0; i < ebones.size(); i++)
+					{
+						if (e_hand_bone::INVALID_HAND_BONE != ebones.at(i))
+						{
+							result.push_back(std::shared_ptr<mae::fl::laban::column_definition>(
+									new mae::fl::laban::column_definition(ebones.at(i))));
+						}
+					}
 
-                return result;
+					default_hand_definitions_ = result;
+				}
+
+                return default_hand_definitions_;
             }
 
 		} // namespace laban
