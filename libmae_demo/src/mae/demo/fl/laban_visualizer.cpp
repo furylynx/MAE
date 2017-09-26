@@ -82,6 +82,10 @@ namespace mae
 					int draw_x_pos = (int)((window_width / 2.0) + ((column - (mae::math::math::sign(column)*0.5))*column_width)) - 30;
 					//(int) ((window_width - 100) * (0.5 + (double) (column) / (max_index * 2)) + 20);
 
+					//TODO print pre-sign
+
+
+					//print direction symbols
 					std::vector<std::shared_ptr<mae::fl::laban::i_movement> > movements =
 							sequence->get_column_movements(column);
 
