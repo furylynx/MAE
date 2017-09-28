@@ -47,8 +47,8 @@ Release
 Release-W64/
 Release-W64-static/
 Release-W32/
-
 Debug/
+include/mae/
 
 #cmake
 cmake-build-debug/
