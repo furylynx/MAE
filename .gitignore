@@ -58,8 +58,8 @@ cmake_install.cmake
 install_manifest.txt
 *.cbp
 !*ConfigVersion.cmake
-!Find*.cmake
 *.cmake
+!Find*.cmake
 Makefile
 *.dylib
 *.pc
