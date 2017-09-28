@@ -49,6 +49,7 @@ Release-W64-static/
 Release-W32/
 Debug/
 include/mae/
+doxygen/
 
 #cmake
 cmake-build-debug/
