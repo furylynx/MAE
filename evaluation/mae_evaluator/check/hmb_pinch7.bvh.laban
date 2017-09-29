@@ -160,8 +160,8 @@
 			<laban:movement>
 				<laban:column>-8</laban:column>
 				<laban:measure>1</laban:measure>
-				<laban:beat>1.67</laban:beat>
-				<laban:duration>4.00</laban:duration>
+				<laban:beat>2.00</laban:beat>
+				<laban:duration>3.67</laban:duration>
 				<laban:hold>false</laban:hold>
 				<laban:direction>
 					<laban:vertical>low</laban:vertical>

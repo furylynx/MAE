@@ -8,9 +8,6 @@
 #ifndef EVALLISTENER_H_
 #define EVALLISTENER_H_
 
-//eclipse indexer fix
-#include <mae/indexer_fix.hpp>
-
 //custom includes
 //...
 

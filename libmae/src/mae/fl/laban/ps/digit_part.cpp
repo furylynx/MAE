@@ -89,17 +89,17 @@ namespace mae
 				{
 					identifier.append("digit-part");
 
-//					if (width > height)
-//					{
-//						posx += width-height;
-//						width = height;
-//					}
-//					else
-//					{
-//						height = width;
-//					}
-//
-//					std::stringstream sstr;
+					if (width > height)
+					{
+						posx += width-height;
+						width = height;
+					}
+					else
+					{
+						height = width;
+					}
+
+					std::stringstream sstr;
 //
 //					sstr << "<path" << std::endl;
 //
