@@ -74,4 +74,10 @@ Makefile
 .settings/
 .cproject
 .directory
+.gradle/
+gradle/
+out/
+gradlew.bat
+gradlew
+*.iml
 
