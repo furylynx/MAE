@@ -1,8 +1,8 @@
 ﻿Readme
 ==================
 
-The Movement Analysis Engine is able to analyze movements and provide events based on a 
-described movements sequence (Labanotation). The engine can be used by other applications 
+The Movement Analysis Engine is able to analyze movements and provide events based on a
+described movements sequence (Labanotation). The engine can be used by other applications
 for further movement processing and filtering in ambient spaces (i.e., smart environments).
 
 This is the eventing part including client-server communication to provide network events.
@@ -14,7 +14,7 @@ Dependencies
 MAE
 xml++
 Boost (asio, system)
- 
+
 When building, link against the following:
 mae, xml++-2.6, boost_system
 
@@ -30,17 +30,15 @@ and the headers must be included. Additionally, the dependencies must be met.
 
 ___
 
-Compile MAE from source (using autotools):
+Compile MAE from source (using cmake):
 
 type:
-cmake CMakeLists.txt
+cmake .
 make
 sudo make install
 
 
-Documentation
+Usage
 ==================
 
-See doxygen/ folder for code documentation.
-
-
+In order to use libmae_eventing in a project, the module can be included in a cmake project.  Please note that pkg-config files for boost might lack and you should generate them on your own. A generator for pkg-config files can be found here: https://github.com/nmante/pkg-config-generator. The pkg-config of libmae_eventing requires a pkg-config file for libboost-system, hence, a libboost-system.pc file should be present in the pk-config's path (typically /usr/local/lib/pkgconfig/).

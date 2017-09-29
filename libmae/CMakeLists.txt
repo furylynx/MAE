@@ -324,7 +324,7 @@ ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
         COMMAND cmake -E echo "Compiling Java files..."
         COMMAND ${JAVA_COMPILE} ${CMAKE_SWIG_OUTDIR}/*.java -d ${CMAKE_SWIG_OUTDIR}
         COMMAND cmake -E echo "Creating jar file..."
-        COMMAND ${JAVA_ARCHIVE} cf ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar ${CMAKE_SWIG_OUTDIR}/${MYLIB_JNI}
+        COMMAND ${JAVA_ARCHIVE} cf ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar -C ${CMAKE_SWIG_OUTDIR} ${MYLIB_JNI}
         )
 
 install (TARGETS ${MYLIB_JNI}

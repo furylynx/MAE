@@ -1,0 +1,34 @@
+Readme
+==================
+
+The Movement Analysis Engine is able to analyze movements and provide events based on a
+described movements sequence (Labanotation). The engine can be used by other applications
+for further movement processing and filtering in ambient spaces (i.e., smart environments).
+
+This is a minimal example showing how to use the libmae library in a project.
+
+
+
+Dependencies
+==================
+libmae
+
+When building, link against the following:
+mae
+
+
+
+Installation
+==================
+
+Compile sample from source (using cmake):
+
+type:
+cmake .
+make
+sudo make install
+
+
+Note:
+To install the libmae JNI jar into the local maven repository (required to compile the sample) type (don't forget to adjust the version number, e.g. "0.10.0"):
+mvn install:install-file -Dfile=libmae.jar -DgroupId=de.furylynx.mae -DartifactId=libmae -Dversion=$VERSION -Dpackaging=jar

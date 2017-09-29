@@ -47,8 +47,9 @@ Release
 Release-W64/
 Release-W64-static/
 Release-W32/
-
 Debug/
+include/mae/
+doxygen/
 
 #cmake
 cmake-build-debug/
@@ -58,8 +59,8 @@ cmake_install.cmake
 install_manifest.txt
 *.cbp
 !*ConfigVersion.cmake
-!Find*.cmake
 *.cmake
+!Find*.cmake
 Makefile
 *.dylib
 *.pc
@@ -73,4 +74,10 @@ Makefile
 .settings/
 .cproject
 .directory
+.gradle/
+gradle/
+out/
+gradlew.bat
+gradlew
+*.iml
 

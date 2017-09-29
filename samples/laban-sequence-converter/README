@@ -1,0 +1,50 @@
+Readme
+==================
+
+The Movement Analysis Engine is able to analyze movements and provide events based on a
+described movements sequence (Labanotation). The engine can be used by other applications
+for further movement processing and filtering in ambient spaces (i.e., smart environments).
+
+This is a tool to convert .laban files (XML-Labanotation) into bitmaps or scalable vector graphics.
+
+
+
+Dependencies
+==================
+libmae
+libmae_demo
+Boost
+
+When building, link against the following:
+mae
+libmae_demo
+boost-system
+boost-filesystem
+boost-regex
+boost-program-options
+
+
+
+Installation
+==================
+
+Compile sample from source (using cmake):
+
+type:
+cmake .
+make
+sudo make install
+
+
+
+Usage
+==================
+usage: laban-sequence-converter [--width WIDTH] [--height HEIGHT] [--svg] FILE1 [FILE2 ...]
+
+Convert the Labanotation files (XML-Labanotation) into bitmaps or scalable vector graphics.
+
+optional arguments:::
+  -h [ --help ]         produce help message
+  -w [ --width ] arg    the resulting image(s) width
+  -e [ --height ] arg   the resulting image(s) height
+  -s [ --svg ]          Set output to svg

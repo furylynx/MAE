@@ -244,13 +244,7 @@ namespace mae
 				id_sstr << "column-definition-" << column_index_;
 				std::string identifier = id_sstr.str();
 
-				//TODO remove
-				std::cout << "pre-sign" << std::endl;
-
 				sstr << pre_sign_->svg(identifier, draw_x_pos, draw_y_pos, draw_w, draw_h, (column_index_ < 0));
-
-				//TODO remove
-				std::cout << "pre-sign done" << std::endl;
 
 				return sstr.str();
 			}
