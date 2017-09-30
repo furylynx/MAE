@@ -100,76 +100,72 @@ namespace mae
 					}
 
 					std::stringstream sstr;
-//
-//					sstr << "<path" << std::endl;
-//
-//					sstr << "d=\"m " << posx << "," << posy << " " << 0 << "," << 3.0 * height / 4.0 << "  m  "
-//						 << width << "," << -2 * height / 4.0 << " " << -3 * width / 4.0 << "," << -height / 4.0
-//						 << "  " << 0 << "," << 3 * height / 4.0 << " " << 3 * width / 4.0 << "," << height / 4.0
-//						 << "\"" << std::endl;
-//
-//
-//
-//
-//					if (digit_ == e_digit::THUMB)
-//					{
-//						identifier.append("-thumb");
-//					}
-//					else if (digit_ == e_digit::INDEXFINGER)
-//					{
-//						sstr << "d=\"m " << posx << "," << posy << " " << 0 << "," << 3.0 * height / 4.0 << "  m  "
-//							 << width << "," << -2 * height / 4.0 << " " << -3 * width / 4.0 << "," << -height / 4.0
-//							 << "  " << 0 << "," << 3 * height / 4.0 << " " << 3 * width / 4.0 << "," << height / 4.0
-//							 << " m " << -3 * width / 4.0 << "," << -2.5 * height / 4.0 << " " << 3 * width / 4.0
-//							 << "," << height / 4.0 << "\"" << std::endl;
-//					}
-//					else if (limb_ == e_limb::ARM)
-//					{
-//						sstr << "d=\"m " << posx << "," << posy + height << " " << 0 << "," << -height << " " << width
-//							 << "," << height / 4.0 << "  m " << -width / 3.0 << "," << -height / 12.0 << " " << 0
-//							 << "," << 10 * height / 12.0 << "\"" << std::endl;
-//					}
-//					else if (limb_ == e_limb::THIGH)
-//					{
-//						sstr << "d=\"m " << posx << "," << posy << " " << 0 << "," << height << "  m  " << width / 2.0
-//							 << "," << 0 << " " << 0 << "," << -height << " m " << 0 << "," << height / 3.0 << " "
-//							 << width / 2.0 << "," << 0 << " m " << 0 << "," << height / 3.0 << " " << -width / 2.0
-//							 << "," << 0 << "\"" << std::endl;
-//					}
-//					else if (limb_ == e_limb::LOWER_LEG)
-//					{
-//						sstr << "d=\"m " << posx << "," << posy << " " << 0 << "," << height << "  m  " << width / 2.0
-//							 << "," << 0 << " " << 0 << "," << -height << " m " << 0 << "," << height / 4.0 << " "
-//							 << width / 2.0 << "," << 0 << " m " << 0 << "," << height / 4.0 << " " << -width / 2.0
-//							 << "," << 0 << " m " << 0 << "," << height / 4.0 << " " << width / 2.0 << "," << 0
-//							 << "\"" << std::endl;
-//					}
-//					else if (limb_ == e_limb::LEG)
-//					{
-//						sstr << "d=\"m " << posx << "," << posy << " " << 0 << "," << height << "  m  " << 0 << ","
-//							 << -3 * height / 4.0 << " " << width << "," << 0 << " m " << -width / 2.0 << ","
-//							 << -height / 4.0 << " " << 0 << "," << height << "\"" << std::endl;
-//					}
-//					else if (limb_ == e_limb::NECK)
-//					{
-//						sstr << "d=\"m " << posx + width / 3.0 << "," << posy + 2 * height / 3.0 << " " << 0 << ","
-//							 << height / 3.0 << " m " << width / 3.0 << "," << 0 << " " << 0 << "," << -height / 3.0
-//							 << "  m " << width / 3.0 << "," << -height / 6.0 << " c " << -width * 1.5 << ","
-//							 << width << " " << -width * 1.5 << "," << -width - height / 2.0 << " " << 0 << ","
-//							 << -height / 2.0 << "\"" << std::endl;
-//					}
-//
-//					if (left)
-//					{
-//						//mirror for left hand
-//						sstr << "transform=\"matrix(-1,0,0,1," << 2 * posx + width << ",0)\"" << std::endl;
-//					}
-//
-//					sstr << "\t\t\tid=\"" << identifier << "\"" << std::endl;
-//					sstr
-//							<< "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
-//							<< std::endl;
-//					sstr << "\t\t\t/>" << std::endl;
+
+					sstr << "<path" << std::endl;
+
+					sstr << "d=\"m " << posx << "," << posy << " " << 0 << "," << 3.0 * height / 4.0 <<
+                         "  m  " << width << "," << -2 * height / 4.0 << " " << -3 * width / 4.0 << "," << -height / 4.0
+						 << "  " << 0 << "," << 3 * height / 4.0 << " " << 3 * width / 4.0 << "," << height / 4.0
+                         << " m " << 0 << "," << -3 * height / 16.0 << " " << -3 * width / 4.0 << "," << -height / 4.0
+                         << " m " << 0 << "," << -3 * height / 16.0 << " " << 3 * width / 4.0 << "," << height / 4.0
+                        << " m " << 0 << "," << -3 * height / 16.0 << " " << -3 * width / 4.0 << "," << -height / 4.0
+						 << "\"" << std::endl;
+
+
+
+
+					if (digit_ == e_digit::THUMB)
+					{
+						identifier.append("-thumb");
+					}
+					else if (digit_ == e_digit::INDEXFINGER)
+					{
+						identifier.append("-indexfinger");
+					}
+                    else if (digit_ == e_digit::MIDDLEFINGER)
+                    {
+                        identifier.append("-indexfinger");
+                    }
+                    else if (digit_ == e_digit::RINGFINGER)
+                    {
+                        identifier.append("-indexfinger");
+                    }
+                    else if (digit_ == e_digit::LITTLEFINGER)
+                    {
+                        identifier.append("-indexfinger");
+                    }
+                    else if (digit_ == e_digit::BIGTOE)
+                    {
+                        identifier.append("-indexfinger");
+                    }
+                    else if (digit_ == e_digit::LONGTOE)
+                    {
+                        identifier.append("-indexfinger");
+                    }
+                    else if (digit_ == e_digit::MIDDLETOE)
+                    {
+                        identifier.append("-indexfinger");
+                    }
+                    else if (digit_ == e_digit::RINGTOE)
+                    {
+                        identifier.append("-indexfinger");
+                    }
+                    else if (digit_ == e_digit::LITTLETOE)
+                    {
+                        identifier.append("-indexfinger");
+                    }
+
+					if (left)
+					{
+						//mirror for left hand
+						sstr << "transform=\"matrix(-1,0,0,1," << 2 * posx + width << ",0)\"" << std::endl;
+					}
+
+					sstr << "\t\t\tid=\"" << identifier << "\"" << std::endl;
+					sstr
+							<< "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
+							<< std::endl;
+					sstr << "\t\t\t/>" << std::endl;
 
 					return sstr.str();
 				}

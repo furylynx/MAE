@@ -51,10 +51,10 @@ int main(int argc, char *argv[])
 	std::vector<std::string> files_w_pattern;
 
 	// Declare the supported options.
-	boost::program_options::options_description desc("usage: laban-sequence-converter [--width WIDTH] [--height HEIGHT] [--svg] FILE1 [FILE2 ...]\n\nConvert the Labanotation files (XML-Labanotation) into bitmaps or scalable vector graphics.\n\noptional arguments::");
+	boost::program_options::options_description desc("usage: laban-sequence-converter [OPTIONS] FILE1 [FILE2 ...]\n\nConvert the Labanotation files (XML-Labanotation) into bitmaps or scalable vector graphics.\n\noptional arguments::");
 	desc.add_options()("help,h", "produce help message")
-			("width,w", boost::program_options::value<int>(), "the resulting image(s) width")
-			("height,e", boost::program_options::value<int>(), "the resulting image(s) height")
+			("xsize,x", boost::program_options::value<int>(), "the resulting image(s) width")
+			("ysize,y", boost::program_options::value<int>(), "the resulting image(s) height")
 			("svg,s", "Set output to svg")
 			;
 
@@ -98,22 +98,22 @@ int main(int argc, char *argv[])
 		svg = true;
 	}
 
-	if (!vm.count("w"))
+	if (!vm.count("xsize"))
 	{
 		std::cout << "Width was not specified, using default (" << w << ")" << std::endl;
 	}
 	else
 	{
-		w = vm["w"].as<int>();
+		w = vm["xsize"].as<int>();
 	}
 
-	if (!vm.count("h"))
+	if (!vm.count("ysize"))
 	{
 		std::cout << "Height was not specified, using default (" << h << ")" << std::endl;
 	}
 	else
 	{
-		h = vm["h"].as<int>();
+		h = vm["ysize"].as<int>();
 	}
 
 
