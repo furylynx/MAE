@@ -51,6 +51,7 @@ Release-W32/
 Debug/
 include/mae/
 doxygen/
+build/
 
 #cmake
 cmake-build-debug/
