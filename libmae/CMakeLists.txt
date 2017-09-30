@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.8)
 
 # Set package infos
 set(MYLIB mae)
@@ -305,6 +305,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc DESTINATION "${INSTALL_
 FIND_PACKAGE(SWIG REQUIRED)
 FIND_PACKAGE(Java REQUIRED)
 FIND_PACKAGE(JNI REQUIRED)
+FIND_PACKAGE(Gradle REQUIRED)
 
 INCLUDE(${SWIG_USE_FILE})
 include(UseJava)
@@ -312,23 +313,38 @@ include(UseSWIG)
 
 include_directories(${JNI_INCLUDE_DIRS})
 
-set(CMAKE_SWIG_OUTDIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release)
+
+set(WRAPPER_PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_java_project)
+set(CMAKE_SWIG_OUTDIR ${WRAPPER_PROJECT_DIR}/src/main/java/mae/maejava)
+set(SWIG_OUTFILE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release/)
+
+#create directory for generated java project
+file(MAKE_DIRECTORY ${CMAKE_SWIG_OUTDIR})
+file(MAKE_DIRECTORY ${SWIG_OUTFILE_DIR})
+
 SET(CMAKE_SWIG_FLAGS -package ${MYLIB_JNI})
 
-SET_SOURCE_FILES_PROPERTIES(wrappers/swig/mae/_wrapper_.i PROPERTIES CPLUSPLUS ON)
-swig_add_module(${MYLIB_JNI} Java wrappers/swig/mae/_wrapper_.i)
+SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_.i PROPERTY CPLUSPLUS ON)
+SWIG_ADD_LIBRARY(${MYLIB_JNI} LANGUAGE Java SOURCES wrappers/swig/mae/_wrapper_.i)
 SWIG_LINK_LIBRARIES(${MYLIB_JNI} mae)
+
+
+#compile java project
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/build.gradle.cmakein  ${WRAPPER_PROJECT_DIR}/build.gradle @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/settings.gradle.cmakein  ${WRAPPER_PROJECT_DIR}/settings.gradle @ONLY)
 
 ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
         POST_BUILD
-        COMMAND cmake -E echo "Compiling Java files..."
-        COMMAND ${JAVA_COMPILE} ${CMAKE_SWIG_OUTDIR}/*.java -d ${CMAKE_SWIG_OUTDIR}
-        COMMAND cmake -E echo "Creating jar file..."
-        COMMAND ${JAVA_ARCHIVE} cf ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar -C ${CMAKE_SWIG_OUTDIR} ${MYLIB_JNI}
+        COMMAND cmake -E echo "Building Java Project, installing the java library in the local maven repository..."
+        COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar
         )
 
+# install .jnilib into jni and lib folder
 install (TARGETS ${MYLIB_JNI}
         LIBRARY DESTINATION ${JNI_INSTALL_DIR})
+install (TARGETS ${MYLIB_JNI}
+        LIBRARY DESTINATION ${LIB_INSTALL_DIR})
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar DESTINATION "${JNI_INSTALL_DIR}")
+# install .jar file to jni folder (besides the installation into the local maven repository)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}-${MYLIB_VERSION_STRING}.jar DESTINATION "${JNI_INSTALL_DIR}")
 

@@ -38,6 +38,7 @@ missing
 *.la
 *.dylib
 *.so
+*.so.[0-9]*
 *.a
 !*.dll.a
 *.jar
