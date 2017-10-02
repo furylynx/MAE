@@ -101,6 +101,8 @@ namespace mae
 					private:
 						e_digit digit_;
 						unsigned int knuckle_;
+
+						virtual std::string svg_str_dot(double centerx, double centery, double radius) const;
 				};
 
 			} // namespace ps

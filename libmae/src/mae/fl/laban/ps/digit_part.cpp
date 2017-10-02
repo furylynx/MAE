@@ -99,6 +99,8 @@ namespace mae
 						height = width;
 					}
 
+					double radius = height / 16.0;
+
 					std::stringstream sstr;
 
 					sstr << "<path" << std::endl;
@@ -108,11 +110,10 @@ namespace mae
 						 << "  " << 0 << "," << 3 * height / 4.0 << " " << 3 * width / 4.0 << "," << height / 4.0
                          << " m " << 0 << "," << -3 * height / 16.0 << " " << -3 * width / 4.0 << "," << -height / 4.0
                          << " m " << 0 << "," << -3 * height / 16.0 << " " << 3 * width / 4.0 << "," << height / 4.0
-                        << " m " << 0 << "," << -3 * height / 16.0 << " " << -3 * width / 4.0 << "," << -height / 4.0
-						 << "\"" << std::endl;
+                        << " m " << 0 << "," << -3 * height / 16.0 << " " << -3 * width / 4.0 << "," << -height / 4.0;
 
 
-
+                    int digit_increment = 0;
 
 					if (digit_ == e_digit::THUMB)
 					{
@@ -121,18 +122,22 @@ namespace mae
 					else if (digit_ == e_digit::INDEXFINGER)
 					{
 						identifier.append("-indexfinger");
+                        digit_increment = 1;
 					}
                     else if (digit_ == e_digit::MIDDLEFINGER)
                     {
                         identifier.append("-indexfinger");
+                        digit_increment = 2;
                     }
                     else if (digit_ == e_digit::RINGFINGER)
                     {
                         identifier.append("-indexfinger");
+                        digit_increment = 3;
                     }
                     else if (digit_ == e_digit::LITTLEFINGER)
                     {
                         identifier.append("-indexfinger");
+                        digit_increment = 4;
                     }
                     else if (digit_ == e_digit::BIGTOE)
                     {
@@ -141,19 +146,52 @@ namespace mae
                     else if (digit_ == e_digit::LONGTOE)
                     {
                         identifier.append("-indexfinger");
+                        digit_increment = 1;
                     }
                     else if (digit_ == e_digit::MIDDLETOE)
                     {
                         identifier.append("-indexfinger");
+                        digit_increment = 2;
                     }
                     else if (digit_ == e_digit::RINGTOE)
                     {
                         identifier.append("-indexfinger");
+                        digit_increment = 3;
                     }
                     else if (digit_ == e_digit::LITTLETOE)
                     {
                         identifier.append("-indexfinger");
+                        digit_increment = 4;
                     }
+
+					if (knuckle_ == 0)
+					{
+                    	sstr << svg_str_dot(3 * width / 4.0, ((height / 16.0) + (digit_increment * 3 * height / 16.0)), radius);
+					}
+					else
+					{
+						sstr << svg_str_dot(0, ((-3 * height / 16.0) + (digit_increment * 3 * height / 16.0)), radius);
+					}
+
+
+					if (knuckle_ >= 3)
+					{
+						sstr << svg_str_dot(3 * width / 4.0, height / 4.0, radius);
+					}
+
+					if (knuckle_ == 3)
+					{
+						sstr << svg_str_dot(-3 * width / 8.0, -height / 8.0, radius);
+					}
+					else if (knuckle_ == 4)
+					{
+						sstr << svg_str_dot(-width / 4.0, -height / 12.0, radius);
+						sstr << svg_str_dot(-width / 4.0, -height / 12.0, radius);
+					}
+
+                    sstr << "\"" << std::endl;
+
+					//TODO fill style
 
 					if (left)
 					{
@@ -210,6 +248,19 @@ namespace mae
 
 					return false;
 				}
+
+                std::string digit_part::svg_str_dot(double centerx, double centery, double radius) const
+                {
+                    std::stringstream sstr;
+
+                    //draw circle
+                    sstr << " m " << centerx + radius << "," << centery << " a "
+                         << radius << "," << radius << " 0 1 1 -" << 2 * radius << ",0 " << radius << ","
+                         << radius << " 0 1 1 " << 2 * radius << ",0 z"
+							<< " m " << -radius << "," << 0 ;
+
+                    return sstr.str();
+                }
 
 			} // namespace ps
 		} // namespace laban
