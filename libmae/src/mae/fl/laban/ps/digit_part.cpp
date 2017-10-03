@@ -164,6 +164,8 @@ namespace mae
                         digit_increment = 4;
                     }
 
+					//TODO feet
+
 					if (knuckle_ == 0)
 					{
                     	sstr << svg_str_dot(3 * width / 4.0, ((height / 16.0) + (digit_increment * 3 * height / 16.0)), radius);

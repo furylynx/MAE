@@ -123,8 +123,15 @@ int main(int argc, char *argv[])
 	{
 		std::string::size_type split_pos = files_w_pattern.at(i).rfind(mae::mos::path_separator());
 
-		std::string path = ".";
-		std::string pattern = files_w_pattern.at(i);
+        std::string fullpath = files_w_pattern.at(i);
+
+        if (fullpath.substr(0,2) == "./")
+        {
+            fullpath = fullpath.substr(2);
+        }
+
+        std::string path = ".";
+		std::string pattern = fullpath;
 		if (split_pos != std::string::npos)
 		{
 			path = std::string(files_w_pattern.at(i), 0, split_pos);
@@ -138,7 +145,12 @@ int main(int argc, char *argv[])
 		{
 			boost::filesystem::directory_entry entry = *it;
 
-			//std::cout << entry.path().string() << std::endl;
+            std::string entrypath = entry.path().string();
+
+            if (entrypath.substr(0,2) == "./")
+            {
+                entrypath = entrypath.substr(2);
+            }
 
 		    // Skip if not a file
 		    if( !boost::filesystem::is_regular_file( entry.status() ) )
@@ -149,13 +161,14 @@ int main(int argc, char *argv[])
 		    boost::smatch what;
 
 		    // Skip if no match
-		    if( boost::regex_match( entry.path().string(), what, my_filter ) || entry.path().string() == files_w_pattern.at(i))
+		    if( boost::regex_match( entrypath, what, my_filter ) || entrypath == fullpath)
 			{
 			    // File matches, store it
 			    files.push_back( entry.path().string() );
-			}
-
-
+			} else
+            {
+                //std::cout << "no match: " << entrypath << ", but pattern " << pattern << std::endl;
+            }
 		}
 	}
 
