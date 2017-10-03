@@ -165,10 +165,7 @@ int main(int argc, char *argv[])
 			{
 			    // File matches, store it
 			    files.push_back( entry.path().string() );
-			} else
-            {
-                //std::cout << "no match: " << entrypath << ", but pattern " << pattern << std::endl;
-            }
+			}
 		}
 	}
 
