@@ -7,6 +7,7 @@
 
 //custom includes
 #include "../general_skeleton.hpp"
+#include "../general_skeleton_basis_pair.hpp"
 
 //global includes
 #include <string>
@@ -27,6 +28,15 @@ namespace mae {
 				 * @return The skeleton data.
 				 */
                 virtual std::vector<std::shared_ptr<mae::general_skeleton> > wait_for_update(unsigned int each_n_frames = 1) = 0;
+
+                /**
+				 * Waits until the next (n-th) frame is processed and returns the skeleton data as well as the basis on that frame.
+				 * This is a blocking method.
+				 *
+				 * @param each_n_frames The n-th frame to be processed.
+				 * @return The skeleton data and basis pair.
+				 */
+                virtual std::vector<std::shared_ptr<mae::general_skeleton_basis_pair> > wait_for_update_with_basis(unsigned int each_n_frames = 1) = 0;
         };
     }
 }

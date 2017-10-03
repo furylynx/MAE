@@ -13,6 +13,7 @@
 #include "mstr.hpp"
 #include "mos.hpp"
 #include "mbool.hpp"
+#include "general_skeleton_basis_pair.hpp"
 
 #include "math/math.hpp"
 #include "fl/fl.hpp"
