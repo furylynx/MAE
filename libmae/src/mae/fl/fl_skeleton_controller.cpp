@@ -4,8 +4,6 @@
 #include "../math/internal_math.hh"
 
 #include <opencv2/opencv.hpp>
-#include <opencv2/core/core.hpp>
-
 
 namespace mae
 {
