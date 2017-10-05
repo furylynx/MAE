@@ -164,41 +164,14 @@ namespace mae
                         digit_increment = 4;
                     }
 
-					//TODO feet
-
-					if (knuckle_ == 0)
-					{
-                    	sstr << svg_str_dot(3 * width / 4.0, ((height / 16.0) + (digit_increment * 3 * height / 16.0)), radius);
-					}
-					else
-					{
-						sstr << svg_str_dot(0, ((-3 * height / 16.0) + (digit_increment * 3 * height / 16.0)), radius);
-					}
-
-
-					if (knuckle_ >= 3)
-					{
-						sstr << svg_str_dot(3 * width / 4.0, height / 4.0, radius);
-					}
-
-					if (knuckle_ == 3)
-					{
-						sstr << svg_str_dot(-3 * width / 8.0, -height / 8.0, radius);
-					}
-					else if (knuckle_ == 4)
-					{
-						sstr << svg_str_dot(-width / 4.0, -height / 12.0, radius);
-						sstr << svg_str_dot(-width / 4.0, -height / 12.0, radius);
-					}
-
                     sstr << "\"" << std::endl;
 
-					//TODO fill style
+					double mirrorpos = 2 * posx + width;
 
 					if (left)
 					{
 						//mirror for left hand
-						sstr << "transform=\"matrix(-1,0,0,1," << 2 * posx + width << ",0)\"" << std::endl;
+						sstr << "transform=\"matrix(-1,0,0,1," << mirrorpos << ",0)\"" << std::endl;
 					}
 
 					sstr << "\t\t\tid=\"" << identifier << "\"" << std::endl;
@@ -206,6 +179,43 @@ namespace mae
 							<< "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
 							<< std::endl;
 					sstr << "\t\t\t/>" << std::endl;
+
+
+                    //TODO feet
+
+                    //set dots for knuckles/phalanges
+                    if (knuckle_ == 0 || knuckle_ >= 3)
+                    {
+                        std::stringstream idsstr;
+                        idsstr << identifier << "-dot-base";
+
+                        sstr << svg_str_dot(idsstr.str(), posx + width, posy + (height / 4.0) + (digit_increment * 3 * height / 16.0), radius, left, mirrorpos);
+                    }
+
+                    if (knuckle_ >= 1)
+                    {
+                        std::stringstream idsstr;
+                        idsstr << identifier << "-dot-end";
+
+                        sstr << svg_str_dot(idsstr.str(), posx+(width/4.0), posy + (digit_increment * 3 * height / 16.0), radius, left, mirrorpos);
+                    }
+
+                    if (knuckle_ == 3 || knuckle_ == 2)
+                    {
+                        std::stringstream idsstr;
+                        idsstr << identifier << "-dot-mid";
+                        sstr << svg_str_dot(idsstr.str(), posx + (5*width / 8.0), posy + (digit_increment * 3 * height / 16.0) + height / 8.0, radius, left, mirrorpos);
+                    }
+                    else if (knuckle_ == 4)
+                    {
+                        std::stringstream idsstr;
+                        idsstr << identifier << "-dot-base";
+
+                        sstr << svg_str_dot(idsstr.str(), posx + (2*width / 4.0), posy + (digit_increment * 3 * height / 16.0) + height / 12.0, radius, left, mirrorpos);
+
+                        idsstr << "-p2";
+                        sstr << svg_str_dot(idsstr.str(), posx + (3*width / 4.0), posy + (digit_increment * 3 * height / 16.0) + height / 6.0, radius, left, mirrorpos);
+                    }
 
 					return sstr.str();
 				}
@@ -251,15 +261,31 @@ namespace mae
 					return false;
 				}
 
-                std::string digit_part::svg_str_dot(double centerx, double centery, double radius) const
+                std::string digit_part::svg_str_dot(std::string identifier, double centerx, double centery, double radius, bool left, double mirrorpos) const
                 {
                     std::stringstream sstr;
 
                     //draw circle
-                    sstr << " m " << centerx + radius << "," << centery << " a "
+                    sstr << "<path" << std::endl;
+
+                    sstr << "d=\"m " << centerx + radius << "," << centery << " a "
                          << radius << "," << radius << " 0 1 1 -" << 2 * radius << ",0 " << radius << ","
                          << radius << " 0 1 1 " << 2 * radius << ",0 z"
 							<< " m " << -radius << "," << 0 ;
+
+                    sstr << "\"" << std::endl;
+
+                    if (left)
+                    {
+                        //mirror for left hand
+                        sstr << "transform=\"matrix(-1,0,0,1," << mirrorpos << ",0)\"" << std::endl;
+                    }
+
+                    sstr << "\t\t\tid=\"" << identifier << "\"" << std::endl;
+                    sstr
+                            << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
+                            << std::endl;
+                    sstr << "\t\t\t/>" << std::endl;
 
                     return sstr.str();
                 }

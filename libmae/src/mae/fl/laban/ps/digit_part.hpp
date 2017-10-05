@@ -102,7 +102,7 @@ namespace mae
 						e_digit digit_;
 						unsigned int knuckle_;
 
-						virtual std::string svg_str_dot(double centerx, double centery, double radius) const;
+						virtual std::string svg_str_dot(std::string identifier, double centerx, double centery, double radius, bool left, double mirrorpos) const;
 				};
 
 			} // namespace ps
