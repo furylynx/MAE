@@ -103,7 +103,12 @@ namespace mae
 						unsigned int knuckle_;
 
 						virtual std::string svg_str_dot(std::string identifier, double centerx, double centery, double radius, bool left, double mirrorpos) const;
-				};
+
+                        virtual std::string svg_for_finger(const std::string &identifier, double posx, double posy, double width, double height, bool left) const;
+                        virtual std::string svg_for_toe(const std::string &identifier, double posx, double posy, double width, double height, bool left) const;
+
+                        virtual int get_digit_increment() const;
+                };
 
 			} // namespace ps
 		} // namespace laban
