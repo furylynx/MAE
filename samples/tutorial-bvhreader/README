@@ -11,7 +11,12 @@ This is an example from the tutorial showing how to handle bvh files using MAE.
 
 Dependencies
 ==================
+
+libraries:
 libmae
+
+tools:
+cmake
 
 When building, link against the following:
 mae

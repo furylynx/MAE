@@ -10,10 +10,15 @@ This is the demo part including windows to demonstrate sequences and poses.
 
 Dependencies
 ==================
+
+libraries:
 MAE
 SDL2
 SDL2 Images
 SDL TTF
+
+tools:
+cmake
 
 When building, link against the following:
 mae, SDL2, SDL2main, SDL2_images, SDL2_ttf
@@ -31,28 +36,8 @@ ___
 Compile MAE from source (using autotools):
 
 type:
-cmake CMakeLists.txt
+cmake .
 make
 sudo make install
 
-___
-
-Compile MAE from source (using the eclipse project):
-
-When the engine is meant to be compiled, the headers for these libraries must be included. 
-The engine must be built with a compiler supporting C++11 or greater (for some compilers 
-this requires additional flags like GCC’s -std=c++0x). Besides, the flag for position 
-independent code might be required (e.g. GCC’s -fPIC). The indexer fix.hpp files might 
-produce errors and can be removed. They were introduced in order to fix indexer issues with 
-the Eclipse CDT platform.
-
-An easy way to build the engine is to use the eclipse project and modify the paths for the
-includes according to your system. Paths to the libraries might be required as well if they
-are not present in the system PATH.
-
-
-Documentation
-==================
-
-See doxygen/ folder for code documentation.
 
