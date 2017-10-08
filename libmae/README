@@ -8,9 +8,15 @@ for further movement processing and filtering in ambient spaces (i.e., smart env
 
 Dependencies
 ==================
+
+libraries:
 xml++
 opencv2
-SWIG 3
+
+tools:
+cmake
+SWIG3
+gradle
 
 When building, link against the following:
 opencv_core, xml++-2.6, intl

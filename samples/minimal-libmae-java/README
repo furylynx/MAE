@@ -11,11 +11,13 @@ This is a minimal example showing how to use the libmae library in a project.
 
 Dependencies
 ==================
+
+libraries:
 libmae
+libmae-java-wrapper
 
-When building, link against the following:
-mae
-
+tools:
+gradle
 
 
 Installation
@@ -24,11 +26,11 @@ Installation
 Compile sample from source (using cmake):
 
 type:
-cmake .
-make
-sudo make install
+gradle install
 
 
 Note:
 To install the libmae JNI jar into the local maven repository (required to compile the sample) type (don't forget to adjust the version number, e.g. "0.10.0"):
 mvn install:install-file -Dfile=libmae.jar -DgroupId=de.furylynx.mae -DartifactId=libmae -Dversion=$VERSION -Dpackaging=jar
+
+Set the java.library.path to the path where the libmaejava.so/.jnilib/.dll is installed. On Unix this can typically be /usr/local/jni, or /usr/local/lib.

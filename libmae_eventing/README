@@ -11,9 +11,14 @@ This is the eventing part including client-server communication to provide netwo
 
 Dependencies
 ==================
+
+libraries:
 MAE
 xml++
 Boost (asio, system)
+
+tools:
+cmake
 
 When building, link against the following:
 mae, xml++-2.6, boost_system
