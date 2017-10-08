@@ -39,7 +39,7 @@
 
 %template (LabanSequenceSequenceListener) mae::i_sequence_listener<mae::fl::laban::laban_sequence>;
 %template (LabanSequenceVector) std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> >;
-%template (LabanSequenceRecognition_listener) mae::i_recognition_listener<mae::fl::laban::laban_sequence>;
+%template (LabanSequenceRecognitionListener) mae::i_recognition_listener<mae::fl::laban::laban_sequence>;
 %template (LabanSequenceSequenceGenerator) mae::i_sequence_generator<mae::fl::laban::laban_sequence>;
 %template (LabanSequenceSequenceRecognizer) mae::i_sequence_recognizer<mae::fl::laban::laban_sequence>;
 %template (FlSkeletonPoseDetector) mae::i_pose_detector<mae::fl::fl_skeleton>;

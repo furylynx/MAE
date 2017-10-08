@@ -6,3 +6,4 @@
 %include "general_skeleton_basis_pair.i"
 
 %include "fl/fl.i"
+%include "sensor/sensor.i"

@@ -19,9 +19,10 @@
 //-- shared_ptr
 %shared_ptr(mae::math::basis);
 %shared_ptr(mae::general_skeleton);
+%shared_ptr(mae::general_skeleton_basis_pair);
 
 //-- Parse the original header file
 %include "../../../src/mae/general_skeleton_basis_pair.hpp"
 
 //-- templates
-//...
+%template (GeneralSkeletonBasisPairVector) std::vector<std::shared_ptr<mae::general_skeleton_basis_pair> >;
