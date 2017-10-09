@@ -69,6 +69,7 @@ Makefile
 
 #swig
 *.jnilib
+*.jnilib.[0-9]*
 
 #ide
 .idea
