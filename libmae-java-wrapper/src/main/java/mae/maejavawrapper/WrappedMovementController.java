@@ -195,7 +195,7 @@ public class WrappedMovementController extends FlMovementController {
 			LabanSequenceVector sequences) {
 		StringVector sequenceTitles = new StringVector();
 		for (int i = 0; i < sequences.size(); i++) {
-			sequenceTitles.pushBack(sequences.get(i).getTitle());
+			sequenceTitles.add(sequences.get(i).getTitle());
 		}
 
 		for (IJRecognitionListener listener : recognitionListeners) {

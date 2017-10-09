@@ -264,9 +264,9 @@ namespace mae
 
 					for (unsigned int i = 0; i < ebones.size(); i++)
 					{
-						if (std::abs(mae::e_bone_c::to_int(ebones.at(i))) > 2 && std::abs(mae::e_bone_c::to_int(ebones.at(i))) != 4)
+						if (std::abs(mae::e_bone_c::to_int(ebones.at(i))) > 2 && std::abs(mae::e_bone_c::to_int(ebones.at(i))) != 4 && std::abs(mae::e_bone_c::to_int(ebones.at(i))) < 10)
 						{
-							result.push_back(std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(ebones.at(i))));
+							result.push_back(std::make_shared<mae::fl::laban::column_definition>(ebones.at(i)));
 						}
 					}
 
@@ -282,14 +282,14 @@ namespace mae
 				{
 					std::vector<std::shared_ptr<column_definition> > result;
 
-					std::vector<mae::e_hand_bone> ebones = mae::e_hand_bone_c::vec_side(is_left);
+					std::vector<mae::e_hand_bone> ehandbones = mae::e_hand_bone_c::vec_side(is_left);
 
-					for (unsigned int i = 0; i < ebones.size(); i++)
+					for (unsigned int i = 0; i < ehandbones.size(); i++)
 					{
-						if (e_hand_bone::INVALID_HAND_BONE != ebones.at(i))
+						if (e_hand_bone::INVALID_HAND_BONE != ehandbones.at(i))
 						{
-							result.push_back(std::shared_ptr<mae::fl::laban::column_definition>(
-									new mae::fl::laban::column_definition(ebones.at(i))));
+							result.push_back(std::make_shared<mae::fl::laban::column_definition>(
+									ehandbones.at(i)));
 						}
 					}
 
