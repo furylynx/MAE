@@ -61,6 +61,11 @@ namespace mae
 		initialize_by_e_bone(eb, bones_set);
 	}
 
+	bone::bone(e_hand_bone eb, std::vector<bone> bones_set)
+	{
+		initialize_by_e_hand_bone(eb, bones_set);
+	}
+
 	bone::~bone()
 	{
 	}

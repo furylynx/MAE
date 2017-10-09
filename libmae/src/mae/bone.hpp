@@ -79,6 +79,14 @@ namespace mae
 			 * @param bones_set The bones set to be searched for the enum value.
 			 */
 			bone(e_bone eb, std::vector<bone> bones_set);
+
+			/**
+			 * Creates a bone from the e_bone enum value by referring to the given bones.
+			 *
+			 * @param ehb The bone enum value.
+			 * @param bones_set The bones set to be searched for the enum value.
+			 */
+			bone(e_hand_bone ehb, std::vector<bone> bones_set);
 			virtual ~bone();
 
 			/**

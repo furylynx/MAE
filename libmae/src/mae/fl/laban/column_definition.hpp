@@ -55,7 +55,7 @@ namespace mae
                 /**
                  * Creates a new column definition for the given e_hand_bone enum value.
                  *
-                 * @param eb The hand bone enum value.
+                 * @param ehb The hand bone enum value.
                  */
                 column_definition(mae::e_hand_bone ehb);
 
