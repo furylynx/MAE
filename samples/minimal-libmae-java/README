@@ -26,11 +26,11 @@ Installation
 Compile sample from source (using cmake):
 
 type:
-gradle install
+gradle installDist
 
 
 Note:
 To install the libmae JNI jar into the local maven repository (required to compile the sample) type (don't forget to adjust the version number, e.g. "0.10.0"):
-mvn install:install-file -Dfile=libmae.jar -DgroupId=de.furylynx.mae -DartifactId=libmae -Dversion=$VERSION -Dpackaging=jar
+mvn install:install-file -Dfile=libmae-$VERSION.jar -DgroupId=de.furylynx.mae -DartifactId=libmae -Dversion=$VERSION -Dpackaging=jar
 
 Set the java.library.path to the path where the libmaejava.so/.jnilib/.dll is installed. On Unix this can typically be /usr/local/jni, or /usr/local/lib.

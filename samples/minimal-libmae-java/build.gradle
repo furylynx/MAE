@@ -2,10 +2,14 @@ group 'mae'
 version '0.1.0'
 
 apply plugin: 'java'
+apply plugin: 'application'
+
 
 sourceCompatibility = 1.8
 
 sourceSets.main.java.srcDirs = ['src/main/java']
+
+mainClassName = "minimallibmaejava.MinimalLibmaeJava"
 
 repositories {
     mavenCentral()
@@ -16,10 +20,4 @@ dependencies {
     compile "mae:libmae:0.10.0"
     compile "mae:maejavawrapper:0.10.0"
     testCompile group: 'junit', name: 'junit', version: '4.12'
-}
-
-jar {
-    manifest {
-        attributes 'Main-Class': 'minimallibmaejava.MinimalLibmaeJava'
-    }
 }
