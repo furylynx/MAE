@@ -46,4 +46,4 @@ sudo make install
 Usage
 ==================
 
-In order to use libmae_eventing in a project, the module can be included in a cmake project.  Please note that pkg-config files for boost might lack and you should generate them on your own. A generator for pkg-config files can be found here: https://github.com/nmante/pkg-config-generator. The pkg-config of libmae_eventing requires a pkg-config file for libboost-system, hence, a libboost-system.pc file should be present in the pk-config's path (typically /usr/local/lib/pkgconfig/).
+In order to use libmae_eventing in a project, the module can be included in a cmake project.  Please note that pkg-config files for boost might lack and you should generate them on your own. A generator for pkg-config files can be found here: https://github.com/nmante/pkg-config-generator. The pkg-config of libmae_eventing requires a pkg-config file for libboost-system, hence, a libboost-system.pc file should be present in the pkg-config's path (typically /usr/local/lib/pkgconfig/). You may adapt from the generated boost.pc file to create the required libboost-system.pc.
