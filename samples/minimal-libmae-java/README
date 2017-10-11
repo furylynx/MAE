@@ -26,8 +26,13 @@ Installation
 Compile sample from source (using cmake):
 
 type:
+gradle run
+
+
+To create a runnable script type:
 gradle installDist
 
+If you used a custom install prefix for libmae, use gradle run/installDist -Pprefix=/your/install/prefix
 
 Note:
 To install the libmae JNI jar into the local maven repository (required to compile the sample) type (don't forget to adjust the version number, e.g. "0.10.0"):
