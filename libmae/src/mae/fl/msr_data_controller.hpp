@@ -1,15 +1,5 @@
-/*
- * plain_data_controller.hpp
- *
- *  Created on: 04.04.2015
- *      Author: keks
- */
-
-#ifndef PLAIN_DATA_CONTROLLER_HPP_
-#define PLAIN_DATA_CONTROLLER_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_FL_MSR_DATA_CONTROLLER_HPP_
+#define MAE_FL_MSR_DATA_CONTROLLER_HPP_
 
 //custom includes
 #include "../general_skeleton.hpp"
@@ -133,4 +123,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // PLAIN_DATA_CONTROLLER_HPP_
+#endif // MAE_FL_MSR_DATA_CONTROLLER_HPP_

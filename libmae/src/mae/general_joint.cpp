@@ -1,10 +1,3 @@
-/*
- * GeneralJoint.cpp
- *
- *  Created on: 20.05.2014
- *      Author: keks
- */
-
 #include "general_joint.hpp"
 
 namespace mae

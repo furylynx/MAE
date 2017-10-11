@@ -1,8 +1,7 @@
 //-- e_fl_direction.i - SWIG interface
  
 //-- custom includes
-//%import "laban/mv/e_direction.i"
-//%import "laban/mv/e_level.i"
+//...
 
 //-- global includes
 %include "std_string.i"

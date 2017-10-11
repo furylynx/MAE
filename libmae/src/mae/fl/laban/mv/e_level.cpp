@@ -1,10 +1,3 @@
-/*
- * e_level.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "e_level.hpp"
 
 namespace mae

@@ -1,21 +1,21 @@
-/*
- * mos.hpp
- *
- *  Created on: 19.09.2014
- *      Author: keks
- */
-
-#ifndef MOS_HPP_
-#define MOS_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_MOS_HPP_
+#define MAE_MOS_HPP_
 
 //custom includes
 //...
 
 //global includes
-//...
+#include <chrono>
+
+#ifdef WIN32
+	#include <conio.h>
+#else // linux
+    #include <cstdio>
+	#include <unistd.h>
+	#include <stdlib.h>
+	#include <termios.h>
+	#include <fcntl.h>
+#endif // WIN32
 
 namespace mae
 {
@@ -28,8 +28,22 @@ namespace mae
 			 * @return The separator char.
 			 */
 			static char path_separator();
+
+			/**
+			 * Returns true if the keyboard was hit since the start of the program.
+			 *
+			 * @return True if keyboard was hit.
+			 */
+			static bool was_keyboard_hit();
+
+			/**
+			 * Returns the current system time in milliseconds. Thus, returns the number of milliseconds since the unix epoch.
+			 *
+			 * @return The milliseconds since the unix epoch.
+			 */
+			static uint64_t current_time_millis();
 	};
 
 } // namespace mae
 
-#endif // MOS_HPP_
+#endif // MAE_MOS_HPP_

@@ -1,0 +1,23 @@
+group 'mae'
+version '@MYLIB_VERSION_STRING@'
+
+apply plugin: 'java'
+apply plugin: "maven"
+
+sourceCompatibility = 1.8
+
+sourceSets.main.java.srcDirs = ['src/main/java']
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+task copyJar(type: Copy) {
+    from jar
+    into '../../../'
+}
+
+build.dependsOn copyJar

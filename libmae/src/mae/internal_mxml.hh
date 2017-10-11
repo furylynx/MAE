@@ -1,15 +1,5 @@
-/*
- * mxml.hpp
- *
- *  Created on: 05.09.2014
- *      Author: keks
- */
-
-#ifndef INTERNAL_MXML_HPP_
-#define INTERNAL_MXML_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_INTERNAL_MXML_HPP_
+#define MAE_INTERNAL_MXML_HPP_
 
 //custom includes
 #include "mstr.hpp"
@@ -75,4 +65,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // INTERNAL_MXML_HPP_
+#endif // MAE_INTERNAL_MXML_HPP_

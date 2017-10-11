@@ -1,15 +1,5 @@
-/*
- * i_decision_maker.hpp
- *
- *  Created on: 12.08.2014
- *      Author: keks
- */
-
-#ifndef I_DECISION_MAKER_HPP_
-#define I_DECISION_MAKER_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_I_DECISION_MAKER_HPP_
+#define MAE_FL_LABAN_I_DECISION_MAKER_HPP_
 
 //custom includes
 
@@ -87,4 +77,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // I_DECISION_MAKER_HPP_
+#endif // MAE_FL_LABAN_I_DECISION_MAKER_HPP_

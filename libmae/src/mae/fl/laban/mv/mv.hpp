@@ -5,8 +5,8 @@
  *      Author: keks
  */
 
-#ifndef MV_HPP_
-#define MV_HPP_
+#ifndef MAE_FL_LABAN_MV_MV_HPP_
+#define MAE_FL_LABAN_MV_MV_HPP_
 
 //custom includes
 #include "accent_sign.hpp"
@@ -21,4 +21,4 @@
 #include "vibration_symbol.hpp"
 
 
-#endif // MV_HPP_
+#endif // MAE_FL_LABAN_MV_MV_HPP_

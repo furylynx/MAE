@@ -1,10 +1,3 @@
-/*
- * angular_skeleton_controller.cpp
- *
- *  Created on: 29.09.2014
- *      Author: keks
- */
-
 #include "angular_skeleton_controller.hpp"
 
 //internal includes
@@ -88,18 +81,21 @@ namespace mae
 		}
 
 		std::shared_ptr<angular_skeleton> angular_skeleton_controller::specified_skeleton(
-				std::shared_ptr<general_skeleton> skeleton)
+				std::shared_ptr<general_skeleton> skeleton, std::shared_ptr<mae::math::basis> basis)
 		{
 			if (debug_)
 			{
 				std::cout << "fl_skeleton_controller: specified skeleton" << std::endl;
 			}
 
-			std::shared_ptr<mae::math::basis> torso_basis = fl_ctrl_->create_torso_basis(skeleton);
+			if (nullptr == basis)
+			{
+				basis = fl_ctrl_->create_basis(skeleton);
+			}
 
-			std::shared_ptr<mae::math::vec3d> u = torso_basis->get_u();
-			std::shared_ptr<mae::math::vec3d> r = torso_basis->get_r();
-			std::shared_ptr<mae::math::vec3d> t = torso_basis->get_t();
+			std::shared_ptr<mae::math::vec3d> u = basis->get_u();
+			std::shared_ptr<mae::math::vec3d> r = basis->get_r();
+			std::shared_ptr<mae::math::vec3d> t = basis->get_t();
 
 			//-----
 			//calculate angular representation (if wanted)
@@ -113,7 +109,7 @@ namespace mae
 			result->set_weight(skeleton->get_weight());
 
 			//set coordinate system to skeleton
-			result->set_torso_basis(torso_basis);
+			result->set_torso_basis(basis);
 
 			return result;
 		}

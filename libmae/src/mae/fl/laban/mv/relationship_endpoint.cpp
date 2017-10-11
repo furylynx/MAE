@@ -1,10 +1,3 @@
-/*
- * relationship_endpoint.cpp
- *
- *  Created on: 22.08.2014
- *      Author: keks
- */
-
 #include "relationship_endpoint.hpp"
 
 namespace mae

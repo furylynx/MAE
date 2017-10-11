@@ -1,15 +1,5 @@
-/*
- * basis.hpp
- *
- *  Created on: 01.10.2014
- *      Author: keks
- */
-
-#ifndef BASIS_HPP_
-#define BASIS_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_MATH_BASIS_HPP_
+#define MAE_MATH_BASIS_HPP_
 
 //custom includes
 #include "vec3d.hpp"
@@ -146,4 +136,4 @@ namespace mae
 	} // namespace math
 } // namespace mae
 
-#endif // BASIS_HPP_
+#endif // MAE_MATH_BASIS_HPP_

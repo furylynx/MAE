@@ -1,12 +1,5 @@
-/*
- * fl.hpp
- *
- *  Created on: 16.09.2014
- *      Author: keks
- */
-
-#ifndef FL_HPP_
-#define FL_HPP_
+#ifndef MAE_FL_HPP_
+#define MAE_FL_HPP_
 
 //custom includes
 #include "angular_skeleton_controller.hpp"
@@ -21,4 +14,4 @@
 
 
 
-#endif // FL_HPP_
+#endif // MAE_FL_HPP_

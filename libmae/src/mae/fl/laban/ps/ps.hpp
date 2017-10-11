@@ -1,12 +1,5 @@
-/*
- * ps.hpp
- *
- *  Created on: 16.09.2014
- *      Author: keks
- */
-
-#ifndef PS_HPP_
-#define PS_HPP_
+#ifndef MAE_FL_LABAN_PS_PS_HPP_
+#define MAE_FL_LABAN_PS_PS_HPP_
 
 //custom includes
 #include "area_part.hpp"
@@ -18,4 +11,4 @@
 #include "prop.hpp"
 #include "surface_part.hpp"
 
-#endif // PS_HPP_
+#endif // MAE_FL_LABAN_PS_PS_HPP_

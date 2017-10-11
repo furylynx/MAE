@@ -1,15 +1,5 @@
-/*
- * bvh_data.hpp
- *
- *  Created on: 07.02.2015
- *      Author: furylynx
- */
-
-#ifndef BVH_DATA_HPP_
-#define BVH_DATA_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_FL_BVH_DATA_HPP_
+#define MAE_FL_BVH_DATA_HPP_
 
 //custom includes
 #include "../general_skeleton.hpp"
@@ -78,4 +68,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // BVH_DATA_HPP_
+#endif // MAE_FL_BVH_DATA_HPP_

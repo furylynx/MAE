@@ -1,10 +1,3 @@
-/*
- * e_contact_hook.cpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
 #include "e_contact_hook.hpp"
 
 namespace mae

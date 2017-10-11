@@ -1,15 +1,5 @@
-/*
- * ISequenceGenerator.hpp
- *
- *  Created on: 19.05.2014
- *      Author: keks
- */
-
-#ifndef ISEQUENCEGENERATOR_HPP_
-#define ISEQUENCEGENERATOR_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_ISEQUENCEGENERATOR_HPP_
+#define MAE_ISEQUENCEGENERATOR_HPP_
 
 //custom includes
 #include "general_enriched_pose.hpp"
@@ -45,4 +35,4 @@ namespace mae {
 
 } // namespace mae
 
-#endif // ISEQUENCEGENERATOR_HPP_
+#endif // MAE_ISEQUENCEGENERATOR_HPP_

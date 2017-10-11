@@ -1,10 +1,3 @@
-/*
- * decision_maker.cpp
- *
- *  Created on: 15.08.2014
- *      Author: keks
- */
-
 #include "decision_maker.hpp"
 
 namespace mae

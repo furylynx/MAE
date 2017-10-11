@@ -1,15 +1,5 @@
-/*
- * internal_laban_sequence_reader.hh
- *
- *  Created on: 26.07.2014
- *      Author: furylynx
- */
-
-#ifndef INTERNAL_LABAN_SEQUENCE_READER_HH_
-#define INTERNAL_LABAN_SEQUENCE_READER_HH_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_INTERNAL_LABAN_SEQUENCE_READER_HH_
+#define MAE_FL_LABAN_INTERNAL_LABAN_SEQUENCE_READER_HH_
 
 //custom includes
 #include "../../mbool.hpp"
@@ -327,4 +317,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // INTERNAL_LABAN_SEQUENCE_READER_HH_
+#endif // MAE_FL_LABAN_INTERNAL_LABAN_SEQUENCE_READER_HH_

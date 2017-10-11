@@ -1,10 +1,3 @@
-/*
- * rewriting_rules.cpp
- *
- *  Created on: 13.08.2014
- *      Author: keks
- */
-
 #include "rewriting_forest.hpp"
 
 namespace mae

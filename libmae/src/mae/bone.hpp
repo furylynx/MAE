@@ -1,19 +1,12 @@
-/*
- * bone.hpp
- *
- *  Created on: 18.06.2014
- *      Author: keks
- */
+#ifndef MAE_BONE_HPP_
+#define MAE_BONE_HPP_
 
-#ifndef BONE_HPP_
-#define BONE_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
 
 //custom includes
 #include "e_bone.hpp"
+#include "e_hand_bone.hpp"
 #include "e_joint.hpp"
+#include "e_hand_joint.hpp"
 #include "e_kinect_joint.hpp"
 
 //global includes
@@ -73,12 +66,27 @@ namespace mae
 			bone(e_bone eb);
 
 			/**
+			 * Creates a bone from the e_bone enum value by referring to the default bones.
+			 *
+			 * @param eb The bone enum value.
+			 */
+			bone(e_hand_bone ehb);
+
+			/**
 			 * Creates a bone from the e_bone enum value by referring to the given bones.
 			 *
 			 * @param eb The bone enum value.
 			 * @param bones_set The bones set to be searched for the enum value.
 			 */
 			bone(e_bone eb, std::vector<bone> bones_set);
+
+			/**
+			 * Creates a bone from the e_bone enum value by referring to the given bones.
+			 *
+			 * @param ehb The bone enum value.
+			 * @param bones_set The bones set to be searched for the enum value.
+			 */
+			bone(e_hand_bone ehb, std::vector<bone> bones_set);
 			virtual ~bone();
 
 			/**
@@ -139,6 +147,15 @@ namespace mae
 			 */
 			static std::vector<bone> default_kinect_bones();
 
+            /**
+             * Returns the default bones for hands. If the default hierarchies are not sufficient and/or other
+             * bones are needed it must be constructed manually.
+             *
+             * @param is_left True if the hand is a left one. False otherwise.
+             * @return The hand bones.
+             */
+            static std::vector<bone> default_hand_bones(bool is_left);
+
 			/**
 			 * The reserved value for the top-down bone. This bone is used for the general skeleton.
 			 */
@@ -160,11 +177,13 @@ namespace mae
 
 			static std::vector<bone> default_bones_;
 			static std::vector<bone> default_kinect_bones_;
-
+			static std::vector<bone> default_left_hand_bones_;
+            static std::vector<bone> default_right_hand_bones_;
 
 			void initialize_by_e_bone(e_bone eb, std::vector<bone> bones_set);
+			void initialize_by_e_hand_bone(e_hand_bone ehb, std::vector<bone> bones_set);
 	};
 
 } // namespace mae
 
-#endif // BONE_HPP_
+#endif // MAE_BONE_HPP_

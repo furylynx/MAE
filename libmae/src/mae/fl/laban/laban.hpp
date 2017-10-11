@@ -1,12 +1,5 @@
-/*
- * laban.hpp
- *
- *  Created on: 16.09.2014
- *      Author: keks
- */
-
-#ifndef LABAN_HPP_
-#define LABAN_HPP_
+#ifndef MAE_FL_LABAN_LABAN_HPP_
+#define MAE_FL_LABAN_LABAN_HPP_
 
 
 //custom includes
@@ -20,4 +13,4 @@
 
 
 
-#endif // LABAN_HPP_
+#endif // MAE_FL_LABAN_LABAN_HPP_

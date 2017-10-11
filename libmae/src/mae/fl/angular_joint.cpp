@@ -1,10 +1,3 @@
-/*
- * FLJoint.cpp
- *
- * Created on: 20.05.2014
- * Author: keks
- */
-
 #include "angular_joint.hpp"
 
 namespace mae

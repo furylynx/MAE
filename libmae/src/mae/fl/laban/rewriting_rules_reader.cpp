@@ -1,10 +1,3 @@
-/*
- * rewriting_rules_reader.cpp
- *
- *  Created on: 27.08.2014
- *      Author: keks
- */
-
 #include "rewriting_rules_reader.hpp"
 
 //internal includes

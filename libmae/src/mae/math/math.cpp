@@ -1,10 +1,3 @@
-/*
- * FLMath.cpp
- *
- *  Created on: 28.05.2014
- *      Author: keks
- */
-
 #include "math.hpp"
 
 //internal includes

@@ -1,10 +1,3 @@
-/*
- * rewriting_decision_maker.cpp
- *
- *  Created on: 20.08.2014
- *      Author: keks
- */
-
 #include "rewriting_decision_maker.hpp"
 
 namespace mae

@@ -1,10 +1,3 @@
-/*
- * area_part.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "area_part.hpp"
 
 namespace mae

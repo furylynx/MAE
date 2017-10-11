@@ -1,10 +1,3 @@
-/*
- * default_limb.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "default_limb.hpp"
 
 namespace mae

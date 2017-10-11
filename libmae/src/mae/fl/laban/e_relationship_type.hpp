@@ -1,15 +1,5 @@
-/*
- * e_relationship_type.hpp
- *
- *  Created on: 22.08.2014
- *      Author: keks
- */
-
-#ifndef E_RELATIONSHIP_TYPE_HPP_
-#define E_RELATIONSHIP_TYPE_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_E_RELATIONSHIP_TYPE_HPP_
+#define MAE_FL_LABAN_E_RELATIONSHIP_TYPE_HPP_
 
 //custom includes
 #include "../../mstr.hpp"
@@ -65,4 +55,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // E_RELATIONSHIP_TYPE_HPP_
+#endif // MAE_FL_LABAN_E_RELATIONSHIP_TYPE_HPP_

@@ -1,10 +1,3 @@
-/*
- * FLMovementController.cpp
- *
- *  Created on: 29.05.2014
- *      Author: keks
- */
-
 #include "fl_movement_controller.hpp"
 
 namespace mae
@@ -85,14 +78,14 @@ namespace mae
 			flpd_ = std::dynamic_pointer_cast<fl_pose_detector>(kp_det->get_pose_detector());
 		}
 
-		void fl_movement_controller::next_frame(uint64_t timestamp, std::shared_ptr<general_skeleton> skeleton)
+		void fl_movement_controller::next_frame(uint64_t timestamp, std::shared_ptr<general_skeleton> skeleton, std::shared_ptr<mae::math::basis> basis)
 		{
 			if (debug_)
 			{
 				std::cout << "fl movement controller: next frame" << std::endl;
 			}
 
-			std::shared_ptr<fl_skeleton> fl_skel = skel_ctrl_->specified_skeleton(skeleton);
+			std::shared_ptr<fl_skeleton> fl_skel = skel_ctrl_->specified_skeleton(skeleton, basis);
 
 			//call next_frame for base class
 			movement_controller<fl_skeleton, laban::laban_sequence>::next_frame(timestamp, fl_skel);

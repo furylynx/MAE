@@ -1,15 +1,5 @@
-/*
- * FLPoseDetector.hpp
- *
- *  Created on: 29.05.2014
- *      Author: keks
- */
-
-#ifndef FLPOSEDETECTOR_HPP_
-#define FLPOSEDETECTOR_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_FL_FLPOSEDETECTOR_HPP_
+#define MAE_FL_FLPOSEDETECTOR_HPP_
 
 //custom includes
 #include "../i_pose_detector.hpp"
@@ -105,4 +95,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // FLPOSEDETECTOR_HPP_
+#endif // MAE_FL_FLPOSEDETECTOR_HPP_

@@ -1,15 +1,5 @@
-/*
- * FLMath.hpp
- *
- *  Created on: 28.05.2014
- *      Author: keks
- */
-
-#ifndef MATH_HH_
-#define MATH_HH_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_MATH_MATH_HH_
+#define MAE_MATH_MATH_HH_
 
 //custom includes
 #include "../fl/angular_joint.hpp"
@@ -147,4 +137,4 @@ namespace mae
 	} // namespace math
 } // namespace mae
 
-#endif // INTERNAL_MATH_HH_
+#endif // MAE_MATH_MATH_HH_

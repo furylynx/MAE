@@ -1,10 +1,3 @@
-/*
- * mxml.cpp
- *
- *  Created on: 05.09.2014
- *      Author: keks
- */
-
 #include "internal_mxml.hh"
 
 //internal includes

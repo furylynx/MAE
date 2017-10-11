@@ -1,10 +1,3 @@
-/*
- * laban_sequence_reader.cpp
- *
- *  Created on: 26.07.2014
- *      Author: keks
- */
-
 #include "laban_sequence_reader.hpp"
 
 //internal includes

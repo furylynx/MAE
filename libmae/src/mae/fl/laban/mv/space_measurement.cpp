@@ -1,10 +1,3 @@
-/*
- * space_measurement.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "space_measurement.hpp"
 
 namespace mae

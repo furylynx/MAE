@@ -1,15 +1,5 @@
-/*
- * cancellation_symbol.hpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
-#ifndef CANCELLATION_SYMBOL_HPP_
-#define CANCELLATION_SYMBOL_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_MV_CANCELLATION_SYMBOL_HPP_
+#define MAE_FL_LABAN_MV_CANCELLATION_SYMBOL_HPP_
 
 //custom includes
 #include "i_symbol.hpp"
@@ -105,4 +95,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // CANCELLATION_SYMBOL_HPP_
+#endif // MAE_FL_LABAN_MV_CANCELLATION_SYMBOL_HPP_

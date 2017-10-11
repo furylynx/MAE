@@ -45,17 +45,17 @@ std::string make_regex(std::string regex)
 
 int main(int argc, char *argv[])
 {
-	int w = 1920;
-	int h = 1080;
+	int w = 1080;
+	int h = 1920;
 	bool svg = false;
 	std::vector<std::string> files_w_pattern;
 
 	// Declare the supported options.
-	boost::program_options::options_description desc("Allowed options");
-	desc.add_options()("help", "produce help message")
-			("w", boost::program_options::value<int>(), "the resulting image(s) width(s)")
-			("h", boost::program_options::value<int>(), "the resulting image(s) height(s)")
-			("svg", "Set output to svg")
+	boost::program_options::options_description desc("usage: laban-sequence-converter [OPTIONS] FILE1 [FILE2 ...]\n\nConvert the Labanotation files (XML-Labanotation) into bitmaps or scalable vector graphics.\n\noptional arguments::");
+	desc.add_options()("help,h", "produce help message")
+			("xsize,x", boost::program_options::value<int>(), "the resulting image(s) width")
+			("ysize,y", boost::program_options::value<int>(), "the resulting image(s) height")
+			("svg,s", "Set output to svg")
 			;
 
 	boost::program_options::options_description hidden("Hidden options");
@@ -71,65 +71,67 @@ int main(int argc, char *argv[])
 
 
 	boost::program_options::variables_map vm;
-	boost::program_options::store(boost::program_options::command_line_parser(argc, argv).options(cmdline_options).positional(p).run(), vm);
+	boost::program_options::store(boost::program_options::command_line_parser(argc, argv).options(cmdline_options).positional(p).style( boost::program_options::command_line_style::unix_style | boost::program_options::command_line_style::allow_long_disguise).run(), vm);
 	boost::program_options::notify(vm);
 
 	bool stop = false;
 
 	if (vm.count("help"))
 	{
-		std::cout << desc << "\n";
+		std::cout << desc << std::endl;
 		return 1;
 	}
+
+    if (!vm.count("input-file"))
+    {
+        std::cout << "No file defined." << std::endl;
+        std::cout << std::endl << desc << std::endl;
+        return 1;
+    }
+    else
+    {
+        files_w_pattern = vm["input-file"].as<std::vector<std::string> >();
+    }
 
 	if (vm.count("svg"))
 	{
 		svg = true;
 	}
 
-	if (!vm.count("w"))
+	if (!vm.count("xsize"))
 	{
-		std::cout << "Width was not specified" << std::endl;
-		stop = true;
+		std::cout << "Width was not specified, using default (" << w << ")" << std::endl;
 	}
 	else
 	{
-		w = vm["w"].as<int>();
+		w = vm["xsize"].as<int>();
 	}
 
-	if (!vm.count("h"))
+	if (!vm.count("ysize"))
 	{
-		std::cout << "Height was not specified" << std::endl;
-		stop = true;
+		std::cout << "Height was not specified, using default (" << h << ")" << std::endl;
 	}
 	else
 	{
-		h = vm["h"].as<int>();
+		h = vm["ysize"].as<int>();
 	}
 
-	if (!vm.count("input-file"))
-	{
-		std::cout << "No file defined." << std::endl;
-		stop = true;
-	}
-	else
-	{
-		files_w_pattern = vm["input-file"].as<std::vector<std::string> >();
-	}
 
-	if (stop)
-	{
-		std::cout << "\t --help for info" << std::endl;
-		return 1;
-	}
 
 	std::vector<std::string> files;
 	for (unsigned int i = 0; i < files_w_pattern.size(); i++)
 	{
 		std::string::size_type split_pos = files_w_pattern.at(i).rfind(mae::mos::path_separator());
 
-		std::string path = ".";
-		std::string pattern = files_w_pattern.at(i);
+        std::string fullpath = files_w_pattern.at(i);
+
+        if (fullpath.substr(0,2) == "./")
+        {
+            fullpath = fullpath.substr(2);
+        }
+
+        std::string path = ".";
+		std::string pattern = fullpath;
 		if (split_pos != std::string::npos)
 		{
 			path = std::string(files_w_pattern.at(i), 0, split_pos);
@@ -143,7 +145,12 @@ int main(int argc, char *argv[])
 		{
 			boost::filesystem::directory_entry entry = *it;
 
-			//std::cout << entry.path().string() << std::endl;
+            std::string entrypath = entry.path().string();
+
+            if (entrypath.substr(0,2) == "./")
+            {
+                entrypath = entrypath.substr(2);
+            }
 
 		    // Skip if not a file
 		    if( !boost::filesystem::is_regular_file( entry.status() ) )
@@ -154,13 +161,11 @@ int main(int argc, char *argv[])
 		    boost::smatch what;
 
 		    // Skip if no match
-		    if( boost::regex_match( entry.path().string(), what, my_filter ) || entry.path().string() == files_w_pattern.at(i))
+		    if( boost::regex_match( entrypath, what, my_filter ) || entrypath == fullpath)
 			{
 			    // File matches, store it
 			    files.push_back( entry.path().string() );
 			}
-
-
 		}
 	}
 

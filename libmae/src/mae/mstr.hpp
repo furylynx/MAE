@@ -1,15 +1,5 @@
-/*
- * MStr.hpp
- *
- *  Created on: 13.06.2014
- *      Author: keks
- */
-
-#ifndef MSTR_HPP_
-#define MSTR_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_MSTR_HPP_
+#define MAE_MSTR_HPP_
 
 //custom includes
 //...
@@ -191,4 +181,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // MSTR_HPP_
+#endif // MAE_MSTR_HPP_

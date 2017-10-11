@@ -1,10 +1,3 @@
-/*
- * BVHController.cpp
- *
- *  Created on: 11.06.2014
- *      Author: keks
- */
-
 #include "bvh_controller.hpp"
 
 //internal includes
@@ -63,7 +56,7 @@ namespace mae
 			sstr << "ROOT " << root_name;
 
 			//append sharp symbol to indicate that this is a torso joint
-			if (elements.at(0)->is_torso_joint())
+			if (elements.at(0)->is_base_joint())
 			{
 				sstr << "#";
 			}
@@ -130,7 +123,7 @@ namespace mae
 					sstr << isstr.str() << "JOINT" << " " << element_name;
 
 					//append sharp symbol to indicate that this is a torso joint
-					if (elements.at(i)->is_torso_joint())
+					if (elements.at(i)->is_base_joint())
 					{
 						sstr << "#";
 					}
@@ -314,7 +307,7 @@ namespace mae
 			std::map<std::string, bool> joint_torso;
 
 			joint_str = spec->get_id_map();
-			joint_torso = spec->get_torso_map();
+			joint_torso = spec->get_basis_map();
 
 			//frame time
 			double frame_time = 0.33333;
@@ -833,7 +826,7 @@ namespace mae
 			if (spec != nullptr)
 			{
 				joint_str = spec->get_id_map();
-				joint_torso = spec->get_torso_map();
+				joint_torso = spec->get_basis_map();
 			}
 
 			bool ending_sharp = false;

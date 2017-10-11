@@ -1,15 +1,5 @@
-/*
- * skeleton_merger.hpp
- *
- *  Created on: 20.09.2014
- *      Author: keks
- */
-
-#ifndef SKELETON_MERGER_HPP_
-#define SKELETON_MERGER_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_FL_SKELETON_MERGER_HPP_
+#define MAE_FL_SKELETON_MERGER_HPP_
 
 //custom includes
 #include "../general_skeleton.hpp"
@@ -72,4 +62,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // SKELETON_MERGER_HPP_
+#endif // MAE_FL_SKELETON_MERGER_HPP_

@@ -1,15 +1,5 @@
-/*
- * digit_part.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef DIGIT_PART_HPP_
-#define DIGIT_PART_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_PS_DIGIT_PART_HPP_
+#define MAE_FL_LABAN_PS_DIGIT_PART_HPP_
 
 //custom includes
 #include "i_endpoint.hpp"
@@ -111,11 +101,18 @@ namespace mae
 					private:
 						e_digit digit_;
 						unsigned int knuckle_;
-				};
+
+						virtual std::string svg_str_dot(std::string identifier, double centerx, double centery, double radius, bool left, double mirrorpos) const;
+
+                        virtual std::string svg_for_finger(const std::string &identifier, double posx, double posy, double width, double height, bool left) const;
+                        virtual std::string svg_for_toe(const std::string &identifier, double posx, double posy, double width, double height, bool left) const;
+
+                        virtual int get_digit_increment() const;
+                };
 
 			} // namespace ps
 		} // namespace laban
 	} // namespace fl
 } // namespace mae
 
-#endif // DIGIT_PART_HPP_
+#endif // MAE_FL_LABAN_PS_DIGIT_PART_HPP_

@@ -1,15 +1,5 @@
-/*
- * BVHController.hpp
- *
- *  Created on: 11.06.2014
- *      Author: keks
- */
-
-#ifndef BVHCONTROLLER_HPP_
-#define BVHCONTROLLER_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_FL_BVHCONTROLLER_HPP_
+#define MAE_FL_BVHCONTROLLER_HPP_
 
 //custom includes
 #include "../general_skeleton.hpp"
@@ -157,4 +147,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // BVHCONTROLLER_HPP_
+#endif // MAE_FL_BVHCONTROLLER_HPP_

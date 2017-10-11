@@ -1,15 +1,5 @@
-/*
- * angular_skeleton_controller.hpp
- *
- *  Created on: 29.09.2014
- *      Author: keks
- */
-
-#ifndef ANGULAR_SKELETON_CONTROLLER_HPP_
-#define ANGULAR_SKELETON_CONTROLLER_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_FL_ANGULAR_SKELETON_CONTROLLER_HPP_
+#define MAE_FL_ANGULAR_SKELETON_CONTROLLER_HPP_
 
 //custom includes
 #include "angular_skeleton.hpp"
@@ -43,9 +33,10 @@ namespace mae
 				 * Generates the specified skeleton from the general skeleton.
 				 *
 				 * @param skeleton The general skeleton.
+				 * @param basis (optional) The basis as a system of reference (e.g. the torso basis).
 				 * @return The specified skeleton.
 				 */
-				virtual std::shared_ptr<angular_skeleton> specified_skeleton(std::shared_ptr<general_skeleton> skeleton);
+				virtual std::shared_ptr<angular_skeleton> specified_skeleton(std::shared_ptr<general_skeleton> skeleton, std::shared_ptr<mae::math::basis> basis = nullptr);
 
 				/**
 				 * Generates the angular skeleton from the general one.
@@ -123,4 +114,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // ANGULAR_SKELETON_CONTROLLER_HPP_
+#endif // MAE_FL_ANGULAR_SKELETON_CONTROLLER_HPP_

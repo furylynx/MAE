@@ -1,10 +1,3 @@
-/*
- * msr_spec.cpp
- *
- *  Created on: 04.04.2015
- *      Author: keks
- */
-
 #include "msr_spec.hpp"
 
 namespace mae

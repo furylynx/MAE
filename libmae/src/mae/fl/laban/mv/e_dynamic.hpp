@@ -1,15 +1,5 @@
-/*
- * e_dynamic.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef E_DYNAMIC_HPP_
-#define E_DYNAMIC_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_MV_E_DYNAMIC_HPP_
+#define MAE_FL_LABAN_MV_E_DYNAMIC_HPP_
 
 //custom includes
 #include "../../../mstr.hpp"
@@ -75,4 +65,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // E_DYNAMIC_HPP_
+#endif // MAE_FL_LABAN_MV_E_DYNAMIC_HPP_

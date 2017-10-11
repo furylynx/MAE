@@ -1,15 +1,5 @@
-/*
- * e_turn_direction.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef E_TURN_DIRECTION_HPP_
-#define E_TURN_DIRECTION_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_MV_E_TURN_DIRECTION_HPP_
+#define MAE_FL_LABAN_MV_E_TURN_DIRECTION_HPP_
 
 //custom includes
 #include "../../../mstr.hpp"
@@ -69,4 +59,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // E_TURN_DIRECTION_HPP_
+#endif // MAE_FL_LABAN_MV_E_TURN_DIRECTION_HPP_

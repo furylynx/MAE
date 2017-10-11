@@ -1,10 +1,3 @@
-/*
- * general_skeleton.cpp
- *
- * Created on: 15.05.2014
- * Author: keks
- */
-
 #include "general_skeleton.hpp"
 
 namespace mae
@@ -12,13 +5,13 @@ namespace mae
 
 	general_skeleton::general_skeleton()
 	{
-		this->hashmap_joints = std::unordered_map<int, std::shared_ptr<general_joint> >();
+		this->hashmap_joints_ = std::unordered_map<int, std::shared_ptr<general_joint> >();
 
 		this->hierarchy_ = hierarchy::default_hierarchy();
 
 		//set top-down and right-left direction
-		this->top_down = std::shared_ptr<bone>(new bone(bone::RESERVED_TOP_DOWN, "TOP_DOWN", e_joint_c::to_int(e_joint::NECK), e_joint_c::to_int(e_joint::TORSO)));
-		this->right_left = std::shared_ptr<bone>(
+		this->top_down_ = std::shared_ptr<bone>(new bone(bone::RESERVED_TOP_DOWN, "TOP_DOWN", e_joint_c::to_int(e_joint::NECK), e_joint_c::to_int(e_joint::TORSO)));
+		this->right_left_ = std::shared_ptr<bone>(
 				new bone(bone::RESERVED_RIGHT_LEFT, "RIGHT_LEFT", e_joint_c::to_int(e_joint::RIGHT_SHOULDER), e_joint_c::to_int(e_joint::LEFT_SHOULDER)));
 
 	}
@@ -26,34 +19,34 @@ namespace mae
 	general_skeleton::general_skeleton(std::shared_ptr<hierarchy> hierarchy)
 	{
 		this->hierarchy_ = hierarchy;
-		this->hashmap_joints = std::unordered_map<int, std::shared_ptr<general_joint> >();
+		this->hashmap_joints_ = std::unordered_map<int, std::shared_ptr<general_joint> >();
 	}
 
 	general_skeleton::~general_skeleton()
 	{
-		this->hashmap_joints.clear();
+		this->hashmap_joints_.clear();
 	}
 
 	void general_skeleton::set_joint(int body_part, std::shared_ptr<general_joint> joint)
 	{
 
-		if (hashmap_joints.find(body_part) == hashmap_joints.end())
+		if (hashmap_joints_.find(body_part) == hashmap_joints_.end())
 		{
 			//key is not in map
-			hashmap_joints.insert(std::make_pair(body_part, joint));
+			hashmap_joints_.insert(std::make_pair(body_part, joint));
 
 		}
 		else
 		{
 			//key already exists and will therefore be overwritten
-			hashmap_joints[body_part] = joint;
+			hashmap_joints_[body_part] = joint;
 		}
 	}
 
 	std::shared_ptr<general_joint> general_skeleton::get_joint(int body_part) const
 	{
 
-		if (hashmap_joints.find(body_part) == hashmap_joints.end())
+		if (hashmap_joints_.find(body_part) == hashmap_joints_.end())
 		{
 			std::stringstream sstr;
 			sstr << "Body part not listed in the skeleton's map";
@@ -64,7 +57,7 @@ namespace mae
 		else
 		{
 			// returns the joint
-			return hashmap_joints.at(body_part);
+			return hashmap_joints_.at(body_part);
 		}
 
 	}
@@ -74,7 +67,7 @@ namespace mae
 		return hierarchy_;
 	}
 
-	void general_skeleton::set_hierarchy(std::shared_ptr<hierarchy> hierarchy)
+	void general_skeleton::set_hierarchy(std::shared_ptr<mae::hierarchy> hierarchy)
 	{
 		this->hierarchy_ = hierarchy;
 	}
@@ -92,8 +85,8 @@ namespace mae
 			}
 			else
 			{
-				if (!hierarchy_->at(top_down->get_from()) || !hierarchy_->at(top_down->get_from())->is_torso_joint()
-						|| !hierarchy_->at(top_down->get_to()) || !hierarchy_->at(top_down->get_to())->is_torso_joint())
+				if (!hierarchy_->at(top_down->get_from()) || !hierarchy_->at(top_down->get_from())->is_base_joint()
+						|| !hierarchy_->at(top_down->get_to()) || !hierarchy_->at(top_down->get_to())->is_base_joint())
 				{
 					std::cout << "no torso" << std::endl;
 					throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
@@ -101,12 +94,12 @@ namespace mae
 			}
 		}
 
-		this->top_down = top_down;
+		this->top_down_ = top_down;
 	}
 
 	std::shared_ptr<bone> general_skeleton::get_top_down() const
 	{
-		return this->top_down;
+		return this->top_down_;
 	}
 
 	void general_skeleton::set_right_left(std::shared_ptr<bone> right_left)
@@ -121,20 +114,20 @@ namespace mae
 			}
 			else
 			{
-				if (!(hierarchy_->at(right_left->get_from())) || !(hierarchy_->at(right_left->get_from())->is_torso_joint())
-						|| !(hierarchy_->at(right_left->get_to())) || !(hierarchy_->at(right_left->get_to())->is_torso_joint()))
+				if (!(hierarchy_->at(right_left->get_from())) || !(hierarchy_->at(right_left->get_from())->is_base_joint())
+						|| !(hierarchy_->at(right_left->get_to())) || !(hierarchy_->at(right_left->get_to())->is_base_joint()))
 				{
 					throw std::invalid_argument("At least one of the right_left joints is not defined as a torso joint.");
 				}
 			}
 		}
 
-		this->right_left = right_left;
+		this->right_left_ = right_left;
 	}
 
 	std::shared_ptr<bone> general_skeleton::get_right_left() const
 	{
-		return this->right_left;
+		return this->right_left_;
 	}
 
 	void general_skeleton::set_weight(std::shared_ptr<mae::math::vec3d> weight)
@@ -159,7 +152,7 @@ namespace mae
 			for (unsigned int i = 0; i < elements.size(); i++)
 			{
 				std::string joint_str;
-				if (hashmap_joints.find(elements.at(i)->get_id()) == hashmap_joints.end())
+				if (hashmap_joints_.find(elements.at(i)->get_id()) == hashmap_joints_.end())
 				{
 					joint_str = "N/A";
 				}

@@ -4,6 +4,7 @@
 %include "../../bone.i"
 %include "../../general_enriched_pose.i"
 %include "../../i_sequence_generator.i"
+%include "../e_fl_direction.i"
 
 %include "laban_sequence.i"
 %include "column_definition.i"

@@ -1,10 +1,3 @@
-/*
- * e_limb_side.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "e_limb_side.hpp"
 
 namespace mae

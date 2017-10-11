@@ -1,10 +1,3 @@
-/*
- * angular_skeleton.cpp
- *
- *  Created on: 29.09.2014
- *      Author: keks
- */
-
 #include "angular_skeleton.hpp"
 
 namespace mae
@@ -14,13 +7,10 @@ namespace mae
 
 		angular_skeleton::angular_skeleton()
 		{
-			// TODO Auto-generated constructor stub
-
 		}
 
 		angular_skeleton::~angular_skeleton()
 		{
-			// TODO Auto-generated destructor stub
 		}
 
 		void angular_skeleton::set_joint(int body_part, std::shared_ptr<angular_joint> joint)
@@ -66,12 +56,12 @@ namespace mae
 
 		void angular_skeleton::set_torso_basis(std::shared_ptr<mae::math::basis> torso_basis)
 		{
-			torso_basis_ = torso_basis;
+			basis_ = torso_basis;
 		}
 
 		std::shared_ptr<mae::math::basis> angular_skeleton::get_torso_basis() const
 		{
-			return torso_basis_;
+			return basis_;
 		}
 
 		void angular_skeleton::set_top_down(std::shared_ptr<bone> top_down)
@@ -84,8 +74,8 @@ namespace mae
 			}
 			else
 			{
-				if (!hierarchy_->at(top_down->get_from())->is_torso_joint()
-						|| !hierarchy_->at(top_down->get_to())->is_torso_joint())
+				if (!hierarchy_->at(top_down->get_from())->is_base_joint()
+						|| !hierarchy_->at(top_down->get_to())->is_base_joint())
 				{
 					throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
 				}
@@ -109,8 +99,8 @@ namespace mae
 			}
 			else
 			{
-				if (!hierarchy_->at(top_down->get_from())->is_torso_joint()
-						|| !hierarchy_->at(top_down->get_to())->is_torso_joint())
+				if (!hierarchy_->at(top_down->get_from())->is_base_joint()
+						|| !hierarchy_->at(top_down->get_to())->is_base_joint())
 				{
 					throw std::invalid_argument("At least one of the top-down joints is not defined as a torso joint.");
 				}

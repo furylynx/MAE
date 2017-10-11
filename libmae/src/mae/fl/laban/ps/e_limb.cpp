@@ -1,10 +1,3 @@
-/*
- * e_limb.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "e_limb.hpp"
 
 namespace mae

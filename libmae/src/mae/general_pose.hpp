@@ -1,15 +1,5 @@
-/*
- * GeneralPose.hpp
- *
- *  Created on: 19.05.2014
- *      Author: keks
- */
-
-#ifndef GENERALPOSE_HPP_
-#define GENERALPOSE_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_GENERALPOSE_HPP_
+#define MAE_GENERALPOSE_HPP_
 
 //custom includes
 //...
@@ -126,4 +116,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // GENERALPOSE_HPP_
+#endif // MAE_GENERALPOSE_HPP_

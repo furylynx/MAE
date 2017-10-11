@@ -1,15 +1,6 @@
-/*
- * FLJoint.hpp
- *
- *  Created on: 20.05.2014
- *      Author: keks
- */
+#ifndef MAE_FL_FLJOINT_HPP_
+#define MAE_FL_FLJOINT_HPP_
 
-#ifndef FLJOINT_HPP_
-#define FLJOINT_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
 
 //custom includes
 //...
@@ -128,4 +119,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // FLJOINT_HPP_
+#endif // MAE_FL_FLJOINT_HPP_

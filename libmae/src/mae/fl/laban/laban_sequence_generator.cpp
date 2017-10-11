@@ -1,11 +1,3 @@
-/*
- * FLLabanSequenceGenerator.cpp
- *
- *  Created on: 20.05.2014
- *      Author: keks
- */
-
-//custom includes
 #include "laban_sequence_generator.hpp"
 
 namespace mae

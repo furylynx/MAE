@@ -1,0 +1,29 @@
+Readme
+==================
+
+The Movement Analysis Engine is able to analyze movements and provide events based on a
+described movements sequence (Labanotation). The engine can be used by other applications
+for further movement processing and filtering in ambient spaces (i.e., smart environments).
+
+This is a minimal example showing how to use the libmae library in a project.
+
+
+
+Dependencies
+==================
+libmae
+
+When building, link against the following:
+mae
+
+
+
+Installation
+==================
+
+Compile sample from source (using cmake):
+
+type:
+cmake .
+make
+sudo make install

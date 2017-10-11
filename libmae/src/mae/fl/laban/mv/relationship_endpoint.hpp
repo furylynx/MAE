@@ -1,15 +1,5 @@
-/*
- * relationship_endpoint.hpp
- *
- *  Created on: 22.08.2014
- *      Author: keks
- */
-
-#ifndef RELATIONSHIP_ENDPOINT_HPP_
-#define RELATIONSHIP_ENDPOINT_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_MV_RELATIONSHIP_ENDPOINT_HPP_
+#define MAE_FL_LABAN_MV_RELATIONSHIP_ENDPOINT_HPP_
 
 //custom includes
 #include "../ps/i_pre_sign.hpp"
@@ -111,4 +101,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // RELATIONSHIP_ENDPOINT_HPP_
+#endif // MAE_FL_LABAN_MV_RELATIONSHIP_ENDPOINT_HPP_

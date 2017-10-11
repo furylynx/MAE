@@ -1,15 +1,5 @@
-/*
- * e_bone.hpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
-#ifndef E_BONE_HPP_
-#define E_BONE_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_E_BONE_HPP_
+#define MAE_E_BONE_HPP_
 
 //custom includes
 #include "mstr.hpp"
@@ -85,4 +75,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // E_BONE_HPP_
+#endif // MAE_E_BONE_HPP_

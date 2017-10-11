@@ -1,10 +1,3 @@
-/*
- * e_path_type.cpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
 #include "e_path_type.hpp"
 
 namespace mae

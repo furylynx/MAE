@@ -1,15 +1,5 @@
-/*
- * mbool.hpp
- *
- *  Created on: 28.07.2014
- *      Author: keks
- */
-
-#ifndef MBOOL_HPP_
-#define MBOOL_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_MBOOL_HPP_
+#define MAE_MBOOL_HPP_
 
 //custom includes
 #include "mstr.hpp"
