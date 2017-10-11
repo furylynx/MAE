@@ -1,10 +1,3 @@
-/*
- * basis.cpp
- *
- *  Created on: 01.10.2014
- *      Author: keks
- */
-
 #include "basis.hpp"
 
 namespace mae

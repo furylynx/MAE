@@ -1,10 +1,3 @@
-/*
- * internal_laban_sequence_reader.cpp
- *
- *  Created on: 26.07.2014
- *      Author: furylynx
- */
-
 #include "internal_laban_sequence_reader.hh"
 
 //internal includes

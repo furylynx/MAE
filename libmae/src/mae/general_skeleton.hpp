@@ -1,15 +1,5 @@
-/*
- * GeneralSkeleton.hpp
- *
- *  Created on: 15.05.2014
- *      Author: keks
- */
-
-#ifndef GENERALSKELETON_HPP_
-#define GENERALSKELETON_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_GENERALSKELETON_HPP_
+#define MAE_GENERALSKELETON_HPP_
 
 //custom includes
 #include "general_joint.hpp"
@@ -70,13 +60,13 @@ namespace mae
 			 * Returns a shared pointer to the used hierarchy. If not hierarchy is set, a default hierarchy is assumed.
 			 * @return A shared pointer to the hierarchy.
 			 */
-			virtual std::shared_ptr<hierarchy> get_hierarchy() const;
+			virtual std::shared_ptr<mae::hierarchy> get_hierarchy() const;
 
 			/**
 			 * Sets the hierarchy
 			 * @param hierarchy  A smart pointer to the hierarchy.
 			 */
-			virtual void set_hierarchy(std::shared_ptr<hierarchy> hierarchy);
+			virtual void set_hierarchy(std::shared_ptr<mae::hierarchy> hierarchy);
 
 			/**
 			 * Sets the top-down direction of this skeleton by defining a bone. The bone must
@@ -176,15 +166,15 @@ namespace mae
 			}
 
 		private:
-			std::unordered_map<int, std::shared_ptr<general_joint> > hashmap_joints;
+			std::unordered_map<int, std::shared_ptr<general_joint> > hashmap_joints_;
 			std::shared_ptr<hierarchy> hierarchy_;
 
-			std::shared_ptr<bone> top_down;
-			std::shared_ptr<bone> right_left;
+			std::shared_ptr<bone> top_down_;
+			std::shared_ptr<bone> right_left_;
 
 			std::shared_ptr<mae::math::vec3d> weight_;
 	};
 
 } // namespace mae
 
-#endif // GENERALSKELETON_HPP_
+#endif // MAE_GENERALSKELETON_HPP_

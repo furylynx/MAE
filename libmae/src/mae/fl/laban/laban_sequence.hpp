@@ -1,15 +1,5 @@
-/*
- * FLLabanSequence.hpp
- *
- *  Created on: 19.05.2014
- *      Author: keks
- */
-
-#ifndef LABAN_SEQUENCE_HPP_
-#define LABAN_SEQUENCE_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_LABAN_SEQUENCE_HPP_
+#define MAE_FL_LABAN_LABAN_SEQUENCE_HPP_
 
 //custom includes
 #include "column_definition.hpp"
@@ -396,4 +386,4 @@ namespace mae {
 	} // namespace fl
 } // namespace mae
 
-#endif // LABAN_SEQUENCE_HPP_
+#endif // MAE_FL_LABAN_LABAN_SEQUENCE_HPP_

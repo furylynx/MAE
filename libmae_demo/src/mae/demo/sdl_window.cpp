@@ -73,10 +73,9 @@ namespace mae
 
 		sdl_window::~sdl_window()
 		{
-			if (window_ != nullptr)
+			if (!is_closed())
 			{
-				SDL_DestroyWindow(window_);
-				window_ = nullptr;
+				close();
 
 				remove_window(this);
 			}
@@ -87,7 +86,6 @@ namespace mae
 				SDL_Quit();
 				initialized_ = false;
 			}
-
 		}
 
 		void sdl_window::set_title(std::string title)
@@ -225,13 +223,17 @@ namespace mae
 
 		void sdl_window::remove_window(sdl_window* window)
 		{
-			if (window != nullptr)
+			if (nullptr != window)
 			{
-				for (std::vector<sdl_window*>::iterator it = windows_.begin(); it != windows_.end(); it++)
+				for (std::vector<sdl_window*>::iterator it = windows_.begin(); it != windows_.end();)
 				{
 					if (*it == window)
 					{
-						windows_.erase(it);
+						it = windows_.erase(it);
+					}
+					else
+					{
+						it++;
 					}
 				}
 			}

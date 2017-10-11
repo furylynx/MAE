@@ -1,15 +1,5 @@
-/*
- * MovementController.hpp
- *
- *  Created on: 15.05.2014
- *      Author: keks
- */
-
-#ifndef MOVEMENTCONTROLLER_HPP_
-#define MOVEMENTCONTROLLER_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_MOVEMENTCONTROLLER_HPP_
+#define MAE_MOVEMENTCONTROLLER_HPP_
 
 //custom includes
 #include "kp_movement_detector.hpp"
@@ -547,4 +537,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // MOVEMENTCONTROLLER_HPP_
+#endif // MAE_MOVEMENTCONTROLLER_HPP_

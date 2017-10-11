@@ -1,15 +1,5 @@
-/*
- * prop.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef PROP_HPP_
-#define PROP_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_PS_PROP_HPP_
+#define MAE_FL_LABAN_PS_PROP_HPP_
 
 //custom includes
 #include "i_pre_sign.hpp"
@@ -96,4 +86,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // PROP_HPP_
+#endif // MAE_FL_LABAN_PS_PROP_HPP_

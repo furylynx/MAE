@@ -5,6 +5,7 @@
 %include "../i_pose_detector.i"
 
 %include "fl_skeleton.i"
+%include "e_fl_direction.i"
  
 //-- global includes
 //%include "std_shared_ptr.i"

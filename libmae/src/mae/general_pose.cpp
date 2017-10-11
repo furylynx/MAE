@@ -1,10 +1,3 @@
-/*
- * GeneralPose.cpp
- *
- *  Created on: 19.05.2014
- *      Author: keks
- */
-
 #include "general_pose.hpp"
 
 namespace mae

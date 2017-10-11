@@ -1,10 +1,3 @@
-/*
- * turn_symbol.cpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
 #include "turn_symbol.hpp"
 
 namespace mae

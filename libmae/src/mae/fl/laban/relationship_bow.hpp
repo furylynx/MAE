@@ -1,15 +1,5 @@
-/*
- * relationship_bow.hpp
- *
- *  Created on: 22.08.2014
- *      Author: keks
- */
-
-#ifndef RELATIONSHIP_BOW_HPP_
-#define RELATIONSHIP_BOW_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_RELATIONSHIP_BOW_HPP_
+#define MAE_FL_LABAN_RELATIONSHIP_BOW_HPP_
 
 //custom includes
 #include "i_movement.hpp"
@@ -206,4 +196,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // RELATIONSHIP_BOW_HPP_
+#endif // MAE_FL_LABAN_RELATIONSHIP_BOW_HPP_

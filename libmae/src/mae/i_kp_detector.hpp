@@ -1,15 +1,5 @@
-/*
- * IKeyPoseDetector.hpp
- *
- *  Created on: 19.05.2014
- *      Author: keks
- */
-
-#ifndef IKEYPOSEDETECTOR_HPP_
-#define IKEYPOSEDETECTOR_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_IKEYPOSEDETECTOR_HPP_
+#define MAE_IKEYPOSEDETECTOR_HPP_
 
 //custom includes
 #include "general_pose.hpp"
@@ -48,4 +38,4 @@ namespace mae {
 
 } // namespace mae
 
-#endif // IKEYPOSEDETECTOR_HPP_
+#endif // MAE_IKEYPOSEDETECTOR_HPP_

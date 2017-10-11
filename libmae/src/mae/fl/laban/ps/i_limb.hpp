@@ -1,15 +1,5 @@
-/*
- * i_limb.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef I_LIMB_HPP_
-#define I_LIMB_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_PS_I_LIMB_HPP_
+#define MAE_FL_LABAN_PS_I_LIMB_HPP_
 
 //custom includes
 #include "i_part.hpp"
@@ -65,4 +55,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // I_LIMB_HPP_
+#endif // MAE_FL_LABAN_PS_I_LIMB_HPP_

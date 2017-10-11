@@ -1,10 +1,3 @@
-/*
- * laban_sequence_recognizer.cpp
- *
- *  Created on: 16.07.2014
- *      Author: keks
- */
-
 #include "laban_sequence_recognizer.hpp"
 
 namespace mae

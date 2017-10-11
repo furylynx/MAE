@@ -1,15 +1,5 @@
-/*
- * angular_skeleton.hpp
- *
- *  Created on: 29.09.2014
- *      Author: keks
- */
-
-#ifndef ANGULAR_SKELETON_HPP_
-#define ANGULAR_SKELETON_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_FL_ANGULAR_SKELETON_HPP_
+#define MAE_FL_ANGULAR_SKELETON_HPP_
 
 //custom includes
 #include "angular_joint.hpp"
@@ -168,10 +158,10 @@ namespace mae
 				std::shared_ptr<mae::math::vec3d> weight_;
 
 				//central coordinate system
-				std::shared_ptr<mae::math::basis> torso_basis_;
+				std::shared_ptr<mae::math::basis> basis_;
 		};
 
 	} // namespace fl
 } // namespace mae
 
-#endif // ANGULAR_SKELETON_HPP_
+#endif // MAE_FL_ANGULAR_SKELETON_HPP_

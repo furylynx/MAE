@@ -1,15 +1,5 @@
-/*
- * KPMovementDetector.hpp
- *
- *  Created on: 29.05.2014
- *      Author: keks
- */
-
-#ifndef KPMOVEMENTDETECTOR_HPP_
-#define KPMOVEMENTDETECTOR_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_KPMOVEMENTDETECTOR_HPP_
+#define MAE_KPMOVEMENTDETECTOR_HPP_
 
 //custom includes
 #include "i_movement_detector.hpp"
@@ -331,4 +321,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // KPMOVEMENTDETECTOR_HPP_
+#endif // MAE_KPMOVEMENTDETECTOR_HPP_

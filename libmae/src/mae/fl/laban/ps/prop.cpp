@@ -1,10 +1,3 @@
-/*
- * prop.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "prop.hpp"
 
 namespace mae

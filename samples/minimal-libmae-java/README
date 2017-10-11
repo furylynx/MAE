@@ -1,0 +1,41 @@
+Readme
+==================
+
+The Movement Analysis Engine is able to analyze movements and provide events based on a
+described movements sequence (Labanotation). The engine can be used by other applications
+for further movement processing and filtering in ambient spaces (i.e., smart environments).
+
+This is a minimal example showing how to use the libmae library in a project.
+
+
+
+Dependencies
+==================
+
+libraries:
+libmae
+libmae-java-wrapper
+
+tools:
+gradle
+
+
+Installation
+==================
+
+Compile sample from source (using cmake):
+
+type:
+gradle run
+
+
+To create a runnable script type:
+gradle installDist
+
+If you used a custom install prefix for libmae, use gradle run/installDist -Pprefix=/your/install/prefix
+
+Note:
+To install the libmae JNI jar into the local maven repository (required to compile the sample) type (don't forget to adjust the version number, e.g. "0.10.0"):
+mvn install:install-file -Dfile=libmae-$VERSION.jar -DgroupId=de.furylynx.mae -DartifactId=libmae -Dversion=$VERSION -Dpackaging=jar
+
+Set the java.library.path to the path where the libmaejava.so/.jnilib/.dll is installed. On Unix this can typically be /usr/local/jni, or /usr/local/lib.

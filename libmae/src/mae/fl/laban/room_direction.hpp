@@ -1,15 +1,5 @@
-/*
- * room_direction.hpp
- *
- *  Created on: 11.07.2014
- *      Author: keks
- */
-
-#ifndef ROOM_DIRECTION_HPP_
-#define ROOM_DIRECTION_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_ROOM_DIRECTION_HPP_
+#define MAE_FL_LABAN_ROOM_DIRECTION_HPP_
 
 //custom includes
 #include "i_movement.hpp"
@@ -159,4 +149,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // ROOM_DIRECTION_HPP_
+#endif // MAE_FL_LABAN_ROOM_DIRECTION_HPP_

@@ -1,10 +1,3 @@
-/*
- * direction_symbol.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "direction_symbol.hpp"
 
 namespace mae

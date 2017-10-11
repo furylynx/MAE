@@ -2,6 +2,7 @@
 
 //-- custom includes
 %include "e_bone.i"
+%include "e_hand_bone.i"
 
 //-- global includes
 //%include "std_shared_ptr.i"

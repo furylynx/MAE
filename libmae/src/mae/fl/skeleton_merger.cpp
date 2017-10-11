@@ -1,10 +1,3 @@
-/*
- * skeleton_merger.cpp
- *
- *  Created on: 20.09.2014
- *      Author: keks
- */
-
 #include "skeleton_merger.hpp"
 
 namespace mae
@@ -38,7 +31,7 @@ namespace mae
 				}
 				else
 				{
-					bases.push_back(fl_ctrl->create_torso_basis(*it));
+					bases.push_back(fl_ctrl->create_basis(*it));
 
 					it++;
 				}

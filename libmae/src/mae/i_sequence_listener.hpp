@@ -1,15 +1,5 @@
-/*
- * i_sequence_listener.hpp
- *
- *  Created on: 16.07.2014
- *      Author: keks
- */
-
-#ifndef I_SEQUENCE_LISTENER_HPP_
-#define I_SEQUENCE_LISTENER_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_I_SEQUENCE_LISTENER_HPP_
+#define MAE_I_SEQUENCE_LISTENER_HPP_
 
 //custom includes
 //...
@@ -40,4 +30,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // I_SEQUENCE_LISTENER_HPP_
+#endif // MAE_I_SEQUENCE_LISTENER_HPP_

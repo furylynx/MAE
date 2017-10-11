@@ -1,15 +1,5 @@
-/*
- * GeneralEnrichedPose.hpp
- *
- *  Created on: 19.05.2014
- *      Author: keks
- */
-
-#ifndef GENERALENRICHEDPOSE_HPP_
-#define GENERALENRICHEDPOSE_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_GENERALENRICHEDPOSE_HPP_
+#define MAE_GENERALENRICHEDPOSE_HPP_
 
 //custom includes
 #include "general_pose.hpp"
@@ -79,4 +69,4 @@ namespace mae
 
 } //namespace mae
 
-#endif // GENERALENRICHEDPOSE_HPP_
+#endif // MAE_GENERALENRICHEDPOSE_HPP_

@@ -1,15 +1,5 @@
-/*
- * msr_data.hpp
- *
- *  Created on: 04.04.2015
- *      Author: furylynx
- */
-
-#ifndef MSR_DATA_HPP_
-#define MSR_DATA_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_FL_MSR_DATA_HPP_
+#define MAE_FL_MSR_DATA_HPP_
 
 //custom includes
 #include "../general_skeleton.hpp"
@@ -79,4 +69,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // MSR_DATA_HPP_
+#endif // MAE_FL_MSR_DATA_HPP_

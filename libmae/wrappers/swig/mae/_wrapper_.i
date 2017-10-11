@@ -4,12 +4,12 @@
 //-- TODO currently SWIG does not support shared_ptr with java directors and thus polymorphism is not available for smart pointer objects
 //--  "Note: There is currently no support for %shared_ptr and the director feature."
 //-- 		- http://www.swig.org/Doc3.0/Library.html#Library_std_shared_ptr
-//-- 
+//--
 //--  see also: http://stackoverflow.com/questions/23333446/using-shared-ptr-with-swig-directors-for-java
 //%feature("director");
 
-//-- turn off all renaming warnings (there are plenty of it due to the usage of the same templated objects) 
-#pragma SWIG nowarn=302  
+//-- turn off all renaming warnings (there are plenty of it due to the usage of the same templated objects)
+#pragma SWIG nowarn=302
 
 //-- generate the top-level module (resulting in an empty class)
 %module(directors="1") MaeJava
@@ -21,7 +21,7 @@
 %pragma(java) jniclasscode=%{
   static {
     try {
-        System.loadLibrary("mae");
+        System.loadLibrary("maejava");
     } catch (UnsatisfiedLinkError e) {
       System.err.println("Native code library failed to load. \n" + e);
       System.exit(1);
@@ -41,13 +41,17 @@
 %rename("%(lowercamelcase)s", %$isfunction) "";
 %rename("%(lowercamelcase)s", %$isvariable) "";
 
+//fixes for push_back and empty methods
+%rename(isEmpty) empty;
+%rename(add) push_back;
+
 //-- public methods
 SWIG_JAVABODY_PROXY(public, public, SWIGTYPE);
 SWIG_JAVABODY_TYPEWRAPPER(public, public, public, SWIGTYPE);
 
 //-- exception
 %include "exception.i"
-%exception { 
+%exception {
     try {
         $action
     } catch (std::exception &e) {

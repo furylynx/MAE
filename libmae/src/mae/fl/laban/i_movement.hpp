@@ -1,15 +1,5 @@
-/*
- * i_movement.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef I_MOVEMENT_HPP_
-#define I_MOVEMENT_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_I_MOVEMENT_HPP_
+#define MAE_FL_LABAN_I_MOVEMENT_HPP_
 
 //custom includes
 //...
@@ -134,4 +124,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // I_MOVEMENT_HPP_
+#endif // MAE_FL_LABAN_I_MOVEMENT_HPP_

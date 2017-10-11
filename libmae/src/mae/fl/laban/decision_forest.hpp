@@ -1,14 +1,5 @@
-/*
- * decision_forest.hpp
- *
- * Created on: 12.08.2014
- * Author: keks
- */
-#ifndef DECISION_FOREST_HPP_
-#define DECISION_FOREST_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_DECISION_FOREST_HPP_
+#define MAE_FL_LABAN_DECISION_FOREST_HPP_
 
 //custom includes
 #include "decision_tree.hpp"
@@ -256,4 +247,4 @@ namespace mae
 		} // namespace laban
 	} // namespace fl
 } // namespace mae
-#endif // DECISION_FOREST_HPP_
+#endif // MAE_FL_LABAN_DECISION_FOREST_HPP_

@@ -1,10 +1,3 @@
-/*
- * e_relationship_type.cpp
- *
- *  Created on: 22.08.2014
- *      Author: keks
- */
-
 #include "e_relationship_type.hpp"
 
 namespace mae

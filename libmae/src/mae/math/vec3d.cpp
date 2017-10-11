@@ -1,10 +1,3 @@
-/*
- * vec3d.cpp
- *
- *  Created on: 29.09.2014
- *      Author: keks
- */
-
 #include "vec3d.hpp"
 
 namespace mae

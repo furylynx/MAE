@@ -1,10 +1,3 @@
-/*
- * FLLabanSequence.cpp
- *
- *  Created on: 19.05.2014
- *      Author: keks
- */
-
 #include "laban_sequence.hpp"
 
 namespace mae

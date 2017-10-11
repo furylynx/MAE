@@ -1,10 +1,3 @@
-/*
- * GeneralEnrichedPose.cpp
- *
- *  Created on: 19.05.2014
- *      Author: keks
- */
-
 #include "general_enriched_pose.hpp"
 
 namespace mae

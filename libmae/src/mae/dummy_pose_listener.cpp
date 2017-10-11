@@ -1,10 +1,3 @@
-/*
- * dummy_pose_listener.cpp
- *
- *  Created on: 14.11.2014
- *      Author: keks
- */
-
 #include "dummy_pose_listener.hpp"
 
 namespace mae

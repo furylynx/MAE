@@ -1,10 +1,3 @@
-/*
- * bvh_data.cpp
- *
- *  Created on: 07.02.2015
- *      Author: furylynx
- */
-
 #include "bvh_data.hpp"
 
 namespace mae

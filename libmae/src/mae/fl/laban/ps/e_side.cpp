@@ -1,10 +1,3 @@
-/*
- * e_side.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "e_side.hpp"
 
 namespace mae

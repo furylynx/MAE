@@ -1,15 +1,5 @@
-/*
- * FLSkeletonController.hpp
- *
- *  Created on: 21.05.2014
- *      Author: keks
- */
-
-#ifndef FLSKELETONCONTROLLER_HPP_
-#define FLSKELETONCONTROLLER_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
+#ifndef MAE_FL_FLSKELETONCONTROLLER_HPP_
+#define MAE_FL_FLSKELETONCONTROLLER_HPP_
 
 //custom includes
 #include "fl_skeleton.hpp"
@@ -46,35 +36,37 @@ namespace mae
 				virtual ~fl_skeleton_controller();
 
 				/**
-				 * Generates the specified skeleton from the general skeleton.
-				 *
-				 * @param skeleton The general skeleton.
-				 * @return The specified skeleton.
-				 */
-				virtual std::shared_ptr<fl_skeleton> specified_skeleton(std::shared_ptr<general_skeleton> skeleton);
-
-				/**
 				 * Generates the specified skeleton from the general skeleton using the given torso basis.
 				 *
 				 * @param skeleton The skeleton to be translated.
-				 * @param torso_basis The torso basis meant to be used.
+				 * @param basis (optional) The basis meant to be used as a system of reference (e.g. the torso basis or the palm basis). Uses nullptr as default.
 				 * @return The specified skeleton.
 				 */
-				virtual std::shared_ptr<fl_skeleton> specified_skeleton(std::shared_ptr<general_skeleton> skeleton, std::shared_ptr<mae::math::basis> torso_basis);
+				virtual std::shared_ptr<fl_skeleton> specified_skeleton(std::shared_ptr<general_skeleton> skeleton, std::shared_ptr<mae::math::basis> basis = nullptr);
 
 				/**
-				 * Creates the torso basis for the given general skeleton.
+				 * Creates the basis (formerly torso basis) for the given general skeleton as a system of reference (e.g. the torso basis or the palm basis). Uses the hierarchy to determine base joints.
 				 *
 				 * @param skeleton The skeleton.
 				 * @return The torso basis.
 				 */
+				[[deprecated("Replaced by create_basis()")]]
 				virtual std::shared_ptr<mae::math::basis> create_torso_basis(std::shared_ptr<general_skeleton> skeleton);
 
-			private:
-				bool debug_;
+
+				/**
+				 * Creates the basis for the given general skeleton as a system of reference (e.g. the torso basis or the palm basis). Uses the hierarchy to determine base joints.
+				 *
+				 * @param skeleton The skeleton.
+				 * @return The torso basis.
+				 */
+				virtual std::shared_ptr<mae::math::basis> create_basis(std::shared_ptr<general_skeleton> skeleton);
+
+		private:
+			bool debug_;
 		};
 
 	} // namespace fl
 } // namespace mae
 
-#endif /* FLSKELETONCONTROLLER_HPP_ */
+#endif /* MAE_FL_FLSKELETONCONTROLLER_HPP_ */

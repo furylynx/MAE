@@ -1,10 +1,3 @@
-/*
- * custom_limb.cpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
 #include "custom_limb.hpp"
 
 namespace mae

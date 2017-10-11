@@ -1,10 +1,3 @@
-/*
- * laban_column.cpp
- *
- *  Created on: 07.07.2014
- *      Author: keks
- */
-
 #include "column_definition.hpp"
 
 namespace mae
@@ -13,6 +6,9 @@ namespace mae
 	{
 		namespace laban
 		{
+
+			std::vector<std::shared_ptr<column_definition> > column_definition::default_definitions_ = std::vector<std::shared_ptr<column_definition> >();
+			std::vector<std::shared_ptr<column_definition> > column_definition::default_hand_definitions_ = std::vector<std::shared_ptr<column_definition> >();
 
 			column_definition::column_definition(int column_index, std::shared_ptr<ps::i_pre_sign> pre_sign)
 			{
@@ -110,6 +106,82 @@ namespace mae
 				pre_sign_ = std::shared_ptr<ps::body_part>(new ps::body_part(side, part));
 			}
 
+            column_definition::column_definition(mae::e_hand_bone ehb)
+            {
+                bone b = bone(ehb);
+                column_index_ = b.get_id();
+
+                ps::e_side side = ps::e_side::NONE_SIDE;
+
+                if (mae::e_hand_bone_c::is_left(ehb))
+                {
+                    side = ps::e_side::LEFT;
+                }
+                else if (mae::e_hand_bone_c::is_right(ehb))
+                {
+                    side = ps::e_side::RIGHT;
+                }
+
+                //find the part
+                std::shared_ptr<ps::i_part> part;
+
+                ps::e_digit digit;
+                int knuckle = 0;
+
+                //find digit
+                if (ehb == e_hand_bone::LEFT_THUMB || ehb == e_hand_bone::LEFT_THUMB_PROXIMAL_PHALANX || ehb == e_hand_bone::LEFT_THUMB_INTERMEDIATE_PHALANX || ehb == e_hand_bone::LEFT_THUMB_DISTAL_PHALANX || ehb == e_hand_bone::RIGHT_THUMB || ehb == e_hand_bone::RIGHT_THUMB_PROXIMAL_PHALANX || ehb == e_hand_bone::RIGHT_THUMB_INTERMEDIATE_PHALANX || ehb == e_hand_bone::RIGHT_THUMB_DISTAL_PHALANX)
+                {
+                    digit = ps::e_digit::THUMB;
+                }
+                else if (ehb == e_hand_bone::LEFT_INDEX_FINGER  || ehb == e_hand_bone::LEFT_INDEX_FINGER_PROXIMAL_PHALANX || ehb == e_hand_bone::LEFT_INDEX_FINGER_INTERMEDIATE_PHALANX || ehb == e_hand_bone::LEFT_INDEX_FINGER_DISTAL_PHALANX || ehb == e_hand_bone::RIGHT_INDEX_FINGER  || ehb == e_hand_bone::RIGHT_INDEX_FINGER_PROXIMAL_PHALANX || ehb == e_hand_bone::RIGHT_INDEX_FINGER_INTERMEDIATE_PHALANX || ehb == e_hand_bone::RIGHT_INDEX_FINGER_DISTAL_PHALANX)
+                {
+                    digit = ps::e_digit::INDEXFINGER;
+                }
+                else if (ehb == e_hand_bone::LEFT_MIDDLE_FINGER  || ehb == e_hand_bone::LEFT_MIDDLE_FINGER_PROXIMAL_PHALANX || ehb == e_hand_bone::LEFT_MIDDLE_FINGER_INTERMEDIATE_PHALANX || ehb == e_hand_bone::LEFT_MIDDLE_FINGER_DISTAL_PHALANX || ehb == e_hand_bone::RIGHT_MIDDLE_FINGER  || ehb == e_hand_bone::RIGHT_MIDDLE_FINGER_PROXIMAL_PHALANX || ehb == e_hand_bone::RIGHT_MIDDLE_FINGER_INTERMEDIATE_PHALANX || ehb == e_hand_bone::RIGHT_MIDDLE_FINGER_DISTAL_PHALANX)
+                {
+                    digit = ps::e_digit::MIDDLEFINGER;
+                }
+                else if (ehb == e_hand_bone::LEFT_RING_FINGER  || ehb == e_hand_bone::LEFT_RING_FINGER_PROXIMAL_PHALANX || ehb == e_hand_bone::LEFT_RING_FINGER_INTERMEDIATE_PHALANX || ehb == e_hand_bone::LEFT_RING_FINGER_DISTAL_PHALANX || ehb == e_hand_bone::RIGHT_RING_FINGER  || ehb == e_hand_bone::RIGHT_RING_FINGER_PROXIMAL_PHALANX || ehb == e_hand_bone::RIGHT_RING_FINGER_INTERMEDIATE_PHALANX || ehb == e_hand_bone::RIGHT_RING_FINGER_DISTAL_PHALANX)
+                {
+                    digit = ps::e_digit::RINGFINGER;
+                }
+                else if (ehb == e_hand_bone::LEFT_LITTLE_FINGER  || ehb == e_hand_bone::LEFT_LITTLE_FINGER_PROXIMAL_PHALANX || ehb == e_hand_bone::LEFT_LITTLE_FINGER_INTERMEDIATE_PHALANX || ehb == e_hand_bone::LEFT_LITTLE_FINGER_DISTAL_PHALANX || ehb == e_hand_bone::RIGHT_LITTLE_FINGER  || ehb == e_hand_bone::RIGHT_LITTLE_FINGER_PROXIMAL_PHALANX || ehb == e_hand_bone::RIGHT_LITTLE_FINGER_INTERMEDIATE_PHALANX || ehb == e_hand_bone::RIGHT_LITTLE_FINGER_DISTAL_PHALANX)
+                {
+                    digit = ps::e_digit::LITTLEFINGER;
+                }
+                else
+                {
+                    throw std::invalid_argument("The given e_bone value is unknown.");
+                }
+
+                //find knuckle
+                if (ehb == e_hand_bone::LEFT_THUMB || ehb == e_hand_bone::LEFT_INDEX_FINGER || ehb == e_hand_bone::LEFT_MIDDLE_FINGER || ehb == e_hand_bone::LEFT_RING_FINGER || ehb == e_hand_bone::LEFT_LITTLE_FINGER || ehb == e_hand_bone::RIGHT_THUMB || ehb == e_hand_bone::RIGHT_INDEX_FINGER || ehb == e_hand_bone::RIGHT_MIDDLE_FINGER || ehb == e_hand_bone::RIGHT_RING_FINGER || ehb == e_hand_bone::RIGHT_LITTLE_FINGER)
+                {
+                    knuckle = 0;
+                }
+                else if (ehb == e_hand_bone::LEFT_THUMB_PROXIMAL_PHALANX || ehb == e_hand_bone::LEFT_INDEX_FINGER_PROXIMAL_PHALANX || ehb == e_hand_bone::LEFT_MIDDLE_FINGER_PROXIMAL_PHALANX || ehb == e_hand_bone::LEFT_RING_FINGER_PROXIMAL_PHALANX|| ehb == e_hand_bone::LEFT_LITTLE_FINGER_PROXIMAL_PHALANX || ehb == e_hand_bone::RIGHT_THUMB_PROXIMAL_PHALANX || ehb == e_hand_bone::RIGHT_INDEX_FINGER_PROXIMAL_PHALANX || ehb == e_hand_bone::RIGHT_MIDDLE_FINGER_PROXIMAL_PHALANX || ehb == e_hand_bone::RIGHT_RING_FINGER_PROXIMAL_PHALANX|| ehb == e_hand_bone::RIGHT_LITTLE_FINGER_PROXIMAL_PHALANX)
+                {
+                    knuckle = 2;
+                }
+                else if (ehb == e_hand_bone::LEFT_THUMB_INTERMEDIATE_PHALANX || ehb == e_hand_bone::LEFT_INDEX_FINGER_INTERMEDIATE_PHALANX || ehb == e_hand_bone::LEFT_MIDDLE_FINGER_INTERMEDIATE_PHALANX || ehb == e_hand_bone::LEFT_RING_FINGER_INTERMEDIATE_PHALANX|| ehb == e_hand_bone::LEFT_LITTLE_FINGER_INTERMEDIATE_PHALANX || ehb == e_hand_bone::RIGHT_THUMB_INTERMEDIATE_PHALANX || ehb == e_hand_bone::RIGHT_INDEX_FINGER_INTERMEDIATE_PHALANX || ehb == e_hand_bone::RIGHT_MIDDLE_FINGER_INTERMEDIATE_PHALANX || ehb == e_hand_bone::RIGHT_RING_FINGER_INTERMEDIATE_PHALANX|| ehb == e_hand_bone::RIGHT_LITTLE_FINGER_INTERMEDIATE_PHALANX)
+                {
+                    knuckle = 3;
+                }
+                else if (ehb == e_hand_bone::LEFT_THUMB_DISTAL_PHALANX || ehb == e_hand_bone::LEFT_INDEX_FINGER_DISTAL_PHALANX || ehb == e_hand_bone::LEFT_MIDDLE_FINGER_DISTAL_PHALANX || ehb == e_hand_bone::LEFT_RING_FINGER_DISTAL_PHALANX|| ehb == e_hand_bone::LEFT_LITTLE_FINGER_DISTAL_PHALANX || ehb == e_hand_bone::RIGHT_THUMB_DISTAL_PHALANX || ehb == e_hand_bone::RIGHT_INDEX_FINGER_DISTAL_PHALANX || ehb == e_hand_bone::RIGHT_MIDDLE_FINGER_DISTAL_PHALANX || ehb == e_hand_bone::RIGHT_RING_FINGER_DISTAL_PHALANX|| ehb == e_hand_bone::RIGHT_LITTLE_FINGER_DISTAL_PHALANX)
+                {
+                    knuckle = 4;
+                }
+                else
+                {
+                    throw std::invalid_argument("The given e_bone value is unknown.");
+                }
+
+                part = std::shared_ptr<ps::i_part>(new ps::digit_part(digit, knuckle));
+
+
+                pre_sign_ = std::shared_ptr<ps::body_part>(new ps::body_part(side, part));
+            }
+
 			column_definition::~column_definition()
 			{
 
@@ -184,20 +256,48 @@ namespace mae
 
 			std::vector<std::shared_ptr<column_definition> > column_definition::default_definitions()
 			{
-				std::vector<std::shared_ptr<column_definition> > result;
-
-				std::vector<mae::e_bone> ebones = mae::e_bone_c::vec();
-
-				for (unsigned int i = 0; i < ebones.size(); i++)
+				if (0 == default_definitions_.size())
 				{
-					if (std::abs(mae::e_bone_c::to_int(ebones.at(i))) > 2 && std::abs(mae::e_bone_c::to_int(ebones.at(i))) != 4)
+					std::vector<std::shared_ptr<column_definition> > result;
+
+					std::vector<mae::e_bone> ebones = mae::e_bone_c::vec();
+
+					for (unsigned int i = 0; i < ebones.size(); i++)
 					{
-						result.push_back(std::shared_ptr<mae::fl::laban::column_definition>(new mae::fl::laban::column_definition(ebones.at(i))));
+						if (std::abs(mae::e_bone_c::to_int(ebones.at(i))) > 2 && std::abs(mae::e_bone_c::to_int(ebones.at(i))) != 4 && std::abs(mae::e_bone_c::to_int(ebones.at(i))) < 10)
+						{
+							result.push_back(std::make_shared<mae::fl::laban::column_definition>(ebones.at(i)));
+						}
 					}
+
+					default_definitions_ = result;
 				}
 
-				return result;
+				return default_definitions_;
 			}
+
+            std::vector<std::shared_ptr<column_definition> > column_definition::default_hand_definitions(bool is_left)
+            {
+				if (0 == default_hand_definitions_.size())
+				{
+					std::vector<std::shared_ptr<column_definition> > result;
+
+					std::vector<mae::e_hand_bone> ehandbones = mae::e_hand_bone_c::vec_side(is_left);
+
+					for (unsigned int i = 0; i < ehandbones.size(); i++)
+					{
+						if (e_hand_bone::INVALID_HAND_BONE != ehandbones.at(i))
+						{
+							result.push_back(std::make_shared<mae::fl::laban::column_definition>(
+									ehandbones.at(i)));
+						}
+					}
+
+					default_hand_definitions_ = result;
+				}
+
+                return default_hand_definitions_;
+            }
 
 		} // namespace laban
 	} // namespace fl

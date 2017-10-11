@@ -1,10 +1,3 @@
-/*
- * mbool.cpp
- *
- *  Created on: 28.07.2014
- *      Author: keks
- */
-
 #include "mbool.hpp"
 
 namespace mae

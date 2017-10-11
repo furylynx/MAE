@@ -1,10 +1,3 @@
-/*
- * MStr.cpp
- *
- *  Created on: 13.06.2014
- *      Author: keks
- */
-
 #include "mstr.hpp"
 
 namespace mae
@@ -13,7 +6,6 @@ namespace mae
 	std::string mstr::trim_left(const std::string& value)
 	{
 		std::string result = value;
-//		result.erase(result.begin(), std::find_if(result.begin(), result.end(), std::not1(std::ptr_fun<int, int>(std::isspace))));
 
 		std::size_t startpos = result.find_first_not_of(" \t\n");
 		if( std::string::npos != startpos )

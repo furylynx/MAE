@@ -5,11 +5,8 @@
  *      Author: keks
  */
 
-#ifndef COLUMN_DEFINITION_HPP_
-#define COLUMN_DEFINITION_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_COLUMN_DEFINITION_HPP_
+#define MAE_FL_LABAN_COLUMN_DEFINITION_HPP_
 
 //custom includes
 #include "../../e_bone.hpp"
@@ -21,12 +18,14 @@
 #include "ps/area_part.hpp"
 #include "ps/default_limb.hpp"
 #include "ps/body_part.hpp"
+#include "ps/digit_part.hpp"
 
 //global includes
 #include <string>
 #include <sstream>
 #include <stdexcept>
 #include <memory>
+#include <vector>
 
 namespace mae
 {
@@ -52,6 +51,13 @@ namespace mae
 				 * @param eb The bone enum value.
 				 */
 				column_definition(mae::e_bone eb);
+
+                /**
+                 * Creates a new column definition for the given e_hand_bone enum value.
+                 *
+                 * @param ehb The hand bone enum value.
+                 */
+                column_definition(mae::e_hand_bone ehb);
 
 				virtual ~column_definition();
 
@@ -105,9 +111,21 @@ namespace mae
 				 */
 				static std::vector<std::shared_ptr<column_definition> > default_definitions();
 
+                /**
+                 * Returns the default hand column definitions.
+                 *
+                 * @param is_left True for left hand. False otherwise.
+                 * @return The default column definitions.
+                 */
+                static std::vector<std::shared_ptr<column_definition> > default_hand_definitions(bool is_left);
+
 			private:
 				int column_index_;
 				std::shared_ptr<ps::i_pre_sign> pre_sign_;
+
+				static std::vector<std::shared_ptr<column_definition> > default_definitions_;
+				static std::vector<std::shared_ptr<column_definition> > default_hand_definitions_;
+
 
 		};
 
@@ -115,4 +133,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // LABAN_COLUMN_HPP_
+#endif // MAE_FL_LABAN_COLUMN_DEFINITION_HPP_

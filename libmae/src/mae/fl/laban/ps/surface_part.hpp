@@ -1,15 +1,5 @@
-/*
- * surface_part.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef SURFACE_PART_HPP_
-#define SURFACE_PART_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_PS_SURFACE_PART_HPP_
+#define MAE_FL_LABAN_PS_SURFACE_PART_HPP_
 
 //custom includes
 #include "i_part.hpp"
@@ -96,4 +86,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // SURFACE_PART_HPP_
+#endif // MAE_FL_LABAN_PS_SURFACE_PART_HPP_

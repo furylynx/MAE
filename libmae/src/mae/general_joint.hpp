@@ -1,15 +1,5 @@
-/*
- * GeneralJoint.h
- *
- *  Created on: 20.05.2014
- *      Author: keks
- */
-
-#ifndef GENERALJOINT_H_
-#define GENERALJOINT_H_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
+#ifndef MAE_GENERALJOINT_HPP_
+#define MAE_GENERALJOINT_HPP_
 
 //custom includes
 #include "math/vec3d.hpp"
@@ -198,4 +188,4 @@ namespace mae
 
 } // namespace mae
 
-#endif // GENERALJOINT_H_
+#endif // MAE_GENERALJOINT_HPP_

@@ -1,15 +1,5 @@
-/*
- * dynamics_sign.hpp
- *
- *  Created on: 10.07.2014
- *      Author: keks
- */
-
-#ifndef DYNAMIC_SIGN_HPP_
-#define DYNAMIC_SIGN_HPP_
-
-//eclipse indexer fix
-#include "../../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_MV_DYNAMIC_SIGN_HPP_
+#define MAE_FL_LABAN_MV_DYNAMIC_SIGN_HPP_
 
 //custom includes
 #include "i_dynamics_sign.hpp"
@@ -74,4 +64,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // DYNAMICS_SIGN_HPP_
+#endif // MAE_FL_LABAN_MV_DYNAMICS_SIGN_HPP_

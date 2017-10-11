@@ -1,14 +1,34 @@
-cmake_minimum_required(VERSION 3.6)
-project(mae)
+cmake_minimum_required(VERSION 3.8)
 
-# Set the version
+# Set package infos
+set(MYLIB mae)
+
 set(MYLIB_VERSION_MAJOR 0)
 set(MYLIB_VERSION_MINOR 10)
 set(MYLIB_VERSION_PATCH 0)
 set(MYLIB_VERSION_STRING ${MYLIB_VERSION_MAJOR}.${MYLIB_VERSION_MINOR}.${MYLIB_VERSION_PATCH})
 
-# Use C++11
-set(CMAKE_CXX_STANDARD 11)
+set(MYLIB_DESCRIPTION "Base library of the Movement Analysis Engine (MAE) for analyzing movement using depth sensors and Labanotation.")
+set(MYLIB_URL "https://github.com/furylynx/MAE")
+
+set(MYLIB_REQ_OPENCV OpenCV)
+set(MYLIB_REQ_OPENCV_V opencv)
+set(MYLIB_REQ_OPENCV_VERSION "2.4.8")
+set(MYLIB_REQ_LIBXMLPP "LibXML++")
+set(MYLIB_REQ_LIBXMLPP_V "libxml++-2.6")
+set(MYLIB_REQ_LIBXMLPP_VERSION "2.6")
+set(MYLIB_REQ_INTL "Intl")
+set(MYLIB_REQ_INTL_V "intl")
+set(MYLIB_REQ_INTL_VERSION "1.0")
+set(MYLIB_REQUIRES "${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}" )
+
+set(MYLIB_JNI maejava)
+
+# Define the project
+project(${MYLIB} VERSION ${MYLIB_VERSION_STRING})
+
+# Use C++14
+set(CMAKE_CXX_STANDARD 14)
 
 # Source files
 set(SOURCE_FILES src/mae/bone.cpp
@@ -17,6 +37,10 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/dummy_pose_listener.hpp
         src/mae/e_bone.cpp
         src/mae/e_bone.hpp
+        src/mae/e_hand_bone.cpp
+        src/mae/e_hand_bone.hpp
+        src/mae/e_hand_joint.cpp
+        src/mae/e_hand_joint.hpp
         src/mae/e_joint.cpp
         src/mae/e_joint.hpp
         src/mae/e_kinect_joint.cpp
@@ -193,7 +217,6 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/i_sequence_recognizer.hpp
         src/mae/i_skeleton_controller.hpp
         src/mae/i_skeleton_merger.hpp
-        src/mae/indexer_fix.hpp
         src/mae/ini_reader.cpp
         src/mae/ini_reader.hpp
         src/mae/internal_mxml.cpp
@@ -217,32 +240,140 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/movement_controller.hpp
         src/mae/mstr.cpp
         src/mae/mstr.hpp
-        src/mae/sensor/sensor_farm.cpp src/mae/sensor/sensor_farm.hpp src/mae/sensor/i_sensor.hpp src/mae/sensor/sensor_info.cpp src/mae/sensor/sensor_info.hpp)
+        src/mae/sensor/sensor_farm.cpp src/mae/sensor/sensor_farm.hpp src/mae/sensor/i_sensor.hpp src/mae/sensor/sensor_info.cpp src/mae/sensor/sensor_info.hpp src/mae/sensor/sensor.hpp src/mae/general_skeleton_basis_pair.cpp src/mae/general_skeleton_basis_pair.hpp)
+
+
+set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
+set(INSTALL_PACKAGE_LOCATION lib/cmake/lib${MYLIB})
+
+set(INCLUDE_INSTALL_DIR include/ )
+set(LIB_INSTALL_DIR lib/ )
+set(BIN_INSTALL_DIR bin/ )
+set(JNI_INSTALL_DIR lib/jni/ )
+set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/ )
 
 # We produce a shared library
-add_library(mae SHARED ${SOURCE_FILES})
+add_library(${MYLIB} SHARED ${SOURCE_FILES})
 
 # Install specs
-install (TARGETS mae
-        ARCHIVE DESTINATION lib
-        LIBRARY DESTINATION lib
-        RUNTIME DESTINATION bin
+install (TARGETS ${MYLIB}
+        ARCHIVE DESTINATION ${LIB_INSTALL_DIR}
+        LIBRARY DESTINATION ${LIB_INSTALL_DIR}
+        RUNTIME DESTINATION ${BIN_INSTALL_DIR}
         )
 
-install(DIRECTORY src/ DESTINATION include FILES_MATCHING PATTERN "*.h*")
+install(DIRECTORY src/ DESTINATION ${INCLUDE_INSTALL_DIR} FILES_MATCHING PATTERN "*.h*")
 
 
 # Import additional modules (for libxml++ and libintl)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/Modules/")
 
 # Dependencies
-find_package ( LibXML++ REQUIRED )
-find_package ( OpenCV REQUIRED )
-find_package ( Intl REQUIRED )
+find_package ( ${MYLIB_REQ_LIBXMLPP} ${MYLIB_REQ_LIBXMLPP_VERSION} REQUIRED )
+find_package ( ${MYLIB_REQ_OPENCV} ${MYLIB_REQ_OPENCV_VERSION} REQUIRED )
+find_package ( ${MYLIB_REQ_INTL} REQUIRED )
 
-include_directories(${LibXML++_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
-target_link_libraries (mae ${Intl_LIBRARIES} ${LibXML++_LIBRARIES} ${OpenCV_LIBS})
+
+set (MYLIB_INCLUDE_DIRS ${LibXML++_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
+set (MYLIB_LIBRARIES ${Intl_LIBRARIES} ${LibXML++_LIBRARIES} ${OpenCV_LIBS} )
+
+include_directories(${MYLIB_INCLUDE_DIRS})
+target_link_libraries (${MYLIB} ${MYLIB_LIBRARIES} )
 
 # Target
-set_target_properties(mae PROPERTIES VERSION ${MYLIB_VERSION_STRING} SOVERSION ${MYLIB_VERSION_MAJOR})
+set_target_properties(${MYLIB} PROPERTIES VERSION ${MYLIB_VERSION_STRING} SOVERSION ${MYLIB_VERSION_MAJOR})
 
+# package (version) info
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+        "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}ConfigVersion.cmake"
+        VERSION ${MYLIB_VERSION_STRING}
+        COMPATIBILITY SameMajorVersion )
+
+configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/${MYLIB}Config.cmakein ${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake
+        INSTALL_DESTINATION ${LIB_INSTALL_DIR}/cmake/${MYLIB}
+        PATH_VARS INCLUDE_INSTALL_DIR SYSCONFIG_INSTALL_DIR)
+
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake" "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}ConfigVersion.cmake"
+        DESTINATION ${LIB_INSTALL_DIR}/${MYLIB}/cmake )
+
+# configure and install pkg config .pc file
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lib${MYLIB}.pc.cmakein ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc DESTINATION "${INSTALL_PKGCONFIG_DIR}")
+
+# create java wrapper using swig
+FIND_PACKAGE(SWIG REQUIRED)
+FIND_PACKAGE(Java REQUIRED)
+FIND_PACKAGE(JNI REQUIRED)
+FIND_PACKAGE(Gradle REQUIRED)
+
+INCLUDE(${SWIG_USE_FILE})
+include(UseJava)
+include(UseSWIG)
+
+include_directories(${JNI_INCLUDE_DIRS})
+
+
+set(WRAPPER_PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_java_project)
+set(CMAKE_SWIG_OUTDIR ${WRAPPER_PROJECT_DIR}/src/main/java/mae/maejava)
+set(SWIG_OUTFILE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release/)
+
+#create directory for generated java project
+file(MAKE_DIRECTORY ${CMAKE_SWIG_OUTDIR})
+file(MAKE_DIRECTORY ${SWIG_OUTFILE_DIR})
+add_custom_command(TARGET ${MYLIB} PRE_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SWIG_OUTDIR}
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${SWIG_OUTFILE_DIR}
+        )
+
+SET(CMAKE_SWIG_FLAGS -package ${MYLIB_JNI})
+
+SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_.i PROPERTY CPLUSPLUS ON)
+SWIG_ADD_LIBRARY(${MYLIB_JNI} LANGUAGE Java SOURCES wrappers/swig/mae/_wrapper_.i)
+SWIG_LINK_LIBRARIES(${MYLIB_JNI} mae)
+
+#append version number to jnilib
+if (APPLE)
+    #macos
+    set(JNILIB_FILENAME_EXTENSION ".jnilib")
+    set(JNILIB_PREFIX "lib")
+elseif (WIN32)
+    #windows
+    set(JNILIB_FILENAME_EXTENSION ".dll")
+    set(JNILIB_PREFIX "")
+else()
+    #unix
+    set(JNILIB_FILENAME_EXTENSION ".so")
+    set(JNILIB_PREFIX "lib")
+endif ()
+
+#compile java project
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/build.gradle.cmakein  ${WRAPPER_PROJECT_DIR}/build.gradle @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/settings.gradle.cmakein  ${WRAPPER_PROJECT_DIR}/settings.gradle @ONLY)
+
+ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
+        POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E rename "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}"
+        COMMAND ${CMAKE_COMMAND} -E create_symlink "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}"
+        COMMAND ${CMAKE_COMMAND} -E create_symlink "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}"
+        COMMAND cmake -E echo "Building Java Project, installing the java library in the local maven repository..."
+        COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar
+        )
+
+# install .jnilib into jni folder
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING} DESTINATION "${JNI_INSTALL_DIR}")
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR} DESTINATION "${JNI_INSTALL_DIR}")
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION} DESTINATION "${JNI_INSTALL_DIR}")
+
+# install .jar file to jni folder (besides the installation into the local maven repository)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}-${MYLIB_VERSION_STRING}.jar DESTINATION "${JNI_INSTALL_DIR}")
+
+set_property(DIRECTORY PROPERTY ADDITIONAL_MAKE_CLEAN_FILES
+        "${CMAKE_SWIG_OUTDIR}"
+        "${SWIG_OUTFILE_DIR}"
+        "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}"
+        "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}"
+        "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}"
+        "${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}-${MYLIB_VERSION_STRING}.jar"
+        "${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar"
+        )

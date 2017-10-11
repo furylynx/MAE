@@ -1,9 +1,3 @@
-/*
- * decision_forest.cpp
- *
- * Created on: 12.08.2014
- * Author: keks
- */
 #include "decision_forest.hpp"
 
 namespace mae

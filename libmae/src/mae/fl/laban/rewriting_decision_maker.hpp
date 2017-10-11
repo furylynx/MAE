@@ -1,15 +1,5 @@
-/*
- * rewriting_decision_maker.hpp
- *
- *  Created on: 20.08.2014
- *      Author: keks
- */
-
-#ifndef REWRITING_DECISION_MAKER_HPP_
-#define REWRITING_DECISION_MAKER_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
+#ifndef MAE_FL_LABAN_REWRITING_DECISION_MAKER_HPP_
+#define MAE_FL_LABAN_REWRITING_DECISION_MAKER_HPP_
 
 //custom includes
 #include "i_decision_maker.hpp"
@@ -107,4 +97,4 @@ namespace mae
 	} // namespace fl
 } // namespace mae
 
-#endif // REWRITING_DECISION_MAKER_HPP_
+#endif // MAE_FL_LABAN_REWRITING_DECISION_MAKER_HPP_
