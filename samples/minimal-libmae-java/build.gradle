@@ -34,7 +34,7 @@ run {
         jnilibprefix = prefix
     }
 
-    def jnilibpath = jnilibprefix + "/lib/jni/"
+    def jnilibpath = jnilibprefix + "/lib/"
 
     if (project.hasProperty('prefix') && null != prefix) {
         println "Using custom prefix $prefix resulting in the java.library.path $jnilibpath"
