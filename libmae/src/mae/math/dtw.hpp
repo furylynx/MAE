@@ -12,6 +12,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <limits>
 
 namespace mae
 {
@@ -24,7 +25,7 @@ namespace mae
                         /**
                          * Creates a new basis with no vectors set.
                          */
-                        dtw(std::shared_ptr<i_distance_measure<T> > distance_measure);
+                        dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure);
 
                         virtual ~dtw();
                         /**
@@ -36,7 +37,7 @@ namespace mae
                         virtual double distance(std::vector<T> element1, std::vector<T> element2) const;
 
                     private:
-                        std::shared_ptr<i_distance_measure<T> > distance_measure_;
+                        std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure_;
 
                 };
 
@@ -50,7 +51,7 @@ namespace mae
         namespace math
         {
                 template<typename T>
-                dtw<T>::dtw(std::shared_ptr<i_distance_measure<T> > distance_measure)
+                dtw<T>::dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure)
                 {
                     distance_measure_ = distance_measure;
                 }
@@ -63,18 +64,32 @@ namespace mae
                 template<typename T>
                 double dtw<T>::distance(std::vector<T> element1, std::vector<T> element2) const
                 {
-                    std::size_t n = element1.size();
-                    std::size_t m = element2.size();
+                    std::size_t n = element1.size()+1;
+                    std::size_t m = element2.size()+1;
 
-                    std::array<std::array<double, element2.size()>, element1.size()> arr;
+//                    std::array<std::array<double, element2.size()>, element1.size()> arr;
+                    std::vector<std::vector<double>> arr;
+
+                    for (std::size_t i = 0; i < n ; i++)
+                    {
+                        std::vector<double> row;
+
+                        for (std::size_t j = 0; j < m; j++)
+                        {
+                            row.push_back(0);
+                        }
+
+                        arr.push_back(row);
+                    }
 
 
-                    for (std::size_t i = 1 ; i <= n ; i++)
+
+                    for (std::size_t i = 1 ; i < n ; i++)
                     {
                         arr.at(i).at(0) = std::numeric_limits<double>::infinity();
                     }
 
-                    for (std::size_t i = 1 ; i <= m ; i++)
+                    for (std::size_t i = 1 ; i < m ; i++)
                     {
                         arr.at(0).at(i) = std::numeric_limits<double>::infinity();
                     }
@@ -82,17 +97,17 @@ namespace mae
                     arr.at(0).at(0) = 0;
 
 
-                    for (std::size_t i = 1 ; i <= n ; i++)
+                    for (std::size_t i = 1 ; i < n ; i++)
                     {
-                        for (std::size_t j = 1 ; j <= m ; j++)
+                        for (std::size_t j = 1 ; j < m ; j++)
                         {
-                            double cost = distance_measure_->distance(element1.at(i), element2.at(j));
+                            double cost = distance_measure_->distance(element1.at(i-1), element2.at(j-1));
 
                             arr.at(i).at(j) = cost + std::min( std::min(arr.at(i-1).at(j), arr.at(i).at(j-1)),arr.at(i-1).at(j-1) );
                         }
                     }
 
-                    return arr.at(n).at(m);
+                    return arr.at(n-1).at(m-1);
                 }
 
 
