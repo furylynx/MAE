@@ -1,11 +1,13 @@
-#ifndef MAE_MATH_MATH_HH_
-#define MAE_MATH_MATH_HH_
+#ifndef MAE_MATH_MATH_HPP_
+#define MAE_MATH_MATH_HPP_
 
 //custom includes
 #include "../fl/angular_joint.hpp"
 
 #include "vec3d.hpp"
 #include "basis.hpp"
+#include "i_distance_measure.hpp"
+#include "dtw.hpp"
 #include "../general_joint.hpp"
 
 //global includes
@@ -137,4 +139,4 @@ namespace mae
 	} // namespace math
 } // namespace mae
 
-#endif // MAE_MATH_MATH_HH_
+#endif // MAE_MATH_MATH_HPP_

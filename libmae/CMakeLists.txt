@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.8)
 set(MYLIB mae)
 
 set(MYLIB_VERSION_MAJOR 0)
-set(MYLIB_VERSION_MINOR 10)
+set(MYLIB_VERSION_MINOR 11)
 set(MYLIB_VERSION_PATCH 0)
 set(MYLIB_VERSION_STRING ${MYLIB_VERSION_MAJOR}.${MYLIB_VERSION_MINOR}.${MYLIB_VERSION_PATCH})
 
@@ -240,7 +240,7 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/movement_controller.hpp
         src/mae/mstr.cpp
         src/mae/mstr.hpp
-        src/mae/sensor/sensor_farm.cpp src/mae/sensor/sensor_farm.hpp src/mae/sensor/i_sensor.hpp src/mae/sensor/sensor_info.cpp src/mae/sensor/sensor_info.hpp src/mae/sensor/sensor.hpp src/mae/general_skeleton_basis_pair.cpp src/mae/general_skeleton_basis_pair.hpp)
+        src/mae/sensor/sensor_farm.cpp src/mae/sensor/sensor_farm.hpp src/mae/sensor/i_sensor.hpp src/mae/sensor/sensor_info.cpp src/mae/sensor/sensor_info.hpp src/mae/sensor/sensor.hpp src/mae/general_skeleton_basis_pair.cpp src/mae/general_skeleton_basis_pair.hpp src/mae/math/dtw.hpp src/mae/math/i_distance_measure.hpp)
 
 
 set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")

@@ -21,7 +21,6 @@ namespace mae
 
 		vec3d::~vec3d()
 		{
-			// TODO Auto-generated destructor stub
 		}
 
 		void vec3d::set_x(double x)
@@ -56,12 +55,17 @@ namespace mae
 
 		std::shared_ptr<vec3d> vec3d::add(std::shared_ptr<vec3d> vec) const
 		{
-			return std::shared_ptr<vec3d>(new vec3d(x_ + vec->get_x(), y_ + vec->get_y(), z_ + vec->get_z()));
+			return std::make_shared<vec3d>(x_ + vec->get_x(), y_ + vec->get_y(), z_ + vec->get_z());
 		}
 
 		std::shared_ptr<vec3d> vec3d::subtract(std::shared_ptr<vec3d> vec) const
 		{
-			return std::shared_ptr<vec3d>(new vec3d(x_ - vec->get_x(), y_ - vec->get_y(), z_ - vec->get_z()));
+			return std::make_shared<vec3d>(x_ - vec->get_x(), y_ - vec->get_y(), z_ - vec->get_z());
+		}
+
+		std::shared_ptr<vec3d> vec3d::multiply(double scalar) const
+		{
+			return std::make_shared<vec3d>(x_ * scalar, y_ * scalar, z_ * scalar);
 		}
 
 		std::shared_ptr<vec3d> vec3d::normalize() const
@@ -74,7 +78,7 @@ namespace mae
 			}
 			else
 			{
-				return std::shared_ptr<vec3d>(new vec3d(x_/norm, y_/norm, z_/norm));
+				return std::make_shared<vec3d>(x_/norm, y_/norm, z_/norm);
 			}
 		}
 
@@ -90,7 +94,7 @@ namespace mae
 
 		std::shared_ptr<vec3d> vec3d::cross(std::shared_ptr<vec3d> vec) const
 		{
-			return std::shared_ptr<vec3d>(new vec3d((y_*vec->get_z()) - (z_*vec->get_y()), (z_*vec->get_x()) - (x_*vec->get_z()), (x_*vec->get_y()) - (y_*vec->get_x())));
+			return std::make_shared<vec3d>((y_*vec->get_z()) - (z_*vec->get_y()), (z_*vec->get_x()) - (x_*vec->get_z()), (x_*vec->get_y()) - (y_*vec->get_x()));
 		}
 
 		std::string vec3d::str() const

@@ -95,6 +95,15 @@ namespace mae
 				 */
 				virtual std::shared_ptr<vec3d> subtract(std::shared_ptr<vec3d> vec) const;
 
+				/**
+				 * Multiplies the vector with the given scalar and returns the result.
+				 *
+				 * This vector is not changed.
+				 *
+				 * @param scalar The scalar to be multiplied.
+				 * @return The resulting vector.
+				 */
+				virtual std::shared_ptr<vec3d> multiply(double scalar) const;
 
 				/**
 				 * Returns the the normalized vector.
