@@ -13,8 +13,9 @@ See the readme files for each module of the engine.
 ### Doxygen
 
 To generate the code documentation locally, type:
-
+```shell
 doxygen mae.doxy
+```
 
 The generated documentation can be found under docs/
 
