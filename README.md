@@ -17,5 +17,5 @@ To generate the code documentation locally, type:
 doxygen mae.doxy
 ```
 
-The generated documentation can be found under docs/
+The generated documentation can be found under `docs/`.
 
