@@ -1,0 +1,17 @@
+/*! \file   mainpage.dox
+    \brief  Introduction page
+
+  \mainpage Introduction
+            Welcome to the documentation of MAE. This page is meant to provide a starting point. JavaScript is required for this page to show the content of the documentation. 
+            
+
+              
+  \section  What is MAE?
+	    The Movement Analysis Engine is able to analyze movements and provide events based on a
+described movements sequence (Labanotation). The engine can be used by other applications
+for further movement processing and filtering in ambient spaces (i.e., smart environments)
+
+  \section Wiki
+	    Further information can be found in the Wiki of the project : https://github.com/furylynx/MAE/wiki
+
+*/
