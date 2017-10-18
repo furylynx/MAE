@@ -1,5 +1,5 @@
 # CodeDocs.xyz Configuration File
 
-DOXYFILE = libmae/libmae.doxy
+DOXYFILE = mae.doxy
 
 PROJECT_LOGO = mae_tiny.png
