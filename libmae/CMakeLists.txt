@@ -33,8 +33,6 @@ set(CMAKE_CXX_STANDARD 14)
 # Source files
 set(SOURCE_FILES src/mae/bone.cpp
         src/mae/bone.hpp
-        src/mae/dummy_pose_listener.cpp
-        src/mae/dummy_pose_listener.hpp
         src/mae/e_bone.cpp
         src/mae/e_bone.hpp
         src/mae/e_hand_bone.cpp
