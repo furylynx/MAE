@@ -85,3 +85,6 @@ gradlew
 *.iml
 .classpath
 
+#doxygen
+docs/
+
