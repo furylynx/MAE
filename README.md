@@ -1,6 +1,8 @@
 # MAE
 
-Movement Analysis Engine. Results of the master's thesis "Movement Analysis Engine: Analyzing Movement using Depth Sensors and Labanotation".
+The Movement Analysis Engine is able to analyze movements and provide events based on a
+described movements sequence (Labanotation). The engine can be used by other applications
+for further movement processing and filtering in ambient spaces (i.e., smart environments).
 
 ## Documentation
 
