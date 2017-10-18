@@ -6,12 +6,12 @@
             
 
               
-  \section  What is MAE?
+  \section  doxy_what What is MAE?
 	    The Movement Analysis Engine is able to analyze movements and provide events based on a
 described movements sequence (Labanotation). The engine can be used by other applications
-for further movement processing and filtering in ambient spaces (i.e., smart environments)
+for further movement processing and filtering in ambient spaces (i.e., smart environments).
 
-  \section Wiki
-	    Further information can be found in the Wiki of the project : https://github.com/furylynx/MAE/wiki
+  \section doxy_wiki Wiki
+	    Further information can be found in the <a href="https://github.com/furylynx/MAE/wiki">Wiki</a> of the project.
 
 */
