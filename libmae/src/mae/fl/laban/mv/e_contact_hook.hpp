@@ -46,6 +46,14 @@ namespace mae
 						static std::string str(e_contact_hook hook);
 
 						/**
+						 * Returns the integer value corresponding to this element.
+						 *
+						 * @param ehook The element.
+						 * @return The integer ID.
+						 */
+						static int to_int(e_contact_hook ehook);
+
+						/**
 						 * Returns a vector containing all possible enum values.
 						 *
 						 * @return A vector.

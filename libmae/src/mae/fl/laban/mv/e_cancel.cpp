@@ -21,6 +21,11 @@ namespace mae
 					throw std::invalid_argument("Enum value not listed in the str() method");
 				}
 
+				int e_cancel_c::to_int(e_cancel ecancel)
+				{
+					return (int) ecancel;
+				}
+
 				std::vector<e_cancel> e_cancel_c::vec()
 				{
 					std::vector<e_cancel> result;

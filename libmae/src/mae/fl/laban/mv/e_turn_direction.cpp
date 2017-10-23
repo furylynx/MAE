@@ -32,6 +32,11 @@ namespace mae
 					return result;
 				}
 
+				int e_turn_direction_c::to_int(e_turn_direction eturndirection)
+				{
+					return (int) eturndirection;
+				}
+
 				e_turn_direction e_turn_direction_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

@@ -134,6 +134,11 @@ namespace mae
 					return result;
 				}
 
+				int e_direction_c::to_int(e_direction edirection)
+				{
+					return (int) edirection;
+				}
+
 				e_direction e_direction_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

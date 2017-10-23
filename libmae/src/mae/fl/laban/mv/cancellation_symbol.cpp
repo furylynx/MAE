@@ -41,6 +41,15 @@ namespace mae
 					return false;
 				}
 
+				std::vector<double> cancellation_symbol::feature_vector() const
+				{
+					std::vector<double> result;
+
+					result.push_back(e_cancel_c::to_int(cancel_));
+
+					return result;
+				}
+
 				std::string cancellation_symbol::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;

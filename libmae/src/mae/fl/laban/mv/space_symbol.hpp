@@ -58,6 +58,13 @@ namespace mae
 						virtual bool equals(std::shared_ptr<i_symbol> a) const;
 
 						/**
+						 * Returns the feature vector for the symbol.
+						 *
+						 * @return The feature vector.
+						 */
+						virtual std::vector<double> feature_vector() const;
+
+						/**
 						 * Returns the XML representation for this element.
 						 *
 						 * @param indent The applied indent.

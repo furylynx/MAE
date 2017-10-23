@@ -49,6 +49,14 @@ namespace mae
 						static e_level lvl(e_fl_direction direction);
 
 						/**
+						 * Returns the integer value corresponding to this element.
+						 *
+						 * @param elevel The element.
+						 * @return The integer ID.
+						 */
+						static int to_int(e_level elevel);
+
+						/**
 						 * Returns a vector containing all possible enum values.
 						 *
 						 * @return A vector.

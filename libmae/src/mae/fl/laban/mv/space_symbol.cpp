@@ -56,6 +56,19 @@ namespace mae
 					return false;
 				}
 
+				std::vector<double> space_symbol::feature_vector() const
+				{
+					std::vector<double> result;
+
+					std::vector<double> fvec_dyn = dynamics_->feature_vector();
+					std::vector<double> fvec_spacem = space_measurement_->feature_vector();
+
+					result.insert(result.end(), fvec_dyn.begin(), fvec_dyn.end());
+					result.insert(result.end(), fvec_spacem.begin(), fvec_spacem.end());
+
+					return result;
+				}
+
 				std::string space_symbol::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;

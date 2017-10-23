@@ -37,6 +37,14 @@ namespace mae
 						static std::string str(e_cancel cancel);
 
 						/**
+						 * Returns the integer value corresponding to this element.
+						 *
+						 * @param ecancel The element.
+						 * @return The integer ID.
+						 */
+						static int to_int(e_cancel ecancel);
+
+						/**
 						 * Returns a vector containing all possible enum values.
 						 *
 						 * @return A vector.

@@ -43,6 +43,14 @@ namespace mae
 						static std::string str(e_dynamic dynamic);
 
 						/**
+						 * Returns the integer value corresponding to this element.
+						 *
+						 * @param edynamic The element.
+						 * @return The integer ID.
+						 */
+						static int to_int(e_dynamic edynamic);
+
+						/**
 						 * Returns a vector containing all possible enum values.
 						 *
 						 * @return A vector.

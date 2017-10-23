@@ -64,6 +64,8 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/fl/fl_movement_controller.hpp
         src/mae/fl/fl_pose_detector.cpp
         src/mae/fl/fl_pose_detector.hpp
+        src/mae/fl/fl_direction_map.cpp
+        src/mae/fl/fl_direction_map.hpp
         src/mae/fl/fl_skeleton.cpp
         src/mae/fl/fl_skeleton.hpp
         src/mae/fl/fl_skeleton_controller.cpp
@@ -238,7 +240,15 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/movement_controller.hpp
         src/mae/mstr.cpp
         src/mae/mstr.hpp
-        src/mae/sensor/sensor_farm.cpp src/mae/sensor/sensor_farm.hpp src/mae/sensor/i_sensor.hpp src/mae/sensor/sensor_info.cpp src/mae/sensor/sensor_info.hpp src/mae/sensor/sensor.hpp src/mae/general_skeleton_basis_pair.cpp src/mae/general_skeleton_basis_pair.hpp src/mae/math/dtw.hpp src/mae/math/i_distance_measure.hpp)
+        src/mae/sensor/sensor_farm.cpp src/mae/sensor/sensor_farm.hpp
+        src/mae/sensor/i_sensor.hpp
+        src/mae/sensor/sensor_info.cpp src/mae/sensor/sensor_info.hpp
+        src/mae/sensor/sensor.hpp src/mae/general_skeleton_basis_pair.cpp src/mae/general_skeleton_basis_pair.hpp
+        src/mae/math/dtw.hpp
+        src/mae/math/i_distance_measure.hpp
+        src/mae/math/minkowski_distance.hpp
+        src/mae/math/minkowski_distance.cpp
+        src/mae/fl/laban/mv/symbol_fl_distance.hpp src/mae/fl/laban/mv/symbol_fl_distance.cpp)
 
 
 set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")

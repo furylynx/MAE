@@ -9,6 +9,7 @@
 #include "e_fl_joint.hpp"
 #include "e_fl_direction.hpp"
 #include "skeleton_merger.hpp"
+#include "fl_direction_map.hpp"
 
 #include "laban/laban.hpp"
 

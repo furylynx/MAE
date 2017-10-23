@@ -38,6 +38,11 @@ namespace mae
 					return result;
 				}
 
+				int e_space_c::to_int(e_space espace)
+				{
+					return (int) espace;
+				}
+
 				e_space e_space_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

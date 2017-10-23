@@ -54,6 +54,17 @@ namespace mae
 					return false;
 				}
 
+				std::vector<double> space_measurement::feature_vector() const
+				{
+					std::vector<double> result;
+
+					result.push_back(e_space_c::to_int(type_));
+					result.push_back(degree_);
+					result.push_back(e_space_direction_c::to_int(direction_));
+
+					return result;
+				}
+
 				std::string space_measurement::xml(unsigned int indent, std::string namesp, bool print_type) const
 				{
 					std::stringstream indent_stream;

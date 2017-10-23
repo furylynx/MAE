@@ -15,71 +15,7 @@ namespace mae
 			debug_ = debug;
 			hysteresis_val_ = hysteresis_val;
 
-			//initialize directions on circle
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::P_H), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(-1, 0, 0))));
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::P_M), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(0, 0, 0))));
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::P_L), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(1, 0, 0))));
-
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::L_H), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(-1, 1, 0))));
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::L_M), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(0, 1, 0))));
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::L_L), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(1, 1, 0))));
-
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::D_F_L_H), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(-1, 1, 1))));
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::D_F_L_M), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(0, 1, 1))));
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::D_F_L_L), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(1, 1, 1))));
-
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::F_L_H), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(-1, 0, 1))));
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::F_L_M), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(0, 0, 1))));
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::F_L_L), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(1, 0, 1))));
-
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::F_R_H), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(-1, 0, 1))));
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::F_R_M), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(0, 0, 1))));
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::F_R_L), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(1, 0, 1))));
-
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::D_F_R_H), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(-1, -1, 1))));
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::D_F_R_M), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(0, -1, 1))));
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::D_F_R_L), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(1, -1, 1))));
-
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::R_H), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(-1, -1, 0))));
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::R_M), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(0, -1, 0))));
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::R_L), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(1, -1, 0))));
-
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::D_B_R_H), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(-1, -1, -1))));
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::D_B_R_M), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(0, -1, -1))));
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::D_B_R_L), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(1, -1, -1))));
-
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::B_R_H), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(-1, 0, -1))));
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::B_R_M), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(0, 0, -1))));
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::B_R_L), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(1, 0, -1))));
-
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::B_L_H), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(-1, 0, -1))));
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::B_L_M), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(0, 0, -1))));
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::B_L_L), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(1, 0, -1))));
-
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::D_B_L_H), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(-1, 1, -1))));
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::D_B_L_M), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(0, 1, -1))));
-			map_directions_.insert(
-					std::make_pair(e_fl_direction_c::to_int(e_fl_direction::D_B_L_L), std::shared_ptr<mae::math::vec3d>(new mae::math::vec3d(1, 1, -1))));
-
+			fl_direction_map_ = std::make_shared<mae::fl::fl_direction_map>();
 		}
 
 		fl_pose_detector::~fl_pose_detector()
@@ -151,7 +87,7 @@ namespace mae
 					else
 					{
 						//set value for the direction
-						std::shared_ptr<mae::math::vec3d> set_dir = map_directions_.at(e_fl_direction_c::to_int(dir));
+						std::shared_ptr<mae::math::vec3d> set_dir = fl_direction_map_->get_vec(dir);
 
 						//real value for the direction
 						std::shared_ptr<mae::math::vec3d> real_dir;

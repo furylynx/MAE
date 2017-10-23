@@ -65,6 +65,21 @@ namespace mae
 					return false;
 				}
 
+				std::vector<double> vibration_symbol::feature_vector() const
+				{
+					std::vector<double> result;
+
+					std::vector<double> fvec_dyn = dynamics_->feature_vector();
+					std::vector<double> fvec_dis1 = displacement1_->feature_vector();
+					std::vector<double> fvec_dis2 = displacement2_->feature_vector();
+
+					result.insert(result.end(), fvec_dyn.begin(), fvec_dyn.end());
+					result.insert(result.end(), fvec_dis1.begin(), fvec_dis1.end());
+					result.insert(result.end(), fvec_dis2.begin(), fvec_dis2.end());
+
+					return result;
+				}
+
 				std::string vibration_symbol::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;

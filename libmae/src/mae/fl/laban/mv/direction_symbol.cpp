@@ -104,6 +104,34 @@ namespace mae
 					return false;
 				}
 
+				std::vector<double> direction_symbol::feature_vector() const
+				{
+					std::vector<double> result;
+
+					//TODO direction and level map to a vec3d
+
+					//set value for the direction
+					fl_direction_map  map;
+					std::shared_ptr<mae::math::vec3d> set_dir = map.get_vec(horizontal_, vertical_);
+
+					result.push_back(set_dir->get_x());
+					result.push_back(set_dir->get_y());
+					result.push_back(set_dir->get_z());
+
+					std::vector<double> fvec_mpin = modification_pin_->feature_vector();
+					std::vector<double> fvec_rpin = relationship_pin_->feature_vector();
+					std::vector<double> fvec_dyn = dynamics_->feature_vector();
+					std::vector<double> fvec_spacem = space_measurement_->feature_vector();
+
+					result.insert(result.end(), fvec_mpin.begin(), fvec_mpin.end());
+					result.insert(result.end(), fvec_rpin.begin(), fvec_rpin.end());
+					result.insert(result.end(), fvec_dyn.begin(), fvec_dyn.end());
+					result.insert(result.end(), fvec_spacem.begin(), fvec_spacem.end());
+					result.push_back(e_contact_hook_c::to_int(contact_hook_));
+
+					return result;
+				}
+
 				std::string direction_symbol::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;

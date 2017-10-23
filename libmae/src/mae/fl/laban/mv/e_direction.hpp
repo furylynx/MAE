@@ -48,6 +48,14 @@ namespace mae
 						static std::string str(e_direction direction);
 
 						/**
+						 * Returns the integer value corresponding to this element.
+						 *
+						 * @param edirection The element.
+						 * @return The integer ID.
+						 */
+						static int to_int(e_direction edirection);
+
+						/**
 						 * Returns the corresponding direction value.
 						 *
 						 * @param direction The direction+level enum value.

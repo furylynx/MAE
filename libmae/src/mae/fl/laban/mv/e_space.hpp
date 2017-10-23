@@ -41,6 +41,14 @@ namespace mae
 						static std::string str(e_space space);
 
 						/**
+						 * Returns the integer value corresponding to this element.
+						 *
+						 * @param espace The element.
+						 * @return The integer ID.
+						 */
+						static int to_int(e_space espace);
+
+						/**
 						 * Returns a vector containing all possible enum values.
 						 *
 						 * @return A vector.

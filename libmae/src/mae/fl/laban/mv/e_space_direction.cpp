@@ -42,6 +42,11 @@ namespace mae
 					return result;
 				}
 
+				int e_space_direction_c::to_int(e_space_direction espacedirection)
+				{
+					return (int) espacedirection;
+				}
+
 				e_space_direction e_space_direction_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

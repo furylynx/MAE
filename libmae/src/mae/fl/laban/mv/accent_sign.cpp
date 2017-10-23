@@ -41,6 +41,16 @@ namespace mae
 					return false;
 				}
 
+
+				std::vector<double> accent_sign::feature_vector() const
+				{
+					std::vector<double> result;
+
+					result.push_back(accent_);
+
+					return result;
+				}
+
 				std::string accent_sign::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;

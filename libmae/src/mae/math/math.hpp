@@ -7,6 +7,7 @@
 #include "vec3d.hpp"
 #include "basis.hpp"
 #include "i_distance_measure.hpp"
+#include "minkowski_distance.hpp"
 #include "dtw.hpp"
 #include "../general_joint.hpp"
 

@@ -38,6 +38,14 @@ namespace mae
 						static std::string str(e_turn_direction turn);
 
 						/**
+						 * Returns the integer value corresponding to this element.
+						 *
+						 * @param eturndirection The element.
+						 * @return The integer ID.
+						 */
+						static int to_int(e_turn_direction eturndirection);
+
+						/**
 						 * Returns a vector containing all possible enum values.
 						 *
 						 * @return A vector.

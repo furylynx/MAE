@@ -7,6 +7,7 @@
 
 #include "fl_skeleton.hpp"
 #include "e_fl_direction.hpp"
+#include "fl_direction_map.hpp"
 
 #include "../math/math.hpp"
 
@@ -85,7 +86,7 @@ namespace mae
 
 			private:
 				bool debug_;
-				std::unordered_map<int, std::shared_ptr<mae::math::vec3d> > map_directions_;
+				std::shared_ptr<mae::fl::fl_direction_map> fl_direction_map_;
 				double hysteresis_val_;
 
 				const double PM_ACCEPT_DIST = 22.5;

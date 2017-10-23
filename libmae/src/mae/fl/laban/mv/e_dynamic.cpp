@@ -43,6 +43,11 @@ namespace mae
 					return result;
 				}
 
+				int e_dynamic_c::to_int(e_dynamic edynamic)
+				{
+					return (int) edynamic;
+				}
+
 				e_dynamic e_dynamic_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

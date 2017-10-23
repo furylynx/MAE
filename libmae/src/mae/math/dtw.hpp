@@ -13,6 +13,7 @@
 #include <string>
 #include <vector>
 #include <limits>
+#include <cmath>
 
 namespace mae
 {
@@ -23,11 +24,23 @@ namespace mae
                 {
                     public:
                         /**
-                         * Creates a new basis with no vectors set.
+                         * Creates a instance for a dynamic time warping using no windowing.
+                         *
+                         * @param distance_measure The distance measure for each single element.
                          */
                         dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure);
 
+
+                        /**
+                         * Creates a instance for a dynamic time warping using a windowing parameter.
+                         *
+                         * @param distance_measure The distance measure for each single element.
+                         * @param window The window parameter.
+                         */
+                        dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, std::size_t window);
+
                         virtual ~dtw();
+
                         /**
                          * Returns the distance between the two time series.
                          *
@@ -38,6 +51,7 @@ namespace mae
 
                     private:
                         std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure_;
+                        std::size_t window_;
 
                 };
 
@@ -50,10 +64,19 @@ namespace mae
 {
         namespace math
         {
+
                 template<typename T>
                 dtw<T>::dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure)
                 {
                     distance_measure_ = distance_measure;
+                    window_ = 0;
+                }
+
+                template<typename T>
+                dtw<T>::dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, std::size_t window)
+                {
+                    distance_measure_ = distance_measure;
+                    window_ = window;
                 }
 
                 template<typename T>
@@ -67,7 +90,12 @@ namespace mae
                     std::size_t n = element1.size()+1;
                     std::size_t m = element2.size()+1;
 
-//                    std::array<std::array<double, element2.size()>, element1.size()> arr;
+                    std::size_t window = std::max(n,m);
+                    if (window_ > 0)
+                    {
+                        window = std::max(window_, std::size_t(std::abs((long)n-(long)m)));
+                    }
+
                     std::vector<std::vector<double>> arr;
 
                     for (std::size_t i = 0; i < n ; i++)
@@ -76,30 +104,17 @@ namespace mae
 
                         for (std::size_t j = 0; j < m; j++)
                         {
-                            row.push_back(0);
+                            row.push_back(std::numeric_limits<double>::infinity());
                         }
 
                         arr.push_back(row);
                     }
 
-
-
-                    for (std::size_t i = 1 ; i < n ; i++)
-                    {
-                        arr.at(i).at(0) = std::numeric_limits<double>::infinity();
-                    }
-
-                    for (std::size_t i = 1 ; i < m ; i++)
-                    {
-                        arr.at(0).at(i) = std::numeric_limits<double>::infinity();
-                    }
-
                     arr.at(0).at(0) = 0;
 
-
                     for (std::size_t i = 1 ; i < n ; i++)
                     {
-                        for (std::size_t j = 1 ; j < m ; j++)
+                        for (std::size_t j = std::max(1l, ((long)i-(long)window)) ; j < std::min(m, (i+window)) ; j++)
                         {
                             double cost = distance_measure_->distance(element1.at(i-1), element2.at(j-1));
 

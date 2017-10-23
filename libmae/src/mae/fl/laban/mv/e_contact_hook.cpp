@@ -30,6 +30,11 @@ namespace mae
 
 				}
 
+				int e_contact_hook_c::to_int(e_contact_hook ehook)
+				{
+					return (int) ehook;
+				}
+
 				std::vector<e_contact_hook> e_contact_hook_c::vec()
 				{
 					std::vector<e_contact_hook> result;

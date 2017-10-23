@@ -66,6 +66,20 @@ namespace mae
 					return false;
 				}
 
+				std::vector<double> turn_symbol::feature_vector() const
+				{
+					std::vector<double> result;
+
+					std::vector<double> fvec_dyn = dynamics_->feature_vector();
+					std::vector<double> fvec_deg = degree_->feature_vector();
+
+					result.push_back(e_turn_direction_c::to_int(direction_));
+					result.insert(result.end(), fvec_dyn.begin(), fvec_dyn.end());
+					result.insert(result.end(), fvec_deg.begin(), fvec_deg.end());
+
+					return result;
+				}
+
 				std::string turn_symbol::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;

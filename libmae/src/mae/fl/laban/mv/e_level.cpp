@@ -90,6 +90,11 @@ namespace mae
 					return result;
 				}
 
+				int e_level_c::to_int(e_level elevel)
+				{
+					return (int) elevel;
+				}
+
 				e_level e_level_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

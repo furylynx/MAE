@@ -7,6 +7,7 @@
 //global includes
 #include <string>
 #include <memory>
+#include <vector>
 
 namespace mae
 {
@@ -29,6 +30,13 @@ namespace mae
 						 * @return True if equal.
 						 */
 						virtual bool equals(std::shared_ptr<i_degree_sign> a) const = 0;
+
+						/**
+						 * Returns the feature vector for the symbol.
+						 *
+						 * @return The feature vector.
+						 */
+						virtual std::vector<double> feature_vector() const = 0;
 
 						/**
 						 * Returns the XML representation for this sign.

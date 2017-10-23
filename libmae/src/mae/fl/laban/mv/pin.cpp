@@ -53,6 +53,16 @@ namespace mae
 					return false;
 				}
 
+				std::vector<double> pin::feature_vector() const
+				{
+					std::vector<double> result;
+
+					result.push_back(e_level_c::to_int(level_));
+					result.push_back(horizontal_);
+
+					return result;
+				}
+
 				std::string pin::xml(unsigned int indent, std::string namesp, bool print_type) const
 				{
 					std::stringstream indent_stream;

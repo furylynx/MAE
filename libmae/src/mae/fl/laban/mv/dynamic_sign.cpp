@@ -41,6 +41,16 @@ namespace mae
 					return false;
 				}
 
+
+				std::vector<double> dynamic_sign::feature_vector() const
+				{
+					std::vector<double> result;
+
+					result.push_back(e_dynamic_c::to_int(dynamic_));
+
+					return result;
+				}
+
 				std::string dynamic_sign::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;
