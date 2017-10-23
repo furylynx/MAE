@@ -1,5 +1,5 @@
 //
-// Created by keks on 17.10.17.
+// Created by furylynx on 2017-10-23
 //
 
 #include "minkowski_distance.hpp"
@@ -23,7 +23,7 @@ namespace mae
             if (element1.size() != element2.size())
             {
                 throw std::invalid_argument(
-                        "Vectors to calculate distance for have different size.");
+                        "Vectors have different size.");
             }
 
             double sum = 0;

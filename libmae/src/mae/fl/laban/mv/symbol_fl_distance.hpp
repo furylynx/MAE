@@ -49,6 +49,7 @@ namespace mae
                      *
                      * @param element1 The first element to compare.
                      * @param element2 The second element to compare.
+                     * @return The distance.
                      */
                     virtual double distance(std::shared_ptr<i_symbol> element1, std::shared_ptr<i_symbol> element2) const;
 
