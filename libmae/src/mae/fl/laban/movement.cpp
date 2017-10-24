@@ -88,6 +88,19 @@ namespace mae
 				}
 			}
 
+			std::vector<double> movement::symbol_feature_vector() const
+			{
+				std::vector<double> result;
+
+				result.push_back(hold_);
+
+				std::vector<double> fvec_sym = symbol_->feature_vector();
+
+				result.insert(result.end(), fvec_sym.begin(), fvec_sym.end());
+
+				return result;
+			}
+
 			std::string movement::xml(unsigned int indent, std::string namesp) const
 			{
 				std::stringstream indent_stream;

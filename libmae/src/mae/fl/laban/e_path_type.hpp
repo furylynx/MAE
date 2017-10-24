@@ -44,6 +44,14 @@ namespace mae
 					static std::vector<e_path_type> vec();
 
 					/**
+					 * Returns the integer value corresponding to this element.
+					 *
+					 * @param epathtype The element.
+					 * @return The integer ID.
+					 */
+					static int to_int(e_path_type epathtype);
+
+					/**
 					 * Parses the string and returns the corresponding element.
 					 *
 					 * @param str The string to be parsed.

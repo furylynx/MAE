@@ -111,6 +111,26 @@ namespace mae
 				}
 			}
 
+
+			std::vector<double> relationship_bow::symbol_feature_vector() const
+			{
+				std::vector<double> result;
+
+				result.push_back(e_relationship_type_c::to_int(type_));
+				result.push_back(grasping_);
+				result.push_back(passing_);
+				result.push_back(hold_);
+
+
+				std::vector<double> fvec_le = left_endpoint_->feature_vector();
+				std::vector<double> fvec_re = right_endpoint_->feature_vector();
+
+				result.insert(result.end(), fvec_le.begin(), fvec_le.end());
+				result.insert(result.end(), fvec_re.begin(), fvec_re.end());
+
+				return result;
+			}
+
 			std::string relationship_bow::xml(unsigned int indent, std::string namesp) const
 			{
 				std::stringstream indent_stream;

@@ -97,6 +97,23 @@ namespace mae
 					return column_ == a->get_column() && active_ == a->get_active() && pre_sign_->equals(a->get_pre_sign()) && dynamics_->equals(a->get_dynamics());
 				}
 
+				std::vector<double> relationship_endpoint::feature_vector() const
+				{
+					std::vector<double> result;
+
+					result.push_back(column_);
+					result.push_back(active_);
+
+					//TODO pre sign?
+//					std::vector<double> fvec_pre = pre_sign_->feature_vector();
+					std::vector<double> fvec_dyn = dynamics_->feature_vector();
+
+//					result.insert(result.end(), fvec_pre.begin(), fvec_pre.end());
+					result.insert(result.end(), fvec_dyn.begin(), fvec_dyn.end());
+
+					return result;
+				}
+
 			} // namespace mv
 		} // namespace laban
 	} // namespace fl

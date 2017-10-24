@@ -32,6 +32,11 @@ namespace mae
 				return result;
 			}
 
+			int e_path_type_c::to_int(e_path_type epathtype)
+			{
+				return (int) epathtype;
+			}
+
 			e_path_type e_path_type_c::parse(std::string str)
 			{
 				std::string str_l = mstr::to_lower(str);

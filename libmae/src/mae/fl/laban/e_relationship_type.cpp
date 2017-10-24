@@ -33,6 +33,11 @@ namespace mae
 				return result;
 			}
 
+			int e_relationship_type_c::to_int(e_relationship_type erelationshiptype)
+			{
+				return (int) erelationshiptype;
+			}
+
 			e_relationship_type e_relationship_type_c::parse(std::string str)
 			{
 				std::string str_l = mstr::to_lower(str);

@@ -89,6 +89,13 @@ namespace mae
 						 */
 						virtual bool equals(std::shared_ptr<relationship_endpoint> a) const;
 
+						/**
+						 * Returns the feature vector for the endpoint.
+						 *
+						 * @return The feature vector.
+						 */
+						virtual std::vector<double> feature_vector() const;
+
 					private:
 						int column_;
 						std::shared_ptr<ps::i_pre_sign> pre_sign_;

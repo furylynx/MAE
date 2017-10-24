@@ -44,6 +44,14 @@ namespace mae
 					static std::vector<e_relationship_type> vec();
 
 					/**
+					 * Returns the integer value corresponding to this element.
+					 *
+					 * @param erelationshiptype The element.
+					 * @return The integer ID.
+					 */
+					static int to_int(e_relationship_type erelationshiptype);
+
+					/**
 					 * Parses the string and returns the corresponding element.
 					 *
 					 * @param str The string to be parsed.

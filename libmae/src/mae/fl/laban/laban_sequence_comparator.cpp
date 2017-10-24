@@ -6,11 +6,14 @@
 
 
 
-namespace mae {
-    namespace fl {
-        namespace laban {
+namespace mae
+{
+    namespace fl
+    {
+        namespace laban
+        {
 
-            laban_sequence_comparator::laban_sequence_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<mv::i_symbol> > > > distance_measure = std::make_shared<mae::math::dtw<std::shared_ptr<mv::i_symbol> > >(std::make_shared<mv::symbol_fl_distance>()), unsigned int steps_per_beat)
+            laban_sequence_comparator::laban_sequence_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<mv::i_symbol> > > > distance_measure, unsigned int steps_per_beat)
             {
                 distance_measure_ = distance_measure;
                 steps_per_beat_ = steps_per_beat;

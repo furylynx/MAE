@@ -71,6 +71,18 @@ namespace mae
 				}
 			}
 
+
+			std::vector<double> room_direction::symbol_feature_vector() const
+			{
+				std::vector<double> result;
+
+				std::vector<double> fvec_dir = direction_->feature_vector();
+
+				result.insert(result.end(), fvec_dir.begin(), fvec_dir.end());
+
+				return result;
+			}
+
 			std::string room_direction::xml(unsigned int indent, std::string namesp) const
 			{
 				std::stringstream indent_stream;

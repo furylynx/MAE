@@ -87,6 +87,13 @@ namespace mae
 					virtual bool symbol_equals(std::shared_ptr<i_movement> a) const;
 
 					/**
+					 * Returns the symbol's feature vector without the length and position information.
+					 *
+					 * @return The feature vector.
+					 */
+					virtual std::vector<double> symbol_feature_vector() const;
+
+					/**
 					 * Returns the XML representation for this element.
 					 *
 					 * @param indent The applied indent.

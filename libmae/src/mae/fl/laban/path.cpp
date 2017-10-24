@@ -67,6 +67,16 @@ namespace mae
 				}
 			}
 
+
+			std::vector<double> path::symbol_feature_vector() const
+			{
+				std::vector<double> result;
+
+				result.push_back(e_path_type_c::to_int(type_));
+
+				return result;
+			}
+
 			std::string path::xml(unsigned int indent, std::string namesp) const
 			{
 				std::stringstream indent_stream;
