@@ -47,6 +47,11 @@ namespace mae
 					return result;
 				}
 
+				int e_joint_c::to_int(e_joint ejoint)
+				{
+					return (int) ejoint;
+				}
+
 				e_joint e_joint_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

@@ -19,7 +19,7 @@
 #include "space_symbol.hpp"
 #include "turn_symbol.hpp"
 #include "vibration_symbol.hpp"
-#include "symbol_fl_distance.hpp"
+#include "../movement_comparator.hpp"
 
 
 #endif // MAE_FL_LABAN_MV_MV_HPP_

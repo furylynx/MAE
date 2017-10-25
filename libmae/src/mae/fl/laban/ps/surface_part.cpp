@@ -80,6 +80,20 @@ namespace mae
 					return false;
 				}
 
+
+				std::vector<double> surface_part::feature_vector() const
+				{
+					std::vector<double> result;
+
+					result.push_back(e_limb_side_c::to_int(lside_));
+
+					std::vector<double> fvec_limb = limb_->feature_vector();
+
+					result.insert(result.end(), fvec_limb.begin(), fvec_limb.end());
+
+					return result;
+				}
+
 			} // namespace ps
 		} // namespace laban
 	} // namespace fl

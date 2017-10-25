@@ -36,6 +36,12 @@ namespace mae
 					return result;
 				}
 
+
+				int e_area_c::to_int(e_area earea)
+				{
+					return (int) earea;
+				}
+
 				e_area e_area_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

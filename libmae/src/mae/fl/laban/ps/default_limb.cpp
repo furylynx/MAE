@@ -165,6 +165,15 @@ namespace mae
 					return false;
 				}
 
+				std::vector<double> default_limb::feature_vector() const
+				{
+					std::vector<double> result;
+
+					result.push_back(e_limb_c::to_int(limb_));
+
+					return result;
+				}
+
 			} // namespace ps
 		} // namespace laban
 	} // namespace fl

@@ -104,11 +104,10 @@ namespace mae
 					result.push_back(column_);
 					result.push_back(active_);
 
-					//TODO pre sign?
-//					std::vector<double> fvec_pre = pre_sign_->feature_vector();
+					std::vector<double> fvec_pre = pre_sign_->feature_vector();
 					std::vector<double> fvec_dyn = dynamics_->feature_vector();
 
-//					result.insert(result.end(), fvec_pre.begin(), fvec_pre.end());
+					result.insert(result.end(), fvec_pre.begin(), fvec_pre.end());
 					result.insert(result.end(), fvec_dyn.begin(), fvec_dyn.end());
 
 					return result;

@@ -216,6 +216,15 @@ namespace mae
 					return false;
 				}
 
+				std::vector<double> area_part::feature_vector() const
+				{
+					std::vector<double> result;
+
+					result.push_back(e_area_c::to_int(area_));
+
+					return result;
+				}
+
 			} // namespace ps
 		} // namespace laban
 	} // namespace fl

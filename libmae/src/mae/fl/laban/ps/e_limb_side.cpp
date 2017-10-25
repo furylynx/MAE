@@ -42,6 +42,11 @@ namespace mae
 					return result;
 				}
 
+				int e_limb_side_c::to_int(e_limb_side elimbside)
+				{
+					return (int) elimbside;
+				}
+
 				e_limb_side e_limb_side_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

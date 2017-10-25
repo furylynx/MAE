@@ -52,6 +52,14 @@ namespace mae
 						static std::vector<e_digit> vec();
 
 						/**
+						 * Returns the integer value corresponding to this element.
+						 *
+						 * @param edigit The element.
+						 * @return The integer ID.
+						 */
+						static int to_int(e_digit edigit);
+
+						/**
 						 * Parses the string and returns the corresponding element.
 						 *
 						 * @param str The string to be parsed.

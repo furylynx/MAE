@@ -34,6 +34,11 @@ namespace mae
 					return result;
 				}
 
+				int e_side_c::to_int(e_side eside)
+				{
+					return (int) eside;
+				}
+
 				e_side e_side_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

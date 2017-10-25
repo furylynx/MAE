@@ -40,6 +40,11 @@ namespace mae
 					return result;
 				}
 
+				int e_limb_c::to_int(e_limb elimb)
+				{
+					return (int) elimb;
+				}
+
 				e_limb e_limb_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

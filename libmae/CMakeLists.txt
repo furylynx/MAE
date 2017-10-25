@@ -248,7 +248,7 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/math/i_distance_measure.hpp
         src/mae/math/minkowski_distance.hpp
         src/mae/math/minkowski_distance.cpp
-        src/mae/fl/laban/mv/symbol_fl_distance.hpp src/mae/fl/laban/mv/symbol_fl_distance.cpp src/mae/fl/laban/laban_sequence_comparator.cpp src/mae/fl/laban/laban_sequence_comparator.hpp)
+        src/mae/fl/laban/movement_comparator.hpp src/mae/fl/laban/movement_comparator.cpp src/mae/fl/laban/laban_sequence_comparator.cpp src/mae/fl/laban/laban_sequence_comparator.hpp)
 
 
 set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")

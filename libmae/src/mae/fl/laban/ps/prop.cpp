@@ -109,6 +109,17 @@ namespace mae
 					return false;
 				}
 
+
+				std::vector<double> prop::feature_vector() const
+				{
+					std::vector<double> result;
+
+					result.push_back(std::hash<std::string>()(name_));
+					result.push_back(std::hash<std::string>()(description_));
+
+					return result;
+				}
+
 			} // namespace ps
 		} // namespace laban
 	} // namespace fl

@@ -94,8 +94,10 @@ namespace mae
 
 				result.push_back(hold_);
 
+				std::vector<double> fvec_pre = pre_sign_->feature_vector();
 				std::vector<double> fvec_sym = symbol_->feature_vector();
 
+				result.insert(result.end(), fvec_pre.begin(), fvec_pre.end());
 				result.insert(result.end(), fvec_sym.begin(), fvec_sym.end());
 
 				return result;

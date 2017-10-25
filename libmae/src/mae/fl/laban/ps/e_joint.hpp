@@ -52,6 +52,14 @@ namespace mae
 						static std::vector<e_joint> vec();
 
 						/**
+						 * Returns the integer value corresponding to this element.
+						 *
+						 * @param ejoint The element.
+						 * @return The integer ID.
+						 */
+						static int to_int(e_joint ejoint);
+
+						/**
 						 * Parses the string and returns the corresponding element.
 						 *
 						 * @param str The string to be parsed.

@@ -8,7 +8,7 @@
 //custom includes
 #include "laban_sequence.hpp"
 #include "mv/i_symbol.hpp"
-#include "mv/symbol_fl_distance.hpp"
+#include "movement_comparator.hpp"
 #include "../../math/i_distance_measure.hpp"
 
 
@@ -26,7 +26,14 @@ namespace mae {
             class laban_sequence_comparator : public mae::math::i_distance_measure<std::shared_ptr<laban_sequence> >
             {
                 public:
-                    laban_sequence_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<mv::i_symbol> > > > distance_measure = std::make_shared<mae::math::dtw<std::shared_ptr<mv::i_symbol> > >(std::make_shared<mv::symbol_fl_distance>()), unsigned int steps_per_beat = 6);
+
+                    /**
+                     * Creates a new comparator for laban sequences used to get the similarity between two scores.
+                     *
+                     * @param distance_measure The distance measure for single movement symbols ignoring the length.
+                     * @param steps_per_beat The number of frames to be used for each beat. Zero for no time slicing.
+                     */
+                    laban_sequence_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<i_movement> > > > distance_measure = std::make_shared<mae::math::dtw<std::shared_ptr<i_movement> > >(std::make_shared<movement_comparator>()), unsigned int steps_per_beat = 6);
                     virtual ~laban_sequence_comparator();
 
                     /**
@@ -39,8 +46,10 @@ namespace mae {
                     double distance(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2) const;
 
                 private:
-                    std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<mv::i_symbol> > > > distance_measure_;
+                    std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<i_movement> > > > distance_measure_;
                     unsigned int steps_per_beat_;
+
+                    std::vector<std::shared_ptr<column_definition> > default_definitions_;
 
             };
 

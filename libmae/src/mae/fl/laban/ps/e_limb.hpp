@@ -49,6 +49,14 @@ namespace mae
 						static std::vector<e_limb> vec();
 
 						/**
+						 * Returns the integer value corresponding to this element.
+						 *
+						 * @param elimb The element.
+						 * @return The integer ID.
+						 */
+						static int to_int(e_limb elimb);
+
+						/**
 						 * Parses the string and returns the corresponding element.
 						 *
 						 * @param str The string to be parsed.

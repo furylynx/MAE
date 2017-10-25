@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include <vector>
 
 namespace mae
 {
@@ -45,6 +46,14 @@ namespace mae
 						 * @return A vector.
 						 */
 						static std::vector<e_area> vec();
+
+						/**
+						 * Returns the integer value corresponding to this element.
+						 *
+						 * @param earea The element.
+						 * @return The integer ID.
+						 */
+						static int to_int(e_area earea);
 
 						/**
 						 * Parses the string and returns the corresponding element.

@@ -41,7 +41,6 @@ namespace mae
 					return false;
 				}
 
-
 				std::vector<double> accent_sign::feature_vector() const
 				{
 					std::vector<double> result;

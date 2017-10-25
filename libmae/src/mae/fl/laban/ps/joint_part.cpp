@@ -80,6 +80,16 @@ namespace mae
 					return false;
 				}
 
+
+				std::vector<double> joint_part::feature_vector() const
+				{
+					std::vector<double> result;
+
+					result.push_back(e_joint_c::to_int(joint_));
+
+					return result;
+				}
+
 				std::shared_ptr<i_endpoint> joint_part::get_fixed_end() const
 				{
 					if (joint_ == e_joint::FINGERS)

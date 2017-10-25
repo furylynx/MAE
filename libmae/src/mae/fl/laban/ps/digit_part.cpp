@@ -344,6 +344,16 @@ namespace mae
                     return false;
                 }
 
+                std::vector<double> digit_part::feature_vector() const
+                {
+                    std::vector<double> result;
+
+                    result.push_back(e_digit_c::to_int(digit_));
+                    result.push_back(knuckle_);
+
+                    return result;
+                }
+
                 std::string digit_part::svg_str_dot(std::string identifier, double centerx, double centery, double radius, bool left, double mirrorpos) const
                 {
                     std::stringstream sstr;

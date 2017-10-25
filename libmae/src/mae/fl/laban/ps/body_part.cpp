@@ -83,6 +83,19 @@ namespace mae
 					return false;
 				}
 
+				std::vector<double> body_part::feature_vector() const
+				{
+					std::vector<double> result;
+
+					result.push_back(e_side_c::to_int(side_));
+
+					std::vector<double> fvec_part = part_->feature_vector();
+
+					result.insert(result.end(), fvec_part.begin(), fvec_part.end());
+
+					return result;
+				}
+
 			} // namespace ps
 		} // namespace laban
 	} // namespace fl

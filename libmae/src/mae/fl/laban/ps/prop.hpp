@@ -8,6 +8,8 @@
 #include <string>
 #include <sstream>
 #include <stdexcept>
+#include <vector>
+#include <functional>
 
 
 namespace mae
@@ -75,6 +77,12 @@ namespace mae
 						 */
 						virtual bool equals(std::shared_ptr<i_pre_sign> a) const;
 
+						/**
+						 * Returns the feature vector for the symbol.
+						 *
+						 * @return The feature vector.
+						 */
+						virtual std::vector<double> feature_vector() const;
 
 					private:
 						std::string name_;
