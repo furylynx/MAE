@@ -30,7 +30,7 @@ namespace mae
 
             }
 
-            double laban_sequence_comparator::distance(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2) const
+            double laban_sequence_comparator::similarity(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2) const
             {
                 //map columns to each other and find unmappable columns
                 std::vector<std::shared_ptr<column_definition> > el1_coldefs = element1->get_column_definitions();
@@ -195,7 +195,7 @@ namespace mae
 
                     if (distance != std::numeric_limits<double>::infinity())
                     {
-                        similarity = 1 - (distance/max_distance);
+                        similarity = 1 / (1 + distance);
                     }
 
                     //TODO remove
