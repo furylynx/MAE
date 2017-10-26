@@ -63,7 +63,7 @@ namespace mae
 				virtual double get_beat() const;
 
 				/**
-				 * Returns the duration of the symbol.
+				 * Returns the duration of the symbol in beats.
 				 *
 				 * @return
 				 */

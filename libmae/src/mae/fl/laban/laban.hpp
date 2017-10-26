@@ -6,6 +6,7 @@
 #include "laban_sequence_generator.hpp"
 #include "laban_sequence_reader.hpp"
 #include "laban_sequence_recognizer.hpp"
+#include "laban_sequence_comparator.hpp"
 #include "rewriting_rules_reader.hpp"
 
 #include "mv/mv.hpp"

@@ -167,10 +167,11 @@ namespace mae
 
 				std::vector<double> default_limb::feature_vector() const
 				{
+					std::cout << "def limb" << std::endl;
 					std::vector<double> result;
 
 					result.push_back(e_limb_c::to_int(limb_));
-
+					std::cout << "def limb 2" << std::endl;
 					return result;
 				}
 

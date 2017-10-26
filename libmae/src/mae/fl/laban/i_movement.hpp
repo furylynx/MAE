@@ -45,7 +45,7 @@ namespace mae
 					virtual double get_beat() const = 0;
 
 					/**
-					 * Returns the duration of the symbol. Room direction symbols do not have a duration and will return 0.
+					 * Returns the duration of the symbol in beats. Room direction symbols do not have a duration and will return 0.
 					 *
 					 * @return
 					 */

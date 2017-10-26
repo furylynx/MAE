@@ -31,9 +31,10 @@ namespace mae {
                      * Creates a new comparator for laban sequences used to get the similarity between two scores.
                      *
                      * @param distance_measure The distance measure for single movement symbols ignoring the length.
-                     * @param steps_per_beat The number of frames to be used for each beat. Zero for no time slicing.
+                     * @param ignore_empty_columns True to set distance for columns between two columns to zero if one column contains no elements (which by definition means any movements are allowed).
+                     * @param frames_per_beat_ The number of frames to be used for each beat. Zero for no time slicing (using the exact sequence without modifications).
                      */
-                    laban_sequence_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<i_movement> > > > distance_measure = std::make_shared<mae::math::dtw<std::shared_ptr<i_movement> > >(std::make_shared<movement_comparator>()), unsigned int steps_per_beat = 6);
+                    laban_sequence_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<i_movement> > > > distance_measure = std::make_shared<mae::math::dtw<std::shared_ptr<i_movement> > >(std::make_shared<movement_comparator>()), bool ignore_empty_columns = false, unsigned int frames_per_beat = 6 );
                     virtual ~laban_sequence_comparator();
 
                     /**
@@ -47,9 +48,16 @@ namespace mae {
 
                 private:
                     std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<i_movement> > > > distance_measure_;
-                    unsigned int steps_per_beat_;
-
+                    unsigned int frames_per_beat_;
+                    bool ignore_empty_columns_;
                     std::vector<std::shared_ptr<column_definition> > default_definitions_;
+
+                    /**
+                     * Creates the streched sequence using the frames per beat factor. If the factor is zero, the given sequence will just be returned. If the factor for one symbol is less than one, one symbol will be inserted instead of zero.
+                     *
+                     * @return The streched sequence.
+                     */
+                    virtual std::vector<std::shared_ptr<i_movement> > create_stretched(std::vector<std::shared_ptr<i_movement> > non_streched) const;
 
             };
 

@@ -25,9 +25,7 @@ namespace mae
 
 				if (typeid(element1.get()) == typeid(element2.get()))
 				{
-					double distance = distance_measure_->distance(element1->symbol_feature_vector(), element2->symbol_feature_vector());
-
-					return distance;
+					return distance_measure_->distance(element1->symbol_feature_vector(), element2->symbol_feature_vector());
 				}
 				else
 				{

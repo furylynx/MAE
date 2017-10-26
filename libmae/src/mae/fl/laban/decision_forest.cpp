@@ -353,7 +353,7 @@ namespace mae
 						std::vector<std::shared_ptr<decision_tree<i_movement, laban_sequence> > > trees_vec = trees_.at(
 								column_id);
 
-						for (unsigned int j = trees_vec.size() - 1; j >= 0; j++)
+						for (int j = trees_vec.size() - 1; j >= 0; j--)
 						{
 							trees_vec.at(j)->remove_where(sequence);
 

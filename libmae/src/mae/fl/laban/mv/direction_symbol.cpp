@@ -108,8 +108,6 @@ namespace mae
 				{
 					std::vector<double> result;
 
-					//TODO direction and level map to a vec3d
-
 					//set value for the direction
 					fl_direction_map  map;
 					std::shared_ptr<mae::math::vec3d> set_dir = map.get_vec(horizontal_, vertical_);

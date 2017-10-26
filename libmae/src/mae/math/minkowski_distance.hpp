@@ -11,9 +11,11 @@
 //global includes
 #include <memory>
 #include <string>
+#include <iostream>
 #include <sstream>
 #include <cmath>
 #include <vector>
+
 
 
 namespace mae
@@ -24,7 +26,7 @@ namespace mae
 
         public:
             minkowski_distance(unsigned int p = 1);
-            ~minkowski_distance();
+            virtual ~minkowski_distance();
 
             virtual double distance(std::vector<double> element1, std::vector<double> element2) const;
 

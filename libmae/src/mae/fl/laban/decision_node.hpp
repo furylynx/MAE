@@ -247,8 +247,7 @@ namespace mae
 					{
 						//no child had a match, therefore a new child has to be added
 						children_.push_back(
-								std::shared_ptr<decision_node<T, U> >(
-										new decision_node(decision_maker_, sequence.at(next_index))));
+								std::make_shared<decision_node<T, U> >(decision_maker_, sequence.at(next_index)));
 						children_.back()->add_sequence(decision_value, step + 1, reverse_order);
 					}
 				}
@@ -259,7 +258,7 @@ namespace mae
 			{
 				bool result = false;
 
-				for (unsigned int i = children_.size() - 1; i >= 0; i++)
+				for (int i = children_.size() - 1; i >= 0; i--)
 				{
 					bool child_rem = children_.at(i)->remove_where(value);
 
@@ -277,7 +276,7 @@ namespace mae
 				//remove own sequences
 				std::vector<int> to_remove;
 
-				for (unsigned int i = values_.size() - 1; i >= 0; i++)
+				for (int i = values_.size() - 1; i >= 0; i--)
 				{
 					if (values_.at(i)->get_value() == value)
 					{
@@ -294,7 +293,7 @@ namespace mae
 			{
 				bool result = false;
 
-				for (unsigned int i = children_.size() - 1; i >= 0; i++)
+				for (int i = children_.size() - 1; i >= 0; i--)
 				{
 					bool child_rem = children_.at(i)->remove_where(dec_val);
 
@@ -312,7 +311,7 @@ namespace mae
 				//remove own sequences
 				std::vector<int> to_remove;
 
-				for (unsigned int i = values_.size() - 1; i >= 0; i++)
+				for (int i = values_.size() - 1; i >= 0; i--)
 				{
 					if (values_.at(i) == dec_val)
 					{

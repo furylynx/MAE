@@ -34,7 +34,7 @@ namespace mae
 						 * @param level The level type.
 						 * @param horizontal The horizontal direction which must be a value between -1
 						 * 						and 360. -1 represents at place whereas a value between
-						 * 						0 and 360 represents a the degree relative to the
+						 * 						0 and 360 represents the degree relative to the
 						 * 						forward direction (e.g. 90 represents "right").
 						 */
 						pin(e_level level, int horizontal);
