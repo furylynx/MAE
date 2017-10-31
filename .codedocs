@@ -1,0 +1,7 @@
+# CodeDocs.xyz Configuration File
+
+DOXYFILE = mae.doxy
+
+PROJECT_LOGO = mae_tiny.png
+
+INPUT= libmae/src libmae_demo/src libmae_eventing/src mainpage.dox 
