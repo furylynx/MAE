@@ -1,8 +1,8 @@
 ﻿Readme
 ==================
 
-The Movement Analysis Engine is able to analyze movements and provide events based on a 
-described movements sequence (Labanotation). The engine can be used by other applications 
+The Movement Analysis Engine is able to analyze movements and provide events based on a
+described movements sequence (Labanotation). The engine can be used by other applications
 for further movement processing and filtering in ambient spaces (i.e., smart environments).
 
 
@@ -38,13 +38,6 @@ ___
 Compile MAE from source (using autotools):
 
 type:
-cmake . 
+cmake .
 make
 sudo make install
-
-
-Documentation
-==================
-
-See doxygen/ folder for code documentation.
-
