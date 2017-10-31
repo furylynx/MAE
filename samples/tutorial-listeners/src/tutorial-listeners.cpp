@@ -1,9 +1,6 @@
 //============================================================================
-// Name        : tutorial-bvhreader.cpp
+// Name        : tutorial-listeners.cpp
 // Author      : furylynx
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
 //============================================================================
 
 //custom includes
