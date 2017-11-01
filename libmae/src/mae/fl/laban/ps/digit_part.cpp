@@ -344,6 +344,26 @@ namespace mae
                     return false;
                 }
 
+                bool digit_part::all_types_equal(std::shared_ptr<i_endpoint> a) const
+                {
+                    if (std::shared_ptr<digit_part> a_casted = std::dynamic_pointer_cast<digit_part>(a))
+                    {
+                        return true;
+                    }
+
+                    return false;
+                }
+
+                bool digit_part::all_types_equal(std::shared_ptr<i_part> a) const
+                {
+                    if (std::shared_ptr<i_endpoint> a_casted = std::dynamic_pointer_cast<i_endpoint>(a))
+                    {
+                        return all_types_equal(a_casted);
+                    }
+
+                    return false;
+                }
+
                 std::vector<double> digit_part::feature_vector() const
                 {
                     std::vector<double> result;

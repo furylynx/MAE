@@ -71,6 +71,17 @@ namespace mae
 				}
 			}
 
+			bool room_direction::all_types_equal(std::shared_ptr<i_movement> a) const
+			{
+				if (std::shared_ptr<room_direction> a_rd = std::dynamic_pointer_cast<room_direction>(a))
+				{
+					return (a_rd->get_direction()->all_types_equal(direction_));
+				}
+				else
+				{
+					return false;
+				}
+			}
 
 			std::vector<double> room_direction::symbol_feature_vector() const
 			{

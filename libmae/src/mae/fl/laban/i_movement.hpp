@@ -68,6 +68,14 @@ namespace mae
 					virtual bool symbol_equals(std::shared_ptr<i_movement> a) const = 0;
 
 					/**
+					 * Returns true if the symbols and all subelements have the same type making them comparable by feature vectors.
+					 *
+					 * @param a The movement to be compared to.
+					 * @return True if types equal.
+					 */
+					virtual bool all_types_equal(std::shared_ptr<i_movement> a) const = 0;
+
+					/**
 					 * Returns the symbol's feature vector without the length and position information.
 					 *
 					 * @return The feature vector.

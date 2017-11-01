@@ -67,6 +67,17 @@ namespace mae
 				}
 			}
 
+			bool path::all_types_equal(std::shared_ptr<i_movement> a) const
+			{
+				if (std::shared_ptr<path> a_p = std::dynamic_pointer_cast<path>(a))
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
 
 			std::vector<double> path::symbol_feature_vector() const
 			{

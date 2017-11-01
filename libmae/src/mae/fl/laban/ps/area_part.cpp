@@ -216,6 +216,26 @@ namespace mae
 					return false;
 				}
 
+				bool area_part::all_types_equal(std::shared_ptr<i_endpoint> a) const
+				{
+					if (std::shared_ptr<area_part> a_casted = std::dynamic_pointer_cast<area_part>(a))
+					{
+						return true;
+					}
+
+					return false;
+				}
+
+				bool area_part::all_types_equal(std::shared_ptr<i_part> a) const
+				{
+					if (std::shared_ptr<i_endpoint> a_casted = std::dynamic_pointer_cast<i_endpoint>(a))
+					{
+						return all_types_equal(a_casted);
+					}
+
+					return false;
+				}
+
 				std::vector<double> area_part::feature_vector() const
 				{
 					std::vector<double> result;

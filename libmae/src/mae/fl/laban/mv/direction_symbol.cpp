@@ -104,6 +104,38 @@ namespace mae
 					return false;
 				}
 
+				bool direction_symbol::all_types_equal(std::shared_ptr<i_symbol> a) const
+				{
+					if (std::shared_ptr<direction_symbol> a_dir = std::dynamic_pointer_cast<direction_symbol>(a))
+					{
+						//check modification pin
+						if ((modification_pin_ != nullptr
+							 && modification_pin_->all_types_equal(a_dir->get_modification_pin()))
+							|| (modification_pin_ == nullptr && a_dir->get_modification_pin() == nullptr))
+						{
+							//check relationship pin
+							if ((relationship_pin_ != nullptr
+								 && relationship_pin_->all_types_equal(a_dir->get_relationship_pin()))
+								|| (relationship_pin_ == nullptr && a_dir->get_relationship_pin() == nullptr))
+							{
+								//check dynamics sign
+								if ((dynamics_ != nullptr && dynamics_->all_types_equal(a_dir->get_dynamics()))
+									|| (dynamics_ == nullptr && a_dir->get_dynamics() == nullptr))
+								{
+									//check space measurement
+									if ((space_measurement_ != nullptr && space_measurement_->all_types_equal(a_dir->get_space_measurement()))
+										|| (space_measurement_ == nullptr && a_dir->get_space_measurement() == nullptr))
+									{
+										return true;
+									}
+								}
+							}
+						}
+					}
+
+					return false;
+				}
+
 				std::vector<double> direction_symbol::feature_vector() const
 				{
 					std::vector<double> result;

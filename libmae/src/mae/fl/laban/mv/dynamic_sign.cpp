@@ -41,6 +41,16 @@ namespace mae
 					return false;
 				}
 
+				bool dynamic_sign::all_types_equal(std::shared_ptr<i_dynamics_sign> a) const
+				{
+					if (std::shared_ptr<dynamic_sign> a_dyn = std::dynamic_pointer_cast<dynamic_sign>(a))
+					{
+						return true;
+					}
+
+					return false;
+				}
+
 
 				std::vector<double> dynamic_sign::feature_vector() const
 				{

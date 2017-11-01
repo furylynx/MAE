@@ -83,6 +83,16 @@ namespace mae
 					return false;
 				}
 
+				bool body_part::all_types_equal(std::shared_ptr<i_pre_sign> a) const
+				{
+					if (std::shared_ptr<body_part> a_casted = std::dynamic_pointer_cast<body_part>(a))
+					{
+						return true;
+					}
+
+					return false;
+				}
+
 				std::vector<double> body_part::feature_vector() const
 				{
 					std::vector<double> result;

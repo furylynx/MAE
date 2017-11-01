@@ -80,6 +80,15 @@ namespace mae
 					return false;
 				}
 
+				bool surface_part::all_types_equal(std::shared_ptr<i_part> a) const
+				{
+					if (std::shared_ptr<surface_part> a_casted = std::dynamic_pointer_cast<surface_part>(a))
+					{
+						return true;
+					}
+
+					return false;
+				}
 
 				std::vector<double> surface_part::feature_vector() const
 				{

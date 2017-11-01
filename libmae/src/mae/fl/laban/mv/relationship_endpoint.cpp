@@ -97,6 +97,13 @@ namespace mae
 					return column_ == a->get_column() && active_ == a->get_active() && pre_sign_->equals(a->get_pre_sign()) && dynamics_->equals(a->get_dynamics());
 				}
 
+
+
+				bool relationship_endpoint::all_types_equal(std::shared_ptr<relationship_endpoint> a) const
+				{
+					return pre_sign_->all_types_equal(a->get_pre_sign()) && dynamics_->all_types_equal(a->get_dynamics());
+				}
+
 				std::vector<double> relationship_endpoint::feature_vector() const
 				{
 					std::vector<double> result;

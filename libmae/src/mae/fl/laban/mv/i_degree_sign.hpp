@@ -32,6 +32,14 @@ namespace mae
 						virtual bool equals(std::shared_ptr<i_degree_sign> a) const = 0;
 
 						/**
+						 * Returns true if the symbols and all subelements have the same type making them comparable by feature vectors.
+						 *
+						 * @param a The sign to be compared to.
+						 * @return True if types equal.
+						 */
+						virtual bool all_types_equal(std::shared_ptr<i_degree_sign> a) const = 0;
+
+						/**
 						 * Returns the feature vector for the symbol.
 						 *
 						 * @return The feature vector.

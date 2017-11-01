@@ -53,6 +53,16 @@ namespace mae
 					return false;
 				}
 
+				bool pin::all_types_equal(std::shared_ptr<i_degree_sign> a) const
+				{
+					if (std::shared_ptr<pin> a_pin = std::dynamic_pointer_cast<pin>(a))
+					{
+						return true;
+					}
+
+					return false;
+				}
+
 				std::vector<double> pin::feature_vector() const
 				{
 					std::vector<double> result;

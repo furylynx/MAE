@@ -54,6 +54,16 @@ namespace mae
 					return false;
 				}
 
+				bool space_measurement::all_types_equal(std::shared_ptr<i_degree_sign> a) const
+				{
+					if (std::shared_ptr<space_measurement> a_space = std::dynamic_pointer_cast<space_measurement>(a))
+					{
+						return true;
+					}
+
+					return false;
+				}
+
 				std::vector<double> space_measurement::feature_vector() const
 				{
 					std::vector<double> result;

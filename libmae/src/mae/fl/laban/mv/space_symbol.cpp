@@ -56,6 +56,27 @@ namespace mae
 					return false;
 				}
 
+				bool space_symbol::all_types_equal(std::shared_ptr<i_symbol> a) const
+				{
+					if (std::shared_ptr<space_symbol> a_space = std::dynamic_pointer_cast<space_symbol>(a))
+					{
+						//check dynamics sign
+						if ((dynamics_ != nullptr && dynamics_->all_types_equal(a_space->get_dynamics()))
+							|| (dynamics_ == nullptr && a_space->get_dynamics() == nullptr))
+						{
+							//check space measurement
+							if ((space_measurement_ != nullptr && space_measurement_->all_types_equal(a_space->get_space_measurement()))
+								|| (space_measurement_ == nullptr && a_space->get_space_measurement() == nullptr))
+							{
+								return true;
+							}
+						}
+
+					}
+
+					return false;
+				}
+
 				std::vector<double> space_symbol::feature_vector() const
 				{
 					std::vector<double> result;

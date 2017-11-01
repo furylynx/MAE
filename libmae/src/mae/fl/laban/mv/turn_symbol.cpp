@@ -66,6 +66,26 @@ namespace mae
 					return false;
 				}
 
+				bool turn_symbol::all_types_equal(std::shared_ptr<i_symbol> a) const
+				{
+					if (std::shared_ptr<turn_symbol> a_turn = std::dynamic_pointer_cast<turn_symbol>(a))
+					{
+						//check dynamics sign
+						if ((dynamics_ != nullptr && dynamics_->all_types_equal(a_turn->get_dynamics()))
+							|| (dynamics_ == nullptr && a_turn->get_dynamics() == nullptr))
+						{
+							//check degree sign
+							if ((degree_ != nullptr && degree_->all_types_equal(a_turn->get_degree()))
+								|| (degree_ == nullptr && a_turn->get_degree() == nullptr))
+							{
+								return true;
+							}
+						}
+					}
+
+					return false;
+				}
+
 				std::vector<double> turn_symbol::feature_vector() const
 				{
 					std::vector<double> result;

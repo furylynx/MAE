@@ -58,6 +58,22 @@ namespace mae
 						virtual bool equals(std::shared_ptr<i_endpoint> a) const  = 0;
 
 						/**
+						 * Returns true if the part and all subelements have the same type making them comparable by feature vectors.
+						 *
+						 * @param a The part to be compared to.
+						 * @return True if types equal.
+						 */
+						virtual bool all_types_equal(std::shared_ptr<i_part> a) const = 0;
+
+						/**
+						 * Returns true if the part and all subelements have the same type making them comparable by feature vectors.
+						 *
+						 * @param a The part to be compared to.
+						 * @return True if types equal.
+						 */
+						virtual bool all_types_equal(std::shared_ptr<i_endpoint> a) const = 0;
+
+						/**
 						 * Returns the feature vector for the part.
 						 *
 						 * @return The feature vector.

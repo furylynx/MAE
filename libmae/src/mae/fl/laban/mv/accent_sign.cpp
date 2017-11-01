@@ -41,6 +41,16 @@ namespace mae
 					return false;
 				}
 
+				bool accent_sign::all_types_equal(std::shared_ptr<i_dynamics_sign> a) const
+				{
+					if (std::shared_ptr<accent_sign> a_dyn = std::dynamic_pointer_cast<accent_sign>(a))
+					{
+						return true;
+					}
+
+					return false;
+				}
+
 				std::vector<double> accent_sign::feature_vector() const
 				{
 					std::vector<double> result;

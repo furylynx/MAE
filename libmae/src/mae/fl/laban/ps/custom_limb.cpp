@@ -110,6 +110,33 @@ namespace mae
 					return false;
 				}
 
+				bool custom_limb::all_types_equal(std::shared_ptr<i_limb> a) const
+				{
+					if (std::shared_ptr<custom_limb> a_casted = std::dynamic_pointer_cast<custom_limb>(a))
+					{
+						if (extremity_->all_types_equal(a_casted->get_extremity()))
+						{
+							return (fixed_end_ == nullptr && a_casted->get_fixed_end() == nullptr)
+								   || (fixed_end_ != nullptr
+									   && fixed_end_->all_types_equal(a_casted->get_extremity()->get_fixed_end()))
+								   || (a_casted->get_fixed_end() != nullptr
+									   && a_casted->get_fixed_end()->all_types_equal(extremity_->get_fixed_end()));
+						}
+					}
+
+					return false;
+				}
+
+				bool custom_limb::all_types_equal(std::shared_ptr<i_part> a) const
+				{
+					if (std::shared_ptr<i_limb> a_casted = std::dynamic_pointer_cast<i_limb>(a))
+					{
+						return all_types_equal(a_casted);
+					}
+
+					return false;
+				}
+
 				std::vector<double> custom_limb::feature_vector() const
 				{
 					std::vector<double> result;

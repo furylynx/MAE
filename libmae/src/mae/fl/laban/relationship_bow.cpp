@@ -111,6 +111,18 @@ namespace mae
 				}
 			}
 
+			bool relationship_bow::all_types_equal(std::shared_ptr<i_movement> a) const
+			{
+				if (std::shared_ptr<relationship_bow> a_rb = std::dynamic_pointer_cast<relationship_bow>(a))
+				{
+					return (a_rb->get_left_endpoint()->all_types_equal(left_endpoint_)
+							&& a_rb->get_right_endpoint()->all_types_equal(right_endpoint_));
+				}
+				else
+				{
+					return false;
+				}
+			}
 
 			std::vector<double> relationship_bow::symbol_feature_vector() const
 			{

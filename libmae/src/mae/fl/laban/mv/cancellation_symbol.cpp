@@ -41,6 +41,16 @@ namespace mae
 					return false;
 				}
 
+				bool cancellation_symbol::all_types_equal(std::shared_ptr<i_symbol> a) const
+				{
+					if (std::shared_ptr<cancellation_symbol> a_c = std::dynamic_pointer_cast<cancellation_symbol>(a))
+					{
+						return true;
+					}
+
+					return false;
+				}
+
 				std::vector<double> cancellation_symbol::feature_vector() const
 				{
 					std::vector<double> result;

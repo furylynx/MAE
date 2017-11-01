@@ -165,6 +165,26 @@ namespace mae
 					return false;
 				}
 
+				bool default_limb::all_types_equal(std::shared_ptr<i_limb> a) const
+				{
+					if (std::shared_ptr<default_limb> a_casted = std::dynamic_pointer_cast<default_limb>(a))
+					{
+						return true;
+					}
+
+					return false;
+				}
+
+				bool default_limb::all_types_equal(std::shared_ptr<i_part> a) const
+				{
+					if (std::shared_ptr<i_limb> a_casted = std::dynamic_pointer_cast<i_limb>(a))
+					{
+						return all_types_equal(a_casted);
+					}
+
+					return false;
+				}
+
 				std::vector<double> default_limb::feature_vector() const
 				{
 					std::cout << "def limb" << std::endl;

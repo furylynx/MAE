@@ -88,6 +88,19 @@ namespace mae
 				}
 			}
 
+			bool movement::all_types_equal(std::shared_ptr<i_movement> a) const
+			{
+				if (std::shared_ptr<movement> a_mov = std::dynamic_pointer_cast<movement>(a))
+				{
+					return (a_mov->get_symbol()->all_types_equal(symbol_) && ((a_mov->get_pre_sign() == nullptr && pre_sign_ == nullptr)
+								|| (a_mov->get_pre_sign() != nullptr && a_mov->get_pre_sign()->all_types_equal(pre_sign_))));
+				}
+				else
+				{
+					return false;
+				}
+			}
+
 			std::vector<double> movement::symbol_feature_vector() const
 			{
 				std::vector<double> result;

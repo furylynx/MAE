@@ -65,6 +65,28 @@ namespace mae
 					return false;
 				}
 
+				bool vibration_symbol::all_types_equal(std::shared_ptr<i_symbol> a) const
+				{
+					if (std::shared_ptr<vibration_symbol> a_vib = std::dynamic_pointer_cast<vibration_symbol>(a))
+					{
+						//check dynamics sign
+						if ((dynamics_ != nullptr && dynamics_->all_types_equal(a_vib->get_dynamics()))
+							|| (dynamics_ == nullptr && a_vib->get_dynamics() == nullptr))
+						{
+							//check space measurement
+							if ((displacement1_->all_types_equal(a_vib->get_displacement1())
+								 && displacement2_->all_types_equal(a_vib->get_displacement2()))
+								|| (displacement1_->all_types_equal(a_vib->get_displacement2())
+									&& displacement2_->all_types_equal(a_vib->get_displacement1())))
+							{
+								return true;
+							}
+						}
+					}
+
+					return false;
+				}
+
 				std::vector<double> vibration_symbol::feature_vector() const
 				{
 					std::vector<double> result;

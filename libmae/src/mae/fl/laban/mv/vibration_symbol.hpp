@@ -66,6 +66,14 @@ namespace mae
 						virtual bool equals(std::shared_ptr<i_symbol> a) const;
 
 						/**
+						 * Returns true if the symbols and all subelements have the same type making them comparable by feature vectors.
+						 *
+						 * @param a The symbol to be compared to.
+						 * @return True if types equal.
+						 */
+						virtual bool all_types_equal(std::shared_ptr<i_symbol> a) const;
+
+						/**
 						 * Returns the feature vector for the symbol.
 						 *
 						 * @return The feature vector.

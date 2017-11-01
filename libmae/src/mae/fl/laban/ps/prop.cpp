@@ -109,6 +109,15 @@ namespace mae
 					return false;
 				}
 
+				bool prop::all_types_equal(std::shared_ptr<i_pre_sign> a) const
+				{
+					if (std::shared_ptr<prop> a_casted = std::dynamic_pointer_cast<prop>(a))
+					{
+						return true;
+					}
+
+					return false;
+				}
 
 				std::vector<double> prop::feature_vector() const
 				{

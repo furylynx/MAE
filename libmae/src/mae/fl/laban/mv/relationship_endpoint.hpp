@@ -90,6 +90,14 @@ namespace mae
 						virtual bool equals(std::shared_ptr<relationship_endpoint> a) const;
 
 						/**
+						 * Returns true if the endpoints and all subelements have the same type making them comparable by feature vectors.
+						 *
+						 * @param a The endpoint to be compared to.
+						 * @return True if types equal.
+						 */
+						virtual bool all_types_equal(std::shared_ptr<relationship_endpoint> a) const;
+
+						/**
 						 * Returns the feature vector for the endpoint.
 						 *
 						 * @return The feature vector.

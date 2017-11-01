@@ -40,7 +40,7 @@ int main()
 
             std::cout << "ff" << std::endl;
 
-            double similarity = comparator.distance(sequence1, sequence2);
+            double similarity = comparator.similarity(sequence1, sequence2);
 
             std::cout << "Similarity: " << similarity << std::endl;
         }
