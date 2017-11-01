@@ -236,11 +236,11 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> area_part::feature_vector() const
+				std::vector<double> area_part::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					result.push_back(e_area_c::to_int(area_));
+					result.push_back(hierarchy_factor * e_area_c::to_int(area_)/(double)e_area_c::max());
 
 					return result;
 				}

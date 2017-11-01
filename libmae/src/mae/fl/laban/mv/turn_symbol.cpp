@@ -86,16 +86,28 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> turn_symbol::feature_vector() const
+				std::vector<double> turn_symbol::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					std::vector<double> fvec_dyn = dynamics_->feature_vector();
-					std::vector<double> fvec_deg = degree_->feature_vector();
+					std::vector<double> fvec_dyn;
 
-					result.push_back(e_turn_direction_c::to_int(direction_));
+					if (nullptr != dynamics_)
+					{
+						fvec_dyn = dynamics_->feature_vector(std::pow(hierarchy_factor, 2));
+					}
+
+					std::vector<double> fvec_deg;
+
+					if (nullptr != degree_)
+					{
+						fvec_deg = degree_->feature_vector(std::pow(hierarchy_factor, 2));
+					}
+
 					result.insert(result.end(), fvec_dyn.begin(), fvec_dyn.end());
 					result.insert(result.end(), fvec_deg.begin(), fvec_deg.end());
+
+					result.push_back(hierarchy_factor * e_turn_direction_c::to_int(direction_) / (double) e_turn_direction_c::max());
 
 					return result;
 				}

@@ -55,7 +55,7 @@ namespace mae
 				xmlpp::Node* root_node = doc->get_root_node();
 
 				//setup namespace prefix
-				std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map = std::shared_ptr<xmlpp::Node::PrefixNsMap>(new xmlpp::Node::PrefixNsMap());
+				std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map = std::make_shared<xmlpp::Node::PrefixNsMap>();
 				if (root_node->get_namespace_prefix().size() > 0)
 				{
 					namespace_map->insert(std::make_pair(root_node->get_namespace_prefix(), root_node->get_namespace_uri()));
@@ -109,11 +109,11 @@ namespace mae
 				}
 
 
-				std::shared_ptr<std::vector<std::vector<std::shared_ptr<i_movement> > > > replacements = std::shared_ptr<std::vector<std::vector<std::shared_ptr<i_movement> > > >(new std::vector<std::vector<std::shared_ptr<i_movement> > >());
+				std::shared_ptr<std::vector<std::vector<std::shared_ptr<i_movement> > > > replacements = std::make_shared<std::vector<std::vector<std::shared_ptr<i_movement> > > >();
 
 				replacements->push_back(replacement);
 
-				result = std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > >(new decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > >(sequence, replacements));
+				result = std::make_shared<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > >(sequence, replacements);
 
 				return result;
 			}
@@ -145,9 +145,9 @@ namespace mae
 				mv::e_direction horizontal = mv::e_direction_c::parse(internal_mxml::get_node_content(node, namespace_map, "horizontal", nsp, "NONE"));
 				bool hold = mbool::parse(internal_mxml::get_node_content(node, namespace_map, "hold", nsp, "false"));
 
-				std::shared_ptr<mv::i_symbol> dir_sym = std::shared_ptr<mv::i_symbol>(new mv::direction_symbol(vertical, horizontal));
+				std::shared_ptr<mv::i_symbol> dir_sym = std::make_shared<mv::direction_symbol>(vertical, horizontal);
 
-				result = std::shared_ptr<i_movement>(new movement( 0, 0, 0, 0, dir_sym, hold));
+				result = std::make_shared<movement>(0, 0, 0, 0, dir_sym, hold);
 
 				return result;
 			}

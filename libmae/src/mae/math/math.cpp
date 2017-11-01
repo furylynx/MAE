@@ -75,5 +75,31 @@ namespace mae
 			return (x > 0) - (x < 0);
 		}
 
+		double math::p_norm(std::vector<double> vector, double p)
+		{
+			double sum = 0;
+
+			for (std::size_t i = 0; i < vector.size(); i++)
+			{
+				sum += std::pow(std::abs(vector.at(i)), p);
+			}
+
+			return std::pow(sum, 1/(double)p);
+		}
+
+		std::vector<double> math::p_normalize(std::vector<double> vector, double p)
+		{
+			double p_norm = math::p_norm(vector, p);
+
+			std::vector<double> result;
+
+			for (double element : vector)
+			{
+				result.push_back(element/p_norm);
+			}
+
+			return result;
+		}
+
 	} // namespace math
 } // namespace mae

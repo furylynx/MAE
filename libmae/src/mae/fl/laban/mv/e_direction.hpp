@@ -56,6 +56,13 @@ namespace mae
 						static int to_int(e_direction edirection);
 
 						/**
+						 * Returns the int value corresponding to the last element making it the maximum int.
+						 *
+						 * @return The maximum.
+						 */
+						static int max();
+
+						/**
 						 * Returns the corresponding direction value.
 						 *
 						 * @param direction The direction+level enum value.

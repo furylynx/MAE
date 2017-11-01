@@ -79,11 +79,11 @@ namespace mae
 				}
 			}
 
-			std::vector<double> path::symbol_feature_vector() const
+			std::vector<double> path::symbol_feature_vector(double hierarchy_factor) const
 			{
 				std::vector<double> result;
 
-				result.push_back(e_path_type_c::to_int(type_));
+				result.push_back(e_path_type_c::to_int(type_)/(double)e_path_type_c::max());
 
 				return result;
 			}

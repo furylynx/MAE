@@ -51,11 +51,11 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> accent_sign::feature_vector() const
+				std::vector<double> accent_sign::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					result.push_back(accent_);
+					result.push_back(hierarchy_factor * accent_/(double) 5);
 
 					return result;
 				}

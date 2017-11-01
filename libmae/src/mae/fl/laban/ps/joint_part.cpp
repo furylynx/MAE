@@ -100,11 +100,11 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> joint_part::feature_vector() const
+				std::vector<double> joint_part::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					result.push_back(e_joint_c::to_int(joint_));
+					result.push_back(hierarchy_factor * e_joint_c::to_int(joint_)/(double) e_joint_c::max());
 
 					return result;
 				}

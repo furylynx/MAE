@@ -101,13 +101,13 @@ namespace mae
 				}
 			}
 
-			std::vector<double> movement::symbol_feature_vector() const
+			std::vector<double> movement::symbol_feature_vector(double hierarchy_factor) const
 			{
 				std::vector<double> result;
 
 				result.push_back(hold_);
 
-				std::vector<double> fvec_sym = symbol_->feature_vector();
+				std::vector<double> fvec_sym = symbol_->feature_vector(hierarchy_factor);
 
 				result.insert(result.end(), fvec_sym.begin(), fvec_sym.end());
 

@@ -136,6 +136,22 @@ namespace mae
 				 */
 				static int sign(double x);
 
+				/**
+				 * Returns the result of the p-norm.
+				 *
+				 * @param vector The vector.
+				 * @return The result of the p-norm.
+				 */
+				static double p_norm(std::vector<double> vector, double p);
+
+				/**
+				 * Returns the normalized vector using p-norm.
+				 *
+				 * @param vector The vector.
+				 * @return The result of the p-norm.
+				 */
+				static std::vector<double> p_normalize(std::vector<double> vector, double p);
+
 		};
 
 	} // namespace math

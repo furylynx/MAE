@@ -137,12 +137,18 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> custom_limb::feature_vector() const
+				std::vector<double> custom_limb::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					std::vector<double> fvec_fe = fixed_end_->feature_vector();
-					std::vector<double> fvec_ex = extremity_->feature_vector();
+					std::vector<double> fvec_fe;
+
+					if (nullptr != fixed_end_)
+					{
+						fvec_fe= fixed_end_->feature_vector(std::pow(hierarchy_factor,2));
+					}
+
+					std::vector<double> fvec_ex = extremity_->feature_vector(std::pow(hierarchy_factor,2));
 
 					result.insert(result.end(), fvec_fe.begin(), fvec_fe.end());
 					result.insert(result.end(), fvec_ex.begin(), fvec_ex.end());

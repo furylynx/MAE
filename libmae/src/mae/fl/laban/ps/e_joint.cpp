@@ -52,6 +52,11 @@ namespace mae
 					return (int) ejoint;
 				}
 
+				int e_joint_c::max()
+				{
+					return (int) e_joint::TOES;
+				}
+
 				e_joint e_joint_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

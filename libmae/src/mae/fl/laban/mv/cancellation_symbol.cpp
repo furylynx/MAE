@@ -51,11 +51,11 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> cancellation_symbol::feature_vector() const
+				std::vector<double> cancellation_symbol::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					result.push_back(e_cancel_c::to_int(cancel_));
+					result.push_back(hierarchy_factor * e_cancel_c::to_int(cancel_) / (double) e_cancel_c::max());
 
 					return result;
 				}

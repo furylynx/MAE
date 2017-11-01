@@ -64,13 +64,13 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> space_measurement::feature_vector() const
+				std::vector<double> space_measurement::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					result.push_back(e_space_c::to_int(type_));
-					result.push_back(degree_);
-					result.push_back(e_space_direction_c::to_int(direction_));
+					result.push_back(hierarchy_factor * e_space_c::to_int(type_) / (double) e_space_c::max());
+					result.push_back(hierarchy_factor * degree_ / (double) 6);
+					result.push_back(hierarchy_factor * e_space_direction_c::to_int(direction_) / (double) e_space_direction_c::max());
 
 					return result;
 				}

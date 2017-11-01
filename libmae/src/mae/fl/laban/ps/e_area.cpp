@@ -42,6 +42,11 @@ namespace mae
 					return (int) earea;
 				}
 
+				int e_area_c::max()
+				{
+					return (int) e_area::TORSO;
+				}
+
 				e_area e_area_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

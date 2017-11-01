@@ -90,13 +90,13 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> surface_part::feature_vector() const
+				std::vector<double> surface_part::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					result.push_back(e_limb_side_c::to_int(lside_));
+					result.push_back(hierarchy_factor * e_limb_side_c::to_int(lside_) / (double) e_limb_side_c::max());
 
-					std::vector<double> fvec_limb = limb_->feature_vector();
+					std::vector<double> fvec_limb = limb_->feature_vector(std::pow(hierarchy_factor,2));
 
 					result.insert(result.end(), fvec_limb.begin(), fvec_limb.end());
 

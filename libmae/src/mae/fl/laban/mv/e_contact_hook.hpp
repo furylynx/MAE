@@ -54,6 +54,13 @@ namespace mae
 						static int to_int(e_contact_hook ehook);
 
 						/**
+						 * Returns the int value corresponding to the last element making it the maximum int.
+						 *
+						 * @return The maximum.
+						 */
+						static int max();
+
+						/**
 						 * Returns a vector containing all possible enum values.
 						 *
 						 * @return A vector.

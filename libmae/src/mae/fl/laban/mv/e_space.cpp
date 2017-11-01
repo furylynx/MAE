@@ -43,6 +43,11 @@ namespace mae
 					return (int) espace;
 				}
 
+				int e_space_c::max()
+				{
+					return (int) e_space::SPREADING;
+				}
+
 				e_space e_space_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

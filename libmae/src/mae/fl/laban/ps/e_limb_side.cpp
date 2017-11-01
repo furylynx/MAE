@@ -47,6 +47,11 @@ namespace mae
 					return (int) elimbside;
 				}
 
+				int e_limb_side_c::max()
+				{
+					return (int) e_limb_side::INNERTHUMB;
+				}
+
 				e_limb_side e_limb_side_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

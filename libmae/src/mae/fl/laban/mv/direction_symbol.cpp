@@ -136,7 +136,7 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> direction_symbol::feature_vector() const
+				std::vector<double> direction_symbol::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
@@ -144,20 +144,44 @@ namespace mae
 					fl_direction_map  map;
 					std::shared_ptr<mae::math::vec3d> set_dir = map.get_vec(horizontal_, vertical_);
 
-					result.push_back(set_dir->get_x());
-					result.push_back(set_dir->get_y());
-					result.push_back(set_dir->get_z());
+					result.push_back(hierarchy_factor * set_dir->get_x());
+					result.push_back(hierarchy_factor * set_dir->get_y());
+					result.push_back(hierarchy_factor * set_dir->get_z());
 
-					std::vector<double> fvec_mpin = modification_pin_->feature_vector();
-					std::vector<double> fvec_rpin = relationship_pin_->feature_vector();
-					std::vector<double> fvec_dyn = dynamics_->feature_vector();
-					std::vector<double> fvec_spacem = space_measurement_->feature_vector();
+					std::vector<double> fvec_mpin;
+
+					if (nullptr != modification_pin_)
+					{
+						fvec_mpin = modification_pin_->feature_vector(std::pow(hierarchy_factor, 2));
+					}
+
+					std::vector<double> fvec_rpin;
+
+					if (nullptr != relationship_pin_)
+					{
+						fvec_rpin = relationship_pin_->feature_vector(std::pow(hierarchy_factor, 2));
+					}
+
+					std::vector<double> fvec_dyn;
+
+					if (nullptr != dynamics_)
+					{
+						fvec_dyn = dynamics_->feature_vector(std::pow(hierarchy_factor, 2));
+					}
+
+					std::vector<double> fvec_spacem;
+
+					if (nullptr != space_measurement_)
+					{
+						fvec_spacem = space_measurement_->feature_vector(std::pow(hierarchy_factor, 2));
+					}
 
 					result.insert(result.end(), fvec_mpin.begin(), fvec_mpin.end());
 					result.insert(result.end(), fvec_rpin.begin(), fvec_rpin.end());
 					result.insert(result.end(), fvec_dyn.begin(), fvec_dyn.end());
 					result.insert(result.end(), fvec_spacem.begin(), fvec_spacem.end());
-					result.push_back(e_contact_hook_c::to_int(contact_hook_));
+
+					result.push_back(hierarchy_factor * e_contact_hook_c::to_int(contact_hook_) / (double) e_contact_hook_c::max());
 
 					return result;
 				}

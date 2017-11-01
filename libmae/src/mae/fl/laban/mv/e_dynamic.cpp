@@ -48,6 +48,11 @@ namespace mae
 					return (int) edynamic;
 				}
 
+				int e_dynamic_c::max()
+				{
+					return (int) e_dynamic::VERY_RESILIENT;
+				}
+
 				e_dynamic e_dynamic_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

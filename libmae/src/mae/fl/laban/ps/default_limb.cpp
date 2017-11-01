@@ -185,13 +185,12 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> default_limb::feature_vector() const
+				std::vector<double> default_limb::feature_vector(double hierarchy_factor) const
 				{
-					std::cout << "def limb" << std::endl;
 					std::vector<double> result;
 
-					result.push_back(e_limb_c::to_int(limb_));
-					std::cout << "def limb 2" << std::endl;
+					result.push_back(hierarchy_factor * e_limb_c::to_int(limb_) / (double) e_limb_c::max());
+
 					return result;
 				}
 

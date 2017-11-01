@@ -104,15 +104,28 @@ namespace mae
 					return pre_sign_->all_types_equal(a->get_pre_sign()) && dynamics_->all_types_equal(a->get_dynamics());
 				}
 
-				std::vector<double> relationship_endpoint::feature_vector() const
+				std::vector<double> relationship_endpoint::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					result.push_back(column_);
-					result.push_back(active_);
+					double max_column = 30;
 
-					std::vector<double> fvec_pre = pre_sign_->feature_vector();
-					std::vector<double> fvec_dyn = dynamics_->feature_vector();
+					result.push_back(hierarchy_factor * column_ / max_column);
+					result.push_back(hierarchy_factor * active_);
+
+					std::vector<double> fvec_pre;
+
+					if (nullptr != pre_sign_)
+					{
+						fvec_pre = pre_sign_->feature_vector(std::pow(hierarchy_factor,2));
+					}
+
+					std::vector<double> fvec_dyn;
+
+					if (nullptr != dynamics_)
+					{
+						fvec_dyn = dynamics_->feature_vector(std::pow(hierarchy_factor,2));
+					}
 
 					result.insert(result.end(), fvec_pre.begin(), fvec_pre.end());
 					result.insert(result.end(), fvec_dyn.begin(), fvec_dyn.end());

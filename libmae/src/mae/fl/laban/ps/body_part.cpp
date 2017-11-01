@@ -93,13 +93,13 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> body_part::feature_vector() const
+				std::vector<double> body_part::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					result.push_back(e_side_c::to_int(side_));
+					result.push_back(hierarchy_factor * e_side_c::to_int(side_)/(double)e_side_c::max());
 
-					std::vector<double> fvec_part = part_->feature_vector();
+					std::vector<double> fvec_part = part_->feature_vector(std::pow(hierarchy_factor,2));
 
 					result.insert(result.end(), fvec_part.begin(), fvec_part.end());
 

@@ -23,7 +23,6 @@ namespace mae
 					{
 						throw std::invalid_argument("Horizontal must be a value between -1 and 360.");
 					}
-
 				}
 
 				pin::~pin()
@@ -63,12 +62,12 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> pin::feature_vector() const
+				std::vector<double> pin::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					result.push_back(e_level_c::to_int(level_));
-					result.push_back(horizontal_);
+					result.push_back(hierarchy_factor * e_level_c::to_int(level_) / (double) e_level_c::max());
+					result.push_back(hierarchy_factor * horizontal_ / (double) 360);
 
 					return result;
 				}

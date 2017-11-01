@@ -37,6 +37,11 @@ namespace mae
 				return (int) epathtype;
 			}
 
+			int e_path_type_c::max()
+			{
+				return (int) e_path_type::ANY;
+			}
+
 			e_path_type e_path_type_c::parse(std::string str)
 			{
 				std::string str_l = mstr::to_lower(str);

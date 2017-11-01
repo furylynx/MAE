@@ -77,12 +77,23 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> space_symbol::feature_vector() const
+				std::vector<double> space_symbol::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					std::vector<double> fvec_dyn = dynamics_->feature_vector();
-					std::vector<double> fvec_spacem = space_measurement_->feature_vector();
+					std::vector<double> fvec_dyn;
+
+					if (nullptr != dynamics_)
+					{
+						fvec_dyn = dynamics_->feature_vector(std::pow(hierarchy_factor,2));
+					}
+
+					std::vector<double> fvec_spacem;
+
+					if (nullptr != space_measurement_)
+					{
+						fvec_spacem = space_measurement_->feature_vector(std::pow(hierarchy_factor, 2));
+					}
 
 					result.insert(result.end(), fvec_dyn.begin(), fvec_dyn.end());
 					result.insert(result.end(), fvec_spacem.begin(), fvec_spacem.end());

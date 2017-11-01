@@ -364,12 +364,22 @@ namespace mae
                     return false;
                 }
 
-                std::vector<double> digit_part::feature_vector() const
+                std::vector<double> digit_part::feature_vector(double hierarchy_factor) const
                 {
                     std::vector<double> result;
 
-                    result.push_back(e_digit_c::to_int(digit_));
-                    result.push_back(knuckle_);
+                    result.push_back(hierarchy_factor * e_digit_c::to_int(digit_) / (double) e_digit_c::max());
+
+                    int max_knuckle = 3;
+
+                    if (digit_ == e_digit::INDEXFINGER || digit_ == e_digit::LITTLEFINGER
+                        || digit_ == e_digit::MIDDLEFINGER || digit_ == e_digit::RINGFINGER
+                        || digit_ == e_digit::THUMB)
+                    {
+                        max_knuckle = 4;
+                    }
+
+                    result.push_back(hierarchy_factor * knuckle_/(double)max_knuckle);
 
                     return result;
                 }

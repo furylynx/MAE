@@ -50,7 +50,7 @@ namespace mae
 				xmlpp::Node* root_node = doc->get_root_node();
 
 				//setup namespace prefix
-				std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map = std::shared_ptr<xmlpp::Node::PrefixNsMap>(new xmlpp::Node::PrefixNsMap());
+				std::shared_ptr<xmlpp::Node::PrefixNsMap> namespace_map = std::make_shared<xmlpp::Node::PrefixNsMap>();
 				if (root_node->get_namespace_prefix().size() > 0)
 				{
 					namespace_map->insert(std::make_pair(root_node->get_namespace_prefix(), root_node->get_namespace_uri()));
@@ -79,8 +79,7 @@ namespace mae
 				unsigned int beats = static_cast<unsigned int>(std::atoi(beats_string.c_str()));
 
 				//create the sequence and add additional information as well as columns and movements
-				result = std::shared_ptr<laban_sequence>(
-						new laban_sequence(title, authors.at(0), measures, time_unit, beat_duration, beats));
+				result = std::make_shared<laban_sequence>(title, authors.at(0), measures, time_unit, beat_duration, beats);
 
 				//additional elements
 
@@ -152,7 +151,7 @@ namespace mae
 
 				std::shared_ptr<ps::i_pre_sign> pre_sign = internal_laban_sequence_reader::read_pre_sign(node, namespace_map, nsp);
 
-				result = std::shared_ptr<column_definition>(new column_definition(index, pre_sign));
+				result = std::make_shared<column_definition>(index, pre_sign);
 
 				return result;
 			}
@@ -171,7 +170,7 @@ namespace mae
 
 					if (endpoint != nullptr)
 					{
-						result = std::shared_ptr<ps::i_pre_sign>(new ps::body_part(side, endpoint));
+						result = std::make_shared<ps::body_part>(side, endpoint);
 					}
 					else
 					{
@@ -179,7 +178,7 @@ namespace mae
 
 						if (limb != nullptr)
 						{
-							result = std::shared_ptr<ps::i_pre_sign>(new ps::body_part(side, limb));
+							result = std::make_shared<ps::body_part>(side, limb);
 						}
 						else
 						{
@@ -188,7 +187,7 @@ namespace mae
 
 							if (surface != nullptr)
 							{
-								result = std::shared_ptr<ps::i_pre_sign>(new ps::body_part(side, surface));
+								result = std::make_shared<ps::body_part>(side, surface);
 							}
 							else
 							{
@@ -210,7 +209,7 @@ namespace mae
 						//description (optional)
 						std::string description = internal_mxml::get_node_content(node, namespace_map, "preSign/prop/description", nsp, "");;
 
-						result = std::shared_ptr<ps::i_pre_sign>(new ps::prop(name, description));
+						result = std::make_shared<ps::prop>(name, description);
 					}
 				}
 
@@ -228,7 +227,7 @@ namespace mae
 				{
 					ps::e_area area = ps::e_area_c::parse(internal_mxml::get_node_content(node, namespace_map, "part", nsp, "NONE"));
 
-					result = std::shared_ptr<ps::i_endpoint>(new ps::area_part(area));
+					result = std::make_shared<ps::area_part>(area);
 				}
 				else
 				{
@@ -239,7 +238,7 @@ namespace mae
 					{
 						ps::e_joint joint = ps::e_joint_c::parse(internal_mxml::get_node_content(node, namespace_map, "joint/joint", nsp, "NONE"));
 
-						result = std::shared_ptr<ps::i_endpoint>(new ps::joint_part(joint));
+						result = std::make_shared<ps::joint_part>(joint);
 					}
 					else
 					{
@@ -253,7 +252,7 @@ namespace mae
 							std::string knuckle_string = internal_mxml::get_node_content(node, namespace_map, "digit/joint", nsp, "0");
 							unsigned int knuckle = static_cast<unsigned int>(std::atoi(knuckle_string.c_str()));
 
-							result = std::shared_ptr<ps::i_endpoint>(new ps::digit_part(digit, knuckle));
+							result = std::make_shared<ps::digit_part>(digit, knuckle);
 						}
 					}
 				}
@@ -272,7 +271,7 @@ namespace mae
 				{
 					ps::e_limb limb = ps::e_limb_c::parse(internal_mxml::get_node_content(node, namespace_map, "limb/default/limb", nsp, "NONE"));
 
-					result = std::shared_ptr<ps::i_limb>(new ps::default_limb(limb));
+					result = std::make_shared<ps::default_limb>(limb);
 				}
 				else
 				{
@@ -300,7 +299,7 @@ namespace mae
 									fixed_end = internal_laban_sequence_reader::read_end_point(fixed_end_node_set.at(0), namespace_map, nsp);
 								}
 
-								result = std::shared_ptr<ps::i_limb>(new ps::custom_limb(extremity_end, fixed_end));
+								result = std::make_shared<ps::custom_limb>(extremity_end, fixed_end);
 							}
 						}
 					}
@@ -325,7 +324,7 @@ namespace mae
 					{
 						ps::e_limb_side limb_side = ps::e_limb_side_c::parse(internal_mxml::get_node_content(node, namespace_map, "surface/side", nsp, "NONE"));
 
-						result = std::shared_ptr<ps::surface_part>(new ps::surface_part(limb_side, limb));
+						result = std::make_shared<ps::surface_part>(limb_side, limb);
 					}
 				}
 
@@ -368,7 +367,7 @@ namespace mae
 
 					if (direction != nullptr)
 					{
-						result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, direction, hold, pre_sign));
+						result = std::make_shared<movement>(column, measure, beat, duration, direction, hold, pre_sign);
 					}
 				}
 				else
@@ -381,7 +380,7 @@ namespace mae
 
 						if (space != nullptr)
 						{
-							result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, space, hold, pre_sign));
+							result = std::make_shared<movement>(column, measure, beat, duration, space, hold, pre_sign);
 						}
 					}
 					else
@@ -394,7 +393,7 @@ namespace mae
 
 							if (turn != nullptr)
 							{
-								result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, turn, hold, pre_sign));
+								result = std::make_shared<movement>(column, measure, beat, duration, turn, hold, pre_sign);
 							}
 						}
 						else
@@ -407,7 +406,7 @@ namespace mae
 
 								if (vibration != nullptr)
 								{
-									result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, vibration, hold, pre_sign));
+									result = std::make_shared<movement>(column, measure, beat, duration, vibration, hold, pre_sign);
 								}
 							}
 							else
@@ -420,7 +419,7 @@ namespace mae
 
 									if (cancel != nullptr)
 									{
-										result = std::shared_ptr<i_movement>(new movement(column, measure, beat, duration, cancel, hold, pre_sign));
+										result = std::make_shared<movement>(column, measure, beat, duration, cancel, hold, pre_sign);
 									}
 								}
 								else
@@ -444,7 +443,7 @@ namespace mae
 				std::string horizontal_string = internal_mxml::get_node_content(node, namespace_map, "horizontal", nsp, "0");
 				int horizontal = std::atoi(horizontal_string.c_str());
 
-				result = std::shared_ptr<mv::pin>(new mv::pin(vertical, horizontal));
+				result = std::make_shared<mv::pin>(vertical, horizontal);
 
 				return result;
 			}
@@ -460,7 +459,7 @@ namespace mae
 
 				mv::e_space_direction direction = mv::e_space_direction_c::parse(internal_mxml::get_node_content(node, namespace_map, "direction", nsp, "NONE"));
 
-				result = std::shared_ptr<mv::space_measurement>(new mv::space_measurement(vertical, degree, direction));
+				result = std::make_shared<mv::space_measurement>(vertical, degree, direction);
 
 				return result;
 
@@ -476,7 +475,7 @@ namespace mae
 				{
 					std::string accent_string = internal_mxml::get_node_content(node, namespace_map, "dynamics/accent", nsp, "0");
 					unsigned int accent = static_cast<unsigned int>(std::atoi(accent_string.c_str()));
-					result = std::shared_ptr<mv::i_dynamics_sign>(new mv::accent_sign(accent));
+					result = std::make_shared<mv::accent_sign>(accent);
 				}
 				else
 				{
@@ -486,7 +485,7 @@ namespace mae
 					{
 						mv::e_dynamic dynamic = mv::e_dynamic_c::parse(internal_mxml::get_node_content(node, namespace_map, "dynamics/dynamic", nsp, "NONE"));
 
-						result = std::shared_ptr<mv::i_dynamics_sign>(new mv::dynamic_sign(dynamic));
+						result = std::make_shared<mv::dynamic_sign>(dynamic);
 					}
 				}
 
@@ -541,7 +540,7 @@ namespace mae
 				//dynamics
 				mv::e_contact_hook contact_hook = mv::e_contact_hook_c::parse(internal_mxml::get_node_content(node, namespace_map, "contactHook", nsp, "NONE"));
 
-				result = std::shared_ptr<mv::direction_symbol>(new mv::direction_symbol(vertical, horizontal, modification_pin, relationship_pin, dynamics, space_measurement, contact_hook));
+				result = std::make_shared<mv::direction_symbol>(vertical, horizontal, modification_pin, relationship_pin, dynamics, space_measurement, contact_hook);
 
 				return result;
 			}
@@ -567,7 +566,7 @@ namespace mae
 						dynamics = internal_laban_sequence_reader::read_dynamics(node, namespace_map, nsp);
 					}
 
-					result = std::shared_ptr<mv::space_symbol>(new mv::space_symbol(space_measurement, dynamics));
+					result = std::make_shared<mv::space_symbol>(space_measurement, dynamics);
 				}
 
 				return result;
@@ -612,7 +611,7 @@ namespace mae
 					}
 				}
 
-				result = std::shared_ptr<mv::turn_symbol>(new mv::turn_symbol(direction, dynamics, degree));
+				result = std::make_shared<mv::turn_symbol>(direction, dynamics, degree);
 
 				return result;
 			}
@@ -638,7 +637,7 @@ namespace mae
 						dynamics = internal_laban_sequence_reader::read_dynamics(node, namespace_map, nsp);
 					}
 
-					result = std::shared_ptr<mv::vibration_symbol>(new mv::vibration_symbol(displacement1, displacement2, dynamics));
+					result = std::make_shared<mv::vibration_symbol>(displacement1, displacement2, dynamics);
 				}
 
 				return result;
@@ -651,7 +650,7 @@ namespace mae
 				//cancel
 				mv::e_cancel cancel = mv::e_cancel_c::parse(internal_mxml::get_node_content(node, namespace_map, "cancel", nsp, "NONE"));
 
-				result = std::shared_ptr<mv::cancellation_symbol>(new mv::cancellation_symbol(cancel));
+				result = std::make_shared<mv::cancellation_symbol>(cancel);
 
 				return result;
 			}
@@ -669,7 +668,7 @@ namespace mae
 				std::string duration_string = internal_mxml::get_node_content(node, namespace_map, "duration", nsp, "0");
 				double duration = std::atof(duration_string.c_str());
 
-				std::shared_ptr<i_movement> result = std::shared_ptr<i_movement>(new path(type, measure, beat, duration));
+				std::shared_ptr<i_movement> result = std::make_shared<path>(type, measure, beat, duration);
 
 				return result;
 			}
@@ -691,7 +690,7 @@ namespace mae
 					direction = read_pin(direction_node_set.at(0), namespace_map, nsp);
 				}
 
-				std::shared_ptr<i_movement> result = std::shared_ptr<i_movement>(new room_direction(measure, beat, direction));
+				std::shared_ptr<i_movement> result = std::make_shared<room_direction>(measure, beat, direction);
 
 				return result;
 			}
@@ -728,7 +727,7 @@ namespace mae
 					right = read_relationship_endpoint(right_relationship_endpoint_node_set.at(0), namespace_map, nsp );
 				}
 
-				std::shared_ptr<i_movement> result = std::shared_ptr<i_movement>(new relationship_bow(type, grasping, passing, hold, measure, beat, left, right));
+				std::shared_ptr<i_movement> result = std::make_shared<relationship_bow>(type, grasping, passing, hold, measure, beat, left, right);
 
 				return result;
 			}
@@ -757,7 +756,7 @@ namespace mae
 
 				bool active = mbool::parse(internal_mxml::get_node_content(node, namespace_map, "active", nsp, "false"));
 
-				std::shared_ptr<mv::relationship_endpoint> result = std::shared_ptr<mv::relationship_endpoint>(new mv::relationship_endpoint(column, active, pre_sign, dynamics));
+				std::shared_ptr<mv::relationship_endpoint> result = std::make_shared<mv::relationship_endpoint>(column, active, pre_sign, dynamics);
 
 				return result;
 			}

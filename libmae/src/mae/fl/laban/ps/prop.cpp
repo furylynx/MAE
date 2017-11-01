@@ -119,12 +119,12 @@ namespace mae
 					return false;
 				}
 
-				std::vector<double> prop::feature_vector() const
+				std::vector<double> prop::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					result.push_back(std::hash<std::string>()(name_));
-					result.push_back(std::hash<std::string>()(description_));
+					result.push_back(hierarchy_factor * std::hash<std::string>()(name_) / (double)std::numeric_limits<std::size_t>::max());
+					result.push_back(hierarchy_factor * std::hash<std::string>()(description_) / (double)std::numeric_limits<std::size_t>::max());
 
 					return result;
 				}

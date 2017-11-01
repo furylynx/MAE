@@ -63,9 +63,10 @@ namespace mae
 						/**
 						 * Returns the feature vector for the part.
 						 *
+						 * @param hierarchy_factor The factor for subelements.
 						 * @return The feature vector.
 						 */
-						virtual std::vector<double> feature_vector() const = 0;
+						virtual std::vector<double> feature_vector(double hierarchy_factor = 0.5) const = 0;
 				};
 
 			} // namespace ps

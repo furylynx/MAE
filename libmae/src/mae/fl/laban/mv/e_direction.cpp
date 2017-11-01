@@ -139,6 +139,11 @@ namespace mae
 					return (int) edirection;
 				}
 
+				int e_direction_c::max()
+				{
+					return (int) e_direction::RIGHT_BACKWARD;
+				}
+
 				e_direction e_direction_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

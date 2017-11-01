@@ -52,11 +52,11 @@ namespace mae
 				}
 
 
-				std::vector<double> dynamic_sign::feature_vector() const
+				std::vector<double> dynamic_sign::feature_vector(double hierarchy_factor) const
 				{
 					std::vector<double> result;
 
-					result.push_back(e_dynamic_c::to_int(dynamic_));
+					result.push_back(hierarchy_factor * e_dynamic_c::to_int(dynamic_) / (double) e_dynamic_c::max());
 
 					return result;
 				}

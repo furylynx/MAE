@@ -45,6 +45,11 @@ namespace mae
 					return (int) elimb;
 				}
 
+				int e_limb_c::max()
+				{
+					return (int) e_limb::LOWER_LEG;
+				}
+
 				e_limb e_limb_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

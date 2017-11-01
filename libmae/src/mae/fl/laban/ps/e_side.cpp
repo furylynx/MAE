@@ -39,6 +39,11 @@ namespace mae
 					return (int) eside;
 				}
 
+				int e_side_c::max()
+				{
+					return (int) e_side::RIGHT;
+				}
+
 				e_side e_side_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

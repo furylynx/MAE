@@ -35,6 +35,11 @@ namespace mae
 					return (int) ehook;
 				}
 
+				int e_contact_hook_c::max()
+				{
+					return (int) e_contact_hook::FULL_BALL;
+				}
+
 				std::vector<e_contact_hook> e_contact_hook_c::vec()
 				{
 					std::vector<e_contact_hook> result;

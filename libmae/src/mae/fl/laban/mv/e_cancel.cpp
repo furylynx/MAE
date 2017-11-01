@@ -26,6 +26,11 @@ namespace mae
 					return (int) ecancel;
 				}
 
+				int e_cancel_c::max()
+				{
+					return (int) e_cancel::RELEASE_CONTACT;
+				}
+
 				std::vector<e_cancel> e_cancel_c::vec()
 				{
 					std::vector<e_cancel> result;

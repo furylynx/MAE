@@ -95,6 +95,11 @@ namespace mae
 					return (int) elevel;
 				}
 
+				int e_level_c::max()
+				{
+					return (int) e_level::LOW;
+				}
+
 				e_level e_level_c::parse(std::string str)
 				{
 					std::string str_l = mstr::to_lower(str);

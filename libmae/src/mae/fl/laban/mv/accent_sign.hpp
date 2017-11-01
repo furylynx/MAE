@@ -57,9 +57,10 @@ namespace mae
 						/**
 						 * Returns the feature vector for the symbol.
 						 *
+						 * @param hierarchy_factor The factor for subelements.
 						 * @return The feature vector.
 						 */
-						virtual std::vector<double> feature_vector() const;
+						virtual std::vector<double> feature_vector(double hierarchy_factor = 0.5) const;
 
 						/**
 						 * Returns the XML representation for this element.

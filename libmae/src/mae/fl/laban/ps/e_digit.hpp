@@ -60,6 +60,13 @@ namespace mae
 						static int to_int(e_digit edigit);
 
 						/**
+						 * Returns the int value corresponding to the last element making it the maximum int.
+						 *
+						 * @return The maximum.
+						 */
+						static int max();
+
+						/**
 						 * Parses the string and returns the corresponding element.
 						 *
 						 * @param str The string to be parsed.
