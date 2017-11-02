@@ -34,7 +34,7 @@ int main()
             std::size_t window = 0;
             std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > > distance_measure = std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, window);
 
-            bool ignore_empty_columns = false;
+            bool ignore_empty_columns = true;
             unsigned int frames_per_beat = 6;
             mae::fl::laban::laban_sequence_comparator comparator (distance_measure, ignore_empty_columns, frames_per_beat);
 

@@ -199,7 +199,7 @@ namespace mae
                     }
 
                     //TODO remove
-                    std::cout << "similarity " << similarity << " for dist " << distance << std::endl;
+                    std::cout << "similarity [" << col1_id << "," << col2_id << "] " << similarity << " for dist " << distance << std::endl;
 
                     similarities_size++;
                     similarities_sum += similarity;
