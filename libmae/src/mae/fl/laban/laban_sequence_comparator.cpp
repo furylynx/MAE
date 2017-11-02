@@ -168,7 +168,7 @@ namespace mae
                 std::size_t similarities_size = 0;;
 
                 //punish unmappables
-                similarities_size += mapped_columns.size() + unmappable_columns.size();
+                similarities_size += unmappable_columns.size();
 
                 for (std::pair<int,int> pair : mapped_columns)
                 {
@@ -185,24 +185,23 @@ namespace mae
                     if ((!movements1_steps.empty() && !movements2_steps.empty()) || !ignore_empty_columns_)
                     {
                         distance = distance_measure_->distance(movements1_steps, movements2_steps);
+
+
+                        //distance to similarity
+                        double similarity = 0;
+
+                        if (distance != std::numeric_limits<double>::infinity())
+                        {
+                            similarity = 1 / (1 + distance);
+                        }
+
+                        //TODO remove
+                        std::cout << "similarity [" << col1_id << "," << col2_id << "] " << similarity << " for dist " << distance << std::endl;
+
+                        similarities_size++;
+                        similarities_sum += similarity;
                     }
 
-                    //TODO max distance
-                    double max_distance = 100000;
-
-                    //distance to similarity
-                    double similarity = 0;
-
-                    if (distance != std::numeric_limits<double>::infinity())
-                    {
-                        similarity = 1 / (1 + distance);
-                    }
-
-                    //TODO remove
-                    std::cout << "similarity [" << col1_id << "," << col2_id << "] " << similarity << " for dist " << distance << std::endl;
-
-                    similarities_size++;
-                    similarities_sum += similarity;
 
                 }
 
