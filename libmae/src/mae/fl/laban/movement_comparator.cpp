@@ -23,7 +23,7 @@ namespace mae
 					return 0;
 				}
 
-				if (typeid(element1.get()) == typeid(element2.get()))
+				if (typeid(element1.get()) == typeid(element2.get()) && element1->all_types_equal(element2))
 				{
 					return distance_measure_->distance(element1->symbol_feature_vector(), element2->symbol_feature_vector());
 				}
