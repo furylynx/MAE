@@ -9,6 +9,7 @@
 #include "laban_sequence.hpp"
 #include "mv/i_symbol.hpp"
 #include "movement_comparator.hpp"
+#include "laban_subsequence_mapper.hpp"
 #include "../../math/i_similarity_measure.hpp"
 
 
@@ -45,6 +46,16 @@ namespace mae {
                      * @return The distance.
                      */
                     double similarity(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2) const;
+
+                    /**
+                     * Returns the similarity between the two elements.
+                     *
+                     * @param element1 The first element to compare.
+                     * @param element2 The second element to compare.
+                     * @param mapper The mapper
+                     * @return The distance.
+                     */
+                    double similarity(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2, std::shared_ptr<laban_subsequence_mapper> mapper) const;
 
                 private:
                     std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<i_movement> > > > distance_measure_;
