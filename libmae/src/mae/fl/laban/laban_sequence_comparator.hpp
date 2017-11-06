@@ -36,6 +36,7 @@ namespace mae {
                      * @param frames_per_beat_ The number of frames to be used for each beat. Zero for no time slicing (using the exact sequence without modifications).
                      */
                     laban_sequence_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<i_movement> > > > distance_measure = std::make_shared<mae::math::dtw<std::shared_ptr<i_movement> > >(std::make_shared<movement_comparator>()), bool ignore_empty_columns = false, unsigned int frames_per_beat = 6 );
+
                     virtual ~laban_sequence_comparator();
 
                     /**

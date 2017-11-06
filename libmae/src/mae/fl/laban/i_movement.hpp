@@ -107,7 +107,7 @@ namespace mae
 					/**
 					 * Recreates the movement by copying its members but changing the position in the staff.
 					 *
-					 * @param column The new column.
+					 * @param column_mapping The mapping for columns. Maps old columns to new ones.
 					 * @param measure The new measure.
 					 * @param beat The new beat.
 					 * @param duration The new duration.
