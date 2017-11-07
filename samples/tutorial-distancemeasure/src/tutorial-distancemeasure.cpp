@@ -18,9 +18,11 @@ int main()
         mae::fl::laban::laban_sequence_reader lreader;
 
         std::shared_ptr<mae::fl::laban::laban_sequence> sequence1 = lreader.read_sequence_file("ah_clap1.bvh.laban");
-        std::shared_ptr<mae::fl::laban::laban_sequence> sequence2 = lreader.read_sequence_file("clap.laban");
+        std::shared_ptr<mae::fl::laban::laban_sequence> sequence2 = lreader.read_sequence_file("de_wave8.bvh.laban");
 
-        if (nullptr != sequence1 && nullptr != sequence2)
+        std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence = lreader.read_sequence_file("clap.laban");
+
+        if (nullptr != sequence1 && nullptr != target_sequence)
         {
 
             //set the p for minkowski distance (p=1 is manhattan distance, p=2 is euclidean distance)
@@ -35,14 +37,20 @@ int main()
             std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > > distance_measure = std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, window);
 
             bool ignore_empty_columns = true;
-            unsigned int frames_per_beat = 6;
-            mae::fl::laban::laban_sequence_comparator comparator (distance_measure, ignore_empty_columns, frames_per_beat);
+            unsigned int frames_per_beat = 0;
+            std::shared_ptr<mae::fl::laban::laban_sequence_comparator> comparator = std::make_shared<mae::fl::laban::laban_sequence_comparator>(distance_measure, ignore_empty_columns, frames_per_beat);
 
-            std::cout << "ff" << std::endl;
+            double cut_steps = 2;
+            mae::fl::laban::laban_target_sequence_comparator target_comparator (comparator, false, cut_steps);
 
-            double similarity = comparator.similarity(sequence1, sequence2);
+            uint64_t starttime = mae::mos::current_time_millis();
+
+            double similarity = target_comparator.similarity(target_sequence, sequence1);//comparator->similarity(target_sequence, sequence1);
+
+            uint64_t endtime = mae::mos::current_time_millis();
 
             std::cout << "Similarity: " << similarity << std::endl;
+            std::cout << "Calculation took " << endtime - starttime << " ms" << std::endl;
         }
         else
         {

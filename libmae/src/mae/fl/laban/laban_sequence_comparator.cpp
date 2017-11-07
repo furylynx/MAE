@@ -54,8 +54,10 @@ namespace mae
 
                     if ((!movements1_steps.empty() && !movements2_steps.empty()) || !ignore_empty_columns_)
                     {
+                        //TODO remove
+                        uint64_t starttime = mos::current_time_millis();
                         distance = distance_measure_->distance(movements1_steps, movements2_steps);
-
+                        uint64_t endtime = mos::current_time_millis();
 
                         //distance to similarity
                         double similarity = 0;
@@ -66,7 +68,7 @@ namespace mae
                         }
 
                         //TODO remove
-                        std::cout << "similarity [" << col1_id << "," << col2_id << "] " << similarity << " for dist " << distance << std::endl;
+                        std::cout << "similarity [" << col1_id << "," << col2_id << "] " << similarity << " for dist " << distance << " took " << (endtime-starttime) << " ms" << std::endl;
 
                         similarities_size++;
                         similarities_sum += similarity;

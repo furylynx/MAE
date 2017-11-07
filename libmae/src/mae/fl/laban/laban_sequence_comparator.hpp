@@ -11,6 +11,7 @@
 #include "movement_comparator.hpp"
 #include "laban_subsequence_mapper.hpp"
 #include "../../math/i_similarity_measure.hpp"
+#include "../../mos.hpp"
 
 
 //global includes

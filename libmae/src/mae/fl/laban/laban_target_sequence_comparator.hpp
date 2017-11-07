@@ -34,9 +34,9 @@ namespace mae {
                  *
                  * @param laban_sequence_comparator The comparator for laban sequences.
                  * @param fixed_end True for a fixed end. Just need to vary in start position.
-                 * @param frames_per_beat The number of frames to be used for each beat. Zero for no time slicing (using the exact sequence without modifications).
+                 * @param cut_steps The number of beats to skip for a step when cutting the sequence to find the optimal matching subsequence.
                  */
-                laban_target_sequence_comparator(std::shared_ptr<laban_sequence_comparator> laban_sequence_comparator, bool fixed_end = false, unsigned int frames_per_beat = 6 );
+                laban_target_sequence_comparator(std::shared_ptr<laban_sequence_comparator> laban_sequence_comparator, bool fixed_end = false, double cut_steps = 1/6 );
 
                 virtual ~laban_target_sequence_comparator();
 
@@ -53,7 +53,7 @@ namespace mae {
             private:
                 std::shared_ptr<laban_sequence_comparator> laban_sequence_comparator_;
                 bool fixed_end_;
-                unsigned int frames_per_beat_;
+                double cut_steps_;
 
                 /**
                  * Cuts the given sequence returning a new instance being cut.

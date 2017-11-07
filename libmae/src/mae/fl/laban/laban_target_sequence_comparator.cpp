@@ -11,11 +11,11 @@ namespace mae
         namespace laban
         {
 
-            laban_target_sequence_comparator::laban_target_sequence_comparator(std::shared_ptr<laban_sequence_comparator> laban_sequence_comparator, bool fixed_end, unsigned int frames_per_beat)
+            laban_target_sequence_comparator::laban_target_sequence_comparator(std::shared_ptr<laban_sequence_comparator> laban_sequence_comparator, bool fixed_end, double cut_steps)
             {
                 laban_sequence_comparator_ = laban_sequence_comparator;
                 fixed_end_ = fixed_end;
-                frames_per_beat_ = frames_per_beat;
+                cut_steps_ = cut_steps;
             }
 
             laban_target_sequence_comparator::~laban_target_sequence_comparator()
@@ -27,24 +27,57 @@ namespace mae
             {
                 std::shared_ptr<laban_subsequence_mapper> mapper = std::make_shared<laban_subsequence_mapper>(target_sequence, actual_sequence);
 
-                unsigned int length = actual_sequence->get_beats() * actual_sequence->get_measures();
-                unsigned int sliced_length = length * frames_per_beat_;
+                double cut_steps = cut_steps_;
+
+                if (0 == cut_steps)
+                {
+                    cut_steps = 1;
+                }
+
+                unsigned int actual_sequence_length = actual_sequence->get_beats() * actual_sequence->get_measures();
+                double actual_sequence_sliced_length = actual_sequence_length / cut_steps;
+
+                unsigned int target_sequence_length = target_sequence->get_beats() * target_sequence->get_measures();
+                double target_sequence_sliced_length = target_sequence_length / cut_steps;
+
+                //define min length to limit comparison
+                std::size_t min_length = 1;//(int) 0.5 * target_sequence_sliced_length;//target_sequence_sliced_length;
 
                 double max_similarity = 0;
 
-                //vary in start and end position
-                for (int startpos = 0; startpos < sliced_length; startpos++)
+                if (min_length >= actual_sequence_sliced_length)
                 {
-                    double startpos_beats = startpos / (double)frames_per_beat_;
-
-                    if (!fixed_end_)
+                    max_similarity = laban_sequence_comparator_->similarity(target_sequence, actual_sequence, mapper);
+                }
+                else
+                {
+                    //vary in start and end position
+                    for (std::size_t startpos = 0; startpos < actual_sequence_sliced_length; startpos++)
                     {
-                        //when no fixed end is defined, iterate end position too to find optimal subsequence
-                        for (int endpos = startpos+1; endpos < sliced_length; endpos++)
-                        {
-                            double endpos_beats = endpos / (double)frames_per_beat_;
+                        double startpos_beats = startpos * cut_steps;
 
-                            double similarity = laban_sequence_comparator_->similarity(target_sequence, cut_sequence(actual_sequence, startpos_beats, endpos_beats), mapper);
+                        if (!fixed_end_)
+                        {
+                            //when no fixed end is defined, iterate end position too to find optimal subsequence
+
+                            //TODO use min length of sequence
+                            for (std::size_t  endpos = startpos + min_length; endpos <= actual_sequence_sliced_length; endpos++)
+                            {
+                                double endpos_beats = endpos * cut_steps;
+
+                                double similarity = laban_sequence_comparator_->similarity(target_sequence, cut_sequence(actual_sequence, startpos_beats, endpos_beats), mapper);
+
+                                if (similarity > max_similarity)
+                                {
+                                    max_similarity = similarity;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            //fixed end is defined, only start position will be iterated
+
+                            double similarity = laban_sequence_comparator_->similarity(target_sequence, cut_sequence(actual_sequence, startpos_beats, actual_sequence_length), mapper);
 
                             if (similarity > max_similarity)
                             {
@@ -52,23 +85,12 @@ namespace mae
                             }
                         }
                     }
-                    else
-                    {
-                        //fixed end is defined, only start position will be iterated
-
-                        double similarity = laban_sequence_comparator_->similarity(target_sequence, cut_sequence(actual_sequence, startpos_beats, length), mapper);
-
-                        if (similarity > max_similarity)
-                        {
-                            max_similarity = similarity;
-                        }
-                    }
                 }
 
                 return max_similarity;
             }
 
-            std::shared_ptr<laban_sequence> cut_sequence(std::shared_ptr<laban_sequence> sequence, double startpos, double endpos) const
+            std::shared_ptr<laban_sequence> laban_target_sequence_comparator::cut_sequence(std::shared_ptr<laban_sequence> sequence, double startpos, double endpos) const
             {
                 std::shared_ptr<laban_sequence> result = std::make_shared<laban_sequence>(sequence->get_title(), "anonymous", sequence->get_measures(), sequence->get_time_unit(), sequence->get_beat_duration(), sequence->get_beats());
 
@@ -79,32 +101,36 @@ namespace mae
                 //set movements
                 unsigned int beats_per_measure = sequence->get_beats();
 
-                for (int col_id : sequence->get_columns())
+                for (int column_id : sequence->get_columns())
                 {
                     bool startpose = false;
 
-                    std::vector<std::shared_ptr<i_movement> > colmovs;
+                    std::vector<std::shared_ptr<i_movement> > cut_column_movements;
 
-                    for (std::shared_ptr<i_movement> i_mov : sequence->get_column_movements(col_id))
+                    for (std::shared_ptr<i_movement> i_mov : sequence->get_column_movements(column_id))
                     {
-                        double curpos = i_mov->get_measure()*beats_per_measure + i_mov->get_beat();
-                        double curdur = i_mov->get_duration();
+                        //column movements are ordered ascendingly in time
 
-                        double cutpos = curpos - startpos;
-                        double cutdur = curdur;
+                        double current_position = i_mov->get_measure()*beats_per_measure + i_mov->get_beat();
+                        double current_duration = i_mov->get_duration();
 
-                        if (cutpos < beats_per_measure)
+                        double cut_position = current_position - startpos;
+                        double cut_duration = current_duration;
+
+                        if (cut_position < beats_per_measure)
                         {
-                            if (curdur + cutpos >= 0)
+                            if (current_duration + cut_position >= 0)
                             {
                                 if (startpose)
                                 {
                                     //already a startpose defined, but we have another now. hence, clear the buffer
-                                    colmovs.clear();
+                                    cut_column_movements.clear();
                                 }
 
                                 //create start pose
-                                colmovs.push_back(i_mov->recreate(std::map<int, int>(), 0, 0, 1));
+                                cut_column_movements.push_back(i_mov->recreate(std::map<int, int>(), 0, 0, 1));
+
+                                //set flag for a startpose
                                 startpose = true;
                             }
                             else
@@ -112,28 +138,30 @@ namespace mae
                                 //movement is out of scope, don't add
                             }
                         }
-                        else if (cutpos > endpos)
+                        else if (cut_position > endpos)
                         {
-                            //don't add, break since following elements will be out of range too
+                            //don't add
+                            //break since following elements will be out of range too
                             break;
                         }
                         else
                         {
-                            if (cutpos + cutdur > endpos)
+                            if (cut_position + cut_duration > endpos)
                             {
                                 //cut duration
-                                cutdur = endpos - cutpos;
+                                cut_duration = endpos - cut_position;
                             }
 
-                            unsigned int measure = (int)(cutpos / beats_per_measure);
-                            double beat = cutpos - (measure * beats_per_measure);
-                            double duration = cutdur;
+                            unsigned int measure = (unsigned int)(cut_position / beats_per_measure);
+                            double beat = cut_position - (measure * beats_per_measure);
+                            double duration = cut_duration;
 
-                            colmovs.push_back(i_mov->recreate(std::map<int, int>(), measure, beat, duration));
+                            cut_column_movements.push_back(i_mov->recreate(std::map<int, int>(), measure, beat, duration));
                         }
                     }
 
-                    for (std::shared_ptr<i_movement> i_mov : colmovs)
+                    //add newly created movements
+                    for (std::shared_ptr<i_movement> i_mov : cut_column_movements)
                     {
                         result->add_movement(i_mov);
                     }
