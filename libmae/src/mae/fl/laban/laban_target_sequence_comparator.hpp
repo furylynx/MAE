@@ -13,6 +13,7 @@
 #include "laban_subsequence_mapper.hpp"
 #include "laban_sequence_comparator.hpp"
 #include "../../math/i_similarity_measure.hpp"
+#include "../../math/subsequence_similarity_details.hpp"
 
 
 //global includes
@@ -35,8 +36,10 @@ namespace mae {
                  * @param laban_sequence_comparator The comparator for laban sequences.
                  * @param fixed_end True for a fixed end. Just need to vary in start position.
                  * @param cut_steps The number of beats to skip for a step when cutting the sequence to find the optimal matching subsequence.
+                 * @param min_length_factor The factor for minimum length (e.g. 0.5 for half the target sequence's length). Zero for no limitation.
+                 * @param max_length_factor The factor for maximum length (e.g. 2 for twice the target sequence's length). Zero for no limitation.
                  */
-                laban_target_sequence_comparator(std::shared_ptr<laban_sequence_comparator> laban_sequence_comparator, bool fixed_end = false, double cut_steps = 1/6 );
+                laban_target_sequence_comparator(std::shared_ptr<laban_sequence_comparator> laban_sequence_comparator, bool fixed_end = false, double cut_steps = 1, double min_length_factor = 0, double max_length_factor = 0 );
 
                 virtual ~laban_target_sequence_comparator();
 
@@ -50,10 +53,22 @@ namespace mae {
                  */
                 double similarity(std::shared_ptr<laban_sequence> target_sequence, std::shared_ptr<laban_sequence> actual_sequence) const;
 
+
+                /**
+                 * Returns the similarity between the two elements taking the best matching subsequence into account.
+                 *
+                 * @param target_sequence The target sequence.
+                 * @param actual_sequence The actual sequence.
+                 * @return The similarity details.
+                 */
+                mae::math::subsequence_similarity_details similarity_details(std::shared_ptr<laban_sequence> target_sequence, std::shared_ptr<laban_sequence> actual_sequence) const;
+
             private:
                 std::shared_ptr<laban_sequence_comparator> laban_sequence_comparator_;
                 bool fixed_end_;
                 double cut_steps_;
+                double min_length_factor_;
+                double max_length_factor_;
 
                 /**
                  * Cuts the given sequence returning a new instance being cut.

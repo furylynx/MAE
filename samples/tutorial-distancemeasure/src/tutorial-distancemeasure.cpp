@@ -22,7 +22,7 @@ int main()
 
         std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence = lreader.read_sequence_file("clap.laban");
 
-        if (nullptr != sequence1 && nullptr != target_sequence)
+        if (nullptr != sequence2 && nullptr != sequence1 && nullptr != target_sequence)
         {
 
             //set the p for minkowski distance (p=1 is manhattan distance, p=2 is euclidean distance)
@@ -41,7 +41,7 @@ int main()
             std::shared_ptr<mae::fl::laban::laban_sequence_comparator> comparator = std::make_shared<mae::fl::laban::laban_sequence_comparator>(distance_measure, ignore_empty_columns, frames_per_beat);
 
             double cut_steps = 2;
-            mae::fl::laban::laban_target_sequence_comparator target_comparator (comparator, false, cut_steps);
+            mae::fl::laban::laban_target_sequence_comparator target_comparator (comparator, false, cut_steps, 0.1, 2);
 
             uint64_t starttime = mae::mos::current_time_millis();
 

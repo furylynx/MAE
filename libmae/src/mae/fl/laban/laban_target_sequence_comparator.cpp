@@ -11,11 +11,13 @@ namespace mae
         namespace laban
         {
 
-            laban_target_sequence_comparator::laban_target_sequence_comparator(std::shared_ptr<laban_sequence_comparator> laban_sequence_comparator, bool fixed_end, double cut_steps)
+            laban_target_sequence_comparator::laban_target_sequence_comparator(std::shared_ptr<laban_sequence_comparator> laban_sequence_comparator, bool fixed_end, double cut_steps, double min_length_factor, double max_length_factor)
             {
                 laban_sequence_comparator_ = laban_sequence_comparator;
                 fixed_end_ = fixed_end;
                 cut_steps_ = cut_steps;
+                min_length_factor_ = min_length_factor;
+                max_length_factor_ = max_length_factor;
             }
 
             laban_target_sequence_comparator::~laban_target_sequence_comparator()
@@ -24,6 +26,11 @@ namespace mae
             }
 
             double laban_target_sequence_comparator::similarity(std::shared_ptr<laban_sequence> target_sequence, std::shared_ptr<laban_sequence> actual_sequence) const
+            {
+                return similarity_details(target_sequence, actual_sequence).get_similarity();
+            }
+
+            mae::math::subsequence_similarity_details laban_target_sequence_comparator::similarity_details(std::shared_ptr<laban_sequence> target_sequence, std::shared_ptr<laban_sequence> actual_sequence) const
             {
                 std::shared_ptr<laban_subsequence_mapper> mapper = std::make_shared<laban_subsequence_mapper>(target_sequence, actual_sequence);
 
@@ -41,9 +48,22 @@ namespace mae
                 double target_sequence_sliced_length = target_sequence_length / cut_steps;
 
                 //define min length to limit comparison
-                std::size_t min_length = 1;//(int) 0.5 * target_sequence_sliced_length;//target_sequence_sliced_length;
+                std::size_t min_length = 1;
+                std::size_t max_length = actual_sequence_sliced_length;
+
+                if (0 != min_length_factor_)
+                {
+                    min_length = min_length_factor_ * target_sequence_sliced_length;
+                }
+
+                if (0 != max_length_factor_)
+                {
+                    max_length = max_length_factor_ * target_sequence_sliced_length;
+                }
 
                 double max_similarity = 0;
+                double max_similarity_startpos = 0;
+                double max_similarity_endpos = 0;
 
                 if (min_length >= actual_sequence_sliced_length)
                 {
@@ -51,17 +71,16 @@ namespace mae
                 }
                 else
                 {
-                    //vary in start and end position
-                    for (std::size_t startpos = 0; startpos < actual_sequence_sliced_length; startpos++)
+                    if (!fixed_end_)
                     {
-                        double startpos_beats = startpos * cut_steps;
 
-                        if (!fixed_end_)
+                        //vary in start and end position
+                        for (std::size_t startpos = 0; startpos < actual_sequence_sliced_length; startpos++)
                         {
-                            //when no fixed end is defined, iterate end position too to find optimal subsequence
+                            double startpos_beats = startpos * cut_steps;
 
-                            //TODO use min length of sequence
-                            for (std::size_t  endpos = startpos + min_length; endpos <= actual_sequence_sliced_length; endpos++)
+                            //when no fixed end is defined, iterate end position too to find optimal subsequence
+                            for (std::size_t  endpos = startpos + min_length; endpos <= actual_sequence_sliced_length && endpos - startpos < max_length; endpos++)
                             {
                                 double endpos_beats = endpos * cut_steps;
 
@@ -70,24 +89,41 @@ namespace mae
                                 if (similarity > max_similarity)
                                 {
                                     max_similarity = similarity;
+                                    max_similarity_startpos = startpos_beats;
+                                    max_similarity_endpos = endpos_beats;
                                 }
                             }
                         }
-                        else
+                    }
+                    else
+                    {
+                        //fixed end is defined, only start position will be iterated
+
+                        //vary in start and end position
+                        std::size_t startpos = 0;
+
+                        if (actual_sequence_sliced_length - max_length > 0)
                         {
-                            //fixed end is defined, only start position will be iterated
+                            startpos = actual_sequence_sliced_length - max_length;
+                        }
+
+                        for (; startpos < actual_sequence_sliced_length - min_length + 1; startpos++)
+                        {
+                            double startpos_beats = startpos * cut_steps;
 
                             double similarity = laban_sequence_comparator_->similarity(target_sequence, cut_sequence(actual_sequence, startpos_beats, actual_sequence_length), mapper);
 
                             if (similarity > max_similarity)
                             {
                                 max_similarity = similarity;
+                                max_similarity_startpos = startpos_beats;
+                                max_similarity_endpos = actual_sequence_length;
                             }
                         }
                     }
                 }
 
-                return max_similarity;
+                return mae::math::subsequence_similarity_details(max_similarity_startpos, max_similarity_endpos, max_similarity);
             }
 
             std::shared_ptr<laban_sequence> laban_target_sequence_comparator::cut_sequence(std::shared_ptr<laban_sequence> sequence, double startpos, double endpos) const
