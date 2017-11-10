@@ -1,5 +1,5 @@
 //
-// Created on 08.11.17.
+// Created on 2017-11-08
 //
 
 #include "subsequence_similarity_details.hpp"

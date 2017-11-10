@@ -17,7 +17,7 @@ namespace mae
         public:
 
             /**
-             * Creates new details for the subsequence similarity (the start and end point for the subsequence and the similarity).
+             * Creates new details for the subsequence similarity (start and end point for the subsequence and similarity).
              *
              * @param startpos The start position.
              * @param endpos The end position.

@@ -41,7 +41,9 @@ int main()
             std::shared_ptr<mae::fl::laban::laban_sequence_comparator> comparator = std::make_shared<mae::fl::laban::laban_sequence_comparator>(distance_measure, ignore_empty_columns, frames_per_beat);
 
             double cut_steps = 2;
-            mae::fl::laban::laban_target_sequence_comparator target_comparator (comparator, false, cut_steps, 0.1, 2);
+            double min_sequence_length_factor = 0.1;
+            double max_sequence_length_factor = 2;
+            mae::fl::laban::laban_target_sequence_comparator target_comparator (comparator, false, cut_steps, min_sequence_length_factor, max_sequence_length_factor);
 
             uint64_t starttime = mae::mos::current_time_millis();
 
