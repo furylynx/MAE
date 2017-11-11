@@ -9,6 +9,7 @@
 #include <memory>
 #include <iostream>
 #include <map>
+#include <vector>
 
 namespace mae
 {
