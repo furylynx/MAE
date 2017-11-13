@@ -158,7 +158,7 @@ namespace mae
                 template<typename T>
                 double discrete_frechet_distance<T>::c(int i, int j, std::vector<T> &element1, std::vector<T> &element2, std::vector<std::vector<double> > &mem) const
                 {
-                    if (mem.at(i).at(j) >= 0)
+                    if (mem.at(i).at(j) < 0)
                     {
                         // if the value has not yet been solved
 

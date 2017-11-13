@@ -48,7 +48,7 @@ int main()
 
             uint64_t starttime = mae::mos::current_time_millis();
 
-            double similarity = target_comparator.similarity(target_sequence, sequence1);//comparator->similarity(target_sequence, sequence1);
+            double similarity = target_comparator.similarity(target_sequence, sequence2);//comparator->similarity(target_sequence, sequence1);
 
             uint64_t endtime = mae::mos::current_time_millis();
 
