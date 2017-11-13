@@ -43,7 +43,7 @@ namespace mae
                     private:
                         std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure_;
 
-                        virtual double c(int i, int j, std::vector<T> &element1, std::vector<T> &element2, std::vector<double> &mem) const;
+                        virtual double c(int i, int j, std::vector<T> &element1, std::vector<T> &element2, std::vector<std::vector<double> > &mem) const;
 
                         virtual double recursive(std::vector<T> element1, std::vector<T> element2) const;
 
@@ -86,11 +86,11 @@ namespace mae
 
                     std::vector<std::vector<double>> arr;
 
-                    for (std::size_t i = 0; i < n ; i++)
+                    for (std::size_t i = 0; i < p ; i++)
                     {
                         std::vector<double> row;
 
-                        for (std::size_t j = 0; j < m; j++)
+                        for (std::size_t j = 0; j < q; j++)
                         {
                             row.push_back(std::numeric_limits<double>::infinity());
                         }
@@ -104,24 +104,24 @@ namespace mae
                         {
                             if (i == 0 && j == 0)
                             {
-                                mem.at(i).at(j) = distance_measure_->distance(element1.at(i), element2.at(j));
+                                arr.at(i).at(j) = distance_measure_->distance(element1.at(i), element2.at(j));
                             }
                             else if (i > 0 && j == 0)
                             {
                                 // can either be the actual distance or distance pulled from above
-                                mem.at(i).at(j) = std::max(arr.at(i-1).at(j),
+                                arr.at(i).at(j) = std::max(arr.at(i-1).at(j),
                                                            distance_measure_->distance(element1.at(i), element2.at(j)));
                             }
                             else if (i == 0 && j > 0)
                             {
                                 // can either be the distance pulled from the left or the actual distance
-                                mem.at(i).at(j) = std::max(arr.at(i).at(j-1),
+                                arr.at(i).at(j) = std::max(arr.at(i).at(j-1),
                                                            distance_measure_->distance(element1.at(i), element2.at(j)));
                             }
                             else if (i > 0 && j > 0)
                             {
                                 // can be the actual distance, or distance from above or from the left
-                                mem.at(i).at(j) = std::max(std::min(arr.at(i-1).at(j), std::min(arr.at(i-1).at(j-1), arr.at(i).at(j-1))),
+                                arr.at(i).at(j) = std::max(std::min(arr.at(i-1).at(j), std::min(arr.at(i-1).at(j-1), arr.at(i).at(j-1))),
                                                            distance_measure_->distance(element1.at(i), element2.at(j)));
                             }
 
@@ -131,7 +131,7 @@ namespace mae
                         }
                     }
 
-                    return arr.at(n-1).at(m-1);
+                    return arr.at(p-1).at(q-1);
                 }
 
                 template<typename T>
@@ -156,7 +156,7 @@ namespace mae
                 }
 
                 template<typename T>
-                double discrete_frechet_distance<T>::c(int i, int j, std::vector<T> &element1, std::vector<T> &element2, std::vector<double> &mem) const
+                double discrete_frechet_distance<T>::c(int i, int j, std::vector<T> &element1, std::vector<T> &element2, std::vector<std::vector<double> > &mem) const
                 {
                     if (mem.at(i).at(j) >= 0)
                     {
