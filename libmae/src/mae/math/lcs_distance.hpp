@@ -30,15 +30,6 @@ namespace mae
              */
             lcs_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure);
 
-
-            /**
-             * Creates a instance for a dynamic time warping using a windowing parameter.
-             *
-             * @param distance_measure The distance measure for each single element.
-             * @param window The window parameter.
-             */
-            lcs_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, std::size_t window);
-
             virtual ~lcs_distance();
 
             /**
@@ -51,7 +42,6 @@ namespace mae
 
         private:
             std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure_;
-            std::size_t window_;
 
         };
 
@@ -69,14 +59,6 @@ namespace mae
         lcs_distance<T>::lcs_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure)
         {
             distance_measure_ = distance_measure;
-            window_ = 0;
-        }
-
-        template<typename T>
-        lcs_distance<T>::lcs_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, std::size_t window)
-        {
-            distance_measure_ = distance_measure;
-            window_ = window;
         }
 
         template<typename T>
@@ -120,7 +102,7 @@ namespace mae
             }
 
             // longest common subsequence
-            std::size_t lcs = arr.at(n).at(m);
+            std::size_t lcs = arr.at(n-1).at(m-1);
 
             if (0 != lcs)
             {
