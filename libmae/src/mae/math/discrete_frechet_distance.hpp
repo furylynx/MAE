@@ -75,7 +75,7 @@ namespace mae
                 template<typename T>
                 double discrete_frechet_distance<T>::distance(std::vector<T> element1, std::vector<T> element2) const
                 {
-                    return recursive(element1, element2);
+                    return iterative(element1, element2);
                 }
 
                 template<typename T>
@@ -84,7 +84,7 @@ namespace mae
                     std::size_t p = element1.size();
                     std::size_t q = element2.size();
 
-                    std::vector<std::vector<double>> arr;
+                    std::vector<std::vector<double> > arr;
 
                     for (std::size_t i = 0; i < p ; i++)
                     {
@@ -124,10 +124,6 @@ namespace mae
                                 arr.at(i).at(j) = std::max(std::min(arr.at(i-1).at(j), std::min(arr.at(i-1).at(j-1), arr.at(i).at(j-1))),
                                                            distance_measure_->distance(element1.at(i), element2.at(j)));
                             }
-
-                            double cost = distance_measure_->distance(element1.at(i-1), element2.at(j-1));
-
-                            arr.at(i).at(j) = cost + std::min( std::min(arr.at(i-1).at(j), arr.at(i).at(j-1)),arr.at(i-1).at(j-1) );
                         }
                     }
 
