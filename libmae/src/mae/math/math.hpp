@@ -11,6 +11,7 @@
 #include "i_similarity_measure.hpp"
 #include "dtw.hpp"
 #include "discrete_frechet_distance.hpp"
+#include "lcs_distance.hpp"
 #include "../general_joint.hpp"
 
 //global includes
