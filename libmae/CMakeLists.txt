@@ -257,7 +257,7 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/fl/laban/laban_target_sequence_comparator.cpp src/mae/fl/laban/laban_target_sequence_comparator.hpp
         src/mae/math/subsequence_similarity_details.cpp src/mae/math/subsequence_similarity_details.hpp
         src/mae/math/lcs_distance.hpp
-        src/mae/math/discrete_frechet_distance.hpp)
+        src/mae/math/discrete_frechet_distance.hpp src/mae/math/mahalanobis_distance.cpp src/mae/math/mahalanobis_distance.hpp)
 
 
 set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")

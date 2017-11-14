@@ -27,7 +27,8 @@ int main()
 
             //set the p for minkowski distance (p=1 is manhattan distance, p=2 is euclidean distance)
             int minkowski_p = 1;
-            std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure_feature_vectors = std::make_shared<mae::math::minkowski_distance>(minkowski_p);
+            std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure_feature_vectors = std::make_shared<mae::math::mahalanobis_distance>();
+            //= std::make_shared<mae::math::minkowski_distance>(minkowski_p);
 
             //use the movement comparator to compare movements (labanotation symbols)
             std::shared_ptr<mae::fl::laban::movement_comparator> movement_comparator = std::make_shared<mae::fl::laban::movement_comparator>(distance_measure_feature_vectors);

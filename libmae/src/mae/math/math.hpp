@@ -8,6 +8,8 @@
 #include "basis.hpp"
 #include "i_distance_measure.hpp"
 #include "minkowski_distance.hpp"
+#include "cosine_similarity.hpp"
+#include "mahalanobis_distance.hpp"
 #include "i_similarity_measure.hpp"
 #include "dtw.hpp"
 #include "discrete_frechet_distance.hpp"
