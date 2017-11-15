@@ -22,19 +22,17 @@ namespace mae
 
         double mahalanobis_distance::distance(std::vector<double> element1, std::vector<double> element2) const
         {
-            cv::InputArray v1(element1);
-            cv::InputArray v2(element2);
-
+            cv::Mat v1(element1);
+            cv::Mat v2(element2);
 
             cv::Mat observations;
 
             cv::hconcat(v1,v2, observations);
 
             cv::Mat mean, covs;
-            cv::calcCovarMatrix(observations, covs, mean, CV_COVAR_NORMAL | CV_COVAR_ROWS | CV_COVAR_SCALE);
-            cv::InputArray icovar = covs.inv();
+            cv::calcCovarMatrix(observations, covs, mean, CV_COVAR_SCRAMBLED|CV_COVAR_ROWS,CV_64F);
 
-            return cv::Mahalanobis(v1, v2, icovar);
+            return cv::Mahalanobis(v1, v2, covs.inv(CV_SVD));
         }
 
     }

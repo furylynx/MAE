@@ -29,7 +29,7 @@ project(${MYEXEC} VERSION ${MYEXEC_VERSION_STRING})
 set(CMAKE_CXX_STANDARD 14)
 
 # Source files
-set(SOURCE_FILES src/tutorial-distancemeasure.cpp src/int_distance_measure.cpp src/int_distance_measure.hpp)
+set(SOURCE_FILES src/tutorial-distancemeasure.cpp)
 
 set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
 set(INSTALL_PACKAGE_LOCATION lib/cmake/${MYEXEC})

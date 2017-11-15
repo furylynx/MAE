@@ -1,6 +1,6 @@
 
 //custom includes
-#include "int_distance_measure.hpp"
+//...
 
 //global includes
 #include <iostream>
@@ -27,15 +27,15 @@ int main()
 
             //set the p for minkowski distance (p=1 is manhattan distance, p=2 is euclidean distance)
             int minkowski_p = 1;
-            std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure_feature_vectors = std::make_shared<mae::math::mahalanobis_distance>();
-            //= std::make_shared<mae::math::minkowski_distance>(minkowski_p);
+            std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure_feature_vectors = std::make_shared<mae::math::mahalanobis_distance>();//std::make_shared<mae::math::minkowski_distance>(minkowski_p);//
+
 
             //use the movement comparator to compare movements (labanotation symbols)
             std::shared_ptr<mae::fl::laban::movement_comparator> movement_comparator = std::make_shared<mae::fl::laban::movement_comparator>(distance_measure_feature_vectors);
 
             //set the window size, zero for no windowing
             std::size_t window = 0;
-            std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > > distance_measure = std::make_shared<mae::math::lcs_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator);
+            std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > > distance_measure = std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, window);
             // = std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, window);
             // = std::make_shared<mae::math::lcs_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator);
             // = std::make_shared<mae::math::discrete_frechet_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator);
@@ -51,7 +51,7 @@ int main()
 
             uint64_t starttime = mae::mos::current_time_millis();
 
-            double similarity = comparator->similarity(target_sequence, sequence1);//target_comparator.similarity(target_sequence, sequence2);//
+            double similarity = target_comparator.similarity(target_sequence, sequence2);//comparator->similarity(target_sequence, sequence1);//
 
             uint64_t endtime = mae::mos::current_time_millis();
 
