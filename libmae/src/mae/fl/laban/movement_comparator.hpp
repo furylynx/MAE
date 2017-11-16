@@ -33,8 +33,9 @@ namespace mae
                  * Creates a distance measure for symbols using chosen distances for different symbols.
                  *
                  * @param distance_measure The distance measure to compare two vectors.
+                 * @param distance_for_nullptr The distance to be applied when comparing any symbol with a nullptr (empty symbol denoting a holding of the position for the given body part).
                  */
-                movement_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>());
+                movement_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(), double distance_for_nullptr = 1);
                 virtual ~movement_comparator();
 
 
@@ -51,6 +52,7 @@ namespace mae
             private:
 
                 std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure_;
+                double distance_for_nullptr_;
 
             };
 

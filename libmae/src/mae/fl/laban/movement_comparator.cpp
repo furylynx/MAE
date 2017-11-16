@@ -6,10 +6,11 @@ namespace mae
 	{
 		namespace laban
 		{
-			movement_comparator::movement_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure)
+			movement_comparator::movement_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure, double distance_for_nullptr)
 			{
 
 				distance_measure_ = distance_measure;
+				distance_for_nullptr_ = distance_for_nullptr;
 			}
 
 			movement_comparator::~movement_comparator()
@@ -18,12 +19,19 @@ namespace mae
 
 			double movement_comparator::distance(std::shared_ptr<i_movement> element1, std::shared_ptr<i_movement> element2) const
 			{
-				if (element1->equals(element2))
+				if (nullptr == element1 && nullptr == element2)
 				{
 					return 0;
 				}
-
-				if (typeid(element1.get()) == typeid(element2.get()) && element1->all_types_equal(element2))
+				else if (nullptr == element1 || nullptr == element2)
+				{
+					return distance_for_nullptr_;
+				}
+				else if (element1->equals(element2))
+				{
+					return 0;
+				}
+				else if (typeid(element1.get()) == typeid(element2.get()) && element1->all_types_equal(element2))
 				{
 					return distance_measure_->distance(element1->symbol_feature_vector(), element2->symbol_feature_vector());
 				}

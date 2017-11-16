@@ -24,7 +24,7 @@ namespace mae
         {
         public:
             /**
-             * Creates a instance for a dynamic time warping using no windowing.
+             * Creates a instance for a longest common subsequence using no windowing.
              *
              * @param distance_measure The distance measure for each single element.
              */
@@ -106,7 +106,7 @@ namespace mae
 
             if (0 != lcs)
             {
-                return 1/(double) lcs;
+                return (std::max(element1.size(), element2.size())/(double) lcs)-1;
             }
             else
             {

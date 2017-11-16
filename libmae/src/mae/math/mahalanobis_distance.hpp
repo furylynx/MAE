@@ -26,9 +26,20 @@ namespace mae
         {
 
         public:
+            /**
+             * Creates the new distance measure using the mahalanobis distance.
+             */
             mahalanobis_distance();
+
             virtual ~mahalanobis_distance();
 
+            /**
+             * Returns the distance between the two elements.
+             *
+             * @param element1
+             * @param element2
+             * @return
+             */
             virtual double distance(std::vector<double> element1, std::vector<double> element2) const;
         };
 
