@@ -46,8 +46,8 @@ namespace mae
                     int col2_id = pair.second;
 
                     //quantize symbol
-                    std::vector<std::shared_ptr<i_movement> > movements1_steps = create_stretched(element1->get_column_movements(col1_id));
-                    std::vector<std::shared_ptr<i_movement> > movements2_steps = create_stretched(element2->get_column_movements(col2_id));
+                    std::vector<std::shared_ptr<i_movement> > movements1_steps = create_stretched(element1->get_column_movements(col1_id), element1->get_beats());
+                    std::vector<std::shared_ptr<i_movement> > movements2_steps = create_stretched(element2->get_column_movements(col2_id), element2->get_beats());
 
                     //get distance using distance measure, distance = 0 if one sequence has no movements defined for the column and ignore flag is set (movement agnostic for that column)
                     double distance = 0;
@@ -82,8 +82,9 @@ namespace mae
             }
 
 
-            std::vector<std::shared_ptr<i_movement> > laban_sequence_comparator::create_stretched(std::vector<std::shared_ptr<i_movement> > non_streched) const
+            std::vector<std::shared_ptr<i_movement> > laban_sequence_comparator::create_stretched(std::vector<std::shared_ptr<i_movement> > non_streched, unsigned int beats_per_measure) const
             {
+
                 if (0 == frames_per_beat_)
                 {
                     return non_streched;
@@ -91,8 +92,24 @@ namespace mae
 
                 std::vector<std::shared_ptr<i_movement> > result;
 
+                double prev_end = 0;
+
                 for (std::shared_ptr<i_movement> symbol : non_streched)
                 {
+                    // fill null for spaces without a symbol
+                    double pos = symbol->get_measure() * beats_per_measure + symbol->get_beat();
+
+                    int times_null = (int) (frames_per_beat_ * (pos - prev_end));
+
+                    if (times_null > 0)
+                    {
+                        for (int i = 0; i < times_null; i++)
+                        {
+                            result.push_back(nullptr);
+                        }
+                    }
+
+                    // fill symbol
                     int times = (int) (frames_per_beat_ * symbol->get_duration());
 
                     if (times < 1)

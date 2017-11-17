@@ -68,9 +68,12 @@ namespace mae {
                     /**
                      * Creates the streched sequence using the frames per beat factor. If the factor is zero, the given sequence will just be returned. If the factor for one symbol is less than one, one symbol will be inserted instead of zero.
                      *
+                     * @param non_streched The original sequence.
+                     * @param beats_per_measure The number of beats per measure.
                      * @return The streched sequence.
+                     *
                      */
-                    virtual std::vector<std::shared_ptr<i_movement> > create_stretched(std::vector<std::shared_ptr<i_movement> > non_streched) const;
+                    virtual std::vector<std::shared_ptr<i_movement> > create_stretched(std::vector<std::shared_ptr<i_movement> > non_streched, unsigned int beats_per_measure) const;
 
             };
 
