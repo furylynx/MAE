@@ -155,8 +155,8 @@ namespace mae
 
                         if (cut_position < beats_per_measure)
                         {
-                            if (current_duration + cut_position >= 0)
-                            {
+//                            if (current_duration + cut_position >= 0)
+//                            {
                                 if (startpose)
                                 {
                                     //already a startpose defined, but we have another now. hence, clear the buffer
@@ -168,11 +168,11 @@ namespace mae
 
                                 //set flag for a startpose
                                 startpose = true;
-                            }
-                            else
-                            {
-                                //movement is out of scope, don't add
-                            }
+//                            }
+//                            else
+//                            {
+//                                //movement is out of scope, don't add
+//                            }
                         }
                         else if (cut_position > endpos)
                         {

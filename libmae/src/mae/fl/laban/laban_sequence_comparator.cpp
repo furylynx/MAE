@@ -112,6 +112,12 @@ namespace mae
                     // fill symbol
                     int times = (int) (frames_per_beat_ * symbol->get_duration());
 
+                    if (0 == symbol->get_beat() && 0 == symbol->get_measure() )
+                    {
+                        //start symbol only one frame
+                        times = 1;
+                    }
+
                     if (times < 1)
                     {
                         times = 1;

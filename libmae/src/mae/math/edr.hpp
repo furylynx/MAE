@@ -1,9 +1,9 @@
 //
-// Created on 2017-11-14
+// Created on 2017-11-20
 //
 
-#ifndef MAE_MATH_LCS_DISTANCE_HPP_
-#define MAE_MATH_LCS_DISTANCE_HPP_
+#ifndef MAE_MATH_EDR_HPP
+#define MAE_MATH_EDR_HPP
 
 //custom includes
 #include "i_distance_measure.hpp"
@@ -20,18 +20,18 @@ namespace mae
     namespace math
     {
         template<typename T>
-        class lcs_distance: public i_distance_measure<std::vector<T> >
+        class edr : public i_distance_measure<std::vector<T> >
         {
         public:
             /**
              * Creates a instance for a longest common subsequence using no windowing.
              *
              * @param distance_measure The distance measure for each single element.
-             * @param target_value True for having the first sequence for the {@link distance(element1,element2)} as the target value to compare to. False for simply comparing the two sequences.
+             * @param epsilon The threshold for distance comparison for subcosts.
              */
-            lcs_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, bool target_value = false);
+            edr(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, double epsilon);
 
-            virtual ~lcs_distance();
+            virtual ~edr();
 
             /**
              * Returns the distance between the two time series.
@@ -43,7 +43,7 @@ namespace mae
 
         private:
             std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure_;
-            bool target_value_;
+            double epsilon_;
 
         };
 
@@ -58,19 +58,19 @@ namespace mae
     {
 
         template<typename T>
-        lcs_distance<T>::lcs_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, bool target_value)
+        edr<T>::edr(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, double epsilon)
         {
             distance_measure_ = distance_measure;
-            target_value_ = target_value;
+            epsilon_ = epsilon;
         }
 
         template<typename T>
-        lcs_distance<T>::~lcs_distance()
+        edr<T>::~edr()
         {
         }
 
         template<typename T>
-        double lcs_distance<T>::distance(std::vector<T> element1, std::vector<T> element2) const
+        double edr<T>::distance(std::vector<T> element1, std::vector<T> element2) const
         {
             std::size_t n = element1.size()+1;
             std::size_t m = element2.size()+1;
@@ -93,39 +93,23 @@ namespace mae
             {
                 for (std::size_t j = 1 ; j < m ; j++)
                 {
-                    if (0 == distance_measure_->distance(element1.at(i-1), element2.at(j-1)))
+                    double subcost = 0;
+
+                    if (distance_measure_->distance(element1.at(i-1), element2.at(j-1)) > epsilon_)
                     {
-                        arr.at(i).at(j) = arr.at(i - 1).at(j - 1) + 1;
+                        subcost = 1;
                     }
-                    else
-                    {
-                        arr.at(i).at(j) = std::max(arr.at(i).at(j - 1), arr.at(i -1 ).at(j));
-                    }
+
+                    arr.at(i).at(j) = std::min(arr.at(i).at(j-1) + 1, std::min(arr.at(i-1).at(j) + 1, arr.at(i-1).at(j-1) + subcost));
                 }
             }
 
-            // longest common subsequence
-            std::size_t lcs = arr.at(n-1).at(m-1);
-
-            if (0 != lcs)
-            {
-                if (target_value_)
-                {
-                    return (element1.size()/(double) lcs)-1;
-                }
-                else
-                {
-                    return (std::max(element1.size(), element2.size())/(double) lcs)-1;
-                }
-            }
-            else
-            {
-                return std::numeric_limits<double>::infinity();
-            }
+            return arr.at(n-1).at(m-1) / (double) std::max(element1.size(), element2.size());
         }
 
 
     } // namespace math
 } // namespace mae
 
-#endif // MAE_MATH_LCS_DISTANCE_HPP_
+
+#endif //MAE_MATH_EDR_HPP
