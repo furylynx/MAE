@@ -27,9 +27,9 @@ namespace mae
              * Creates a instance for a longest common subsequence using no windowing.
              *
              * @param distance_measure The distance measure for each single element.
-             * @param g
+             * @param gap Constant value for comparison.
              */
-            erp(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, T g);
+            erp(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, T gap);
 
             virtual ~erp();
 
@@ -43,7 +43,7 @@ namespace mae
 
         private:
             std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure_;
-            T g_;
+            T gap_;
 
         };
 
@@ -58,10 +58,10 @@ namespace mae
     {
 
         template<typename T>
-        erp<T>::erp(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, double epsilon)
+        erp<T>::erp(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, T gap)
         {
             distance_measure_ = distance_measure;
-            epsilon_ = epsilon;
+            gap_ = gap;
         }
 
         template<typename T>
@@ -93,20 +93,20 @@ namespace mae
 
             for (int i = 0; i < element1.size(); i++)
             {
-                arr.at(i).at(0) = distance_measure_->distance(g_, element1.at(i));
+                arr.at(i).at(0) = distance_measure_->distance(gap_, element1.at(i));
             }
 
             for (int j = 0; j < element1.size(); j++)
             {
-                arr.at(0).at(j) = distance_measure_->distance(g_, element2.at(j));
+                arr.at(0).at(j) = distance_measure_->distance(gap_, element2.at(j));
             }
 
             for (std::size_t i = 1 ; i < n ; i++)
             {
                 for (std::size_t j = 1 ; j < m ; j++)
                 {
-                    double derp0 = arr.at(i-1).at(j) + distance_measure_->distance(element1.at(i-1), g_);
-                    double derp1 = arr.at(i).at(j-1) + distance_measure_->distance(g_, element2.at(j-1));
+                    double derp0 = arr.at(i-1).at(j) + distance_measure_->distance(element1.at(i-1), gap_);
+                    double derp1 = arr.at(i).at(j-1) + distance_measure_->distance(gap_, element2.at(j-1));
                     double derp01 = arr.at(i-1).at(j-1) + distance_measure_->distance(element1.at(i-1), element2.at(j-1));
 
                     arr.at(i).at(j) = std::min(derp0, std::min(derp1, derp01));
