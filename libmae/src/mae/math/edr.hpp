@@ -27,9 +27,9 @@ namespace mae
              * Creates a instance for a longest common subsequence using no windowing.
              *
              * @param distance_measure The distance measure for each single element.
-             * @param epsilon The threshold for distance comparison for subcosts.
+             * @param epsilon The threshold for distance comparison for subcosts. Epsilon defines a maximum distance between two elements still seen as matching. If epsilon is zero, elements are only seen as matching when their distance is zero.
              */
-            edr(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, double epsilon);
+            edr(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, double epsilon = 0);
 
             virtual ~edr();
 
@@ -75,11 +75,11 @@ namespace mae
             std::size_t n = element1.size()+1;
             std::size_t m = element2.size()+1;
 
-            std::vector<std::vector<std::size_t> > arr;
+            std::vector<std::vector<int> > arr;
 
             for (std::size_t i = 0; i < n ; i++)
             {
-                std::vector<std::size_t> row;
+                std::vector<int> row;
 
                 for (std::size_t j = 0; j < m; j++)
                 {
@@ -93,7 +93,7 @@ namespace mae
             {
                 for (std::size_t j = 1 ; j < m ; j++)
                 {
-                    double subcost = 0;
+                    int subcost = 0;
 
                     if (distance_measure_->distance(element1.at(i-1), element2.at(j-1)) > epsilon_)
                     {
@@ -104,7 +104,7 @@ namespace mae
                 }
             }
 
-            return arr.at(n-1).at(m-1) / (double) std::max(element1.size(), element2.size());
+            return arr.at(n-1).at(m-1);
         }
 
 
