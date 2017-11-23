@@ -89,27 +89,36 @@ namespace mae
                 arr.push_back(row);
             }
 
-            //TODO initialize array
-
+            //create sum for initial values
+            double sum_element_1 = 0;
             for (int i = 0; i < element1.size(); i++)
             {
-                arr.at(i).at(0) = distance_measure_->distance(gap_, element1.at(i));
+                sum_element_1 += distance_measure_->distance(element1.at(i), gap_);
             }
 
+            double sum_element_2 = 0;
             for (int j = 0; j < element1.size(); j++)
             {
-                arr.at(0).at(j) = distance_measure_->distance(gap_, element2.at(j));
+                sum_element_2 += distance_measure_->distance(element2.at(j),gap_);
             }
 
+            //initialize array
+            for (int i = 1; i < n; i++)
+            {
+                arr.at(i).at(0) = sum_element_1;
+            }
+
+            for (int j = 1; j < n; j++)
+            {
+                arr.at(0).at(j) = sum_element_2;
+            }
+
+            //iterate
             for (std::size_t i = 1 ; i < n ; i++)
             {
                 for (std::size_t j = 1 ; j < m ; j++)
                 {
-                    double derp0 = arr.at(i-1).at(j) + distance_measure_->distance(element1.at(i-1), gap_);
-                    double derp1 = arr.at(i).at(j-1) + distance_measure_->distance(gap_, element2.at(j-1));
-                    double derp01 = arr.at(i-1).at(j-1) + distance_measure_->distance(element1.at(i-1), element2.at(j-1));
-
-                    arr.at(i).at(j) = std::min(derp0, std::min(derp1, derp01));
+                    arr.at(i).at(j) = std::min(arr.at(i-1).at(j) + distance_measure_->distance(element1.at(i-1), gap_), std::min(arr.at(i).at(j-1) + distance_measure_->distance(gap_, element2.at(j-1)), arr.at(i-1).at(j-1) + distance_measure_->distance(element1.at(i-1), element2.at(j-1))));
                 }
             }
 
