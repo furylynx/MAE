@@ -21,11 +21,35 @@ namespace mae
 			{
 				if (nullptr == element1 && nullptr == element2)
 				{
+					//both elements null, hence no distance
 					return 0;
 				}
 				else if (nullptr == element1 || nullptr == element2)
 				{
-					return distance_for_nullptr_;
+					//one pf the elements is null, the other is not
+
+					//use fixed distance if defined
+					if (distance_for_nullptr_ >= 0)
+					{
+						return distance_for_nullptr_;
+					}
+					else
+					{
+						//compare with nullvector of same size
+						std::vector<double> feature_vector;
+
+						if (nullptr == element1)
+						{
+							feature_vector = element2->symbol_feature_vector();
+						}
+						else
+						{
+							feature_vector = element1->symbol_feature_vector();
+						}
+
+						std::vector<double> zero_vector (feature_vector.size(), 0);
+						return distance_measure_->distance(feature_vector, zero_vector);
+					}
 				}
 				else if (element1->equals(element2))
 				{
