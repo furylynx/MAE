@@ -1,5 +1,5 @@
 //
-// Created on 23.10.17.
+// Created on 2017-10-23
 //
 
 #ifndef MAE_FL_LABAN_MV_SYMBOL_FL_DISTANCE_HPP
