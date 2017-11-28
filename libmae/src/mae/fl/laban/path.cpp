@@ -88,6 +88,17 @@ namespace mae
 				return result;
 			}
 
+			virtual std::vector<std::type_index> path::get_type_path() const
+			{
+				std::vector<std::type_index> result;
+				result.push_back(std::type_index(typeid(mae::fl::laban::i_movement)));
+				result.push_back(std::type_index(typeid(mae::fl::laban::path)));
+
+				//no further specification possible
+
+				return result;
+			}
+
 			std::string path::xml(unsigned int indent, std::string namesp) const
 			{
 				std::stringstream indent_stream;

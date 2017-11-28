@@ -72,6 +72,14 @@ namespace mae
 					return result;
 				}
 
+				virtual std::vector<std::type_index> pin::get_type_path() const
+				{
+					std::vector<std::type_index> result;
+					result.push_back(std::type_index(typeid(mae::fl::laban::mv::i_degree_sign)));
+					result.push_back(std::type_index(typeid(mae::fl::laban::mv::pin)));
+					return result;
+				}
+
 				std::string pin::xml(unsigned int indent, std::string namesp, bool print_type) const
 				{
 					std::stringstream indent_stream;

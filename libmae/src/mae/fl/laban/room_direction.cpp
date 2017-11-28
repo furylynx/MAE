@@ -88,6 +88,19 @@ namespace mae
 				return direction_->feature_vector(hierarchy_factor);
 			}
 
+			virtual std::vector<std::type_index> room_direction::get_type_path() const
+			{
+				std::vector<std::type_index> result;
+				result.push_back(std::type_index(typeid(mae::fl::laban::i_movement)));
+				result.push_back(std::type_index(typeid(mae::fl::laban::room_direction)));
+
+				std::vector<std::type_index> direction_type_path = direction_->get_type_path();
+
+				result.insert(result.end(), direction_type_path.begin(), direction_type_path.end() );
+
+				return result;
+			}
+
 			std::string room_direction::xml(unsigned int indent, std::string namesp) const
 			{
 				std::stringstream indent_stream;
