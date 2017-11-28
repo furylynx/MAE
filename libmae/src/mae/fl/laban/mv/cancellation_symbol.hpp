@@ -62,6 +62,13 @@ namespace mae
 						virtual std::vector<double> feature_vector(double hierarchy_factor = 0.5) const;
 
 						/**
+						 * Returns the path of the type hierarchy beginning with the i_symbol type. The path can be used to compare elements by their position in the hierarchy. Uses the shortest path if multiple paths are possible (diamond hierarchy).
+						 *
+						 * @return The path from the current type to the i_symbol type.
+						 */
+						virtual std::vector<std::type_index> get_type_path() const;
+
+						/**
 						 * Returns the XML representation for this element.
 						 *
 						 * @param indent The applied indent.

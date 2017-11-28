@@ -119,6 +119,15 @@ namespace mae
 					return result;
 				}
 
+				std::vector<std::type_index> vibration_symbol::get_type_path() const
+				{
+					std::vector<std::type_index> result;
+					result.push_back(std::type_index(typeid(mae::fl::laban::mv::i_symbol)));
+					result.push_back(std::type_index(typeid(mae::fl::laban::mv::vibration_symbol)));
+
+					return result;
+				}
+
 				std::string vibration_symbol::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;

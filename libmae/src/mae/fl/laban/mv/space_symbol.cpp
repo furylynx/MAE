@@ -101,6 +101,15 @@ namespace mae
 					return result;
 				}
 
+				std::vector<std::type_index> space_symbol::get_type_path() const
+				{
+					std::vector<std::type_index> result;
+					result.push_back(std::type_index(typeid(mae::fl::laban::mv::i_symbol)));
+					result.push_back(std::type_index(typeid(mae::fl::laban::mv::space_symbol)));
+
+					return result;
+				}
+
 				std::string space_symbol::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;

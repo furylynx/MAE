@@ -186,6 +186,15 @@ namespace mae
 					return result;
 				}
 
+				std::vector<std::type_index> direction_symbol::get_type_path() const
+				{
+					std::vector<std::type_index> result;
+					result.push_back(std::type_index(typeid(mae::fl::laban::mv::i_symbol)));
+					result.push_back(std::type_index(typeid(mae::fl::laban::mv::direction_symbol)));
+
+					return result;
+				}
+
 				std::string direction_symbol::xml(unsigned int indent, std::string namesp) const
 				{
 					std::stringstream indent_stream;

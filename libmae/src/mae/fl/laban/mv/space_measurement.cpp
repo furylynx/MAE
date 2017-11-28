@@ -75,6 +75,14 @@ namespace mae
 					return result;
 				}
 
+				std::vector<std::type_index> space_measurement::get_type_path() const
+				{
+					std::vector<std::type_index> result;
+					result.push_back(std::type_index(typeid(mae::fl::laban::mv::i_degree_sign)));
+					result.push_back(std::type_index(typeid(mae::fl::laban::mv::space_measurement)));
+					return result;
+				}
+
 				std::string space_measurement::xml(unsigned int indent, std::string namesp, bool print_type) const
 				{
 					std::stringstream indent_stream;
