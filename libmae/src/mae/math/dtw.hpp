@@ -1,5 +1,5 @@
 //
-// Created on 17.10.17.
+// Created on 2017-10-17
 //
 
 #ifndef MAE_MATH_DTW_HPP_

@@ -16,6 +16,7 @@
 #include "lcs_distance.hpp"
 #include "edr.hpp"
 #include "erp.hpp"
+#include "type_hierarchy_distance.hpp"
 #include "../general_joint.hpp"
 
 //global includes

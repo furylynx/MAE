@@ -34,8 +34,9 @@ namespace mae
                  *
                  * @param distance_measure The distance measure to compare two vectors.
                  * @param distance_for_nullptr The distance to be applied when comparing any symbol with a nullptr (empty symbol denoting a holding of the position for the given body part). Values below zero are evaluated to a comparison with the zero vector.
+                 * @param type_hierarchy_distance The distance measure for a type hierarchy (distance in trees).
                  */
-                movement_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(), double distance_for_nullptr = 1);
+                movement_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(), double distance_for_nullptr = 1, std::shared_ptr<mae::math::type_hierarchy_distance> type_hierarchy_distance = std::make_shared<mae::math::type_hierarchy_distance>());
                 virtual ~movement_comparator();
 
 
@@ -52,6 +53,7 @@ namespace mae
             private:
 
                 std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure_;
+                std::shared_ptr<mae::math::type_hierarchy_distance> type_hierarchy_distance_;
                 double distance_for_nullptr_;
 
             };
