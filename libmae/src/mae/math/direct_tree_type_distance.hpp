@@ -2,12 +2,12 @@
 // Created on 2017-11-29
 //
 
-#ifndef MAE_MATH_TYPE_HIERARCHY_DISTANCE_HPP
-#define MAE_MATH_TYPE_HIERARCHY_DISTANCE_HPP
+#ifndef MAE_MATH_DIRECT_TREE_TYPE_DISTANCE_HPP
+#define MAE_MATH_DIRECT_TREE_TYPE_DISTANCE_HPP
 
 
 //custom includes
-#include "i_distance_measure.hpp"
+#include "i_type_distance_measure.hpp"
 
 //global includes
 #include <memory>
@@ -19,17 +19,17 @@ namespace mae
 {
     namespace math
     {
-        class type_hierarchy_distance : public i_distance_measure<std::vector<std::type_index> >
+        class direct_tree_type_distance : public i_type_distance_measure
         {
         public:
             /**
-             * Creates a new distance measure for type hierarchies.
+             * Creates a new distance measure for type hierarchies. Uses the direct node distance (shortest path between two nodes).
              *
              * @param distance_offset An offset for the distance (will be added to the distance).
              */
-            type_hierarchy_distance(double distance_offset = 0);
+            direct_tree_type_distance(double distance_offset = 0);
 
-            virtual ~type_hierarchy_distance();
+            virtual ~direct_tree_type_distance();
 
             /**
              * Returns the type hierarchy distance between the two elements.
@@ -47,4 +47,4 @@ namespace mae
     } // namespace math
 } // namespace mae
 
-#endif //MAE_MATH_TYPE_HIERARCHY_DISTANCE_HPP
+#endif //MAE_MATH_DIRECT_TREE_TYPE_DISTANCE_HPP

@@ -7,6 +7,7 @@
 #include "vec3d.hpp"
 #include "basis.hpp"
 #include "i_distance_measure.hpp"
+#include "i_type_distance_measure.hpp"
 #include "minkowski_distance.hpp"
 #include "cosine_similarity.hpp"
 #include "mahalanobis_distance.hpp"
@@ -16,7 +17,8 @@
 #include "lcs_distance.hpp"
 #include "edr.hpp"
 #include "erp.hpp"
-#include "type_hierarchy_distance.hpp"
+#include "direct_tree_type_distance.hpp"
+#include "sologub_tree_type_distance.hpp"
 #include "../general_joint.hpp"
 
 //global includes

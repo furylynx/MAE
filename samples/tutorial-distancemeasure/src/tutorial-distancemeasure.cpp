@@ -29,10 +29,15 @@ int main()
             int minkowski_p = 1;
             std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure_feature_vectors = std::make_shared<mae::math::minkowski_distance>(minkowski_p);//std::make_shared<mae::math::mahalanobis_distance>();//
 
+            //hierarchy distance
+            double distance_offset = 0;
+            std::shared_ptr<mae::math::i_type_distance_measure> type_distance_measure = std::make_shared<mae::math::sologub_tree_type_distance>(distance_offset);
+            // = std::make_shared<mae::math::sologub_tree_type_distance>(distance_offset);
+            // = std::make_shared<mae::math::direct_tree_type_distance>(distance_offset);
 
             //use the movement comparator to compare movements (labanotation symbols)
             double distance_for_nullptr_ = 2;
-            std::shared_ptr<mae::fl::laban::movement_comparator> movement_comparator = std::make_shared<mae::fl::laban::movement_comparator>(distance_measure_feature_vectors, distance_for_nullptr_);
+            std::shared_ptr<mae::fl::laban::movement_comparator> movement_comparator = std::make_shared<mae::fl::laban::movement_comparator>(distance_measure_feature_vectors, type_distance_measure, distance_for_nullptr_);
 
             //set the window size, zero for no windowing
             std::size_t window = 0;

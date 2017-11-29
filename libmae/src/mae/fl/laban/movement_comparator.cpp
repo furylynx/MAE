@@ -6,12 +6,12 @@ namespace mae
 	{
 		namespace laban
 		{
-			movement_comparator::movement_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure, double distance_for_nullptr, std::shared_ptr<mae::math::type_hierarchy_distance> type_hierarchy_distance)
+			movement_comparator::movement_comparator(std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure, std::shared_ptr<mae::math::i_type_distance_measure> type_distance_measure, double distance_for_nullptr)
 			{
 
 				distance_measure_ = distance_measure;
 				distance_for_nullptr_ = distance_for_nullptr;
-				type_hierarchy_distance_ = type_hierarchy_distance;
+                type_distance_measure_ = type_distance_measure;
 			}
 
 			movement_comparator::~movement_comparator()
@@ -62,7 +62,7 @@ namespace mae
 				}
 				else
 				{
-					return type_hierarchy_distance_->distance(element1->get_type_path(), element2->get_type_path());
+					return type_distance_measure_->distance(element1->get_type_path(), element2->get_type_path());
 				}
 			}
 
