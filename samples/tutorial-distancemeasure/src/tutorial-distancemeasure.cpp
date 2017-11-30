@@ -30,7 +30,7 @@ int main()
             std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure_feature_vectors = std::make_shared<mae::math::minkowski_distance>(minkowski_p);//std::make_shared<mae::math::mahalanobis_distance>();//
 
             //hierarchy distance
-            double distance_offset = 0;
+            double distance_offset = 2;
             std::shared_ptr<mae::math::i_type_distance_measure> type_distance_measure = std::make_shared<mae::math::sologub_tree_type_distance>(distance_offset);
             // = std::make_shared<mae::math::sologub_tree_type_distance>(distance_offset);
             // = std::make_shared<mae::math::direct_tree_type_distance>(distance_offset);

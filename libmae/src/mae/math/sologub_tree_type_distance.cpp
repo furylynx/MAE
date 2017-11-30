@@ -33,7 +33,7 @@ namespace mae
                         double direct = i+j;
                         double lcadist = std::min(element1.size()-i, element2.size()-j);
 
-                        return direct/(1+lcadist+direct);
+                        return (direct/(1+lcadist+direct)) + distance_offset_;
                     }
                 }
             }
