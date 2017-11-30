@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rw:rewritingrules xmlns:rw="http://www.example.org/labanotationrewriting" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/labanotationrewriting rewrinting_rule.xsd">
+	<rw:version>0.5</rw:version>
+	<rw:title>Evaluation Rules</rw:title>
+	<rw:author>fury lynx</rw:author>
+	<rw:rules>
+		
+		
+	</rw:rules>
+</rw:rewritingrules>
