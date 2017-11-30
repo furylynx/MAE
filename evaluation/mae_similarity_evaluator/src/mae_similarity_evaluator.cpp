@@ -180,6 +180,8 @@ int main()
         std::string comparator_name = comparator_info.first;
         std::shared_ptr<mae::fl::laban::laban_sequence_comparator> comparator = comparator_info.second;
 
+		std::unordered_map<std::string ,std::unordered_map<std::string, std::unordered_map<std::string, double> > > comparator_values;
+
         for (unsigned int directory_id = 0; directory_id < directories.size(); directory_id++)
         {
             std::string directory = directories.at(directory_id);
@@ -223,7 +225,7 @@ int main()
                                 double similarity = comparator->similarity(target_sequence,
                                                                            movement_controller.get_current_sequence());
 
-                                if (values.find(directory) != values.end())
+                                if (values.find(sequence_to_filename.at(target_sequence)) != values.end())
                                 {
                                     std::unordered_map<std::string, double> tbi;
                                     tbi[file_name] = similarity;
@@ -245,7 +247,7 @@ int main()
 
                                         double similarity = comparator->similarity(non_target_sequence, movement_controller.get_current_sequence());
 
-                                        if (values.find(directory) != values.end())
+                                        if (values.find(sequence_to_filename.at(non_target_sequence)) != values.end())
                                         {
                                             std::unordered_map<std::string, double> tbi;
                                             tbi[file_name] = similarity;
@@ -265,6 +267,11 @@ int main()
                         }
                     }
                 }
+
+				if (comparator_values.find(comparator_name) != comparator_values.end())
+				{
+					comparator_values.at()
+				}
 
 
                 //TODO evaluate values, print files, etc
