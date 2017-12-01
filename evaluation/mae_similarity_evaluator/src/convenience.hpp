@@ -26,9 +26,9 @@ laban_sequence_info initialize_laban_sequence_info(int id, std::string path, std
     return result;
 }
 
-struct comparator_info { int id; std::string name; std::string description; std::shared_ptr<mae::fl::laban::laban_sequence_comparator> comparator; };
+struct comparator_info { int id; std::string name; std::string description; std::shared_ptr<mae::fl::laban::laban_target_sequence_comparator> comparator; };
 
-comparator_info initialize_comparator_info(int id, std::string name, std::string description, std::shared_ptr<mae::fl::laban::laban_sequence_comparator> comparator)
+comparator_info initialize_comparator_info(int id, std::string name, std::string description, std::shared_ptr<mae::fl::laban::laban_target_sequence_comparator> comparator)
 {
     comparator_info result;
     result.id=id;
