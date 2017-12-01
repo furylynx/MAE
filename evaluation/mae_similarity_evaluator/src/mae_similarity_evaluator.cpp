@@ -3,7 +3,10 @@
 //
 
 //custom includes
-//...
+#include "database.hpp"
+#include "convenience.hpp"
+#include "comparators.hpp"
+
 
 //global includes
 #include <cstddef>
@@ -17,6 +20,17 @@
 #include <boost/filesystem.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
 
+
+static int callback(void *NotUsed, int argc, char **argv, char **azColName)
+{
+    int i;
+    for(i = 0; i<argc; i++)
+    {
+        printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+    }
+    printf("\n");
+    return 0;
+}
 
 int main()
 {
@@ -38,8 +52,15 @@ int main()
 		"../mae_evaluator/evaluation_bvhs/wave/"
     };
 
-	std::vector<std::pair<std::string, std::shared_ptr<mae::fl::laban::laban_sequence_comparator> > > comparators;
-    //TODO add all comparators to be compared
+    std::vector<comparator_info> comparators = initialize_comparators();
+
+    std::vector<std::string> comparator_names;
+    std::vector<std::string> comparator_descriptions;
+    for (comparator_info cinfo : comparators)
+    {
+        comparator_names.push_back(cinfo.name);
+        comparator_descriptions.push_back(cinfo.description);
+    }
 
 
 	bool performance_check = true;
@@ -48,36 +69,14 @@ int main()
 
 	std::string rw_rules_file = "rw_rules.xml";
 
-	std::vector<std::vector<int> > directory_recognized;
-	std::vector<std::vector<int> > directory_fp;
-	std::vector<std::vector<int> > directory_total;
+    //prepare database
+    std::string database_file = "mae_similarity_evaluation.db";
+    sqlite3* db = open_database(database_file);
+    create_tables_if_not_exist(db);
 
-	std::vector<int> recognized;
-	std::vector<int> fp;
-	std::vector<int> total;
+    //intialize comparators table and set ids
+    comparators = map_comparator_ids(comparators, prepare_comparators(db, comparator_names, comparator_descriptions));
 
-	std::vector<std::string> sequence_titles;
-
-	for (unsigned int j = 0; j < tolerances.size(); j++)
-	{
-		total.push_back(0);
-		fp.push_back(0);
-		recognized.push_back(0);
-	}
-
-	for (unsigned int i = 0; i < directories.size(); i++)
-	{
-		directory_recognized.push_back(std::vector<int>());
-		directory_fp.push_back(std::vector<int>());
-		directory_total.push_back(std::vector<int>());
-
-		for (unsigned int j = 0; j < tolerances.size(); j++)
-		{
-			directory_recognized.at(i).push_back(0);
-			directory_fp.at(i).push_back(0);
-			directory_total.at(i).push_back(0);
-		}
-	}
 
 	//body parts
 	std::vector<mae::bone> body_parts
@@ -106,26 +105,21 @@ int main()
 
     //TODO use rewriting rules to create similar sequences; should use closest one for comparison
 
-
+    //registering target sequences
 	mae::fl::laban::laban_sequence_reader s_reader = mae::fl::laban::laban_sequence_reader();
-	mae::fl::bvh_controller bvh_ctrl = mae::fl::bvh_controller();
 
-    std::unordered_map<std::string, std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > > dir_to_sequences;
-    std::unordered_map<std::shared_ptr<mae::fl::laban::laban_sequence>, std::string> sequence_to_filename;
+    std::vector<laban_sequence_info> target_sequences;
 
-	for (unsigned int directory_id = 0; directory_id < directories.size(); directory_id++)
+	for (std::size_t directory_id = 0; directory_id < directories.size(); directory_id++)
 	{
 		std::string directory = directories.at(directory_id);
 		std::cout << "*** " << directory << " ***" << std::endl;
 
 		if (boost::filesystem::is_directory(boost::filesystem::path(directory)))
 		{
-			boost::filesystem::path pp = boost::filesystem::path(directory);
-
-            std::vector<std::shared_ptr<mae::fl::laban::laban_sequence> > sequences_to_register;
 
 			//register all sequences
-			for (boost::filesystem::directory_iterator file_it = boost::filesystem::directory_iterator(pp);
+			for (boost::filesystem::directory_iterator file_it = boost::filesystem::directory_iterator(boost::filesystem::path(directory));
 					file_it != boost::filesystem::directory_iterator(); file_it++)
 			{
 				//read all sequences in the directory and register them
@@ -146,13 +140,7 @@ int main()
 								std::cout << "registering \"" << sequence->get_title() << "\" from file '" << file_name
 										<< "'" << std::endl;
 
-                                sequences_to_register.push_back(sequence);
-                                sequence_to_filename[sequence] = file_name;
-
-								if (sequence_titles.size() == directory_id)
-								{
-									sequence_titles.push_back(sequence->get_title());
-								}
+                                target_sequences.push_back(initialize_laban_sequence_info(insert_sequence(db, file_path, file_name, directory, sequence->get_title(), sequence->xml(), 1), file_path, file_name, directory, sequence));
 							}
 							else
 							{
@@ -168,207 +156,83 @@ int main()
 					}
 				}
 			}
-
-            dir_to_sequences[directory] = sequences_to_register;
         }
 	}
+    sqlite3_close(db);
 
-	std::cout << std::endl << ">> All sequences registered. Comparing sequences now..." << std::endl << std::endl;
+    //generating sequences
+	std::cout << std::endl << ">> All target sequences registered. Generating sequences for bvh files now..." << std::endl << std::endl;
+    db = open_database(database_file);
 
-    for (std::pair<std::string, std::shared_ptr<mae::fl::laban::laban_sequence_comparator> > comparator_info : comparators)
+    mae::fl::bvh_controller bvh_ctrl = mae::fl::bvh_controller();
+
+    std::vector<laban_sequence_info> generated_sequences;
+
+    //TODO parse stored files or load from database
+    for (std::size_t directory_id = 0; directory_id < directories.size(); directory_id++)
     {
-        std::string comparator_name = comparator_info.first;
-        std::shared_ptr<mae::fl::laban::laban_sequence_comparator> comparator = comparator_info.second;
+        std::string directory = directories.at(directory_id);
+        std::cout << "*** " << directory << " ***" << std::endl;
 
-		std::unordered_map<std::string ,std::unordered_map<std::string, std::unordered_map<std::string, double> > > comparator_values;
-
-        for (unsigned int directory_id = 0; directory_id < directories.size(); directory_id++)
+        if (boost::filesystem::is_directory(boost::filesystem::path(directory)))
         {
-            std::string directory = directories.at(directory_id);
-            std::cout << "*** " << directory << " ***" << std::endl;
-
-            if (boost::filesystem::is_directory(boost::filesystem::path(directory)))
+            //handle each bvh - determine recognition rate
+            for (boost::filesystem::directory_iterator file_it = boost::filesystem::directory_iterator(boost::filesystem::path(directory));
+                 file_it != boost::filesystem::directory_iterator(); file_it++)
             {
-                boost::filesystem::path pp = boost::filesystem::path(directory);
-
-
-                std::unordered_map<std::string, std::unordered_map<std::string, double> > values;
-
-                //handle each bvh - determine recognition rate
-                for (boost::filesystem::directory_iterator file_it = boost::filesystem::directory_iterator(pp);
-                     file_it != boost::filesystem::directory_iterator(); file_it++)
+                boost::filesystem::directory_entry entry = *file_it;
+                if (boost::filesystem::is_regular_file(entry.status()))
                 {
-                    boost::filesystem::directory_entry entry = *file_it;
-                    if (boost::filesystem::is_regular_file(entry.status()))
+                    std::string file_path = entry.path().string();
+                    std::string file_name = entry.path().filename().string();
+
+                    if (file_name.rfind(".bvh") == file_name.length() - 4)
                     {
-                        std::string file_path = entry.path().string();
-                        std::string file_name = entry.path().filename().string();
+                        //parse and send to movement controller
+                        std::vector<std::shared_ptr<mae::general_skeleton> > skeleton_data = bvh_ctrl.read_bvh_file(
+                                file_path, mae::fl::bvh_spec::default_spec())->get_skeleton_data();
 
-                        if (file_name.rfind(".bvh") == file_name.length() - 4)
+                        //use skeleton data to generate scores
+                        for (unsigned int i = 0; i < skeleton_data.size(); i++)
                         {
-                            //parse and send to movement controller
-                            std::vector<std::shared_ptr<mae::general_skeleton> > skeleton_data = bvh_ctrl.read_bvh_file(
-                                    file_path, mae::fl::bvh_spec::default_spec())->get_skeleton_data();
-
-
-
-                            //send data
-                            for (unsigned int i = 0; i < skeleton_data.size(); i++)
-                            {
-                                movement_controller.next_frame(0, skeleton_data.at(i));
-                            }
-
-                            //use sequence for comparison with target sequences
-                            for (std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence : dir_to_sequences.at(
-                                    directory))
-                            {
-                                double similarity = comparator->similarity(target_sequence,
-                                                                           movement_controller.get_current_sequence());
-
-                                if (values.find(sequence_to_filename.at(target_sequence)) != values.end())
-                                {
-                                    std::unordered_map<std::string, double> tbi;
-                                    tbi[file_name] = similarity;
-                                    values[sequence_to_filename.at(target_sequence)] = tbi;
-                                }
-                                else
-                                {
-                                    values.at(sequence_to_filename.at(target_sequence))[file_name] = similarity;
-                                }
-                            }
-
-                            //use sequence for comparison with non-target sequences
-                            for (std::pair<std::string, std::shared_ptr<mae::fl::laban::laban_sequence> > dir_pair : dir_to_sequences)
-                            {
-                                if (dir_pair.first != directory)
-                                {
-                                    for (std::shared_ptr<mae::fl::laban::laban_sequence> non_target_sequence : dir_pair.second)
-                                    {
-
-                                        double similarity = comparator->similarity(non_target_sequence, movement_controller.get_current_sequence());
-
-                                        if (values.find(sequence_to_filename.at(non_target_sequence)) != values.end())
-                                        {
-                                            std::unordered_map<std::string, double> tbi;
-                                            tbi[file_name] = similarity;
-                                            values[sequence_to_filename.at(non_target_sequence)] = tbi;
-                                        }
-                                        else
-                                        {
-                                            values.at(sequence_to_filename.at(non_target_sequence))[file_name] = similarity;
-                                        }
-                                    }
-                                }
-                            }
-
-
-                            //clear buffer
-                            movement_controller.clear_buffer();
+                            movement_controller.next_frame(0, skeleton_data.at(i));
                         }
+
+                        std::shared_ptr<mae::fl::laban::laban_sequence> sequence = movement_controller.get_current_sequence();
+
+                        //TODO store sequences
+                        generated_sequences.push_back(initialize_laban_sequence_info(insert_sequence(db, file_path, file_name, directory, sequence->get_title(), sequence->xml(), 0), file_path, file_name, directory, sequence));
+
+                        //clear buffer
+                        movement_controller.clear_buffer();
                     }
                 }
+            }
+        }
+    }
+    sqlite3_close(db);
 
-				if (comparator_values.find(comparator_name) != comparator_values.end())
-				{
-					comparator_values.at()
-				}
+    //comparing sequences
+    std::cout << std::endl << ">> All sequences generated. Comparing sequences now..." << std::endl << std::endl;
+    db = open_database(database_file);
 
+    for (comparator_info cinfo : comparators)
+    {
+		for (laban_sequence_info sinfo : generated_sequences)
+        {
+            for (laban_sequence_info tinfo : target_sequences)
+            {
+                double similarity = cinfo.comparator->similarity(tinfo.laban_sequence, sinfo.laban_sequence);
 
-                //TODO evaluate values, print files, etc
+                //void insert_data(sqlite3* db, int comparator_id, int is_compare_target_sequence, int compare_sequence_id, int actual_sequence_id, double similarity)
+                insert_data(db, cinfo.id, sinfo.directory == tinfo.directory, tinfo.id, sinfo.id,similarity);
             }
         }
     }
 
-	//print rates
-	std::cout << std::endl << std::endl << std::endl;
+    std::cout << std::endl << ">> All sequences compared. We are done!" << std::endl << std::endl;
 
-	for (unsigned int i = 0; i < directories.size(); i++)
-	{
-		for (unsigned int j = 0; j < tolerances.size(); j++)
-		{
-			std::cout << "dir " << directories.at(i) << " - tolerance " << tolerances.at(j) << " => "
-					<< (double) directory_recognized.at(i).at(j) / directory_total.at(i).at(j) << " = " << directory_recognized.at(i).at(j) << "/" << directory_total.at(i).at(j) << std::endl;
-
-			std::cout << "\t false positive: "
-					<< (double) directory_fp.at(i).at(j) / directory_total.at(i).at(j) << " = " << directory_fp.at(i).at(j) << "/" << directory_total.at(i).at(j) << std::endl;
-		}
-	}
-
-	std::cout << std::endl << std::endl << "::Overall rate::" << std::endl;
-	for (unsigned int j = 0; j < tolerances.size(); j++)
-	{
-		std::cout << "tolerance " << tolerances.at(j) << " => " << (double) recognized.at(j) / total.at(j) << " = " << recognized.at(j) << "/" << total.at(j) << std::endl;
-		std::cout << "\t false positive:" << (double) fp.at(j) / total.at(j) << " = " << fp.at(j) << "/" << total.at(j) << std::endl;
-	}
-
-	//LATEX table
-	std::cout << std::endl << std::endl << std::endl;
-	std::cout << "::: LaTeX table :::" << std::endl << std::endl;
-
-	std::cout << "\\begin{table}[H]%" << std::endl;
-	std::cout << "\\setlength\\extrarowheight{5pt}" << std::endl;
-	std::cout << "\\begin{tabular}{l | ";
-	for (unsigned int j = 0; j < tolerances.size(); j++)
-	{
-		std::cout << " c";
-	}
-	std::cout << "}" << std::endl;
-	std::cout << "\\hline" << std::endl;
-	std::cout << "Movement & \\multicolumn{" << tolerances.size() << "}{c}{Tolerance in Beats}\\\\";
-	std::cout << " & ";
-	for (unsigned int j = 0; j < tolerances.size(); j++)
-	{
-		std::cout << tolerances.at(j);
-		if (j != tolerances.size() - 1)
-		{
-			std::cout << " & ";
-		}
-	}
-	std::cout << "\\\\" << std::endl;
-	std::cout << "\\hline" << std::endl;
-	for (unsigned int i = 0; i < directories.size(); i++)
-	{
-		if (sequence_titles.size() > i)
-		{
-			std::cout << sequence_titles.at(i) << " & ";
-		}
-		else
-		{
-			std::cout << directories.at(i) << " & ";
-		}
-
-		for (unsigned int j = 0; j < tolerances.size(); j++)
-		{
-			std::cout << std::setprecision(2)
-					<< (double) directory_recognized.at(i).at(j) / directory_total.at(i).at(j);
-			if (j != tolerances.size() - 1)
-			{
-				std::cout << " & ";
-			}
-		}
-
-		std::cout << " \\\\" << std::endl;
-	}
-
-	std::cout << "\\hline" << std::endl;
-	std::cout << "Total" << " & ";
-
-	for (unsigned int j = 0; j < tolerances.size(); j++)
-	{
-		std::cout << std::setprecision(2) << (double) recognized.at(j) / total.at(j);
-
-		if (j != tolerances.size() - 1)
-		{
-			std::cout << " & ";
-		}
-	}
-
-	std::cout << " \\\\" << std::endl;
-	std::cout << "\\hline" << std::endl;
-	std::cout << "\\end{tabular}" << std::endl;
-	std::cout << "\\caption[The recognition rates of the engine.]{The recognition rates of the engine.}" << std::endl;
-	std::cout << "\\label{tab:recognition-rates}" << std::endl;
-	std::cout << "\\end{table}" << std::endl;
+    sqlite3_close(db);
 
 	return 0;
 }
