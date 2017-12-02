@@ -72,7 +72,7 @@ namespace mae
 					return result;
 				}
 
-				std::vector<std::type_index> pin::get_type_path() const
+				    std::vector<std::type_index> pin::get_type_path() const
 				{
 					std::vector<std::type_index> result;
 					result.push_back(std::type_index(typeid(mae::fl::laban::mv::i_degree_sign)));

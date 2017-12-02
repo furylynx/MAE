@@ -146,10 +146,12 @@ int main()
 							{
 								std::cout << "!! Could not parse file '" << file_name << "' for it is null." << std::endl;
 							}
-						} catch (std::exception& e)
+						}
+                        catch (std::exception& e)
 						{
 							std::cout << "!! Could not parse file '" << file_name << "' (" << e.what() << ")" << std::endl;
-						} catch (...)
+						}
+                        catch (...)
 						{
 							std::cout << "!! Could not parse file '" << file_name << "'" << std::endl;
 						}
@@ -158,17 +160,14 @@ int main()
 			}
         }
 	}
-    sqlite3_close(db);
 
     //generating sequences
 	std::cout << std::endl << ">> All target sequences registered. Generating sequences for bvh files now..." << std::endl << std::endl;
-    db = open_database(database_file);
 
     mae::fl::bvh_controller bvh_ctrl = mae::fl::bvh_controller();
 
     std::vector<laban_sequence_info> generated_sequences;
 
-    //TODO parse stored files or load from database
     for (std::size_t directory_id = 0; directory_id < directories.size(); directory_id++)
     {
         std::string directory = directories.at(directory_id);
@@ -186,35 +185,55 @@ int main()
                     std::string file_path = entry.path().string();
                     std::string file_name = entry.path().filename().string();
 
-                    if (file_name.rfind(".bvh") == file_name.length() - 4)
-                    {
-                        //parse and send to movement controller
-                        std::vector<std::shared_ptr<mae::general_skeleton> > skeleton_data = bvh_ctrl.read_bvh_file(
-                                file_path, mae::fl::bvh_spec::default_spec())->get_skeleton_data();
+					if (file_name.rfind(".bvh") == file_name.length() - 4)
+					{
 
-                        //use skeleton data to generate scores
-                        for (unsigned int i = 0; i < skeleton_data.size(); i++)
-                        {
-                            movement_controller.next_frame(0, skeleton_data.at(i));
-                        }
+						sequence_entry entry = select_sequence_by_path(db, file_path);
 
-                        std::shared_ptr<mae::fl::laban::laban_sequence> sequence = movement_controller.get_current_sequence();
+						if (entry.id >= 0)
+						{
+							std::shared_ptr<mae::fl::laban::laban_sequence> sequence = s_reader.read_sequence_str(entry.score);
 
-                        //TODO store sequences
-                        generated_sequences.push_back(initialize_laban_sequence_info(insert_sequence(db, file_path, file_name, directory, sequence->get_title(), sequence->xml(), 0), file_path, file_name, directory, sequence));
+							generated_sequences.push_back(initialize_laban_sequence_info(
+									entry.id, file_path, file_name, directory, sequence));
 
-                        //clear buffer
-                        movement_controller.clear_buffer();
-                    }
+							std::cout << "found generated sequence: " << entry.id << ", " << entry.name << std::endl;
+						}
+						else
+						{
+							//parse and send to movement controller
+							std::vector<std::shared_ptr<mae::general_skeleton> > skeleton_data = bvh_ctrl.read_bvh_file(
+									file_path, mae::fl::bvh_spec::default_spec())->get_skeleton_data();
+
+							//use skeleton data to generate scores
+							for (unsigned int i = 0; i < skeleton_data.size(); i++)
+							{
+								movement_controller.next_frame(0, skeleton_data.at(i));
+							}
+
+							std::shared_ptr<mae::fl::laban::laban_sequence> sequence = movement_controller.get_current_sequence();
+
+							generated_sequences.push_back(initialize_laban_sequence_info(
+									insert_sequence(db, file_path, file_name, directory, sequence->get_title(),
+													sequence->xml(), 0), file_path, file_name, directory, sequence));
+
+							//clear buffer
+							movement_controller.clear_buffer();
+						}
+					}
+
+					if (mae::mos::was_keyboard_hit())
+					{
+						sqlite3_close(db);
+						return 0;
+					}
                 }
             }
         }
     }
-    sqlite3_close(db);
 
     //comparing sequences
     std::cout << std::endl << ">> All sequences generated. Comparing sequences now..." << std::endl << std::endl;
-    db = open_database(database_file);
 
     for (comparator_info cinfo : comparators)
     {
@@ -222,11 +241,61 @@ int main()
         {
             for (laban_sequence_info tinfo : target_sequences)
             {
-                double similarity = cinfo.comparator->similarity(tinfo.laban_sequence, sinfo.laban_sequence);
+				try
+                {
+					data_entry entry = select_data_by_ids(db, cinfo.id, tinfo.id, sinfo.id);
 
-                //void insert_data(sqlite3* db, int comparator_id, int is_compare_target_sequence, int compare_sequence_id, int actual_sequence_id, double similarity)
-                insert_data(db, cinfo.id, sinfo.directory == tinfo.directory, tinfo.id, sinfo.id,similarity);
-            }
+					std::cout << "entry: " << cinfo.id << " " << tinfo.id << " " << sinfo.id << std::endl;
+
+					if (entry.id >= 0)
+                    {
+						//nothing
+						std::cout << "data already exists: " << tinfo.filename << " with " << sinfo.filename
+								  << std::endl;
+					}
+                    else
+                    {
+						std::cout << "comparing: " << tinfo.filename << " with " << sinfo.filename << std::endl;
+
+                        if (nullptr == cinfo.comparator)
+                        {
+                            std::cout << "comparator is null!" << std::endl;
+                        }
+
+                        if (nullptr == tinfo.laban_sequence)
+                        {
+                            std::cout << "tinfo.laban_sequence is null!" << std::endl;
+                        }
+
+                        if (nullptr == sinfo.laban_sequence)
+                        {
+                            std::cout << "sinfo.laban_sequence is null!" << std::endl;
+                        }
+
+						double similarity = cinfo.comparator->similarity(tinfo.laban_sequence, sinfo.laban_sequence);
+
+						std::cout << similarity << std::endl;
+
+						//void insert_data(sqlite3* db, int comparator_id, int is_compare_target_sequence, int compare_sequence_id, int actual_sequence_id, double similarity)
+						insert_data(db, cinfo.id, (sinfo.directory == tinfo.directory) ? 1 : 0, tinfo.id, sinfo.id, similarity);
+					}
+                }
+                catch (std::exception& e)
+                {
+                    std::cout << "Error while comparing " << sinfo.id << " with " << tinfo.id << " (" << e.what() << ")" << std::endl;
+                }
+                catch (...)
+                {
+                    std::cout << "Error while comparing " << sinfo.id << " with " << tinfo.id << std::endl;
+                }
+
+				if (mae::mos::was_keyboard_hit())
+				{
+					sqlite3_close(db);
+					return 0;
+				}
+
+			}
         }
     }
 

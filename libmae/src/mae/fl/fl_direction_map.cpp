@@ -10,7 +10,7 @@ namespace mae
 
 			//initialize directions on circle
 			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::P_H), std::make_shared<mae::math::vec3d>(-1, 0, 0)->normalize()));
-			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::P_M), std::make_shared<mae::math::vec3d>(0, 0, 0)->normalize()));
+			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::P_M), std::make_shared<mae::math::vec3d>(0, 0, 0)));
 			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::P_L), std::make_shared<mae::math::vec3d>(1, 0, 0)->normalize()));
 
 			map_directions_.insert(std::make_pair(e_fl_direction_c::to_int(e_fl_direction::L_H), std::make_shared<mae::math::vec3d>(-1, 1, 0)->normalize()));

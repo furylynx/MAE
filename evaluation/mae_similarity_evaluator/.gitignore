@@ -1,3 +1,5 @@
 /Debug/
-/mae_evaluator
-/mae_evaluator-*
+/mae_similarity_evaluator
+/mae_similarity_evaluator-*
+
+mae_similarity_evaluation.db*

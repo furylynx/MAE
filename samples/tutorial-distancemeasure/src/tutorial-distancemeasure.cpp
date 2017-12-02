@@ -17,8 +17,8 @@ int main()
 
         mae::fl::laban::laban_sequence_reader lreader;
 
-        std::shared_ptr<mae::fl::laban::laban_sequence> sequence1 = lreader.read_sequence_file("ah_clap1.bvh.laban");
-        std::shared_ptr<mae::fl::laban::laban_sequence> sequence2 = lreader.read_sequence_file("de_wave8.bvh.laban");
+        std::shared_ptr<mae::fl::laban::laban_sequence> sequence1 = lreader.read_sequence_file("../../evaluation/mae_evaluator/check/ah_clap7.bvh.laban");
+        std::shared_ptr<mae::fl::laban::laban_sequence> sequence2 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/pinch/pinch2.laban");
 
         std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence = lreader.read_sequence_file("clap.laban");
 

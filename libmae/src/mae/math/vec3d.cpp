@@ -74,7 +74,7 @@ namespace mae
 
 			if (norm == 0)
 			{
-				return nullptr;
+				return std::make_shared<vec3d>(0,0,0);
 			}
 			else
 			{

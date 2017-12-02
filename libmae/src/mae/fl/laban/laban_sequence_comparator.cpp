@@ -68,7 +68,7 @@ namespace mae
                         }
 
                         //TODO remove
-                        std::cout << "similarity [" << col1_id << "," << col2_id << "] " << similarity << " for dist " << distance << " took " << (endtime-starttime) << " ms" << std::endl;
+                        //std::cout << "similarity [" << col1_id << "," << col2_id << "] " << similarity << " for dist " << distance << " took " << (endtime-starttime) << " ms" << std::endl;
 
                         similarities_size++;
                         similarities_sum += similarity;

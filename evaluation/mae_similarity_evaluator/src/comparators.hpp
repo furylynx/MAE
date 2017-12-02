@@ -110,9 +110,11 @@ std::vector<comparator_info> initialize_comparators()
 
 std::vector<comparator_info> map_comparator_ids(std::vector<comparator_info> comparators, std::unordered_map<std::string, int> comparator_id_map)
 {
-    for (comparator_info cinfo : comparators)
+    for (comparator_info& cinfo : comparators)
     {
         cinfo.id=comparator_id_map.at(cinfo.name);
+
+        std::cout << cinfo.id << std::endl;
     }
 
     return comparators;
