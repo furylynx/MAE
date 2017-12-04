@@ -77,6 +77,22 @@ int main()
     //intialize comparators table and set ids
     comparators = map_comparator_ids(comparators, prepare_comparators(db, comparator_names, comparator_descriptions));
 
+    // get rid of comparators already done
+    std::cout << "Processing only comparators:" << std::endl;
+    for (std::vector<comparator_info>::iterator it = comparators.begin(); it != comparators.end(); )
+    {
+        if(1 == check_comparator_done(db, (*it).id))
+        {
+            it = comparators.erase(it);
+        }
+        else
+        {
+            std::cout << (*it).id << " " << (*it).name << std::endl;
+
+            //step
+            ++it;
+        }
+    }
 
 	//body parts
 	std::vector<mae::bone> body_parts

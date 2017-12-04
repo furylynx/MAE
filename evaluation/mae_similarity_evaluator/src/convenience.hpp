@@ -1,5 +1,5 @@
 //
-// Created on 01.12.17.
+// Created on 2017-12-01
 //
 
 #ifndef MAE_SIMILARITY_EVALUATOR_CONVENIENCE_HPP

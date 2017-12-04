@@ -136,7 +136,46 @@ int select_comparator_id(sqlite3* db, std::string comparator_name)
             {
                 if (ctotal > 0)
                 {
-                    return sqlite3_column_int(sel_statement, 0);
+                    result = sqlite3_column_int(sel_statement, 0);
+                }
+            }
+        }
+    }
+    else
+    {
+        throw std::invalid_argument("Could not prepare statement.");
+    }
+
+    sqlite3_finalize(sel_statement);
+
+    return result;
+}
+
+int check_comparator_done(sqlite3* db, int comparator_id)
+{
+    std::stringstream sstr_sel;
+    sstr_sel << "SELECT 1 WHERE (SELECT COUNT(id) from data WHERE comparator_id = ?) = (SELECT COUNT(l.id) FROM sequences as l INNER JOIN sequences as r WHERE l.defined = 1 AND r.defined = 0)";
+
+    sqlite3_stmt *sel_statement;
+
+    int result = 0;
+
+    if ( sqlite3_prepare(db, sstr_sel.str().c_str(), -1, &sel_statement, 0 ) == SQLITE_OK )
+    {
+        sqlite3_bind_int(sel_statement, 1, comparator_id);
+
+        int ctotal = sqlite3_column_count(sel_statement);
+        int res = SQLITE_OK;
+
+        while ( res != SQLITE_DONE && res != SQLITE_ERROR )
+        {
+            res = sqlite3_step(sel_statement);
+
+            if ( res == SQLITE_ROW )
+            {
+                if (ctotal > 0)
+                {
+                    result = sqlite3_column_int(sel_statement, 0);
                 }
             }
         }
