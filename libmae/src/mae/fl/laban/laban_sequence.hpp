@@ -194,6 +194,14 @@ namespace mae {
 				virtual std::shared_ptr<column_definition> get_column_definition(int column_index);
 
 				/**
+				 * Returns true if there exists a column definition for the column with the given index.
+				 *
+				 * @param column_index The column index.
+				 * @return True if exists.
+				 */
+				virtual bool is_column_defined(int column_index);
+
+				/**
 				 * Clears all column definitions.
 				 */
 				virtual void clear_column_definitions();

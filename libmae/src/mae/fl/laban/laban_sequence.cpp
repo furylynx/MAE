@@ -159,6 +159,11 @@ namespace mae
 				}
 			}
 
+			bool laban_sequence::is_column_defined(int column_index)
+			{
+				return (column_definitions_map_.find(column_index) != column_definitions_map_.end());
+			}
+
 			void laban_sequence::clear_column_definitions()
 			{
 				if (i_movements_vec_.size() > 0)

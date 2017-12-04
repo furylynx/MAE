@@ -36,10 +36,10 @@ namespace mae {
 
             void laban_subsequence_mapper::map_columns(std::shared_ptr<laban_sequence> sequence1, std::shared_ptr<laban_sequence> sequence2)
             {
+
                 //map columns to each other and find unmappable columns
                 std::vector<std::shared_ptr<column_definition> > el1_coldefs = sequence1->get_column_definitions();
                 std::vector<std::shared_ptr<column_definition> > el2_coldefs = sequence2->get_column_definitions();
-
 
                 std::unordered_map<int,int> mapped_columns_2_to_1;
                 std::unordered_map<bool,std::shared_ptr<column_definition> > prel_unmappable_columns;
@@ -48,7 +48,7 @@ namespace mae {
                 {
                     int col_id = coldef->get_column_index();
 
-                    if (coldef->equals(sequence2->get_column_definition(col_id)))
+                    if (sequence2->is_column_defined(col_id) && coldef->equals(sequence2->get_column_definition(col_id)))
                     {
                         //column is defined at the same id on both sequences
                         mapped_columns_[col_id] = col_id;
