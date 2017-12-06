@@ -41,22 +41,22 @@ namespace mae
                     cut_steps = 1;
                 }
 
-                unsigned int actual_sequence_length = actual_sequence->get_beats() * actual_sequence->get_measures();
+                unsigned int actual_sequence_length = actual_sequence->get_beats() * (actual_sequence->get_measures() + 1);
                 double actual_sequence_sliced_length = actual_sequence_length / cut_steps;
 
-                unsigned int target_sequence_length = target_sequence->get_beats() * target_sequence->get_measures();
+                unsigned int target_sequence_length = target_sequence->get_beats() * (target_sequence->get_measures() + 1);
                 double target_sequence_sliced_length = target_sequence_length / cut_steps;
 
                 //define min length to limit comparison
                 std::size_t min_length = 1;
-                std::size_t max_length = actual_sequence_sliced_length;
+                std::size_t max_length = std::max(target_sequence_sliced_length,actual_sequence_sliced_length);
 
-                if (0 != min_length_factor_)
+                if (min_length_factor_ > 0)
                 {
                     min_length = min_length_factor_ * target_sequence_sliced_length;
                 }
 
-                if (0 != max_length_factor_)
+                if (max_length_factor_ > 0)
                 {
                     max_length = max_length_factor_ * target_sequence_sliced_length;
                 }
@@ -73,14 +73,13 @@ namespace mae
                 {
                     if (!fixed_end_)
                     {
-
                         //vary in start and end position
                         for (std::size_t startpos = 0; startpos < actual_sequence_sliced_length; startpos++)
                         {
                             double startpos_beats = startpos * cut_steps;
 
                             //when no fixed end is defined, iterate end position too to find optimal subsequence
-                            for (std::size_t  endpos = startpos + min_length; endpos <= actual_sequence_sliced_length && endpos - startpos < max_length; endpos++)
+                            for (std::size_t  endpos = startpos + min_length; endpos <= actual_sequence_sliced_length && endpos - startpos <= max_length; endpos++)
                             {
                                 double endpos_beats = endpos * cut_steps;
 

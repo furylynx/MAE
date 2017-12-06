@@ -60,7 +60,7 @@ namespace mae {
                         bool found_match = false;
                         for (std::shared_ptr<column_definition> coldef2 : el2_coldefs)
                         {
-                            if (coldef->equals(coldef2))
+                            if (coldef->sign_equals(coldef2))
                             {
                                 //matching column definition found
                                 mapped_columns_[col_id] = coldef2->get_column_index();
@@ -103,7 +103,7 @@ namespace mae {
 
                     for (std::shared_ptr<column_definition> default_def : default_definitions_)
                     {
-                        if (coldef->equals(default_def))
+                        if (coldef->sign_equals(default_def))
                         {
                             if (is_element_1)
                             {

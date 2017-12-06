@@ -254,6 +254,11 @@ namespace mae
 				return (column_index_ == a->get_column_index() && pre_sign_->equals(a->get_pre_sign()));
 			}
 
+			bool column_definition::sign_equals(std::shared_ptr<column_definition> a) const
+			{
+				return pre_sign_->equals(a->get_pre_sign());
+			}
+
 			std::vector<std::shared_ptr<column_definition> > column_definition::default_definitions()
 			{
 				if (0 == default_definitions_.size())

@@ -97,12 +97,20 @@ namespace mae
 				virtual std::string svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const;
 
 				/**
-				 * Returns true if signs are equal.
+				 * Returns true if definitions are equal.
 				 *
-				 * @param a The sign to be compared to.
+				 * @param a The definition to be compared to.
 				 * @return True if equal.
 				 */
 				virtual bool equals(std::shared_ptr<column_definition> a) const;
+
+				/**
+				 * Returns true if signs are equal (even if the definitions are on different columns).
+				 *
+				 * @param a The definition to be compared to.
+				 * @return True if equal.
+				 */
+				virtual bool sign_equals(std::shared_ptr<column_definition> a) const;
 
 				/**
 				 * Returns the default column definitions.

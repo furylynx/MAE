@@ -38,7 +38,20 @@ namespace mae
                 std::size_t similarities_size = 0;;
 
                 //punish unmappables
-                similarities_size += mapper->get_unmappable_columns().size();
+                if (ignore_empty_columns_)
+                {
+                    for (std::pair<bool,std::shared_ptr<column_definition> > unmappable : mapper->get_unmappable_columns())
+                    {
+                        if (unmappable.first)
+                        {
+                            similarities_size ++;
+                        }
+                    }
+                }
+                else
+                {
+                    similarities_size += mapper->get_unmappable_columns().size();
+                }
 
                 for (std::pair<int,int> pair :  mapper->get_mapped_columns())
                 {
