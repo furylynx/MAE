@@ -61,7 +61,7 @@ std::vector<comparator_info> initialize_comparators()
     unsigned int frames_per_beat = 1;
     double cut_steps = 2;
     double min_sequence_length_factor = 0.1;
-    double max_sequence_length_factor = 2;
+    double max_sequence_length_factor = 5;
 
     //feature vector distance measures
     std::vector<feature_vector_distance_measure> feature_vector_measures;
