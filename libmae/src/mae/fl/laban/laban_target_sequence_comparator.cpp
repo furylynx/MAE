@@ -74,12 +74,12 @@ namespace mae
                     if (!fixed_end_)
                     {
                         //vary in start and end position
-                        for (std::size_t startpos = 0; startpos < actual_sequence_sliced_length; startpos++)
+                        for (std::size_t startpos = 0; startpos < actual_sequence_sliced_length && max_similarity < 1.0; startpos++)
                         {
                             double startpos_beats = startpos * cut_steps;
 
                             //when no fixed end is defined, iterate end position too to find optimal subsequence
-                            for (std::size_t  endpos = startpos + min_length; endpos <= actual_sequence_sliced_length && endpos - startpos <= max_length; endpos++)
+                            for (std::size_t  endpos = startpos + min_length; endpos <= actual_sequence_sliced_length && endpos - startpos <= max_length && max_similarity < 1.0; endpos++)
                             {
                                 double endpos_beats = endpos * cut_steps;
 
@@ -106,7 +106,7 @@ namespace mae
                             startpos = actual_sequence_sliced_length - max_length;
                         }
 
-                        for (; startpos < actual_sequence_sliced_length - min_length + 1; startpos++)
+                        for (; startpos < actual_sequence_sliced_length - min_length + 1 && max_similarity < 1.0; startpos++)
                         {
                             double startpos_beats = startpos * cut_steps;
 

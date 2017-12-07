@@ -61,7 +61,7 @@ std::vector<comparator_info> initialize_comparators()
     unsigned int frames_per_beat = 1;
     double cut_steps = 2;
     double min_sequence_length_factor = 0.1;
-    double max_sequence_length_factor = 5;
+    double max_sequence_length_factor = 3;
 
     //feature vector distance measures
     std::vector<feature_vector_distance_measure> feature_vector_measures;
@@ -73,7 +73,7 @@ std::vector<comparator_info> initialize_comparators()
     //hierarchy distance
     std::vector<type_distance_measure> type_measures;
     type_measures.push_back(initialize_type_distance_measure("sologub", std::make_shared<mae::math::sologub_tree_type_distance>(2)));
-    type_measures.push_back(initialize_type_distance_measure("direct", std::make_shared<mae::math::direct_tree_type_distance>(1)));
+    //type_measures.push_back(initialize_type_distance_measure("direct", std::make_shared<mae::math::direct_tree_type_distance>(1)));
 
 
     for (feature_vector_distance_measure fvdm : feature_vector_measures)
@@ -99,7 +99,7 @@ std::vector<comparator_info> initialize_comparators()
 
                 sscs.push_back(initialize_symbol_sequence_comparator_info("lcs", std::make_shared<mae::math::lcs_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator)));
                 sscs.push_back(initialize_symbol_sequence_comparator_info("discretefrechet", std::make_shared<mae::math::discrete_frechet_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator)));
-                sscs.push_back(initialize_symbol_sequence_comparator_info("edr-eps0.5", std::make_shared<mae::math::edr<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, 0.5)));
+                //sscs.push_back(initialize_symbol_sequence_comparator_info("edr-eps0.5", std::make_shared<mae::math::edr<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, 0.5)));
                 sscs.push_back(initialize_symbol_sequence_comparator_info("erp-gapnull", std::make_shared<mae::math::erp<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, nullptr)));
 
                 for (symbol_sequence_comparator_info ssci : sscs)
