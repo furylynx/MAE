@@ -293,8 +293,16 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/Modules
 
 # Dependencies
 find_package ( ${MYLIB_REQ_LIBXMLPP} ${MYLIB_REQ_LIBXMLPP_VERSION} REQUIRED )
-find_package ( ${MYLIB_REQ_OPENCV} ${MYLIB_REQ_OPENCV_VERSION} REQUIRED )
+# find_package ( ${MYLIB_REQ_OPENCV} ${MYLIB_REQ_OPENCV_VERSION} REQUIRED )
+find_package ( ${MYLIB_REQ_OPENCV} REQUIRED )
 find_package ( ${MYLIB_REQ_INTL} REQUIRED )
+
+if ("${${MYLIB_REQ_OPENCV}_VERSION_MAJOR}" STREQUAL "2" OR "${${MYLIB_REQ_OPENCV}_VERSION_MAJOR}" STREQUAL "3")
+    message( STATUS "Found OpenCV version ${${MYLIB_REQ_OPENCV}_VERSION}." )
+else()
+    message( FATAL_ERROR "Cannot find a compatible OpenCV version." )
+endif()
+
 
 
 set (MYLIB_INCLUDE_DIRS ${LibXML++_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
