@@ -89,6 +89,16 @@ namespace mae
                 arr.push_back(row);
             }
 
+            for (std::size_t i = 1; i < n; i++)
+            {
+                arr.at(i).at(0) = i;
+            }
+
+            for (std::size_t j = 1; j < m; j++)
+            {
+                arr.at(0).at(j) = j;
+            }
+
             for (std::size_t i = 1 ; i < n ; i++)
             {
                 for (std::size_t j = 1 ; j < m ; j++)
