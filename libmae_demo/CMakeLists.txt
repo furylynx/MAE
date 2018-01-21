@@ -26,6 +26,8 @@ set(MYLIB_REQ_MAE_VERSION "0.10.0")
 set(MYLIB_REQ_OPENCV OpenCV)
 set(MYLIB_REQ_OPENCV_V opencv)
 set(MYLIB_REQ_OPENCV_VERSION "2.4.8")
+# apply additional versions if actually compatible
+set(MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3")
 
 set(MYLIB_REQUIRES "${MYLIB_REQ_MAE_V} >= ${MYLIB_REQ_MAE_VERSION}, ${MYLIB_REQ_SDL2_V} >= ${MYLIB_REQ_SDL2_VERSION}, ${MYLIB_REQ_SDL2_IMAGE_V}, ${MYLIB_REQ_SDL2_TTF_V}")
 
@@ -91,7 +93,13 @@ find_package ( ${MYLIB_REQ_SDL2_IMAGE} REQUIRED )
 find_package ( ${MYLIB_REQ_SDL2_TTF} REQUIRED )
 
 # fix for macos (opencv@2)
-find_package ( ${MYLIB_REQ_OPENCV} ${MYLIB_REQ_OPENCV_VERSION} REQUIRED )
+# Check OpenCV
+find_package ( ${MYLIB_REQ_OPENCV} REQUIRED )
+if ("${${MYLIB_REQ_OPENCV}_VERSION_MAJOR}" IN_LIST MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS)
+    message( STATUS "Found OpenCV version ${${MYLIB_REQ_OPENCV}_VERSION}." )
+else()
+    message( FATAL_ERROR "Cannot find a compatible OpenCV version." )
+endif()
 
 
 set (MYLIB_INCLUDE_DIRS ${LibMAE_INCLUDE_DIRS} ${SDL2_INCLUDE_DIR} ${SDL2_IMAGE_INCLUDE_DIRS} ${SDL2_TTF_INCLUDE_DIRS})

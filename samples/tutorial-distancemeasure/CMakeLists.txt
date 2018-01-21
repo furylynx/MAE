@@ -15,9 +15,11 @@ set(MYEXEC_REQ_MAE LibMAE)
 set(MYEXEC_REQ_MAE_V libmae)
 set(MYEXEC_REQ_MAE_VERSION "0.11.0")
 
-set(MYLIB_REQ_OPENCV OpenCV)
-set(MYLIB_REQ_OPENCV_V opencv)
-set(MYLIB_REQ_OPENCV_VERSION "2.4.8")
+set(MYEXEC_REQ_OPENCV OpenCV)
+set(MYEXEC_REQ_OPENCV_V opencv)
+set(MYEXEC_REQ_OPENCV_VERSION "2.4.8")
+# apply additional versions if actually compatible
+set(MYEXEC_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3")
 
 
 set(MYEXEC_REQUIRES "${MYEXEC_REQ_MAE_V} >= ${MYEXEC_REQ_MAE_VERSION}" )
@@ -51,8 +53,14 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../../cmake/Modu
 # Dependencies
 find_package ( ${MYEXEC_REQ_MAE} ${MYEXEC_REQ_MAE_VERSION} REQUIRED )
 
-#fix for macos opencv@2
-find_package ( ${MYLIB_REQ_OPENCV} ${MYLIB_REQ_OPENCV_VERSION} REQUIRED )
+# fix for macos (opencv@2)
+# Check OpenCV
+find_package ( ${MYEXEC_REQ_OPENCV} REQUIRED )
+if ("${${MYEXEC_REQ_OPENCV}_VERSION_MAJOR}" IN_LIST MYEXEC_REQ_OPENCV_COMPATIBLE_VERSIONS)
+    message( STATUS "Found OpenCV version ${${MYEXEC_REQ_OPENCV}_VERSION}." )
+else()
+    message( FATAL_ERROR "Cannot find a compatible OpenCV version." )
+endif()
 
 set (MYEXEC_INCLUDE_DIRS ${LibMAE_INCLUDE_DIRS})
 set (MYEXEC_LIBRARIES ${LibMAE_LIBRARIES})

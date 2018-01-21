@@ -16,10 +16,10 @@ struct feature_vector_distance_measure { std::string name; std::shared_ptr<mae::
 
 feature_vector_distance_measure initialize_feature_vector_distance_measure(std::string name, std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure)
 {
-    feature_vector_distance_measure result;
-    result.name=name;
-    result.distance_measure = distance_measure;
-    return result;
+feature_vector_distance_measure result;
+result.name=name;
+result.distance_measure = distance_measure;
+return result;
 }
 
 struct type_distance_measure { std::string name; std::shared_ptr<mae::math::i_type_distance_measure> distance_measure; };
@@ -46,10 +46,10 @@ struct symbol_sequence_comparator_info { std::string name; std::shared_ptr<mae::
 
 symbol_sequence_comparator_info initialize_symbol_sequence_comparator_info(std::string name, std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > > comparator)
 {
-    symbol_sequence_comparator_info result;
-    result.name=name;
-    result.comparator = comparator;
-    return result;
+symbol_sequence_comparator_info result;
+result.name=name;
+result.comparator = comparator;
+return result;
 }
 
 std::vector<comparator_info> initialize_comparators()
@@ -66,13 +66,13 @@ std::vector<comparator_info> initialize_comparators()
     //feature vector distance measures
     std::vector<feature_vector_distance_measure> feature_vector_measures;
     feature_vector_measures.push_back(initialize_feature_vector_distance_measure("manhattan", std::make_shared<mae::math::minkowski_distance>(1)));
-    //feature_vector_measures.push_back(initialize_feature_vector_distance_measure("euclidean", std::make_shared<mae::math::minkowski_distance>(2)));
+//    feature_vector_measures.push_back(initialize_feature_vector_distance_measure("euclidean", std::make_shared<mae::math::minkowski_distance>(2)));
     feature_vector_measures.push_back(initialize_feature_vector_distance_measure("mahalanobis", std::make_shared<mae::math::mahalanobis_distance>()));
-    //feature_vector_measures.push_back(initialize_feature_vector_distance_measure("cosine", std::make_shared<mae::math::cosine_distance>()));
+//    feature_vector_measures.push_back(initialize_feature_vector_distance_measure("cosine", std::make_shared<mae::math::cosine_distance>()));
 
     //hierarchy distance
     std::vector<type_distance_measure> type_measures;
-    //type_measures.push_back(initialize_type_distance_measure("sologub", std::make_shared<mae::math::sologub_tree_type_distance>(2)));
+//    type_measures.push_back(initialize_type_distance_measure("sologub", std::make_shared<mae::math::sologub_tree_type_distance>(2)));
     type_measures.push_back(initialize_type_distance_measure("direct", std::make_shared<mae::math::direct_tree_type_distance>(1)));
 
 
@@ -88,7 +88,7 @@ std::vector<comparator_info> initialize_comparators()
             for (movement_comparator_info mci : mcs)
             {
                 std::vector<symbol_sequence_comparator_info> sscs;
-                //sscs.push_back(initialize_symbol_sequence_comparator_info("dtw-nwin", std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator)));
+//                sscs.push_back(initialize_symbol_sequence_comparator_info("dtw-nwin", std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator)));
 
 //                for (std::size_t win = 0; win < 10; win++)
 //                {
@@ -97,10 +97,18 @@ std::vector<comparator_info> initialize_comparators()
 //                    sscs.push_back(initialize_symbol_sequence_comparator_info(sstr.str(), std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(mci, win)));
 //                }
 
-                //sscs.push_back(initialize_symbol_sequence_comparator_info("lcs", std::make_shared<mae::math::lcs_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator)));
-                //sscs.push_back(initialize_symbol_sequence_comparator_info("discretefrechet", std::make_shared<mae::math::discrete_frechet_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator)));
-                sscs.push_back(initialize_symbol_sequence_comparator_info("edr-eps0.5", std::make_shared<mae::math::edr<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, 0.5)));
-                //sscs.push_back(initialize_symbol_sequence_comparator_info("erp-gapnull", std::make_shared<mae::math::erp<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, nullptr)));
+//                sscs.push_back(initialize_symbol_sequence_comparator_info("lcs", std::make_shared<mae::math::lcs_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator)));
+//                sscs.push_back(initialize_symbol_sequence_comparator_info("discretefrechet", std::make_shared<mae::math::discrete_frechet_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator)));
+//                sscs.push_back(initialize_symbol_sequence_comparator_info("edr-eps0.5", std::make_shared<mae::math::edr<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, 0.5)));
+
+                for (double eps = 0.2; eps <= 1.2; eps+=0.4)
+                {
+                    std::stringstream sstr;
+                    sstr << "edr-eps" << eps;
+                    sscs.push_back(initialize_symbol_sequence_comparator_info(sstr.str(), std::make_shared<mae::math::edr<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, eps)));
+                }
+
+//                sscs.push_back(initialize_symbol_sequence_comparator_info("erp-gapnull", std::make_shared<mae::math::erp<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, nullptr)));
 
                 for (symbol_sequence_comparator_info ssci : sscs)
                 {

@@ -14,12 +14,17 @@ set(MYLIB_URL "https://github.com/furylynx/MAE")
 set(MYLIB_REQ_OPENCV OpenCV)
 set(MYLIB_REQ_OPENCV_V opencv)
 set(MYLIB_REQ_OPENCV_VERSION "2.4.8")
+# apply additional versions if actually compatible
+set(MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3")
+
 set(MYLIB_REQ_LIBXMLPP "LibXML++")
 set(MYLIB_REQ_LIBXMLPP_V "libxml++-2.6")
 set(MYLIB_REQ_LIBXMLPP_VERSION "2.6")
+
 set(MYLIB_REQ_INTL "Intl")
 set(MYLIB_REQ_INTL_V "intl")
 set(MYLIB_REQ_INTL_VERSION "1.0")
+
 set(MYLIB_REQUIRES "${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}" )
 
 set(MYLIB_JNI maejava)
@@ -293,11 +298,11 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/Modules
 
 # Dependencies
 find_package ( ${MYLIB_REQ_LIBXMLPP} ${MYLIB_REQ_LIBXMLPP_VERSION} REQUIRED )
-# find_package ( ${MYLIB_REQ_OPENCV} ${MYLIB_REQ_OPENCV_VERSION} REQUIRED )
-find_package ( ${MYLIB_REQ_OPENCV} REQUIRED )
 find_package ( ${MYLIB_REQ_INTL} REQUIRED )
 
-if ("${${MYLIB_REQ_OPENCV}_VERSION_MAJOR}" STREQUAL "2" OR "${${MYLIB_REQ_OPENCV}_VERSION_MAJOR}" STREQUAL "3")
+# Check OpenCV
+find_package ( ${MYLIB_REQ_OPENCV} REQUIRED )
+if ("${${MYLIB_REQ_OPENCV}_VERSION_MAJOR}" IN_LIST MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS)
     message( STATUS "Found OpenCV version ${${MYLIB_REQ_OPENCV}_VERSION}." )
 else()
     message( FATAL_ERROR "Cannot find a compatible OpenCV version." )
