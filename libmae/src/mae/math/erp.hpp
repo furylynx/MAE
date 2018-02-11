@@ -6,7 +6,7 @@
 #define MAE_MATH_ERP_HPP
 
 //custom includes
-#include "i_distance_measure.hpp"
+#include "i_warping_distance_measure.hpp"
 
 //global includes
 #include <memory>
@@ -20,7 +20,7 @@ namespace mae
     namespace math
     {
         template<typename T>
-        class erp : public i_distance_measure<std::vector<T> >
+        class erp : public i_warping_distance_measure<std::vector<T> >
         {
         public:
             /**
@@ -40,6 +40,15 @@ namespace mae
              * @param element2 The second element to compare.
              */
             virtual double distance(std::vector<T> element1, std::vector<T> element2) const;
+
+            /**
+             * Returns the warping matrix between the two elements.
+             *
+             * @param element1 The first element to compare.
+             * @param element2 The second element to compare.
+             * @return Returns the warping matrix. Can be used to find the optimal alignment.
+             */
+            virtual std::vector<std::vector<double> > warping_matrix(std::vector<T> element1, std::vector<T> element2) const;
 
         private:
             std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure_;
@@ -71,6 +80,17 @@ namespace mae
 
         template<typename T>
         double erp<T>::distance(std::vector<T> element1, std::vector<T> element2) const
+        {
+            std::size_t n = element1.size()+1;
+            std::size_t m = element2.size()+1;
+
+            std::vector<std::vector<double> > arr = warping_matrix(element1, element2);
+
+            return arr.at(n-1).at(m-1);
+        }
+
+        template<typename T>
+        std::vector<std::vector<double> > erp<T>::warping_matrix(std::vector<T> element1, std::vector<T> element2) const
         {
             std::size_t n = element1.size()+1;
             std::size_t m = element2.size()+1;
@@ -122,9 +142,8 @@ namespace mae
                 }
             }
 
-            return arr.at(n-1).at(m-1);
+            return arr;
         }
-
 
     } // namespace math
 } // namespace mae

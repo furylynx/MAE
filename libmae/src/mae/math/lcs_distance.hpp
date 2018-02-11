@@ -41,6 +41,16 @@ namespace mae
              */
             virtual double distance(std::vector<T> element1, std::vector<T> element2) const;
 
+            /**
+             * Returns the warping matrix between the two elements.
+             *
+             * @param element1 The first element to compare.
+             * @param element2 The second element to compare.
+             * @return Returns the warping matrix. Can be used to find the optimal alignment.
+             */
+            virtual std::vector<std::vector<double> > subsequence_matrix(std::vector<T> element1, std::vector<T> element2) const;
+
+
         private:
             std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure_;
             bool target_value_;
@@ -75,6 +85,34 @@ namespace mae
             std::size_t n = element1.size()+1;
             std::size_t m = element2.size()+1;
 
+            std::vector<std::vector<std::size_t> > arr = warping_matrix(element1, element2);
+
+            // longest common subsequence
+            std::size_t lcs = arr.at(n-1).at(m-1);
+
+            if (0 != lcs)
+            {
+                if (target_value_)
+                {
+                    return (element1.size()/(double) lcs)-1;
+                }
+                else
+                {
+                    return (std::max(element1.size(), element2.size())/(double) lcs)-1;
+                }
+            }
+            else
+            {
+                return std::numeric_limits<double>::infinity();
+            }
+        }
+
+        template<typename T>
+        std::vector<std::vector<double> > lcs_distance<T>::subsequence_matrix(std::vector<T> element1, std::vector<T> element2) const
+        {
+            std::size_t n = element1.size()+1;
+            std::size_t m = element2.size()+1;
+
             std::vector<std::vector<std::size_t> > arr;
 
             for (std::size_t i = 0; i < n ; i++)
@@ -95,7 +133,7 @@ namespace mae
                 {
                     if (0 == distance_measure_->distance(element1.at(i-1), element2.at(j-1)))
                     {
-                        arr.at(i).at(j) = arr.at(i - 1).at(j - 1) + 1;
+                        arr.at(i).at(j) = arr.at(i - 1).at(j - 1) - 1;
                     }
                     else
                     {
@@ -104,24 +142,7 @@ namespace mae
                 }
             }
 
-            // longest common subsequence
-            std::size_t lcs = arr.at(n-1).at(m-1);
-
-            if (0 != lcs)
-            {
-                if (target_value_)
-                {
-                    return (element1.size()/(double) lcs)-1;
-                }
-                else
-                {
-                    return (std::max(element1.size(), element2.size())/(double) lcs)-1;
-                }
-            }
-            else
-            {
-                return std::numeric_limits<double>::infinity();
-            }
+            return arr;
         }
 
 

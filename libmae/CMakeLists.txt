@@ -269,7 +269,8 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/math/erp.hpp
         src/mae/math/i_type_distance_measure.hpp
         src/mae/math/direct_tree_type_distance.cpp src/mae/math/direct_tree_type_distance.hpp
-        src/mae/math/sologub_tree_type_distance.cpp src/mae/math/sologub_tree_type_distance.hpp)
+        src/mae/math/sologub_tree_type_distance.cpp src/mae/math/sologub_tree_type_distance.hpp
+        src/mae/math/aligned_distance.hpp)
 
 
 set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")

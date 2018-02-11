@@ -2,6 +2,7 @@
 #define MAE_MATH_MATH_HPP_
 
 //custom includes
+#include "../general_joint.hpp"
 #include "../fl/angular_joint.hpp"
 
 #include "vec3d.hpp"
@@ -20,7 +21,7 @@
 #include "erp.hpp"
 #include "direct_tree_type_distance.hpp"
 #include "sologub_tree_type_distance.hpp"
-#include "../general_joint.hpp"
+#include "aligned_distance.hpp"
 
 //global includes
 #include <vector>
