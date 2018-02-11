@@ -252,6 +252,7 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/math/dtw.hpp
         src/mae/math/i_similarity_measure
         src/mae/math/i_distance_measure.hpp
+        src/mae/math/i_warping_distance_measure.hpp
         src/mae/math/minkowski_distance.hpp
         src/mae/math/minkowski_distance.cpp
         src/mae/fl/laban/movement_comparator.hpp src/mae/fl/laban/movement_comparator.cpp

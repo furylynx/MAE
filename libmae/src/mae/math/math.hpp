@@ -7,6 +7,7 @@
 #include "vec3d.hpp"
 #include "basis.hpp"
 #include "i_distance_measure.hpp"
+#include "i_warping_distance_measure.hpp"
 #include "i_type_distance_measure.hpp"
 #include "minkowski_distance.hpp"
 #include "cosine_similarity.hpp"
