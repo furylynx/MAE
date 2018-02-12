@@ -96,11 +96,11 @@ namespace mae
             std::size_t n = element1.size()+1;
             std::size_t m = element2.size()+1;
 
-            std::vector<std::vector<int> > arr;
+            std::vector<std::vector<double> > arr;
 
             for (std::size_t i = 0; i < n ; i++)
             {
-                std::vector<int> row;
+                std::vector<double> row;
 
                 for (std::size_t j = 0; j < m; j++)
                 {

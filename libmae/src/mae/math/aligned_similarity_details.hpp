@@ -2,8 +2,8 @@
 // Created on 2017-11-08
 //
 
-#ifndef MAE_MATH_SUBSEQUENCE_SIMILARITY_DETAILS_HPP
-#define MAE_MATH_SUBSEQUENCE_SIMILARITY_DETAILS_HPP
+#ifndef MAE_MATH_ALIGNED_SIMILARITY_DETAILS_HPP
+#define MAE_MATH_ALIGNED_SIMILARITY_DETAILS_HPP
 
 
 
@@ -11,7 +11,7 @@ namespace mae
 {
     namespace math
     {
-        class subsequence_similarity_details
+        class aligned_similarity_details
         {
 
         public:
@@ -23,8 +23,8 @@ namespace mae
              * @param endpos The end position.
              * @param similarity The similarity.
              */
-            subsequence_similarity_details(double startpos, double endpos, double similarity);
-            virtual ~subsequence_similarity_details();
+            aligned_similarity_details(double startpos, double endpos, double similarity);
+            virtual ~aligned_similarity_details();
 
             virtual double get_startpos() const;
             virtual double get_endpos() const;
@@ -39,4 +39,4 @@ namespace mae
     } // namespace math
 } // namespace mae
 
-#endif //MAE_MATH_SUBSEQUENCE_SIMILARITY_DETAILS_HPP
+#endif //MAE_MATH_ALIGNED_SIMILARITY_DETAILS_HPP

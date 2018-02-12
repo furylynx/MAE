@@ -30,7 +30,7 @@ namespace mae
                 return similarity_details(target_sequence, actual_sequence).get_similarity();
             }
 
-            mae::math::subsequence_similarity_details laban_target_sequence_comparator::similarity_details(std::shared_ptr<laban_sequence> target_sequence, std::shared_ptr<laban_sequence> actual_sequence) const
+            mae::math::aligned_similarity_details laban_target_sequence_comparator::similarity_details(std::shared_ptr<laban_sequence> target_sequence, std::shared_ptr<laban_sequence> actual_sequence) const
             {
                 std::shared_ptr<laban_subsequence_mapper> mapper = std::make_shared<laban_subsequence_mapper>(target_sequence, actual_sequence);
 
@@ -122,7 +122,7 @@ namespace mae
                     }
                 }
 
-                return mae::math::subsequence_similarity_details(max_similarity_startpos, max_similarity_endpos, max_similarity);
+                return mae::math::aligned_similarity_details(max_similarity_startpos, max_similarity_endpos, max_similarity);
             }
 
             std::shared_ptr<laban_sequence> laban_target_sequence_comparator::cut_sequence(std::shared_ptr<laban_sequence> sequence, double startpos, double endpos) const

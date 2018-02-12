@@ -13,7 +13,7 @@
 #include "laban_subsequence_mapper.hpp"
 #include "laban_sequence_comparator.hpp"
 #include "../../math/i_similarity_measure.hpp"
-#include "../../math/subsequence_similarity_details.hpp"
+#include "../../math/aligned_similarity_details.hpp"
 
 
 //global includes
@@ -61,7 +61,7 @@ namespace mae {
                  * @param actual_sequence The actual sequence.
                  * @return The similarity details.
                  */
-                mae::math::subsequence_similarity_details similarity_details(std::shared_ptr<laban_sequence> target_sequence, std::shared_ptr<laban_sequence> actual_sequence) const;
+                mae::math::aligned_similarity_details similarity_details(std::shared_ptr<laban_sequence> target_sequence, std::shared_ptr<laban_sequence> actual_sequence) const;
 
             private:
                 std::shared_ptr<laban_sequence_comparator> laban_sequence_comparator_;

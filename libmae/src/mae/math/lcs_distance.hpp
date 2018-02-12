@@ -48,7 +48,7 @@ namespace mae
              * @param element2 The second element to compare.
              * @return Returns the warping matrix. Can be used to find the optimal alignment.
              */
-            virtual std::vector<std::vector<double> > subsequence_matrix(std::vector<T> element1, std::vector<T> element2) const;
+            virtual std::vector<std::vector<std::size_t> > subsequence_matrix(std::vector<T> element1, std::vector<T> element2) const;
 
 
         private:
@@ -108,7 +108,7 @@ namespace mae
         }
 
         template<typename T>
-        std::vector<std::vector<double> > lcs_distance<T>::subsequence_matrix(std::vector<T> element1, std::vector<T> element2) const
+        std::vector<std::vector<std::size_t> > lcs_distance<T>::subsequence_matrix(std::vector<T> element1, std::vector<T> element2) const
         {
             std::size_t n = element1.size()+1;
             std::size_t m = element2.size()+1;
