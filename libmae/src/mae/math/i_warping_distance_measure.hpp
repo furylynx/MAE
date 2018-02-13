@@ -29,9 +29,9 @@ namespace mae
                          *
                          * @param element1 The first element to compare.
                          * @param element2 The second element to compare.
-                         * @return Returns the warping matrix. Can be used to find the optimal alignment.
+                         * @return Returns the warping matrix (with warping for startpositions as third dimension). Can be used to find the optimal alignment.
                          */
-                        virtual std::vector<std::vector<double> > warping_matrix(T element1, T element2) const = 0;
+                        virtual std::vector<std::vector<std::vector<double> > > warping_matrix(T element1, T element2) const = 0;
                 };
 
         }

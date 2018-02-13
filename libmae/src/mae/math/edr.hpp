@@ -20,7 +20,7 @@ namespace mae
     namespace math
     {
         template<typename T>
-        class edr : public i_warping_distance_measure<std::vector<T> >
+        class edr : public i_distance_measure<std::vector<T> >
         {
         public:
             /**

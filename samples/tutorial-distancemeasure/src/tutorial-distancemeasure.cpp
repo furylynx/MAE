@@ -50,7 +50,7 @@ int main()
             //set the window size, zero for no windowing
             std::size_t window = 0;
             double edr_epsilon = 0.5;
-            std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > > distance_measure = std::make_shared<mae::math::edr<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, edr_epsilon);
+            std::shared_ptr<mae::math::i_distance_measure<std::vector<std::shared_ptr<mae::fl::laban::i_movement> > > > distance_measure = std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, window);
             // = std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, window);
             // = std::make_shared<mae::math::lcs_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator);
             // = std::make_shared<mae::math::discrete_frechet_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator);
@@ -68,7 +68,7 @@ int main()
 
             uint64_t starttime = mae::mos::current_time_millis();
 
-            double similarity = target_comparator.similarity(target_sequence, sequence2);//comparator->similarity(target_sequence, sequence1);//
+            double similarity = target_comparator.similarity(target_sequence, sequence3);//comparator->similarity(target_sequence, sequence1);//
 
             uint64_t endtime = mae::mos::current_time_millis();
 
