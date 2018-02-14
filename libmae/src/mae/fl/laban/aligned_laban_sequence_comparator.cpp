@@ -55,6 +55,10 @@ namespace mae
 
                 std::vector<std::pair<std::vector<std::shared_ptr<i_movement> >, std::vector<std::shared_ptr<i_movement> > > > columns;
 
+                //get sizes for the sequences
+                double el1_max = element1->get_last_movement()->get_measure()*element1->get_beats() + element1->get_last_movement()->get_beat() + element1->get_last_movement()->get_duration();
+                double el2_max = element2->get_last_movement()->get_measure()*element2->get_beats() + element2->get_last_movement()->get_beat() + element2->get_last_movement()->get_duration();
+
                 for (std::pair<int,int> pair :  mapper->get_mapped_columns())
                 {
                     int col1_id = pair.first;
@@ -63,8 +67,8 @@ namespace mae
                     //quantize symbol
 
                     //TODO all columns must have same size
-                    std::vector<std::shared_ptr<i_movement> > movements1_steps = create_stretched(element1->get_column_movements(col1_id), element1->get_beats());
-                    std::vector<std::shared_ptr<i_movement> > movements2_steps = create_stretched(element2->get_column_movements(col2_id), element2->get_beats());
+                    std::vector<std::shared_ptr<i_movement> > movements1_steps = create_stretched(element1->get_column_movements(col1_id), element1->get_beats(), el1_max);
+                    std::vector<std::shared_ptr<i_movement> > movements2_steps = create_stretched(element2->get_column_movements(col2_id), element2->get_beats(), el2_max);
 
                     if ((!movements1_steps.empty() && !movements2_steps.empty()) || !ignore_empty_columns_)
                     {
@@ -99,7 +103,7 @@ namespace mae
             }
 
 
-            std::vector<std::shared_ptr<i_movement> > aligned_laban_sequence_comparator::create_stretched(std::vector<std::shared_ptr<i_movement> > non_streched, unsigned int beats_per_measure) const
+            std::vector<std::shared_ptr<i_movement> > aligned_laban_sequence_comparator::create_stretched(std::vector<std::shared_ptr<i_movement> > non_streched, unsigned int beats_per_measure, double max_sequence_size) const
             {
 
                 if (0 == frames_per_beat_)
@@ -107,44 +111,71 @@ namespace mae
                     return non_streched;
                 }
 
-                std::vector<std::shared_ptr<i_movement> > result;
+                std::size_t result_size = std::static_cast<std::size_t>(std::floor(max_sequence_size*frames_per_beat_));
 
-                double prev_end = 0;
+                std::vector<std::shared_ptr<i_movement> > result;
+                result.assign (result_size, nullptr);
 
                 for (std::shared_ptr<i_movement> symbol : non_streched)
                 {
-                    // fill null for spaces without a symbol
-                    double pos = symbol->get_measure() * beats_per_measure + symbol->get_beat();
-
-                    int times_null = (int) (frames_per_beat_ * (pos - prev_end));
-
-                    if (times_null > 0)
-                    {
-                        for (int i = 0; i < times_null; i++)
-                        {
-                            result.push_back(nullptr);
-                        }
-                    }
-
-                    // fill symbol
-                    int times = (int) (frames_per_beat_ * symbol->get_duration());
+                    //TODO insert into result vector
 
                     if (0 == symbol->get_beat() && 0 == symbol->get_measure() )
                     {
-                        //start symbol only one frame
-                        times = 1;
+                        //TODO start symbol only one frame
                     }
-
-                    if (times < 1)
+                    else
                     {
-                        times = 1;
-                    }
+                        double start = symbol->get_measure() * beats_per_measure + symbol->get_beat();
+                        double end = start + symbol->get_duration();
 
-                    for (int i = 0; i < times; i++)
-                    {
-                        result.push_back(symbol);
+                        std::size_t start_p = std::static_cast<std::size_t>(std::floor(start*frames_per_beat_));
+                        std::size_t end_p = std::static_cast<std::size_t>(std::floor(end*frames_per_beat_));
+
+
+                        for (std::size_t i = start_p; i <= end_p; i++)
+                        {
+                            result.at(i) = symbol;
+                        }
                     }
                 }
+
+//                double prev_end = 0;
+//
+//                for (std::shared_ptr<i_movement> symbol : non_streched)
+//                {
+//                    // fill null for spaces without a symbol
+//                    double pos = symbol->get_measure() * beats_per_measure + symbol->get_beat();
+//
+//                    int times_null = (int) (frames_per_beat_ * (pos - prev_end));
+//
+//                    if (times_null > 0)
+//                    {
+//                        for (int i = 0; i < times_null; i++)
+//                        {
+//                            result.push_back(nullptr);
+//                        }
+//                    }
+//
+//                    // fill symbol
+//                    int times = (int) (frames_per_beat_ * symbol->get_duration());
+//
+//                    if (0 == symbol->get_beat() && 0 == symbol->get_measure() )
+//                    {
+//                        //start symbol only one frame
+//                        times = 1;
+//                    }
+//
+//                    if (times < 1)
+//                    {
+//                        times = 1;
+//                    }
+//
+//                    for (int i = 0; i < times; i++)
+//                    {
+//                        result.push_back(symbol);
+//                    }
+//                }
 
                 return result;
             }

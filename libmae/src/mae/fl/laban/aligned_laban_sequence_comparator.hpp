@@ -72,10 +72,11 @@ namespace mae {
                      *
                      * @param non_streched The original sequence.
                      * @param beats_per_measure The number of beats per measure.
+                     * @param max_sequence_size The maximum size for the sequence (last symbols' end position).
                      * @return The streched sequence.
                      *
                      */
-                    virtual std::vector<std::shared_ptr<i_movement> > create_stretched(std::vector<std::shared_ptr<i_movement> > non_streched, unsigned int beats_per_measure) const;
+                    virtual std::vector<std::shared_ptr<i_movement> > create_stretched(std::vector<std::shared_ptr<i_movement> > non_streched, unsigned int beats_per_measure, double max_sequence_size) const;
 
             };
 
