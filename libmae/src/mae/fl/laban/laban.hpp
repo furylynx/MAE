@@ -9,6 +9,7 @@
 #include "laban_sequence_comparator.hpp"
 #include "laban_target_sequence_comparator.hpp"
 #include "rewriting_rules_reader.hpp"
+#include "aligned_laban_sequence_comparator.hpp"
 
 #include "mv/mv.hpp"
 #include "ps/ps.hpp"

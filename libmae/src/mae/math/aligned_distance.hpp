@@ -126,8 +126,6 @@ namespace mae
                 template<typename T>
                 aligned_distances_details aligned_distance<T>::distances_details(std::vector<std::pair<std::vector<T>,std::vector<T> > > mapped_elements) const
                 {
-                    //TODO matrices must have same size
-
                     std::vector<std::vector<std::vector<double> > > matrices;
 
                     std::size_t n = 0;
