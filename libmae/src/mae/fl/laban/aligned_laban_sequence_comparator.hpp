@@ -12,6 +12,7 @@
 #include "laban_subsequence_mapper.hpp"
 #include "../../math/i_similarity_measure.hpp"
 #include "../../math/aligned_distance.hpp"
+#include "../../math/aligned_similarity_details.hpp"
 #include "../../mos.hpp"
 
 
@@ -47,7 +48,7 @@ namespace mae {
                      *
                      * @param element1 The first element to compare.
                      * @param element2 The second element to compare.
-                     * @return The distance.
+                     * @return The similarity score.
                      */
                     double similarity(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2) const;
 
@@ -56,10 +57,19 @@ namespace mae {
                      *
                      * @param element1 The first element to compare.
                      * @param element2 The second element to compare.
-                     * @param mapper The mapper
-                     * @return The distance.
+                     * @return The similarity details.
                      */
-                    double similarity(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2, std::shared_ptr<laban_subsequence_mapper> mapper) const;
+                    mae::math::aligned_similarity_details similarity_details(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2) const;
+
+                    /**
+                     * Returns the similarity between the two elements.
+                     *
+                     * @param element1 The first element to compare.
+                     * @param element2 The second element to compare.
+                     * @param mapper The mapper
+                     * @return The similarity details.
+                     */
+                    mae::math::aligned_similarity_details similarity_details(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2, std::shared_ptr<laban_subsequence_mapper> mapper) const;
 
                 private:
                     std::shared_ptr<mae::math::aligned_distance<std::shared_ptr<i_movement> > > distance_measure_;

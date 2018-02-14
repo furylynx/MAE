@@ -78,15 +78,17 @@ int main()
 
             //aligned distance
             std::shared_ptr<mae::math::i_warping_distance_measure<std::shared_ptr<mae::fl::laban::i_movement> > > warping_distance_measure = std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, window, true);
-            mae::fl::laban::aligned_laban_sequence_comparator aligned_comparator = mae::fl::laban::aligned_laban_sequence_comparator(std::make_shared<mae::math::aligned_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(warping_distance_measure));
+            mae::fl::laban::aligned_laban_sequence_comparator aligned_comparator = mae::fl::laban::aligned_laban_sequence_comparator(std::make_shared<mae::math::aligned_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(warping_distance_measure), ignore_empty_columns, frames_per_beat);
 
             starttime = mae::mos::current_time_millis();
 
-            double aligned_similarity = aligned_comparator.similarity(target_sequence, real_sequence);
+            mae::math::aligned_similarity_details aligned_similarity = aligned_comparator.similarity_details(target_sequence, real_sequence);
 
             endtime = mae::mos::current_time_millis();
 
-            std::cout << "Similarity: " << aligned_similarity << std::endl;
+            std::cout << "Similarity: " << aligned_similarity.get_similarity() << std::endl;
+            std::cout << "Startpos: " << aligned_similarity.get_startpos() << std::endl;
+            std::cout << "Endpos: " << aligned_similarity.get_endpos() << std::endl;
             std::cout << "Calculation took " << endtime - starttime << " ms" << std::endl;
 
         }

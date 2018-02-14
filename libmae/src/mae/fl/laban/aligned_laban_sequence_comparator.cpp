@@ -27,12 +27,16 @@ namespace mae
 
             double aligned_laban_sequence_comparator::similarity(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2) const
             {
-                return similarity(element1,element2, std::make_shared<laban_subsequence_mapper>(element1, element2));
+                return similarity_details(element1,element2, std::make_shared<laban_subsequence_mapper>(element1, element2)).get_similarity();
             }
 
-            double aligned_laban_sequence_comparator::similarity(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2, std::shared_ptr<laban_subsequence_mapper> mapper) const
+            mae::math::aligned_similarity_details aligned_laban_sequence_comparator::similarity_details(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2) const
             {
+                return similarity_details(element1,element2, std::make_shared<laban_subsequence_mapper>(element1, element2));
+            }
 
+            mae::math::aligned_similarity_details aligned_laban_sequence_comparator::similarity_details(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2, std::shared_ptr<laban_subsequence_mapper> mapper) const
+            {
                 //similarities
                 double similarities_sum = 0;
                 std::size_t similarities_size = 0;;
@@ -71,14 +75,13 @@ namespace mae
                     el2_max = (el2_lm->get_measure()-1)*element2->get_beats() + el2_lm->get_beat() + el2_lm->get_duration() + 1;
                 }
 
+                //TODO too many mapped columns?!
                 for (std::pair<int,int> pair :  mapper->get_mapped_columns())
                 {
                     int col1_id = pair.first;
                     int col2_id = pair.second;
 
                     //quantize symbol
-
-                    //TODO all columns must have same size
                     std::vector<std::shared_ptr<i_movement> > movements1_steps = create_stretched(element1->get_column_movements(col1_id), element1->get_beats(), el1_max);
                     std::vector<std::shared_ptr<i_movement> > movements2_steps = create_stretched(element2->get_column_movements(col2_id), element2->get_beats(), el2_max);
 
@@ -90,13 +93,9 @@ namespace mae
                     }
                 }
 
-
-                std::cout << "dodist" << std::endl;
-
                 math::aligned_distances_details details = distance_measure_->distances_details(columns);
 
-                std::cout << "chdist" << std::endl;
-
+                //TODO add unmappables
                 for (double distance : details.get_distances())
                 {
                     //distance to similarity
@@ -107,21 +106,17 @@ namespace mae
                         similarity = 1 / (1 + distance);
                     }
 
-                    //TODO remove
-                    //std::cout << "similarity [" << col1_id << "," << col2_id << "] " << similarity << " for dist " << distance << " took " << (endtime-starttime) << " ms" << std::endl;
-
                     similarities_size++;
                     similarities_sum += similarity;
                 }
 
                 //average similarities
-                return similarities_sum / (double) similarities_size;
+                return mae::math::aligned_similarity_details(details.get_startpos(), details.get_endpos(), similarities_sum / (double) similarities_size);
             }
 
 
             std::vector<std::shared_ptr<i_movement> > aligned_laban_sequence_comparator::create_stretched(std::vector<std::shared_ptr<i_movement> > non_streched, unsigned int beats_per_measure, double max_sequence_size) const
             {
-
                 if (0 == frames_per_beat_)
                 {
                     return non_streched;
@@ -144,51 +139,14 @@ namespace mae
                         double end = start + symbol->get_duration();
 
                         std::size_t start_p = std::floor(start*frames_per_beat_);
-                        std::size_t end_p = std::floor(end*frames_per_beat_-1);
+                        std::size_t end_p = std::floor(end*frames_per_beat_);
 
-                        for (std::size_t i = start_p; i <= end_p; i++)
+                        for (std::size_t i = start_p; i < end_p; i++)
                         {
                             result.at(i) = symbol;
                         }
                     }
                 }
-
-//                double prev_end = 0;
-//
-//                for (std::shared_ptr<i_movement> symbol : non_streched)
-//                {
-//                    // fill null for spaces without a symbol
-//                    double pos = symbol->get_measure() * beats_per_measure + symbol->get_beat();
-//
-//                    int times_null = (int) (frames_per_beat_ * (pos - prev_end));
-//
-//                    if (times_null > 0)
-//                    {
-//                        for (int i = 0; i < times_null; i++)
-//                        {
-//                            result.push_back(nullptr);
-//                        }
-//                    }
-//
-//                    // fill symbol
-//                    int times = (int) (frames_per_beat_ * symbol->get_duration());
-//
-//                    if (0 == symbol->get_beat() && 0 == symbol->get_measure() )
-//                    {
-//                        //start symbol only one frame
-//                        times = 1;
-//                    }
-//
-//                    if (times < 1)
-//                    {
-//                        times = 1;
-//                    }
-//
-//                    for (int i = 0; i < times; i++)
-//                    {
-//                        result.push_back(symbol);
-//                    }
-//                }
 
                 return result;
             }
