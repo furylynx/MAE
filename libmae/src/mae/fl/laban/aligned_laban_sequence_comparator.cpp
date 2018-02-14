@@ -56,8 +56,20 @@ namespace mae
                 std::vector<std::pair<std::vector<std::shared_ptr<i_movement> >, std::vector<std::shared_ptr<i_movement> > > > columns;
 
                 //get sizes for the sequences
-                double el1_max = element1->get_last_movement()->get_measure()*element1->get_beats() + element1->get_last_movement()->get_beat() + element1->get_last_movement()->get_duration();
-                double el2_max = element2->get_last_movement()->get_measure()*element2->get_beats() + element2->get_last_movement()->get_beat() + element2->get_last_movement()->get_duration();
+                std::shared_ptr<i_movement> el1_lm = element1->get_last_movement();
+                std::shared_ptr<i_movement> el2_lm = element2->get_last_movement();
+
+                double el1_max = 1;
+                if (0 != el1_lm->get_measure())
+                {
+                    el1_max = (el1_lm->get_measure()-1)*element1->get_beats() + el1_lm->get_beat() + el1_lm->get_duration() + 1;
+                }
+
+                double el2_max = 1;
+                if (0 != el2_lm->get_measure())
+                {
+                    el2_max = (el2_lm->get_measure()-1)*element2->get_beats() + el2_lm->get_beat() + el2_lm->get_duration() + 1;
+                }
 
                 for (std::pair<int,int> pair :  mapper->get_mapped_columns())
                 {
@@ -78,8 +90,12 @@ namespace mae
                     }
                 }
 
+
+                std::cout << "dodist" << std::endl;
+
                 math::aligned_distances_details details = distance_measure_->distances_details(columns);
 
+                std::cout << "chdist" << std::endl;
 
                 for (double distance : details.get_distances())
                 {
@@ -111,27 +127,24 @@ namespace mae
                     return non_streched;
                 }
 
-                std::size_t result_size = std::static_cast<std::size_t>(std::floor(max_sequence_size*frames_per_beat_));
+                std::size_t result_size = std::floor(max_sequence_size*frames_per_beat_);
 
                 std::vector<std::shared_ptr<i_movement> > result;
                 result.assign (result_size, nullptr);
 
                 for (std::shared_ptr<i_movement> symbol : non_streched)
                 {
-                    //TODO insert into result vector
-
-                    if (0 == symbol->get_beat() && 0 == symbol->get_measure() )
+                    if (0 == symbol->get_measure() )
                     {
-                        //TODO start symbol only one frame
+                        result.at(0) = symbol;
                     }
                     else
                     {
-                        double start = symbol->get_measure() * beats_per_measure + symbol->get_beat();
+                        double start = (symbol->get_measure()-1) * beats_per_measure + symbol->get_beat()+1;
                         double end = start + symbol->get_duration();
 
-                        std::size_t start_p = std::static_cast<std::size_t>(std::floor(start*frames_per_beat_));
-                        std::size_t end_p = std::static_cast<std::size_t>(std::floor(end*frames_per_beat_));
-
+                        std::size_t start_p = std::floor(start*frames_per_beat_);
+                        std::size_t end_p = std::floor(end*frames_per_beat_-1);
 
                         for (std::size_t i = start_p; i <= end_p; i++)
                         {
