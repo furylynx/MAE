@@ -20,7 +20,7 @@ namespace mae
         namespace math
         {
                 template<typename T>
-                class dtw: public i_warping_distance_measure<std::vector<T> >
+                class dtw: public i_warping_distance_measure<T>
                 {
                     public:
                         /**
@@ -38,6 +38,15 @@ namespace mae
                          * @param window The window parameter.
                          */
                         dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, std::size_t window);
+
+                        /**
+                         * Creates a instance for a dynamic time warping using a windowing parameter.
+                         *
+                         * @param distance_measure The distance measure for each single element.
+                         * @param window The window parameter.
+                         * @param activate_s True to activate three dimensional warping matrix (starting positions included).
+                         */
+                        dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, std::size_t window, bool activate_s);
 
                         virtual ~dtw();
 
@@ -61,6 +70,7 @@ namespace mae
                     private:
                         std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure_;
                         std::size_t window_;
+                        bool activate_s_;
 
                 };
 
@@ -79,6 +89,7 @@ namespace mae
                 {
                     distance_measure_ = distance_measure;
                     window_ = 0;
+                    activate_s_ = true;
                 }
 
                 template<typename T>
@@ -86,6 +97,15 @@ namespace mae
                 {
                     distance_measure_ = distance_measure;
                     window_ = window;
+                    activate_s_ = true;
+                }
+
+                template<typename T>
+                dtw<T>::dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, std::size_t window, bool activate_s)
+                {
+                    distance_measure_ = distance_measure;
+                    window_ = window;
+                    activate_s_ = activate_s;
                 }
 
                 template<typename T>
@@ -107,8 +127,16 @@ namespace mae
                 template<typename T>
                 std::vector<std::vector<std::vector<double> > > dtw<T>::warping_matrix(std::vector<T> element1, std::vector<T> element2) const
                 {
+                    //set matrix sizes
                     std::size_t n = element1.size()+1;
                     std::size_t m = element2.size()+1;
+
+                    //activate starting positions
+                    std::size_t s_max = 1;
+                    if (activate_s_)
+                    {
+                        s_max = m;
+                    }
 
                     std::size_t window = std::max(n,m);
                     if (window_ > 0)
@@ -126,7 +154,7 @@ namespace mae
                         {
                             std::vector<double> starts;
 
-                            for (std::size_t s = 0; s < m; s++)
+                            for (std::size_t s = 0; s < std::min(s_max,j+1); s++)
                             {
                                 starts.push_back(std::numeric_limits<double>::infinity());
                             }
@@ -137,7 +165,7 @@ namespace mae
                         arr.push_back(row);
                     }
 
-                    for (std::size_t s = 0; s < m ; s++)
+                    for (std::size_t s = 0; s < std::min(s_max,m) ; s++)
                     {
                         arr.at(0).at(s).at(s) = 0;
                     }
@@ -148,7 +176,7 @@ namespace mae
                         {
                             double cost = distance_measure_->distance(element1.at(i-1), element2.at(j-1));
 
-                            for (std::size_t s = 0; s < j; s++)
+                            for (std::size_t s = 0; s < std::min(s_max,j); s++)
                             {
                                 arr.at(i).at(j).at(s) = cost + std::min( std::min(arr.at(i-1).at(j).at(s), arr.at(i).at(j-1).at(s)),arr.at(i-1).at(j-1).at(s) );
                             }

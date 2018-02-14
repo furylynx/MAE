@@ -108,7 +108,7 @@ namespace mae
                 aligned_distance_details aligned_distance<T>::distance_details(std::vector<T> element1, std::vector<T> element2) const
                 {
                     std::vector<std::pair<std::vector<T>,std::vector<T> > > mapped_elements;
-                    mapped_elements.push_back(std::make_pair<std::vector<T>, std::vector<T> > (element1, element2));
+                    mapped_elements.push_back(std::make_pair(element1, element2));
 
                     aligned_distances_details details = distances_details(mapped_elements);
 
@@ -118,7 +118,7 @@ namespace mae
                 template<typename T>
                 double aligned_distance<T>::distance(std::vector<std::pair<std::vector<T>,std::vector<T> > > mapped_elements) const
                 {
-                    std::vector<double> distances = distance_details(mapped_elements).get_distances();
+                    std::vector<double> distances = distances_details(mapped_elements).get_distances();
                     double sum = std::accumulate(distances.begin(), distances.end(), 0.0);
                     return sum / distances.size();
                 }
@@ -153,6 +153,8 @@ namespace mae
 
                         if (n + 1 != warping_matrix.size() || m + 1 != warping_matrix.at(0).size())
                         {
+                            //TODO check s dimension
+
                             throw std::invalid_argument("Warping matrix size does not match. Warping matrices must have an additional first row and first column.");
                         }
 
@@ -181,6 +183,7 @@ namespace mae
                                 min_endpos = endpos;
                             }
                         }
+
                     }
 
                     std::vector<double> distances;

@@ -20,6 +20,7 @@
 #include <string>
 #include <sstream>
 #include <stdexcept>
+#include <utility>
 
 
 namespace mae {
@@ -37,7 +38,7 @@ namespace mae {
                      * @param ignore_empty_columns True to set distance for columns between two columns to zero if one column contains no elements (which by definition means any movements are allowed).
                      * @param frames_per_beat_ The number of frames to be used for each beat. Zero for no time slicing (using the exact sequence without modifications).
                      */
-                    aligned_laban_sequence_comparator(std::shared_ptr<mae::math::aligned_distance<std::vector<std::shared_ptr<i_movement> > > > aligned_distance_measure = std::make_shared<mae::math::aligned_distance<std::shared_ptr<i_movement> >(std::make_shared<mae::math::dtw<std::shared_ptr<i_movement> > >(std::make_shared<movement_comparator>(), bool ignore_empty_columns = false, unsigned int frames_per_beat = 6 ));
+                    aligned_laban_sequence_comparator(std::shared_ptr<mae::math::aligned_distance<std::shared_ptr<i_movement> > > aligned_distance_measure = std::make_shared<mae::math::aligned_distance<std::shared_ptr<i_movement> > >(std::make_shared<mae::math::dtw<std::shared_ptr<i_movement> > >(std::make_shared<movement_comparator>())), bool ignore_empty_columns = false, unsigned int frames_per_beat = 6 );
 
                     virtual ~aligned_laban_sequence_comparator();
 

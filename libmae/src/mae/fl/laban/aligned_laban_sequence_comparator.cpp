@@ -70,7 +70,7 @@ namespace mae
                     {
                         //add to comparison if both not empty or rule states not to ignore empty columns
 
-                        columns.push_back(std::make_pair<std::vector<std::shared_ptr<i_movement> >, std::vector<std::shared_ptr<i_movement>>>(movements1_steps, movements2_steps));
+                        columns.push_back(std::make_pair(movements1_steps, movements2_steps));
                     }
                 }
 
