@@ -58,7 +58,7 @@ int main()
             //= std::make_shared<mae::math::erp<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, nullptr);
 
             bool ignore_empty_columns = true;
-            unsigned int frames_per_beat = 1;
+            unsigned int frames_per_beat = 6;
             std::shared_ptr<mae::fl::laban::laban_sequence_comparator> comparator = std::make_shared<mae::fl::laban::laban_sequence_comparator>(distance_measure, ignore_empty_columns, frames_per_beat);
 
             double cut_steps = 2;

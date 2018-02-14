@@ -166,16 +166,15 @@ namespace mae
                     std::size_t min_startpos = 0;
                     std::size_t min_endpos = 0;
 
-                    //TODO this part is slow (speed up?!)
                     for (std::size_t startpos = 0; startpos < m; startpos++)
                     {
                         for (std::size_t endpos = startpos + 1; endpos < m+1; endpos++)
                         {
 
                             double distance_sum = 0;
-                            for (std::vector<std::vector<std::vector<double> > > warping_matrix : matrices)
+                            for (std::size_t mat = 0; mat < matrices.size(); mat++)
                             {
-                                distance_sum += warping_matrix.at(n).at(endpos).at(startpos);
+                                distance_sum += matrices.at(mat).at(n).at(endpos).at(startpos);
                             }
 
                             if (distance_sum < min_distance)
