@@ -126,7 +126,7 @@ namespace mae
                 template<typename T>
                 aligned_distances_details aligned_distance<T>::distances_details(std::vector<std::pair<std::vector<T>,std::vector<T> > > mapped_elements) const
                 {
-                    std::vector<std::vector<std::vector<double> > > matrices;
+                    std::vector<std::vector<std::vector<std::vector<double> > > > matrices;
 
                     std::size_t n = 0;
                     std::size_t m = 0;
@@ -149,7 +149,7 @@ namespace mae
                             throw std::invalid_argument("Different sequence lengths found. Sequences must have same length to be aligned.");
                         }
 
-                        std::vector<std::vector<double> > warping_matrix = distance_measure_->warping_matrix(pair.first,pair.second);
+                        std::vector<std::vector<std::vector<double> > > warping_matrix = distance_measure_->warping_matrix(pair.first,pair.second);
 
                         if (n + 1 != warping_matrix.size() || m + 1 != warping_matrix.at(0).size())
                         {
@@ -161,16 +161,16 @@ namespace mae
 
                     double min_distance = std::numeric_limits<double>::infinity();
                     std::size_t min_startpos = 0;
-                    std::size_t min_endpos = m+1;
+                    std::size_t min_endpos = 0;
 
                     for (std::size_t startpos = 0; startpos <= m; startpos++)
                     {
                         for (std::size_t endpos = startpos + 1; endpos <= m+1; endpos++)
                         {
                             double distance_sum = 0;
-                            for (std::vector<std::vector<double> > warping_matrix : matrices)
+                            for (std::vector<std::vector<std::vector<double> > > warping_matrix : matrices)
                             {
-                                distance_sum += warping_matrix.at(n+1).at(endpos) - warping_matrix.at(n+1).at(startpos);
+                                distance_sum += warping_matrix.at(n+1).at(endpos).at(startpos);
                             }
 
                             if (distance_sum < min_distance)
@@ -185,14 +185,13 @@ namespace mae
 
                     std::vector<double> distances;
 
-                    for (std::vector<std::vector<double> > warping_matrix : matrices)
+                    for (std::vector<std::vector<std::vector<double> > > warping_matrix : matrices)
                     {
-                        distances.push_back(warping_matrix.at(n+1).at(min_endpos) - warping_matrix.at(n+1).at(min_startpos));
+                        distances.push_back(warping_matrix.at(n+1).at(min_endpos).at(min_startpos));
                     }
 
                     return aligned_distances_details(min_startpos, min_endpos, distances);
                 }
-
 
         } // namespace math
 } // namespace mae

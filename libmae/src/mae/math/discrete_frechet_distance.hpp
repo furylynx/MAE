@@ -20,7 +20,7 @@ namespace mae
         namespace math
         {
                 template<typename T>
-                class discrete_frechet_distance: public i_warping_distance_measure<std::vector<T> >
+                class discrete_frechet_distance: public i_distance_measure<std::vector<T> >
                 {
                     public:
                         /**
