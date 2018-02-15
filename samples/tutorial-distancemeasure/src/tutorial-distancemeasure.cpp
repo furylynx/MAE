@@ -19,17 +19,14 @@ int main()
 
         //sequences
         std::shared_ptr<mae::fl::laban::laban_sequence> sequence1 = lreader.read_sequence_file("../../evaluation/mae_evaluator/check/de_dontcare7.bvh.laban");
-        std::shared_ptr<mae::fl::laban::laban_sequence> sequence2 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/dontcare/dontcare.laban");
-        std::shared_ptr<mae::fl::laban::laban_sequence> sequence3 = lreader.read_sequence_file("../../evaluation/mae_evaluator/check/ah_clap7.bvh.laban");
-        std::shared_ptr<mae::fl::laban::laban_sequence> sequence4 = lreader.read_sequence_file("../../evaluation/mae_evaluator/check/ah_clap7.bvh.laban");
-        std::shared_ptr<mae::fl::laban::laban_sequence> sequence5 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/dontcare/dontcare.laban");
+        std::shared_ptr<mae::fl::laban::laban_sequence> sequence2 = lreader.read_sequence_file("../../evaluation/mae_evaluator/check/ah_clap7.bvh.laban");
 
         std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence1 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/dontcare/dontcare.laban");
         std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence2 = lreader.read_sequence_file("clap.laban");
 
         //change here for different comparison
         std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence = possible_target_sequence1;
-        std::shared_ptr<mae::fl::laban::laban_sequence> real_sequence = sequence3;
+        std::shared_ptr<mae::fl::laban::laban_sequence> real_sequence = sequence2;
 
         if (nullptr != real_sequence && nullptr != target_sequence)
         {
@@ -61,18 +58,22 @@ int main()
             unsigned int frames_per_beat = 6;
             std::shared_ptr<mae::fl::laban::laban_sequence_comparator> comparator = std::make_shared<mae::fl::laban::laban_sequence_comparator>(distance_measure, ignore_empty_columns, frames_per_beat);
 
-            double cut_steps = 2;
+            double cut_steps = 1;
             double min_sequence_length_factor = 0.1;//0.1;
             double max_sequence_length_factor = 2;//2;
             mae::fl::laban::laban_target_sequence_comparator target_comparator (comparator, false, cut_steps, min_sequence_length_factor, max_sequence_length_factor);
 
             uint64_t starttime = mae::mos::current_time_millis();
 
-            double similarity = target_comparator.similarity(target_sequence, real_sequence);//comparator->similarity(target_sequence, sequence1);//
+            //double similarity = comparator->similarity(target_sequence, sequence1);//
+
+            //mae::math::aligned_similarity_details similarity_details = target_comparator.similarity_details(target_sequence, real_sequence);
 
             uint64_t endtime = mae::mos::current_time_millis();
 
-            std::cout << "Similarity: " << similarity << std::endl;
+//            std::cout << "Similarity: " << similarity_details.get_similarity() << std::endl;
+//            std::cout << "Startpos: " << similarity_details.get_startpos() << std::endl;
+//            std::cout << "Endpos: " << similarity_details.get_endpos() << std::endl;
             std::cout << "Calculation took " << endtime - starttime << " ms" << std::endl;
 
 

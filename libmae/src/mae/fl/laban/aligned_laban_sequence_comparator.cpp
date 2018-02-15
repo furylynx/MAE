@@ -75,19 +75,18 @@ namespace mae
                     el2_max = (el2_lm->get_measure()-1)*element2->get_beats() + el2_lm->get_beat() + el2_lm->get_duration() + 1;
                 }
 
-                //TODO too many mapped columns?!
                 for (std::pair<int,int> pair :  mapper->get_mapped_columns())
                 {
                     int col1_id = pair.first;
                     int col2_id = pair.second;
 
-                    //quantize symbol
-                    std::vector<std::shared_ptr<i_movement> > movements1_steps = create_stretched(element1->get_column_movements(col1_id), element1->get_beats(), el1_max);
-                    std::vector<std::shared_ptr<i_movement> > movements2_steps = create_stretched(element2->get_column_movements(col2_id), element2->get_beats(), el2_max);
-
-                    if ((!movements1_steps.empty() && !movements2_steps.empty()) || !ignore_empty_columns_)
+                    if ((!element1->get_column_movements(col1_id).empty()) || !ignore_empty_columns_)
                     {
-                        //add to comparison if both not empty or rule states not to ignore empty columns
+                        //target sequence has no movements for that column or rule states not to ignore empty columns
+
+                        //quantize symbols
+                        std::vector<std::shared_ptr<i_movement> > movements1_steps = create_stretched(element1->get_column_movements(col1_id), element1->get_beats(), el1_max);
+                        std::vector<std::shared_ptr<i_movement> > movements2_steps = create_stretched(element2->get_column_movements(col2_id), element2->get_beats(), el2_max);
 
                         columns.push_back(std::make_pair(movements1_steps, movements2_steps));
                     }
@@ -95,7 +94,6 @@ namespace mae
 
                 math::aligned_distances_details details = distance_measure_->distances_details(columns);
 
-                //TODO add unmappables
                 for (double distance : details.get_distances())
                 {
                     //distance to similarity
@@ -147,6 +145,25 @@ namespace mae
                         }
                     }
                 }
+
+                result.push_back(nullptr);
+
+                //TODO remove
+//                std::cout << std::endl;
+//                std::cout << "BEGIN SEQUENCE" << std::endl;
+//                for (std::size_t i = 0; i < result.size(); i++)
+//                {
+//                    if (nullptr == result.at(i))
+//                    {
+//                        std::cout << "null" << std::endl;
+//                    }
+//                    else
+//                    {
+//                        std::cout << result.at(i)->str() << std::endl;
+//                    }
+//                }
+//                std::cout << "END SEQUENCE" << std::endl;
+//                std::cout << std::endl;
 
                 return result;
             }

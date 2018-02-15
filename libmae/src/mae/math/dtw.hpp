@@ -127,6 +127,7 @@ namespace mae
                 template<typename T>
                 std::vector<std::vector<std::vector<double> > > dtw<T>::warping_matrix(std::vector<T> element1, std::vector<T> element2) const
                 {
+
                     //set matrix sizes
                     std::size_t n = element1.size()+1;
                     std::size_t m = element2.size()+1;

@@ -58,15 +58,16 @@ namespace mae
                     int col1_id = pair.first;
                     int col2_id = pair.second;
 
-                    //quantize symbol
-                    std::vector<std::shared_ptr<i_movement> > movements1_steps = create_stretched(element1->get_column_movements(col1_id), element1->get_beats());
-                    std::vector<std::shared_ptr<i_movement> > movements2_steps = create_stretched(element2->get_column_movements(col2_id), element2->get_beats());
-
-                    //get distance using distance measure, distance = 0 if one sequence has no movements defined for the column and ignore flag is set (movement agnostic for that column)
-                    double distance = 0;
-
-                    if ((!movements1_steps.empty() && !movements2_steps.empty()) || !ignore_empty_columns_)
+                    //TODO target sequence empty only
+                    if ((!element1->get_column_movements(col1_id).empty() /*&& !element2->get_column_movements(col2_id).empty()*/) || !ignore_empty_columns_)
                     {
+                        //quantize symbol
+                        std::vector<std::shared_ptr<i_movement> > movements1_steps = create_stretched(element1->get_column_movements(col1_id), element1->get_beats());
+                        std::vector<std::shared_ptr<i_movement> > movements2_steps = create_stretched(element2->get_column_movements(col2_id), element2->get_beats());
+
+                        //get distance using distance measure, distance = 0 if one sequence has no movements defined for the column and ignore flag is set (movement agnostic for that column)
+                        double distance = 0;
+
                         //TODO remove
                         uint64_t starttime = mos::current_time_millis();
                         distance = distance_measure_->distance(movements1_steps, movements2_steps);
@@ -125,7 +126,8 @@ namespace mae
                     // fill symbol
                     int times = (int) (frames_per_beat_ * symbol->get_duration());
 
-                    if (0 == symbol->get_beat() && 0 == symbol->get_measure() )
+                    //TODO correct?
+                    if (/*0 == symbol->get_beat() &&*/ 0 == symbol->get_measure() )
                     {
                         //start symbol only one frame
                         times = 1;
@@ -140,6 +142,11 @@ namespace mae
                     {
                         result.push_back(symbol);
                     }
+                }
+
+                if (result.empty())
+                {
+                    result.push_back(nullptr);
                 }
 
                 return result;

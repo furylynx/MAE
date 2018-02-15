@@ -152,11 +152,9 @@ namespace mae
 
                         std::vector<std::vector<std::vector<double> > > warping_matrix = distance_measure_->warping_matrix(pair.first,pair.second);
 
-                        if (n + 1 != warping_matrix.size() || m + 1 != warping_matrix.at(0).size())
+                        if (n + 1 != warping_matrix.size() || m + 1 != warping_matrix.at(0).size() || m + 1 != warping_matrix.at(n).at(m).size())
                         {
-                            //TODO check s dimension
-
-                            throw std::invalid_argument("Warping matrix size does not match. Warping matrices must have an additional first row and first column.");
+                            throw std::invalid_argument("Warping matrix size does not match. Warping matrices must have an additional first row and first column and the last element must contain all possible starting positions.");
                         }
 
                         matrices.push_back(warping_matrix);
@@ -164,11 +162,11 @@ namespace mae
 
                     double min_distance = std::numeric_limits<double>::infinity();
                     std::size_t min_startpos = 0;
-                    std::size_t min_endpos = 0;
+                    std::size_t min_endpos = m;
 
-                    for (std::size_t startpos = 0; startpos < m; startpos++)
+                    for (std::size_t startpos = 0; startpos <= m; startpos++)
                     {
-                        for (std::size_t endpos = startpos + 1; endpos < m+1; endpos++)
+                        for (std::size_t endpos = startpos; endpos <= m; endpos++)
                         {
 
                             double distance_sum = 0;
@@ -185,13 +183,12 @@ namespace mae
                                 min_endpos = endpos;
                             }
                         }
-
                     }
 
                     std::vector<double> distances;
-                    for (std::vector<std::vector<std::vector<double> > > warping_matrix : matrices)
+                    for (std::size_t mat = 0; mat < matrices.size(); mat++)
                     {
-                        distances.push_back(warping_matrix.at(n).at(min_endpos).at(min_startpos));
+                        distances.push_back(matrices.at(mat).at(n).at(min_endpos).at(min_startpos));
                     }
 
                     return aligned_distances_details(min_startpos, min_endpos, distances);
