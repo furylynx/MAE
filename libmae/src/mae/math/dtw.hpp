@@ -171,6 +171,10 @@ namespace mae
                         arr.at(0).at(s).at(s) = 0;
                     }
 
+
+                    //TODO remove
+                    std::cout << "dtw" << std::endl;
+
                     for (std::size_t i = 1 ; i < n ; i++)
                     {
                         for (std::size_t j = std::max(1l, ((long)i-(long)window)) ; j < std::min(m, (i+window)) ; j++)

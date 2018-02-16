@@ -160,6 +160,9 @@ namespace mae
                         matrices.push_back(warping_matrix);
                     }
 
+                    //TODO remove
+                    std::cout << "als" << std::endl;
+
                     double min_distance = std::numeric_limits<double>::infinity();
                     std::size_t min_startpos = 0;
                     std::size_t min_endpos = m;

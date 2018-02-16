@@ -75,6 +75,10 @@ namespace mae
                     el2_max = (el2_lm->get_measure()-1)*element2->get_beats() + el2_lm->get_beat() + el2_lm->get_duration() + 1;
                 }
 
+
+                //TODO remove
+                std::cout << "cols" << std::endl;
+
                 for (std::pair<int,int> pair :  mapper->get_mapped_columns())
                 {
                     int col1_id = pair.first;
@@ -92,7 +96,13 @@ namespace mae
                     }
                 }
 
+                //TODO remove
+                std::cout << "dist" << std::endl;
+
                 math::aligned_distances_details details = distance_measure_->distances_details(columns);
+
+                //TODO remove
+                std::cout << "dist2" << std::endl;
 
                 for (double distance : details.get_distances())
                 {
