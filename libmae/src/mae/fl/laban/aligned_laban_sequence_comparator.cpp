@@ -13,11 +13,12 @@ namespace mae
         namespace laban
         {
 
-            aligned_laban_sequence_comparator::aligned_laban_sequence_comparator(std::shared_ptr<mae::math::aligned_distance<std::shared_ptr<i_movement> > > distance_measure,  bool ignore_empty_columns, unsigned int frames_per_beat)
+            aligned_laban_sequence_comparator::aligned_laban_sequence_comparator(std::shared_ptr<mae::math::aligned_distance<std::shared_ptr<i_movement> > > distance_measure,  bool ignore_empty_columns, unsigned int frames_per_beat, double blur_strategy_beats)
             {
                 distance_measure_ = distance_measure;
                 ignore_empty_columns_ = ignore_empty_columns;
                 frames_per_beat_ = frames_per_beat;
+                blur_strategy_beats_ = blur_strategy_beats;
             }
 
             aligned_laban_sequence_comparator::~aligned_laban_sequence_comparator()
@@ -125,10 +126,9 @@ namespace mae
                 std::vector<std::shared_ptr<i_movement> > result;
                 result.assign (result_size, nullptr);
 
-                //TODO parametrize
-                bool blur_symbol = false;
-                //blur for 1 beat max
-                std::size_t blur_symbol_gap = beats_per_measure*frames_per_beat_;
+                //blur for the given number of beats if activated
+                bool blur_symbol = blur_strategy_beats_ > 0;
+                std::size_t blur_symbol_gap = blur_strategy_beats_*frames_per_beat_;
 
                 for (std::shared_ptr<i_movement> symbol : non_streched)
                 {
@@ -177,8 +177,8 @@ namespace mae
 
                 result.push_back(nullptr);
 
-                //TODO parametrize
-                bool hold_symbol = true;
+                //hold strategy (blur with inifinite amount of beats)
+                bool hold_symbol = (0 == blur_strategy_beats_);
                 if (hold_symbol)
                 {
                     //holds the last symbol until another arrives. starts with nullptr (no symbol) until first is found
@@ -196,8 +196,6 @@ namespace mae
                         }
                     }
                 }
-
-                //TODO blur symbol strategy (remove nullptrs if below threshold (no nullptrs between close symbols))
 
                 //TODO remove
 //                std::cout << std::endl;
