@@ -125,6 +125,11 @@ namespace mae
                 std::vector<std::shared_ptr<i_movement> > result;
                 result.assign (result_size, nullptr);
 
+                //TODO parametrize
+                bool blur_symbol = false;
+                //blur for 1 beat max
+                std::size_t blur_symbol_gap = beats_per_measure*frames_per_beat_;
+
                 for (std::shared_ptr<i_movement> symbol : non_streched)
                 {
                     if (0 == symbol->get_measure() )
@@ -143,10 +148,56 @@ namespace mae
                         {
                             result.at(i) = symbol;
                         }
+
+                        //blur symbol (close gap to next symbol if below threshold)
+                        if (blur_symbol)
+                        {
+                            bool successor_found = false;
+                            for (std::size_t i = 0; i < blur_symbol_gap && end_p + i < result_size; i++)
+                            {
+                                if (nullptr != result.at(i+end_p))
+                                {
+                                    successor_found = true;
+                                }
+                            }
+
+                            if (successor_found)
+                            {
+                                for (std::size_t i = 0; i < blur_symbol_gap && end_p + i < result_size; i++)
+                                {
+                                    if (nullptr == result.at(i + end_p))
+                                    {
+                                        result.at(i + end_p) = symbol;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 
                 result.push_back(nullptr);
+
+                //TODO parametrize
+                bool hold_symbol = true;
+                if (hold_symbol)
+                {
+                    //holds the last symbol until another arrives. starts with nullptr (no symbol) until first is found
+
+                    std::shared_ptr<i_movement> prev_mov = nullptr;
+                    for (std::size_t i = 0; i < result.size();i++)
+                    {
+                        if (nullptr == result.at(i))
+                        {
+                            result.at(i) = prev_mov;
+                        }
+                        else
+                        {
+                            prev_mov = result.at(i);
+                        }
+                    }
+                }
+
+                //TODO blur symbol strategy (remove nullptrs if below threshold (no nullptrs between close symbols))
 
                 //TODO remove
 //                std::cout << std::endl;

@@ -223,6 +223,8 @@ namespace mae
 			{
 				if (std::shared_ptr<movement> mov = std::dynamic_pointer_cast<movement>(i_mov))
 				{
+					//TODO why only for movements? not for other symbols?
+
 					int col_index = mov->get_column();
 
 					if (col_index != -4 && col_index != -2 && col_index != -1 && col_index != 1 && col_index != 2
@@ -237,13 +239,21 @@ namespace mae
 
 					movements_vec_.push_back(mov);
 
-					if (last_movement_ == nullptr
-							|| (last_movement_->get_measure() < mov->get_measure()
-									|| (last_movement_->get_measure() == mov->get_measure()
-											&& last_movement_->get_beat() < mov->get_beat())))
+
+					//TODO last movement should be last by duration too; check side effects!!
+//					if (last_movement_ == nullptr
+//							|| (last_movement_->get_measure() < mov->get_measure()
+//									|| (last_movement_->get_measure() == mov->get_measure()
+//											&& last_movement_->get_beat() < mov->get_beat())))
+//					{
+//						last_movement_ = i_mov;
+//					}
+					if ( last_movement_ == nullptr || (last_movement_->get_measure()*beats_ + last_movement_->get_beat() + last_movement_->get_duration()) < (i_mov->get_measure()*beats_ + i_mov->get_beat() + i_mov->get_duration()) )
 					{
+						//if no last movement set or current movement is later done than previous last movement
 						last_movement_ = i_mov;
 					}
+
 
 					std::vector<std::shared_ptr<i_movement> > col;
 					if (movements_map_.find(mov->get_column()) != movements_map_.end())

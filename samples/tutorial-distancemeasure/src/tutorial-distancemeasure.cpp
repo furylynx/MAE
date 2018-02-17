@@ -20,12 +20,14 @@ int main()
         //sequences
         std::shared_ptr<mae::fl::laban::laban_sequence> sequence1 = lreader.read_sequence_file("../../evaluation/mae_evaluator/check/de_dontcare7.bvh.laban");
         std::shared_ptr<mae::fl::laban::laban_sequence> sequence2 = lreader.read_sequence_file("../../evaluation/mae_evaluator/check/ah_clap7.bvh.laban");
+        std::shared_ptr<mae::fl::laban::laban_sequence> sequence3 = lreader.read_sequence_file("../../evaluation/mae_evaluator/check/to_clap3.bvh.laban");
 
         std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence1 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/dontcare/dontcare.laban");
-        std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence2 = lreader.read_sequence_file("clap.laban");
+        std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence2 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/clap/clap.laban");
+        std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence3 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/throw/throw2.laban");
 
         //change here for different comparison
-        std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence = possible_target_sequence1;
+        std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence = possible_target_sequence2;
         std::shared_ptr<mae::fl::laban::laban_sequence> real_sequence = sequence2;
 
         if (nullptr != real_sequence && nullptr != target_sequence)
