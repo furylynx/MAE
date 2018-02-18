@@ -99,7 +99,6 @@ namespace mae
             std::size_t n = element1.size()+1;
             std::size_t m = element2.size()+1;
 
-
             //activate starting positions
             std::size_t s_max = 1;
             if (activate_s_)
