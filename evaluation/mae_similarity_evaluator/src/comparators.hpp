@@ -112,6 +112,7 @@ std::vector<comparator_info> initialize_comparators()
 //                sscs.push_back(initialize_symbol_sequence_comparator_info("edr-eps0.5", std::make_shared<mae::math::edr<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, 0.5)));
 
                 sscs.push_back(initialize_symbol_warping_comparator_info("al-dtw", std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, 0, true)));
+                sscs.push_back(initialize_symbol_warping_comparator_info("al-discretefrechet", std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, 0, true)));
 
 //                for (double eps = 0.2; eps <= 1.2; eps+=0.4)
 //                {

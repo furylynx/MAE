@@ -20,7 +20,7 @@ namespace mae
     namespace math
     {
         template<typename T>
-        class edr : public i_distance_measure<std::vector<T> >
+        class edr : public i_warping_distance_measure<T>
         {
         public:
             /**
@@ -130,21 +130,16 @@ namespace mae
 
             for (std::size_t i = 1; i < n; i++)
             {
-                for (std::size_t s = 0; s < std::min(s_max,i) ; s++)
-                {
-                    arr.at(i).at(0).at(s) = i;
-                }
+                arr.at(i).at(0).at(0) = i;
             }
 
-            for (std::size_t s = 0; s < std::min(s_max,m) ; s++)
+            for (std::size_t j = 1; j < m; j++)
             {
-                for (std::size_t j = 1; j < m; j++)
+                for (std::size_t s = 0; s < std::min(s_max,j) ; s++)
                 {
-
-                    arr.at(s).at(j).at(s) = j;
+                    arr.at(0).at(j).at(s) = j;
                 }
             }
-
 
             for (std::size_t i = 1 ; i < n ; i++)
             {
