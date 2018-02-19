@@ -33,7 +33,7 @@ namespace mae
 
                         /**
                          * Creates a instance for a dynamic time warping using a windowing parameter.
-                         *
+                         * = std::make_shared<mae::math::discrete_frechet_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, true);
                          * @param distance_measure The distance measure for each single element.
                          * @param window The window parameter.
                          */
@@ -170,10 +170,6 @@ namespace mae
                     {
                         arr.at(0).at(s).at(s) = 0;
                     }
-
-
-                    //TODO remove
-                    std::cout << "dtw" << std::endl;
 
                     for (std::size_t i = 1 ; i < n ; i++)
                     {

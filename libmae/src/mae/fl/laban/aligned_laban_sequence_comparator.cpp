@@ -13,11 +13,12 @@ namespace mae
         namespace laban
         {
 
-            aligned_laban_sequence_comparator::aligned_laban_sequence_comparator(std::shared_ptr<mae::math::aligned_distance<std::shared_ptr<i_movement> > > distance_measure,  bool ignore_empty_columns, unsigned int frames_per_beat)
+            aligned_laban_sequence_comparator::aligned_laban_sequence_comparator(std::shared_ptr<mae::math::aligned_distance<std::shared_ptr<i_movement> > > distance_measure,  bool ignore_empty_columns, unsigned int frames_per_beat, double blur_strategy_beats)
             {
                 distance_measure_ = distance_measure;
                 ignore_empty_columns_ = ignore_empty_columns;
                 frames_per_beat_ = frames_per_beat;
+                blur_strategy_beats_ = blur_strategy_beats;
             }
 
             aligned_laban_sequence_comparator::~aligned_laban_sequence_comparator()
@@ -75,10 +76,6 @@ namespace mae
                     el2_max = (el2_lm->get_measure()-1)*element2->get_beats() + el2_lm->get_beat() + el2_lm->get_duration() + 1;
                 }
 
-
-                //TODO remove
-                std::cout << "cols" << std::endl;
-
                 for (std::pair<int,int> pair :  mapper->get_mapped_columns())
                 {
                     int col1_id = pair.first;
@@ -96,13 +93,7 @@ namespace mae
                     }
                 }
 
-                //TODO remove
-                std::cout << "dist" << std::endl;
-
                 math::aligned_distances_details details = distance_measure_->distances_details(columns);
-
-                //TODO remove
-                std::cout << "dist2" << std::endl;
 
                 for (double distance : details.get_distances())
                 {
@@ -135,6 +126,10 @@ namespace mae
                 std::vector<std::shared_ptr<i_movement> > result;
                 result.assign (result_size, nullptr);
 
+                //blur for the given number of beats if activated
+                bool blur_symbol = blur_strategy_beats_ > 0;
+                std::size_t blur_symbol_gap = blur_strategy_beats_*frames_per_beat_;
+
                 for (std::shared_ptr<i_movement> symbol : non_streched)
                 {
                     if (0 == symbol->get_measure() )
@@ -153,10 +148,54 @@ namespace mae
                         {
                             result.at(i) = symbol;
                         }
+
+                        //blur symbol (close gap to next symbol if below threshold)
+                        if (blur_symbol)
+                        {
+                            bool successor_found = false;
+                            for (std::size_t i = 0; i < blur_symbol_gap && end_p + i < result_size; i++)
+                            {
+                                if (nullptr != result.at(i+end_p))
+                                {
+                                    successor_found = true;
+                                }
+                            }
+
+                            if (successor_found)
+                            {
+                                for (std::size_t i = 0; i < blur_symbol_gap && end_p + i < result_size; i++)
+                                {
+                                    if (nullptr == result.at(i + end_p))
+                                    {
+                                        result.at(i + end_p) = symbol;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 
                 result.push_back(nullptr);
+
+                //hold strategy (blur with inifinite amount of beats)
+                bool hold_symbol = (0 == blur_strategy_beats_);
+                if (hold_symbol)
+                {
+                    //holds the last symbol until another arrives. starts with nullptr (no symbol) until first is found
+
+                    std::shared_ptr<i_movement> prev_mov = nullptr;
+                    for (std::size_t i = 0; i < result.size();i++)
+                    {
+                        if (nullptr == result.at(i))
+                        {
+                            result.at(i) = prev_mov;
+                        }
+                        else
+                        {
+                            prev_mov = result.at(i);
+                        }
+                    }
+                }
 
                 //TODO remove
 //                std::cout << std::endl;

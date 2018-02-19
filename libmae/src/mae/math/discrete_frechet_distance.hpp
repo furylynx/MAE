@@ -20,15 +20,16 @@ namespace mae
         namespace math
         {
                 template<typename T>
-                class discrete_frechet_distance: public i_distance_measure<std::vector<T> >
+                class discrete_frechet_distance: public i_warping_distance_measure<T>
                 {
                     public:
                         /**
                          * Creates a instance for a frechet distance measure.
                          *
                          * @param distance_measure The distance measure for each single element.
+                         * @param activate_s True to activate three dimensional warping matrix (starting positions included).
                          */
-                        discrete_frechet_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure);
+                        discrete_frechet_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, bool activate_s = false);
 
                         virtual ~discrete_frechet_distance();
 
@@ -47,16 +48,11 @@ namespace mae
                          * @param element2 The second element to compare.
                          * @return Returns the warping matrix. Can be used to find the optimal alignment.
                          */
-                        virtual std::vector<std::vector<double> > warping_matrix(std::vector<T> element1, std::vector<T> element2) const;
+                        virtual std::vector<std::vector<std::vector<double> > > warping_matrix(std::vector<T> element1, std::vector<T> element2) const;
 
                     private:
                         std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure_;
-
-                        virtual double c(int i, int j, std::vector<T> &element1, std::vector<T> &element2, std::vector<std::vector<double> > &mem) const;
-
-                        virtual double recursive(std::vector<T> element1, std::vector<T> element2) const;
-
-                        virtual double iterative(std::vector<T> element1, std::vector<T> element2) const;
+                        bool activate_s_;
 
                 };
 
@@ -71,9 +67,10 @@ namespace mae
         {
 
                 template<typename T>
-                discrete_frechet_distance<T>::discrete_frechet_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure)
+                discrete_frechet_distance<T>::discrete_frechet_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, bool activate_s)
                 {
                     distance_measure_ = distance_measure;
+                    activate_s_ = activate_s;
                 }
 
                 template<typename T>
@@ -87,56 +84,60 @@ namespace mae
                     std::size_t p = element1.size();
                     std::size_t q = element2.size();
 
-                    std::vector<std::vector<double> > arr = warping_matrix(element1, element2);
+                    std::vector<std::vector<std::vector<double> > > arr = warping_matrix(element1, element2);
 
-                    return arr.at(p-1).at(q-1);
+                    return arr.at(p-1).at(q-1).at(0);
                 }
 
                 template<typename T>
-                std::vector<std::vector<double> > discrete_frechet_distance<T>::warping_matrix(std::vector<T> element1, std::vector<T> element2) const
+                std::vector<std::vector<std::vector<double> > > discrete_frechet_distance<T>::warping_matrix(std::vector<T> element1, std::vector<T> element2) const
                 {
-                    std::size_t p = element1.size();
-                    std::size_t q = element2.size();
+                    std::size_t n = element1.size()+1;
+                    std::size_t m = element2.size()+1;
 
-                    std::vector<std::vector<double> > arr;
-
-                    for (std::size_t i = 0; i < p ; i++)
+                    //activate starting positions
+                    std::size_t s_max = 1;
+                    if (activate_s_)
                     {
-                        std::vector<double> row;
+                        s_max = m;
+                    }
 
-                        for (std::size_t j = 0; j < q; j++)
+                    std::vector<std::vector<std::vector<double> > > arr;
+
+                    for (std::size_t i = 0; i < n ; i++)
+                    {
+                        std::vector<std::vector<double> > row;
+
+                        for (std::size_t j = 0; j < m; j++)
                         {
-                            row.push_back(std::numeric_limits<double>::infinity());
+                            std::vector<double> starts;
+
+                            for (std::size_t s = 0; s < std::min(s_max,j+1); s++)
+                            {
+                                starts.push_back(std::numeric_limits<double>::infinity());
+                            }
+
+                            row.push_back(starts);
                         }
 
                         arr.push_back(row);
                     }
 
-                    for (std::size_t i = 0 ; i < p ; i++)
+                    for (std::size_t s = 0; s < std::min(s_max,m) ; s++)
                     {
-                        for (std::size_t j = 0 ; j < q ; j++)
+                        arr.at(0).at(s).at(s) = 0;
+                    }
+
+                    for (std::size_t i = 1 ; i < n ; i++)
+                    {
+                        for (std::size_t j = 1 ; j < m ; j++)
                         {
-                            if (i == 0 && j == 0)
-                            {
-                                arr.at(i).at(j) = distance_measure_->distance(element1.at(i), element2.at(j));
-                            }
-                            else if (i > 0 && j == 0)
-                            {
-                                // can either be the actual distance or distance pulled from above
-                                arr.at(i).at(j) = std::max(arr.at(i-1).at(j),
-                                                           distance_measure_->distance(element1.at(i), element2.at(j)));
-                            }
-                            else if (i == 0 && j > 0)
-                            {
-                                // can either be the distance pulled from the left or the actual distance
-                                arr.at(i).at(j) = std::max(arr.at(i).at(j-1),
-                                                           distance_measure_->distance(element1.at(i), element2.at(j)));
-                            }
-                            else if (i > 0 && j > 0)
+                            double dist = distance_measure_->distance(element1.at(i-1), element2.at(j-1));
+
+                            for (std::size_t s = 0; s < std::min(s_max,j); s++)
                             {
                                 // can be the actual distance, or distance from above or from the left
-                                arr.at(i).at(j) = std::max(std::min(arr.at(i-1).at(j), std::min(arr.at(i-1).at(j-1), arr.at(i).at(j-1))),
-                                                           distance_measure_->distance(element1.at(i), element2.at(j)));
+                                arr.at(i).at(j).at(s) = std::max(std::min(arr.at(i-1).at(j).at(s), std::min(arr.at(i-1).at(j-1).at(s), arr.at(i).at(j-1).at(s))),dist);
                             }
                         }
                     }

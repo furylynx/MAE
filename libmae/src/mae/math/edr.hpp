@@ -20,7 +20,7 @@ namespace mae
     namespace math
     {
         template<typename T>
-        class edr : public i_distance_measure<std::vector<T> >
+        class edr : public i_warping_distance_measure<T>
         {
         public:
             /**
@@ -28,8 +28,9 @@ namespace mae
              *
              * @param distance_measure The distance measure for each single element.
              * @param epsilon The threshold for distance comparison for subcosts. Epsilon defines a maximum distance between two elements still seen as matching. If epsilon is zero, elements are only seen as matching when their distance is zero.
+             * @param activate_s True to activate three dimensional warping matrix (starting positions included).
              */
-            edr(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, double epsilon = 0);
+            edr(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, double epsilon = 0, bool activate_s = false);
 
             virtual ~edr();
 
@@ -49,11 +50,12 @@ namespace mae
              * @param element2 The second element to compare.
              * @return Returns the warping matrix. Can be used to find the optimal alignment.
              */
-            virtual std::vector<std::vector<double> > warping_matrix(std::vector<T> element1, std::vector<T> element2) const;
+            virtual std::vector<std::vector<std::vector<double> > > warping_matrix(std::vector<T> element1, std::vector<T> element2) const;
 
         private:
             std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure_;
             double epsilon_;
+            bool activate_s_;
 
         };
 
@@ -68,10 +70,11 @@ namespace mae
     {
 
         template<typename T>
-        edr<T>::edr(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, double epsilon)
+        edr<T>::edr(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, double epsilon, bool activate_s)
         {
             distance_measure_ = distance_measure;
             epsilon_ = epsilon;
+            activate_s_ = activate_s;
         }
 
         template<typename T>
@@ -85,26 +88,40 @@ namespace mae
             std::size_t n = element1.size()+1;
             std::size_t m = element2.size()+1;
 
-            std::vector<std::vector<double> > arr = warping_matrix(element1, element2);
+            std::vector<std::vector<std::vector<double> > > arr = warping_matrix(element1, element2);
 
-            return arr.at(n-1).at(m-1);
+            return arr.at(n-1).at(m-1).at(0);
         }
 
         template<typename T>
-        std::vector<std::vector<double> > edr<T>::warping_matrix(std::vector<T> element1, std::vector<T> element2) const
+        std::vector<std::vector<std::vector<double> > > edr<T>::warping_matrix(std::vector<T> element1, std::vector<T> element2) const
         {
             std::size_t n = element1.size()+1;
             std::size_t m = element2.size()+1;
 
-            std::vector<std::vector<double> > arr;
+            //activate starting positions
+            std::size_t s_max = 1;
+            if (activate_s_)
+            {
+                s_max = m;
+            }
+
+            std::vector<std::vector<std::vector<double> > > arr;
 
             for (std::size_t i = 0; i < n ; i++)
             {
-                std::vector<double> row;
+                std::vector<std::vector<double> > row;
 
                 for (std::size_t j = 0; j < m; j++)
                 {
-                    row.push_back(0);
+                    std::vector<double> starts;
+
+                    for (std::size_t s = 0; s < std::min(s_max,j+1); s++)
+                    {
+                        starts.push_back(std::numeric_limits<double>::infinity());
+                    }
+
+                    row.push_back(starts);
                 }
 
                 arr.push_back(row);
@@ -112,12 +129,15 @@ namespace mae
 
             for (std::size_t i = 1; i < n; i++)
             {
-                arr.at(i).at(0) = i;
+                arr.at(i).at(0).at(0) = i;
             }
 
             for (std::size_t j = 1; j < m; j++)
             {
-                arr.at(0).at(j) = j;
+                for (std::size_t s = 0; s < std::min(s_max,j) ; s++)
+                {
+                    arr.at(0).at(j).at(s) = j;
+                }
             }
 
             for (std::size_t i = 1 ; i < n ; i++)
@@ -131,7 +151,10 @@ namespace mae
                         subcost = 1;
                     }
 
-                    arr.at(i).at(j) = std::min(arr.at(i).at(j-1) + 1, std::min(arr.at(i-1).at(j) + 1, arr.at(i-1).at(j-1) + subcost));
+                    for (std::size_t s = 0; s < std::min(s_max,j); s++)
+                    {
+                        arr.at(i).at(j).at(s) = std::min(arr.at(i).at(j-1).at(s) + 1, std::min(arr.at(i-1).at(j).at(s) + 1, arr.at(i-1).at(j-1).at(s) + subcost));;
+                    }
                 }
             }
 
