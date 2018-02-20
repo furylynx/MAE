@@ -93,7 +93,7 @@ std::vector<comparator_info> initialize_comparators()
             //movement comparators
             std::vector<movement_comparator_info> mcs;
             mcs.push_back(initialize_movement_comparator_info("movementcomparator-null", std::make_shared<mae::fl::laban::movement_comparator>(fvdm.distance_measure, tdm.distance_measure, -1)));
-            mcs.push_back(initialize_movement_comparator_info("movementcomparator-dist2", std::make_shared<mae::fl::laban::movement_comparator>(fvdm.distance_measure, tdm.distance_measure, 2)));
+            //mcs.push_back(initialize_movement_comparator_info("movementcomparator-dist2", std::make_shared<mae::fl::laban::movement_comparator>(fvdm.distance_measure, tdm.distance_measure, 2)));
 
             for (movement_comparator_info mci : mcs)
             {
@@ -111,8 +111,8 @@ std::vector<comparator_info> initialize_comparators()
 //                sscs.push_back(initialize_symbol_sequence_comparator_info("discretefrechet", std::make_shared<mae::math::discrete_frechet_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator)));
 //                sscs.push_back(initialize_symbol_sequence_comparator_info("edr-eps0.5", std::make_shared<mae::math::edr<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, 0.5)));
 
-                sscs.push_back(initialize_symbol_warping_comparator_info("al-dtw", std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, 0, true)));
-                sscs.push_back(initialize_symbol_warping_comparator_info("al-discretefrechet", std::make_shared<mae::math::discrete_frechet_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, true)));
+                sscs.push_back(initialize_symbol_warping_comparator_info("dtw", std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, 0, true)));
+                sscs.push_back(initialize_symbol_warping_comparator_info("discretefrechet", std::make_shared<mae::math::discrete_frechet_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(mci.comparator, true)));
 
 //                for (double eps = 0.2; eps <= 1.2; eps+=0.4)
 //                {
@@ -126,9 +126,12 @@ std::vector<comparator_info> initialize_comparators()
                 for (symbol_warping_comparator_info ssci : sscs)
                 {
                     std::stringstream sstr;
-                    sstr << ssci.name << "_" << mci.name << "_" << tdm.name << "_" << fvdm.name;
+                    sstr << "al-hold-" << ssci.name << "_" << mci.name << "_" << tdm.name << "_" << fvdm.name;
 
-                    result.push_back(initialize_comparator_info(-1, sstr.str(), "", std::make_shared<mae::fl::laban::aligned_laban_sequence_comparator>(std::make_shared<mae::math::aligned_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(ssci.comparator), ignore_empty_columns, frames_per_beat)));
+                    //hold strategy
+                    double blur_strategy_beats = 0;
+
+                    result.push_back(initialize_comparator_info(-1, sstr.str(), "", std::make_shared<mae::fl::laban::aligned_laban_sequence_comparator>(std::make_shared<mae::math::aligned_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(ssci.comparator), ignore_empty_columns, frames_per_beat, blur_strategy_beats)));
                 }
             }
         }

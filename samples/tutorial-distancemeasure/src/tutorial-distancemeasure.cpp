@@ -28,7 +28,7 @@ int main()
 
         //change here for different comparison
         std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence = possible_target_sequence2;
-        std::shared_ptr<mae::fl::laban::laban_sequence> real_sequence = sequence2;
+        std::shared_ptr<mae::fl::laban::laban_sequence> real_sequence = sequence3;
 
         if (nullptr != real_sequence && nullptr != target_sequence)
         {
