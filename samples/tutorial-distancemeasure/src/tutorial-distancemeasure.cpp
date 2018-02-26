@@ -21,14 +21,16 @@ int main()
         std::shared_ptr<mae::fl::laban::laban_sequence> sequence1 = lreader.read_sequence_file("../../evaluation/mae_evaluator/check/de_dontcare7.bvh.laban");
         std::shared_ptr<mae::fl::laban::laban_sequence> sequence2 = lreader.read_sequence_file("../../evaluation/mae_evaluator/check/ah_clap7.bvh.laban");
         std::shared_ptr<mae::fl::laban::laban_sequence> sequence3 = lreader.read_sequence_file("../../evaluation/mae_evaluator/check/to_clap3.bvh.laban");
+        std::shared_ptr<mae::fl::laban::laban_sequence> sequence4 = lreader.read_sequence_file("../../evaluation/mae_evaluator/check/ang_dontcare5.bvh.laban");
 
         std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence1 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/dontcare/dontcare.laban");
         std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence2 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/clap/clap.laban");
         std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence3 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/throw/throw2.laban");
+        std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence4 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/hammer/hammer.laban");
 
         //change here for different comparison
-        std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence = possible_target_sequence2;
-        std::shared_ptr<mae::fl::laban::laban_sequence> real_sequence = sequence3;
+        std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence = possible_target_sequence4;
+        std::shared_ptr<mae::fl::laban::laban_sequence> real_sequence = sequence4;
 
         if (nullptr != real_sequence && nullptr != target_sequence)
         {
@@ -81,7 +83,7 @@ int main()
 
             //aligned distance
             double blur_strategy_beats = 0;
-            std::shared_ptr<mae::math::i_warping_distance_measure<std::shared_ptr<mae::fl::laban::i_movement> > > warping_distance_measure = std::make_shared<mae::math::erp<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, nullptr, true);
+            std::shared_ptr<mae::math::i_warping_distance_measure<std::shared_ptr<mae::fl::laban::i_movement> > > warping_distance_measure = std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, window, true);
             // = std::make_shared<mae::math::dtw<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, window, true);
             // = std::make_shared<mae::math::discrete_frechet_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, true);
             // = std::make_shared<mae::math::edr<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, edr_epsilon, true);
