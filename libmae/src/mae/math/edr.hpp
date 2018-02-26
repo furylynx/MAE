@@ -127,16 +127,20 @@ namespace mae
                 arr.push_back(row);
             }
 
+            //TODO See paper On the marriage of Lp-norms and Edit Distance
             for (std::size_t i = 1; i < n; i++)
             {
-                arr.at(i).at(0).at(0) = i;
+                //arr.at(i).at(0).at(0) = i;
+                arr.at(i).at(0).at(0) = n;
             }
 
             for (std::size_t j = 1; j < m; j++)
             {
                 for (std::size_t s = 0; s < std::min(s_max,j) ; s++)
                 {
-                    arr.at(0).at(j).at(s) = j;
+                    //arr.at(0).at(j).at(s) = j;
+                    arr.at(0).at(j).at(s) = m;
+                    //TODO m is varied by start and end..
                 }
             }
 
