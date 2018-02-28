@@ -29,7 +29,7 @@ int main()
         std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence4 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/hammer/hammer.laban");
 
         //change here for different comparison
-        std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence = possible_target_sequence4;
+        std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence = possible_target_sequence1;
         std::shared_ptr<mae::fl::laban::laban_sequence> real_sequence = sequence4;
 
         if (nullptr != real_sequence && nullptr != target_sequence)

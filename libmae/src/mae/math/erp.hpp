@@ -126,26 +126,34 @@ namespace mae
             }
 
             //create sum for initial values
-            double sum_element_1 = 0;
-            for (std::size_t i = 0; i < element1.size(); i++)
-            {
-                sum_element_1 += distance_measure_->distance(element1.at(i), gap_);
-            }
+//            double sum_element_1 = 0;
+//            for (std::size_t i = 0; i < element1.size(); i++)
+//            {
+//                sum_element_1 += distance_measure_->distance(element1.at(i), gap_);
+//            }
 
-            double sum_element_2 = 0;
-            for (std::size_t j = 0; j < element2.size(); j++)
-            {
-                sum_element_2 += distance_measure_->distance(element2.at(j),gap_);
-            }
+//            double sum_element_2 = 0;
+//            for (std::size_t j = 0; j < element2.size(); j++)
+//            {
+//                sum_element_2 += distance_measure_->distance(element2.at(j),gap_);
+//            }
+
+            //zero at top left corner
+            arr.at(0).at(0).at(0) = 0;
 
             //initialize array
+            double sum_element_1 = 0;
             for (std::size_t i = 1; i < n; i++)
             {
+                sum_element_1 += distance_measure_->distance(element1.at(i-1), gap_);
                 arr.at(i).at(0).at(0) = sum_element_1;
             }
 
+            double sum_element_2 = 0;
             for (std::size_t j = 1; j < m; j++)
             {
+                sum_element_2 += distance_measure_->distance(element2.at(j-1), gap_);
+
                 for (std::size_t s = 0; s < std::min(s_max,j) ; s++)
                 {
                     arr.at(0).at(j).at(s) = sum_element_2;
