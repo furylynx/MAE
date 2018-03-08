@@ -14,6 +14,9 @@
 #include <vector>
 #include <string>
 #include <cmath>
+#include <limits>
+#include <fstream>
+#include <sstream>
 
 #include <mae/mae.hpp>
 
@@ -51,6 +54,9 @@ int main()
 		"../mae_evaluator/evaluation_bvhs/throw/",
 		"../mae_evaluator/evaluation_bvhs/wave/"
     };
+
+    //path to alignments annotation file (for recordings), leave empty for no alignments
+    std::string alignments_file = "../mae_evaluator/evaluation_bvhs/alignments.csv";
 
     std::vector<comparator_info> comparators = initialize_comparators();
 
@@ -177,9 +183,48 @@ int main()
         }
 	}
 
-    //generating sequences
-	std::cout << std::endl << ">> All target sequences registered. Generating sequences for bvh files now..." << std::endl << std::endl;
 
+    std::cout << std::endl << ">> All target sequences registered." << std::endl << std::endl;
+
+    //parsing alignments (annotations for the recordings)
+    std::unordered_map<std::string,std::pair<std::size_t,std::size_t> > alignments_map;
+    std::ifstream ifs_alignments(alignments_file);
+
+    if (ifs_alignments.is_open())
+    {
+        std::string line;
+        while (std::getline(ifs_alignments, line))
+        {
+
+            std::vector<std::string> line_split = mae::mstr::split(line, ';');
+
+            if (4 == line_split.size())
+            {
+                std::stringstream sstr_alignments;
+                sstr_alignments << line_split.at(0) << line_split.at(1);
+
+                std::string path = sstr_alignments.str();
+
+                std::size_t startpos = 0;
+                std::size_t endpos = std::numeric_limits<std::size_t>::max();
+
+                std::sscanf(line_split.at(2).c_str(), "%zu", &startpos);
+                std::sscanf(line_split.at(3).c_str(), "%zu", &endpos);
+
+                alignments_map[path] = std::make_pair(startpos, endpos);
+            }
+        }
+
+        std::cout << "Found alignments." << std::endl;
+        ifs_alignments.close();
+    }
+    else
+    {
+        std::cout << "Cannot parse the alignments file. No alignments will be applied." << std::endl;
+    }
+
+    //generating sequences
+    std::cout << std::endl << ">> Generating sequences for bvh files now..." << std::endl << std::endl;
     mae::fl::bvh_controller bvh_ctrl = mae::fl::bvh_controller();
 
     std::vector<laban_sequence_info> generated_sequences;
@@ -217,12 +262,24 @@ int main()
 						}
 						else
 						{
-							//parse and send to movement controller
-							std::vector<std::shared_ptr<mae::general_skeleton> > skeleton_data = bvh_ctrl.read_bvh_file(
-									file_path, mae::fl::bvh_spec::default_spec())->get_skeleton_data();
+                            //get start and end for sequence (using annotations)
+                            std::size_t startpos = 0;
+                            std::size_t endpos = std::numeric_limits<std::size_t>::max();
+
+                            if (alignments_map.find(file_path) != alignments_map.end())
+                            {
+                                startpos = alignments_map.at(file_path).first;
+                                endpos = alignments_map.at(file_path).second+1;
+
+                                std::cout << file_path << " : " << startpos << " - " << endpos << std::endl;
+                            }
+
+                            //parse and send to movement controller
+                            std::vector<std::shared_ptr<mae::general_skeleton> > skeleton_data = bvh_ctrl.read_bvh_file(
+                                    file_path, mae::fl::bvh_spec::default_spec())->get_skeleton_data();
 
 							//use skeleton data to generate scores
-							for (unsigned int i = 0; i < skeleton_data.size(); i++)
+							for (unsigned int i = std::max(startpos, std::size_t{0}); i < std::min(skeleton_data.size(),endpos) ; i++)
 							{
 								movement_controller.next_frame(0, skeleton_data.at(i));
 							}
