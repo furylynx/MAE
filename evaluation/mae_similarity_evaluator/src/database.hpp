@@ -19,7 +19,7 @@
 #include <sqlite3.h>
 
 struct sequence_entry { int id; std::string path; std::string filename; std::string directory; std::string name; std::string score; int defined; };
-struct data_entry { int id; int comparator_id; int is_compare_target_sequence; int compare_sequence_id; int actual_sequence_id; double similarity; };
+struct data_entry { int id; int comparator_id; int is_compare_target_sequence; int compare_sequence_id; int actual_sequence_id; double similarity; double startpos; double endpos; };
 
 void db_check_error(sqlite3* db, int rc)
 {
@@ -353,11 +353,11 @@ int insert_sequence(sqlite3* db, std::string path, std::string filename, std::st
     return select_sequence_id(db, path);
 }
 
-void insert_data(sqlite3* db, int comparator_id, int is_compare_target_sequence, int compare_sequence_id, int actual_sequence_id, double similarity)
+void insert_data(sqlite3* db, int comparator_id, int is_compare_target_sequence, int compare_sequence_id, int actual_sequence_id, double similarity, double startpos, double endpos)
 {
 
     std::stringstream sstr;
-    sstr << "INSERT INTO data(comparator_id,is_compare_target_sequence,compare_sequence_id,actual_sequence_id,similarity) SELECT ?,?,?,?,? WHERE NOT EXISTS(SELECT 1 FROM data WHERE comparator_id = ? AND compare_sequence_id = ? AND actual_sequence_id = ?);";
+    sstr << "INSERT INTO data(comparator_id,is_compare_target_sequence,compare_sequence_id,actual_sequence_id,similarity,startpos,endpos) SELECT ?,?,?,?,?,?,? WHERE NOT EXISTS(SELECT 1 FROM data WHERE comparator_id = ? AND compare_sequence_id = ? AND actual_sequence_id = ?);";
 
     sqlite3_stmt *statement;
 
@@ -374,11 +374,15 @@ void insert_data(sqlite3* db, int comparator_id, int is_compare_target_sequence,
         db_check_error(db, rc);
         rc = sqlite3_bind_double(statement, 5, similarity);
         db_check_error(db, rc);
-        rc = sqlite3_bind_int(statement, 6, comparator_id);
+        rc = sqlite3_bind_double(statement, 6, startpos);
         db_check_error(db, rc);
-        rc = sqlite3_bind_int(statement, 7, compare_sequence_id);
+        rc = sqlite3_bind_double(statement, 7, endpos);
         db_check_error(db, rc);
-        rc = sqlite3_bind_int(statement, 8, actual_sequence_id);
+        rc = sqlite3_bind_int(statement, 8, comparator_id);
+        db_check_error(db, rc);
+        rc = sqlite3_bind_int(statement, 9, compare_sequence_id);
+        db_check_error(db, rc);
+        rc = sqlite3_bind_int(statement, 10, actual_sequence_id);
         db_check_error(db, rc);
 
         sqlite3_step(statement);
@@ -422,6 +426,8 @@ data_entry select_data_by_ids(sqlite3* db, int comparator_id, int compare_sequen
                 result.compare_sequence_id = sqlite3_column_int(sel_statement, 3);
                 result.actual_sequence_id = sqlite3_column_int(sel_statement, 4);
                 result.similarity = sqlite3_column_double(sel_statement, 5);
+                result.startpos = sqlite3_column_double(sel_statement, 6);
+                result.endpos = sqlite3_column_double(sel_statement, 7);
 
                 sqlite3_finalize(sel_statement);
 

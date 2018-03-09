@@ -27,10 +27,14 @@ int main()
         std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence2 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/clap/clap.laban");
         std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence3 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/throw/throw2.laban");
         std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence4 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/hammer/hammer.laban");
+        std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence5 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/rotation/rotation.laban");
+        std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence6 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/rotation/rotation2.laban");
+        std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence7 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/scrolldown/scroll_down.laban");
+        std::shared_ptr<mae::fl::laban::laban_sequence> possible_target_sequence8 = lreader.read_sequence_file("../../evaluation/mae_evaluator/evaluation_bvhs/scrolldown/scroll_down2.laban");
 
         //change here for different comparison
-        std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence = possible_target_sequence2;
-        std::shared_ptr<mae::fl::laban::laban_sequence> real_sequence = sequence4;
+        std::shared_ptr<mae::fl::laban::laban_sequence> target_sequence = possible_target_sequence5;
+        std::shared_ptr<mae::fl::laban::laban_sequence> real_sequence = possible_target_sequence1;
 
         if (nullptr != real_sequence && nullptr != target_sequence)
         {

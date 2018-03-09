@@ -17,6 +17,8 @@
 #include <limits>
 #include <fstream>
 #include <sstream>
+#include <unordered_map>
+#include <unordered_set>
 
 #include <mae/mae.hpp>
 
@@ -188,6 +190,7 @@ int main()
 
     //parsing alignments (annotations for the recordings)
     std::unordered_map<std::string,std::pair<std::size_t,std::size_t> > alignments_map;
+    std::unordered_set<std::string> alignments_ignore_set;
     std::ifstream ifs_alignments(alignments_file);
 
     if (ifs_alignments.is_open())
@@ -198,7 +201,7 @@ int main()
 
             std::vector<std::string> line_split = mae::mstr::split(line, ';');
 
-            if (4 == line_split.size())
+            if (line_split.size() >= 4)
             {
                 std::stringstream sstr_alignments;
                 sstr_alignments << line_split.at(0) << line_split.at(1);
@@ -212,6 +215,11 @@ int main()
                 std::sscanf(line_split.at(3).c_str(), "%zu", &endpos);
 
                 alignments_map[path] = std::make_pair(startpos, endpos);
+
+                if (line_split.size() > 4 && 1 == std::atoi(line_split.at(4).c_str()))
+                {
+                    alignments_ignore_set.insert(path);
+                }
             }
         }
 
@@ -262,36 +270,46 @@ int main()
 						}
 						else
 						{
-                            //get start and end for sequence (using annotations)
-                            std::size_t startpos = 0;
-                            std::size_t endpos = std::numeric_limits<std::size_t>::max();
-
-                            if (alignments_map.find(file_path) != alignments_map.end())
+                            if (alignments_ignore_set.find(file_path) == alignments_ignore_set.end())
                             {
-                                startpos = alignments_map.at(file_path).first;
-                                endpos = alignments_map.at(file_path).second+1;
 
-                                std::cout << file_path << " : " << startpos << " - " << endpos << std::endl;
+                                //get start and end for sequence (using annotations)
+                                std::size_t startpos = 0;
+                                std::size_t endpos = std::numeric_limits<std::size_t>::max();
+
+                                if (alignments_map.find(file_path) != alignments_map.end())
+                                {
+                                    startpos = alignments_map.at(file_path).first;
+                                    endpos = alignments_map.at(file_path).second + 1;
+
+                                    std::cout << file_path << " : " << startpos << " - " << endpos << std::endl;
+                                }
+
+                                //parse and send to movement controller
+                                std::vector<std::shared_ptr<mae::general_skeleton> > skeleton_data = bvh_ctrl.read_bvh_file(
+                                        file_path, mae::fl::bvh_spec::default_spec())->get_skeleton_data();
+
+                                //use skeleton data to generate scores
+                                for (unsigned int i = std::max(startpos, std::size_t{0});
+                                     i < std::min(skeleton_data.size(), endpos); i++)
+                                {
+                                    movement_controller.next_frame(0, skeleton_data.at(i));
+                                }
+
+                                std::shared_ptr<mae::fl::laban::laban_sequence> sequence = movement_controller.get_current_sequence();
+
+                                generated_sequences.push_back(initialize_laban_sequence_info(
+                                        insert_sequence(db, file_path, file_name, directory, sequence->get_title(),
+                                                        sequence->xml(), 0), file_path, file_name, directory,
+                                        sequence));
+
+                                //clear buffer
+                                movement_controller.clear_buffer();
                             }
-
-                            //parse and send to movement controller
-                            std::vector<std::shared_ptr<mae::general_skeleton> > skeleton_data = bvh_ctrl.read_bvh_file(
-                                    file_path, mae::fl::bvh_spec::default_spec())->get_skeleton_data();
-
-							//use skeleton data to generate scores
-							for (unsigned int i = std::max(startpos, std::size_t{0}); i < std::min(skeleton_data.size(),endpos) ; i++)
-							{
-								movement_controller.next_frame(0, skeleton_data.at(i));
-							}
-
-							std::shared_ptr<mae::fl::laban::laban_sequence> sequence = movement_controller.get_current_sequence();
-
-							generated_sequences.push_back(initialize_laban_sequence_info(
-									insert_sequence(db, file_path, file_name, directory, sequence->get_title(),
-													sequence->xml(), 0), file_path, file_name, directory, sequence));
-
-							//clear buffer
-							movement_controller.clear_buffer();
+                            else
+                            {
+                                std::cout << "Ignoring " << file_path << std::endl;
+                            }
 						}
 					}
 
@@ -345,12 +363,12 @@ int main()
                             std::cout << "sinfo.laban_sequence is null!" << std::endl;
                         }
 
-						double similarity = cinfo.comparator->similarity(tinfo.laban_sequence, sinfo.laban_sequence);
+						mae::math::aligned_similarity_details similarity_details = cinfo.comparator->similarity_details(tinfo.laban_sequence, sinfo.laban_sequence);
 
-						std::cout << similarity << std::endl;
+						std::cout << similarity_details.get_similarity() << " (" << similarity_details.get_startpos() << "-" << similarity_details.get_endpos() << ")" << std::endl;
 
 						//void insert_data(sqlite3* db, int comparator_id, int is_compare_target_sequence, int compare_sequence_id, int actual_sequence_id, double similarity)
-						insert_data(db, cinfo.id, (sinfo.directory == tinfo.directory) ? 1 : 0, tinfo.id, sinfo.id, similarity);
+						insert_data(db, cinfo.id, (sinfo.directory == tinfo.directory) ? 1 : 0, tinfo.id, sinfo.id, similarity_details.get_similarity(), similarity_details.get_startpos(), similarity_details.get_endpos());
 					}
                 }
                 catch (std::exception& e)

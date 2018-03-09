@@ -4,5 +4,7 @@ CREATE TABLE IF NOT EXISTS data (
 	is_compare_target_sequence integer NOT NULL,
 	compare_sequence_id integer NOT NULL,
 	actual_sequence_id integer NOT NULL,
-	similarity REAL NOT NULL
+	similarity REAL NOT NULL,
+	startpos REAL NOT NULL,
+	endpos REAL NOT NULL
 );

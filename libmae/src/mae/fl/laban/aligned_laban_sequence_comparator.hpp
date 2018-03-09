@@ -10,7 +10,7 @@
 #include "mv/i_symbol.hpp"
 #include "movement_comparator.hpp"
 #include "laban_subsequence_mapper.hpp"
-#include "../../math/i_similarity_measure.hpp"
+#include "../../math/i_aligned_similarity_measure.hpp"
 #include "../../math/aligned_distance.hpp"
 #include "../../math/aligned_similarity_details.hpp"
 #include "../../mos.hpp"
@@ -28,7 +28,7 @@ namespace mae {
     namespace fl {
         namespace laban {
 
-            class aligned_laban_sequence_comparator : public mae::math::i_similarity_measure<std::shared_ptr<laban_sequence> >
+            class aligned_laban_sequence_comparator : public mae::math::i_aligned_similarity_measure<std::shared_ptr<laban_sequence> >
             {
                 public:
 
