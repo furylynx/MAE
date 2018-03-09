@@ -116,12 +116,12 @@ namespace mae
                 template<typename T>
                 double dtw<T>::distance(std::vector<T> element1, std::vector<T> element2) const
                 {
-                    std::size_t n = element1.size()+1;
-                    std::size_t m = element2.size()+1;
+                    std::size_t p = element1.size();
+                    std::size_t q = element2.size();
 
                     std::vector<std::vector<std::vector<double> > > arr = warping_matrix(element1,element2);
 
-                    return arr.at(n-1).at(m-1).at(0);
+                    return arr.at(p).at(q).at(0);
                 }
 
                 template<typename T>

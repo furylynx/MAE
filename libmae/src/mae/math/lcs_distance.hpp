@@ -20,7 +20,7 @@ namespace mae
     namespace math
     {
         template<typename T>
-        class lcs_distance: public i_distance_measure<std::vector<T> >
+        class lcs_distance: public i_warping_distance_measure<T>
         {
         public:
             /**
@@ -29,7 +29,7 @@ namespace mae
              * @param distance_measure The distance measure for each single element.
              * @param target_value True for having the first sequence for the {@link distance(element1,element2)} as the target value to compare to. False for simply comparing the two sequences.
              */
-            lcs_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, bool target_value = false);
+            lcs_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, bool target_value = false, bool activate_s = false);
 
             virtual ~lcs_distance();
 
@@ -48,12 +48,13 @@ namespace mae
              * @param element2 The second element to compare.
              * @return Returns the warping matrix. Can be used to find the optimal alignment.
              */
-            virtual std::vector<std::vector<std::size_t> > subsequence_matrix(std::vector<T> element1, std::vector<T> element2) const;
+            virtual std::vector<std::vector<std::vector<double> > > warping_matrix(std::vector<T> element1, std::vector<T> element2) const;
 
 
         private:
             std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure_;
             bool target_value_;
+            bool activate_s_;
 
         };
 
@@ -68,10 +69,11 @@ namespace mae
     {
 
         template<typename T>
-        lcs_distance<T>::lcs_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, bool target_value)
+        lcs_distance<T>::lcs_distance(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, bool target_value, bool activate_s)
         {
             distance_measure_ = distance_measure;
             target_value_ = target_value;
+            activate_s_ = activate_s;
         }
 
         template<typename T>
@@ -82,46 +84,50 @@ namespace mae
         template<typename T>
         double lcs_distance<T>::distance(std::vector<T> element1, std::vector<T> element2) const
         {
-            std::size_t n = element1.size()+1;
-            std::size_t m = element2.size()+1;
+            std::size_t p = element1.size();
+            std::size_t q = element2.size();
 
-            std::vector<std::vector<std::size_t> > arr = warping_matrix(element1, element2);
+            std::vector<std::vector<std::vector<double> > > arr = warping_matrix(element1, element2);
 
-            // longest common subsequence
-            std::size_t lcs = arr.at(n-1).at(m-1);
-
-            if (0 != lcs)
-            {
-                if (target_value_)
-                {
-                    return (element1.size()/(double) lcs)-1;
-                }
-                else
-                {
-                    return (std::max(element1.size(), element2.size())/(double) lcs)-1;
-                }
-            }
-            else
-            {
-                return std::numeric_limits<double>::infinity();
-            }
+            return arr.at(p).at(q).at(0);
         }
 
         template<typename T>
-        std::vector<std::vector<std::size_t> > lcs_distance<T>::subsequence_matrix(std::vector<T> element1, std::vector<T> element2) const
+        std::vector<std::vector<std::vector<double> > > lcs_distance<T>::warping_matrix(std::vector<T> element1, std::vector<T> element2) const
         {
             std::size_t n = element1.size()+1;
             std::size_t m = element2.size()+1;
 
-            std::vector<std::vector<std::size_t> > arr;
+            double target_size = element1.size();
+
+            if (!target_value_)
+            {
+                target_size = std::max(element1.size(), element2.size());
+            }
+
+            //activate starting positions
+            std::size_t s_max = 1;
+            if (activate_s_)
+            {
+                s_max = m;
+            }
+
+            std::vector<std::vector<std::vector<double> > > arr;
 
             for (std::size_t i = 0; i < n ; i++)
             {
-                std::vector<std::size_t> row;
+                std::vector<std::vector<double> > row;
 
                 for (std::size_t j = 0; j < m; j++)
                 {
-                    row.push_back(0);
+                    std::vector<double> starts;
+
+                    for (std::size_t s = 0; s < std::min(s_max,j+1); s++)
+                    {
+                        starts.push_back(target_size);
+                    }
+
+                    row.push_back(starts);
                 }
 
                 arr.push_back(row);
@@ -131,13 +137,18 @@ namespace mae
             {
                 for (std::size_t j = 1 ; j < m ; j++)
                 {
-                    if (0 == distance_measure_->distance(element1.at(i-1), element2.at(j-1)))
+                    bool dist_zero = (0 == distance_measure_->distance(element1.at(i-1), element2.at(j-1)));
+
+                    for (std::size_t s = 0; s < std::min(s_max,j); s++)
                     {
-                        arr.at(i).at(j) = arr.at(i - 1).at(j - 1) - 1;
-                    }
-                    else
-                    {
-                        arr.at(i).at(j) = std::max(arr.at(i).at(j - 1), arr.at(i -1 ).at(j));
+                        if (dist_zero)
+                        {
+                            arr.at(i).at(j).at(s) = arr.at(i - 1).at(j - 1).at(s) - 1;
+                        }
+                        else
+                        {
+                            arr.at(i).at(j).at(s) = std::min(arr.at(i).at(j - 1).at(s), arr.at(i - 1).at(j).at(s));
+                        }
                     }
                 }
             }

@@ -86,7 +86,7 @@ namespace mae
 
                     std::vector<std::vector<std::vector<double> > > arr = warping_matrix(element1, element2);
 
-                    return arr.at(p-1).at(q-1).at(0);
+                    return arr.at(p).at(q).at(0);
                 }
 
                 template<typename T>
