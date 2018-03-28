@@ -5,7 +5,7 @@ set(MYLIB mae)
 
 set(MYLIB_VERSION_MAJOR 0)
 set(MYLIB_VERSION_MINOR 10)
-set(MYLIB_VERSION_PATCH 0)
+set(MYLIB_VERSION_PATCH 1)
 set(MYLIB_VERSION_STRING ${MYLIB_VERSION_MAJOR}.${MYLIB_VERSION_MINOR}.${MYLIB_VERSION_PATCH})
 
 set(MYLIB_DESCRIPTION "Base library of the Movement Analysis Engine (MAE) for analyzing movement using depth sensors and Labanotation.")
@@ -14,15 +14,21 @@ set(MYLIB_URL "https://github.com/furylynx/MAE")
 set(MYLIB_REQ_OPENCV OpenCV)
 set(MYLIB_REQ_OPENCV_V opencv)
 set(MYLIB_REQ_OPENCV_VERSION "2.4.8")
+# apply additional versions if actually compatible
+set(MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3")
+
 set(MYLIB_REQ_LIBXMLPP "LibXML++")
 set(MYLIB_REQ_LIBXMLPP_V "libxml++-2.6")
 set(MYLIB_REQ_LIBXMLPP_VERSION "2.6")
+
 set(MYLIB_REQ_INTL "Intl")
 set(MYLIB_REQ_INTL_V "intl")
 set(MYLIB_REQ_INTL_VERSION "1.0")
+
 set(MYLIB_REQUIRES "${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}" )
 
 set(MYLIB_JNI maejava)
+set(MYLIB_JS maejs)
 
 # Define the project
 project(${MYLIB} VERSION ${MYLIB_VERSION_STRING})
@@ -238,7 +244,11 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/movement_controller.hpp
         src/mae/mstr.cpp
         src/mae/mstr.hpp
-        src/mae/sensor/sensor_farm.cpp src/mae/sensor/sensor_farm.hpp src/mae/sensor/i_sensor.hpp src/mae/sensor/sensor_info.cpp src/mae/sensor/sensor_info.hpp src/mae/sensor/sensor.hpp src/mae/general_skeleton_basis_pair.cpp src/mae/general_skeleton_basis_pair.hpp)
+        src/mae/sensor/sensor_farm.cpp src/mae/sensor/sensor_farm.hpp
+        src/mae/sensor/i_sensor.hpp
+        src/mae/sensor/sensor_info.cpp src/mae/sensor/sensor_info.hpp
+        src/mae/sensor/sensor.hpp src/mae/general_skeleton_basis_pair.cpp src/mae/general_skeleton_basis_pair.hpp
+)
 
 
 set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
@@ -268,8 +278,16 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/Modules
 
 # Dependencies
 find_package ( ${MYLIB_REQ_LIBXMLPP} ${MYLIB_REQ_LIBXMLPP_VERSION} REQUIRED )
-find_package ( ${MYLIB_REQ_OPENCV} ${MYLIB_REQ_OPENCV_VERSION} REQUIRED )
 find_package ( ${MYLIB_REQ_INTL} REQUIRED )
+
+# Check OpenCV
+find_package ( ${MYLIB_REQ_OPENCV} REQUIRED )
+if ("${${MYLIB_REQ_OPENCV}_VERSION_MAJOR}" IN_LIST MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS)
+    message( STATUS "Found OpenCV version ${${MYLIB_REQ_OPENCV}_VERSION}." )
+else()
+    message( FATAL_ERROR "Cannot find a compatible OpenCV version." )
+endif()
+
 
 
 set (MYLIB_INCLUDE_DIRS ${LibXML++_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
@@ -304,12 +322,13 @@ FIND_PACKAGE(SWIG REQUIRED)
 FIND_PACKAGE(Java REQUIRED)
 FIND_PACKAGE(JNI REQUIRED)
 FIND_PACKAGE(Gradle REQUIRED)
+FIND_PACKAGE(Node REQUIRED)
 
 INCLUDE(${SWIG_USE_FILE})
 include(UseJava)
 include(UseSWIG)
 
-include_directories(${JNI_INCLUDE_DIRS})
+include_directories(${JNI_INCLUDE_DIRS} ${NODEJS_INCLUDE_DIRS})
 
 
 set(WRAPPER_PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_java_project)
@@ -329,6 +348,14 @@ SET(CMAKE_SWIG_FLAGS -package ${MYLIB_JNI})
 SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_.i PROPERTY CPLUSPLUS ON)
 SWIG_ADD_LIBRARY(${MYLIB_JNI} LANGUAGE Java SOURCES wrappers/swig/mae/_wrapper_.i)
 SWIG_LINK_LIBRARIES(${MYLIB_JNI} mae)
+
+SET(CMAKE_SWIG_FLAGS "")
+SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_js_.i PROPERTY CPLUSPLUS ON)
+SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_js_.i PROPERTY SWIG_FLAGS "-node")
+SWIG_ADD_LIBRARY(${MYLIB_JS} LANGUAGE javascript SOURCES wrappers/swig/mae/_wrapper_js_.i)
+SWIG_LINK_LIBRARIES(${MYLIB_JS} mae)
+
+#TODO node-gyp?!
 
 #append version number to jnilib
 if (APPLE)
