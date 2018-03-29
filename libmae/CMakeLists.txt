@@ -322,7 +322,7 @@ FIND_PACKAGE(SWIG REQUIRED)
 FIND_PACKAGE(Java REQUIRED)
 FIND_PACKAGE(JNI REQUIRED)
 FIND_PACKAGE(Gradle REQUIRED)
-FIND_PACKAGE(Node REQUIRED)
+#FIND_PACKAGE(Node REQUIRED)
 
 INCLUDE(${SWIG_USE_FILE})
 include(UseJava)
@@ -330,10 +330,11 @@ include(UseSWIG)
 
 include_directories(${JNI_INCLUDE_DIRS} ${NODEJS_INCLUDE_DIRS})
 
+set(SWIG_OUTFILE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release/)
 
+#prepare java
 set(WRAPPER_PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_java_project)
 set(CMAKE_SWIG_OUTDIR ${WRAPPER_PROJECT_DIR}/src/main/java/mae/maejava)
-set(SWIG_OUTFILE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release/)
 
 #create directory for generated java project
 file(MAKE_DIRECTORY ${CMAKE_SWIG_OUTDIR})
@@ -349,11 +350,21 @@ SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_.i PROPERTY CPLUSPLUS ON)
 SWIG_ADD_LIBRARY(${MYLIB_JNI} LANGUAGE Java SOURCES wrappers/swig/mae/_wrapper_.i)
 SWIG_LINK_LIBRARIES(${MYLIB_JNI} mae)
 
-SET(CMAKE_SWIG_FLAGS "")
-SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_js_.i PROPERTY CPLUSPLUS ON)
-SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_js_.i PROPERTY SWIG_FLAGS "-node")
-SWIG_ADD_LIBRARY(${MYLIB_JS} LANGUAGE javascript SOURCES wrappers/swig/mae/_wrapper_js_.i)
-SWIG_LINK_LIBRARIES(${MYLIB_JS} mae)
+#prepare javascript
+#set(WRAPPER_PROJECT_DIR_JS ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_js_project)
+#set(CMAKE_SWIG_OUTDIR ${WRAPPER_PROJECT_DIR_JS}/src/main/js/mae/maejs)
+
+#create directory for generated javascript project
+#file(MAKE_DIRECTORY ${CMAKE_SWIG_OUTDIR})
+#add_custom_command(TARGET ${MYLIB} PRE_BUILD
+#        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SWIG_OUTDIR}
+#        )
+
+#SET(CMAKE_SWIG_FLAGS "")
+#SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_js_.i PROPERTY CPLUSPLUS ON)
+#SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_js_.i PROPERTY SWIG_FLAGS "-node")
+#SWIG_ADD_LIBRARY(${MYLIB_JS} LANGUAGE javascript SOURCES wrappers/swig/mae/_wrapper_js_.i)
+#SWIG_LINK_LIBRARIES(${MYLIB_JS} mae)
 
 #TODO node-gyp?!
 
