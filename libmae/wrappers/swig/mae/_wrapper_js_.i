@@ -35,6 +35,18 @@
 
 //-- exception
 %include "exception.i"
+JSValueRef wrap_gcd(JSContextRef context, JSObjectRef function, JSObjectRef globalobj, size_t argc, const JSValueRef argv[], JSValueRef* exception)
+{
+int arg1 = (int)JSValueToNumber(context, argv[0], NULL);
+int arg2 = (int)JSValueToNumber(context, argv[1], NULL);
+JSStringRef message = JSStringCreateWithUTF8CString("This is a test error.");
+*exception = JSValueMakeString(context, message);
+JSStringRelease(message);
+int result = (int)gcd(arg1,arg2);
+JSValueRef jscresult = JSValueMakeNumber(context, result);
+return jsresult;
+}
+
 %exception {
     try {
         $action

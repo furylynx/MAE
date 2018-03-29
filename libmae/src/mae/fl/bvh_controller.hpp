@@ -21,6 +21,7 @@
 #include <iomanip>
 #include <memory>
 #include <algorithm>
+#include <list>
 
 
 namespace mae
