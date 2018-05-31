@@ -5,7 +5,7 @@ set(MYLIB mae)
 
 set(MYLIB_VERSION_MAJOR 0)
 set(MYLIB_VERSION_MINOR 10)
-set(MYLIB_VERSION_PATCH 0)
+set(MYLIB_VERSION_PATCH 1)
 set(MYLIB_VERSION_STRING ${MYLIB_VERSION_MAJOR}.${MYLIB_VERSION_MINOR}.${MYLIB_VERSION_PATCH})
 
 set(MYLIB_DESCRIPTION "Base library of the Movement Analysis Engine (MAE) for analyzing movement using depth sensors and Labanotation.")
@@ -14,6 +14,9 @@ set(MYLIB_URL "https://github.com/furylynx/MAE")
 set(MYLIB_REQ_OPENCV OpenCV)
 set(MYLIB_REQ_OPENCV_V opencv)
 set(MYLIB_REQ_OPENCV_VERSION "2.4.8")
+# apply additional versions if actually compatible
+set(MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3")
+
 set(MYLIB_REQ_LIBXMLPP "LibXML++")
 set(MYLIB_REQ_LIBXMLPP_V "libxml++-2.6")
 set(MYLIB_REQ_LIBXMLPP_VERSION "2.6")
@@ -268,8 +271,15 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/Modules
 
 # Dependencies
 find_package ( ${MYLIB_REQ_LIBXMLPP} ${MYLIB_REQ_LIBXMLPP_VERSION} REQUIRED )
-find_package ( ${MYLIB_REQ_OPENCV} ${MYLIB_REQ_OPENCV_VERSION} REQUIRED )
 find_package ( ${MYLIB_REQ_INTL} REQUIRED )
+
+# Check OpenCV
+find_package ( ${MYLIB_REQ_OPENCV} REQUIRED )
+if ("${${MYLIB_REQ_OPENCV}_VERSION_MAJOR}" IN_LIST MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS)
+    message( STATUS "Found OpenCV version ${${MYLIB_REQ_OPENCV}_VERSION}." )
+else()
+    message( FATAL_ERROR "Cannot find a compatible OpenCV version." )
+endif()
 
 
 set (MYLIB_INCLUDE_DIRS ${LibXML++_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
