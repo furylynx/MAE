@@ -66,6 +66,8 @@ install_manifest.txt
 Makefile
 *.dylib
 *.pc
+_CPack_Packages/
+*.deb
 
 #swig
 *.jnilib
