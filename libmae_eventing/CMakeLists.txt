@@ -1,11 +1,16 @@
 cmake_minimum_required(VERSION 3.6)
 
+# Include json parser cmake module
+INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/JSONParser.cmake")
+file(READ "${CMAKE_SOURCE_DIR}/../mae.json" MAEJSONCONTENT)
+sbeParseJson(MAEJSON MAEJSONCONTENT)
+
 # Set package infos
 set(MYLIB mae_eventing)
 
-set(MYLIB_VERSION_MAJOR 0)
-set(MYLIB_VERSION_MINOR 10)
-set(MYLIB_VERSION_PATCH 1)
+SET(MYLIB_VERSION_MAJOR ${MAEJSON.version_major})
+SET(MYLIB_VERSION_MINOR ${MAEJSON.version_minor})
+SET(MYLIB_VERSION_PATCH ${MAEJSON.version_patch})
 set(MYLIB_VERSION_STRING ${MYLIB_VERSION_MAJOR}.${MYLIB_VERSION_MINOR}.${MYLIB_VERSION_PATCH})
 
 set(MYLIB_DESCRIPTION "Eventing library of the Movement Analysis Engine (MAE) for analyzing movement using depth sensors and Labanotation.")
@@ -121,3 +126,8 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake" "${CMAKE_CURREN
 # configure and install pkg config .pc file
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lib${MYLIB}.pc.cmakein ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc @ONLY)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc DESTINATION "${INSTALL_PKGCONFIG_DIR}")
+
+# configure cpack
+# set libmae which is not found by SHLIBDEPS
+SET (CPACK_DEBIAN_PACKAGE_DEPENDS "${MYLIB_REQ_MAE_V} >= ${MYLIB_REQ_MAE_VERSION}")
+INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/MAECPack.cmake")

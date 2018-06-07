@@ -1,11 +1,16 @@
 cmake_minimum_required(VERSION 3.8)
 
+# Include json parser cmake module
+INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/JSONParser.cmake")
+file(READ "${CMAKE_SOURCE_DIR}/../mae.json" MAEJSONCONTENT)
+sbeParseJson(MAEJSON MAEJSONCONTENT)
+
 # Set package infos
 set(MYLIB mae)
 
-set(MYLIB_VERSION_MAJOR 0)
-set(MYLIB_VERSION_MINOR 10)
-set(MYLIB_VERSION_PATCH 1)
+SET(MYLIB_VERSION_MAJOR ${MAEJSON.version_major})
+SET(MYLIB_VERSION_MINOR ${MAEJSON.version_minor})
+SET(MYLIB_VERSION_PATCH ${MAEJSON.version_patch})
 set(MYLIB_VERSION_STRING ${MYLIB_VERSION_MAJOR}.${MYLIB_VERSION_MINOR}.${MYLIB_VERSION_PATCH})
 
 set(MYLIB_DESCRIPTION "Base library of the Movement Analysis Engine (MAE) for analyzing movement using depth sensors and Labanotation.")
@@ -385,3 +390,6 @@ set_property(DIRECTORY PROPERTY ADDITIONAL_MAKE_CLEAN_FILES
         "${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}-${MYLIB_VERSION_STRING}.jar"
         "${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar"
         )
+
+# configure cpack
+INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/MAECPack.cmake")
