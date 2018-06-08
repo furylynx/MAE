@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.8)
 
 # Include json parser cmake module
 INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/JSONParser.cmake")
@@ -26,6 +26,7 @@ SET(MYLIB_REQ_SDL2_TTF_V SDL2_ttf)
 
 SET(MYLIB_REQ_MAE LibMAE)
 SET(MYLIB_REQ_MAE_V libmae)
+SET(MYLIB_REQ_MAE_C mae)
 SET(MYLIB_REQ_MAE_VERSION ${MYLIB_VERSION_STRING})
 
 SET(MYLIB_REQ_OPENCV OpenCV)
@@ -136,5 +137,5 @@ INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc DESTINATION "${INSTALL_
 
 # configure cpack
 # set libmae which is not found by SHLIBDEPS
-SET (CPACK_DEBIAN_PACKAGE_DEPENDS "${MYLIB_REQ_MAE_V} >= ${MYLIB_REQ_MAE_VERSION}")
+SET (CPACK_DEBIAN_PACKAGE_DEPENDS "${MYLIB_REQ_MAE_C} (>= ${MYLIB_REQ_MAE_VERSION})")
 INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/MAECPack.cmake")

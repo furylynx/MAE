@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.8)
 
 # Include json parser cmake module
 INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/JSONParser.cmake")
@@ -21,12 +21,15 @@ set(MYLIB_REQ_BOOST_V libboost)
 set(MYLIB_REQ_BOOST_COMPONENT system)
 set(MYLIB_REQ_BOOST_COMPONENT_V libboost-system)
 set(MYLIB_REQ_BOOST_VERSION "1.5.3")
+
 set(MYLIB_REQ_LIBXMLPP "LibXML++")
 set(MYLIB_REQ_LIBXMLPP_V "libxml++-2.6")
 set(MYLIB_REQ_LIBXMLPP_VERSION "2.6")
+
 set(MYLIB_REQ_MAE LibMAE)
 set(MYLIB_REQ_MAE_V libmae)
-set(MYLIB_REQ_MAE_VERSION "0.10.1")
+SET(MYLIB_REQ_MAE_C mae)
+set(MYLIB_REQ_MAE_VERSION "${MYLIB_VERSION_STRING}")
 
 set(MYLIB_REQ_OPENCV OpenCV)
 set(MYLIB_REQ_OPENCV_V opencv)
@@ -129,5 +132,5 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc DESTINATION "${INSTALL_
 
 # configure cpack
 # set libmae which is not found by SHLIBDEPS
-SET (CPACK_DEBIAN_PACKAGE_DEPENDS "${MYLIB_REQ_MAE_V} >= ${MYLIB_REQ_MAE_VERSION}")
+SET (CPACK_DEBIAN_PACKAGE_DEPENDS "${MYLIB_REQ_MAE_C} (>= ${MYLIB_REQ_MAE_VERSION})")
 INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/MAECPack.cmake")

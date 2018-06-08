@@ -1,11 +1,16 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.8)
+
+# Include json parser cmake module
+INCLUDE("${CMAKE_SOURCE_DIR}/../../cmake/Modules/JSONParser.cmake")
+file(READ "${CMAKE_SOURCE_DIR}/../../mae.json" MAEJSONCONTENT)
+sbeParseJson(MAEJSON MAEJSONCONTENT)
 
 # Set package infos
 set(MYEXEC minimal-libmae)
 
-set(MYEXEC_VERSION_MAJOR 0)
-set(MYEXEC_VERSION_MINOR 1)
-set(MYEXEC_VERSION_PATCH 1)
+SET(MYEXEC_VERSION_MAJOR ${MAEJSON.version_major})
+SET(MYEXEC_VERSION_MINOR ${MAEJSON.version_minor})
+SET(MYEXEC_VERSION_PATCH ${MAEJSON.version_patch})
 set(MYEXEC_VERSION_STRING ${MYEXEC_VERSION_MAJOR}.${MYEXEC_VERSION_MINOR}.${MYEXEC_VERSION_PATCH})
 
 set(MYEXEC_DESCRIPTION "Minimal libmae test.")
@@ -13,7 +18,7 @@ set(MYEXEC_URL "https://github.com/furylynx/MAE")
 
 set(MYEXEC_REQ_MAE LibMAE)
 set(MYEXEC_REQ_MAE_V libmae)
-set(MYEXEC_REQ_MAE_VERSION "0.10.1")
+set(MYEXEC_REQ_MAE_VERSION "${MYEXEC_VERSION_STRING}")
 
 
 set(MYEXEC_REQUIRES "${MYEXEC_REQ_MAE_V} >= ${MYEXEC_REQ_MAE_VERSION}" )
