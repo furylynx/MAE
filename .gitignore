@@ -63,6 +63,8 @@ install_manifest.txt
 !*ConfigVersion.cmake
 *.cmake
 !Find*.cmake
+!JSONParser.cmake
+!MAECPack.cmake
 Makefile
 *.dylib
 *.pc
