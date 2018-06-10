@@ -1,5 +1,8 @@
+def jsonresult = new groovy.json.JsonSlurper().parseText(new File("../mae.json").text)
+def versionstring = ""+jsonresult.version_major+"."+jsonresult.version_minor+"."+jsonresult.version_major
+
 group 'mae'
-version '0.10.1'
+version versionstring
 
 apply plugin: 'java'
 apply plugin: "maven"
@@ -14,6 +17,6 @@ repositories {
 }
 
 dependencies {
-    compile "mae:libmae:0.10.1"
+    compile "mae:libmae:"+versionstring
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
