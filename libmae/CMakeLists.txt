@@ -18,7 +18,7 @@ set(MYLIB_URL "https://github.com/furylynx/MAE")
 
 set(MYLIB_REQ_OPENCV OpenCV)
 set(MYLIB_REQ_OPENCV_V opencv)
-set(MYLIB_REQ_OPENCV_VERSION "2.4.8")
+set(MYLIB_REQ_OPENCV_VERSION "2.4.0")
 # apply additional versions if actually compatible
 set(MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3")
 
@@ -29,6 +29,7 @@ set(MYLIB_REQ_INTL "Intl")
 set(MYLIB_REQ_INTL_V "intl")
 set(MYLIB_REQ_INTL_VERSION "1.0")
 set(MYLIB_REQUIRES "${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}" )
+set(MYLIB_REQUIRES_RPM "libc6 >= 2.4, libgcc1 >= 1:3.0, libglibmm-2.4 >= 2.54.0, libstdc++6 >= 7, ${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}" )
 
 set(MYLIB_JNI maejava)
 
