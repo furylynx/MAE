@@ -1,5 +1,5 @@
 def jsonresult = new groovy.json.JsonSlurper().parseText(new File("../mae.json").text)
-def versionstring = ""+jsonresult.version_major+"."+jsonresult.version_minor+"."+jsonresult.version_major
+def versionstring = ""+jsonresult.version_major+"."+jsonresult.version_minor+"."+jsonresult.version_patch
 
 group 'mae'
 version versionstring
