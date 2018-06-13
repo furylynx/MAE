@@ -50,11 +50,13 @@ set(CMAKE_CXX_STANDARD 14)
 # Source files
 set(SOURCE_FILES src/laban-sequence-converter.cpp)
 
-set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
-set(INSTALL_PACKAGE_LOCATION lib/cmake/${MYEXEC})
+INCLUDE("GNUInstallDirs")
 
-set(BIN_INSTALL_DIR bin/ )
-set(SYSCONFIG_INSTALL_DIR etc/${MYEXEC}/ )
+set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
+set(INSTALL_PACKAGE_LOCATION ${CMAKE_INSTALL_LIBDIR}/cmake/lib${MYLIB})
+
+set(BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR} )
+set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/ )
 
 # We produce a shared library
 add_executable(${MYEXEC} ${SOURCE_FILES})
