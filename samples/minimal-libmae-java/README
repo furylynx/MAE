@@ -39,3 +39,18 @@ To install the libmae JNI jar into the local maven repository (required to compi
 mvn install:install-file -Dfile=libmae-$VERSION.jar -DgroupId=de.furylynx.mae -DartifactId=libmae -Dversion=$VERSION -Dpackaging=jar
 
 Set the java.library.path to the path where the libmaejava.so/.jnilib/.dll is installed. On Unix this can typically be /usr/local/jni, or /usr/local/lib.
+
+
+Troubleshooting
+==================
+
+If you used a custom install prefix for libmae, use gradle run/installDist -Pprefix=/your/install/prefix
+
+In case you see this error or a similar:
+
+Native code library failed to load.
+java.lang.UnsatisfiedLinkError: no maejava in java.library.path
+
+Try setting the prefix to your installation: gradle run -Pprefix=/your/install/prefix
+Or try setting the java.library.path entirely: gradle run -Plibrarypath="/your/library/path"
+You may append several directories to your path by using the separator ":": gradle run -Plibrarypath="/your/library/path:/your/library/path2"

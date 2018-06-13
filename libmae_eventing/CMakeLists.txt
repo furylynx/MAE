@@ -1,11 +1,16 @@
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.8)
+
+# Include json parser cmake module
+INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/JSONParser.cmake")
+file(READ "${CMAKE_SOURCE_DIR}/../mae.json" MAEJSONCONTENT)
+sbeParseJson(MAEJSON MAEJSONCONTENT)
 
 # Set package infos
 set(MYLIB mae_eventing)
 
-set(MYLIB_VERSION_MAJOR 0)
-set(MYLIB_VERSION_MINOR 10)
-set(MYLIB_VERSION_PATCH 1)
+SET(MYLIB_VERSION_MAJOR ${MAEJSON.version_major})
+SET(MYLIB_VERSION_MINOR ${MAEJSON.version_minor})
+SET(MYLIB_VERSION_PATCH ${MAEJSON.version_patch})
 set(MYLIB_VERSION_STRING ${MYLIB_VERSION_MAJOR}.${MYLIB_VERSION_MINOR}.${MYLIB_VERSION_PATCH})
 
 set(MYLIB_DESCRIPTION "Eventing library of the Movement Analysis Engine (MAE) for analyzing movement using depth sensors and Labanotation.")
@@ -13,23 +18,30 @@ set(MYLIB_URL "https://github.com/furylynx/MAE")
 
 set(MYLIB_REQ_BOOST Boost)
 set(MYLIB_REQ_BOOST_V libboost)
+set(MYLIB_REQ_BOOST_R boost)
 set(MYLIB_REQ_BOOST_COMPONENT system)
 set(MYLIB_REQ_BOOST_COMPONENT_V libboost-system)
 set(MYLIB_REQ_BOOST_VERSION "1.5.3")
+
 set(MYLIB_REQ_LIBXMLPP "LibXML++")
 set(MYLIB_REQ_LIBXMLPP_V "libxml++-2.6")
+set(MYLIB_REQ_LIBXMLPP_R "libxml++")
 set(MYLIB_REQ_LIBXMLPP_VERSION "2.6")
+
 set(MYLIB_REQ_MAE LibMAE)
 set(MYLIB_REQ_MAE_V libmae)
-set(MYLIB_REQ_MAE_VERSION "0.10.1")
+SET(MYLIB_REQ_MAE_C mae)
+set(MYLIB_REQ_MAE_VERSION "${MYLIB_VERSION_STRING}")
 
 set(MYLIB_REQ_OPENCV OpenCV)
 set(MYLIB_REQ_OPENCV_V opencv)
-set(MYLIB_REQ_OPENCV_VERSION "2.4.8")
+set(MYLIB_REQ_OPENCV_VERSION "2.4.0")
 # apply additional versions if actually compatible
 set(MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3")
 
-set(MYLIB_REQUIRES "${MYLIB_REQ_MAE_V} >= ${MYLIB_REQ_MAE_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}, ${MYLIB_REQ_BOOST_COMPONENT_V} >= ${MYLIB_REQ_BOOST_VERSION}")
+set(MYLIB_REQUIRES "${MYLIB_REQ_MAE_V} >= ${MYLIB_REQ_MAE_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}")
+#set(MYLIB_REQUIRES "${MYLIB_REQ_MAE_V} >= ${MYLIB_REQ_MAE_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}, ${MYLIB_REQ_BOOST_COMPONENT_V} >= ${MYLIB_REQ_BOOST_VERSION}")
+SET(MYLIB_REQUIRES_RPM "glibc >= 2.17, libgcc >= 4.8.5, glibmm24 >= 2.50.0, libstdc++ >= 4.8.5, ${MYLIB_REQ_MAE_C} >= ${MYLIB_REQ_MAE_VERSION}, ${MYLIB_REQ_LIBXMLPP_R} >= ${MYLIB_REQ_LIBXMLPP_VERSION}, ${MYLIB_REQ_BOOST_R} >= ${MYLIB_REQ_BOOST_VERSION}" )
 
 # Define the project
 project(${MYLIB} VERSION ${MYLIB_VERSION_STRING})
@@ -57,12 +69,14 @@ set(SOURCE_FILES src/mae/eventing/client.hpp
         src/mae/eventing/server.hpp)
 
 
-set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
-set(INSTALL_PACKAGE_LOCATION lib/cmake/lib${MYLIB})
+INCLUDE("GNUInstallDirs")
 
-set(INCLUDE_INSTALL_DIR include/ )
-set(LIB_INSTALL_DIR lib/ )
-set(BIN_INSTALL_DIR bin/ )
+set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
+set(INSTALL_PACKAGE_LOCATION ${CMAKE_INSTALL_LIBDIR}/cmake/lib${MYLIB})
+
+set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR} )
+set(LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR} )
+set(BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR} )
 set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/ )
 
 # We produce a shared library
@@ -121,3 +135,8 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake" "${CMAKE_CURREN
 # configure and install pkg config .pc file
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lib${MYLIB}.pc.cmakein ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc @ONLY)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc DESTINATION "${INSTALL_PKGCONFIG_DIR}")
+
+# configure cpack
+# set libmae which is not found by SHLIBDEPS
+SET (CPACK_DEBIAN_PACKAGE_DEPENDS "${MYLIB_REQ_MAE_C} (>= ${MYLIB_REQ_MAE_VERSION})")
+INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/MAECPack.cmake")
