@@ -1,11 +1,16 @@
 cmake_minimum_required(VERSION 3.8)
 
+# Include json parser cmake module
+INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/JSONParser.cmake")
+file(READ "${CMAKE_SOURCE_DIR}/../mae.json" MAEJSONCONTENT)
+sbeParseJson(MAEJSON MAEJSONCONTENT)
+
 # Set package infos
 set(MYLIB mae)
 
-set(MYLIB_VERSION_MAJOR 0)
-set(MYLIB_VERSION_MINOR 11)
-set(MYLIB_VERSION_PATCH 0)
+SET(MYLIB_VERSION_MAJOR ${MAEJSON.version_major})
+SET(MYLIB_VERSION_MINOR ${MAEJSON.version_minor})
+SET(MYLIB_VERSION_PATCH ${MAEJSON.version_patch})
 set(MYLIB_VERSION_STRING ${MYLIB_VERSION_MAJOR}.${MYLIB_VERSION_MINOR}.${MYLIB_VERSION_PATCH})
 
 set(MYLIB_DESCRIPTION "Base library of the Movement Analysis Engine (MAE) for analyzing movement using depth sensors and Labanotation.")
@@ -13,19 +18,21 @@ set(MYLIB_URL "https://github.com/furylynx/MAE")
 
 set(MYLIB_REQ_OPENCV OpenCV)
 set(MYLIB_REQ_OPENCV_V opencv)
-set(MYLIB_REQ_OPENCV_VERSION "2.4.8")
+set(MYLIB_REQ_OPENCV_VERSION "2.4.0")
 # apply additional versions if actually compatible
 set(MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3")
 
 set(MYLIB_REQ_LIBXMLPP "LibXML++")
 set(MYLIB_REQ_LIBXMLPP_V "libxml++-2.6")
-set(MYLIB_REQ_LIBXMLPP_VERSION "2.6")
+set(MYLIB_REQ_LIBXMLPP_R "libxml++")
+set(MYLIB_REQ_LIBXMLPP_VERSION "2.37")
 
 set(MYLIB_REQ_INTL "Intl")
 set(MYLIB_REQ_INTL_V "intl")
 set(MYLIB_REQ_INTL_VERSION "1.0")
 
 set(MYLIB_REQUIRES "${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}" )
+set(MYLIB_REQUIRES_RPM "glibc >= 2.17, libgcc >= 4.8.5, glibmm24 >= 2.50.0, libstdc++ >= 4.8.5, ${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_R} >= ${MYLIB_REQ_LIBXMLPP_VERSION}" )
 
 set(MYLIB_JNI maejava)
 
@@ -277,13 +284,15 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/math/aligned_distances_details.cpp src/mae/math/aligned_distances_details.hpp)
 
 
-set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
-set(INSTALL_PACKAGE_LOCATION lib/cmake/lib${MYLIB})
+INCLUDE("GNUInstallDirs")
 
-set(INCLUDE_INSTALL_DIR include/ )
-set(LIB_INSTALL_DIR lib/ )
-set(BIN_INSTALL_DIR bin/ )
-set(JNI_INSTALL_DIR lib/jni/ )
+set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
+set(INSTALL_PACKAGE_LOCATION ${CMAKE_INSTALL_LIBDIR}/cmake/lib${MYLIB})
+
+set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR} )
+set(LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR} )
+set(BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR} )
+set(JNI_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/jni/ )
 set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/ )
 
 # We produce a shared library
@@ -313,7 +322,6 @@ if ("${${MYLIB_REQ_OPENCV}_VERSION_MAJOR}" IN_LIST MYLIB_REQ_OPENCV_COMPATIBLE_V
 else()
     message( FATAL_ERROR "Cannot find a compatible OpenCV version." )
 endif()
-
 
 
 set (MYLIB_INCLUDE_DIRS ${LibXML++_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
@@ -396,9 +404,9 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/settings.gradle.cmakein  ${WRAPPER_PR
 ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
         POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E rename "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}"
-        COMMAND ${CMAKE_COMMAND} -E create_symlink "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}"
-        COMMAND ${CMAKE_COMMAND} -E create_symlink "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}"
-        COMMAND cmake -E echo "Building Java Project, installing the java library in the local maven repository..."
+        COMMAND ${CMAKE_COMMAND} -E create_symlink "${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}"
+        COMMAND ${CMAKE_COMMAND} -E create_symlink "${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}"
+        COMMAND ${CMAKE_COMMAND} -E echo "Building Java Project, installing the java library in the local maven repository..."
         COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar
         )
 
@@ -419,3 +427,6 @@ set_property(DIRECTORY PROPERTY ADDITIONAL_MAKE_CLEAN_FILES
         "${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}-${MYLIB_VERSION_STRING}.jar"
         "${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar"
         )
+
+# configure cpack
+INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/MAECPack.cmake")
