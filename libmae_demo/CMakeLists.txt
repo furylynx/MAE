@@ -69,13 +69,15 @@ SET(SOURCE_FILES src/mae/demo/demo.hpp
         src/mae/demo/sdl_window_item.hpp)
 
 
-SET(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
-SET(INSTALL_PACKAGE_LOCATION lib/cmake/lib${MYLIB})
+INCLUDE("GNUInstallDirs")
 
-SET(INCLUDE_INSTALL_DIR include/ )
-SET(LIB_INSTALL_DIR lib/ )
-SET(BIN_INSTALL_DIR bin/ )
-SET(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/ )
+set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
+set(INSTALL_PACKAGE_LOCATION ${CMAKE_INSTALL_LIBDIR}/cmake/lib${MYLIB})
+
+set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR} )
+set(LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR} )
+set(BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR} )
+set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/ )
 
 # We produce a shared library
 ADD_LIBRARY(${MYLIB} SHARED ${SOURCE_FILES})

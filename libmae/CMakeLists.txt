@@ -251,13 +251,15 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/sensor/sensor_farm.cpp src/mae/sensor/sensor_farm.hpp src/mae/sensor/i_sensor.hpp src/mae/sensor/sensor_info.cpp src/mae/sensor/sensor_info.hpp src/mae/sensor/sensor.hpp src/mae/general_skeleton_basis_pair.cpp src/mae/general_skeleton_basis_pair.hpp)
 
 
-set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
-set(INSTALL_PACKAGE_LOCATION lib/cmake/lib${MYLIB})
+INCLUDE("GNUInstallDirs")
 
-set(INCLUDE_INSTALL_DIR include/ )
-set(LIB_INSTALL_DIR lib/ )
-set(BIN_INSTALL_DIR bin/ )
-set(JNI_INSTALL_DIR lib/jni/ )
+set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
+set(INSTALL_PACKAGE_LOCATION ${CMAKE_INSTALL_LIBDIR}/cmake/lib${MYLIB})
+
+set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR} )
+set(LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR} )
+set(BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR} )
+set(JNI_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/jni/ )
 set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/ )
 
 # We produce a shared library
