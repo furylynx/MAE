@@ -46,7 +46,7 @@ run {
             jnilibprefix = prefix
         }
 
-        jnilibpath = jnilibprefixdefault + "/lib/jni/:"+jnilibprefixdefault + "/lib/:"+jnilibprefix + "/lib/jni/:"+jnilibprefix+"/lib/"
+        jnilibpath = jnilibprefixdefault + "/lib/jni/:"+jnilibprefixdefault + "/lib/:"+jnilibprefixdefault + "/lib64/jni/:"+jnilibprefixdefault + "/lib64/:"+jnilibprefix + "/lib/jni/:"+jnilibprefix+"/lib/"+jnilibprefix + "/lib64/jni/:"+jnilibprefix+"/lib64/"
 
         if (project.hasProperty('prefix') && null != prefix) {
             println "Using custom prefix $prefix resulting in the java.library.path $jnilibpath"
