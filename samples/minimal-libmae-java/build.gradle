@@ -1,5 +1,9 @@
+def jsonresult = new groovy.json.JsonSlurper().parseText(new File("../../mae.json").text)
+def versionstring = ""+jsonresult.version_major+"."+jsonresult.version_minor+"."+jsonresult.version_patch
+
 group 'mae'
-version '0.1.1'
+version versionstring
+
 
 apply plugin: 'java'
 apply plugin: 'application'
@@ -18,26 +22,35 @@ repositories {
 }
 
 dependencies {
-    compile "mae:libmae:0.10.1"
-    compile "mae:maejavawrapper:0.10.1"
+    compile "mae:libmae:"+versionstring
+    compile "mae:maejavawrapper:"+versionstring
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
 run {
-    def jnilibprefix = "/usr/local"
+    def jnilibpath = "";
 
-    if (OperatingSystem.current().isWindows()) {
-        jnilibprefix = "C:/Program Files"
-    }
+    if (project.hasProperty('librarypath') && null != librarypath) {
+        jnilibpath = librarypath
 
-    if (project.hasProperty('prefix') && null != prefix) {
-        jnilibprefix = prefix
-    }
+        println("Using custom library path: "+jnilibpath)
+    } else {
+        def jnilibprefixdefault = "/usr"
+        def jnilibprefix = "/usr/local"
 
-    def jnilibpath = jnilibprefix + "/lib/jni/:"+jnilibprefix+"/lib/"
+        if (OperatingSystem.current().isWindows()) {
+            jnilibprefix = "C:/Program Files"
+        }
 
-    if (project.hasProperty('prefix') && null != prefix) {
-        println "Using custom prefix $prefix resulting in the java.library.path $jnilibpath"
+        if (project.hasProperty('prefix') && null != prefix) {
+            jnilibprefix = prefix
+        }
+
+        jnilibpath = jnilibprefixdefault + "/lib/jni/:"+jnilibprefixdefault + "/lib/:"+jnilibprefixdefault + "/lib64/jni/:"+jnilibprefixdefault + "/lib64/:"+jnilibprefix + "/lib/jni/:"+jnilibprefix+"/lib/"+jnilibprefix + "/lib64/jni/:"+jnilibprefix+"/lib64/"
+
+        if (project.hasProperty('prefix') && null != prefix) {
+            println "Using custom prefix $prefix resulting in the java.library.path $jnilibpath"
+        }
     }
 
     systemProperty 'java.library.path', jnilibpath
