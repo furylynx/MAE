@@ -1,7 +1,0 @@
-mae -> swig_wrapper.sh
-
-build mae
-build mae_demo
-build mae_eventing
-
-generate doxy for all projects
