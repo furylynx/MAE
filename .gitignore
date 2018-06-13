@@ -70,6 +70,8 @@ Makefile
 *.pc
 _CPack_Packages/
 *.deb
+*.rpm
+*.dmg
 
 #swig
 *.jnilib
