@@ -1,5 +1,6 @@
 language: cpp
 sudo: true
+
 matrix:
   include:
   - os: linux
@@ -21,16 +22,16 @@ matrix:
         - gradle
         - groovy
     env: COMPILER='g++-6' BUILD_TYPE='Release'
+
 before_script:
 - export CXX=${COMPILER}
+
 script:
-- cd libmae/ && cmake . && sudo make install && sudo rm install_manifest.txt && make
-  package && cd ..
-- cd libmae_demo/ && cmake . && sudo make install && sudo rm install_manifest.txt
-  && make package && cd ..
-- cd libmae_eventing/ && cmake . && sudo make install && sudo rm install_manifest.txt
-  && make package && cd ..
+- cd libmae/ && cmake . && sudo make install && sudo rm install_manifest.txt && make package && cd ..
+- cd libmae_demo/ && cmake . && sudo make install && sudo rm install_manifest.txt && make package && cd ..
+- cd libmae_eventing/ && cmake . && sudo make install && sudo rm install_manifest.txt && make package && cd ..
 - cd samples/laban-sequence-converter/ && cmake . && make package && cd ../..
+
 deploy:
   provider: releases
   api_key:
@@ -42,7 +43,6 @@ deploy:
     - libmae_demo/*.deb
     - libmae_eventing/*.deb
     - samples/laban-sequence-converter/*.deb
-- cd samples/laban-sequence-converter/ && cmake . && make package && cd ../..
   on:
     repo: furylynx/MAE
     tags: true
