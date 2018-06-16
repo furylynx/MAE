@@ -30,6 +30,7 @@ script:
   && make package && cd ..
 - cd libmae_eventing/ && cmake . && sudo make install && sudo rm install_manifest.txt
   && make package && cd ..
+- cd samples/laban-sequence-converter/ && cmake . && make package && cd ../..
 deploy:
   provider: releases
   api_key:
@@ -40,5 +41,8 @@ deploy:
     - libmae/*.deb
     - libmae_demo/*.deb
     - libmae_eventing/*.deb
+    - samples/laban-sequence-converter/*.deb
+- cd samples/laban-sequence-converter/ && cmake . && make package && cd ../..
   on:
     repo: furylynx/MAE
+    tags: true
