@@ -1,35 +1,43 @@
 language: cpp
 sudo: true
-
 matrix:
   include:
-
-    # Linux C++14 GCC builds
-    - os: linux
-      compiler: gcc
-      addons: &gcc6
-        apt:
-          sources: ['ubuntu-toolchain-r-test']
-          packages:
-            - 'g++-6'
-            - libopencv-dev
-            - libxml++2.6-dev
-            - libboost-all-dev
-            - libsdl2-dev
-            - libsdl2-image-dev
-            - libsdl2-ttf-dev
-            - swig3.0
-            - openjdk-8-jdk
-            - gradle
-            - groovy
-      env: COMPILER='g++-6' BUILD_TYPE='Release'
-
-
+  - os: linux
+    compiler: gcc
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - g++-6
+        - libopencv-dev
+        - libxml++2.6-dev
+        - libboost-all-dev
+        - libsdl2-dev
+        - libsdl2-image-dev
+        - libsdl2-ttf-dev
+        - swig3.0
+        - openjdk-8-jdk
+        - gradle
+        - groovy
+    env: COMPILER='g++-6' BUILD_TYPE='Release'
 before_script:
-  - export CXX=${COMPILER}
-
-
+- export CXX=${COMPILER}
 script:
-  - cd libmae/ && cmake . && sudo make install && sudo rm install_manifest.txt && make package && cd ..
-  - cd libmae_demo/ && cmake . && sudo make install && sudo rm install_manifest.txt && make package && cd ..
-  - cd libmae_eventing/ && cmake . && sudo make install && sudo rm install_manifest.txt && make package && cd ..
+- cd libmae/ && cmake . && sudo make install && sudo rm install_manifest.txt && make
+  package && cd ..
+- cd libmae_demo/ && cmake . && sudo make install && sudo rm install_manifest.txt
+  && make package && cd ..
+- cd libmae_eventing/ && cmake . && sudo make install && sudo rm install_manifest.txt
+  && make package && cd ..
+deploy:
+  provider: releases
+  api_key:
+    secure: QMMKTq1SwMVvFraRUE6HDUMQ+iuZSNuGNq5PKN6De5E42HTlIPiM/sWqOgRqdkjv8wndioBcS1cQUvDSsx85HcHD2sMAVLh8+/MbLPPQgykyFIzj6A2AMkORbIMoj94eRWiWS+9ZXZvYMg5Tcfy6W5fzA7DIFbDc25XOmLIwJsotfUWvJCeIogOMhOWvXdcH4WCKpaiYvkkTDTj373KhdFzdv7DORkZkqMVE1K8V5jdT1+k4+QFPW/ncF1Qml0Q1hRmWHayZ5nhOMJR5tdmsiknE42i612YkS1QxXQI/HGWpdp5fuOmFwozg2M6eUv9RUxw0jkid/SpppJHuvNutt4rr+2xMID3TO5jh5xEqAtYxOxI17h4ixUD1vhf/XQQ6peILzNUMcNc6VuTjiB0hn61wJouCtoygoFV7k0xHVw754nt7bBKuTBZ6KCPFvD+DIXmJXZu9mh++uZNg1ZZOM8ZgvUvMXeAOImC3dgZhzUeJqjkU2wDoZ6tFgfj0+UgrME8cDsIq/hgKp+mNxYBh0pXCOmP/uYVyOffew6zC7IYMygp4NjE4hdynxQDXRPi+8Q2SxLw+cGQHQ269CFAxMtiwTYehEp4JYN27kfYkHhi1+PuwbBZ7neNY01vMnfzjMFw9Ehu9lCx+oILzgQVZCtD3HrcdfePGcur/HKcIB24=
+  file_glob: true
+  file:
+    - libmae/*.deb
+    - libmae_demo/*.deb
+    - libmae_eventing/*.deb
+  on:
+    repo: furylynx/MAE
