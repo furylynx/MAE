@@ -30,6 +30,6 @@ before_script:
 
 
 script:
-  - cd libmae/ && cmake . && make package && cd ..
-  - cd libmae_demo/ && cmake . && make package && cd ..
-  - cd libmae_eventing/ && cmake . && make package && cd ..
+  - cd libmae/ && cmake . && sudo make install && make package && cd ..
+  - cd libmae_demo/ && cmake . && sudo make install && && make package && cd ..
+  - cd libmae_eventing/ && cmake . && sudo make install && && make package && cd ..
