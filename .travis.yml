@@ -64,7 +64,7 @@ deploy:
       repo: furylynx/MAE
       tags: true
   - provider: script
-    script: bash docker_push.sh
+    script: bash .travis/docker_push.sh
     on:
       repo: furylynx/MAE
       #tags: true
