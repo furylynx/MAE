@@ -18,6 +18,7 @@ matrix:
         sources:
         - ubuntu-toolchain-r-test
         packages:
+        - jq
         - docker-ce
         - g++-6
         - libopencv-dev
