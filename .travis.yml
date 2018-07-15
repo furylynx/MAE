@@ -1,10 +1,10 @@
 language: cpp
 sudo: true
 
-# branches:
-#   only:
-#     - master
-#     - develop
+branches:
+  only:
+    - master
+    - develop
 
 matrix:
   include:
@@ -69,4 +69,4 @@ deploy:
         - docker push furylynx/mae:$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH
       on:
         repo: furylynx/MAE
-        #tags: true
+        tags: true
