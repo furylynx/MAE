@@ -1,6 +1,8 @@
 # MAE
 
-Movement Analysis Engine. Results of the master's thesis "Movement Analysis Engine: Analyzing Movement using Depth Sensors and Labanotation".
+[![Build Status](https://travis-ci.org/furylynx/MAE.svg?branch=master)](https://travis-ci.org/furylynx/MAE)
+
+The Movement Analysis Engine is able to analyze movements and provide events based on a described movements sequence (Labanotation). The engine can be used by other applications for further movement processing and filtering in ambient spaces (i.e., smart environments).
 
 
 See the project wiki for more information: https://github.com/furylynx/MAE/wiki
@@ -12,4 +14,3 @@ To generate the code documentation locally, type:
 doxygen mae.doxy
 
 The generated documentation can be found under docs/
-
