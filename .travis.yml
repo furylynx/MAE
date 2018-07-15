@@ -33,7 +33,6 @@ matrix:
         - groovy
     env: COMPILER='g++-6' BUILD_TYPE='Release'
 
-
 before_script:
 - export CXX=${COMPILER}
 
