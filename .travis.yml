@@ -1,10 +1,10 @@
 language: cpp
 sudo: true
 
-branches:
-  only:
-    - master
-    - develop
+# branches:
+#   only:
+#     - master
+#     - develop
 
 matrix:
   include:
