@@ -25,7 +25,7 @@ set(MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3")
 set(MYLIB_REQ_LIBXMLPP "LibXML++")
 set(MYLIB_REQ_LIBXMLPP_V "libxml++-2.6")
 set(MYLIB_REQ_LIBXMLPP_R "libxml++")
-set(MYLIB_REQ_LIBXMLPP_VERSION "2.37")
+set(MYLIB_REQ_LIBXMLPP_VERSION "2.36")
 set(MYLIB_REQ_INTL "Intl")
 set(MYLIB_REQ_INTL_V "intl")
 set(MYLIB_REQ_INTL_VERSION "1.0")
@@ -253,7 +253,7 @@ set(SOURCE_FILES src/mae/bone.cpp
 
 INCLUDE("GNUInstallDirs")
 
-set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
+set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_LIBDIR}/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
 set(INSTALL_PACKAGE_LOCATION ${CMAKE_INSTALL_LIBDIR}/cmake/lib${MYLIB})
 
 set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR} )
