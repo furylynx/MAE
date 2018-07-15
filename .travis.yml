@@ -39,20 +39,20 @@ script:
 - cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
 
 
-deploy:
-  provider: releases
-  api_key:
-    secure: QMMKTq1SwMVvFraRUE6HDUMQ+iuZSNuGNq5PKN6De5E42HTlIPiM/sWqOgRqdkjv8wndioBcS1cQUvDSsx85HcHD2sMAVLh8+/MbLPPQgykyFIzj6A2AMkORbIMoj94eRWiWS+9ZXZvYMg5Tcfy6W5fzA7DIFbDc25XOmLIwJsotfUWvJCeIogOMhOWvXdcH4WCKpaiYvkkTDTj373KhdFzdv7DORkZkqMVE1K8V5jdT1+k4+QFPW/ncF1Qml0Q1hRmWHayZ5nhOMJR5tdmsiknE42i612YkS1QxXQI/HGWpdp5fuOmFwozg2M6eUv9RUxw0jkid/SpppJHuvNutt4rr+2xMID3TO5jh5xEqAtYxOxI17h4ixUD1vhf/XQQ6peILzNUMcNc6VuTjiB0hn61wJouCtoygoFV7k0xHVw754nt7bBKuTBZ6KCPFvD+DIXmJXZu9mh++uZNg1ZZOM8ZgvUvMXeAOImC3dgZhzUeJqjkU2wDoZ6tFgfj0+UgrME8cDsIq/hgKp+mNxYBh0pXCOmP/uYVyOffew6zC7IYMygp4NjE4hdynxQDXRPi+8Q2SxLw+cGQHQ269CFAxMtiwTYehEp4JYN27kfYkHhi1+PuwbBZ7neNY01vMnfzjMFw9Ehu9lCx+oILzgQVZCtD3HrcdfePGcur/HKcIB24=
-  file_glob: true
-  skip_cleanup: true
-  file:
-    - libmae/*.deb
-    - libmae_demo/*.deb
-    - libmae_eventing/*.deb
-    - samples/laban-sequence-converter/*.deb
-  on:
-    repo: furylynx/MAE
-    tags: true
+# deploy:
+#   provider: releases
+#   api_key:
+#     secure: QMMKTq1SwMVvFraRUE6HDUMQ+iuZSNuGNq5PKN6De5E42HTlIPiM/sWqOgRqdkjv8wndioBcS1cQUvDSsx85HcHD2sMAVLh8+/MbLPPQgykyFIzj6A2AMkORbIMoj94eRWiWS+9ZXZvYMg5Tcfy6W5fzA7DIFbDc25XOmLIwJsotfUWvJCeIogOMhOWvXdcH4WCKpaiYvkkTDTj373KhdFzdv7DORkZkqMVE1K8V5jdT1+k4+QFPW/ncF1Qml0Q1hRmWHayZ5nhOMJR5tdmsiknE42i612YkS1QxXQI/HGWpdp5fuOmFwozg2M6eUv9RUxw0jkid/SpppJHuvNutt4rr+2xMID3TO5jh5xEqAtYxOxI17h4ixUD1vhf/XQQ6peILzNUMcNc6VuTjiB0hn61wJouCtoygoFV7k0xHVw754nt7bBKuTBZ6KCPFvD+DIXmJXZu9mh++uZNg1ZZOM8ZgvUvMXeAOImC3dgZhzUeJqjkU2wDoZ6tFgfj0+UgrME8cDsIq/hgKp+mNxYBh0pXCOmP/uYVyOffew6zC7IYMygp4NjE4hdynxQDXRPi+8Q2SxLw+cGQHQ269CFAxMtiwTYehEp4JYN27kfYkHhi1+PuwbBZ7neNY01vMnfzjMFw9Ehu9lCx+oILzgQVZCtD3HrcdfePGcur/HKcIB24=
+#   file_glob: true
+#   skip_cleanup: true
+#   file:
+#     - libmae/*.deb
+#     - libmae_demo/*.deb
+#     - libmae_eventing/*.deb
+#     - samples/laban-sequence-converter/*.deb
+#   on:
+#     repo: furylynx/MAE
+#     tags: true
 
 deploy:
   provider: script
