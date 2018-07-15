@@ -1,6 +1,6 @@
 #/bin/bash
 
-docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
 VERSION_MAJOR=$(cat mae.json | jq -r .version_major)
 VERSION_MINOR=$(cat mae.json | jq -r .version_minor)
 VERSION_PATCH=$(cat mae.json | jq -r .version_patch)
