@@ -67,4 +67,4 @@ deploy:
     script: bash .travis/docker_push.sh
     on:
       repo: furylynx/MAE
-      #tags: true
+      tags: true

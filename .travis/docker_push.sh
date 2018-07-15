@@ -18,4 +18,7 @@ docker build --tag furylynx/mae:$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH --t
 check_err $? "docker build"
 
 docker push furylynx/mae:$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH
-check_err $? "docker push"
+check_err $? "docker push $VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATC"
+
+docker push furylynx/mae:latest
+check_err $? "docker push latest"
