@@ -1,4 +1,4 @@
-<img src="./mae_droid_large.svg" alt="Movement Analysis Engine" height="200px"/>
+<img src="./mae_droid_large.png" alt="Movement Analysis Engine" height="200px"/>
 
 [![Build Status](https://travis-ci.org/furylynx/MAE.svg?branch=master)](https://travis-ci.org/furylynx/MAE)
 
