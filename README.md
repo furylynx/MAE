@@ -1,4 +1,4 @@
-![Movement Analysis Engine](./mae_droid_large.png =400x)
+![Movement Analysis Engine](./mae_droid_large.png | heigth=150)
 
 [![Build Status](https://travis-ci.org/furylynx/MAE.svg?branch=master)](https://travis-ci.org/furylynx/MAE)
 
