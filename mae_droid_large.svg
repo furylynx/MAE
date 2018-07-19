@@ -9,11 +9,11 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="306"
+   width="318"
    height="136"
    id="svg2997"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="mae_droid_large.svg"
    inkscape:export-filename="/sda7/data/Uni/Semester 10/Design/Logos/actemotion_lens4.png"
    inkscape:export-xdpi="262.41354"
@@ -27,18 +27,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.86377105"
-     inkscape:cx="129.88098"
-     inkscape:cy="395.65187"
+     inkscape:zoom="1.7275421"
+     inkscape:cx="180.40041"
+     inkscape:cy="2.0319299"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1855"
-     inkscape:window-height="1056"
-     inkscape:window-x="65"
-     inkscape:window-y="24"
+     inkscape:window-width="1867"
+     inkscape:window-height="1025"
+     inkscape:window-x="53"
+     inkscape:window-y="27"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata3002">
@@ -48,7 +48,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -58,12 +58,12 @@
      id="layer1"
      transform="translate(0,-916.36218)">
     <path
-       style="fill:none;stroke:#000000;stroke-width:3.5999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:3.5999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 77.240542,999.84723 4.63086,10.70887 -2.31543,26.338"
        id="path3909"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:3.59452868;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:3.59452868;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 63.831862,982.15861 14.81889,17.97939"
        id="path4237"
        inkscape:connector-curvature="0"
@@ -72,7 +72,7 @@
        inkscape:export-ydpi="195.24907"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:3.59452868;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:3.59452868;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 63.105652,937.49703 1.08931,43.93537 -16.672903,18.6521 -9.93323,13.9447 -0.72357,20.26"
        id="path4235"
        inkscape:connector-curvature="0"
@@ -81,18 +81,18 @@
        inkscape:export-ydpi="195.24907"
        sodipodi:nodetypes="ccc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:3.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:3.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 83.813282,956.476 15.5618,4.62272 16.389908,-11.23586"
        id="path3905"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:3.5999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:3.5999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 46.313279,961.476 -13.92858,10 -17.5,3.21428"
        id="path3907"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:3.59452868;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:3.59452868;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 47.884329,959.5958 32.965503,-2.50596"
        id="path4229"
        inkscape:connector-curvature="0"
@@ -101,7 +101,7 @@
        inkscape:export-xdpi="195.24907"
        inkscape:export-ydpi="195.24907" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:3.59452868;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:3.59452868;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 48.241482,958.79719 15.59038,22.63521"
        id="path4231"
        inkscape:connector-curvature="0"
@@ -110,7 +110,7 @@
        inkscape:export-xdpi="195.24907"
        inkscape:export-ydpi="195.24907" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:3.59452868;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#000000;stroke-width:3.59452868;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 64.013412,982.34016 80.796662,955.9712"
        id="path4233"
        inkscape:connector-curvature="0"
@@ -118,176 +118,148 @@
        inkscape:export-filename="/sda7/data/Uni/Semester 10/Design/Logos/actemotion_lens.png"
        inkscape:export-xdpi="195.24907"
        inkscape:export-ydpi="195.24907" />
-    <path
-       sodipodi:type="arc"
-       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+    <circle
+       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4177"
-       sodipodi:cx="298.50009"
-       sodipodi:cy="358.89246"
-       sodipodi:rx="4.5456862"
-       sodipodi:ry="4.5456862"
-       d="m 303.04578,358.89246 a 4.5456862,4.5456862 0 1 1 -9.09137,0 4.5456862,4.5456862 0 1 1 9.09137,0 z"
        transform="matrix(1.495589,0,0,1.495589,-398.36757,424.21557)"
        inkscape:export-filename="/sda7/data/Uni/Semester 10/Design/Logos/actemotion_lens.png"
        inkscape:export-xdpi="195.24907"
-       inkscape:export-ydpi="195.24907" />
-    <path
+       inkscape:export-ydpi="195.24907"
+       cx="298.50009"
+       cy="358.89246"
+       r="4.5456862" />
+    <circle
        transform="matrix(1.4961263,0,0,1.4961263,-365.79719,418.89436)"
-       sodipodi:type="arc"
-       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4177-5"
-       sodipodi:cx="298.50009"
-       sodipodi:cy="358.89246"
-       sodipodi:rx="4.5456862"
-       sodipodi:ry="4.5456862"
-       d="m 303.04578,358.89246 a 4.5456862,4.5456862 0 1 1 -9.09137,0 4.5456862,4.5456862 0 1 1 9.09137,0 z"
        inkscape:export-filename="/sda7/data/Uni/Semester 10/Design/Logos/actemotion_lens.png"
        inkscape:export-xdpi="195.24907"
-       inkscape:export-ydpi="195.24907" />
-    <path
+       inkscape:export-ydpi="195.24907"
+       cx="298.50009"
+       cy="358.89246"
+       r="4.5456862" />
+    <circle
        transform="matrix(2.3059635,0,0,2.3059635,-624.94589,110.78074)"
-       sodipodi:type="arc"
-       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:1.56116951;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:1.56116951;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4177-69"
-       sodipodi:cx="298.50009"
-       sodipodi:cy="358.89246"
-       sodipodi:rx="4.5456862"
-       sodipodi:ry="4.5456862"
-       d="m 303.04578,358.89246 a 4.5456862,4.5456862 0 1 1 -9.09137,0 4.5456862,4.5456862 0 1 1 9.09137,0 z"
        inkscape:export-filename="/sda7/data/Uni/Semester 10/Design/Logos/actemotion_lens.png"
        inkscape:export-xdpi="195.24907"
-       inkscape:export-ydpi="195.24907" />
-    <path
+       inkscape:export-ydpi="195.24907"
+       cx="298.50009"
+       cy="358.89246"
+       r="4.5456862" />
+    <circle
        transform="matrix(1.4110592,0,0,1.4110592,-343.3602,492.98153)"
-       sodipodi:type="arc"
-       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4177-6"
-       sodipodi:cx="298.50009"
-       sodipodi:cy="358.89246"
-       sodipodi:rx="4.5456862"
-       sodipodi:ry="4.5456862"
-       d="m 303.04578,358.89246 a 4.5456862,4.5456862 0 1 1 -9.09137,0 4.5456862,4.5456862 0 1 1 9.09137,0 z"
        inkscape:export-filename="/sda7/data/Uni/Semester 10/Design/Logos/actemotion_lens.png"
        inkscape:export-xdpi="195.24907"
-       inkscape:export-ydpi="195.24907" />
-    <path
+       inkscape:export-ydpi="195.24907"
+       cx="298.50009"
+       cy="358.89246"
+       r="4.5456862" />
+    <circle
        transform="matrix(1.4437965,0,0,1.4437965,-382.92456,481.3811)"
-       sodipodi:type="arc"
-       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4177-1"
-       sodipodi:cx="298.50009"
-       sodipodi:cy="358.89246"
-       sodipodi:rx="4.5456862"
-       sodipodi:ry="4.5456862"
-       d="m 303.04578,358.89246 a 4.5456862,4.5456862 0 1 1 -9.09137,0 4.5456862,4.5456862 0 1 1 9.09137,0 z"
        inkscape:export-filename="/sda7/data/Uni/Semester 10/Design/Logos/actemotion_lens.png"
        inkscape:export-xdpi="195.24907"
-       inkscape:export-ydpi="195.24907" />
-    <path
+       inkscape:export-ydpi="195.24907"
+       cx="298.50009"
+       cy="358.89246"
+       r="4.5456862" />
+    <circle
        transform="matrix(1.4437965,0,0,1.4437965,-394.30296,515.09405)"
-       sodipodi:type="arc"
-       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4177-1-98-2-3"
-       sodipodi:cx="298.50009"
-       sodipodi:cy="358.89246"
-       sodipodi:rx="4.5456862"
-       sodipodi:ry="4.5456862"
-       d="m 303.04578,358.89246 a 4.5456862,4.5456862 0 1 1 -9.09137,0 4.5456862,4.5456862 0 1 1 9.09137,0 z"
        inkscape:export-filename="/sda7/data/Uni/Semester 10/Design/Logos/actemotion_lens.png"
        inkscape:export-xdpi="195.24907"
-       inkscape:export-ydpi="195.24907" />
-    <path
+       inkscape:export-ydpi="195.24907"
+       cx="298.50009"
+       cy="358.89246"
+       r="4.5456862" />
+    <circle
        transform="matrix(1.4437965,0,0,1.4437965,-351.44582,518.66548)"
-       sodipodi:type="arc"
-       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4177-1-98-2-3-0"
-       sodipodi:cx="298.50009"
-       sodipodi:cy="358.89246"
-       sodipodi:rx="4.5456862"
-       sodipodi:ry="4.5456862"
-       d="m 303.04578,358.89246 a 4.5456862,4.5456862 0 1 1 -9.09137,0 4.5456862,4.5456862 0 1 1 9.09137,0 z"
        inkscape:export-filename="/sda7/data/Uni/Semester 10/Design/Logos/actemotion_lens.png"
        inkscape:export-xdpi="195.24907"
-       inkscape:export-ydpi="195.24907" />
-    <path
+       inkscape:export-ydpi="195.24907"
+       cx="298.50009"
+       cy="358.89246"
+       r="4.5456862" />
+    <circle
        transform="matrix(1.4437965,0,0,1.4437965,-315.27408,432.13658)"
-       sodipodi:type="arc"
-       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4177-1-8"
-       sodipodi:cx="298.50009"
-       sodipodi:cy="358.89246"
-       sodipodi:rx="4.5456862"
-       sodipodi:ry="4.5456862"
-       d="m 303.04578,358.89246 a 4.5456862,4.5456862 0 1 1 -9.09137,0 4.5456862,4.5456862 0 1 1 9.09137,0 z"
        inkscape:export-filename="/sda7/data/Uni/Semester 10/Design/Logos/actemotion_lens.png"
        inkscape:export-xdpi="195.24907"
-       inkscape:export-ydpi="195.24907" />
-    <path
+       inkscape:export-ydpi="195.24907"
+       cx="298.50009"
+       cy="358.89246"
+       r="4.5456862" />
+    <circle
        transform="matrix(1.4437965,0,0,1.4437965,-412.81418,456.16547)"
-       sodipodi:type="arc"
-       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4177-1-4"
-       sodipodi:cx="298.50009"
-       sodipodi:cy="358.89246"
-       sodipodi:rx="4.5456862"
-       sodipodi:ry="4.5456862"
-       d="m 303.04578,358.89246 a 4.5456862,4.5456862 0 1 1 -9.09137,0 4.5456862,4.5456862 0 1 1 9.09137,0 z"
        inkscape:export-filename="/sda7/data/Uni/Semester 10/Design/Logos/actemotion_lens.png"
        inkscape:export-xdpi="195.24907"
-       inkscape:export-ydpi="195.24907" />
-    <path
+       inkscape:export-ydpi="195.24907"
+       cx="298.50009"
+       cy="358.89246"
+       r="4.5456862" />
+    <circle
        transform="matrix(1.4110592,0,0,1.4110592,-356.68808,475.85152)"
-       sodipodi:type="arc"
-       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#63a2ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4177-6-0"
-       sodipodi:cx="298.50009"
-       sodipodi:cy="358.89246"
-       sodipodi:rx="4.5456862"
-       sodipodi:ry="4.5456862"
-       d="m 303.04578,358.89246 a 4.5456862,4.5456862 0 1 1 -9.09137,0 4.5456862,4.5456862 0 1 1 9.09137,0 z"
        inkscape:export-filename="/sda7/data/Uni/Semester 10/Design/Logos/actemotion_lens.png"
        inkscape:export-xdpi="195.24907"
-       inkscape:export-ydpi="195.24907" />
+       inkscape:export-ydpi="195.24907"
+       cx="298.50009"
+       cy="358.89246"
+       r="4.5456862" />
     <text
        xml:space="preserve"
-       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans;-inkscape-font-specification:Droid Sans"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        x="141.24115"
        y="960.32391"
-       id="text3139"
-       sodipodi:linespacing="125%"><tspan
+       id="text3139"><tspan
          sodipodi:role="line"
          id="tspan3141"
          x="141.24115"
-         y="960.32391">Movement</tspan><tspan
+         y="960.32391"
+         style="font-size:32px;line-height:1.25">Movement</tspan><tspan
          sodipodi:role="line"
          x="141.24115"
          y="1000.3239"
-         id="tspan3143" /><tspan
+         id="tspan3143"
+         style="font-size:32px;line-height:1.25"> </tspan><tspan
          sodipodi:role="line"
          x="141.24115"
          y="1040.324"
-         id="tspan3145" /></text>
+         id="tspan3145"
+         style="font-size:32px;line-height:1.25"> </tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans;-inkscape-font-specification:Droid Sans"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        x="123.29655"
        y="995.05536"
-       id="text3147"
-       sodipodi:linespacing="125%"><tspan
+       id="text3147"><tspan
          sodipodi:role="line"
          id="tspan3149"
          x="123.29655"
-         y="995.05536">Analysis</tspan></text>
+         y="995.05536"
+         style="font-size:32px;line-height:1.25">Analysis</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans;-inkscape-font-specification:Droid Sans"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Sans';-inkscape-font-specification:'Droid Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        x="107.08855"
        y="1031.5233"
-       id="text3151"
-       sodipodi:linespacing="125%"><tspan
+       id="text3151"><tspan
          sodipodi:role="line"
          id="tspan3153"
          x="107.08855"
-         y="1031.5233">Engine</tspan></text>
+         y="1031.5233"
+         style="font-size:32px;line-height:1.25">Engine</tspan></text>
   </g>
 </svg>
