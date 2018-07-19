@@ -1,7 +1,10 @@
 FROM ubuntu:bionic
-#RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
+
+# configure time zone (UTC)
 ENV TZ=UTC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# install build tools and dependencies
 RUN apt-get update && apt-get install -y \
   build-essential \
   openjdk-8-jdk \
@@ -14,9 +17,12 @@ RUN apt-get update && apt-get install -y \
   libboost-all-dev \
   libsdl2-dev \
   libsdl2-image-dev \
-  libsdl2-ttf-dev #\
-#  git
+  libsdl2-ttf-dev
+
+# set environment
 ENV JAVA_HOME "/usr/lib/jvm/java-8-openjdk-amd64"
+
+# copy files/directories
 RUN mkdir /MAE
 ADD libmae/ /MAE/libmae
 ADD libmae_demo/ /MAE/libmae_demo
@@ -25,12 +31,15 @@ ADD libmae-java-wrapper/ /MAE/libmae-java-wrapper
 ADD samples/ /MAE/samples
 ADD cmake/ /MAE/cmake
 ADD mae.json /MAE/
-#RUN git clone -b master --single-branch https://github.com/furylynx/MAE.git /MAE
+
+# build library
 RUN cd /MAE/libmae && cmake . && make && make install
 RUN cd /MAE/libmae_demo && cmake . && make && make install
 RUN cd /MAE/libmae_eventing && cmake . && make && make install
 RUN cd /MAE/libmae-java-wrapper && gradle install
 RUN cd /MAE/samples/minimal-libmae && cmake . && make
+
+# cleanup and install required packages
 RUN apt-get purge -y \
   build-essential \
   cmake \
@@ -48,5 +57,8 @@ RUN apt-get update && apt-get install -y \
   libsdl2-2.0-0 \
   libsdl2-image-2.0-0 \
   libsdl2-ttf-2.0-0
+RUN apt-get -y autoremove
 
-ENTRYPOINT /MAE/samples/minimal-libmae/minimal-libmae
+# define entrypoint
+WORKDIR /MAE/samples/minimal-libmae
+ENTRYPOINT ./minimal-libmae
