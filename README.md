@@ -1,6 +1,4 @@
-# Movement Analysis Engine
-
-![Movement Analysis Engine](./mae_droid_large.svg)
+![Movement Analysis Engine](./mae_droid_large.png)
 
 [![Build Status](https://travis-ci.org/furylynx/MAE.svg?branch=master)](https://travis-ci.org/furylynx/MAE)
 
