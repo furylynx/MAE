@@ -52,6 +52,8 @@ Debug/
 include/mae/
 doxygen/
 build/
+build_test/
+Testing/
 
 #cmake
 cmake-build-debug/

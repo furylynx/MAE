@@ -284,6 +284,13 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/math/aligned_distances_details.cpp src/mae/math/aligned_distances_details.hpp)
 
 
+# define test files
+set(TEST_FILES
+        test/mae/math/test_minkowski_distance.cpp
+        )
+
+
+
 INCLUDE("GNUInstallDirs")
 
 set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
@@ -427,6 +434,38 @@ set_property(DIRECTORY PROPERTY ADDITIONAL_MAKE_CLEAN_FILES
         "${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}-${MYLIB_VERSION_STRING}.jar"
         "${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar"
         )
+
+# setup unit tests
+enable_testing()
+
+#Prep ourselves for compiling boost
+find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+include_directories (${Boost_INCLUDE_DIRS})
+
+#I like to keep test files in a separate source directory called test
+#file(GLOB TEST_SRCS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} test/mae/math/*.cpp)
+
+#Run through each source
+foreach(TEST_FILE ${TEST_FILES})
+    #Extract the filename without an extension (NAME_WE)
+    get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
+
+    #Add compile target
+    add_executable(${TEST_NAME} ${TEST_FILE})
+
+    #link to Boost libraries AND your targets and dependencies
+    target_link_libraries(${TEST_NAME} ${Boost_LIBRARIES} ${MYLIB} ${MYLIB_LIBRARIES})
+
+    #I like to move testing binaries into a testBin directory
+    set_target_properties(${TEST_NAME} PROPERTIES
+            RUNTIME_OUTPUT_DIRECTORY  ${CMAKE_CURRENT_SOURCE_DIR}/build_test)
+
+    #Finally add it to test execution -
+    #Notice the WORKING_DIRECTORY and COMMAND
+    add_test(NAME ${TEST_NAME}
+            WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/build_test
+            COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/build_test/${TEST_NAME} )
+endforeach(TEST_FILE)
 
 # configure cpack
 INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/MAECPack.cmake")
