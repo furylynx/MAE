@@ -7,7 +7,7 @@
 //VERY IMPORTANT - include this last
 #include <boost/test/unit_test.hpp>
 
-#include "mae/math/minkowski_distance.hpp"
+#include "../../../src/mae/math/minkowski_distance.hpp"
 
 
 BOOST_AUTO_TEST_CASE( l2dist )
