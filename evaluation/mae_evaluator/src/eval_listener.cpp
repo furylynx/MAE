@@ -2,7 +2,7 @@
  * evallistener.cpp
  *
  *  Created on: 14.10.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #include "eval_listener.hpp"

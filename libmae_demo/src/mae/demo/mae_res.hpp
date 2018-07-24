@@ -2,14 +2,11 @@
  * mae_res.hpp
  *
  *  Created on: 29.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef MAE_RES_HPP_
 #define MAE_RES_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
 
 //custom includes
 //...

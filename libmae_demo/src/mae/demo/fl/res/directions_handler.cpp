@@ -2,7 +2,7 @@
  * directions_handler.cpp
  *
  *  Created on: 12.10.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #include "directions_handler.hpp"

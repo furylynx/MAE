@@ -2,7 +2,7 @@
  * laban_visualizer.cpp
  *
  *  Created on: 20.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #include "laban_visualizer.hpp"

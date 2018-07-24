@@ -2,7 +2,7 @@
  * sequence_window.cpp
  *
  *  Created on: 19.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #include "sequence_window.hpp"

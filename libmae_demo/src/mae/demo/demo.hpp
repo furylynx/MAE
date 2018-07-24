@@ -2,7 +2,7 @@
  * demo.hpp
  *
  *  Created on: 19.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef DEMO_HPP_

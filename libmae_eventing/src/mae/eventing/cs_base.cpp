@@ -2,7 +2,7 @@
  * server_base.cpp
  *
  *  Created on: 15.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #include "cs_base.hpp"

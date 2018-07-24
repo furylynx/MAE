@@ -2,14 +2,11 @@
  * i_sequence_serializer.hpp
  *
  *  Created on: 03.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef I_SEQUENCE_SERIALIZER_HPP_
 #define I_SEQUENCE_SERIALIZER_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
 
 //custom includes
 //...

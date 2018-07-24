@@ -65,7 +65,6 @@ set(SOURCE_FILES src/mae/eventing/client.hpp
         src/mae/eventing/fl/laban_serializer.hpp
         src/mae/eventing/i_registration_manager.hpp
         src/mae/eventing/i_sequence_serializer.hpp
-        src/mae/eventing/indexer_fix.hpp
         src/mae/eventing/mxml.cpp
         src/mae/eventing/mxml.hpp
         src/mae/eventing/server.hpp)

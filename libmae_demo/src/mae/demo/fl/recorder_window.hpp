@@ -2,14 +2,11 @@
  * recorder_window.hpp
  *
  *  Created on: 28.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef RECORDER_WINDOW_HPP_
 #define RECORDER_WINDOW_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
 
 //custom includes
 #include "../sdl_window.hpp"

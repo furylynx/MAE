@@ -2,14 +2,11 @@
  * laban_serializer.hpp
  *
  *  Created on: 03.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef LABAN_SERIALIZER_HPP_
 #define LABAN_SERIALIZER_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
 
 //custom includes
 #include "../i_sequence_serializer.hpp"

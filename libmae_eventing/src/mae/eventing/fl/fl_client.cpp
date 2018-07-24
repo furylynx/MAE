@@ -2,7 +2,7 @@
  * fl_client.cpp
  *
  *  Created on: 05.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #include "fl_client.hpp"

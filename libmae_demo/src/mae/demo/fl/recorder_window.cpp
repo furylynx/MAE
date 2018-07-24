@@ -2,7 +2,7 @@
  * recorder_window.cpp
  *
  *  Created on: 28.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #include "recorder_window.hpp"

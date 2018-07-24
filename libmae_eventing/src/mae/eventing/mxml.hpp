@@ -2,14 +2,11 @@
  * mxml.hpp
  *
  *  Created on: 05.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef INTERNAL_MXML_HPP_
 #define INTERNAL_MXML_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
 
 //custom includes
 #include <mae/mae.hpp>

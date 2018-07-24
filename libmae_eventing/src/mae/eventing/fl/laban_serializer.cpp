@@ -2,7 +2,7 @@
  * laban_serializer.cpp
  *
  *  Created on: 03.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #include "laban_serializer.hpp"

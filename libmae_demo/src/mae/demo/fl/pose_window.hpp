@@ -2,14 +2,11 @@
  * pose_window.hpp
  *
  *  Created on: 12.10.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef POSE_WINDOW_HPP_
 #define POSE_WINDOW_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
 
 //custom includes
 #include "../sdl_window.hpp"

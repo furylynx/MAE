@@ -2,14 +2,11 @@
  * sdl_window_item.hpp
  *
  *  Created on: 04.11.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef SDL_WINDOW_ITEM_HPP_
 #define SDL_WINDOW_ITEM_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
 
 //custom includes
 //...

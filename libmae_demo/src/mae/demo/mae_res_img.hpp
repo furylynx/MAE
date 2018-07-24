@@ -2,14 +2,11 @@
  * mae_res_img.hpp
  *
  *  Created on: 30.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef MAE_RES_IMG_HPP_
 #define MAE_RES_IMG_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
 
 //custom includes
 //...

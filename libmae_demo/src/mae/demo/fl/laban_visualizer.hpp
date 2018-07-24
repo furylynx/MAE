@@ -2,14 +2,11 @@
  * laban_visualizer.hpp
  *
  *  Created on: 20.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef LABAN_VISUALIZER_HPP_
 #define LABAN_VISUALIZER_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
 
 //custom includes
 #include "res/res.hpp"

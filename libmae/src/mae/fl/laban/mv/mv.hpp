@@ -2,7 +2,7 @@
  * mv.hpp
  *
  *  Created on: 16.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef MAE_FL_LABAN_MV_MV_HPP_

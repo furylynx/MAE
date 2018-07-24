@@ -2,14 +2,11 @@
  * fl_client.hpp
  *
  *  Created on: 05.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef FL_CLIENT_HPP_
 #define FL_CLIENT_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
 
 //custom includes
 #include "laban_serializer.hpp"

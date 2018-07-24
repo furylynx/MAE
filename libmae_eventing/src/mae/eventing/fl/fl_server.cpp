@@ -2,7 +2,7 @@
  * fl_server.cpp
  *
  *  Created on: 03.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #include "fl_server.hpp"

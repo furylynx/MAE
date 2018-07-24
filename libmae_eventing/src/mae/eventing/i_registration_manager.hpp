@@ -2,14 +2,11 @@
  * i_registration_manager.hpp
  *
  *  Created on: 15.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef I_REGISTRATION_MANAGER_HPP_
 #define I_REGISTRATION_MANAGER_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
 
 //custom includes
 //...

@@ -2,7 +2,7 @@
  * sdl_window_item.cpp
  *
  *  Created on: 04.11.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #include "sdl_window_item.hpp"

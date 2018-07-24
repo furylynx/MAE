@@ -2,7 +2,7 @@
  * e_time_unit.hpp
  *
  *  Created on: 11.07.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef MAE_FL_LABAN_E_TIME_UNIT_HPP_

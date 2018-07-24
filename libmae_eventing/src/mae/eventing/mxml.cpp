@@ -2,7 +2,7 @@
  * mxml.cpp
  *
  *  Created on: 05.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #include "mxml.hpp"

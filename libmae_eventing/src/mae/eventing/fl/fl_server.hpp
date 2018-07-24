@@ -2,14 +2,11 @@
  * fl_server.hpp
  *
  *  Created on: 03.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef FL_SERVER_HPP_
 #define FL_SERVER_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
 
 //custom includes
 #include "laban_serializer.hpp"

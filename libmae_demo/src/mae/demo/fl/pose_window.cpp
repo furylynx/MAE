@@ -2,7 +2,7 @@
  * pose_window.cpp
  *
  *  Created on: 12.10.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #include "pose_window.hpp"

@@ -2,7 +2,7 @@
  * laban_column.hpp
  *
  *  Created on: 07.07.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef MAE_FL_LABAN_COLUMN_DEFINITION_HPP_

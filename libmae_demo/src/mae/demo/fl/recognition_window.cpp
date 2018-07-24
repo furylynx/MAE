@@ -2,7 +2,7 @@
  * recognition_window.cpp
  *
  *  Created on: 20.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #include "recognition_window.hpp"

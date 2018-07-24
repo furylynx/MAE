@@ -18,11 +18,13 @@ SET(MYLIB_URL "https://github.com/furylynx/MAE")
 
 SET(MYLIB_REQ_SDL2 SDL2)
 SET(MYLIB_REQ_SDL2_V sdl2)
-SET(MYLIB_REQ_SDL2_VERSION "2.0.2")
+SET(MYLIB_REQ_SDL2_VERSION "2.0.8")
 SET(MYLIB_REQ_SDL2_IMAGE SDL2_image)
 SET(MYLIB_REQ_SDL2_IMAGE_V SDL2_image)
+SET(MYLIB_REQ_SDL2_IMAGE_VERSION "2.0.3")
 SET(MYLIB_REQ_SDL2_TTF SDL2_ttf)
 SET(MYLIB_REQ_SDL2_TTF_V SDL2_ttf)
+SET(MYLIB_REQ_SDL2_TTF_VERSION "2.0.14")
 
 SET(MYLIB_REQ_MAE LibMAE)
 SET(MYLIB_REQ_MAE_V libmae)
@@ -62,7 +64,6 @@ SET(SOURCE_FILES src/mae/demo/demo.hpp
         src/mae/demo/fl/res/res.hpp
         src/mae/demo/fl/sequence_window.cpp
         src/mae/demo/fl/sequence_window.hpp
-        src/mae/demo/indexer_fix.hpp
         src/mae/demo/mae_res.hpp
         src/mae/demo/mae_res_img.hpp
         src/mae/demo/sdl_window.cpp

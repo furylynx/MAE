@@ -2,14 +2,11 @@
  * server_base.hpp
  *
  *  Created on: 15.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef SERVER_BASE_HPP_
 #define SERVER_BASE_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
 
 //custom includes
 //...

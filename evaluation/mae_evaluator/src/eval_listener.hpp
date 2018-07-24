@@ -2,7 +2,7 @@
  * evallistener.h
  *
  *  Created on: 14.10.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef EVALLISTENER_H_

@@ -2,14 +2,11 @@
  * res.hpp
  *
  *  Created on: 12.10.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef RES_HPP_
 #define RES_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
 
 //custom includes
 #include "../../mae_res.hpp"

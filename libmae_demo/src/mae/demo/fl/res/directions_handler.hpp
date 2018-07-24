@@ -2,14 +2,11 @@
  * directions_handler.hpp
  *
  *  Created on: 12.10.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef DIRECTIONS_HANDLER_HPP_
 #define DIRECTIONS_HANDLER_HPP_
-
-//eclipse indexer fix
-#include "../../indexer_fix.hpp"
 
 //custom includes
 #include "res.hpp"

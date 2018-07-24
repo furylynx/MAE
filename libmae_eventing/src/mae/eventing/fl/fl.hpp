@@ -2,7 +2,7 @@
  * eventing.hpp
  *
  *  Created on: 16.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef EVENTING_FL_HPP_

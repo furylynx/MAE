@@ -2,14 +2,11 @@
  * recognition_window.hpp
  *
  *  Created on: 20.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef RECOGNITION_WINDOW_HPP_
 #define RECOGNITION_WINDOW_HPP_
-
-//eclipse indexer fix
-#include "../indexer_fix.hpp"
 
 //custom includes
 #include "laban_visualizer.hpp"

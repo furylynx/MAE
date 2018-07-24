@@ -2,14 +2,11 @@
  * client.hpp
  *
  *  Created on: 03.09.2014
- *      Author: keks
+ *      Author: furylynx
  */
 
 #ifndef CLIENT_HPP_
 #define CLIENT_HPP_
-
-//eclipse indexer fix
-#include "indexer_fix.hpp"
 
 //custom includes
 #include "i_sequence_serializer.hpp"
