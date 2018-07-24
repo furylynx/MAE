@@ -3,7 +3,7 @@
 // Author      : fury lynx
 // Version     :
 // Copyright   : 
-// Description : Hello World in C++, Ansi-style
+// Description : laban sequence converter to convert laban XML files to images.
 //============================================================================
 
 //custom includes
@@ -47,7 +47,12 @@ int main(int argc, char *argv[])
 {
 	int w = 1080;
 	int h = 1920;
+
 	bool svg = false;
+    bool bmp = false;
+    bool jpeg = false;
+	bool png = false;
+
 	std::vector<std::string> files_w_pattern;
 
 	// Declare the supported options.
@@ -56,6 +61,9 @@ int main(int argc, char *argv[])
 			("xsize,x", boost::program_options::value<int>(), "the resulting image(s) width")
 			("ysize,y", boost::program_options::value<int>(), "the resulting image(s) height")
 			("svg,s", "Set output to svg")
+            ("png,p", "Set output to png")
+            ("jpeg,j", "Set output to jpg")
+            ("bmp,b", "Set output to bmp")
 			;
 
 	boost::program_options::options_description hidden("Hidden options");
@@ -97,6 +105,27 @@ int main(int argc, char *argv[])
 	{
 		svg = true;
 	}
+
+    if (vm.count("bmp"))
+    {
+        bmp = true;
+    }
+
+    if (vm.count("jpeg"))
+    {
+        jpeg = true;
+    }
+
+    if (vm.count("png"))
+    {
+        png = true;
+    }
+
+    if (!svg && !bmp && !jpeg && !png)
+    {
+        std::cout << "No output format defined, using default (bmp)." << std::endl;
+        bmp = true;
+    }
 
 	if (!vm.count("xsize"))
 	{
@@ -183,22 +212,63 @@ int main(int argc, char *argv[])
 	for (unsigned int i = 0; i < files.size(); i++)
 	{
 		std::string file = files.at(i);
-		std::shared_ptr<mae::fl::laban::laban_sequence> sequence = s_reader.read_sequence_file(file);
 
-		std::string outfile = file;
+		std::string rawname = file;
+
+        std::size_t lastindex = file.find_last_of(".");
+
+        if (std::string::npos != lastindex)
+        {
+            rawname = file.substr(0, lastindex);
+        }
+
+        std::shared_ptr<mae::fl::laban::laban_sequence> sequence = s_reader.read_sequence_file(file);
+
+		std::vector<std::string> outfiles;
 
 		if (svg)
 		{
+		    std::string outfile(rawname);
+
 			outfile.append(".svg");
 			sequence->svg_file(outfile, w, h);
-		}
-		else
-		{
-			outfile.append(".bmp");
-			visualizer.bmp(outfile, sequence, w, h);
+            outfiles.push_back(outfile);
 		}
 
-		std::cout << "generated " << outfile << std::endl;
+		if (bmp)
+		{
+            std::string outfile(rawname);
+
+            outfile.append(".bmp");
+			visualizer.bmp(outfile, sequence, w, h);
+
+            outfiles.push_back(outfile);
+		}
+
+        if (jpeg)
+        {
+            std::string outfile(rawname);
+
+            outfile.append(".jpeg");
+            visualizer.jpeg(outfile, sequence, w, h);
+
+            outfiles.push_back(outfile);
+        }
+
+        if (png)
+        {
+            std::string outfile(rawname);
+
+            outfile.append(".png");
+            visualizer.png(outfile, sequence, w, h);
+
+            outfiles.push_back(outfile);
+        }
+
+        for (std::string outfile : outfiles)
+        {
+            std::cout << "generated " << outfile << std::endl;
+        }
 	}
 
 	return 0;

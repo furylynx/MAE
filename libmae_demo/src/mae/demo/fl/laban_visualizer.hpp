@@ -56,17 +56,38 @@ namespace mae
 					 * @param window_width The window's width.
 					 * @param window_height The window's height.
 					 */
-					virtual void paint_sequence(SDL_Surface* graphics, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height);
+					virtual void paint_sequence(SDL_Surface* graphics, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height) const;
 
-					/**
-					 * Prints the sequence to the bitmap file.
-					 *
-					 * @param file The file to be printed to.
-					 * @param sequence The sequence to be printed.
-					 * @param window_width The image width.
-					 * @param window_height The image height.
-					 */
-					virtual void bmp(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width = 1920, int height = 1080);
+                    /**
+                     * Prints the sequence to the bitmap file.
+                     *
+                     * @param file The file to be printed to.
+                     * @param sequence The sequence to be printed.
+                     * @param window_width The image width.
+                     * @param window_height The image height.
+                     */
+                    virtual void bmp(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width = 1920, int height = 1080) const;
+
+                    /**
+                     * Prints the sequence to the png file.
+                     *
+                     * @param file The file to be printed to.
+                     * @param sequence The sequence to be printed.
+                     * @param window_width The image width.
+                     * @param window_height The image height.
+                     */
+                    virtual void png(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width = 1920, int height = 1080) const;
+
+
+                    /**
+                     * Prints the sequence to the jpeg file.
+                     *
+                     * @param file The file to be printed to.
+                     * @param sequence The sequence to be printed.
+                     * @param window_width The image width.
+                     * @param window_height The image height.
+                     */
+                    virtual void jpeg(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width = 1920, int height = 1080) const;
 
 				private:
 					std::shared_ptr<res::directions_handler> directions_handler_;
@@ -83,7 +104,7 @@ namespace mae
 					 * @param window_height The window height.
 					 * @param max_column_index The maximum column index.
 					 */
-					virtual void paint_staff(SDL_Surface* graphics, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height, int max_column_index);
+					virtual void paint_staff(SDL_Surface* graphics, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height, int max_column_index) const;
 
 					/**
 					 * Draws the line on the graphics.
@@ -94,7 +115,9 @@ namespace mae
 					 * @param to_x x2.
 					 * @param to_y y2.
 					 */
-					virtual void draw_line(SDL_Surface* graphics, int from_x, int from_y, int to_x, int to_y);
+					virtual void draw_line(SDL_Surface* graphics, int from_x, int from_y, int to_x, int to_y) const;
+
+					virtual SDL_Surface* prepare_surface(std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width = 1920, int height = 1080) const;
 			};
 
 		} // namespace fl

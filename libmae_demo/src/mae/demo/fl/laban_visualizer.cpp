@@ -58,7 +58,7 @@ namespace mae
 			}
 
 			void laban_visualizer::paint_sequence(SDL_Surface* graphics,
-					std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height)
+					std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height) const
 			{
 				std::vector<int> columns = sequence->get_columns();
 
@@ -140,7 +140,47 @@ namespace mae
 				}
 			}
 
-			void laban_visualizer::bmp(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width, int height)
+			void laban_visualizer::bmp(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width, int height) const
+			{
+				//generate surface
+				SDL_Surface* surface = prepare_surface(sequence, width, height);
+
+				//store surface as a file
+				SDL_SaveBMP(surface, file.c_str());
+
+				//free the surface
+				SDL_FreeSurface(surface);
+				surface = nullptr;
+			}
+
+			void laban_visualizer::png(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width, int height) const
+			{
+				//generate surface
+				SDL_Surface* surface = prepare_surface(sequence, width, height);
+
+				//store surface as a file
+				IMG_SavePNG(surface, file.c_str());
+
+				//free the surface
+				SDL_FreeSurface(surface);
+				surface = nullptr;
+			}
+
+
+			void laban_visualizer::jpeg(std::string file, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width, int height) const
+			{
+				//generate surface
+				SDL_Surface* surface = prepare_surface(sequence, width, height);
+
+				//store surface as a file
+				IMG_SaveJPG(surface, file.c_str(), 95);
+
+				//free the surface
+				SDL_FreeSurface(surface);
+				surface = nullptr;
+			}
+
+			SDL_Surface* laban_visualizer::prepare_surface(std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int width, int height) const
 			{
 				//generate surface
 				SDL_Surface* surface = SDL_CreateRGBSurface(0, width, height, (int)format_->BitsPerPixel, format_->Rmask, format_->Gmask, format_->Bmask, format_->Amask);
@@ -156,17 +196,12 @@ namespace mae
 				//print sequence to the surface
 				paint_sequence(surface, sequence, width, height);
 
-				//store surface as a file
-				SDL_SaveBMP_RW(surface, SDL_RWFromFile(file.c_str(), "wb"), 1);
-
-				//free the surface
-				SDL_FreeSurface(surface);
-				surface = nullptr;
+				return surface;
 			}
 
 			void laban_visualizer::paint_staff(SDL_Surface* graphics,
 					std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height,
-					int max_column_index)
+					int max_column_index) const
 			{
 				int total_beats = (sequence->get_measures()+1) * sequence->get_beats();
 				double beat_height = (window_height - 105) / total_beats;
@@ -214,7 +249,7 @@ namespace mae
 				}
 			}
 
-			void laban_visualizer::draw_line(SDL_Surface* graphics, int from_x, int from_y, int to_x, int to_y)
+			void laban_visualizer::draw_line(SDL_Surface* graphics, int from_x, int from_y, int to_x, int to_y) const
 			{
 				SDL_Rect tmp_rect;
 				tmp_rect.x = from_x;
