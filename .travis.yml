@@ -33,6 +33,7 @@ before_script:
 - export CXX=${COMPILER}
 
 script:
+- apt-cache show libsdl2-dev
 - apt-cache show libsdl2-image-dev
 - cd libmae/ && cmake . && make && make test && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
 - cd libmae_demo/ && cmake . && make && make test && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
