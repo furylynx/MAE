@@ -46,7 +46,7 @@ namespace mae
 					virtual ~laban_visualizer();
 
 					/**
-					 * Paints the sequence to the graphics surface.
+					 * Paints the sequence to the graphics surface by rendering the SVG sequence.
 					 *
 					 * @param graphics The surface to be drawn on.
 					 * @param sequence The sequence to be drawn.
@@ -55,7 +55,19 @@ namespace mae
 					 */
 					virtual void paint_sequence(SDL_Surface* graphics, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height) const;
 
-                    /**
+
+					/**
+					 * Paints the sequence to the graphics surface using raw SDL operations.
+					 *
+					 * @param graphics The surface to be drawn on.
+					 * @param sequence The sequence to be drawn.
+					 * @param window_width The window's width.
+					 * @param window_height The window's height.
+					 */
+					virtual void paint_sequence_raw(SDL_Surface* graphics, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height) const;
+
+
+					/**
                      * Prints the sequence to the bitmap file.
                      *
                      * @param file The file to be printed to.

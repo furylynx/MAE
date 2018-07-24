@@ -204,7 +204,7 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 
-	std::cout << "Converting sequence" << (files.size() > 0 ? "s" : "") << std::endl;
+	std::cout << "Converting sequence" << (files.size() > 0 ? "s" : "") << "..." << std::endl;
 
 	mae::demo::fl::laban_visualizer visualizer = mae::demo::fl::laban_visualizer();
 	mae::fl::laban::laban_sequence_reader s_reader = mae::fl::laban::laban_sequence_reader();
@@ -267,7 +267,7 @@ int main(int argc, char *argv[])
 
         for (std::string outfile : outfiles)
         {
-            std::cout << "generated " << outfile << std::endl;
+            std::cout << "Generated " << outfile << std::endl;
         }
 	}
 

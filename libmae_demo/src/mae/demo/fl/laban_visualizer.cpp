@@ -57,7 +57,25 @@ namespace mae
 				}
 			}
 
-			void laban_visualizer::paint_sequence(SDL_Surface* graphics,
+
+            void laban_visualizer::paint_sequence(SDL_Surface* graphics,
+                                                      std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height) const
+            {
+
+                std::string svgstring = sequence->svg(window_width, window_height);
+                SDL_RWops *rw = SDL_RWFromConstMem(svgstring.c_str(), svgstring.length());
+
+                SDL_Surface* tmp = IMG_LoadSVG_RW(rw);
+
+                SDL_BlitSurface(tmp, NULL, graphics, NULL);
+
+                //free the surface
+                SDL_FreeSurface(tmp);
+                tmp = nullptr;
+            }
+
+
+			void laban_visualizer::paint_sequence_raw(SDL_Surface* graphics,
 					std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height) const
 			{
 				std::vector<int> columns = sequence->get_columns();
