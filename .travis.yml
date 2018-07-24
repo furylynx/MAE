@@ -33,8 +33,8 @@ before_script:
 
 script:
 - cd libmae/ && cmake . && make && make test && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-- cd libmae_demo/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-- cd libmae_eventing/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+- cd libmae_demo/ && cmake . && make && make test && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+- cd libmae_eventing/ && cmake . && make && make test && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
 - cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
 
 env:

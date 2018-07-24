@@ -59,7 +59,7 @@ namespace mae
 					virtual void paint_sequence(SDL_Surface* graphics, std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height);
 
 					/**
-					 * Prints the sequence to the png file.
+					 * Prints the sequence to the bitmap file.
 					 *
 					 * @param file The file to be printed to.
 					 * @param sequence The sequence to be printed.

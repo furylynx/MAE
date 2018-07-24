@@ -24,6 +24,6 @@ namespace mae
 			{
 			}
 
-		} // namespace fl
+		} // namespace eventing
 	} // namespace eventing
 } // namespace mae

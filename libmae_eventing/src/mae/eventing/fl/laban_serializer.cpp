@@ -52,6 +52,6 @@ namespace mae
 				return sequence->get_title();
 			}
 
-		} // namespace fl
+		} // namespace eventing
 	} // namespace eventing
 } // namespace mae

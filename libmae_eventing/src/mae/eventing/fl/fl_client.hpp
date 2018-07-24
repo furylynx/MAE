@@ -41,7 +41,7 @@ namespace mae
 					virtual ~fl_client();
 			};
 
-		} // namespace fl
+		} // namespace eventing
 	} // namespace eventing
 } // namespace mae
 
