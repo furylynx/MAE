@@ -130,6 +130,11 @@ namespace mae
             //top left corner
             arr.at(0).at(0).at(0) = 0;
 
+            for (std::size_t s = 0; s < std::min(s_max,m) ; s++)
+            {
+                arr.at(0).at(s).at(s) = 0;
+            }
+
             for (std::size_t i = 1; i < n; i++)
             {
                 arr.at(i).at(0).at(0) = i;
@@ -139,7 +144,7 @@ namespace mae
             {
                 for (std::size_t s = 0; s < std::min(s_max,j) ; s++)
                 {
-                    arr.at(0).at(j).at(s) = j;
+                    arr.at(0).at(j).at(s) = j - s;
                 }
             }
 

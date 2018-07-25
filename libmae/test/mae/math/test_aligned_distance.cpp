@@ -32,11 +32,11 @@ BOOST_AUTO_TEST_CASE( equalsequence )
 
     double d = aligned_measure->distance(sequence1,sequence2);
 
-    BOOST_CHECK_MESSAGE(d == 0, "Warping distance should be zero and is " << d);
+    BOOST_CHECK_MESSAGE(0 == d, "Warping distance should be zero and is " << d);
 
 }
 
-BOOST_AUTO_TEST_CASE( distance )
+BOOST_AUTO_TEST_CASE( alignedsequence )
 {
     double minkowski_p = 1;
     std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(minkowski_p);
@@ -51,7 +51,7 @@ BOOST_AUTO_TEST_CASE( distance )
 
     double d = aligned_measure->distance(sequence1,sequence2);
 
-    BOOST_CHECK_MESSAGE(d > 0, "Warping distance should be greater than zero and is " << d);
+    BOOST_CHECK_MESSAGE(0 == d, "Warping distance should be greater than zero and is " << d);
 
 }
 
@@ -71,15 +71,15 @@ BOOST_AUTO_TEST_CASE( aligned_equal )
     mae::math::aligned_distance_details details = aligned_measure->distance_details(sequence1,sequence2);
     double d = details.get_distance();
 
-    BOOST_CHECK_MESSAGE(d == 0, "Warping distance should be zero and is " << d);
+    BOOST_CHECK_MESSAGE(0 == d, "Warping distance should be zero and is " << d);
 
     double s = details.get_startpos();
 
-    BOOST_CHECK_MESSAGE(s == 2, "Alignment startpos should be two and is " << s);
+    BOOST_CHECK_MESSAGE(2 == s, "Alignment startpos should be two and is " << s);
 
     double e = details.get_endpos();
 
-    BOOST_CHECK_MESSAGE(e == 5, "Alignment endpos should be five and is " << e);
+    BOOST_CHECK_MESSAGE(5 == e, "Alignment endpos should be five and is " << e);
 
 }
 
@@ -103,11 +103,11 @@ BOOST_AUTO_TEST_CASE( aligned_similar )
 
     double s = details.get_startpos();
 
-    BOOST_CHECK_MESSAGE(s == 2, "Alignment startpos should be two and is " << s);
+    BOOST_CHECK_MESSAGE(2 == s, "Alignment startpos should be two and is " << s);
 
     double e = details.get_endpos();
 
-    BOOST_CHECK_MESSAGE(e == 6, "Alignment endpos should be six and is " << e);
+    BOOST_CHECK_MESSAGE(6 == e, "Alignment endpos should be six and is " << e);
 
 }
 
@@ -127,15 +127,15 @@ BOOST_AUTO_TEST_CASE( aligned_equal_frechet )
     mae::math::aligned_distance_details details = aligned_measure->distance_details(sequence1,sequence2);
     double d = details.get_distance();
 
-    BOOST_CHECK_MESSAGE(d == 0, "Warping distance should be zero and is " << d);
+    BOOST_CHECK_MESSAGE(0 == d, "Warping distance should be zero and is " << d);
 
     double s = details.get_startpos();
 
-    BOOST_CHECK_MESSAGE(s == 2, "Alignment startpos should be two and is " << s);
+    BOOST_CHECK_MESSAGE(2 == s, "Alignment startpos should be two and is " << s);
 
     double e = details.get_endpos();
 
-    BOOST_CHECK_MESSAGE(e == 5, "Alignment endpos should be five and is " << e);
+    BOOST_CHECK_MESSAGE(5 == e, "Alignment endpos should be five and is " << e);
 
 }
 
@@ -159,11 +159,11 @@ BOOST_AUTO_TEST_CASE( aligned_similar_frechet )
 
     double s = details.get_startpos();
 
-    BOOST_CHECK_MESSAGE(s == 2, "Alignment startpos should be two and is " << s);
+    BOOST_CHECK_MESSAGE(2 == s, "Alignment startpos should be two and is " << s);
 
     double e = details.get_endpos();
 
-    BOOST_CHECK_MESSAGE(e == 6, "Alignment endpos should be six and is " << e);
+    BOOST_CHECK_MESSAGE(6 == e, "Alignment endpos should be six and is " << e);
 
 }
 
@@ -184,15 +184,15 @@ BOOST_AUTO_TEST_CASE( aligned_equal_edr )
     mae::math::aligned_distance_details details = aligned_measure->distance_details(sequence1,sequence2);
     double d = details.get_distance();
 
-    BOOST_CHECK_MESSAGE(d == 0, "Warping distance should be zero and is " << d);
+    BOOST_CHECK_MESSAGE(0 == d, "Warping distance should be zero and is " << d);
 
     double s = details.get_startpos();
 
-    BOOST_CHECK_MESSAGE(s == 2, "Alignment startpos should be two and is " << s);
+    BOOST_CHECK_MESSAGE(2 == s, "Alignment startpos should be two and is " << s);
 
     double e = details.get_endpos();
 
-    BOOST_CHECK_MESSAGE(e == 5, "Alignment endpos should be five and is " << e);
+    BOOST_CHECK_MESSAGE(5 == e, "Alignment endpos should be five and is " << e);
 
 }
 
@@ -217,11 +217,11 @@ BOOST_AUTO_TEST_CASE( aligned_similar_edr )
 
     double s = details.get_startpos();
 
-    BOOST_CHECK_MESSAGE(s == 2, "Alignment startpos should be two and is " << s);
+    BOOST_CHECK_MESSAGE(2 == s, "Alignment startpos should be two and is " << s);
 
     double e = details.get_endpos();
 
-    BOOST_CHECK_MESSAGE(e == 6, "Alignment endpos should be six and is " << e);
+    BOOST_CHECK_MESSAGE(6 == e, "Alignment endpos should be six and is " << e);
 
 }
 
@@ -246,11 +246,11 @@ BOOST_AUTO_TEST_CASE( aligned_equal_erp )
 
     double s = details.get_startpos();
 
-    BOOST_CHECK_MESSAGE(s == 2, "Alignment startpos should be two and is " << s);
+    BOOST_CHECK_MESSAGE(2 == s, "Alignment startpos should be two and is " << s);
 
     double e = details.get_endpos();
 
-    BOOST_CHECK_MESSAGE(e == 5, "Alignment endpos should be five and is " << e);
+    BOOST_CHECK_MESSAGE(5 == e, "Alignment endpos should be five and is " << e);
 
 }
 
@@ -275,10 +275,10 @@ BOOST_AUTO_TEST_CASE( aligned_similar_erp )
 
     double s = details.get_startpos();
 
-    BOOST_CHECK_MESSAGE(s == 2, "Alignment startpos should be two and is " << s);
+    BOOST_CHECK_MESSAGE(2 == s, "Alignment startpos should be two and is " << s);
 
     double e = details.get_endpos();
 
-    BOOST_CHECK_MESSAGE(e == 6, "Alignment endpos should be six and is " << e);
+    BOOST_CHECK_MESSAGE(6 == e, "Alignment endpos should be six and is " << e);
 
 }
