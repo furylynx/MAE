@@ -239,15 +239,6 @@ namespace mae
 
 					movements_vec_.push_back(mov);
 
-
-					//TODO last movement should be last by duration too; check side effects!!
-//					if (last_movement_ == nullptr
-//							|| (last_movement_->get_measure() < mov->get_measure()
-//									|| (last_movement_->get_measure() == mov->get_measure()
-//											&& last_movement_->get_beat() < mov->get_beat())))
-//					{
-//						last_movement_ = i_mov;
-//					}
 					if ( last_movement_ == nullptr || (last_movement_->get_measure()*beats_ + last_movement_->get_beat() + last_movement_->get_duration()) < (i_mov->get_measure()*beats_ + i_mov->get_beat() + i_mov->get_duration()) )
 					{
 						//if no last movement set or current movement is later done than previous last movement

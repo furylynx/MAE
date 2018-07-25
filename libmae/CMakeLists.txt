@@ -287,6 +287,11 @@ set(SOURCE_FILES src/mae/bone.cpp
 # define test files
 set(TEST_FILES
         test/mae/math/test_minkowski_distance.cpp
+        test/mae/math/test_dtw.cpp
+        test/mae/math/test_edr.cpp
+        test/mae/math/test_erp.cpp
+        test/mae/math/test_discrete_frechet_distance.cpp
+        test/mae/math/test_aligned_distance.cpp
         )
 
 

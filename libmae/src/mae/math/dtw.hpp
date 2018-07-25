@@ -24,29 +24,13 @@ namespace mae
                 {
                     public:
                         /**
-                         * Creates a instance for a dynamic time warping using no windowing.
-                         *
-                         * @param distance_measure The distance measure for each single element.
-                         */
-                        dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure);
-
-
-                        /**
-                         * Creates a instance for a dynamic time warping using a windowing parameter.
-                         * = std::make_shared<mae::math::discrete_frechet_distance<std::shared_ptr<mae::fl::laban::i_movement> > >(movement_comparator, true);
-                         * @param distance_measure The distance measure for each single element.
-                         * @param window The window parameter.
-                         */
-                        dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, std::size_t window);
-
-                        /**
                          * Creates a instance for a dynamic time warping using a windowing parameter.
                          *
                          * @param distance_measure The distance measure for each single element.
                          * @param window The window parameter.
                          * @param activate_s True to activate three dimensional warping matrix (starting positions included).
                          */
-                        dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, std::size_t window, bool activate_s);
+                        dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, std::size_t window = 0, bool activate_s = false);
 
                         virtual ~dtw();
 
@@ -83,22 +67,6 @@ namespace mae
 {
         namespace math
         {
-
-                template<typename T>
-                dtw<T>::dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure)
-                {
-                    distance_measure_ = distance_measure;
-                    window_ = 0;
-                    activate_s_ = true;
-                }
-
-                template<typename T>
-                dtw<T>::dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, std::size_t window)
-                {
-                    distance_measure_ = distance_measure;
-                    window_ = window;
-                    activate_s_ = true;
-                }
 
                 template<typename T>
                 dtw<T>::dtw(std::shared_ptr<mae::math::i_distance_measure<T> > distance_measure, std::size_t window, bool activate_s)

@@ -12,13 +12,11 @@ namespace mae
 
 			rewriting_rules_reader::rewriting_rules_reader()
 			{
-				// TODO Auto-generated constructor stub
 
 			}
 
 			rewriting_rules_reader::~rewriting_rules_reader()
 			{
-				// TODO Auto-generated destructor stub
 			}
 
 			std::vector<std::shared_ptr<decision_value<i_movement, std::vector<std::vector<std::shared_ptr<i_movement> > > > > > rewriting_rules_reader::read_rules_file(std::string file_name)

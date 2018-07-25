@@ -21,9 +21,11 @@ SET(MYLIB_REQ_SDL2_V sdl2)
 SET(MYLIB_REQ_SDL2_VERSION "2.0.8")
 SET(MYLIB_REQ_SDL2_IMAGE SDL2_image)
 SET(MYLIB_REQ_SDL2_IMAGE_V SDL2_image)
+# currently not used. yet, informs you about the required version
 SET(MYLIB_REQ_SDL2_IMAGE_VERSION "2.0.3")
 SET(MYLIB_REQ_SDL2_TTF SDL2_ttf)
 SET(MYLIB_REQ_SDL2_TTF_V SDL2_ttf)
+# currently not used. yet, informs you about the required version
 SET(MYLIB_REQ_SDL2_TTF_VERSION "2.0.14")
 
 SET(MYLIB_REQ_MAE LibMAE)
@@ -36,8 +38,6 @@ SET(MYLIB_REQ_OPENCV_V opencv)
 SET(MYLIB_REQ_OPENCV_VERSION "2.4.0")
 # apply additional versions if actually compatible
 SET(MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3")
-# apply additional versions if actually compatible
-set(MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3")
 
 SET(MYLIB_REQUIRES "${MYLIB_REQ_MAE_V} >= ${MYLIB_REQ_MAE_VERSION}, ${MYLIB_REQ_SDL2_V} >= ${MYLIB_REQ_SDL2_VERSION}, ${MYLIB_REQ_SDL2_IMAGE_V}, ${MYLIB_REQ_SDL2_TTF_V}")
 SET(MYLIB_REQUIRES_RPM "glibc >= 2.17, libgcc >= 4.8.5, glibmm24 >= 2.50.0, libstdc++ >= 4.8.5, ${MYLIB_REQ_MAE_C} >= ${MYLIB_REQ_MAE_VERSION}, ${MYLIB_REQ_SDL2} >= ${MYLIB_REQ_SDL2_VERSION}, ${MYLIB_REQ_SDL2_IMAGE_V}, ${MYLIB_REQ_SDL2_TTF_V}" )
