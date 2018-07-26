@@ -35,8 +35,9 @@ namespace mae
 					 * Creates a new visualizer for laban sequences.
 					 *
 					 * @param format The pixel format to be applied.
+					 * @param use_svg_renderer True to use SVG rendering instead of scaled bitmaps (which do not support anything apart from direction symbols).
 					 */
-					laban_visualizer(SDL_PixelFormat* format);
+					laban_visualizer(SDL_PixelFormat* format, bool use_svg_renderer = true);
 
 					/**
 					 * Creates a new visualizer for laban sequences with a default pixel format.
@@ -101,8 +102,10 @@ namespace mae
 				private:
 					std::shared_ptr<res::directions_handler> directions_handler_;
 					SDL_PixelFormat* format_;
+                    bool use_svg_renderer_;
 
 					bool free_format_;
+
 
 					/**
 					 * Draws the staff on the graphics.

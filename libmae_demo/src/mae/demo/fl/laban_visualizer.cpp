@@ -14,10 +14,12 @@ namespace mae
 		namespace fl
 		{
 
-			laban_visualizer::laban_visualizer(SDL_PixelFormat* format)
+			laban_visualizer::laban_visualizer(SDL_PixelFormat* format, bool use_svg_renderer)
 			{
 				free_format_ = false;
 				format_ = format;
+
+				use_svg_renderer_ = use_svg_renderer;
 
 				directions_handler_ = std::shared_ptr<res::directions_handler>(new res::directions_handler(format_));
 			}
@@ -61,17 +63,24 @@ namespace mae
             void laban_visualizer::paint_sequence(SDL_Surface* graphics,
                                                       std::shared_ptr<mae::fl::laban::laban_sequence> sequence, int window_width, int window_height) const
             {
+                if (use_svg_renderer_)
+                {
+                    std::string svgstring = sequence->svg(window_width, window_height);
+                    SDL_RWops *rw = SDL_RWFromConstMem(svgstring.c_str(), svgstring.length());
 
-                std::string svgstring = sequence->svg(window_width, window_height);
-                SDL_RWops *rw = SDL_RWFromConstMem(svgstring.c_str(), svgstring.length());
+                    SDL_Surface* tmp = IMG_LoadSVG_RW(rw);
 
-                SDL_Surface* tmp = IMG_LoadSVG_RW(rw);
+                    SDL_BlitSurface(tmp, NULL, graphics, NULL);
 
-                SDL_BlitSurface(tmp, NULL, graphics, NULL);
+                    //free the surface
+                    SDL_FreeSurface(tmp);
+                    tmp = nullptr;
+                }
+                else
+                {
+                    paint_sequence_raw(graphics, sequence, window_width, window_height);
+                }
 
-                //free the surface
-                SDL_FreeSurface(tmp);
-                tmp = nullptr;
             }
 
 
@@ -99,9 +108,6 @@ namespace mae
 					int column = columns.at(i);
 					int draw_x_pos = (int)((window_width / 2.0) + ((column - (mae::math::math::sign(column)*0.5))*column_width)) - 30;
 					//(int) ((window_width - 100) * (0.5 + (double) (column) / (max_index * 2)) + 20);
-
-					//TODO print pre-sign
-
 
 					//print direction symbols
 					std::vector<std::shared_ptr<mae::fl::laban::i_movement> > movements =
