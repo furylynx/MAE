@@ -53,7 +53,8 @@ set(SOURCE_FILES src/mae_evaluator.cpp
 
 INCLUDE("GNUInstallDirs")
 
-set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_PREFIX}/share/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
+
+set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
 set(INSTALL_PACKAGE_LOCATION ${CMAKE_INSTALL_LIBDIR}/cmake/lib${MYLIB})
 
 set(BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR} )
