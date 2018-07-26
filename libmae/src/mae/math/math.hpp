@@ -22,6 +22,8 @@
 #include "direct_tree_type_distance.hpp"
 #include "sologub_tree_type_distance.hpp"
 #include "aligned_distance.hpp"
+#include "cosine_distance.hpp"
+#include "angular_distance.hpp"
 
 //global includes
 #include <vector>

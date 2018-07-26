@@ -328,7 +328,7 @@ int main()
 
 
     std::size_t comparators_size = comparators.size();
-    #pragma omp parallel for
+//    #pragma omp parallel for
     for (int itcomp = 0; itcomp < comparators_size; itcomp++)
     //for (comparator_info cinfo : comparators)
     {
@@ -343,10 +343,10 @@ int main()
                     data_entry entry;
 
 
-                    #pragma omp critical
-                    {
+//                    #pragma omp critical
+//                    {
                         entry = select_data_by_ids(db, cinfo.id, tinfo.id, sinfo.id);
-                    }
+//                    }
 
 					std::cout << "entry: " << cinfo.id << " " << tinfo.id << " " << sinfo.id << std::endl;
 
@@ -379,13 +379,13 @@ int main()
 
 						std::cout << similarity_details.get_similarity() << " (" << similarity_details.get_startpos() << "-" << similarity_details.get_endpos() << ")" << std::endl;
 
-                        #pragma omp critical
-                        {
+//                        #pragma omp critical
+//                        {
                             //void insert_data(sqlite3* db, int comparator_id, int is_compare_target_sequence, int compare_sequence_id, int actual_sequence_id, double similarity)
                             insert_data(db, cinfo.id, (sinfo.directory == tinfo.directory) ? 1 : 0, tinfo.id, sinfo.id,
                                         similarity_details.get_similarity(), similarity_details.get_startpos(),
                                         similarity_details.get_endpos());
-                        }
+//                        }
 					}
                 }
                 catch (std::exception& e)
@@ -397,14 +397,14 @@ int main()
                     std::cout << "Error while comparing " << sinfo.id << " with " << tinfo.id << std::endl;
                 }
 
-                #pragma omp critical
-                {
+//                #pragma omp critical
+//                {
                     if (mae::mos::was_keyboard_hit())
                     {
                         sqlite3_close(db);
                         return 0;
                     }
-                }
+//                }
 
 			}
         }

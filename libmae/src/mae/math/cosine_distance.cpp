@@ -36,7 +36,13 @@ namespace mae
                 sum_b += std::pow(element2.at(i), 2);
             }
 
-            return std::acos(sum/(std::pow(sum_a, 1/(double)2) * std::pow(sum_b, 1/(double)2)))/M_PI;
+            double cosine_distance = 0;
+            if (0 != sum_a && 0 != sum_b)
+            {
+                cosine_distance = 1 - (sum/(std::pow(sum_a,1/(double)2) * std::pow(sum_b,1/(double)2)));
+            }
+
+            return cosine_distance;
         }
 
     } // namespace math

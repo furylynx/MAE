@@ -2,7 +2,7 @@
 #define BOOST_TEST_DYN_LINK
 
 //Define our Module name (prints at testing)
-#define BOOST_TEST_MODULE "minkowski_distance"
+#define BOOST_TEST_MODULE "erp"
 
 //VERY IMPORTANT - include this last
 #include <boost/test/unit_test.hpp>
