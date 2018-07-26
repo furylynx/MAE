@@ -1,23 +1,23 @@
 //
-// Created by furylynx on 2017-10-27
+// Created by furylynx on 2018-07-26
 //
 
-#include "cosine_similarity.hpp"
+#include "angular_distance.hpp"
 
 namespace mae
 {
     namespace math
     {
-        cosine_similarity::cosine_similarity()
+        angular_distance::angular_distance()
         {
         }
 
-        cosine_similarity::~cosine_similarity()
+        angular_distance::~angular_distance()
         {
 
         }
 
-        double cosine_similarity::similarity(std::vector<double> element1, std::vector<double> element2) const
+        double angular_distance::distance(std::vector<double> element1, std::vector<double> element2) const
         {
             if (element1.size() != element2.size())
             {
@@ -36,14 +36,13 @@ namespace mae
                 sum_b += std::pow(element2.at(i), 2);
             }
 
-            //return std::acos(sum/(std::pow(sum_a, 1/(double)2) * std::pow(sum_b, 1/(double)2)))/M_PI;
-            double cosine_similarity = 1;
+            double distance = 0;
             if (0 != sum_a && 0 != sum_b)
             {
-                cosine_similarity = sum/(std::pow(sum_a,1/(double)2) * std::pow(sum_b,1/(double)2));
+                distance = std::acos(sum/(std::pow(sum_a, 1/(double)2) * std::pow(sum_b, 1/(double)2)))/M_PI;
             }
 
-            return cosine_similarity;
+            return distance;
         }
 
     } // namespace math

@@ -2,18 +2,18 @@
 #define BOOST_TEST_DYN_LINK
 
 //Define our Module name (prints at testing)
-#define BOOST_TEST_MODULE "minkowski_distance"
+#define BOOST_TEST_MODULE "angular_distance"
 
 //VERY IMPORTANT - include this last
 #include <boost/test/unit_test.hpp>
 
-#include "../../../src/mae/math/minkowski_distance.hpp"
+#include "../../../src/mae/math/angular_distance.hpp"
 
 
-BOOST_AUTO_TEST_CASE( l2dist )
+BOOST_AUTO_TEST_CASE( angular_d1 )
 {
 
-    mae::math::minkowski_distance dm(2);
+    mae::math::angular_distance dm;
 
     std::vector<double> el1;
     el1.push_back(1);
@@ -26,14 +26,13 @@ BOOST_AUTO_TEST_CASE( l2dist )
 
     double d = dm.distance(el1,el2);
 
-    BOOST_CHECK_MESSAGE(5 == d, "Minkowski distance should be five and is " << d);
-
+    BOOST_CHECK_CLOSE(d, 0.0352, 0.1);
 }
 
-BOOST_AUTO_TEST_CASE( manhattan )
+BOOST_AUTO_TEST_CASE( angular_d2 )
 {
 
-    mae::math::minkowski_distance dm(1);
+    mae::math::angular_distance dm;
 
     std::vector<double> el1;
     el1.push_back(0);
@@ -46,6 +45,6 @@ BOOST_AUTO_TEST_CASE( manhattan )
 
     double d = dm.distance(el1,el2);
 
-    BOOST_CHECK_MESSAGE(3 == d, "Minkowski distance should be three and is " << d);
+    BOOST_CHECK_CLOSE(d, 0.0, 0.01);
 
 }

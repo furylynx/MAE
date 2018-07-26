@@ -7,7 +7,6 @@
 
 //custom includes
 #include "i_similarity_measure.hpp"
-#include "cosine_distance.hpp"
 #include "math.hpp"
 
 //global includes
@@ -33,7 +32,6 @@ namespace mae
             virtual double similarity(std::vector<double> element1, std::vector<double> element2) const;
 
         private:
-            std::shared_ptr<cosine_distance> cosine_distance_;
         };
 
     } // namespace math

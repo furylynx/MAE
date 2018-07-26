@@ -281,7 +281,8 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/math/sologub_tree_type_distance.cpp src/mae/math/sologub_tree_type_distance.hpp
         src/mae/math/aligned_distance.hpp
         src/mae/math/aligned_distance_details.cpp src/mae/math/aligned_distance_details.hpp
-        src/mae/math/aligned_distances_details.cpp src/mae/math/aligned_distances_details.hpp)
+        src/mae/math/aligned_distances_details.cpp src/mae/math/aligned_distances_details.hpp
+        src/mae/math/angular_distance.hpp src/mae/math/angular_distance.cpp)
 
 
 # define test files
@@ -292,6 +293,8 @@ set(TEST_FILES
         test/mae/math/test_erp.cpp
         test/mae/math/test_discrete_frechet_distance.cpp
         test/mae/math/test_aligned_distance.cpp
+        test/mae/math/test_cosine_distance.cpp
+        test/mae/math/test_angular_distance.cpp
         )
 
 
