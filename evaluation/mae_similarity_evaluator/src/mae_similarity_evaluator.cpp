@@ -327,20 +327,32 @@ int main()
     std::cout << std::endl << ">> All sequences generated. Comparing sequences now..." << std::endl << std::endl;
 
 
+    bool quit = false;
     std::size_t comparators_size = comparators.size();
     #pragma omp parallel for
-    for (int itcomp = 0; itcomp < comparators_size; itcomp++)
+    for (int itcomp = 0; itcomp < comparators_size /*&& !quit*/; itcomp++)
     //for (comparator_info cinfo : comparators)
     {
         comparator_info cinfo = comparators.at(itcomp);
 
-		for (laban_sequence_info sinfo : generated_sequences)
+        std::size_t generated_sequences_size = generated_sequences.size();
+        #pragma omp parallel for
+        for (std::size_t itgs = 0; itgs < generated_sequences_size; itgs++)
+//		for (laban_sequence_info sinfo : generated_sequences)
         {
-            for (laban_sequence_info tinfo : target_sequences)
+            laban_sequence_info sinfo = generated_sequences.at(itgs);
+
+
+            std::size_t target_sequences_size = target_sequences.size();
+            for (std::size_t itts = 0; itts < target_sequences_size && !quit; itts++)
+//            for (laban_sequence_info tinfo : target_sequences)
             {
+                laban_sequence_info tinfo = target_sequences.at(itts);
+
 				try
                 {
                     data_entry entry;
+                    std::stringstream sstr;
 
 
                     #pragma omp critical
@@ -348,36 +360,45 @@ int main()
                         entry = select_data_by_ids(db, cinfo.id, tinfo.id, sinfo.id);
                     }
 
-					std::cout << "entry: " << cinfo.id << " " << tinfo.id << " " << sinfo.id << std::endl;
+					//std::cout << "entry: " << cinfo.id << " " << tinfo.id << " " << sinfo.id << std::endl;
+                    sstr << "entry: " << cinfo.id << " " << tinfo.id << " " << sinfo.id << std::endl;
 
 					if (entry.id >= 0)
                     {
 						//nothing
-						std::cout << "data already exists: " << tinfo.filename << " with " << sinfo.filename
-								  << std::endl;
-					}
+						//std::cout << "data already exists: " << tinfo.filename << " with " << sinfo.filename << std::endl;
+                        sstr << "data already exists: " << tinfo.filename << " with " << sinfo.filename << std::endl;
+                    }
                     else
                     {
-						std::cout << "comparing: " << tinfo.filename << " with " << sinfo.filename << std::endl;
+						//std::cout << "comparing: " << tinfo.filename << " with " << sinfo.filename << std::endl;
+                        sstr << "comparing: " << tinfo.filename << " with " << sinfo.filename << std::endl;
 
                         if (nullptr == cinfo.comparator)
                         {
-                            std::cout << "comparator is null!" << std::endl;
+                            //std::cout << "comparator is null!" << std::endl;
+                            sstr << "comparator is null!" << std::endl;
                         }
 
                         if (nullptr == tinfo.laban_sequence)
                         {
-                            std::cout << "tinfo.laban_sequence is null!" << std::endl;
+                            //std::cout << "tinfo.laban_sequence is null!" << std::endl;
+                            sstr << "tinfo.laban_sequence is null!" << std::endl;
                         }
 
                         if (nullptr == sinfo.laban_sequence)
                         {
-                            std::cout << "sinfo.laban_sequence is null!" << std::endl;
+//                            std::cout << "sinfo.laban_sequence is null!" << std::endl;
+                            sstr << "sinfo.laban_sequence is null!" << std::endl;
                         }
 
 						mae::math::aligned_similarity_details similarity_details = cinfo.comparator->similarity_details(tinfo.laban_sequence, sinfo.laban_sequence);
 
-						std::cout << similarity_details.get_similarity() << " (" << similarity_details.get_startpos() << "-" << similarity_details.get_endpos() << ")" << std::endl;
+                        #pragma omp critical
+                        {
+                            std::cout << sstr.str() ;
+                            std::cout << similarity_details.get_similarity() << " (" << similarity_details.get_startpos() << "-" << similarity_details.get_endpos() << ")" << std::endl;
+                        }
 
                         #pragma omp critical
                         {
@@ -397,20 +418,26 @@ int main()
                     std::cout << "Error while comparing " << sinfo.id << " with " << tinfo.id << std::endl;
                 }
 
+
                 #pragma omp critical
                 {
                     if (mae::mos::was_keyboard_hit())
                     {
-                        sqlite3_close(db);
-                        return 0;
+                        quit = true;
                     }
                 }
-
 			}
         }
     }
 
-    std::cout << std::endl << ">> All sequences compared. We are done!" << std::endl << std::endl;
+    if (!quit)
+    {
+        std::cout << std::endl << ">> All sequences compared. We are done!" << std::endl << std::endl;
+    }
+    else
+    {
+        std::cout << std::endl << ">> Invoked exit." << std::endl << std::endl;
+    }
 
     sqlite3_close(db);
 
