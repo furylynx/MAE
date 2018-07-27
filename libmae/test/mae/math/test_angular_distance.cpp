@@ -26,7 +26,7 @@ BOOST_AUTO_TEST_CASE( angular_d1 )
 
     double d = dm.distance(el1,el2);
 
-    BOOST_CHECK_CLOSE(d, 0.0352, 0.1);
+    BOOST_CHECK_SMALL((d - 0.0352), 0.0001);
 }
 
 BOOST_AUTO_TEST_CASE( angular_d2 )
@@ -45,6 +45,46 @@ BOOST_AUTO_TEST_CASE( angular_d2 )
 
     double d = dm.distance(el1,el2);
 
-    BOOST_CHECK_CLOSE(d, 0.0, 0.01);
+    BOOST_CHECK_SMALL(d, 0.0001);
+
+}
+
+BOOST_AUTO_TEST_CASE( angular_equal )
+{
+
+    mae::math::angular_distance dm;
+
+    std::vector<double> el1;
+    el1.push_back(1);
+    el1.push_back(1);
+
+
+    std::vector<double> el2;
+    el2.push_back(1);
+    el2.push_back(1);
+
+    double d = dm.distance(el1,el2);
+
+    BOOST_CHECK_SMALL(d, 0.0001);
+
+}
+
+BOOST_AUTO_TEST_CASE( angular_opposed )
+{
+
+    mae::math::angular_distance dm;
+
+    std::vector<double> el1;
+    el1.push_back(1);
+    el1.push_back(1);
+
+
+    std::vector<double> el2;
+    el2.push_back(-1);
+    el2.push_back(-1);
+
+    double d = dm.distance(el1,el2);
+
+    BOOST_CHECK_CLOSE(d, 1.0, 0.00001);
 
 }

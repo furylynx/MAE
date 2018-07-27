@@ -27,7 +27,7 @@ namespace mae
 				}
 				else if (nullptr == element1 || nullptr == element2)
 				{
-					//one pf the elements is null, the other is not
+					//one of the elements is null, the other is not
 
 					//use fixed distance if defined
 					if (distance_for_nullptr_ >= 0)
