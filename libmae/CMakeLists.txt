@@ -296,6 +296,8 @@ set(TEST_FILES
         test/mae/math/test_cosine_distance.cpp
         test/mae/math/test_angular_distance.cpp
         test/mae/fl/laban/test_laban_sequence_comparator.cpp
+        test/mae/fl/laban/test_movement_comparator.cpp
+        test/mae/fl/laban/test_aligned_laban_sequence_comparator.cpp
         )
 
 

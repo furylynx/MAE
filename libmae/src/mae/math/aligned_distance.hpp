@@ -42,19 +42,19 @@ namespace mae
                         /**
                          * Returns the aligned distance between the two time series.
                          *
-                         * @param element1 The first element to compare.
-                         * @param element2 The second element to compare.
+                         * @param target_sequence The first element to compare.
+                         * @param actual_sequence The second element to compare.
                          * @return The aligned distance between the two series.
                          */
-                        virtual double distance(std::vector<T> element1, std::vector<T> element2) const;
+                        virtual double distance(std::vector<T> target_sequence, std::vector<T> actual_sequence) const;
 
                         /**
                          * Returns the distance between the two time series.
                          *
-                         * @param element1 The first element to compare.
-                         * @param element2 The second element to compare.
+                         * @param target_sequence The first element to compare.
+                         * @param actual_sequence The second element to compare.
                          */
-                        virtual aligned_distance_details distance_details(std::vector<T> element1, std::vector<T> element2) const;
+                        virtual aligned_distance_details distance_details(std::vector<T> target_sequence, std::vector<T> actual_sequence) const;
 
 
                         /**
@@ -100,16 +100,16 @@ namespace mae
                 }
 
                 template<typename T>
-                double aligned_distance<T>::distance(std::vector<T> element1, std::vector<T> element2) const
+                double aligned_distance<T>::distance(std::vector<T> target_sequence, std::vector<T> actual_sequence) const
                 {
-                    return distance_details(element1, element2).get_distance();
+                    return distance_details(target_sequence, actual_sequence).get_distance();
                 }
 
                 template<typename T>
-                aligned_distance_details aligned_distance<T>::distance_details(std::vector<T> element1, std::vector<T> element2) const
+                aligned_distance_details aligned_distance<T>::distance_details(std::vector<T> target_sequence, std::vector<T> actual_sequence) const
                 {
                     std::vector<std::pair<std::vector<T>,std::vector<T> > > mapped_elements;
-                    mapped_elements.push_back(std::make_pair(element1, element2));
+                    mapped_elements.push_back(std::make_pair(target_sequence, actual_sequence));
 
                     aligned_distances_details details = distances_details(mapped_elements);
 

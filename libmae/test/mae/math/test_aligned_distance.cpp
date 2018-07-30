@@ -83,6 +83,27 @@ BOOST_AUTO_TEST_CASE( aligned_equal )
 
 }
 
+
+BOOST_AUTO_TEST_CASE( unalignable )
+{
+    double minkowski_p = 1;
+    std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(minkowski_p);
+
+    std::shared_ptr<mae::math::dtw<std::vector<double> > > warping_measure = std::make_shared<mae::math::dtw<std::vector<double> > >(distance_measure, 0, true);
+
+    std::shared_ptr<mae::math::aligned_distance<std::vector<double> > > aligned_measure = std::make_shared<mae::math::aligned_distance<std::vector<double> > >(warping_measure);
+
+    std::vector<std::vector<double> > sequence1 = {{1}, {2}, {1}, {3}, {5}, {7}, {9}};
+
+    std::vector<std::vector<double> > sequence2 = {{1}, {3}, {5}};
+
+    mae::math::aligned_distance_details details = aligned_measure->distance_details(sequence1,sequence2);
+    double d = details.get_distance();
+
+    BOOST_CHECK_MESSAGE(d > 0, "Warping distance should be greater than zero and is " << d);
+
+}
+
 BOOST_AUTO_TEST_CASE( aligned_similar )
 {
     double minkowski_p = 1;

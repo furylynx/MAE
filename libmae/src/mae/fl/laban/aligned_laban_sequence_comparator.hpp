@@ -36,41 +36,41 @@ namespace mae {
                      * Creates a new comparator for laban sequences used to get the similarity between two scores.
                      *
                      * @param distance_measure The distance measure for single movement symbols ignoring the length.
-                     * @param ignore_empty_columns True to set distance for columns between two columns to zero if one column contains no elements (which by definition means any movements are allowed).
+                     * @param ignore_empty_columns True to set distance between two columns to zero if one column contains no elements (which by definition means any movements are allowed).
                      * @param frames_per_beat_ The number of frames to be used for each beat. Zero for no time slicing (using the exact sequence without modifications).
                      * @param blur_strategy_beats Amount of beats to blur. Zero for whole sequence blur (hold last symbol strategy). -1 or less than zero for no blurring at all.
                      */
-                    aligned_laban_sequence_comparator(std::shared_ptr<mae::math::aligned_distance<std::shared_ptr<i_movement> > > aligned_distance_measure = std::make_shared<mae::math::aligned_distance<std::shared_ptr<i_movement> > >(std::make_shared<mae::math::dtw<std::shared_ptr<i_movement> > >(std::make_shared<movement_comparator>())), bool ignore_empty_columns = false, unsigned int frames_per_beat = 6, double blur_strategy_beats = -1 );
+                    aligned_laban_sequence_comparator(std::shared_ptr<mae::math::aligned_distance<std::shared_ptr<i_movement> > > aligned_distance_measure = std::make_shared<mae::math::aligned_distance<std::shared_ptr<i_movement> > >(std::make_shared<mae::math::dtw<std::shared_ptr<i_movement> > >(std::make_shared<movement_comparator>(), 0, true)), bool ignore_empty_columns = false, unsigned int frames_per_beat = 6, double blur_strategy_beats = -1 );
 
                     virtual ~aligned_laban_sequence_comparator();
 
                     /**
                      * Returns the similarity between the two elements.
                      *
-                     * @param element1 The first element to compare.
-                     * @param element2 The second element to compare.
+                     * @param target_sequence The target element.
+                     * @param actual_sequence The actual element.
                      * @return The similarity score.
                      */
-                    double similarity(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2) const;
+                    double similarity(std::shared_ptr<laban_sequence> target_sequence, std::shared_ptr<laban_sequence> actual_sequence) const;
 
                     /**
                      * Returns the similarity between the two elements.
                      *
-                     * @param element1 The first element to compare.
-                     * @param element2 The second element to compare.
+                     * @param target_sequence The target element.
+                     * @param actual_sequence The actual element.
                      * @return The similarity details.
                      */
-                    mae::math::aligned_similarity_details similarity_details(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2) const;
+                    mae::math::aligned_similarity_details similarity_details(std::shared_ptr<laban_sequence> target_sequence, std::shared_ptr<laban_sequence> actual_sequence) const;
 
                     /**
                      * Returns the similarity between the two elements.
                      *
-                     * @param element1 The first element to compare.
-                     * @param element2 The second element to compare.
+                     * @param target_sequence The first element to compare.
+                     * @param actual_sequence The second element to compare.
                      * @param mapper The mapper
                      * @return The similarity details.
                      */
-                    mae::math::aligned_similarity_details similarity_details(std::shared_ptr<laban_sequence> element1, std::shared_ptr<laban_sequence> element2, std::shared_ptr<laban_subsequence_mapper> mapper) const;
+                    mae::math::aligned_similarity_details similarity_details(std::shared_ptr<laban_sequence> target_sequence, std::shared_ptr<laban_sequence> actual_sequence, std::shared_ptr<laban_subsequence_mapper> mapper) const;
 
                 private:
                     std::shared_ptr<mae::math::aligned_distance<std::shared_ptr<i_movement> > > distance_measure_;
