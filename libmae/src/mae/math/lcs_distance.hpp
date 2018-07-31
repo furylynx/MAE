@@ -6,7 +6,7 @@
 #define MAE_MATH_LCS_DISTANCE_HPP_
 
 //custom includes
-#include "i_distance_measure.hpp"
+#include "i_warping_distance_measure.hpp"
 
 //global includes
 #include <memory>
@@ -24,7 +24,7 @@ namespace mae
         {
         public:
             /**
-             * Creates a instance for a longest common subsequence using no windowing.
+             * Creates an instance for a longest common subsequence using no windowing.
              *
              * @param distance_measure The distance measure for each single element.
              * @param target_value True for having the first sequence for the {@link distance(element1,element2)} as the target value to compare to. False for simply comparing the two sequences.

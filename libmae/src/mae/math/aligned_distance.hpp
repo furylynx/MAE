@@ -175,7 +175,7 @@ namespace mae
                                 distance_sum += matrices.at(mat).at(n).at(endpos).at(startpos);
                             }
 
-                            if (distance_sum < min_distance)
+                            if (distance_sum < min_distance || (distance_sum <= min_distance && (endpos - startpos < min_endpos - min_startpos)))
                             {
                                 min_distance = distance_sum;
 

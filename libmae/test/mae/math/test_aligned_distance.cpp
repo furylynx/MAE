@@ -12,12 +12,13 @@
 #include "../../../src/mae/math/discrete_frechet_distance.hpp"
 #include "../../../src/mae/math/edr.hpp"
 #include "../../../src/mae/math/erp.hpp"
+#include "../../../src/mae/math/lcs_distance.hpp"
 #include "../../../src/mae/math/minkowski_distance.hpp"
 
 
 //define distance measure
 
-BOOST_AUTO_TEST_CASE( equalsequence )
+BOOST_AUTO_TEST_CASE( equalsequence_dtw )
 {
     double minkowski_p = 1;
     std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(minkowski_p);
@@ -36,7 +37,7 @@ BOOST_AUTO_TEST_CASE( equalsequence )
 
 }
 
-BOOST_AUTO_TEST_CASE( alignedsequence )
+BOOST_AUTO_TEST_CASE( alignedsequence_dtw )
 {
     double minkowski_p = 1;
     std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(minkowski_p);
@@ -55,7 +56,7 @@ BOOST_AUTO_TEST_CASE( alignedsequence )
 
 }
 
-BOOST_AUTO_TEST_CASE( aligned_equal )
+BOOST_AUTO_TEST_CASE( aligned_equal_dtw )
 {
     double minkowski_p = 1;
     std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(minkowski_p);
@@ -84,7 +85,7 @@ BOOST_AUTO_TEST_CASE( aligned_equal )
 }
 
 
-BOOST_AUTO_TEST_CASE( unalignable )
+BOOST_AUTO_TEST_CASE( unalignable_dtw )
 {
     double minkowski_p = 1;
     std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(minkowski_p);
@@ -104,7 +105,7 @@ BOOST_AUTO_TEST_CASE( unalignable )
 
 }
 
-BOOST_AUTO_TEST_CASE( aligned_similar )
+BOOST_AUTO_TEST_CASE( aligned_similar_dtw )
 {
     double minkowski_p = 1;
     std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(minkowski_p);
@@ -124,7 +125,7 @@ BOOST_AUTO_TEST_CASE( aligned_similar )
 
     double s = details.get_startpos();
 
-    BOOST_CHECK_MESSAGE(2 == s, "Alignment startpos should be two and is " << s);
+    BOOST_CHECK_MESSAGE(3 == s, "Alignment startpos should be three and is " << s);
 
     double e = details.get_endpos();
 
@@ -180,7 +181,7 @@ BOOST_AUTO_TEST_CASE( aligned_similar_frechet )
 
     double s = details.get_startpos();
 
-    BOOST_CHECK_MESSAGE(2 == s, "Alignment startpos should be two and is " << s);
+    BOOST_CHECK_MESSAGE(3 == s, "Alignment startpos should be three and is " << s);
 
     double e = details.get_endpos();
 
@@ -297,6 +298,63 @@ BOOST_AUTO_TEST_CASE( aligned_similar_erp )
     double s = details.get_startpos();
 
     BOOST_CHECK_MESSAGE(2 == s, "Alignment startpos should be two and is " << s);
+
+    double e = details.get_endpos();
+
+    BOOST_CHECK_MESSAGE(6 == e, "Alignment endpos should be six and is " << e);
+
+}
+
+
+BOOST_AUTO_TEST_CASE( aligned_equal_lcs )
+{
+    double minkowski_p = 1;
+    std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(minkowski_p);
+
+    std::shared_ptr<mae::math::lcs_distance<std::vector<double> > > warping_measure = std::make_shared<mae::math::lcs_distance<std::vector<double> > >(distance_measure, true, true);
+
+    std::shared_ptr<mae::math::aligned_distance<std::vector<double> > > aligned_measure = std::make_shared<mae::math::aligned_distance<std::vector<double> > >(warping_measure);
+
+    std::vector<std::vector<double> > target_sequence = {{1}, {3}, {5}};
+
+    std::vector<std::vector<double> > actual_sequence = {{1}, {2}, {1}, {3}, {5}, {7}, {9}};
+
+    mae::math::aligned_distance_details details = aligned_measure->distance_details(target_sequence,actual_sequence);
+    double d = details.get_distance();
+
+    BOOST_CHECK_MESSAGE(d == 0, "Warping distance should be zero and is " << d);
+
+    double s = details.get_startpos();
+
+    BOOST_CHECK_MESSAGE(2 == s, "Alignment startpos should be two and is " << s);
+
+    double e = details.get_endpos();
+
+    BOOST_CHECK_MESSAGE(5 == e, "Alignment endpos should be five and is " << e);
+
+}
+
+BOOST_AUTO_TEST_CASE( aligned_similar_lcs )
+{
+    double minkowski_p = 1;
+    std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(minkowski_p);
+
+    std::shared_ptr<mae::math::lcs_distance<std::vector<double> > > warping_measure = std::make_shared<mae::math::lcs_distance<std::vector<double> > >(distance_measure, true, true);
+
+    std::shared_ptr<mae::math::aligned_distance<std::vector<double> > > aligned_measure = std::make_shared<mae::math::aligned_distance<std::vector<double> > >(warping_measure);
+
+    std::vector<std::vector<double> > sequence1 = {{2}, {3}, {5}, {7}};
+
+    std::vector<std::vector<double> > sequence2 = {{6}, {9}, {1}, {3}, {5}, {7}, {9}};
+
+    mae::math::aligned_distance_details details = aligned_measure->distance_details(sequence1,sequence2);
+    double d = details.get_distance();
+
+    BOOST_CHECK_MESSAGE(d > 0, "Warping distance should be greater than zero and is " << d);
+
+    double s = details.get_startpos();
+
+    BOOST_CHECK_MESSAGE(3 == s, "Alignment startpos should be three and is " << s);
 
     double e = details.get_endpos();
 
