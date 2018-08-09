@@ -22,4 +22,4 @@
 %include "../../../src/mae/fl/laban/ps/i_part.hpp"
 
 //-- templates
-//...
+%template (DoubleVector) std::vector<double>;

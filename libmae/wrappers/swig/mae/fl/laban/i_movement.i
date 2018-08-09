@@ -9,6 +9,8 @@
 %include "std_string.i"
 %include "std_map.i"
 %include "exception.i"
+// std::type_index
+%include "std_type_index.i"
 
 //-- module definition
 %module(directors="1") w_i_movement
@@ -24,3 +26,6 @@
 
 //-- templates
 %template (IntIntMap) std::map<int, int>;
+%template (DoubleVector) std::vector<double>;
+//%template (TypeIndexVector) std::vector<std::type_index>;
+

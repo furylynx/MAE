@@ -9,7 +9,7 @@
 %include "exception.i"
 %include "stdint.i"
 
-//%feature("director") mae::i_pose_listener; 
+%feature("director") mae::i_pose_listener;
 
 //-- module definition
 %module(directors="1") w_i_pose_listener
@@ -17,8 +17,24 @@
 	#include "../../../src/mae/i_pose_listener.hpp"
 %}
 
-//-- shared_ptr 
-%shared_ptr(mae::general_pose)
+//-- shared_ptr
+%shared_ptr(mae::general_pose);
+
+%typemap(javadirectorin) std::shared_ptr<mae::general_pose> "new $typemap(jstype, mae::general_pose)($1,true)";
+%typemap(directorin,descriptor="L$typemap(jstype, mae::general_pose);") std::shared_ptr<mae::general_pose> %{
+	*($&1_type*)&j$1 = new $1_type($1);
+%}
+
+%typemap(javadirectorout) std::shared_ptr<mae::general_pose> "$typemap(jstype, GeneralPose).getCPtr($javacall)";
+%typemap(directorout) std::shared_ptr<mae::general_pose> %{
+	$&1_type tmp = NULL;
+	*($&1_type*)&tmp = *($&1_type*)&$input;
+	if (!tmp) {
+		SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null $1_type");
+		return NULL;
+	}
+	$result = *tmp;
+%}
 
 //-- Parse the original header file
 %include "../../../src/mae/i_pose_listener.hpp"

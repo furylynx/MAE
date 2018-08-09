@@ -22,4 +22,4 @@
 %include "../../../src/mae/fl/laban/mv/i_symbol.hpp"
 
 //-- templates
-//...
+%template (DoubleVector) std::vector<double>;
