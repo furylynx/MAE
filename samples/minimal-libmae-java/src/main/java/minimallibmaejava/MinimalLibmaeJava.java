@@ -39,16 +39,25 @@ public class MinimalLibmaeJava {
 
         GeneralSkeletonVector sv = bvhData.getSkeletonData();
 
+        System.out.println("1");
         FlMovementController mc = new FlMovementController();
-        mc.addListener(new IPoseListener(){
-            @Override
+        System.out.println("2");
+        IPoseListener ipl = new IPoseListener(){
+
             public void onPose(java.math.BigInteger timestamp, GeneralPose pose) {
                 System.out.println("cb");
             }
-        });
+        };
 
+
+        System.out.println("3");
+        mc.addListener(ipl);
+
+        System.out.println("4");
         for (int i = 0; i < sv.size(); i++) {
+            System.out.println(i+"b");
             mc.nextFrame(BigInteger.valueOf(i), sv.get(i));
+            System.out.println(i+"a");
         }
 
         System.out.println(mvc);
