@@ -44,6 +44,7 @@ public class MinimalLibmaeJava {
         System.out.println("2");
         IPoseListener ipl = new IPoseListener(){
 
+            @Override
             public void onPose(java.math.BigInteger timestamp, GeneralPose pose) {
                 System.out.println("cb");
             }
@@ -56,7 +57,7 @@ public class MinimalLibmaeJava {
         System.out.println("4");
         for (int i = 0; i < sv.size(); i++) {
             System.out.println(i+"b");
-            mc.nextFrame(BigInteger.valueOf(i), sv.get(i));
+            mc.nextFrame(BigInteger.valueOf(1), sv.get(i));
             System.out.println(i+"a");
         }
 
