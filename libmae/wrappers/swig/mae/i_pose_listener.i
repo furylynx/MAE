@@ -3,10 +3,16 @@
 //-- custom includes
 %include "general_pose.i"
 
+//-- global includes
+%include "std_shared_ptr.i"
+//%include "swig_fixed_std_shared_ptr.i"
+%include "exception.i"
+%include "stdint.i"
+
 //-- shared_ptr
 %shared_ptr(mae::general_pose);
 
-
+//-- enable directors
 //%feature("director") mae::i_pose_listener;
 
 //%typemap(javapackage) GeneralPose "maejava"
@@ -31,13 +37,6 @@
 //    }
 //    $result = *tmp;
 //%}
-
-//-- global includes
-//%include "std_shared_ptr.i"
-%include "swig_fixed_std_shared_ptr.i"
-%include "exception.i"
-%include "stdint.i"
-
 
 //-- module definition
 %module(directors="1") w_i_pose_listener

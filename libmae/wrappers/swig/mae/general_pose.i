@@ -4,8 +4,8 @@
 
 //-- global includes
 //%include "stl.i"
-//%include "std_shared_ptr.i"
-%include "swig_fixed_std_shared_ptr.i"
+%include "std_shared_ptr.i"
+//%include "swig_fixed_std_shared_ptr.i"
 %include "std_list.i"
 %include "exception.i"
 

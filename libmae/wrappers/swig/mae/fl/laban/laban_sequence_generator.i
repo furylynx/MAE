@@ -1,5 +1,5 @@
 //-- laban_sequence_generator.i - SWIG interface
- 
+
 //-- custom includes
 %include "../../bone.i"
 %include "../../general_enriched_pose.i"
@@ -8,10 +8,10 @@
 
 %include "laban_sequence.i"
 %include "column_definition.i"
- 
+
 //-- global includes
-//%include "std_shared_ptr.i"
-%include "swig_fixed_std_shared_ptr.i"
+%include "std_shared_ptr.i"
+//%include "swig_fixed_std_shared_ptr.i"
 %include "std_string.i"
 %include "std_vector.i"
 %include "exception.i"

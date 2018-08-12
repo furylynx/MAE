@@ -1,13 +1,13 @@
 //-- custom_limb.i - SWIG interface
- 
+
 //-- custom includes
 %include "i_part.i"
 %include "i_limb.i"
 %include "i_endpoint.i"
 
 //-- global includes
-//%include "std_shared_ptr.i"
-%include "swig_fixed_std_shared_ptr.i"
+%include "std_shared_ptr.i"
+//%include "swig_fixed_std_shared_ptr.i"
 %include "std_string.i"
 %include "exception.i"
 
@@ -26,7 +26,7 @@
 
 //-- cast method
 %extend mae::fl::laban::ps::custom_limb {
-  static std::shared_ptr<mae::fl::laban::ps::custom_limb > cast_to_custom_limb(std::shared_ptr<mae::fl::laban::ps::i_part> base) 
+  static std::shared_ptr<mae::fl::laban::ps::custom_limb > cast_to_custom_limb(std::shared_ptr<mae::fl::laban::ps::i_part> base)
   {
     return std::dynamic_pointer_cast<mae::fl::laban::ps::custom_limb>(base);
   }

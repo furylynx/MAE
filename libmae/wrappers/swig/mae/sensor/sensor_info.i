@@ -4,7 +4,8 @@
 //...
 
 //-- global includes
-%include "swig_fixed_std_shared_ptr.i"
+%include "std_shared_ptr.i"
+//%include "swig_fixed_std_shared_ptr.i"
 %include "std_string.i"
 %include "exception.i"
 
@@ -17,10 +18,9 @@
 
 //-- shared_ptr
 %shared_ptr(mae::sensor::sensor_info)
- 
+
 //-- Parse the original header file
 %include "../../../src/mae/sensor/sensor_info.hpp"
- 
+
 //-- templates
 %template (SensorInfoVector) std::vector<std::shared_ptr<mae::sensor::sensor_info> >;
-

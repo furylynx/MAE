@@ -12,10 +12,10 @@
 %include "laban/laban_sequence_recognizer.i"
 %include "laban/laban_sequence_generator.i"
 
- 
+
 //-- global includes
-//%include "std_shared_ptr.i"
-%include "swig_fixed_std_shared_ptr.i"
+%include "std_shared_ptr.i"
+//%include "swig_fixed_std_shared_ptr.i"
 %include "std_string.i"
 %include "exception.i"
 

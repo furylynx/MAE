@@ -6,8 +6,8 @@
 %include "e_joint.i"
 
 //-- global includes
-//%include "std_shared_ptr.i"
-%include "swig_fixed_std_shared_ptr.i"
+%include "std_shared_ptr.i"
+//%include "swig_fixed_std_shared_ptr.i"
 %include "std_string.i"
 %include "exception.i"
 
@@ -25,7 +25,7 @@
 
 //-- cast method
 %extend mae::fl::laban::ps::joint_part {
-  static std::shared_ptr<mae::fl::laban::ps::joint_part > cast_to_joint_part(std::shared_ptr<mae::fl::laban::ps::i_part> base) 
+  static std::shared_ptr<mae::fl::laban::ps::joint_part > cast_to_joint_part(std::shared_ptr<mae::fl::laban::ps::i_part> base)
   {
     return std::dynamic_pointer_cast<mae::fl::laban::ps::joint_part>(base);
   }

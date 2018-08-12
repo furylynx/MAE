@@ -1,12 +1,12 @@
 //-- fl_skeleton.i - SWIG interface
- 
+
 //-- custom includes
 %include "../general_skeleton.i"
 %include "../math/basis.i"
 
 //-- global includes
-//%include "std_shared_ptr.i"
-%include "swig_fixed_std_shared_ptr.i"
+%include "std_shared_ptr.i"
+//%include "swig_fixed_std_shared_ptr.i"
 %include "std_string.i"
 %include "exception.i"
 

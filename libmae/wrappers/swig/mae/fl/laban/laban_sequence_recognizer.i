@@ -1,5 +1,5 @@
 //-- laban_sequence_recognizer.i - SWIG interface
- 
+
 //-- custom includes
 %include "../../bone.i"
 %include "../../i_sequence_recognizer.i"
@@ -7,10 +7,10 @@
 %include "laban_sequence.i"
 %include "column_definition.i"
 %include "decision_forest.i"
- 
+
 //-- global includes
-//%include "std_shared_ptr.i"
-%include "swig_fixed_std_shared_ptr.i"
+%include "std_shared_ptr.i"
+//%include "swig_fixed_std_shared_ptr.i"
 %include "std_string.i"
 %include "std_vector.i"
 %include "exception.i"

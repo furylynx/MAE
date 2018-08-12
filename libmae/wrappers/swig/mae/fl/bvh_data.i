@@ -1,15 +1,15 @@
 //-- bvh_data.i - SWIG interface
- 
+
 //-- custom includes
 %include "../general_skeleton.i"
- 
+
 //-- global includes
-//%include "std_shared_ptr.i"
-%include "swig_fixed_std_shared_ptr.i"
+%include "std_shared_ptr.i"
+//%include "swig_fixed_std_shared_ptr.i"
 %include "std_vector.i"
 %include "exception.i"
 
-//%feature("director") mae::fl::bvh_data; 
+//%feature("director") mae::fl::bvh_data;
 
 //-- module definition
 %module(directors="1") w_bvh_data

@@ -1,12 +1,12 @@
 //-- i_pose_detector.i - SWIG interface
- 
+
 //-- custom includes
 %include "general_pose.i"
 %include "bone.i"
- 
+
 //-- global includes
-//%include "std_shared_ptr.i"
-%include "swig_fixed_std_shared_ptr.i"
+%include "std_shared_ptr.i"
+//%include "swig_fixed_std_shared_ptr.i"
 %include "std_vector.i"
 %include "exception.i"
 

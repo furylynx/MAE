@@ -1,16 +1,16 @@
 //-- bvh_spec.i - SWIG interface
- 
+
 //-- custom includes
  //...
- 
+
 //-- global includes
-//%include "std_shared_ptr.i"
-%include "swig_fixed_std_shared_ptr.i"
+%include "std_shared_ptr.i"
+//%include "swig_fixed_std_shared_ptr.i"
 %include "std_string.i"
 %include "std_map.i"
 %include "exception.i"
 
-//%feature("director") mae::fl::bvh_spec; 
+//%feature("director") mae::fl::bvh_spec;
 
 //-- module definition
 %module(directors="1") w_bvh_spec

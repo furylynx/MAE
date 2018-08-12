@@ -5,7 +5,8 @@
 %include "../general_skeleton_basis_pair.i"
 
 //-- global includes
-%include "swig_fixed_std_shared_ptr.i"
+%include "std_shared_ptr.i"
+//%include "swig_fixed_std_shared_ptr.i"
 %include "std_string.i"
 %include "exception.i"
 
@@ -18,10 +19,9 @@
 
 //-- shared_ptr
 %shared_ptr(mae::sensor::i_sensor)
- 
+
 //-- Parse the original header file
 %include "../../../src/mae/sensor/i_sensor.hpp"
- 
+
 //-- templates
 %template (ISensorVector) std::vector<std::shared_ptr<mae::sensor::i_sensor> >;
-
