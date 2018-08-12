@@ -1,12 +1,12 @@
 //-- general_pose.i - SWIG interface
- 
+
 //-- custom includes
- 
+
 //-- global includes
 //%include "stl.i"
 //%include "std_shared_ptr.i"
 %include "swig_fixed_std_shared_ptr.i"
-%include "std_list.i"
+%include <std_list.i>
 %include "exception.i"
 
 //-- module definition
@@ -23,5 +23,3 @@
 
 //-- templates
 %template (IntList) std::list<int>;
-
-
