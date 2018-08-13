@@ -31,7 +31,9 @@
 //--  see also: http://stackoverflow.com/questions/23333446/using-shared-ptr-with-swig-directors-for-java
 //%feature("director");
 
-%feature("director") mae::kp_movement_detector;
+//%feature("director") mae::kp_movement_detector;
+//-- enable director for listener
+%feature("director") mae::i_pose_listener;
 
 //-- turn off all renaming warnings (there are plenty of it due to the usage of the same templated objects)
 #pragma SWIG nowarn=302
