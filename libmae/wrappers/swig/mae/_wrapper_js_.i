@@ -1,5 +1,5 @@
 //-- ignore the shift operator used to implement the toString method in C++
-%ignore operator<<;
+//%ignore operator<<;
 
 //-- TODO currently SWIG does not support shared_ptr with java directors and thus polymorphism is not available for smart pointer objects
 //--  "Note: There is currently no support for %shared_ptr and the director feature."
@@ -34,28 +34,28 @@
 %rename(add) push_back;
 
 //-- exception
-%include "exception.i"
-JSValueRef wrap_gcd(JSContextRef context, JSObjectRef function, JSObjectRef globalobj, size_t argc, const JSValueRef argv[], JSValueRef* exception)
-{
-int arg1 = (int)JSValueToNumber(context, argv[0], NULL);
-int arg2 = (int)JSValueToNumber(context, argv[1], NULL);
-JSStringRef message = JSStringCreateWithUTF8CString("This is a test error.");
-*exception = JSValueMakeString(context, message);
-JSStringRelease(message);
-int result = (int)gcd(arg1,arg2);
-JSValueRef jscresult = JSValueMakeNumber(context, result);
-return jsresult;
-}
-
-%exception {
-    try {
-        $action
-    } catch (std::exception &e) {
-        SWIG_exception(SWIG_RuntimeError, e.what());
-    } catch (...) {
-        SWIG_exception(SWIG_RuntimeError, "unknown exception");
-    }
-}
+//%include "exception.i"
+//JSValueRef wrap_gcd(JSContextRef context, JSObjectRef function, JSObjectRef globalobj, size_t argc, const JSValueRef argv[], JSValueRef* exception)
+//{
+//int arg1 = (int)JSValueToNumber(context, argv[0], NULL);
+//int arg2 = (int)JSValueToNumber(context, argv[1], NULL);
+//JSStringRef message = JSStringCreateWithUTF8CString("This is a test error.");
+//*exception = JSValueMakeString(context, message);
+//JSStringRelease(message);
+//int result = (int)gcd(arg1,arg2);
+//JSValueRef jscresult = JSValueMakeNumber(context, result);
+//return jsresult;
+//}
+//
+//%exception {
+//    try {
+//        $action
+//    } catch (std::exception &e) {
+//        SWIG_exception(SWIG_RuntimeError, e.what());
+//    } catch (...) {
+//        SWIG_exception(SWIG_RuntimeError, "unknown exception");
+//    }
+//}
 
 //-- include definitions that are required
 %include "mae.i"
