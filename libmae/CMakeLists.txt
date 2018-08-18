@@ -399,7 +399,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}-${MYLIB_VERSION_STRING}.ja
 SET(CMAKE_SWIG_FLAGS -node)
 
 SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_.i PROPERTY CPLUSPLUS ON)
-SWIG_ADD_LIBRARY(${MYLIB_JS} LANGUAGE javascript SOURCES wrappers/swig/mae/_wrapper_.i)
+SWIG_ADD_LIBRARY(${MYLIB_JS} LANGUAGE javascript SOURCES wrappers/swig/mae/_wrapper_js_.i)
 SWIG_LINK_LIBRARIES(${MYLIB_JS} mae)
 
 
