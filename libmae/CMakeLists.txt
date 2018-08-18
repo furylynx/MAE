@@ -33,6 +33,7 @@ set(MYLIB_REQUIRES "${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLI
 set(MYLIB_REQUIRES_RPM "glibc >= 2.17, libgcc >= 4.8.5, glibmm24 >= 2.50.0, libstdc++ >= 4.8.5, ${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_R} >= ${MYLIB_REQ_LIBXMLPP_VERSION}" )
 
 set(MYLIB_JNI maejava)
+set(MYLIB_JS maejs)
 
 # Define the project
 project(${MYLIB} VERSION ${MYLIB_VERSION_STRING})
@@ -393,6 +394,14 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_F
 
 # install .jar file to jni folder (besides the installation into the local maven repository)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}-${MYLIB_VERSION_STRING}.jar DESTINATION "${JNI_INSTALL_DIR}")
+
+# javascript
+SET(CMAKE_SWIG_FLAGS -node)
+
+SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_.i PROPERTY CPLUSPLUS ON)
+SWIG_ADD_LIBRARY(${MYLIB_JS} LANGUAGE javascript SOURCES wrappers/swig/mae/_wrapper_.i)
+SWIG_LINK_LIBRARIES(${MYLIB_JS} mae)
+
 
 set_property(DIRECTORY PROPERTY ADDITIONAL_MAKE_CLEAN_FILES
         "${CMAKE_SWIG_OUTDIR}"
