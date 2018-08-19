@@ -343,7 +343,7 @@ add_custom_command(TARGET ${MYLIB} PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E make_directory ${SWIG_OUTFILE_DIR}
         )
 
-SET(CMAKE_SWIG_FLAGS -package ${MYLIB_JNI})
+SET(CMAKE_SWIG_FLAGS -package ${MYLIB_JNI} -doxygen)
 
 SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_.i PROPERTY CPLUSPLUS ON)
 SWIG_ADD_LIBRARY(${MYLIB_JNI} LANGUAGE Java SOURCES wrappers/swig/mae/_wrapper_.i)
