@@ -1,5 +1,5 @@
 //-- ignore the shift operator used to implement the toString method in C++
-//%ignore operator<<;
+%ignore operator<<;
 
 //-- TODO currently SWIG does not support shared_ptr with java directors and thus polymorphism is not available for smart pointer objects
 //--  "Note: There is currently no support for %shared_ptr and the director feature."
@@ -18,7 +18,7 @@
 %}
 
 //-- set shared_ptr contructor to public
-#define SWIG_SHARED_PTR_TYPEMAPS(CONST, TYPE...) SWIG_SHARED_PTR_TYPEMAPS_IMPLEMENTATION(public, public, CONST, TYPE)
+//#define SWIG_SHARED_PTR_TYPEMAPS(CONST, TYPE...) SWIG_SHARED_PTR_TYPEMAPS_IMPLEMENTATION(public, public, CONST, TYPE)
 
 //-- renaming rules for camel case
 %rename("%(camelcase)s", %$isclass) "";
