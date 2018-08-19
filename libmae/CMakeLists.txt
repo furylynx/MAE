@@ -331,10 +331,11 @@ include(UseJava)
 include(UseSWIG)
 
 include_directories(${JNI_INCLUDE_DIRS})
+include_directories(${NODEJS_INCLUDE_DIRS})
 
 
 set(WRAPPER_PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_java_project)
-set(CMAKE_SWIG_OUTDIR ${WRAPPER_PROJECT_DIR}/src/main/java/mae/maejava)
+set(CMAKE_SWIG_OUTDIR ${WRAPPER_PROJECT_DIR}/src/main/java/mae/${MYLIB_JNI})
 set(SWIG_OUTFILE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release/)
 
 #create directory for generated java project
@@ -397,12 +398,24 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_F
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}-${MYLIB_VERSION_STRING}.jar DESTINATION "${JNI_INSTALL_DIR}")
 
 # javascript
-SET(CMAKE_SWIG_FLAGS -node)
+SET(BUILD_JS_WRAPPER true CACHE BOOL "True to build a javascript wrapper (requires swig 4 or later)")
 
-SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_js_.i PROPERTY CPLUSPLUS ON)
-SWIG_ADD_LIBRARY(${MYLIB_JS} LANGUAGE javascript SOURCES wrappers/swig/mae/_wrapper_js_.i)
-SWIG_LINK_LIBRARIES(${MYLIB_JS} mae)
+if (BUILD_JS_WRAPPER)
+    set(WRAPPER_PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_js_project)
+    set(CMAKE_SWIG_OUTDIR ${WRAPPER_PROJECT_DIR}/src/main/js/mae/${MYLIB_JS})
 
+    #create directory for generated java project
+    file(MAKE_DIRECTORY ${CMAKE_SWIG_OUTDIR})
+    add_custom_command(TARGET ${MYLIB} PRE_BUILD
+            COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SWIG_OUTDIR}
+            )
+
+    SET(CMAKE_SWIG_FLAGS -node)
+
+    SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_js_.i PROPERTY CPLUSPLUS ON)
+    SWIG_ADD_LIBRARY(${MYLIB_JS} LANGUAGE javascript SOURCES wrappers/swig/mae/_wrapper_js_.i)
+    SWIG_LINK_LIBRARIES(${MYLIB_JS} mae)
+endif ()
 
 set_property(DIRECTORY PROPERTY ADDITIONAL_MAKE_CLEAN_FILES
         "${CMAKE_SWIG_OUTDIR}"
