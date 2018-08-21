@@ -282,7 +282,10 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/math/aligned_distance.hpp
         src/mae/math/aligned_distance_details.cpp src/mae/math/aligned_distance_details.hpp
         src/mae/math/aligned_distances_details.cpp src/mae/math/aligned_distances_details.hpp
-        src/mae/math/angular_distance.hpp src/mae/math/angular_distance.cpp)
+        src/mae/math/angular_distance.hpp src/mae/math/angular_distance.cpp
+        src/mae/fl/laban/e_blur_strategy.hpp src/mae/fl/laban/e_blur_strategy.cpp
+        src/mae/fl/laban/blur_strategy.hpp src/mae/fl/laban/blur_strategy.cpp
+        )
 
 
 # define test files

@@ -13,12 +13,12 @@ namespace mae
         namespace laban
         {
 
-            aligned_laban_sequence_comparator::aligned_laban_sequence_comparator(std::shared_ptr<mae::math::aligned_distance<std::shared_ptr<i_movement> > > distance_measure,  bool ignore_empty_columns, unsigned int frames_per_beat, double blur_strategy_beats)
+            aligned_laban_sequence_comparator::aligned_laban_sequence_comparator(std::shared_ptr<mae::math::aligned_distance<std::shared_ptr<i_movement> > > distance_measure,  bool ignore_empty_columns, unsigned int frames_per_beat, blur_strategy strategy)
             {
                 distance_measure_ = distance_measure;
                 ignore_empty_columns_ = ignore_empty_columns;
                 frames_per_beat_ = frames_per_beat;
-                blur_strategy_beats_ = blur_strategy_beats;
+                strategy_ = strategy;
             }
 
             aligned_laban_sequence_comparator::~aligned_laban_sequence_comparator()
@@ -152,11 +152,11 @@ namespace mae
                 }
 
                 //hold strategy (blur with infinite amount of beats)
-                bool hold_symbol = (0 == blur_strategy_beats_);
+                bool hold_symbol = (e_blur_strategy::HOLD == strategy_.get_blur_strategy());
 
                 //blur for the given number of beats if activated
-                bool blur_symbol = blur_strategy_beats_ > 0;
-                std::size_t blur_symbol_gap = blur_strategy_beats_*frames_per_beat_;
+                bool blur_symbol = (e_blur_strategy::BLUR == strategy_.get_blur_strategy());
+                std::size_t blur_symbol_gap = static_cast<std::size_t>(std::round(strategy_.get_beats()*frames_per_beat_));
 
                 if (hold_symbol || blur_symbol)
                 {

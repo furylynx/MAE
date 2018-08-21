@@ -1,8 +1,4 @@
 //-- ignore the shift operator used to implement the toString method in C++
-#include "../../../src/mae/fl/laban/relationship_bow.hpp"
-#include "../../../src/mae/fl/laban/room_direction.hpp"
-#include "../../../src/mae/fl/laban/mv/cancellation_symbol.hpp"
-
 %ignore operator<<;
 
 // will not wrap ComplexClass
@@ -33,7 +29,7 @@
 
 //%feature("director") mae::kp_movement_detector;
 //-- enable director for listener
-%feature("director") mae::i_pose_listener;
+//%feature("director") mae::i_pose_listener;
 
 //-- turn off all renaming warnings (there are plenty of it due to the usage of the same templated objects)
 #pragma SWIG nowarn=302
