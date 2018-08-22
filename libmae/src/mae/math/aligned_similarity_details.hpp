@@ -5,7 +5,12 @@
 #ifndef MAE_MATH_ALIGNED_SIMILARITY_DETAILS_HPP
 #define MAE_MATH_ALIGNED_SIMILARITY_DETAILS_HPP
 
+//custom includes
+//...
 
+//global includes
+#include <vector>
+#include <utility>
 
 namespace mae
 {
@@ -26,8 +31,25 @@ namespace mae
             aligned_similarity_details(double startpos, double endpos, double similarity);
             virtual ~aligned_similarity_details();
 
+            /**
+             * Returns the start position of the aligned sequence.
+             *
+             * @return The start position.
+             */
             virtual double get_startpos() const;
+
+            /**
+             * Returns the end position of the aligned sequence.
+             *
+             * @return The end position.
+             */
             virtual double get_endpos() const;
+
+            /**
+             * Returns the similarity.
+             *
+             * @return The similarity.
+             */
             virtual double get_similarity() const;
 
         private:

@@ -10,11 +10,12 @@ namespace mae
     namespace math
     {
 
-        aligned_distances_details::aligned_distances_details(double startpos, double endpos, std::vector<double> distances)
+        aligned_distances_details::aligned_distances_details(double startpos, double endpos, std::vector<double> distances, std::vector<std::vector<std::pair<std::size_t,std::size_t> > > warping_paths)
         {
             startpos_ = startpos;
             endpos_ = endpos;
             distances_ = distances;
+            warping_paths_ = warping_paths;
         }
 
         aligned_distances_details::~aligned_distances_details()
@@ -35,6 +36,11 @@ namespace mae
         std::vector<double> aligned_distances_details::get_distances() const
         {
             return distances_;
+        }
+
+        std::vector<std::vector<std::pair<std::size_t,std::size_t> > > aligned_distances_details::get_warping_paths() const
+        {
+            return warping_paths_;
         }
 
     } // namespace math

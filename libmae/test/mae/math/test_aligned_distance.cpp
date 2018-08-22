@@ -361,3 +361,63 @@ BOOST_AUTO_TEST_CASE( aligned_similar_lcs )
     BOOST_CHECK_MESSAGE(6 == e, "Alignment endpos should be six and is " << e);
 
 }
+
+//TODO test warping path
+
+BOOST_AUTO_TEST_CASE( warpingpath_equalsequence_dtw )
+{
+    double minkowski_p = 1;
+    std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(minkowski_p);
+
+    std::shared_ptr<mae::math::dtw<std::vector<double> > > warping_measure = std::make_shared<mae::math::dtw<std::vector<double> > >(distance_measure, 0, true);
+
+    std::shared_ptr<mae::math::aligned_distance<std::vector<double> > > aligned_measure = std::make_shared<mae::math::aligned_distance<std::vector<double> > >(warping_measure);
+
+    std::vector<std::vector<double> > sequence1 = {{1}, {3}, {5}, {7}, {9}};
+
+    std::vector<std::vector<double> > sequence2 = {{1}, {3}, {5}, {7}, {9}};
+
+    mae::math::aligned_distance_details details = aligned_measure->distance_details(sequence1, sequence2);
+
+    double d = details.get_distance();
+
+    BOOST_CHECK_MESSAGE(0 == d, "Warping distance should be zero and is " << d);
+
+    std::vector<std::pair<std::size_t,std::size_t> > warping_path = details.get_warping_path();
+
+    BOOST_CHECK_MESSAGE(warping_path.at(0).first == 1 && warping_path.at(0).second == 1, "Warping path first element should be (1,1) and is (" << warping_path.at(0).first << "," << warping_path.at(0).second << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(1).first == 2 && warping_path.at(1).second == 2, "Warping path first element should be (2,2) and is (" << warping_path.at(1).first << "," << warping_path.at(1).second << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(2).first == 3 && warping_path.at(2).second == 3, "Warping path first element should be (3,3) and is (" << warping_path.at(2).first << "," << warping_path.at(2).second << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(3).first == 4 && warping_path.at(3).second == 4, "Warping path first element should be (4,4) and is (" << warping_path.at(3).first << "," << warping_path.at(3).second << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(4).first == 5 && warping_path.at(4).second == 5, "Warping path first element should be (5,5) and is (" << warping_path.at(4).first << "," << warping_path.at(4).second << ")");
+
+
+}
+
+BOOST_AUTO_TEST_CASE( warpingpath_nonequal_dtw )
+{
+    double minkowski_p = 1;
+    std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(minkowski_p);
+
+    std::shared_ptr<mae::math::dtw<std::vector<double> > > warping_measure = std::make_shared<mae::math::dtw<std::vector<double> > >(distance_measure, 0, true);
+
+    std::shared_ptr<mae::math::aligned_distance<std::vector<double> > > aligned_measure = std::make_shared<mae::math::aligned_distance<std::vector<double> > >(warping_measure);
+
+    std::vector<std::vector<double> > sequence1 = {{1}, {2}, {3}};
+
+    std::vector<std::vector<double> > sequence2 = {{1}, {2}, {2}, {3}};
+
+    mae::math::aligned_distance_details details = aligned_measure->distance_details(sequence1, sequence2);
+
+    double d = details.get_distance();
+
+    BOOST_CHECK_MESSAGE(0 == d, "Warping distance should be greater than zero and is " << d);
+
+    std::vector<std::pair<std::size_t,std::size_t> > warping_path = details.get_warping_path();
+
+    BOOST_CHECK_MESSAGE(warping_path.at(0).first == 1 && warping_path.at(0).second == 1, "Warping path first element should be (1,1) and is (" << warping_path.at(0).first << "," << warping_path.at(0).second << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(1).first == 2 && warping_path.at(1).second == 2, "Warping path first element should be (2,2) and is (" << warping_path.at(1).first << "," << warping_path.at(1).second << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(2).first == 2 && warping_path.at(2).second == 3, "Warping path first element should be (2,3) and is (" << warping_path.at(2).first << "," << warping_path.at(2).second << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(3).first == 3 && warping_path.at(3).second == 4, "Warping path first element should be (3,4) and is (" << warping_path.at(3).first << "," << warping_path.at(3).second << ")");
+
+}

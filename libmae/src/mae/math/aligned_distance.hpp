@@ -21,6 +21,7 @@
 #include <unordered_map>
 #include <numeric>
 #include <limits>
+#include <utility>
 
 namespace mae
 {
@@ -113,7 +114,7 @@ namespace mae
 
                     aligned_distances_details details = distances_details(mapped_elements);
 
-                    return aligned_distance_details(details.get_startpos(),details.get_endpos(), details.get_distances().at(0));
+                    return aligned_distance_details(details.get_startpos(),details.get_endpos(), details.get_distances().at(0), details.get_warping_paths().at(0));
                 }
 
                 template<typename T>
@@ -185,13 +186,65 @@ namespace mae
                         }
                     }
 
+                    // set the distances
                     std::vector<double> distances;
                     for (std::size_t mat = 0; mat < matrices.size(); mat++)
                     {
                         distances.push_back(matrices.at(mat).at(n).at(min_endpos).at(min_startpos));
                     }
 
-                    return aligned_distances_details(min_startpos, min_endpos, distances);
+                    // set the warping paths
+                    std::vector<std::vector<std::pair<std::size_t,std::size_t> > > warping_paths;
+                    for (std::size_t mat = 0; mat < matrices.size(); mat++)
+                    {
+                        std::vector<std::pair<std::size_t,std::size_t> > warping_path;
+                        std::size_t wn = n;
+                        std::size_t wm = min_endpos;
+
+                        while (wn >= 1 && wm >= min_startpos+1 && (1 != wn || min_startpos+1 != wm))
+                        {
+                            warping_path.push_back(std::make_pair(wn,wm));
+
+                            if (1 == wn)
+                            {
+                                wm--;
+                            }
+                            else if (min_startpos == wm)
+                            {
+                                wn--;
+                            }
+                            else
+                            {
+                                //argmin of D(n-1,m-1),D(n-1,m),D(n,m-1), lexicographically smalles pair
+                                double n1 = matrices.at(mat).at(wn-1).at(wm).at(min_startpos);
+                                double m1 = matrices.at(mat).at(wn).at(wm-1).at(min_startpos);
+                                double nm1 = matrices.at(mat).at(wn-1).at(wm-1).at(min_startpos);
+                                double min = std::min(n1, std::min(m1, nm1));
+
+                                if (min == nm1)
+                                {
+                                    wn--;
+                                    wm--;
+                                }
+                                else if (min == n1)
+                                {
+                                    wn--;
+                                }
+                                else
+                                {
+                                    wm--;
+                                }
+                            }
+                        }
+
+                        warping_path.push_back(std::make_pair(1, min_startpos+1));
+
+                        std::reverse(warping_path.begin(), warping_path.end());
+
+                        warping_paths.push_back(warping_path);
+                    }
+
+                    return aligned_distances_details(min_startpos, min_endpos, distances, warping_paths);
                 }
 
         } // namespace math
