@@ -22,6 +22,7 @@
 #include <numeric>
 #include <limits>
 #include <utility>
+#include <algorithm>
 
 namespace mae
 {
