@@ -22,6 +22,7 @@ matrix:
         # - libsdl2-dev
         # - libsdl2-image-dev
         # - libsdl2-ttf-dev
+        - librsvg2-dev
         - swig3.0
         - openjdk-8-jdk
         - gradle

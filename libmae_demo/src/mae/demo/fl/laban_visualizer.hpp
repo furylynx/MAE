@@ -18,6 +18,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
+#include <librsvg/rsvg.h>
+
 #include <mae/mae.hpp>
 
 
@@ -36,13 +38,17 @@ namespace mae
 					 *
 					 * @param format The pixel format to be applied.
 					 * @param use_svg_renderer True to use SVG rendering instead of scaled bitmaps (which do not support anything apart from direction symbols).
+					 * @param use_nano_svg_renderer True to use nanosvg renderer, false for rsvg.
 					 */
-					laban_visualizer(SDL_PixelFormat* format, bool use_svg_renderer = true);
+					laban_visualizer(SDL_PixelFormat* format, bool use_svg_renderer = true, bool use_nano_svg_renderer = false);
 
 					/**
 					 * Creates a new visualizer for laban sequences with a default pixel format.
+					 *
+					 * @param use_svg_renderer True to use SVG rendering instead of scaled bitmaps (which do not support anything apart from direction symbols).
+					 * @param use_nano_svg_renderer True to use nanosvg renderer, false for rsvg.
 					 */
-					laban_visualizer();
+					laban_visualizer(bool use_svg_renderer = true, bool use_nano_svg_renderer = false);
 
 					virtual ~laban_visualizer();
 
@@ -103,6 +109,7 @@ namespace mae
 					std::shared_ptr<res::directions_handler> directions_handler_;
 					SDL_PixelFormat* format_;
                     bool use_svg_renderer_;
+                    bool use_nano_svg_renderer_;
 
 					bool free_format_;
 

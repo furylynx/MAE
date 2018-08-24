@@ -1,7 +1,7 @@
 /*
  * laban_visualizer.cpp
  *
- *  Created on: 20.09.2014
+ *  Created on: 2014-09-20
  *      Author: furylynx
  */
 
@@ -14,19 +14,22 @@ namespace mae
 		namespace fl
 		{
 
-			laban_visualizer::laban_visualizer(SDL_PixelFormat* format, bool use_svg_renderer)
+			laban_visualizer::laban_visualizer(SDL_PixelFormat* format, bool use_svg_renderer, bool use_nano_svg_renderer)
 			{
 				free_format_ = false;
 				format_ = format;
 
 				use_svg_renderer_ = use_svg_renderer;
+                use_nano_svg_renderer_ = use_nano_svg_renderer;
 
 				directions_handler_ = std::shared_ptr<res::directions_handler>(new res::directions_handler(format_));
 			}
 
-			laban_visualizer::laban_visualizer()
+			laban_visualizer::laban_visualizer(bool use_svg_renderer, bool use_nano_svg_renderer)
 			{
 				free_format_ = true;
+                use_svg_renderer_ = use_svg_renderer;
+                use_nano_svg_renderer_ = use_nano_svg_renderer;
 
 				format_ = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
 
@@ -65,16 +68,75 @@ namespace mae
             {
                 if (use_svg_renderer_)
                 {
-                    std::string svgstring = sequence->svg(window_width, window_height);
-                    SDL_RWops *rw = SDL_RWFromConstMem(svgstring.c_str(), svgstring.length());
+                    if (use_nano_svg_renderer_)
+                    {
+						std::string svgstring = sequence->svg(window_width, window_height);
+						SDL_RWops *rw = SDL_RWFromConstMem(svgstring.c_str(), svgstring.length());
 
-                    SDL_Surface* tmp = IMG_LoadSVG_RW(rw);
+						SDL_Surface* tmp = IMG_LoadSVG_RW(rw);
 
-                    SDL_BlitSurface(tmp, NULL, graphics, NULL);
+						SDL_BlitSurface(tmp, NULL, graphics, NULL);
 
-                    //free the surface
-                    SDL_FreeSurface(tmp);
-                    tmp = nullptr;
+						//free the surface
+						SDL_FreeSurface(tmp);
+                    }
+                    else
+                    {
+						std::string source = sequence->svg(window_width, window_height);
+						GError* error = 0;
+						RsvgHandle* svg = rsvg_handle_new_from_data(reinterpret_cast<const guint8*>(source.c_str()), source.length() , &error);
+
+						if(error != 0)
+						{
+							std::stringstream sstr;
+							sstr << "Cannot parse svg: " << error->message;
+							throw std::invalid_argument(sstr.str().c_str());
+						}
+
+						if(svg == 0)
+						{
+							throw std::invalid_argument("No rsvg handle created.");
+						}
+
+						RsvgDimensionData dim;
+						rsvg_handle_get_dimensions(svg, &dim);
+
+						//4 bytes/pixel (32bpp RGBA)
+						int stride = stride = cairo_format_stride_for_width (CAIRO_FORMAT_ARGB32, window_width);
+						unsigned char* image = (unsigned char*) malloc(stride * window_height);
+						cairo_surface_t* cairo_surface = cairo_image_surface_create_for_data(image, CAIRO_FORMAT_ARGB32, window_width, window_height, stride);
+						cairo_t* cr = cairo_create(cairo_surface);
+						rsvg_handle_render_cairo(svg, cr);
+						cairo_surface_finish(cairo_surface);
+
+						Uint32 rmask = 0x00ff0000;
+						Uint32 gmask = 0x0000ff00;
+						Uint32 bmask = 0x000000ff;
+						Uint32 amask = 0xff000000;
+						SDL_Surface* tmp = SDL_CreateRGBSurfaceFrom ( (void*) image, window_width, window_height, 32 /* 4 bytes/pixel = 32bpp */, stride, rmask, gmask, bmask, amask);
+
+						SDL_BlitSurface(tmp, NULL, graphics, NULL);
+
+						//cleanup
+						cairo_destroy(cr);
+						cairo_surface_destroy(cairo_surface);
+						free(image);
+
+						//free the surface
+						SDL_FreeSurface(tmp);
+						tmp = nullptr;
+
+						rsvg_handle_close(svg, &error);
+
+						if(error != 0)
+						{
+							std::stringstream sstr;
+							sstr << "Cannot close rsvg handle: " << error->message;
+							throw std::invalid_argument(sstr.str().c_str());
+						}
+
+						g_object_unref(svg);
+                    }
                 }
                 else
                 {
