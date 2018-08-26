@@ -233,6 +233,8 @@ int main(int argc, char *argv[])
 			outfile.append(".svg");
 			sequence->svg_file(outfile, w, h);
             outfiles.push_back(outfile);
+
+            std::cout << "Generated " << outfile << std::endl;
 		}
 
 		if (bmp)
@@ -243,6 +245,8 @@ int main(int argc, char *argv[])
 			visualizer.bmp(outfile, sequence, w, h);
 
             outfiles.push_back(outfile);
+
+            std::cout << "Generated " << outfile << std::endl;
 		}
 
         if (jpeg)
@@ -253,6 +257,8 @@ int main(int argc, char *argv[])
             visualizer.jpeg(outfile, sequence, w, h);
 
             outfiles.push_back(outfile);
+
+            std::cout << "Generated " << outfile << std::endl;
         }
 
         if (png)
@@ -263,10 +269,7 @@ int main(int argc, char *argv[])
             visualizer.png(outfile, sequence, w, h);
 
             outfiles.push_back(outfile);
-        }
 
-        for (std::string outfile : outfiles)
-        {
             std::cout << "Generated " << outfile << std::endl;
         }
 	}

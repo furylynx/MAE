@@ -131,6 +131,15 @@ namespace mae
 					virtual std::string svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const;
 
 					/**
+					 * Returns the SVG representation for this element.
+					 *
+					 * @param rect The laban rectangle.
+					 * @param style The svg style.
+					 * @return The SVG.
+					 */
+					virtual std::string svg(draw_laban_rect rect, svg_style style = svg_style()) const;
+
+					/**
 					 * Recreates the movement by copying its members but changing the position in the staff.
 					 *
 					 * @param column The new column.

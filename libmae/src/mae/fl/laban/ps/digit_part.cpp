@@ -84,9 +84,18 @@ namespace mae
                     return sstr.str();
                 }
 
-                std::string digit_part::svg(std::string identifier, double posx, double posy, double width,
-                                            double height, bool left) const
+                std::string digit_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
                 {
+                    return svg(identifier, draw_rect(posx, posy, width, height), left);
+                }
+
+                std::string digit_part::svg(std::string identifier, draw_rect rect, bool left, svg_style style) const
+                {
+                    double posx = rect.get_posx();
+                    double posy = rect.get_posy();
+                    double width = rect.get_width();
+                    double height = rect.get_height();
+
                     identifier.append("digit-part");
                     identifier.append(e_digit_c::str(digit_));
 
@@ -159,13 +168,12 @@ namespace mae
                 std::string digit_part::svg_for_finger(const std::string &identifier, double posx, double posy, double width, double height,
                                            bool left) const
                 {
+                    std::stringstream sstr;
 
                     double radius = height / 16.0;
                     double mirrorpos = 2 * posx + width;
 
                     int digit_increment = get_digit_increment();
-
-                    std::stringstream sstr;
 
                     sstr << "<path" << std::endl;
 
@@ -232,13 +240,12 @@ namespace mae
                 digit_part::svg_for_toe(const std::string &identifier, double posx, double posy, double width, double height,
                                         bool left) const
                 {
+                    std::stringstream sstr;
 
                     double radius = height / 16.0;
                     double mirrorpos = 2 * posx + width;
 
                     int digit_increment = get_digit_increment();
-
-                    std::stringstream sstr;
 
                     sstr << "<path" << std::endl;
 

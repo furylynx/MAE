@@ -60,6 +60,17 @@ namespace mae
 						virtual std::string svg(std::string identifier, double posx, double posy, double width, double height, bool left = false) const;
 
 						/**
+						 * Returns the SVG representation for this symbol.
+						 *
+						 * @param identifier The identifier of the svg object.
+						 * @param rect The rect to fill.
+						 * @param left True if left side.
+						 * @param style The svg style.
+						 * @return The SVG.
+						 */
+						virtual std::string svg(std::string identifier, draw_rect rect, bool left = false, svg_style style = svg_style()) const;
+
+						/**
 						 * Returns the successor of the current endpoint (which is the default extremity endpoint). If the endpoint is the end of the extremity null is returned.
 						 *
 						 * @return The successor element.

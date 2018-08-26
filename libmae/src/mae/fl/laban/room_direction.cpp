@@ -137,18 +137,23 @@ namespace mae
 
 			std::string room_direction::svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const
 			{
+				return svg(draw_laban_rect(im_width, im_height, max_column, measures, beats_per_measure));
+			}
+
+			std::string room_direction::svg(draw_laban_rect rect, svg_style style) const
+			{
 				std::stringstream id_sstr;
 				id_sstr << "room_direction-" << measure_ << "-" << beat_ ;
 				std::string identifier = id_sstr.str();
 
 				std::stringstream sstr;
 
-				int total_beats = (measures + 1) * beats_per_measure;
-				double column_width = (im_width)/(max_column * 2.0);
-				double beat_height = (im_height*(0.85 - 0.01)) / total_beats;
+				int total_beats = (rect.get_measures() + 1) * rect.get_beats_per_measure();
+				double column_width = (rect.get_im_width())/(rect.get_max_column() * 2.0);
+				double beat_height = (rect.get_im_height()*(0.85 - 0.01)) / total_beats;
 
 				double draw_w = column_width / 2.0;
-				double draw_x_pos = (im_width / 2.0) - (max_column - 0.25)*column_width;
+				double draw_x_pos = (rect.get_im_width() / 2.0) - (rect.get_max_column() - 0.25)*column_width;
 
 				double draw_y_pos = 0;
 				double draw_h = 0;
@@ -156,12 +161,12 @@ namespace mae
 				if (measure_ != 0)
 				{
 					draw_h = draw_w;
-					draw_y_pos = im_height*(0.85 - 0.01) - (measure_ * beats_per_measure + beat_) * beat_height - draw_h;
+					draw_y_pos = rect.get_im_height()*(0.85 - 0.01) - (measure_ * rect.get_beats_per_measure() + beat_) * beat_height - draw_h;
 				}
 				else
 				{
 					draw_h = draw_w;
-					draw_y_pos = im_height*(0.85) - (beats_per_measure/2.0) * beat_height - draw_h/2.0;
+					draw_y_pos = rect.get_im_height()*(0.85) - (rect.get_beats_per_measure()/2.0) * beat_height - draw_h/2.0;
 				}
 
 				//draw rect

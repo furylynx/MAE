@@ -66,9 +66,14 @@ namespace mae
 
 				std::string body_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
+					return svg(identifier, draw_rect(posx, posy, width, height), left);
+				}
+
+				std::string body_part::svg(std::string identifier, draw_rect rect, bool left, svg_style style) const
+				{
 					std::stringstream sstr;
 
-					sstr << part_->svg(identifier, posx, posy, width, height, (side_ == e_side::LEFT));
+					sstr << part_->svg(identifier, rect, (side_ == e_side::LEFT), style);
 
 					return sstr.str();
 				}

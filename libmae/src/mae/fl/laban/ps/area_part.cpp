@@ -47,25 +47,34 @@ namespace mae
 					return sstr.str();
 				}
 
-				std::string area_part::svg(std::string identifier, double posx, double posy, double width,
-						double height, bool left) const
+				std::string area_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
+					return svg(identifier, draw_rect(posx, posy, width, height), left);
+				}
+
+				std::string area_part::svg(std::string identifier, draw_rect rect, bool left, svg_style style) const
+				{
+					double posx = rect.get_posx();
+					double posy = rect.get_posy();
+					double width = rect.get_width();
+					double height = rect.get_height();
+
 					identifier.append("-areapart");
 
+                    if (width > height)
+                    {
+                        posx += (width - height) / 2.0;
+                        width = height;
+                    }
+                    else if (height > width)
+                    {
+                        //posy += (height - width) / 2.0;
+                        height = width;
+                    }
+
+                    double circ_r = width / 3.0;
+
 					std::stringstream sstr;
-
-					if (width > height)
-					{
-						posx += (width - height) / 2.0;
-						width = height;
-					}
-					else if (height > width)
-					{
-						posy += (height - width) / 2.0;
-						height = width;
-					}
-
-					double circ_r = width / 3.0;
 
 					//print rect
 					if (area_ == e_area::TORSO)

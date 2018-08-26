@@ -70,10 +70,30 @@ namespace mae
 					return sstr.str();
 				}
 
-				std::string prop::svg(std::string identifier, double posx, double posy, double width, double height,
-						bool left) const
+                std::string prop::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
+                {
+                    return svg(identifier, draw_rect(posx, posy, width, height), left);
+                }
+
+				std::string prop::svg(std::string identifier, draw_rect rect, bool left, svg_style style) const
 				{
+                    double posx = rect.get_posx();
+                    double posy = rect.get_posy();
+                    double width = rect.get_width();
+                    double height = rect.get_height();
+
 					std::stringstream sstr;
+
+					sstr << "\t\t<rect" << std::endl;
+					sstr << "\t\t\twidth=\"" << width <<  "\"" << std::endl;
+					sstr << "\t\t\theight=\"" << height <<  "\"" << std::endl;
+					sstr << "\t\t\tx=\"" << posx <<  "\"" << std::endl;
+					sstr << "\t\t\ty=\"" << posy <<  "\"" << std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "\"" << std::endl;
+					sstr << "\t\t\tstyle=\"";
+					sstr << "fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;";
+					sstr << "\" />" << std::endl;
+
 
 					//print line
 					sstr << "<path" << std::endl;

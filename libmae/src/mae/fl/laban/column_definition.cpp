@@ -230,21 +230,26 @@ namespace mae
 
 			std::string column_definition::svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const
 			{
+				return svg(draw_laban_rect(im_width, im_height, max_column, measures, beats_per_measure));
+			}
+
+			std::string column_definition::svg(draw_laban_rect rect, svg_style style) const
+			{
 				std::stringstream sstr;
 
-				double column_width = (im_width)/(max_column * 2.0);
+				double column_width = (rect.get_im_width())/(rect.get_max_column() * 2.0);
 
 				double draw_w = column_width / 2.0;
-				double draw_x_pos = (im_width / 2.0) + ((column_index_ - (mae::math::math::sign(column_index_)*0.5) - 0.25)*column_width);
+				double draw_x_pos = (rect.get_im_width() / 2.0) + ((column_index_ - (mae::math::math::sign(column_index_)*0.5) - 0.25)*column_width);
 
-				double draw_y_pos = im_height*0.9;
-				double draw_h = im_height*0.1;
+				double draw_y_pos = rect.get_im_height()*0.9;
+				double draw_h = rect.get_im_height()*0.1;
 
 				std::stringstream id_sstr;
 				id_sstr << "column-definition-" << column_index_;
 				std::string identifier = id_sstr.str();
 
-				sstr << pre_sign_->svg(identifier, draw_x_pos, draw_y_pos, draw_w, draw_h, (column_index_ < 0));
+				sstr << pre_sign_->svg(identifier, draw_rect(draw_x_pos, draw_y_pos, draw_w, draw_h), (column_index_ < 0), style);
 
 				return sstr.str();
 			}

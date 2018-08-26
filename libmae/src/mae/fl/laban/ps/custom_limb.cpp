@@ -73,12 +73,35 @@ namespace mae
 					return sstr.str();
 				}
 
-				std::string custom_limb::svg(std::string identifier, double posx, double posy, double width,
-						double height, bool left) const
+                std::string custom_limb::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
+                {
+                    return svg(identifier, draw_rect(posx, posy, width, height), left);
+                }
+
+				std::string custom_limb::svg(std::string identifier, draw_rect rect, bool left, svg_style style) const
 				{
+                    double posx = rect.get_posx();
+                    double posy = rect.get_posy();
+                    double width = rect.get_width();
+                    double height = rect.get_height();
+
 					std::stringstream sstr;
 
-					//TODO
+                    std::string id_ex = identifier;
+                    id_ex.append("extremity");
+
+					if (nullptr == fixed_end_)
+                    {
+					    sstr << extremity_->svg(id_ex, posx, posy, width, height, left);
+                    }
+                    else
+                    {
+                        std::string id_fe = identifier;
+                        id_fe.append("fixedend");
+
+                        sstr << extremity_->svg(id_ex, posx, posy, width, height / 2.0, left);
+                        sstr << fixed_end_->svg(id_fe, posx, posy + height / 2.0, width, height / 2.0, left);
+                    }
 
 					return sstr.str();
 				}

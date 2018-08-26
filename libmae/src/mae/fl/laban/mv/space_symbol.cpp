@@ -144,6 +144,16 @@ namespace mae
 
 				std::string space_symbol::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
+					return svg(identifier, draw_rect(posx, posy, width, height), left);
+				}
+
+				std::string space_symbol::svg(std::string identifier, draw_rect rect, bool left, svg_style style) const
+				{
+					double posx = rect.get_posx();
+					double posy = rect.get_posy();
+					double width = rect.get_width();
+					double height = rect.get_height();
+
 					identifier.append("-space_symbol");
 
 					std::stringstream sstr;
@@ -160,7 +170,7 @@ namespace mae
 					sstr << "\t\t\td=\"m " << posx+width/2.0 << "," << posy << " " << 0 << "," << nheight*0.98 << "\""
 							<< std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
-					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
 
 					//draw measurement

@@ -4,6 +4,8 @@
 %include "column_definition.i"
 %include "i_movement.i"
 %include "e_time_unit.i"
+%include "draw_laban_rect.i"
+%include "svg_style.i"
 
 //--global includes
 //%include "std_shared_ptr.i"

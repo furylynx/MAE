@@ -285,7 +285,7 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/math/angular_distance.hpp src/mae/math/angular_distance.cpp
         src/mae/fl/laban/e_blur_strategy.hpp src/mae/fl/laban/e_blur_strategy.cpp
         src/mae/fl/laban/blur_strategy.hpp src/mae/fl/laban/blur_strategy.cpp
-        )
+        src/mae/fl/laban/draw_rect.cpp src/mae/fl/laban/draw_rect.hpp src/mae/fl/laban/draw_laban_rect.cpp src/mae/fl/laban/draw_laban_rect.hpp src/mae/fl/laban/svg_style.cpp src/mae/fl/laban/svg_style.hpp)
 
 
 # define test files

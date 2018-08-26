@@ -2,7 +2,8 @@
 #define MAE_FL_LABAN_I_MOVEMENT_HPP_
 
 //custom includes
-//...
+#include "draw_laban_rect.hpp"
+#include "svg_style.hpp"
 
 //global includes
 #include <string>
@@ -105,13 +106,23 @@ namespace mae
 					/**
 					 * Returns the SVG representation for this element.
 					 *
-					 * @param posx The x pos.
-					 * @param posy The y pos.
-					 * @param width The width.
-					 * @param height The height.
+					 * @param im_width The im_width.
+					 * @param im_height The im_height.
+					 * @param max_column The max_column.
+					 * @param measures The measures.
+					 * @param beats_per_measure beats_per_measure
 					 * @return The SVG.
 					 */
 					virtual std::string svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const = 0;
+
+                    /**
+                     * Returns the SVG representation for this element.
+                     *
+                     * @param rect The laban rectangle.
+                     * @param style The svg style.
+                     * @return The SVG.
+                     */
+                    virtual std::string svg(draw_laban_rect rect, svg_style style = svg_style()) const = 0;
 
 					/**
 					 * Recreates the movement by copying its members but changing the position in the staff.

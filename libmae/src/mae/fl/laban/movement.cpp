@@ -177,33 +177,38 @@ namespace mae
 
 			std::string movement::svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const
 			{
+				return svg(draw_laban_rect(im_width, im_height, max_column, measures, beats_per_measure));
+			}
+
+			std::string movement::svg(draw_laban_rect rect, svg_style style) const
+			{
 				std::stringstream id_sstr;
 				id_sstr << "movement-" << column_ << "-" << measure_ << "-" << beat_ ;
 				std::string identifier = id_sstr.str();
 
 				std::stringstream sstr;
 
-				int total_beats = (measures + 1) * beats_per_measure;
-				double column_width = (im_width)/(max_column * 2.0);
-				double beat_height = (im_height*(0.85 - 0.01)) / total_beats;
+				int total_beats = (rect.get_measures() + 1) * rect.get_beats_per_measure();
+				double column_width = (rect.get_im_width())/(rect.get_max_column() * 2.0);
+				double beat_height = (rect.get_im_height()*(0.85 - 0.01)) / total_beats;
 
 				double draw_w = column_width / 2.0;
-				double draw_x_pos = (im_width / 2.0) + ((column_ - (mae::math::math::sign(column_)*0.5) - 0.25)*column_width);
+				double draw_x_pos = (rect.get_im_width() / 2.0) + ((column_ - (mae::math::math::sign(column_)*0.5) - 0.25)*column_width);
 
 				double draw_y_pos = 0;
 				double draw_h = 0;
 
 				if (measure_ != 0)
 				{
-					draw_y_pos = im_height*(0.85 - 0.01) - (measure_ * beats_per_measure + beat_
+					draw_y_pos = rect.get_im_height()*(0.85 - 0.01) - (measure_ * rect.get_beats_per_measure() + beat_
 															+ duration_) * beat_height;
 					draw_h = beat_height * duration_;
 				}
 				else
 				{
-					draw_y_pos = im_height*(0.85) - (measure_ * beats_per_measure + beat_
-						+ beats_per_measure) * beat_height;
-					draw_h = beat_height * beats_per_measure;
+					draw_y_pos = rect.get_im_height()*(0.85) - (measure_ * rect.get_beats_per_measure() + beat_
+						+ rect.get_beats_per_measure()) * beat_height;
+					draw_h = beat_height * rect.get_beats_per_measure();
 				}
 
 				double draw_hold_y = 0;
@@ -236,7 +241,7 @@ namespace mae
 					}
 				}
 
-				sstr << symbol_->svg(identifier, draw_x_pos, draw_y_pos, draw_w, draw_h, (column_ < 0));
+				sstr << symbol_->svg(identifier, draw_rect(draw_x_pos, draw_y_pos, draw_w, draw_h), (column_ < 0), style);
 
 				//draw hold sign
 				if (hold_)
@@ -252,7 +257,7 @@ namespace mae
 				{
 					//pre sign
 					double draw_ps_y = draw_y_pos + draw_h;
-					sstr << pre_sign_->svg(identifier, draw_x_pos+draw_ps_h/2.0, draw_ps_y, draw_ps_h, draw_ps_h);
+					sstr << pre_sign_->svg(identifier, draw_rect(draw_x_pos+draw_ps_h/2.0, draw_ps_y, draw_ps_h, draw_ps_h), false, style);
 				}
 
 				return sstr.str();

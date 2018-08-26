@@ -6,6 +6,7 @@
 #include "i_movement.hpp"
 #include "movement.hpp"
 #include "e_time_unit.hpp"
+#include "svg_style.hpp"
 
 //global includes
 #include <memory>
@@ -298,9 +299,10 @@ namespace mae {
 				 *
 				 * @param im_width The image width.
 				 * @param im_height The image heigth.
+				 * @param style The style to apply.
 				 * @return The SVG.
 				 */
-				virtual std::string svg(unsigned int im_width, unsigned int im_height) const;
+				virtual std::string svg(unsigned int im_width, unsigned int im_height, svg_style style = svg_style()) const;
 
 				/**
 				 * Prints the corresponding svg file for this sequence.
@@ -308,8 +310,9 @@ namespace mae {
 				 * @param path The file path.
 				 * @param im_width The image width.
 				 * @param im_height The image heigth.
+				 * @param style The style to apply.
 				 */
-				virtual void svg_file(std::string path, unsigned int im_width = 1920, unsigned int im_height = 1080) const;
+				virtual void svg_file(std::string path, unsigned int im_width = 1920, unsigned int im_height = 1080, svg_style style = svg_style()) const;
 
 				/**
 				 * Returns the string representation for the sequence.
@@ -364,7 +367,7 @@ namespace mae {
 
 			protected:
 
-				virtual std::string svg_fill_pattern(std::string pattern_name, unsigned int im_width, unsigned int im_height) const;
+				virtual std::string svg_fill_pattern(std::string pattern_name, unsigned int im_width, unsigned int im_height, svg_style style = svg_style()) const;
 
 
 			private:

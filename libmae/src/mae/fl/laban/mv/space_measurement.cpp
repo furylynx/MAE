@@ -136,9 +136,18 @@ namespace mae
 					return sstr.str();
 				}
 
-				std::string space_measurement::svg(std::string identifier, double posx, double posy, double width,
-						double height, bool left) const
+				std::string space_measurement::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
+					return svg(identifier, draw_rect(posx, posy, width, height), left);
+				}
+
+				std::string space_measurement::svg(std::string identifier, draw_rect rect, bool left, svg_style style) const
+				{
+					double posx = rect.get_posx();
+					double posy = rect.get_posy();
+					double width = rect.get_width();
+					double height = rect.get_height();
+
 					identifier.append("-spacemeasurement");
 
 					std::stringstream sstr;

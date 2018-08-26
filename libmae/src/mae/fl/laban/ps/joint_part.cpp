@@ -53,19 +53,29 @@ namespace mae
 
 				std::string joint_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
-					if (width > height)
-					{
-						posx += width-height;
-						width = height;
-					}
-					else
-					{
-						height = width;
-					}
+					return svg(identifier, draw_rect(posx, posy, width, height), left);
+				}
+
+				std::string joint_part::svg(std::string identifier, draw_rect rect, bool left, svg_style style) const
+				{
+					double posx = rect.get_posx();
+					double posy = rect.get_posy();
+					double width = rect.get_width();
+					double height = rect.get_height();
 
 					std::stringstream sstr;
 
-					sstr << "<path" << std::endl;
+                    if (width > height)
+                    {
+                        posx += width-height;
+                        width = height;
+                    }
+                    else
+                    {
+                        height = width;
+                    }
+
+                    sstr << "<path" << std::endl;
 
 					if (joint_ == e_joint::SHOULDER)
 					{
@@ -74,13 +84,13 @@ namespace mae
 					}
 					else if (joint_ == e_joint::ELBOW)
 					{
-                        sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + (height / 4.0) << " " << -width / 2.0 << "," << -height / 4.0
+                        sstr << "d=\"m " << posx + (3*width / 4.0) << "," << posy + (height / 4.0) << " " << -width / 2.0 << "," << -height / 4.0
                              << "  " << 0 << "," << 3 * height / 4.0 << " " << width / 2.0 << "," << height / 4.0
                              << "\"" << std::endl;
 					}
 					else if (joint_ == e_joint::WRIST)
 					{
-                        sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + (height / 4.0) << " " << -width / 2.0 << "," << -height / 4.0
+                        sstr << "d=\"m " << posx + (3*width / 4.0) << "," << posy + (height / 4.0) << " " << -width / 2.0 << "," << -height / 4.0
                              << "  " << 0 << "," << 3 * height / 4.0 << " " << width / 2.0 << "," << height / 4.0
                              << " m " << -width / 2.0 << "," << -2.5 * height / 4.0 << " " << width / 2.0
                              << "," << height / 4.0 << "\"" << std::endl;
@@ -88,7 +98,7 @@ namespace mae
 					}
 					else if (joint_ == e_joint::HAND)
 					{
-                        sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + (height / 4.0) << " " << -width / 2.0 << "," << -height / 4.0
+                        sstr << "d=\"m " << posx + (3*width / 4.0) << "," << posy + (height / 4.0) << " " << -width / 2.0 << "," << -height / 4.0
                              << "  " << 0 << "," << 3 * height / 4.0 << " " << width / 2.0 << "," << height / 4.0
                              << " m " << 0 << "," << -3 * height / 12.0 << " " << -width / 2.0 << "," << -height / 4.0
                              << " m " << 0 << "," << -3 * height / 12.0 << " " << width / 2.0 << "," << height / 4.0
@@ -96,7 +106,7 @@ namespace mae
 					}
 					else if (joint_ == e_joint::FINGERS)
 					{
-                        sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + (height / 4.0) << " " << -width / 2.0 << "," << -height / 4.0
+                        sstr << "d=\"m " << posx + (3*width / 4.0) << "," << posy + (height / 4.0) << " " << -width / 2.0 << "," << -height / 4.0
                              << "  " << 0 << "," << 3 * height / 4.0 << " " << width / 2.0 << "," << height / 4.0
                              << " m " << 0 << "," << -3 * height / 16.0 << " " << -width / 2.0 << "," << -height / 4.0
                              << " m " << 0 << "," << -3 * height / 16.0 << " " << width / 2.0 << "," << height / 4.0
@@ -155,8 +165,6 @@ namespace mae
 							<< "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
 							<< std::endl;
 					sstr << "\t\t\t/>" << std::endl;
-
-					return sstr.str();
 
 					return sstr.str();
 				}

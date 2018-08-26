@@ -1,7 +1,7 @@
 /*
  * laban_column.hpp
  *
- *  Created on: 07.07.2014
+ *  Created on: 2014-07-07
  *      Author: furylynx
  */
 
@@ -9,6 +9,9 @@
 #define MAE_FL_LABAN_COLUMN_DEFINITION_HPP_
 
 //custom includes
+#include "draw_laban_rect.hpp"
+#include "svg_style.hpp"
+
 #include "../../e_bone.hpp"
 #include "../../bone.hpp"
 
@@ -95,6 +98,15 @@ namespace mae
 				 * @return The SVG.
 				 */
 				virtual std::string svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const;
+
+				/**
+				 * Returns the SVG representation for this element.
+				 *
+				 * @param rect The laban rectangle.
+				 * @param style The svg style.
+				 * @return The SVG.
+				 */
+				virtual std::string svg(draw_laban_rect rect, svg_style style = svg_style()) const;
 
 				/**
 				 * Returns true if definitions are equal.

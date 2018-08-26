@@ -1,7 +1,8 @@
 //-- i_dynamics_sign.i - SWIG interface
 
 //-- custom includes
-//...
+%include "../draw_rect.i"
+%include "../svg_style.i"
 
 //-- global includes
 //%include "std_shared_ptr.i"

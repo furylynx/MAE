@@ -1,4 +1,5 @@
 #include "surface_part.hpp"
+#include "custom_limb.hpp"
 
 namespace mae
 {
@@ -61,11 +62,19 @@ namespace mae
 
 				}
 
-				std::string surface_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
-				{
-                    identifier.append("surface-part");
+                std::string surface_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
+                {
+				    return svg(identifier, draw_rect(posx, posy, width, height), left);
+                }
 
-					std::stringstream sstr;
+				std::string surface_part::svg(std::string identifier, draw_rect rect, bool left, svg_style style) const
+				{
+                    double posx = rect.get_posx();
+                    double posy = rect.get_posy();
+                    double width = rect.get_width();
+                    double height = rect.get_height();
+
+                    identifier.append("surface-part");
 
                     if (width > height)
                     {
@@ -77,11 +86,15 @@ namespace mae
                         height = width;
                     }
 
+					std::stringstream sstr;
+
                     sstr << limb_->svg(identifier, posx, posy, width, height, left);
 
                     double radius = (width / 10.0);
                     double offsetx = width / 4.0;
                     double offsety = height / 2.0;
+
+                    bool draw_additional_line = false;
 
                     if (std::shared_ptr<default_limb> limb_casted = std::dynamic_pointer_cast<default_limb>(limb_))
                     {
@@ -91,8 +104,15 @@ namespace mae
                             offsety = height / 3.0 + radius/2.0;
                         }
                     }
+                    else if (std::shared_ptr<custom_limb> limb_casted = std::dynamic_pointer_cast<custom_limb>(limb_))
+					{
+						offsetx = width / 8.0;
+                        offsety = height / 3.0 + radius/2.0;
+                        draw_additional_line = true;
+					}
 
-                    if (left) {
+                    if (left)
+                    {
                         offsetx = width - offsetx;
                     }
 
@@ -123,7 +143,7 @@ namespace mae
 					    if (left)
                         {
                             sstr << "\t<path d=\"m " << posx+width << "," << posy + offsety << " "
-                                 << height / 6.0 << "," << 0 << "\" id=\"" << identifier
+                                 << width / 6.0 << "," << 0 << "\" id=\"" << identifier
                                  << "-tick\"" << std::endl;
                             sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
                                  << std::endl;
@@ -131,11 +151,27 @@ namespace mae
                         else
                         {
                             sstr << "\t<path d=\"m " << posx << "," << posy + offsety << " "
-                                 << -height / 6.0 << "," << 0 << "\" id=\"" << identifier
+                                 << -width / 6.0 << "," << 0 << "\" id=\"" << identifier
                                  << "-tick\"" << std::endl;
                             sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
                                  << std::endl;
                         }
+                    }
+
+                    if (draw_additional_line)
+                    {
+                        double loffset = 0;
+
+                        if (left)
+                        {
+                            loffset = width;
+                        }
+
+                        sstr << "\t<path d=\"m " << posx + loffset << "," << posy << " "
+                             << 0 << "," << 3*height / 4.0 << "\" id=\"" << identifier
+                             << "-tick\"" << std::endl;
+                        sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+                             << std::endl;
                     }
 
 					return sstr.str();

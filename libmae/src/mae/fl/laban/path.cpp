@@ -137,8 +137,12 @@ namespace mae
 
 			}
 
-			std::string path::svg(unsigned int im_width, unsigned int im_height, unsigned int max_column,
-					unsigned int measures, unsigned int beats_per_measure) const
+			std::string path::svg(unsigned int im_width, unsigned int im_height, unsigned int max_column, unsigned int measures, unsigned int beats_per_measure) const
+			{
+				return svg(draw_laban_rect(im_width, im_height, max_column, measures, beats_per_measure));
+			}
+
+			std::string path::svg(draw_laban_rect rect, svg_style style) const
 			{
 				std::stringstream id_sstr;
 				id_sstr << "path-" << measure_ << "-" << beat_;
@@ -146,26 +150,26 @@ namespace mae
 
 				std::stringstream sstr;
 
-				int total_beats = (measures + 1) * beats_per_measure;
-				double column_width = (im_width) / (max_column * 2.0);
-				double beat_height = (im_height * (0.85 - 0.01)) / total_beats;
+				int total_beats = (rect.get_measures ()+ 1) * rect.get_beats_per_measure();
+				double column_width = (rect.get_im_width()) / (rect.get_max_column() * 2.0);
+				double beat_height = (rect.get_im_height() * (0.85 - 0.01)) / total_beats;
 
 				double width = column_width / 2.0;
-				double posx = (im_width / 2.0) + ((max_column - 0.5 - 0.25) * column_width);
+				double posx = (rect.get_im_width() / 2.0) + ((rect.get_max_column() - 0.5 - 0.25) * column_width);
 
 				double posy = 0;
 				double height = 0;
 
 				if (measure_ != 0)
 				{
-					posy = im_height * (0.85 - 0.01) - (measure_ * beats_per_measure + beat_ + duration_) * beat_height;
+					posy = rect.get_im_height() * (0.85 - 0.01) - (measure_ * rect.get_beats_per_measure() + beat_ + duration_) * beat_height;
 					height = beat_height * duration_;
 				}
 				else
 				{
-					posy = im_height * (0.85)
-							- (measure_ * beats_per_measure + beat_ + beats_per_measure) * beat_height;
-					height = beat_height * beats_per_measure;
+					posy = rect.get_im_height() * (0.85)
+							- (measure_ * rect.get_beats_per_measure() + beat_ + rect.get_beats_per_measure()) * beat_height;
+					height = beat_height * rect.get_beats_per_measure();
 				}
 
 				if (type_ == e_path_type::STRAIGHT)

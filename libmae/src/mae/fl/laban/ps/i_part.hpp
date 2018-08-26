@@ -2,7 +2,8 @@
 #define MAE_FL_LABAN_PS_I_PART_HPP_
 
 //custom includes
-//...
+#include "../draw_rect.hpp"
+#include "../svg_style.hpp"
 
 //global includes
 #include <string>
@@ -43,6 +44,17 @@ namespace mae
 						 * @return The SVG.
 						 */
 						virtual std::string svg(std::string identifier, double posx, double posy, double width, double height, bool left = false) const = 0;
+
+						/**
+						 * Returns the SVG representation for this symbol.
+						 *
+						 * @param identifier The identifier of the svg object.
+						 * @param rect The rect to fill.
+						 * @param left True if left side.
+						 * @param style The svg style.
+						 * @return The SVG.
+						 */
+						virtual std::string svg(std::string identifier, draw_rect rect, bool left = false, svg_style style = svg_style()) const = 0;
 
 						/**
 						 * Returns true if elements are equal.

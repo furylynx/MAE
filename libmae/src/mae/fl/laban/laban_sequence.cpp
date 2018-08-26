@@ -448,7 +448,7 @@ namespace mae
 				}
 			}
 
-			std::string laban_sequence::svg(unsigned int im_width, unsigned int im_height) const
+			std::string laban_sequence::svg(unsigned int im_width, unsigned int im_height, svg_style style) const
 			{
 				std::stringstream sstr;
 
@@ -465,7 +465,7 @@ namespace mae
 				sstr << "\theight=\"" << im_height << "\"" << std::endl;
 				sstr << "\tid=\"svg3545\">" << std::endl;
 				sstr << "\t<defs id=\"defs3547\" >" << std::endl;
-				sstr << svg_fill_pattern("fillpattern", im_width, im_height) << std::endl;
+				sstr << svg_fill_pattern("fillpattern", im_width, im_height, style) << std::endl;
 				sstr << "\t</defs>" << std::endl;
 
 				sstr << "\t<metadata id=\"metadata3550\">" << std::endl;
@@ -587,13 +587,13 @@ namespace mae
 				//handle column definitions
 				for (unsigned int i = 0; i < column_definitions_vec_.size(); i++)
 				{
-					sstr << column_definitions_vec_.at(i)->svg(im_width, im_height, max_index, measures_, beats_);
+					sstr << column_definitions_vec_.at(i)->svg(draw_laban_rect(im_width, im_height, max_index, measures_, beats_), style);
 				}
 
 				//handle movements
 				for (unsigned int i = 0; i < i_movements_vec_.size(); i++)
 				{
-					sstr << i_movements_vec_.at(i)->svg(im_width, im_height, max_index, measures_, beats_);
+					sstr << i_movements_vec_.at(i)->svg(draw_laban_rect(im_width, im_height, max_index, measures_, beats_), style);
 				}
 
 				sstr << "\t</g>" << std::endl;
@@ -602,13 +602,13 @@ namespace mae
 				return sstr.str();
 			}
 
-			void laban_sequence::svg_file(std::string path, unsigned int im_width, unsigned int im_height) const
+			void laban_sequence::svg_file(std::string path, unsigned int im_width, unsigned int im_height, svg_style style) const
 			{
 				std::ofstream outfile(path);
 
 				if (outfile.is_open())
 				{
-					outfile << svg(im_width, im_height);
+					outfile << svg(im_width, im_height, style);
 					outfile.close();
 				}
 				else
@@ -618,7 +618,7 @@ namespace mae
 			}
 
 			std::string laban_sequence::svg_fill_pattern(std::string pattern_name, unsigned int im_width,
-					unsigned int im_height) const
+					unsigned int im_height, svg_style style) const
 			{
 
 				int step = std::ceil(im_height / 40.0);
@@ -627,7 +627,7 @@ namespace mae
 
 				sstr << "\t\t<pattern id=\"" << pattern_name << "\" patternUnits=\"userSpaceOnUse\" width=\"" << step << "\" height=\"" << step << "\" patternTransform=\"rotate(-45 0 0)\" >" << std::endl;
 				sstr << "\t\t\t<path d=\"m 0,0 " << step << ",0\"" << std::endl;
-				sstr << "style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+				sstr << "style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
 				sstr << "</pattern>" << std::endl;
 
 				return sstr.str();
