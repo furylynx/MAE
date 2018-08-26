@@ -88,6 +88,18 @@ namespace mae
 					return sstr.str();
 				}
 
+
+				std::string dynamic_sign::svg(std::string identifier, double posx, double posy, double width, double height,
+									 bool left) const
+				{
+					std::stringstream sstr;
+
+					//TODO
+
+					return sstr.str();
+				}
+
+
 			} // namespace mv
 		} // namespace laban
 	} // namespace fl

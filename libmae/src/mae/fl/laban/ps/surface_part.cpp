@@ -63,9 +63,80 @@ namespace mae
 
 				std::string surface_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
+                    identifier.append("surface-part");
+
 					std::stringstream sstr;
 
-					//TODO
+                    if (width > height)
+                    {
+                        posx += width-height;
+                        width = height;
+                    }
+                    else
+                    {
+                        height = width;
+                    }
+
+                    sstr << limb_->svg(identifier, posx, posy, width, height, left);
+
+                    double radius = (width / 10.0);
+                    double offsetx = width / 4.0;
+                    double offsety = height / 2.0;
+
+                    if (std::shared_ptr<default_limb> limb_casted = std::dynamic_pointer_cast<default_limb>(limb_))
+                    {
+                        if (limb_casted->get_limb() == e_limb::UPPER_ARM || limb_casted->get_limb() == e_limb::LOWER_ARM || limb_casted->get_limb() == e_limb::ARM)
+                        {
+                            offsetx = width / 8.0;
+                            offsety = height / 3.0 + radius/2.0;
+                        }
+                    }
+
+                    if (left) {
+                        offsetx = width - offsetx;
+                    }
+
+					if (lside_ != e_limb_side::THUMB && lside_ != e_limb_side::LITTLEFINGER )
+					{
+						//draw bullet
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx + offsetx + radius << "," << posy + offsety
+							 << " a " << radius << "," << radius << " 0 1 1 -" << radius * 2.0 << ",0 "
+							 << radius << "," << radius << " 0 1 1 " << radius * 2.0 << ",0 z\""
+							 << std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-surface-circle\"" << std::endl;
+
+						if (lside_ == e_limb_side::OUTER || lside_ == e_limb_side::OUTERLITTLEFINGER || lside_ == e_limb_side::OUTERTHUMB)
+						{
+							sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1pt;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none\" />"
+								 << std::endl;
+						}
+						else
+						{
+							sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1pt;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none\" />"
+								 << std::endl;
+						}
+					}
+
+					if (lside_ == e_limb_side::OUTERLITTLEFINGER || lside_ == e_limb_side::LITTLEFINGER || lside_ == e_limb_side::THUMB || lside_ == e_limb_side::INNERLITTLEFINGER || lside_ == e_limb_side::INNERTHUMB || lside_ == e_limb_side::OUTERTHUMB)
+                    {
+					    if (left)
+                        {
+                            sstr << "\t<path d=\"m " << posx+width << "," << posy + offsety << " "
+                                 << height / 6.0 << "," << 0 << "\" id=\"" << identifier
+                                 << "-tick\"" << std::endl;
+                            sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+                                 << std::endl;
+                        }
+                        else
+                        {
+                            sstr << "\t<path d=\"m " << posx << "," << posy + offsety << " "
+                                 << -height / 6.0 << "," << 0 << "\" id=\"" << identifier
+                                 << "-tick\"" << std::endl;
+                            sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+                                 << std::endl;
+                        }
+                    }
 
 					return sstr.str();
 				}

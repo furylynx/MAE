@@ -73,6 +73,17 @@ namespace mae
 						 * @return The feature vector.
 						 */
 						virtual std::vector<double> feature_vector(double hierarchy_factor = 0.5) const = 0;
+
+						/**
+						 * Returns the SVG representation for this symbol.
+						 *
+						 * @param posx The x position.
+						 * @param posy The y position.
+						 * @param width The width.
+						 * @param height The height.
+						 * @return The SVG.
+						 */
+						virtual std::string svg(std::string identifier, double posx, double posy, double width, double height, bool left = false) const = 0;
 				};
 
 			} // namespace ps

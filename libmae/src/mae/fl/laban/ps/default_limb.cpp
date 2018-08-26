@@ -136,7 +136,7 @@ namespace mae
 						sstr << "transform=\"matrix(-1,0,0,1," << 2 * posx + width << ",0)\"" << std::endl; //transform=\"translate(" << -width << "), scale(-1, 1)
 					}
 
-					sstr << "\t\t\tid=\"" << identifier << "customlimb\"" << std::endl;
+					sstr << "\t\t\tid=\"" << identifier << "default_limb\"" << std::endl;
 					sstr
 							<< "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
 							<< std::endl;

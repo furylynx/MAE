@@ -5,6 +5,7 @@
 #include "i_part.hpp"
 #include "e_limb_side.hpp"
 #include "i_limb.hpp"
+#include "default_limb.hpp"
 
 //global includes
 #include <string>

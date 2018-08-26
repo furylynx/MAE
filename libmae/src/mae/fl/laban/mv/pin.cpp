@@ -132,7 +132,7 @@ namespace mae
 
 					int ah = 270;
 
-					if (horizontal_ > 0)
+					if (horizontal_ >= 0)
 					{
 						ah = ((int) (horizontal_ / 45.0)) * 45;
 					}
@@ -140,7 +140,7 @@ namespace mae
 					double s = std::sin((ah / 360.0) * M_PI * 2);
 
 					//draw line
-					if (horizontal_ > 0)
+					if (horizontal_ >= 0)
 					{
 						sstr << "\t<path d=\"m " << posx + width / 2.0 << "," << posy + height / 2.0 << " "
 								<< (height / 2.0 * s) << "," << -height / 2.0 * c << "\" id=\"" << identifier
@@ -163,10 +163,11 @@ namespace mae
 					if (level_ == e_level::HIGH || level_ == e_level::LOW)
 					{
 						//draw bullet
+                        double radius = (width / 12.0);
 						sstr << "\t\t<path" << std::endl;
-						sstr << "\t\t\td=\"m " << posx + width / 2.0 + width / 6.0 << "," << posy + height / 2.0
-								<< " a " << width / 6.0 << "," << width / 6.0 << " 0 1 1 -" << width / 3.0 << ",0 "
-								<< width / 6.0 << "," << width / 6.0 << " 0 1 1 " << width / 3.0 << ",0 z\""
+						sstr << "\t\t\td=\"m " << posx + width / 2.0 + radius << "," << posy + height / 2.0
+								<< " a " << radius << "," << radius << " 0 1 1 -" << 2*radius << ",0 "
+								<< radius << "," << radius << " 0 1 1 " << 2*radius << ",0 z\""
 								<< std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-circle\"" << std::endl;
 

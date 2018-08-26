@@ -53,9 +53,110 @@ namespace mae
 
 				std::string joint_part::svg(std::string identifier, double posx, double posy, double width, double height, bool left) const
 				{
+					if (width > height)
+					{
+						posx += width-height;
+						width = height;
+					}
+					else
+					{
+						height = width;
+					}
+
 					std::stringstream sstr;
 
-					//TODO
+					sstr << "<path" << std::endl;
+
+					if (joint_ == e_joint::SHOULDER)
+					{
+						sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + height << " " << 0 << "," << -height << " "
+							 << width / 2.0 << "," << height / 3.0 << "\"" << std::endl;
+					}
+					else if (joint_ == e_joint::ELBOW)
+					{
+                        sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + (height / 4.0) << " " << -width / 2.0 << "," << -height / 4.0
+                             << "  " << 0 << "," << 3 * height / 4.0 << " " << width / 2.0 << "," << height / 4.0
+                             << "\"" << std::endl;
+					}
+					else if (joint_ == e_joint::WRIST)
+					{
+                        sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + (height / 4.0) << " " << -width / 2.0 << "," << -height / 4.0
+                             << "  " << 0 << "," << 3 * height / 4.0 << " " << width / 2.0 << "," << height / 4.0
+                             << " m " << -width / 2.0 << "," << -2.5 * height / 4.0 << " " << width / 2.0
+                             << "," << height / 4.0 << "\"" << std::endl;
+                        //done
+					}
+					else if (joint_ == e_joint::HAND)
+					{
+                        sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + (height / 4.0) << " " << -width / 2.0 << "," << -height / 4.0
+                             << "  " << 0 << "," << 3 * height / 4.0 << " " << width / 2.0 << "," << height / 4.0
+                             << " m " << 0 << "," << -3 * height / 12.0 << " " << -width / 2.0 << "," << -height / 4.0
+                             << " m " << 0 << "," << -3 * height / 12.0 << " " << width / 2.0 << "," << height / 4.0
+                             << "\"" << std::endl;
+					}
+					else if (joint_ == e_joint::FINGERS)
+					{
+                        sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + (height / 4.0) << " " << -width / 2.0 << "," << -height / 4.0
+                             << "  " << 0 << "," << 3 * height / 4.0 << " " << width / 2.0 << "," << height / 4.0
+                             << " m " << 0 << "," << -3 * height / 16.0 << " " << -width / 2.0 << "," << -height / 4.0
+                             << " m " << 0 << "," << -3 * height / 16.0 << " " << width / 2.0 << "," << height / 4.0
+                             << " m " << 0 << "," << -3 * height / 16.0 << " " << -width / 2.0 << "," << -height / 4.0
+                             << "\"" << std::endl;
+					}
+					else if (joint_ == e_joint::HIP)
+					{
+						sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + height << " " << 0 << "," << -height
+						     << " m  " << 0 << "," << height / 3.0 << " " << width / 2.0 << "," << 0
+						     << "\"" << std::endl;
+					}
+					else if (joint_ == e_joint::KNEE)
+					{
+                        sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + height << " " << 0 << "," << -height
+                             << " m  " << 0 << "," << height / 3.0 << " " << width / 2.0 << "," << 0
+                             << " m  " << 0 << "," << height / 3.0 << " " << -width / 2.0 << "," << 0
+                             << "\"" << std::endl;
+					}
+					else if (joint_ == e_joint::ANKLE)
+					{
+                        sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + height << " " << 0 << "," << -height
+                             << " m  " << 0 << "," << height / 4.0 << " " << width / 2.0 << "," << 0
+                             << " m  " << 0 << "," << height / 4.0 << " " << -width / 2.0 << "," << 0
+                             << " m  " << 0 << "," << height / 4.0 << " " << width / 2.0 << "," << 0
+                             << "\"" << std::endl;
+					}
+					else if (joint_ == e_joint::FOOT)
+					{
+                        sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + height << " " << 0 << "," << -height
+                             << " m  " << 0 << "," << height / 5.0 << " " << width / 2.0 << "," << 0
+                             << " m  " << 0 << "," << height / 5.0 << " " << -width / 2.0 << "," << 0
+                             << " m  " << 0 << "," << height / 5.0 << " " << width / 2.0 << "," << 0
+                             << " m  " << 0 << "," << height / 5.0 << " " << -width / 2.0 << "," << 0
+                             << "\"" << std::endl;
+					}
+					else if (joint_ == e_joint::TOES)
+					{
+                        sstr << "d=\"m " << posx + (width / 4.0) << "," << posy + height << " " << 0 << "," << -height
+                             << " m  " << 0 << "," << height / 6.0 << " " << width / 2.0 << "," << 0
+                             << " m  " << 0 << "," << height / 6.0 << " " << -width / 2.0 << "," << 0
+                             << " m  " << 0 << "," << height / 6.0 << " " << width / 2.0 << "," << 0
+                             << " m  " << 0 << "," << height / 6.0 << " " << -width / 2.0 << "," << 0
+                             << " m  " << 0 << "," << height / 6.0 << " " << width / 2.0 << "," << 0
+                             << "\"" << std::endl;
+					}
+
+					if (left)
+					{
+					    //mirror horizontally
+						sstr << "transform=\"matrix(-1,0,0,1," << 2 * posx + width << ",0)\"" << std::endl; //transform=\"translate(" << -width << "), scale(-1, 1)
+					}
+
+					sstr << "\t\t\tid=\"" << identifier << "customlimb\"" << std::endl;
+					sstr
+							<< "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
+							<< std::endl;
+					sstr << "\t\t\t/>" << std::endl;
+
+					return sstr.str();
 
 					return sstr.str();
 				}

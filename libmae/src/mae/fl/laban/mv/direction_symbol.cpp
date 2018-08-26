@@ -259,9 +259,7 @@ namespace mae
 				{
 					std::stringstream sstr;
 
-					//TODO relationship pin, dynamics, contact hook
-
-					//double orig_height = height;
+					//TODO contact hook
 
 					if (space_measurement_ != nullptr)
 					{
@@ -412,7 +410,38 @@ namespace mae
 						double mpin_y = posy + height/2.0 - mpin_h/2.0;
 						double mpin_x = posx + width/2.0 - mpin_w/2.0;
 
-						sstr << space_measurement_->svg(identifier, mpin_x, mpin_y, mpin_w, mpin_h);
+						std::string pin_id = identifier;
+						pin_id.append("-mpin");
+
+						sstr << space_measurement_->svg(pin_id, mpin_x, mpin_y, mpin_w, mpin_h);
+					}
+
+					if (relationship_pin_ != nullptr)
+					{
+						//draw pin
+						double mpin_w = width*0.8;
+						double mpin_h = width*0.8;
+						double mpin_y = posy + height/2.0 - mpin_h/2.0;
+						double mpin_x = posx + width;
+
+						std::string pin_id = identifier;
+						pin_id.append("-rpin");
+
+						sstr << relationship_pin_->svg(pin_id, mpin_x, mpin_y, mpin_w, mpin_h);
+					}
+
+					if (dynamics_ != nullptr)
+					{
+						//draw dynamics
+						double mpin_w = width*0.8;
+						double mpin_h = width*0.8;
+						double mpin_y = posy + height - mpin_h;
+						double mpin_x = posx + width;
+
+						std::string d_id = identifier;
+						d_id.append("-dyn");
+
+						sstr << dynamics_->svg(identifier, mpin_x, mpin_y, mpin_w, mpin_h);
 					}
 
 					return sstr.str();

@@ -191,7 +191,6 @@ namespace mae
 						sstr << "\" />" << std::endl;
 					}
 
-
 					if (degree_ != nullptr)
 					{
 						//draw the pin
@@ -211,7 +210,19 @@ namespace mae
 						sstr << degree_->svg(pin_id, pin_x, pin_y, pin_w, pin_h);
 					}
 
-					//TODO dynamics
+					if (dynamics_ != nullptr)
+					{
+						//draw dynamics
+						double mpin_w = width*0.8;
+						double mpin_h = width*0.8;
+						double mpin_y = posy + height - mpin_h;
+						double mpin_x = posx + width;
+
+						std::string d_id = identifier;
+						d_id.append("-dyn");
+
+						sstr << dynamics_->svg(d_id, mpin_x, mpin_y, mpin_w, mpin_h);
+					}
 
 					return sstr.str();
 				}
