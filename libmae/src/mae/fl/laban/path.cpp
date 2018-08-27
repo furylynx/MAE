@@ -180,7 +180,7 @@ namespace mae
 							<< width << "," << 0 << "\"" << std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-path\"" << std::endl;
 					sstr
-							<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							<< "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
 				}
 				else if (type_ == e_path_type::CIRCULAR_LEFT)
@@ -192,7 +192,7 @@ namespace mae
 							<< std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-path\"" << std::endl;
 					sstr
-							<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							<< "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
 				}
 				else if (type_ == e_path_type::CIRCULAR_RIGHT)
@@ -204,7 +204,7 @@ namespace mae
 							<< std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-path\"" << std::endl;
 					sstr
-							<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							<< "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
 				}
 				else if (type_ == e_path_type::ANY)
@@ -221,7 +221,7 @@ namespace mae
 							<< std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-path\"" << std::endl;
 					sstr
-							<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							<< "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
 				}
 

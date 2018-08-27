@@ -155,7 +155,7 @@ namespace mae
 								<< (height / 2.0 * s) << "," << -height / 2.0 * c << "\" id=\"" << identifier
 								<< "-pindir\"" << std::endl;
 						sstr
-								<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+								<< "\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 								<< std::endl;
 					}
 					else
@@ -164,7 +164,7 @@ namespace mae
 								<< width << "," << 0 << "\" id=\"" << identifier
 								<< "-pindir\"" << std::endl;
 						sstr
-								<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+								<< "\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 								<< std::endl;
 					}
 
@@ -183,13 +183,13 @@ namespace mae
 						if (level_ == e_level::HIGH)
 						{
 							sstr
-									<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+									<< "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
 									<< std::endl;
 						}
 						else
 						{
 							sstr
-									<< "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:4pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+									<< "\t\t\tstyle=\"fill:#" << style.get_draw_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
 									<< std::endl;
 						}
 					}
@@ -205,7 +205,7 @@ namespace mae
 								<< posy + height / 2.0 - height / 6.0 * c270 << " " << (height / 3.0 * s90) << ","
 								<< -height / 3.0 * c90 << "\" id=\"" << identifier << "-segment\"" << std::endl;
 						sstr
-								<< "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+								<< "\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 								<< std::endl;
 					}
 

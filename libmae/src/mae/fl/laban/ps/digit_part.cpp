@@ -111,11 +111,11 @@ namespace mae
 
                     if (digit_ == e_digit::THUMB || digit_ == e_digit::INDEXFINGER || digit_ == e_digit::MIDDLEFINGER || digit_ == e_digit::RINGFINGER || digit_ == e_digit::LITTLEFINGER)
                     {
-                        return svg_for_finger(identifier, posx, posy, width, height, left);
+                        return svg_for_finger(identifier, draw_rect(posx, posy, width, height), left, style);
                     }
                     else
                     {
-                        return svg_for_toe(identifier, posx, posy, width, height, left);
+                        return svg_for_toe(identifier, draw_rect(posx, posy, width, height), left, style);
                     }
                 }
 
@@ -165,9 +165,13 @@ namespace mae
                     return digit_increment;
                 }
 
-                std::string digit_part::svg_for_finger(const std::string &identifier, double posx, double posy, double width, double height,
-                                           bool left) const
+                std::string digit_part::svg_for_finger(const std::string &identifier, draw_rect rect, bool left, svg_style style) const
                 {
+                    double posx = rect.get_posx();
+                    double posy = rect.get_posy();
+                    double width = rect.get_width();
+                    double height = rect.get_height();
+
                     std::stringstream sstr;
 
                     double radius = height / 16.0;
@@ -195,7 +199,7 @@ namespace mae
 
                     sstr << "\t\t\tid=\"" << identifier << "\"" << std::endl;
                     sstr
-                            << "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
+                            << "\t\t\tstyle=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
                             << std::endl;
                     sstr << "\t\t\t/>" << std::endl;
 
@@ -205,7 +209,7 @@ namespace mae
                         std::stringstream idsstr;
                         idsstr << identifier << "-dot-base";
 
-                        sstr << svg_str_dot(idsstr.str(), posx + width, posy + (height / 4.0) + (digit_increment * 3 * height / 16.0), radius, left, mirrorpos);
+                        sstr << svg_str_dot(idsstr.str(), draw_rect(posx + width, posy + (height / 4.0) + (digit_increment * 3 * height / 16.0), radius, radius), left, mirrorpos, style);
                     }
 
                     if (knuckle_ >= 1)
@@ -213,33 +217,37 @@ namespace mae
                         std::stringstream idsstr;
                         idsstr << identifier << "-dot-end";
 
-                        sstr << svg_str_dot(idsstr.str(), posx + (width / 4.0), posy + (digit_increment * 3 * height / 16.0), radius, left, mirrorpos);
+                        sstr << svg_str_dot(idsstr.str(), draw_rect(posx + (width / 4.0), posy + (digit_increment * 3 * height / 16.0), radius, radius), left, mirrorpos, style);
                     }
 
                     if (knuckle_ == 3 || knuckle_ == 2)
                     {
                         std::stringstream idsstr;
                         idsstr << identifier << "-dot-mid";
-                        sstr << svg_str_dot(idsstr.str(), posx + (5 * width / 8.0), posy + (digit_increment * 3 * height / 16.0) + height / 8.0, radius, left, mirrorpos);
+                        sstr << svg_str_dot(idsstr.str(), draw_rect(posx + (5 * width / 8.0), posy + (digit_increment * 3 * height / 16.0) + height / 8.0, radius, radius), left, mirrorpos, style);
                     }
                     else if (knuckle_ == 4)
                     {
                         std::stringstream idsstr;
                         idsstr << identifier << "-dot-base";
 
-                        sstr << svg_str_dot(idsstr.str(), posx + (2 * width / 4.0), posy + (digit_increment * 3 * height / 16.0) + height / 12.0, radius, left, mirrorpos);
+                        sstr << svg_str_dot(idsstr.str(), draw_rect(posx + (2 * width / 4.0), posy + (digit_increment * 3 * height / 16.0) + height / 12.0, radius, radius), left, mirrorpos, style);
 
                         idsstr << "-p2";
-                        sstr << svg_str_dot(idsstr.str(), posx + (3 * width / 4.0), posy + (digit_increment * 3 * height / 16.0) + height / 6.0, radius, left, mirrorpos);
+                        sstr << svg_str_dot(idsstr.str(), draw_rect(posx + (3 * width / 4.0), posy + (digit_increment * 3 * height / 16.0) + height / 6.0, radius, radius), left, mirrorpos, style);
                     }
 
                     return sstr.str();
                 }
 
                 std::string
-                digit_part::svg_for_toe(const std::string &identifier, double posx, double posy, double width, double height,
-                                        bool left) const
+                digit_part::svg_for_toe(const std::string &identifier, draw_rect rect, bool left, svg_style style) const
                 {
+                    double posx = rect.get_posx();
+                    double posy = rect.get_posy();
+                    double width = rect.get_width();
+                    double height = rect.get_height();
+
                     std::stringstream sstr;
 
                     double radius = height / 16.0;
@@ -268,7 +276,7 @@ namespace mae
 
                     sstr << "\t\t\tid=\"" << identifier << "\"" << std::endl;
                     sstr
-                            << "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
+                            << "\t\t\tstyle=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
                             << std::endl;
                     sstr << "\t\t\t/>" << std::endl;
 
@@ -279,7 +287,7 @@ namespace mae
                         std::stringstream idsstr;
                         idsstr << identifier << "-dot-base";
 
-                        sstr << svg_str_dot(idsstr.str(), posx + width, posy + (height / 6.0) + (digit_increment * height / 6.0), radius, left, mirrorpos);
+                        sstr << svg_str_dot(idsstr.str(), draw_rect(posx + width, posy + (height / 6.0) + (digit_increment * height / 6.0), radius, radius), left, mirrorpos, style);
                     }
 
                     if (knuckle_ >= 1)
@@ -287,24 +295,24 @@ namespace mae
                         std::stringstream idsstr;
                         idsstr << identifier << "-dot-end";
 
-                        sstr << svg_str_dot(idsstr.str(), posx + (width / 4.0), posy + (height / 6.0) + (digit_increment * height / 6.0), radius, left, mirrorpos);
+                        sstr << svg_str_dot(idsstr.str(), draw_rect(posx + (width / 4.0), posy + (height / 6.0) + (digit_increment * height / 6.0), radius, radius), left, mirrorpos, style);
                     }
 
                     if (knuckle_ == 3 || knuckle_ == 2)
                     {
                         std::stringstream idsstr;
                         idsstr << identifier << "-dot-mid";
-                        sstr << svg_str_dot(idsstr.str(), posx + (5 * width / 8.0), posy + (height / 6.0) + (digit_increment * height / 6.0), radius, left, mirrorpos);
+                        sstr << svg_str_dot(idsstr.str(), draw_rect(posx + (5 * width / 8.0), posy + (height / 6.0) + (digit_increment * height / 6.0), radius, radius), left, mirrorpos, style);
                     }
                     else if (knuckle_ == 4)
                     {
                         std::stringstream idsstr;
                         idsstr << identifier << "-dot-base";
 
-                        sstr << svg_str_dot(idsstr.str(), posx + (2 * width / 4.0), posy + (height / 6.0)  + (digit_increment * height / 6.0), radius, left, mirrorpos);
+                        sstr << svg_str_dot(idsstr.str(), draw_rect(posx + (2 * width / 4.0), posy + (height / 6.0)  + (digit_increment * height / 6.0), radius, radius), left, mirrorpos, style);
 
                         idsstr << "-p2";
-                        sstr << svg_str_dot(idsstr.str(), posx + (3 * width / 4.0), posy + (height / 6.0)  + (digit_increment * height / 6.0), radius, left, mirrorpos);
+                        sstr << svg_str_dot(idsstr.str(), draw_rect(posx + (3 * width / 4.0), posy + (height / 6.0)  + (digit_increment * height / 6.0), radius, radius), left, mirrorpos, style);
                     }
 
                     return sstr.str();
@@ -391,8 +399,12 @@ namespace mae
                     return result;
                 }
 
-                std::string digit_part::svg_str_dot(std::string identifier, double centerx, double centery, double radius, bool left, double mirrorpos) const
+                std::string digit_part::svg_str_dot(std::string identifier, draw_rect rect, bool left, double mirrorpos, svg_style style) const
                 {
+                    double centerx = rect.get_posx();
+                    double centery = rect.get_posy();
+                    double radius = rect.get_width();
+
                     std::stringstream sstr;
 
                     //draw circle
@@ -413,7 +425,7 @@ namespace mae
 
                     sstr << "\t\t\tid=\"" << identifier << "\"" << std::endl;
                     sstr
-                            << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
+                            << "\t\t\tstyle=\"fill:#" << style.get_draw_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
                             << std::endl;
                     sstr << "\t\t\t/>" << std::endl;
 

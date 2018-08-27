@@ -287,7 +287,7 @@ namespace mae
 					sstr << "\t\t\td=\"m " << posx << "," << posy << " " << width/3.0 << "," << height << " " << width/3.0 << "," << 0 << " " << width/3.0 << "," << -height << "\""
 							<< std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
-					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
 
 					if (passing_)
@@ -296,7 +296,7 @@ namespace mae
 						sstr << "\t\t\td=\"m " << posx << "," << draw_passing_y << " " << width/3.0 << "," << height << " " << width/3.0 << "," << 0 << " " << width/3.0 << "," << -height << "\""
 								<< std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-line2\"" << std::endl;
-						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 						sstr << "\" />" << std::endl;
 					}
 				}
@@ -308,7 +308,7 @@ namespace mae
 							<< "," << height << " 0 1 1 -" << width << ",0 \""
 							<< std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
-					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5,10;stroke-dashoffset:0";
+					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5,10;stroke-dashoffset:0";
 					sstr << "\" />" << std::endl;
 
 					if (passing_)
@@ -321,7 +321,7 @@ namespace mae
 								<< "," << height << " 0 1 1 -" << pwidth << ",0 \""
 								<< std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-line2\"" << std::endl;
-						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5,10;stroke-dashoffset:0";
+						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5,10;stroke-dashoffset:0";
 						sstr << "\" />" << std::endl;
 					}
 				}
@@ -332,7 +332,7 @@ namespace mae
 							<< "," << height << " 0 1 1 -" << width << ",0 \""
 							<< std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
-					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
 
 					if (passing_)
@@ -345,7 +345,7 @@ namespace mae
 								<< "," << height << " 0 1 1 -" << pwidth << ",0 \""
 								<< std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-line2\"" << std::endl;
-						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 						sstr << "\" />" << std::endl;
 					}
 				}
@@ -356,7 +356,7 @@ namespace mae
 							<< "," << height/2.0 << " 0 1 1 -" << width/2.0 << ",0 \""
 							<< std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
-					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
 
 					if (passing_)
@@ -366,7 +366,7 @@ namespace mae
 								<< "," << height/2.0 << " 0 1 1 -" << width/2.0 - 2*draw_passing_offset << ",0 \""
 								<< std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-line2\"" << std::endl;
-						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 						sstr << "\" />" << std::endl;
 					}
 				}
@@ -379,7 +379,7 @@ namespace mae
 					sstr << "\t\t<path" << std::endl;
 					sstr << "\t\t\td=\"m " << posx + width/2.0 + draw_hold_h/2.0 << "," << draw_hold_y + draw_hold_h/2.0 << " a " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 -" << draw_hold_h << ",0 " << draw_hold_h/2.0 << "," << draw_hold_h/2.0 << " 0 1 1 " << draw_hold_h << ",0 z\"" << std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-hold\"" << std::endl;
-					sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+					sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
 				}
 
 				if (grasping_)
@@ -391,14 +391,14 @@ namespace mae
 			        sstr << "\t\t\tx=\"" << posx+width/2.0-height/2.0 <<  "\"" << std::endl;
 			        sstr << "\t\t\ty=\"" << posy <<  "\"" << std::endl;
 			        sstr << "\t\t\tid=\"" << identifier << "-grasping-bg\"" << std::endl;
-					sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:none;stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
 
 					sstr << "\t\t<path" << std::endl;
 					sstr << "\t\t\td=\"m " << posx+width/2.0-height/2.0 << "," << posy << " " << height << "," << height << " m " << -height << "," << 0 << " " << height << "," << -height << " \""
 							<< std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-grasping\"" << std::endl;
-					sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+					sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
 				}
 

@@ -209,7 +209,7 @@ namespace mae
 					sstr << "\"" << std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-snake\"" << std::endl;
 					sstr
-							<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+							<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					sstr << "\" />" << std::endl;
 
 					std::string dsp1id = identifier;

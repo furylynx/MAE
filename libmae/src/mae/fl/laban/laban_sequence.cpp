@@ -486,7 +486,7 @@ namespace mae
 		        sstr << "\t\t\tx=\"" << 0 <<  "\"" << std::endl;
 		        sstr << "\t\t\ty=\"" << 0 <<  "\"" << std::endl;
 		        sstr << "\t\t\tid=\"bg-rect\"" << std::endl;
-				sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+				sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:none;stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 				sstr << "\" />" << std::endl;
 
 				//print staff
@@ -514,7 +514,7 @@ namespace mae
 				sstr << "\t\t<path d=\"m " << left_bound << "," << bottom_bound << " " << right_bound - left_bound << ","
 						<< 0 << "\" id=\"bottomline\"" << std::endl;
 				sstr
-						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
 				//top line
@@ -522,7 +522,7 @@ namespace mae
 						<< (im_width / 2 + 2 * column_width) - left_bound << "," << 0 << "\" id=\"topline\""
 						<< std::endl;
 				sstr
-						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
 				//draw movement start lines
@@ -531,33 +531,33 @@ namespace mae
 				sstr << "\t\t<path d=\"m " << left_bound << "," << start_line_y << " " << right_bound - left_bound << ","
 						<< 0 << "\" id=\"upperstartline\"" << std::endl;
 				sstr
-						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
 				sstr << "\t\t<path d=\"m " << left_bound << "," << start_line_y - im_height*(0.01) << " " << right_bound - left_bound
 						<< "," << 0 << "\" id=\"lowerstartline\"" << std::endl;
 				sstr
-						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
 				//draw center line
 				sstr << "\t\t<path d=\"m " << center << "," << top_bound << " " << 0 << "," << bottom_bound - top_bound
 						<< "\" id=\"centerline\"" << std::endl;
 				sstr
-						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
 				//draw right and left line
 				sstr << "\t\t<path d=\"m " << left_bound << "," << top_bound << " " << 0 << ","
 						<< bottom_bound - top_bound << "\" id=\"leftline\"" << std::endl;
 				sstr
-						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
 				sstr << "\t\t<path d=\"m " << right_bound << "," << top_bound << " " << 0 << ","
 						<< bottom_bound - top_bound << "\" id=\"rightline\"" << std::endl;
 				sstr
-						<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+						<< "\t\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 						<< std::endl;
 
 				//draw beat and measure marks
@@ -570,7 +570,7 @@ namespace mae
 						sstr << "\t\t<path d=\"m " << left_bound << "," << mark_pos_y << " " << right_bound - left_bound
 								<< "," << 0 << "\" id=\"measuremark" << i / beats_ << "\"" << std::endl;
 						sstr
-								<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+								<< "\t\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 								<< std::endl;
 					}
 					else
@@ -579,7 +579,7 @@ namespace mae
 						sstr << "\t\t<path d=\"m " << center - (column_width / 6.0) << "," << mark_pos_y << " "
 								<< (column_width / 3.0) << "," << 0 << "\" id=\"beatmark" << i << "\"" << std::endl;
 						sstr
-								<< "\t\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+								<< "\t\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
 								<< std::endl;
 					}
 				}

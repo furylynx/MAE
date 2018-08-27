@@ -176,7 +176,7 @@ namespace mae
 		        sstr << "\t\t\tx=\"" << draw_x_pos+draw_w/4.0 <<  "\"" << std::endl;
 		        sstr << "\t\t\ty=\"" << draw_y_pos+draw_h/4.0 <<  "\"" << std::endl;
 		        sstr << "\t\t\tid=\"" << identifier << "-rect\"" << std::endl;
-				sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+				sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 				sstr << "\" />" << std::endl;
 
 				sstr << direction_->svg(identifier, draw_x_pos, draw_y_pos, draw_w, draw_h, true);

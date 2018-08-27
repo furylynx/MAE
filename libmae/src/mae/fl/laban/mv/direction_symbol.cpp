@@ -349,15 +349,15 @@ namespace mae
 					sstr << "\t\t\tstyle=\"";
 					if (vertical_ == e_level::HIGH)
 					{
-						sstr << "fill:url(#fillpattern);fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "fill:url(#fillpattern);fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					}
 					else if (vertical_ == e_level::LOW)
 					{
-						sstr << "fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "fill:#" << style.get_draw_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					}
 					else if (vertical_ == e_level::MIDDLE)
 					{
-						sstr << "fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+						sstr << "fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 					}
 					else
 					{
@@ -397,7 +397,7 @@ namespace mae
 					    sstr << "\t\t<path" << std::endl;
 					    sstr << "\t\t\td=\"m " << circ_x + circ_r << "," << circ_y << " a " << circ_r << "," << circ_r << " 0 1 1 -" << circ_r*2 << ",0 " << circ_r << "," << circ_r << " 0 1 1 " << circ_r*2 << ",0 z\"" << std::endl;
 					    sstr << "\t\t\tid=\"" << identifier << "-middot\"" << std::endl;
-					    sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:none\" />" << std::endl;
+					    sstr << "\t\t\tstyle=\"fill:#" << style.get_draw_color() << ";fill-opacity:1;stroke:none\" />" << std::endl;
 					}
 
 
@@ -409,7 +409,11 @@ namespace mae
 						double spm_h = width*0.8;
 						double spm_x = posx + width*0.1;
 
-						sstr << space_measurement_->svg(identifier, spm_x, spm_y, spm_w, spm_h);
+
+						std::string spacem_id = identifier;
+						spacem_id.append("-spacem");
+
+						sstr << space_measurement_->svg(spacem_id, spm_x, spm_y, spm_w, spm_h);
 					}
 
 					if (modification_pin_ != nullptr)

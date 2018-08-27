@@ -91,7 +91,7 @@ namespace mae
 					sstr << "\t\t\ty=\"" << posy <<  "\"" << std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "\"" << std::endl;
 					sstr << "\t\t\tstyle=\"";
-					sstr << "fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;";
+					sstr << "fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;";
 					sstr << "\" />" << std::endl;
 
 
@@ -100,7 +100,7 @@ namespace mae
 					sstr << " d=\"m " << posx+width/2.0 << ","<< posy << "  " << 0 << "," << height/3.0 << "\"" << std::endl;
 					sstr << "\t\t\tid=\"" << identifier << "-prop-line\"" << std::endl;
 					sstr
-							<< "\t\t\tstyle=\"fill:none;stroke:#000000;stroke-width:4pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
+							<< "\t\t\tstyle=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\""
 							<< std::endl;
 					sstr << "\t\t\t/>" << std::endl;
 
@@ -111,7 +111,7 @@ namespace mae
 					sstr << "\t\tid=\"" << identifier << "-prop-text\"" << std::endl;
 					sstr << "\t\txml:space=\"preserve\"" << std::endl;
 					sstr
-							<< "\t\tstyle=\"font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif\">"
+							<< "\t\tstyle=\"font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#" << style.get_text_color() << ";fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif\">"
 							<< std::endl;
 					sstr << name_ << std::endl;
 					sstr << "\t\t</text>" << std::endl;

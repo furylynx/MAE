@@ -118,33 +118,34 @@ namespace mae
 					{
 						double circ_r = width/2.0;
 
-						//draw circle
+						//draw outer circle
 						sstr << "\t\t<path" << std::endl;
 						sstr << "\t\t\td=\"m " << posx + width/2.0 + circ_r << "," << posy+width/2.0 << " a " << circ_r << "," << circ_r << " 0 1 1 -" << circ_r*2.0 << ",0 " << circ_r << "," << circ_r << " 0 1 1 " << circ_r*2 << ",0 z\"" << std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-cancel-backnormal-outer\"" << std::endl;
-						sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
 
 						double center_r = width/12.0;
 
-						//draw circle
+						//draw inner dot
 					    sstr << "\t\t<path" << std::endl;
 					    sstr << "\t\t\td=\"m " << posx + width/2.0 + center_r << "," << posy+width/2.0 << " a " << center_r << "," << center_r << " 0 1 1 -" << center_r*2 << ",0 " << center_r << "," << center_r << " 0 1 1 " << center_r*2 << ",0 z\"" << std::endl;
 					    sstr << "\t\t\tid=\"" << identifier << "-cancel-backnormal-inner\"" << std::endl;
-					    sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:none\" />" << std::endl;
+					    sstr << "\t\t\tstyle=\"fill:#" << style.get_draw_color() << ";fill-opacity:1;stroke:none\" />" << std::endl;
 					}
 					else if (cancel_ == e_cancel::RELEASE_CONTACT)
 					{
 						double circ_r = width/3.0;
 
+						//draw half circles
 					    sstr << "\t\t<path" << std::endl;
 					    sstr << "\t\t\td=\"m " << posx + width/3.0 + circ_r << "," << posy+width/2.0 << " a " << circ_r << "," << circ_r << " 0 1 1 -" << circ_r*2 << ",0\"" << std::endl;
 					    sstr << "\t\t\tid=\"" << identifier << "-cancel-release1\"" << std::endl;
-					    sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+					    sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
 
 					    sstr << "\t\t<path" << std::endl;
 					    sstr << "\t\t\td=\"m " << posx + 2*width/3.0 - circ_r << "," << posy+width/2.0 << " a " << circ_r << "," << circ_r << " 0 1 1 " << circ_r*2 << ",0\"" << std::endl;
 					    sstr << "\t\t\tid=\"" << identifier << "-cancel-release2\"" << std::endl;
-					    sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+					    sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
 
 					}
 

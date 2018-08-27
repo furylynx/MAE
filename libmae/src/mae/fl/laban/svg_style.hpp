@@ -82,11 +82,26 @@ namespace mae
                      */
                     virtual void set_fill_color(std::string fill_color);
 
+                    /**
+                     * Returns the text color.
+                     *
+                     * @return The text color.
+                     */
+                    virtual std::string get_text_color() const;
+
+                    /**
+                     * Sets the text color.
+                     *
+                     * @param stroke_width The text color.
+                     */
+                    virtual void set_text_color(std::string text_color);
+
                 private:
                     double stroke_width_;
                     double reduced_stroke_width_;
                     std::string draw_color_;
                     std::string fill_color_;
+                    std::string text_color_;
 
             };
         } // namespace laban

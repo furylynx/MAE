@@ -88,7 +88,7 @@ namespace mae
 						sstr << "\t\t\ty=\"" << posy << "\"" << std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-rect\"" << std::endl;
 						sstr
-								<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+								<< "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 						sstr << "\" />" << std::endl;
 					}
 					else
@@ -100,7 +100,7 @@ namespace mae
 						sstr << "\t\t\ty=\"" << posy << "\"" << std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-rect\"" << std::endl;
 						sstr
-								<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+								<< "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 						sstr << "\" />" << std::endl;
 					}
 
@@ -113,7 +113,7 @@ namespace mae
 								<< circ_r << " 0 1 1 " << 2 * circ_r << ",0 z\"" << std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-chest\"" << std::endl;
 						sstr
-								<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+								<< "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
 								<< std::endl;
 					}
 					else if (area_ == e_area::HEAD)
@@ -125,7 +125,7 @@ namespace mae
 								<< -width / 2.0 - height / 2.0 << " " << 0 << "," << -height / 2.0 << "\"" << std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-head\"" << std::endl;
 						sstr
-								<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+								<< "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
 								<< std::endl;
 					}
 					else if (area_ == e_area::PELVIS)
@@ -137,7 +137,7 @@ namespace mae
 								<< circ_r << " 0 1 1 " << 2 * circ_r << ",0 z\"" << std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-pelvis\"" << std::endl;
 						sstr
-								<< "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+								<< "\t\t\tstyle=\"fill:#" << style.get_draw_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
 								<< std::endl;
 					}
 					else if (area_ == e_area::TORSO)
@@ -149,7 +149,7 @@ namespace mae
 								<< circ_r << " 0 1 1 " << 2 * circ_r << ",0 z\"" << std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-torso1\"" << std::endl;
 						sstr
-								<< "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+								<< "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
 								<< std::endl;
 
 						//draw circle
@@ -159,7 +159,7 @@ namespace mae
 								<< circ_r << " 0 1 1 " << 2 * circ_r << ",0 z\"" << std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-torso2\"" << std::endl;
 						sstr
-								<< "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+								<< "\t\t\tstyle=\"fill:#" << style.get_draw_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
 								<< std::endl;
 					}
 					else if (area_ == e_area::WAIST)
@@ -170,7 +170,7 @@ namespace mae
 								<< "" << -width * 2 / 3.0 << "," << height * 2 / 3.0 << "\"" << std::endl;
 						sstr << "\t\t\tid=\"" << identifier << "-waist\"" << std::endl;
 						sstr
-								<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#000000;stroke-width:2pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
+								<< "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none";
 						sstr << "\" />" << std::endl;
 					}
 

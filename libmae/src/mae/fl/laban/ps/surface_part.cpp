@@ -128,12 +128,12 @@ namespace mae
 
 						if (lside_ == e_limb_side::OUTER || lside_ == e_limb_side::OUTERLITTLEFINGER || lside_ == e_limb_side::OUTERTHUMB)
 						{
-							sstr << "\t\t\tstyle=\"fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1pt;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none\" />"
+							sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none\" />"
 								 << std::endl;
 						}
 						else
 						{
-							sstr << "\t\t\tstyle=\"fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1pt;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none\" />"
+							sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none\" />"
 								 << std::endl;
 						}
 					}
@@ -145,7 +145,7 @@ namespace mae
                             sstr << "\t<path d=\"m " << posx+width << "," << posy + offsety << " "
                                  << width / 6.0 << "," << 0 << "\" id=\"" << identifier
                                  << "-tick\"" << std::endl;
-                            sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+                            sstr << "\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
                                  << std::endl;
                         }
                         else
@@ -153,7 +153,7 @@ namespace mae
                             sstr << "\t<path d=\"m " << posx << "," << posy + offsety << " "
                                  << -width / 6.0 << "," << 0 << "\" id=\"" << identifier
                                  << "-tick\"" << std::endl;
-                            sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+                            sstr << "\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
                                  << std::endl;
                         }
                     }
@@ -170,7 +170,7 @@ namespace mae
                         sstr << "\t<path d=\"m " << posx + loffset << "," << posy << " "
                              << 0 << "," << 3*height / 4.0 << "\" id=\"" << identifier
                              << "-tick\"" << std::endl;
-                        sstr << "\t\t style=\"fill:none;stroke:#000000;stroke-width:2pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
+                        sstr << "\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
                              << std::endl;
                     }
 

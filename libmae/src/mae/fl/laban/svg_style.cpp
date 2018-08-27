@@ -17,6 +17,7 @@ namespace mae
                 reduced_stroke_width_ = 1.0;
                 draw_color_ = "000000";
                 fill_color_ = "ffffff";
+                text_color_ = "000000";
             }
 
             svg_style::~svg_style()
@@ -63,6 +64,15 @@ namespace mae
                 fill_color_ = fill_color;
             }
 
+            std::string svg_style::get_text_color() const
+            {
+                return text_color_;
+            }
+
+            void svg_style::set_text_color(std::string text_color)
+            {
+                text_color_ = text_color;
+            }
 
         } // namespace laban
     } // namespace fl
