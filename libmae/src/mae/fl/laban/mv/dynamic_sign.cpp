@@ -103,6 +103,33 @@ namespace mae
 					std::stringstream sstr;
 
 					//TODO
+					if (dynamic_ == e_dynamic::STRONG || dynamic_ == e_dynamic::GENTLE || dynamic_ == e_dynamic::RELAXED || dynamic_ == e_dynamic::LIMP)
+					{
+						double circ_r = width/3.0;
+
+						//draw half circle
+						sstr << "\t\t<path" << std::endl;
+						sstr << "\t\t\td=\"m " << posx + width/3.0 + circ_r << "," << posy+width/2.0 << " a " << circ_r << "," << circ_r << " 0 1 1 -" << circ_r*2 << ",0\"" << std::endl;
+
+
+						if (left)
+						{
+							sstr << "transform=\"matrix(-1,0,0,1," << 2 * posx + width << ",0)\"" << std::endl;
+						}
+
+						//TODO
+						if (dynamic_ == e_dynamic::RELAXED || dynamic_ == e_dynamic::LIMP)
+						{
+							//TODO mirror vertically
+						}
+
+						sstr << "\t\t\tid=\"" << identifier << "-cancel-release1\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+
+						//TODO draw circle
+
+					}
+
 
 					return sstr.str();
 				}

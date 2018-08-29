@@ -88,27 +88,38 @@ namespace mae
 
 					std::stringstream sstr;
 
-                    sstr << limb_->svg(identifier, posx, posy, width, height, left);
+                    double nposx = posx + width/6.0;
+                    if (left)
+                    {
+                        nposx = posx - width/6.0;
+                    }
 
-                    double radius = (width / 10.0);
-                    double offsetx = width / 4.0;
-                    double offsety = height / 2.0;
+                    sstr << limb_->svg(identifier,nposx, posy, 5 * width / 6.0, height, left);
+
+                    double radius = (width / 12.0);
+                    double offsetx = 5.0*width / 24.0 + (width/6.0);
+                    //width / 4.0
+                    double offsety = height / 2.0 - radius;
 
                     bool draw_additional_line = false;
+                    double draw_additional_line_length = 3 * height / 4.0;
 
                     if (std::shared_ptr<default_limb> limb_casted = std::dynamic_pointer_cast<default_limb>(limb_))
                     {
                         if (limb_casted->get_limb() == e_limb::UPPER_ARM || limb_casted->get_limb() == e_limb::LOWER_ARM || limb_casted->get_limb() == e_limb::ARM)
                         {
-                            offsetx = width / 8.0;
-                            offsety = height / 3.0 + radius/2.0;
+                            offsetx = (5.0*width / 48.0) + (width/6.0);
+                            //width/8.0
+                            offsety = height / 3.0 - radius/2.0;
                         }
                     }
                     else if (std::shared_ptr<custom_limb> limb_casted = std::dynamic_pointer_cast<custom_limb>(limb_))
 					{
-						offsetx = width / 8.0;
-                        offsety = height / 3.0 + radius/2.0;
+						offsetx = (5.0*width / 48.0) + (width/6.0);
+						//width/8.0
+                        offsety = height / 3.0 - radius/2.0;
                         draw_additional_line = true;
+
 					}
 
                     if (left)
@@ -143,7 +154,7 @@ namespace mae
 					    if (left)
                         {
                             sstr << "\t<path d=\"m " << posx+width << "," << posy + offsety << " "
-                                 << width / 6.0 << "," << 0 << "\" id=\"" << identifier
+                                 << -width / 6.0 << "," << 0 << "\" id=\"" << identifier
                                  << "-tick\"" << std::endl;
                             sstr << "\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
                                  << std::endl;
@@ -151,7 +162,7 @@ namespace mae
                         else
                         {
                             sstr << "\t<path d=\"m " << posx << "," << posy + offsety << " "
-                                 << -width / 6.0 << "," << 0 << "\" id=\"" << identifier
+                                 << width / 6.0 << "," << 0 << "\" id=\"" << identifier
                                  << "-tick\"" << std::endl;
                             sstr << "\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
                                  << std::endl;
@@ -160,15 +171,15 @@ namespace mae
 
                     if (draw_additional_line)
                     {
-                        double loffset = 0;
+                        double loffset = width/6.0;
 
                         if (left)
                         {
-                            loffset = width;
+                            loffset = 5*width / 6.0;
                         }
 
-                        sstr << "\t<path d=\"m " << posx + loffset << "," << posy << " "
-                             << 0 << "," << 3*height / 4.0 << "\" id=\"" << identifier
+                        sstr << "\t<path d=\"m " << posx + loffset << "," << posy - height / 12.0 << " "
+                             << 0 << "," << draw_additional_line_length << "\" id=\"" << identifier
                              << "-tick\"" << std::endl;
                         sstr << "\t\t style=\"fill:none;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />"
                              << std::endl;
