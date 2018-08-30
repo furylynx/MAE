@@ -102,33 +102,99 @@ namespace mae
 
 					std::stringstream sstr;
 
-					//TODO
 					if (dynamic_ == e_dynamic::STRONG || dynamic_ == e_dynamic::GENTLE || dynamic_ == e_dynamic::RELAXED || dynamic_ == e_dynamic::LIMP)
 					{
-						double circ_r = width/3.0;
+						double circ_r = width/2.0;
+                        double radius = (width / 5.0);
+                        double offsetx = 2*radius;
+                        double offsety = height - radius;
 
-						//draw half circle
+                        if (left)
+                        {
+                            offsetx = width - 2*radius;
+                        }
+
+						//draw bow
 						sstr << "\t\t<path" << std::endl;
-						sstr << "\t\t\td=\"m " << posx + width/3.0 + circ_r << "," << posy+width/2.0 << " a " << circ_r << "," << circ_r << " 0 1 1 -" << circ_r*2 << ",0\"" << std::endl;
+						sstr << "\t\t\td=\"m " << posx << "," << posy+height << " a " << circ_r << "," << circ_r << " 0 1 1 " << circ_r*2 << ",0\"" << std::endl;
 
-
-						if (left)
-						{
-							sstr << "transform=\"matrix(-1,0,0,1," << 2 * posx + width << ",0)\"" << std::endl;
-						}
-
-						//TODO
 						if (dynamic_ == e_dynamic::RELAXED || dynamic_ == e_dynamic::LIMP)
-						{
-							//TODO mirror vertically
+                        {
+						    //mirror vertically
+						    sstr << "\t\t\ttransform=\"matrix(1,0,0,-1," << 0 << "," << 2 * posy + height << ")\"" << std::endl;
+
+						    offsety = radius;
 						}
 
-						sstr << "\t\t\tid=\"" << identifier << "-cancel-release1\"" << std::endl;
-						sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+						sstr << "\t\t\tid=\"" << identifier << "-dynamic-curve\"" << std::endl;
+						sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
 
-						//TODO draw circle
+                        //draw circle
+                        sstr << "\t\t<path" << std::endl;
+                        sstr << "\t\t\td=\"m " << posx + offsetx << "," << posy + offsety
+                             << " a " << radius << "," << radius << " 0 1 1 -" << 2*radius << ",0 "
+                             << radius << "," << radius << " 0 1 1 " << 2*radius << ",0 z\""
+                             << std::endl;
+                        sstr << "\t\t\tid=\"" << identifier << "-dynamic-circle\"" << std::endl;
+
+                        if (dynamic_ == e_dynamic::GENTLE || dynamic_ == e_dynamic::RELAXED)
+                        {
+                            sstr
+                                    << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+                                    << std::endl;
+                        }
+                        else
+                        {
+                            sstr
+                                    << "\t\t\tstyle=\"fill:#" << style.get_draw_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+                                    << std::endl;
+                        }
 
 					}
+					else if (dynamic_ == e_dynamic::RESILIENT || dynamic_ == e_dynamic::VERY_RESILIENT)
+                    {
+                        sstr << "\t\t<path" << std::endl;
+//                        sstr << "\t\t\td=\"M 0.01437266,0.12304805 0.57438403,0.01614424 C 0.48268614,0.40587404 0.59500185,0.7382117 0.98970756,0.98566687 0.40020711,0.84115434 0.08271567,0.53150185 0.01437266,0.12304805 Z\"" << std::endl;
+                        sstr << "\t\t\td=\"M "<< posx << "," << posy + height/10.0 << " " << posx+width/2.0 << "," << posy-height/10.0 << " C " << posx + width/2.0 << "," << posy+4*height/10.0 << " " << posx + 6*width/10.0 << "," << posy+7*height/10.0 << " " << posx + width << "," << posy+height << " " << posx + 4*width/10.0 << "," << posy+8*height/10.0 << " " << posx << "," << posy+height/2.0 << " " << posx << "," << posy+height/10.0 << " Z\"" << std::endl;
+
+                        if (!left)
+                        {
+                            //transform for the right side
+                            sstr << "transform=\"matrix(-1,0,0,1," << 2 * posx + width << ",0)\"" << std::endl;
+                        }
+
+                        sstr << "\t\t\tid=\"" << identifier << "-dynamic-curve\"" << std::endl;
+                        if (dynamic_ == e_dynamic::RESILIENT)
+                        {
+                            sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+                        }
+                        else
+                        {
+                            sstr << "\t\t\tstyle=\"fill:#" << style.get_draw_color() << ";stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+                        }
+
+
+
+                        //draw circle
+                        double radius = (width / 6.0);
+                        double offsetx = 2*radius;
+                        if (left)
+                        {
+                            offsetx = width-2*radius;
+                        }
+                        double offsety = height - 2*radius;
+
+                        sstr << "\t\t<path" << std::endl;
+                        sstr << "\t\t\td=\"m " << posx + offsetx << "," << posy + offsety
+                             << " a " << radius << "," << radius << " 0 1 1 -" << 2*radius << ",0 "
+                             << radius << "," << radius << " 0 1 1 " << 2*radius << ",0 z\""
+                             << std::endl;
+                        sstr << "\t\t\tid=\"" << identifier << "-dynamic-circle\"" << std::endl;
+
+                        sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+                             << std::endl;
+                    }
+
 
 
 					return sstr.str();

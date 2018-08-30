@@ -447,8 +447,8 @@ namespace mae
 					if (dynamics_ != nullptr)
 					{
 						//draw dynamics
-						double mpin_w = width*0.8;
-						double mpin_h = width*0.8;
+						double mpin_w = width / 2.0;
+						double mpin_h = width / 2.0;
 						double mpin_y = posy + height - mpin_h;
 						double mpin_x = posx + width;
 
