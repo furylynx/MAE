@@ -25,7 +25,9 @@ namespace mae
 				{
 					public:
 						/**
-						 * Creates an accent sign. The accent must be a value between 1 and 5.
+						 * Creates an accent sign. The accent must be a value between 1 and 5. Can be a strong (beat) or
+						 * a slight accent (tap) and it is always between two body parts or a body part with an object.
+						 * Number of accent indicates the strength.
 						 *
 						 * @param accent The accent which must be an integer value between 1 and 5.
 						 */

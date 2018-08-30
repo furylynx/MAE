@@ -32,7 +32,16 @@ namespace mae
 				{
 					public:
 						/**
-						 * Creates a direction symbol.
+						 * Creates a direction symbol. This element corresponds to a direction symbol of a Labanotation
+						 * score. It has a vertical direction (high, mid or low) and a horizontal direction.
+						 *
+						 * If the 45-degree resolution offered through the combination of the vertical and horizontal
+						 * element is not enough to notate a movement adequately, a relationship-pin can be defined in
+						 * the mod-pin element to modify the direction by 1/3 into the direction of the pin. By using
+						 * the space elements it is possible to add a space measurement sign to this direction symbol.
+						 *
+						 * The contactHook element can be used to add a contact hook to this symbol if it is placed in a
+						 * support column.
 						 *
 						 * @param vertical The level of this symbol.
 						 * @param horizontal The (horizontal) direction of this symbol.

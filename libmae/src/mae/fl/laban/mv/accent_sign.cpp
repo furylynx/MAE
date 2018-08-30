@@ -99,9 +99,39 @@ namespace mae
 					double width = rect.get_width();
 					double height = rect.get_height();
 
+					int count = 1;
+
+					if (accent_ >= 2)
+                    {
+					    count = accent_ - 1;
+                    }
+
 					std::stringstream sstr;
 
-					//TODO
+					for (std::size_t i = 0; i < count; i++)
+                    {
+                        sstr << "\t\t<path" << std::endl;
+//                        sstr << "\t\t\td=\"M 0.01437266,0.12304805 0.57438403,0.01614424 C 0.48268614,0.40587404 0.59500185,0.7382117 0.98970756,0.98566687 0.40020711,0.84115434 0.08271567,0.53150185 0.01437266,0.12304805 Z\"" << std::endl;
+                        sstr << "\t\t\td=\"M "<< posx << "," << posy + height/10.0 << " " << posx+width/2.0 << "," << posy-height/10.0 << " C " << posx + width/2.0 << "," << posy+4*height/10.0 << " " << posx + 6*width/10.0 << "," << posy+7*height/10.0 << " " << posx + width << "," << posy+height << " " << posx + 4*width/10.0 << "," << posy+8*height/10.0 << " " << posx << "," << posy+height/2.0 << " " << posx << "," << posy+height/10.0 << " Z\"" << std::endl;
+
+                        if (!left)
+                        {
+                            //transform for the right side
+                            sstr << "transform=\"matrix(-1,0,0,1," << 2 * posx + width << ",0)\"" << std::endl;
+                        }
+
+                        sstr << "\t\t\tid=\"" << identifier << "-dynamic-curve\"" << std::endl;
+                        if (1 == accent_)
+                        {
+                            sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+                        }
+                        else
+                        {
+                            sstr << "\t\t\tstyle=\"fill:#" << style.get_draw_color() << ";stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1\" />" << std::endl;
+                        }
+                    }
+
+
 
 					return sstr.str();
 				}
