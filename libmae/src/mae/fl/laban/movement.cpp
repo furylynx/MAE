@@ -228,11 +228,11 @@ namespace mae
 					}
 				}
 
-				double draw_ps_h = draw_w/2.0;
+				double draw_ps_h = draw_w;
 				if (pre_sign_ != nullptr)
 				{
 					//reduce height
-					draw_h -= draw_ps_h;
+					draw_h -= 1.2*draw_ps_h;
 
 					if (draw_h < 0)
 					{
@@ -256,8 +256,8 @@ namespace mae
 				if (pre_sign_ != nullptr)
 				{
 					//pre sign
-					double draw_ps_y = draw_y_pos + draw_h;
-					sstr << pre_sign_->svg(identifier, draw_rect(draw_x_pos+draw_ps_h/2.0, draw_ps_y, draw_ps_h, draw_ps_h), false, style);
+					double draw_ps_y = draw_y_pos + draw_h + 0.2*draw_ps_h;
+					sstr << pre_sign_->svg(identifier, draw_rect(draw_x_pos, draw_ps_y, draw_ps_h, draw_ps_h), false, style);
 				}
 
 				return sstr.str();

@@ -100,13 +100,24 @@ namespace mae
 					double width = rect.get_width();
 					double height = rect.get_height();
 
+                    if (width > height)
+                    {
+                        posx += (width - height) / 2.0;
+                        width = height;
+                    }
+                    else if (height > width)
+                    {
+                        posy = posy + height - width;
+                        height = width;
+                    }
+
 					std::stringstream sstr;
 
 					if (dynamic_ == e_dynamic::STRONG || dynamic_ == e_dynamic::GENTLE || dynamic_ == e_dynamic::RELAXED || dynamic_ == e_dynamic::LIMP)
 					{
 						double circ_r = width/2.0;
                         double radius = (width / 5.0);
-                        double offsetx = 2*radius;
+                        double offsetx = 3*radius;
                         double offsety = height - radius;
 
                         if (left)
@@ -116,7 +127,7 @@ namespace mae
 
 						//draw bow
 						sstr << "\t\t<path" << std::endl;
-						sstr << "\t\t\td=\"m " << posx << "," << posy+height << " a " << circ_r << "," << circ_r << " 0 1 1 " << circ_r*2 << ",0\"" << std::endl;
+						sstr << "\t\t\td=\"m " << posx+width/5.0 << "," << posy+height << " a " << circ_r << "," << circ_r << " 0 1 1 " << circ_r*2 << ",0\"" << std::endl;
 
 						if (dynamic_ == e_dynamic::RELAXED || dynamic_ == e_dynamic::LIMP)
                         {
@@ -154,7 +165,6 @@ namespace mae
 					else if (dynamic_ == e_dynamic::RESILIENT || dynamic_ == e_dynamic::VERY_RESILIENT)
                     {
                         sstr << "\t\t<path" << std::endl;
-//                        sstr << "\t\t\td=\"M 0.01437266,0.12304805 0.57438403,0.01614424 C 0.48268614,0.40587404 0.59500185,0.7382117 0.98970756,0.98566687 0.40020711,0.84115434 0.08271567,0.53150185 0.01437266,0.12304805 Z\"" << std::endl;
                         sstr << "\t\t\td=\"M "<< posx << "," << posy + height/10.0 << " " << posx+width/2.0 << "," << posy-height/10.0 << " C " << posx + width/2.0 << "," << posy+4*height/10.0 << " " << posx + 6*width/10.0 << "," << posy+7*height/10.0 << " " << posx + width << "," << posy+height << " " << posx + 4*width/10.0 << "," << posy+8*height/10.0 << " " << posx << "," << posy+height/2.0 << " " << posx << "," << posy+height/10.0 << " Z\"" << std::endl;
 
                         if (!left)
@@ -174,15 +184,14 @@ namespace mae
                         }
 
 
-
                         //draw circle
                         double radius = (width / 6.0);
                         double offsetx = 2*radius;
                         if (left)
                         {
-                            offsetx = width-2*radius;
+                            offsetx = width;
                         }
-                        double offsety = height - 2*radius;
+                        double offsety = height - radius;
 
                         sstr << "\t\t<path" << std::endl;
                         sstr << "\t\t\td=\"m " << posx + offsetx << "," << posy + offsety
@@ -196,10 +205,9 @@ namespace mae
                     }
                     else if (dynamic_ == e_dynamic::UNEMPHASIZED || dynamic_ == e_dynamic::EMPHASIZED)
                     {
-                        //TODO diagonal bow
-
                         sstr << "\t\t<path" << std::endl;
-                        sstr << "\t\t\td=\"M "<< posx + 2*width/3.0 << "," << posy + height << " C " << posx + 2*width/3.0 << "," << posy+height << " " << posx + width / 5.0 << "," << posy+2*height/3.0 << " " << posx + width / 5.0 << "," << posy+height/10.0 << "\"" << std::endl;
+                        //"M 1,1 C 0.66,1 0,0.33 0,0"
+                        sstr << "\t\t\td=\"M "<< posx + width << "," << posy + height << " C " << posx+2*width/3.0 << "," << posy + height << " " << posx << "," << posy + height/3.0 << " " << posx << "," << posy << "\"" << std::endl;
 
                         if (!left)
                         {
@@ -212,17 +220,17 @@ namespace mae
 
                         //draw circle
                         double radius = (width / 6.0);
-                        double offsetx = width-radius;
-                        double offsety = 2*radius;
+                        double offsetx = width;
+                        double offsety = radius;
 
-                        if (left && dynamic_ == e_dynamic::EMPHASIZED || !left && dynamic_ == e_dynamic::UNEMPHASIZED)
+                        if ((left && dynamic_ == e_dynamic::EMPHASIZED) || (!left && dynamic_ == e_dynamic::UNEMPHASIZED))
                         {
-                            offsetx = radius;
+                            offsetx = 2*radius;
                         }
 
                         if (dynamic_ == e_dynamic::UNEMPHASIZED)
                         {
-                            offsety = height - 2*radius;
+                            offsety = height-radius;
                         }
 
                         sstr << "\t\t<path" << std::endl;
@@ -232,7 +240,15 @@ namespace mae
                              << std::endl;
                         sstr << "\t\t\tid=\"" << identifier << "-dynamic-circle\"" << std::endl;
 
-                        sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
+                        if (dynamic_ == e_dynamic::EMPHASIZED)
+                        {
+                            sstr << "\t\t\tstyle=\"fill:#" << style.get_draw_color() ;
+                        }
+                        else
+                        {
+                            sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() ;
+                        }
+                        sstr << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />"
                              << std::endl;
                     }
 

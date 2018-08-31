@@ -168,6 +168,17 @@ namespace mae
                         virtual std::string svg(std::string identifier, draw_rect rect, bool left = false, svg_style style = svg_style()) const;
 
 						/**
+						 * Returns the SVG representation for the contact hook symbol.
+						 *
+						 * @param identifier The identifier of the svg object.
+						 * @param rect The rect to fill.
+						 * @param left True if left side.
+						 * @param style The svg style.
+						 * @return The SVG.
+						 */
+						virtual std::string contact_hook_svg(std::string identifier, draw_rect rect, bool left = false, svg_style style = svg_style()) const;
+
+						/**
 						 * Returns the string representation for this element.
 						 *
 						 * @return The string.
@@ -194,6 +205,8 @@ namespace mae
 						std::shared_ptr<i_dynamics_sign> dynamics_;
 						std::shared_ptr<space_measurement> space_measurement_;
 						e_contact_hook contact_hook_;
+
+
 				};
 
 			} // namespace mv

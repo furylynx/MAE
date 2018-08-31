@@ -269,8 +269,6 @@ namespace mae
 
 					std::stringstream sstr;
 
-					//TODO contact hook
-
 					if (space_measurement_ != nullptr)
 					{
 						height -= width;
@@ -413,7 +411,7 @@ namespace mae
 						std::string spacem_id = identifier;
 						spacem_id.append("-spacem");
 
-						sstr << space_measurement_->svg(spacem_id, spm_x, spm_y, spm_w, spm_h);
+						sstr << space_measurement_->svg(spacem_id, draw_rect(spm_x, spm_y, spm_w, spm_h), left, style);
 					}
 
 					if (modification_pin_ != nullptr)
@@ -427,36 +425,175 @@ namespace mae
 						std::string pin_id = identifier;
 						pin_id.append("-mpin");
 
-						sstr << space_measurement_->svg(pin_id, mpin_x, mpin_y, mpin_w, mpin_h);
+						sstr << space_measurement_->svg(pin_id, draw_rect(mpin_x, mpin_y, mpin_w, mpin_h), left, style);
 					}
 
 					if (relationship_pin_ != nullptr)
 					{
 						//draw pin
-						double mpin_w = width*0.8;
-						double mpin_h = width*0.8;
-						double mpin_y = posy + height/2.0 - mpin_h/2.0;
-						double mpin_x = posx + width;
+						double rpin_w = width*0.8;
+						double rpin_h = width*0.8;
+						double rpin_y = posy + height/2.0 - rpin_h/2.0;
+						double rpin_x = posx + width;
 
 						std::string pin_id = identifier;
 						pin_id.append("-rpin");
 
-						sstr << relationship_pin_->svg(pin_id, mpin_x, mpin_y, mpin_w, mpin_h);
+						sstr << relationship_pin_->svg(pin_id, draw_rect(rpin_x, rpin_y, rpin_w, rpin_h), left, style);
 					}
 
 					if (dynamics_ != nullptr)
 					{
 						//draw dynamics
-						double mpin_w = width / 2.0;
-						double mpin_h = width / 2.0;
-						double mpin_y = posy + height - mpin_h;
-						double mpin_x = posx + width;
+						double mdyn_w = width / 2.0;
+						double mdyn_h = height;
+						double mdyn_y = posy;
+						double mdyn_x = posx + width + width/5.0;
+
+						if (left)
+                        {
+                            mdyn_x = posx - mdyn_w - width/5.0;
+                        }
 
 						std::string d_id = identifier;
 						d_id.append("-dyn");
 
-						sstr << dynamics_->svg(identifier, mpin_x, mpin_y, mpin_w, mpin_h);
+						sstr << dynamics_->svg(d_id, draw_rect(mdyn_x, mdyn_y, mdyn_w, mdyn_h), left, style);
 					}
+
+					if (contact_hook_ != e_contact_hook::NONE_CONTACT_HOOK)
+					{
+						//draw dynamics
+						double mchook_w = width / 2.0;
+						double mchook_h = width / 2.0;
+						double mchook_y = posy + mchook_h;
+						double mchook_x = posx + width + width/5.0;
+
+						if (left)
+						{
+							mchook_x = posx - mchook_w - width/5.0;
+						}
+
+						std::string mchook_id = identifier;
+						mchook_id.append("-chook");
+
+						sstr << contact_hook_svg(mchook_id, draw_rect(mchook_x, mchook_y, mchook_w, mchook_h), left, style);
+					}
+
+					return sstr.str();
+				}
+
+
+				std::string direction_symbol::contact_hook_svg(std::string identifier, draw_rect rect, bool left, svg_style style) const
+				{
+					double posx = rect.get_posx();
+					double posy = rect.get_posy();
+					double width = rect.get_width();
+					double height = rect.get_height();
+
+                    std::string transform = "";
+                    if (left)
+                    {
+                        std::stringstream tsstr;
+                        tsstr << " transform=\"matrix(-1,0,0,1," << 2 * posx + width << ",0)\" " << std::endl;
+                        transform = tsstr.str();
+                    }
+
+					std::stringstream sstr;
+
+					if (contact_hook_ == e_contact_hook::NAIL || contact_hook_ == e_contact_hook::TIP || contact_hook_ == e_contact_hook::PAD || contact_hook_ == e_contact_hook::FULL_BALL || contact_hook_ == e_contact_hook::HALF_BALL || contact_hook_ == e_contact_hook::QUARTER_BALL)
+                    {
+                        //draw arc
+                        sstr << "\t\t<path" << std::endl;
+                        sstr << "\t\t\td=\"M " << posx << "," << posy+height << " Q " << posx + width << "," << posy+height << " " << posx + width << "," << posy << "\" " << transform << " " << std::endl;
+                        sstr << "\t\t\tid=\"" << identifier << "-arc\"" << std::endl;
+                        sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+                    }
+                    else if (contact_hook_ == e_contact_hook::FOOT)
+                    {
+                        //draw arc1
+                        sstr << "\t\t<path" << std::endl;
+                        sstr << "\t\t\td=\"M " << posx << "," << posy+height/2.0 << " Q " << posx + width << "," << posy+height/2.0 << " " << posx + width << "," << posy << "\" " << transform << " " << std::endl;
+                        sstr << "\t\t\tid=\"" << identifier << "-arc1\"" << std::endl;
+                        sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+
+                        //draw arc2
+                        sstr << "\t\t<path" << std::endl;
+                        sstr << "\t\t\td=\"M " << posx << "," << posy+height/2.0 << " Q " << posx + width << "," << posy+height/2.0 << " " << posx + width << "," << posy+height << "\" " << transform << " " << std::endl;
+                        sstr << "\t\t\tid=\"" << identifier << "-arc2\"" << std::endl;
+                        sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+                    }
+                    else if (contact_hook_ == e_contact_hook::HALF_HEEL || contact_hook_ == e_contact_hook::QUARTER_HEEL || contact_hook_ == e_contact_hook::FULL_HEEL)
+                    {
+                        //draw arc
+                        sstr << "\t\t<path" << std::endl;
+                        sstr << "\t\t\td=\"M " << posx << "," << posy << " Q " << posx + width << "," << posy << " " << posx + width << "," << posy+height << "\" " << transform << " " << std::endl;
+                        sstr << "\t\t\tid=\"" << identifier << "-arc\"" << std::endl;
+                        sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+                    }
+
+                    if (contact_hook_ == e_contact_hook::NAIL || contact_hook_ == e_contact_hook::PAD ||
+                        contact_hook_ == e_contact_hook::FULL_BALL || contact_hook_ == e_contact_hook::QUARTER_BALL ||
+                        contact_hook_ == e_contact_hook::QUARTER_HEEL)
+                    {
+                        //draw circle
+                        double radius = width/5.0;
+
+                        double offsetx = width - radius;
+                        double offsety = radius;
+
+                        if (left)
+                        {
+                            offsetx = radius;
+                        }
+
+                        if (contact_hook_ == e_contact_hook::QUARTER_HEEL)
+                        {
+                            offsety = height - radius;
+                        }
+
+                        sstr << "\t\t<path" << std::endl;
+                        sstr << "\t\t\td=\"m " << posx + offsetx + radius << "," << posy + offsety
+                             << " a " << radius << "," << radius << " 0 1 1 -" << radius * 2.0 << ",0 "
+                             << radius << "," << radius << " 0 1 1 " << radius * 2.0 << ",0 z\""
+                             << std::endl;
+                        sstr << "\t\t\tid=\"" << identifier << "-surface-circle\"" << std::endl;
+
+                        if (contact_hook_ == e_contact_hook::NAIL || contact_hook_ == e_contact_hook::FULL_BALL)
+                        {
+                            sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none\" />"
+                                 << std::endl;
+                        }
+                        else
+                        {
+                            sstr << "\t\t\tstyle=\"fill:#" << style.get_draw_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none\" />"
+                                 << std::endl;
+                        }
+                    }
+
+
+                    if (contact_hook_ == e_contact_hook::FULL_BALL || contact_hook_ == e_contact_hook::HALF_BALL ||
+                        contact_hook_ == e_contact_hook::QUARTER_BALL || contact_hook_ == e_contact_hook::BALL ||
+                        contact_hook_ == e_contact_hook::FULL_HEEL || contact_hook_ == e_contact_hook::HALF_HEEL ||
+                        contact_hook_ == e_contact_hook::QUARTER_HEEL)
+                    {
+                        //draw line
+
+                        double offsety = height;
+
+                        if (contact_hook_ == e_contact_hook::FULL_HEEL || contact_hook_ == e_contact_hook::HALF_HEEL ||
+                            contact_hook_ == e_contact_hook::QUARTER_HEEL)
+                        {
+                            offsety = 0;
+                        }
+
+                        //draw arc
+                        sstr << "\t\t<path" << std::endl;
+                        sstr << "\t\t\td=\"m " << posx << "," << posy+offsety << " " << width << "," << 0 << "\"" << std::endl;
+                        sstr << "\t\t\tid=\"" << identifier << "-line\"" << std::endl;
+                        sstr << "\t\t\tstyle=\"fill:none;fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none\" />" << std::endl;
+
+                    }
 
 					return sstr.str();
 				}

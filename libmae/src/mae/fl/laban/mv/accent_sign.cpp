@@ -106,13 +106,29 @@ namespace mae
 					    count = accent_ - 1;
                     }
 
+
+					if (width > height)
+					{
+						posx += (width - height) / 2.0;
+						width = height;
+					}
+					else if (height > width)
+					{
+                        double nheight = width*count;
+						posy = posy + height - nheight;
+						height = nheight;
+					}
+
 					std::stringstream sstr;
 
 					for (std::size_t i = 0; i < count; i++)
                     {
+                        double dposy = posy+height-((i+1)*width);
+						double dheight = width;
+
                         sstr << "\t\t<path" << std::endl;
 //                        sstr << "\t\t\td=\"M 0.01437266,0.12304805 0.57438403,0.01614424 C 0.48268614,0.40587404 0.59500185,0.7382117 0.98970756,0.98566687 0.40020711,0.84115434 0.08271567,0.53150185 0.01437266,0.12304805 Z\"" << std::endl;
-                        sstr << "\t\t\td=\"M "<< posx << "," << posy + height/10.0 << " " << posx+width/2.0 << "," << posy-height/10.0 << " C " << posx + width/2.0 << "," << posy+4*height/10.0 << " " << posx + 6*width/10.0 << "," << posy+7*height/10.0 << " " << posx + width << "," << posy+height << " " << posx + 4*width/10.0 << "," << posy+8*height/10.0 << " " << posx << "," << posy+height/2.0 << " " << posx << "," << posy+height/10.0 << " Z\"" << std::endl;
+                        sstr << "\t\t\td=\"M "<< posx << "," << dposy + dheight/10.0 << " " << posx+width/2.0 << "," << dposy-dheight/10.0 << " C " << posx + width/2.0 << "," << dposy+4*dheight/10.0 << " " << posx + 6*width/10.0 << "," << dposy+7*dheight/10.0 << " " << posx + width << "," << dposy+dheight << " " << posx + 4*width/10.0 << "," << dposy+8*dheight/10.0 << " " << posx << "," << dposy+dheight/2.0 << " " << posx << "," << dposy+dheight/10.0 << " Z\"" << std::endl;
 
                         if (!left)
                         {

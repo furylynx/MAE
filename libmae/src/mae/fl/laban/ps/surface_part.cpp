@@ -88,10 +88,11 @@ namespace mae
 
 					std::stringstream sstr;
 
+
                     double nposx = posx + width/6.0;
                     if (left)
                     {
-                        nposx = posx - width/6.0;
+                        nposx = posx;
                     }
 
                     sstr << limb_->svg(identifier,nposx, posy, 5 * width / 6.0, height, left);
@@ -106,12 +107,18 @@ namespace mae
 
                     if (std::shared_ptr<default_limb> limb_casted = std::dynamic_pointer_cast<default_limb>(limb_))
                     {
-                        if (limb_casted->get_limb() == e_limb::UPPER_ARM || limb_casted->get_limb() == e_limb::LOWER_ARM || limb_casted->get_limb() == e_limb::ARM)
+                        if (limb_casted->get_limb() == e_limb::UPPER_ARM || limb_casted->get_limb() == e_limb::LOWER_ARM)
                         {
                             offsetx = (5.0*width / 48.0) + (width/6.0);
                             //width/8.0
                             offsety = height / 3.0 - radius/2.0;
                         }
+                        else if (limb_casted->get_limb() == e_limb::ARM)
+						{
+							offsetx = 4 * width / 9.0 ;
+							//width/8.0
+							offsety = height / 2.0 - radius/2.0;
+						}
                     }
                     else if (std::shared_ptr<custom_limb> limb_casted = std::dynamic_pointer_cast<custom_limb>(limb_))
 					{
@@ -144,7 +151,7 @@ namespace mae
 						}
 						else
 						{
-							sstr << "\t\t\tstyle=\"fill:#" << style.get_fill_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none\" />"
+							sstr << "\t\t\tstyle=\"fill:#" << style.get_draw_color() << ";fill-opacity:1;stroke:#" << style.get_draw_color() << ";stroke-width:" << style.get_reduced_stroke_width() << "pt;stroke-miterlimit:1;stroke-opacity:1;stroke-dasharray:none\" />"
 								 << std::endl;
 						}
 					}

@@ -172,7 +172,7 @@ namespace mae
 					if (level_ == e_level::HIGH || level_ == e_level::LOW)
 					{
 						//draw bullet
-                        double radius = (width / 12.0);
+                        double radius = (width / 6.0);
 						sstr << "\t\t<path" << std::endl;
 						sstr << "\t\t\td=\"m " << posx + width / 2.0 + radius << "," << posy + height / 2.0
 								<< " a " << radius << "," << radius << " 0 1 1 -" << 2*radius << ",0 "
