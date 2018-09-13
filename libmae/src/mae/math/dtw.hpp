@@ -236,6 +236,14 @@ namespace mae
             std::size_t n = target_sequence.size() + 1;
             std::size_t m = actual_sequence.size() + 1;
     
+            //set window size
+            std::size_t window = std::max(n, m);
+            if (window_ > 0)
+            {
+                window = std::max(window_, std::size_t(std::abs((long) n - (long) m)));
+            }
+    
+            //initiate array and first row/column
             std::vector<std::vector<double> > arr;
     
             for (std::size_t i = 0; i < n; i++)
@@ -252,13 +260,35 @@ namespace mae
                     {
                         row.push_back(std::numeric_limits<double>::infinity());
                     }
-//                    else if (1 == )
-                    
+                    else if (1 == i)
+                    {
+                        row.push_back(distance_measure_->distance(target_sequence.at(0), actual_sequence.at(actual_sequence.size() - 1));)
+                    }
                 }
         
                 arr.push_back(row);
             }
             
+            // build distance matrix
+            for (std::size_t i = 2; i < n; i++)
+            {
+                for (std::size_t j = std::max(1l, ((long) i - (long) window)); j < std::min(m, (i + window)); j++)
+                {
+                    double cost = distance_measure_->distance(target_sequence.at(i - 1), actual_sequence.at(j - 1));
+
+                    arr.at(i).at(j) = cost + std::min(std::min(arr.at(i - 1).at(j), arr.at(i).at(j - 1)), arr.at(i - 1).at(j - 1));
+                    
+                }
+            }
+            
+            //TODO
+            //find argmin for b_star
+            
+            //warping path until i = 1, last element u,v
+            
+            //use arr.at(n-1).at(b_star) - arr.at(1).at(a_star) for distance
+            
+            //fill aligned_distance_details
             
             return aligned_distance_details(0,1,0,std::vector<std::pair<std::size_t,std::size_t> >());
         }
