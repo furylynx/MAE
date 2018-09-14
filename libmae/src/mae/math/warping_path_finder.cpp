@@ -22,7 +22,7 @@ namespace mae
         {
             if (cost_matrix.size() > 0)
             {
-                return path(cost_matrix, startpos, warping_path_element(cost_matrix.size(), cost_matrix.at(0).size()));
+                return path(cost_matrix, startpos, warping_path_element(cost_matrix.size()-1, cost_matrix.at(0).size()-1));
             }
             else
             {

@@ -102,6 +102,8 @@ BOOST_AUTO_TEST_CASE( warpingpath_equalsequence_dtw )
     BOOST_CHECK_MESSAGE(0 == d, "Warping distance should be zero and is " << d);
     
     std::vector<mae::math::warping_path_element> warping_path = details.get_warping_path();
+
+    BOOST_CHECK_MESSAGE(warping_path.size() == 5, "Warping path length should be 5 and is " << warping_path.size());
     
     BOOST_CHECK_MESSAGE(warping_path.at(0).get_x() == 1 && warping_path.at(0).get_y() == 1, "Warping path first element should be (1,1) and is (" << warping_path.at(0).get_x() << "," << warping_path.at(0).get_y() << ")");
     BOOST_CHECK_MESSAGE(warping_path.at(1).get_x() == 2 && warping_path.at(1).get_y() == 2, "Warping path first element should be (2,2) and is (" << warping_path.at(1).get_x() << "," << warping_path.at(1).get_y() << ")");
@@ -130,6 +132,9 @@ BOOST_AUTO_TEST_CASE( warpingpath_nonequal_dtw )
     BOOST_CHECK_MESSAGE(0 == d, "Warping distance should be greater than zero and is " << d);
     
     std::vector<mae::math::warping_path_element> warping_path = details.get_warping_path();
+    
+    
+    BOOST_CHECK_MESSAGE(warping_path.size() == 5, "Warping path length should be 5 and is " << warping_path.size());
     
     BOOST_CHECK_MESSAGE(warping_path.at(0).get_x() == 1 && warping_path.at(0).get_y() == 1, "Warping path first element should be (1,1) and is (" << warping_path.at(0).get_x() << "," << warping_path.at(0).get_y() << ")");
     BOOST_CHECK_MESSAGE(warping_path.at(1).get_x() == 2 && warping_path.at(1).get_y() == 2, "Warping path first element should be (2,2) and is (" << warping_path.at(1).get_x() << "," << warping_path.at(1).get_y() << ")");

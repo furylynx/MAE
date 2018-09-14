@@ -14,6 +14,7 @@
 #include <vector>
 #include <limits>
 #include <cmath>
+#include <algorithm>
 
 namespace mae
 {

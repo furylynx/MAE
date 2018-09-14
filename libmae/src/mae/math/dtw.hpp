@@ -87,7 +87,7 @@ namespace mae
             distance_measure_ = distance_measure;
             window_ = window;
             activate_s_ = activate_s;
-    
+            
             warping_path_finder_ = std::make_shared<warping_path_finder>();
         }
         
@@ -101,6 +101,8 @@ namespace mae
         {
             std::size_t p = element1.size();
             std::size_t q = element2.size();
+
+#include <algorithm>
             
             std::vector<std::vector<std::vector<double> > > arr = warping_matrix(element1, element2);
             
@@ -203,7 +205,11 @@ namespace mae
                     }
                     else if (1 == i)
                     {
-                        row.push_back(distance_measure_->distance(target_sequence.at(0), actual_sequence.at(m - 1)));
+                        row.push_back(distance_measure_->distance(target_sequence.at(0), actual_sequence.at(actual_sequence.size() - 1)));
+                    }
+                    else
+                    {
+                        row.push_back(std::numeric_limits<double>::infinity());
                     }
                 }
                 
@@ -222,38 +228,28 @@ namespace mae
                 }
             }
             
-            //TODO remove
-            std::cout << "searching for argmin" << std::endl;
-            
             //find argmin for b_star
-            std::size_t b_star = m;
+            std::size_t b_star = m-1;
             double min = std::numeric_limits<double>::infinity();
-            for (std::size_t j = 0 ; j < m; j++)
+            for (std::size_t j = 0; j < m; j++)
             {
-                if (arr.at(n-1).at(j) < min)
+                if (arr.at(n - 1).at(j) < min)
                 {
-                    min = arr.at(n-1).at(j);
+                    min = arr.at(n - 1).at(j);
                     b_star = j;
                 }
             }
             
-            //TODO remove
-            std::cout << "searching for warping path" << std::endl;
-    
             //warping path until i = 1, last element u,v
-            std::vector<warping_path_element> warping_path = warping_path_finder_->path(arr, warping_path_selement(1, 1, false, true), warping_path_element(n-1, b_star));
+            std::vector<warping_path_element> warping_path = warping_path_finder_->path(arr, warping_path_selement(1, 1, false, true), warping_path_element(n - 1, b_star));
             std::size_t a_star = warping_path.at(0).get_y();
-    
-    
+            
+            
             //use arr.at(n-1).at(b_star) - arr.at(1).at(a_star) for distance
-            double distance = arr.at(n-1).at(b_star) - arr.at(1).at(a_star);
-    
-    
-            //TODO remove
-            std::cout << "using distance" << std::endl;
+            double distance = arr.at(n - 1).at(b_star) - arr.at(1).at(a_star);
             
             //fill aligned_distance_details
-            return aligned_distance_details(a_star, b_star, distance, std::vector<warping_path_element>());
+            return aligned_distance_details(a_star, b_star, distance, warping_path);
         }
         
     } // namespace math
