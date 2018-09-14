@@ -2,6 +2,7 @@
 // Created on 2018-09-14
 //
 
+#include <iostream>
 #include "warping_path_finder.hpp"
 
 namespace mae
@@ -22,7 +23,7 @@ namespace mae
         {
             if (cost_matrix.size() > 0)
             {
-                return path(cost_matrix, startpos, warping_path_element(cost_matrix.size()-1, cost_matrix.at(0).size()-1));
+                return path(cost_matrix, startpos, warping_path_element(cost_matrix.size() - 1, cost_matrix.at(0).size() - 1));
             }
             else
             {
@@ -37,38 +38,45 @@ namespace mae
             std::size_t wn = endpos.get_x();
             std::size_t wm = endpos.get_y();
             
-            while ((startpos.is_x_npos() || wn >= startpos.get_x()) && (startpos.is_y_npos() || wm >= startpos.get_y()))
+            while ((startpos.is_x_npos() || wn >= startpos.get_x()) && (startpos.is_y_npos() || wm >= startpos.get_y()) && (!startpos.is_x_npos() || !startpos.is_y_npos()))
             {
                 warping_path.push_back(warping_path_element(wn, wm));
                 
-                if (startpos.get_x() == wn)
+                if ((startpos.is_x_npos() || wn == startpos.get_x()) && (startpos.is_y_npos() || wm == startpos.get_y()))
                 {
-                    wm--;
-                }
-                else if (startpos.get_y() == wm)
-                {
-                    wn--;
+                    break;
                 }
                 else
                 {
-                    //argmin of D(n-1,m-1),D(n-1,m),D(n,m-1), lexicographically smalles pair
-                    double n1 = cost_matrix.at(wn - 1).at(wm);
-                    double m1 = cost_matrix.at(wn).at(wm - 1);
-                    double nm1 = cost_matrix.at(wn - 1).at(wm - 1);
-                    double min = std::min(n1, std::min(m1, nm1));
-                    
-                    if (min == nm1)
+                    if (wn == startpos.get_x())
                     {
-                        wn--;
                         wm--;
                     }
-                    else if (min == n1)
+                    else if (wm == startpos.get_y())
                     {
                         wn--;
                     }
                     else
                     {
-                        wm--;
+                        //argmin of D(n-1,m-1),D(n-1,m),D(n,m-1), lexicographically smalles pair
+                        double n1 = cost_matrix.at(wn - 1).at(wm);
+                        double m1 = cost_matrix.at(wn).at(wm - 1);
+                        double nm1 = cost_matrix.at(wn - 1).at(wm - 1);
+                        double min = std::min(n1, std::min(m1, nm1));
+                        
+                        if (min == nm1)
+                        {
+                            wn--;
+                            wm--;
+                        }
+                        else if (min == n1)
+                        {
+                            wn--;
+                        }
+                        else
+                        {
+                            wm--;
+                        }
                     }
                 }
             }

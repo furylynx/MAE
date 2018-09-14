@@ -205,7 +205,7 @@ namespace mae
                     }
                     else if (1 == i)
                     {
-                        row.push_back(distance_measure_->distance(target_sequence.at(0), actual_sequence.at(actual_sequence.size() - 1)));
+                        row.push_back(distance_measure_->distance(target_sequence.at(0), actual_sequence.at(j - 1)));
                     }
                     else
                     {

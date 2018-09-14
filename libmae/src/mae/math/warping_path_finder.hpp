@@ -15,6 +15,7 @@
 #include <limits>
 #include <cmath>
 #include <algorithm>
+#include <iostream>
 
 namespace mae
 {

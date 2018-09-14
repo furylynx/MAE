@@ -409,7 +409,7 @@ BOOST_AUTO_TEST_CASE( warpingpath_nonequal_dtw )
 
     double d = details.get_distance();
 
-    BOOST_CHECK_MESSAGE(0 == d, "Warping distance should be greater than zero and is " << d);
+    BOOST_CHECK_MESSAGE(0 == d, "Warping distance should be zero and is " << d);
 
     std::vector<mae::math::warping_path_element> warping_path = details.get_warping_path();
 
