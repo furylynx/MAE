@@ -285,7 +285,12 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/math/angular_distance.hpp src/mae/math/angular_distance.cpp
         src/mae/fl/laban/e_blur_strategy.hpp src/mae/fl/laban/e_blur_strategy.cpp
         src/mae/fl/laban/blur_strategy.hpp src/mae/fl/laban/blur_strategy.cpp
-        src/mae/fl/laban/draw_rect.cpp src/mae/fl/laban/draw_rect.hpp src/mae/fl/laban/draw_laban_rect.cpp src/mae/fl/laban/draw_laban_rect.hpp src/mae/fl/laban/svg_style.cpp src/mae/fl/laban/svg_style.hpp)
+        src/mae/fl/laban/draw_rect.cpp src/mae/fl/laban/draw_rect.hpp
+        src/mae/fl/laban/draw_laban_rect.cpp src/mae/fl/laban/draw_laban_rect.hpp
+        src/mae/fl/laban/svg_style.cpp src/mae/fl/laban/svg_style.hpp
+        src/mae/math/warping_path_finder.cpp src/mae/math/warping_path_finder.hpp
+        src/mae/math/warping_path_element.cpp src/mae/math/warping_path_element.hpp
+        src/mae/math/warping_path_selement.cpp src/mae/math/warping_path_selement.hpp)
 
 
 # define test files
@@ -302,6 +307,7 @@ set(TEST_FILES
         test/mae/fl/laban/test_laban_sequence_comparator.cpp
         test/mae/fl/laban/test_movement_comparator.cpp
         test/mae/fl/laban/test_aligned_laban_sequence_comparator.cpp
+        test/mae/math/test_warping_path_finder.cpp
         )
 
 

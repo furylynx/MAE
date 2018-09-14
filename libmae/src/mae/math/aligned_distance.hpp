@@ -195,16 +195,18 @@ namespace mae
                     }
 
                     // set the warping paths
-                    std::vector<std::vector<std::pair<std::size_t,std::size_t> > > warping_paths;
+                    std::vector<std::vector<warping_path_element> > warping_paths;
                     for (std::size_t mat = 0; mat < matrices.size(); mat++)
                     {
-                        std::vector<std::pair<std::size_t,std::size_t> > warping_path;
+                        //TODO refactor using warping path finder
+                        
+                        std::vector<warping_path_element> warping_path;
                         std::size_t wn = n;
                         std::size_t wm = min_endpos;
 
                         while (wn >= 1 && wm >= min_startpos+1 && (1 != wn || min_startpos+1 != wm))
                         {
-                            warping_path.push_back(std::make_pair(wn,wm));
+                            warping_path.push_back(warping_path_element(wn,wm));
 
                             if (1 == wn)
                             {
@@ -238,7 +240,7 @@ namespace mae
                             }
                         }
 
-                        warping_path.push_back(std::make_pair(1, min_startpos+1));
+                        warping_path.push_back(warping_path_element(1, min_startpos+1));
 
                         std::reverse(warping_path.begin(), warping_path.end());
 

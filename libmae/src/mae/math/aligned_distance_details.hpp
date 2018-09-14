@@ -6,7 +6,7 @@
 #define MAE_MATH_ALIGNED_DISTANCE_DETAILS_HPP
 
 //custom includes
-//...
+#include "warping_path_element.hpp"
 
 //global includes
 #include <vector>
@@ -29,7 +29,7 @@ namespace mae
                  * @param distance The distance.
                  * @param warping_path The warping path (sequence of points in path).
                  */
-                aligned_distance_details(double startpos, double endpos, double distance, std::vector<std::pair<std::size_t,std::size_t> > warping_path);
+                aligned_distance_details(double startpos, double endpos, double distance, std::vector<warping_path_element> warping_path);
                 virtual ~aligned_distance_details();
 
                 /**
@@ -58,13 +58,13 @@ namespace mae
                  *
                  * @return The warping path.
                  */
-                virtual std::vector<std::pair<std::size_t,std::size_t> > get_warping_path() const;
+                virtual std::vector<warping_path_element> get_warping_path() const;
 
             private:
                 double startpos_;
                 double endpos_;
                 double distance_;
-                std::vector<std::pair<std::size_t,std::size_t> > warping_path_;
+                std::vector<warping_path_element> warping_path_;
         };
 
 

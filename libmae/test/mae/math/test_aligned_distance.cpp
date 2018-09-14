@@ -362,8 +362,6 @@ BOOST_AUTO_TEST_CASE( aligned_similar_lcs )
 
 }
 
-//TODO test warping path
-
 BOOST_AUTO_TEST_CASE( warpingpath_equalsequence_dtw )
 {
     double minkowski_p = 1;
@@ -383,13 +381,13 @@ BOOST_AUTO_TEST_CASE( warpingpath_equalsequence_dtw )
 
     BOOST_CHECK_MESSAGE(0 == d, "Warping distance should be zero and is " << d);
 
-    std::vector<std::pair<std::size_t,std::size_t> > warping_path = details.get_warping_path();
+    std::vector<mae::math::warping_path_element> warping_path = details.get_warping_path();
 
-    BOOST_CHECK_MESSAGE(warping_path.at(0).first == 1 && warping_path.at(0).second == 1, "Warping path first element should be (1,1) and is (" << warping_path.at(0).first << "," << warping_path.at(0).second << ")");
-    BOOST_CHECK_MESSAGE(warping_path.at(1).first == 2 && warping_path.at(1).second == 2, "Warping path first element should be (2,2) and is (" << warping_path.at(1).first << "," << warping_path.at(1).second << ")");
-    BOOST_CHECK_MESSAGE(warping_path.at(2).first == 3 && warping_path.at(2).second == 3, "Warping path first element should be (3,3) and is (" << warping_path.at(2).first << "," << warping_path.at(2).second << ")");
-    BOOST_CHECK_MESSAGE(warping_path.at(3).first == 4 && warping_path.at(3).second == 4, "Warping path first element should be (4,4) and is (" << warping_path.at(3).first << "," << warping_path.at(3).second << ")");
-    BOOST_CHECK_MESSAGE(warping_path.at(4).first == 5 && warping_path.at(4).second == 5, "Warping path first element should be (5,5) and is (" << warping_path.at(4).first << "," << warping_path.at(4).second << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(0).get_x() == 1 && warping_path.at(0).get_y() == 1, "Warping path first element should be (1,1) and is (" << warping_path.at(0).get_x() << "," << warping_path.at(0).get_y() << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(1).get_x() == 2 && warping_path.at(1).get_y() == 2, "Warping path first element should be (2,2) and is (" << warping_path.at(1).get_x() << "," << warping_path.at(1).get_y() << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(2).get_x() == 3 && warping_path.at(2).get_y() == 3, "Warping path first element should be (3,3) and is (" << warping_path.at(2).get_x() << "," << warping_path.at(2).get_y() << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(3).get_x() == 4 && warping_path.at(3).get_y() == 4, "Warping path first element should be (4,4) and is (" << warping_path.at(3).get_x() << "," << warping_path.at(3).get_y() << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(4).get_x() == 5 && warping_path.at(4).get_y() == 5, "Warping path first element should be (5,5) and is (" << warping_path.at(4).get_x() << "," << warping_path.at(4).get_y() << ")");
 
 
 }
@@ -413,11 +411,11 @@ BOOST_AUTO_TEST_CASE( warpingpath_nonequal_dtw )
 
     BOOST_CHECK_MESSAGE(0 == d, "Warping distance should be greater than zero and is " << d);
 
-    std::vector<std::pair<std::size_t,std::size_t> > warping_path = details.get_warping_path();
+    std::vector<mae::math::warping_path_element> warping_path = details.get_warping_path();
 
-    BOOST_CHECK_MESSAGE(warping_path.at(0).first == 1 && warping_path.at(0).second == 1, "Warping path first element should be (1,1) and is (" << warping_path.at(0).first << "," << warping_path.at(0).second << ")");
-    BOOST_CHECK_MESSAGE(warping_path.at(1).first == 2 && warping_path.at(1).second == 2, "Warping path first element should be (2,2) and is (" << warping_path.at(1).first << "," << warping_path.at(1).second << ")");
-    BOOST_CHECK_MESSAGE(warping_path.at(2).first == 2 && warping_path.at(2).second == 3, "Warping path first element should be (2,3) and is (" << warping_path.at(2).first << "," << warping_path.at(2).second << ")");
-    BOOST_CHECK_MESSAGE(warping_path.at(3).first == 3 && warping_path.at(3).second == 4, "Warping path first element should be (3,4) and is (" << warping_path.at(3).first << "," << warping_path.at(3).second << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(0).get_x() == 1 && warping_path.at(0).get_y() == 1, "Warping path first element should be (1,1) and is (" << warping_path.at(0).get_x() << "," << warping_path.at(0).get_y() << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(1).get_x() == 2 && warping_path.at(1).get_y() == 2, "Warping path first element should be (2,2) and is (" << warping_path.at(1).get_x() << "," << warping_path.at(1).get_y() << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(2).get_x() == 2 && warping_path.at(2).get_y() == 3, "Warping path first element should be (2,3) and is (" << warping_path.at(2).get_x() << "," << warping_path.at(2).get_y() << ")");
+    BOOST_CHECK_MESSAGE(warping_path.at(3).get_x() == 3 && warping_path.at(3).get_y() == 4, "Warping path first element should be (3,4) and is (" << warping_path.at(3).get_x() << "," << warping_path.at(3).get_y() << ")");
 
 }
