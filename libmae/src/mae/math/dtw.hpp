@@ -101,8 +101,6 @@ namespace mae
         {
             std::size_t p = element1.size();
             std::size_t q = element2.size();
-
-#include <algorithm>
             
             std::vector<std::vector<std::vector<double> > > arr = warping_matrix(element1, element2);
             
@@ -246,7 +244,10 @@ namespace mae
             
             
             //use arr.at(n-1).at(b_star) - arr.at(1).at(a_star) for distance
-            double distance = arr.at(n - 1).at(b_star) - arr.at(1).at(a_star);
+//            double distance = arr.at(n - 1).at(b_star) - arr.at(1).at(a_star);
+            double distance = arr.at(n - 1).at(b_star);
+            
+//            std::cout << arr.at(n - 1).at(b_star) << " " << arr.at(1).at(a_star) << std::endl;
             
             //fill aligned_distance_details
             return aligned_distance_details(a_star, b_star, distance, warping_path);
