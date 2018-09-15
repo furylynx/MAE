@@ -252,3 +252,29 @@ BOOST_AUTO_TEST_CASE( aligned_similar_dtw )
     BOOST_CHECK_MESSAGE(6 == e, "Alignment endpos should be six and is " << e);
     
 }
+
+BOOST_AUTO_TEST_CASE( aligned_similar_dtw_2 )
+{
+    double minkowski_p = 1;
+    std::shared_ptr<mae::math::i_distance_measure<std::vector<double> > > distance_measure = std::make_shared<mae::math::minkowski_distance>(minkowski_p);
+    
+    std::shared_ptr<mae::math::dtw<std::vector<double> > > warping_measure = std::make_shared<mae::math::dtw<std::vector<double> > >(distance_measure, 0, true);
+    
+    std::vector<std::vector<double> > sequence1 = {{2}, {3}, {21}, {3}, {7}};
+    
+    std::vector<std::vector<double> > sequence2 = {{100}, {100}, {100}, {100}, {2}, {3}, {3}, {3}, {19}, {4}, {7}, {100}, {100}, {100}, {100}};
+    
+    mae::math::aligned_distance_details details = warping_measure->optimal_alignment(sequence1,sequence2);
+    double d = details.get_distance();
+    
+    BOOST_CHECK_MESSAGE(d > 0, "Warping distance should be greater than zero and is " << d);
+    
+    double s = details.get_startpos();
+    
+    BOOST_CHECK_MESSAGE(5 == s, "Alignment startpos should be 5 and is " << s);
+    
+    double e = details.get_endpos();
+    
+    BOOST_CHECK_MESSAGE(11 == e, "Alignment endpos should be 11 and is " << e);
+    
+}
