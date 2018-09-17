@@ -290,7 +290,8 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/fl/laban/svg_style.cpp src/mae/fl/laban/svg_style.hpp
         src/mae/math/warping_path_finder.cpp src/mae/math/warping_path_finder.hpp
         src/mae/math/warping_path_element.cpp src/mae/math/warping_path_element.hpp
-        src/mae/math/warping_path_selement.cpp src/mae/math/warping_path_selement.hpp)
+        src/mae/math/warping_path_selement.cpp src/mae/math/warping_path_selement.hpp
+        src/mae/math/i_aligned_distance_measure.hpp)
 
 
 # define test files

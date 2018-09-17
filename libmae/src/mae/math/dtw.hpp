@@ -7,6 +7,7 @@
 
 //custom includes
 #include "i_warping_distance_measure.hpp"
+#include "i_aligned_distance_measure.hpp"
 #include "aligned_distance_details.hpp"
 #include "warping_path_finder.hpp"
 
@@ -23,7 +24,7 @@ namespace mae
     namespace math
     {
         template<typename T>
-        class dtw : public i_warping_distance_measure<T>
+        class dtw : public i_warping_distance_measure<T>, public i_aligned_distance_measure<T>
         {
             public:
                 /**
