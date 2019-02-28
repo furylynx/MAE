@@ -141,7 +141,12 @@ namespace mae
 
 			// apply PCA to get 2 principal components
 			cv::Mat base_coord;
-			cv::PCA base_pca = cv::PCA(base_matrix, cv::Mat(), CV_PCA_DATA_AS_COL, 2);
+#if CV_VERSION_MAJOR > 3
+            cv::PCA base_pca = cv::PCA(base_matrix, cv::Mat(), cv::PCA::DATA_AS_COL, 2);
+#else
+            cv::PCA base_pca = cv::PCA(base_matrix, cv::Mat(), CV_PCA_DATA_AS_COL, 2);
+#endif
+			
 
 			// get first two components
 			cv::Vec3d u = base_pca.eigenvectors.row(0).clone();
