@@ -20,7 +20,7 @@ set(MYLIB_REQ_OPENCV OpenCV)
 set(MYLIB_REQ_OPENCV_V opencv)
 set(MYLIB_REQ_OPENCV_VERSION "2.4.0")
 # apply additional versions if actually compatible
-set(MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3")
+set(MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3" "4")
 
 set(MYLIB_REQ_LIBXMLPP "LibXML++")
 set(MYLIB_REQ_LIBXMLPP_V "libxml++-2.6")
