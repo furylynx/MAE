@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 
 # Include json parser cmake module
-INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/JSONParser.cmake")
+INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Includes/JSONParser.cmake")
 file(READ "${CMAKE_SOURCE_DIR}/../mae.json" MAEJSONCONTENT)
 sbeParseJson(MAEJSON MAEJSONCONTENT)
 
@@ -29,8 +29,8 @@ set(MYLIB_REQ_LIBXMLPP_VERSION "2.36")
 set(MYLIB_REQ_INTL "Intl")
 set(MYLIB_REQ_INTL_V "intl")
 set(MYLIB_REQ_INTL_VERSION "1.0")
-set(MYLIB_REQUIRES "${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}" )
-set(MYLIB_REQUIRES_RPM "glibc >= 2.17, libgcc >= 4.8.5, glibmm24 >= 2.50.0, libstdc++ >= 4.8.5, ${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_R} >= ${MYLIB_REQ_LIBXMLPP_VERSION}" )
+set(MYLIB_REQUIRES "${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}")
+set(MYLIB_REQUIRES_RPM "glibc >= 2.17, libgcc >= 4.8.5, glibmm24 >= 2.50.0, libstdc++ >= 4.8.5, ${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_R} >= ${MYLIB_REQ_LIBXMLPP_VERSION}")
 
 set(MYLIB_JNI maejava)
 
@@ -256,17 +256,17 @@ INCLUDE("GNUInstallDirs")
 set(INSTALL_PKGCONFIG_DIR "${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig" CACHE PATH "Installation directory for pkgconfig (.pc) files")
 set(INSTALL_PACKAGE_LOCATION ${CMAKE_INSTALL_LIBDIR}/cmake/lib${MYLIB})
 
-set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR} )
-set(LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR} )
-set(BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR} )
-set(JNI_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/jni/ )
-set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/ )
+set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR})
+set(LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR})
+set(BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR})
+set(JNI_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/jni/)
+set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/)
 
 # We produce a shared library
 add_library(${MYLIB} SHARED ${SOURCE_FILES})
 
 # Install specs
-install (TARGETS ${MYLIB}
+install(TARGETS ${MYLIB}
         ARCHIVE DESTINATION ${LIB_INSTALL_DIR}
         LIBRARY DESTINATION ${LIB_INSTALL_DIR}
         RUNTIME DESTINATION ${BIN_INSTALL_DIR}
@@ -279,23 +279,23 @@ install(DIRECTORY src/ DESTINATION ${INCLUDE_INSTALL_DIR} FILES_MATCHING PATTERN
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/Modules/")
 
 # Dependencies
-find_package ( ${MYLIB_REQ_LIBXMLPP} ${MYLIB_REQ_LIBXMLPP_VERSION} REQUIRED )
-find_package ( ${MYLIB_REQ_INTL} REQUIRED )
+find_package(${MYLIB_REQ_LIBXMLPP} ${MYLIB_REQ_LIBXMLPP_VERSION} REQUIRED)
+find_package(${MYLIB_REQ_INTL} REQUIRED)
 
 # Check OpenCV
-find_package ( ${MYLIB_REQ_OPENCV} REQUIRED )
+find_package(${MYLIB_REQ_OPENCV} REQUIRED)
 if ("${${MYLIB_REQ_OPENCV}_VERSION_MAJOR}" IN_LIST MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS)
-    message( STATUS "Found OpenCV version ${${MYLIB_REQ_OPENCV}_VERSION}." )
-else()
-    message( FATAL_ERROR "Cannot find a compatible OpenCV version." )
-endif()
+    message(STATUS "Found OpenCV version ${${MYLIB_REQ_OPENCV}_VERSION}.")
+else ()
+    message(FATAL_ERROR "Cannot find a compatible OpenCV version.")
+endif ()
 
 
-set (MYLIB_INCLUDE_DIRS ${LibXML++_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
-set (MYLIB_LIBRARIES ${Intl_LIBRARIES} ${LibXML++_LIBRARIES} ${OpenCV_LIBS} )
+set(MYLIB_INCLUDE_DIRS ${LibXML++_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
+set(MYLIB_LIBRARIES ${Intl_LIBRARIES} ${LibXML++_LIBRARIES} ${OpenCV_LIBS})
 
 include_directories(${MYLIB_INCLUDE_DIRS})
-target_link_libraries (${MYLIB} ${MYLIB_LIBRARIES} )
+target_link_libraries(${MYLIB} ${MYLIB_LIBRARIES})
 
 # Target
 set_target_properties(${MYLIB} PROPERTIES VERSION ${MYLIB_VERSION_STRING} SOVERSION ${MYLIB_VERSION_MAJOR})
@@ -305,14 +305,14 @@ include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
         "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}ConfigVersion.cmake"
         VERSION ${MYLIB_VERSION_STRING}
-        COMPATIBILITY SameMajorVersion )
+        COMPATIBILITY SameMajorVersion)
 
 configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/${MYLIB}Config.cmakein ${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake
         INSTALL_DESTINATION ${LIB_INSTALL_DIR}/cmake/${MYLIB}
         PATH_VARS INCLUDE_INSTALL_DIR SYSCONFIG_INSTALL_DIR)
 
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake" "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}ConfigVersion.cmake"
-        DESTINATION ${LIB_INSTALL_DIR}/${MYLIB}/cmake )
+        DESTINATION ${LIB_INSTALL_DIR}/${MYLIB}/cmake)
 
 # configure and install pkg config .pc file
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lib${MYLIB}.pc.cmakein ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc @ONLY)
@@ -358,15 +358,15 @@ elseif (WIN32)
     #windows
     set(JNILIB_FILENAME_EXTENSION ".dll")
     set(JNILIB_PREFIX "")
-else()
+else ()
     #unix
     set(JNILIB_FILENAME_EXTENSION ".so")
     set(JNILIB_PREFIX "lib")
 endif ()
 
 #compile java project
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/build.gradle.cmakein  ${WRAPPER_PROJECT_DIR}/build.gradle @ONLY)
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/settings.gradle.cmakein  ${WRAPPER_PROJECT_DIR}/settings.gradle @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/build.gradle.cmakein ${WRAPPER_PROJECT_DIR}/build.gradle @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/settings.gradle.cmakein ${WRAPPER_PROJECT_DIR}/settings.gradle @ONLY)
 
 ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
         POST_BUILD
@@ -405,4 +405,4 @@ set_property(DIRECTORY PROPERTY ADDITIONAL_MAKE_CLEAN_FILES
         )
 
 # configure cpack
-INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/MAECPack.cmake")
+INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Includes/MAECPack.cmake")
