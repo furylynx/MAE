@@ -40,8 +40,11 @@ missing
 *.so
 *.so.[0-9]*
 *.a
-!*.dll.a
+*.dll
+*.dll.a
+!**/lib/win*/**/*.dll*
 *.jar
+*.exe
 
 # Release folders
 Release

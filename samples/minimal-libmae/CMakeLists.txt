@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 
 # Include json parser cmake module
-INCLUDE("${CMAKE_SOURCE_DIR}/../../cmake/Modules/JSONParser.cmake")
+INCLUDE("${CMAKE_SOURCE_DIR}/../../cmake/Includes/JSONParser.cmake")
 file(READ "${CMAKE_SOURCE_DIR}/../../mae.json" MAEJSONCONTENT)
 sbeParseJson(MAEJSON MAEJSONCONTENT)
 

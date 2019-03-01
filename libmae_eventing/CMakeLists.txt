@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 
 # Include json parser cmake module
-INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/JSONParser.cmake")
+INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Includes/JSONParser.cmake")
 file(READ "${CMAKE_SOURCE_DIR}/../mae.json" MAEJSONCONTENT)
 sbeParseJson(MAEJSON MAEJSONCONTENT)
 
@@ -32,12 +32,6 @@ set(MYLIB_REQ_MAE LibMAE)
 set(MYLIB_REQ_MAE_V libmae)
 SET(MYLIB_REQ_MAE_C mae)
 set(MYLIB_REQ_MAE_VERSION "${MYLIB_VERSION_STRING}")
-
-set(MYLIB_REQ_OPENCV OpenCV)
-set(MYLIB_REQ_OPENCV_V opencv)
-set(MYLIB_REQ_OPENCV_VERSION "2.4.0")
-# apply additional versions if actually compatible
-set(MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS "2" "3")
 
 set(MYLIB_REQUIRES "${MYLIB_REQ_MAE_V} >= ${MYLIB_REQ_MAE_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}")
 #set(MYLIB_REQUIRES "${MYLIB_REQ_MAE_V} >= ${MYLIB_REQ_MAE_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}, ${MYLIB_REQ_BOOST_COMPONENT_V} >= ${MYLIB_REQ_BOOST_VERSION}")
@@ -89,7 +83,7 @@ install (TARGETS ${MYLIB}
         RUNTIME DESTINATION ${BIN_INSTALL_DIR}
         )
 
-install(DIRECTORY src/ DESTINATION ${INCLUDE_INSTALL_DIR} FILES_MATCHING PATTERN "*.h*")
+install(DIRECTORY src/ DESTINATION ${INCLUDE_INSTALL_DIR} FILES_MATCHING PATTERN "*.h*" PATTERN "*.hh" EXCLUDE)
 
 
 # Import additional modules (for libxml++ and libintl)
@@ -100,17 +94,15 @@ find_package ( ${MYLIB_REQ_MAE} ${MYLIB_REQ_MAE_VERSION} REQUIRED )
 find_package ( ${MYLIB_REQ_LIBXMLPP} ${MYLIB_REQ_LIBXMLPP_VERSION} REQUIRED )
 find_package ( ${MYLIB_REQ_BOOST} ${MYLIB_REQ_BOOST_VERSION} COMPONENTS ${MYLIB_REQ_BOOST_COMPONENT} REQUIRED )
 
-# fix for macos (opencv@2)
-# Check OpenCV
-find_package ( ${MYLIB_REQ_OPENCV} REQUIRED )
-if ("${${MYLIB_REQ_OPENCV}_VERSION_MAJOR}" IN_LIST MYLIB_REQ_OPENCV_COMPATIBLE_VERSIONS)
-    message( STATUS "Found OpenCV version ${${MYLIB_REQ_OPENCV}_VERSION}." )
-else()
-    message( FATAL_ERROR "Cannot find a compatible OpenCV version." )
-endif()
-
 set (MYLIB_INCLUDE_DIRS ${LibXML++_INCLUDE_DIRS} ${LibMAE_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 set (MYLIB_LIBRARIES ${LibMAE_LIBRARIES} ${LibXML++_LIBRARIES} ${Boost_LIBRARIES} ${Boost_system_LIBRARY})
+
+if (WIN32)
+    find_library(WSOCK32_LIBRARY wsock32)
+    find_library(WS2_32_LIBRARY ws2_32)
+
+    set(MYLIB_LIBRARIES ${MYLIB_LIBRARIES} ${WSOCK32_LIBRARY} ${WS2_32_LIBRARY})
+endif()
 
 include_directories(${MYLIB_INCLUDE_DIRS})
 target_link_libraries (${MYLIB} ${MYLIB_LIBRARIES} )
@@ -139,4 +131,4 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc DESTINATION "${INSTALL_
 # configure cpack
 # set libmae which is not found by SHLIBDEPS
 SET (CPACK_DEBIAN_PACKAGE_DEPENDS "${MYLIB_REQ_MAE_C} (>= ${MYLIB_REQ_MAE_VERSION})")
-INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Modules/MAECPack.cmake")
+INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Includes/MAECPack.cmake")
