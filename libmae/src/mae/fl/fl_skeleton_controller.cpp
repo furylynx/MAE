@@ -141,7 +141,7 @@ namespace mae
 
 			// apply PCA to get 2 principal components
 			cv::Mat base_coord;
-#if CV_VERSION_MAJOR > 3
+#ifndef CV_PCA_DATA_AS_COL
             cv::PCA base_pca = cv::PCA(base_matrix, cv::Mat(), cv::PCA::DATA_AS_COL, 2);
 #else
             cv::PCA base_pca = cv::PCA(base_matrix, cv::Mat(), CV_PCA_DATA_AS_COL, 2);

@@ -83,7 +83,7 @@ install (TARGETS ${MYLIB}
         RUNTIME DESTINATION ${BIN_INSTALL_DIR}
         )
 
-install(DIRECTORY src/ DESTINATION ${INCLUDE_INSTALL_DIR} FILES_MATCHING PATTERN "*.h*")
+install(DIRECTORY src/ DESTINATION ${INCLUDE_INSTALL_DIR} FILES_MATCHING PATTERN "*.h*" PATTERN "*.hh" EXCLUDE)
 
 
 # Import additional modules (for libxml++ and libintl)

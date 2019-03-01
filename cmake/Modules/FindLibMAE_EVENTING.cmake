@@ -10,9 +10,9 @@
 
 # search using mae_eventingConfig.cmake
 if (LibMAE_EVENTING_FIND_VERSION)
-  find_package(mae_eventing ${LibMAE_EVENTING_FIND_VERSION_MAJOR}.${LibMAE_EVENTING_FIND_VERSION_MINOR}.${LibMAE_EVENTING_FIND_VERSION_PATCH} CONFIG)
+  find_package(mae_eventing ${LibMAE_EVENTING_FIND_VERSION_MAJOR}.${LibMAE_EVENTING_FIND_VERSION_MINOR}.${LibMAE_EVENTING_FIND_VERSION_PATCH} CONFIG HINTS "$ENV{MAE_HOME}")
 else()
-  find_package(mae_eventing CONFIG)
+  find_package(mae_eventing CONFIG HINTS "$ENV{MAE_HOME}")
 endif()
 
 if (mae_eventing_FOUND)

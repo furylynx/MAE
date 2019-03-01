@@ -10,9 +10,9 @@
 
 # search using maeConfig.cmake
 if (LibMAE_FIND_VERSION)
-  find_package(mae ${LibMAE_FIND_VERSION_MAJOR}.${LibMAE_FIND_VERSION_MINOR}.${LibMAE_FIND_VERSION_PATCH} CONFIG)
+  find_package(mae ${LibMAE_FIND_VERSION_MAJOR}.${LibMAE_FIND_VERSION_MINOR}.${LibMAE_FIND_VERSION_PATCH} CONFIG HINTS "$ENV{MAE_HOME}")
 else()
-  find_package(mae CONFIG)
+  find_package(mae CONFIG HINTS "$ENV{MAE_HOME}")
 endif()
 
 if (mae_FOUND)
