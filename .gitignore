@@ -44,6 +44,7 @@ missing
 *.dll.a
 !**/lib/win*/**/*.dll*
 *.jar
+*.exe
 
 # Release folders
 Release
