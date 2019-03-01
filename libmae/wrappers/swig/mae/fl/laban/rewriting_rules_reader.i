@@ -5,8 +5,8 @@
 %include "decision_value.i"
 
 //-- global includes
-//%include "std_shared_ptr.i"
-%include "swig_fixed_std_shared_ptr.i"
+
+%include "std_shared_ptr.i"
 %include "std_string.i"
 %include "std_vector.i"
 %include "exception.i"
