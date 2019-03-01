@@ -40,7 +40,9 @@ missing
 *.so
 *.so.[0-9]*
 *.a
-!*.dll.a
+*.dll
+*.dll.a
+!lib/win*/mingw/*/*.dll*
 *.jar
 
 # Release folders
