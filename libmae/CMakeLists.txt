@@ -333,6 +333,11 @@ INCLUDE(${SWIG_USE_FILE})
 include(UseJava)
 include(UseSWIG)
 
+#set swig policy (CMP0078)
+if(${CMAKE_VERSION} VERSION_GREATER "3.13.0")
+    cmake_policy(SET CMP0078 NEW)
+endif()
+
 include_directories(${JNI_INCLUDE_DIRS})
 
 
