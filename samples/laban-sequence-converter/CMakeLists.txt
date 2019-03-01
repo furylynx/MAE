@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 
 # Include json parser cmake module
-INCLUDE("${CMAKE_SOURCE_DIR}/../../cmake/Modules/JSONParser.cmake")
+INCLUDE("${CMAKE_SOURCE_DIR}/../../cmake/Includes/JSONParser.cmake")
 file(READ "${CMAKE_SOURCE_DIR}/../../mae.json" MAEJSONCONTENT)
 sbeParseJson(MAEJSON MAEJSONCONTENT)
 
@@ -107,4 +107,4 @@ ENDIF("${isSystemDir}" STREQUAL "-1")
 # configure cpack
 # set libmae which is not found by SHLIBDEPS
 SET (CPACK_DEBIAN_PACKAGE_DEPENDS "${MYEXEC_REQ_MAE_C} (>= ${MYEXEC_REQ_MAE_VERSION}), ${MYEXEC_REQ_MAE_DEMO_C} (>= ${MYEXEC_REQ_MAE_DEMO_VERSION})")
-INCLUDE("${CMAKE_SOURCE_DIR}/../../cmake/Modules/MAECPack.cmake")
+INCLUDE("${CMAKE_SOURCE_DIR}/../../cmake/Includes/MAECPack.cmake")

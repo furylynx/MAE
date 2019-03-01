@@ -15,9 +15,13 @@ repositories {
 dependencies {
 }
 
-task copyJar(type: Copy) {
-    from jar
-    into '../../../'
+task copyJar {
+  doLast {
+    copy {
+      from jar
+      into '../../../'
+    }
+  }
 }
 
 build.dependsOn copyJar
