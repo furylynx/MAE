@@ -42,7 +42,7 @@ missing
 *.a
 *.dll
 *.dll.a
-!lib/win*/mingw/*/*.dll*
+!**/lib/win*/**/*.dll*
 *.jar
 
 # Release folders
