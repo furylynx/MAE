@@ -266,6 +266,11 @@ set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/)
 # We produce a shared library
 add_library(${MYLIB} SHARED ${SOURCE_FILES})
 
+if (MAE_STATIC)
+    add_library(${MYLIB}Static STATIC ${SOURCE_FILES})
+    set_target_properties(${MYLIB}Static PROPERTIES OUTPUT_NAME ${MYLIB})
+endif()
+
 # Install specs
 install(TARGETS ${MYLIB}
         ARCHIVE DESTINATION ${LIB_INSTALL_DIR}
@@ -361,7 +366,7 @@ add_custom_command(TARGET ${MYLIB} PRE_BUILD
 SET(CMAKE_SWIG_FLAGS -package ${MYLIB_JNI})
 
 SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_.i PROPERTY CPLUSPLUS ON)
-SWIG_ADD_LIBRARY(${MYLIB_JNI} TYPE SHARED LANGUAGE Java SOURCES wrappers/swig/mae/_wrapper_.i)
+SWIG_ADD_LIBRARY(${MYLIB_JNI} LANGUAGE Java SOURCES wrappers/swig/mae/_wrapper_.i)
 SWIG_LINK_LIBRARIES(${MYLIB_JNI} mae)
 
 #append version number to jnilib

@@ -76,6 +76,11 @@ set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/ )
 # We produce a shared library
 add_library(${MYLIB} SHARED ${SOURCE_FILES})
 
+if (MAE_STATIC)
+    add_library(${MYLIB}Static STATIC ${SOURCE_FILES})
+    set_target_properties(${MYLIB}Static PROPERTIES OUTPUT_NAME ${MYLIB})
+endif()
+
 # Install specs
 install (TARGETS ${MYLIB}
         ARCHIVE DESTINATION ${LIB_INSTALL_DIR}
