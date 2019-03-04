@@ -280,7 +280,11 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/Modules
 
 # Dependencies
 find_package(${MYLIB_REQ_LIBXMLPP} ${MYLIB_REQ_LIBXMLPP_VERSION} REQUIRED)
-find_package(${MYLIB_REQ_INTL} REQUIRED)
+
+if (NOT DEFINED ENV{VCPKG_ROOT} AND NOT CMAKE_TOOLCHAIN_FILE MATCHES "vcpkg.cmake$" )
+    #include intl if required
+    find_package(${MYLIB_REQ_INTL} REQUIRED)
+endif()
 
 # Check OpenCV
 find_package(${MYLIB_REQ_OPENCV} REQUIRED)
@@ -334,9 +338,10 @@ include(UseJava)
 include(UseSWIG)
 
 #set swig policy (CMP0078)
-if(${CMAKE_VERSION} VERSION_GREATER "3.13.0")
+if(POLICY CMP0078)
     cmake_policy(SET CMP0078 NEW)
 endif()
+
 
 include_directories(${JNI_INCLUDE_DIRS})
 
@@ -356,7 +361,7 @@ add_custom_command(TARGET ${MYLIB} PRE_BUILD
 SET(CMAKE_SWIG_FLAGS -package ${MYLIB_JNI})
 
 SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_.i PROPERTY CPLUSPLUS ON)
-SWIG_ADD_LIBRARY(${MYLIB_JNI} LANGUAGE Java SOURCES wrappers/swig/mae/_wrapper_.i)
+SWIG_ADD_LIBRARY(${MYLIB_JNI} TYPE SHARED LANGUAGE Java SOURCES wrappers/swig/mae/_wrapper_.i)
 SWIG_LINK_LIBRARIES(${MYLIB_JNI} mae)
 
 #append version number to jnilib
@@ -395,15 +400,6 @@ else()
             COMMAND ${CMAKE_COMMAND} -E echo "Building Java Project, installing the java library in the local maven repository..."
             COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar
             )
-
-    #ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
-    #        POST_BUILD
-    #        COMMAND ${CMAKE_COMMAND} -E rename "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}"
-    #        COMMAND ${CMAKE_COMMAND} -E create_symlink "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}"
-    #        COMMAND ${CMAKE_COMMAND} -E create_symlink "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}"
-    #        COMMAND cmake -E echo "Building Java Project, installing the java library in the local maven repository..."
-    #        COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar
-    #        )
 
     # install .jnilib into jni folder
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING} DESTINATION "${JNI_INSTALL_DIR}")
