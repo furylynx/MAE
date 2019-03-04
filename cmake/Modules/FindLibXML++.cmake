@@ -7,7 +7,7 @@
 #   LibXML++_LIBRARIES
 #
 
-if (DEFINED ENV{VCPKG_ROOT} OR CMAKE_TOOLCHAIN_FILE MATCHES "vcpkg.cmake$" )
+if (DEFINED ENV{VCPKG_ROOT} OR CMAKE_TOOLCHAIN_FILE MATCHES "vcpkg.cmake$" OR WITH_VCPKG)
     #vcpkg is used to find the library
 
     find_path(GLIBMM_INCLUDE_DIR NAMES glibmm.h)
