@@ -34,6 +34,7 @@ set(MYLIB_REQUIRES_MSYS "${MYLIB_REQ_OPENCV_V}REPLACEMEVERSION >= ${MYLIB_REQ_OP
 set(MYLIB_REQUIRES_RPM "glibc >= 2.17, libgcc >= 4.8.5, glibmm24 >= 2.50.0, libstdc++ >= 4.8.5, ${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_R} >= ${MYLIB_REQ_LIBXMLPP_VERSION}")
 
 set(MYLIB_JNI maejava)
+set(MYLIB_CSHARP maecsharp)
 
 # Define the project
 project(${MYLIB} VERSION ${MYLIB_VERSION_STRING})
@@ -340,7 +341,26 @@ endif()
 
 include_directories(${JNI_INCLUDE_DIRS})
 
+#SWIG for C#
+set(WRAPPER_PROJECT_DIR_CSHARP ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_csharp_project)
+set(CMAKE_SWIG_OUTDIR ${WRAPPER_PROJECT_DIR_CSHARP}/src/main/csharp/mae/maecsharp)
+set(SWIG_OUTFILE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release/)
 
+#create directory for generated java project
+file(MAKE_DIRECTORY ${CMAKE_SWIG_OUTDIR})
+file(MAKE_DIRECTORY ${SWIG_OUTFILE_DIR})
+add_custom_command(TARGET ${MYLIB} PRE_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SWIG_OUTDIR}
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${SWIG_OUTFILE_DIR}
+        )
+
+SET(CMAKE_SWIG_FLAGS -namespace ${MYLIB_CSHARP})
+
+SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_csharp_.i PROPERTY CPLUSPLUS ON)
+SWIG_ADD_LIBRARY(${MYLIB_CSHARP} LANGUAGE csharp SOURCES wrappers/swig/mae/_wrapper_csharp_.i)
+SWIG_LINK_LIBRARIES(${MYLIB_CSHARP} mae)
+
+# SWIG for JNI
 set(WRAPPER_PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_java_project)
 set(CMAKE_SWIG_OUTDIR ${WRAPPER_PROJECT_DIR}/src/main/java/mae/maejava)
 set(SWIG_OUTFILE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release/)
