@@ -1,5 +1,5 @@
 cinst swig gradle maven jdk8 groovy
-cinst choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+cinst cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 cd C:\Tools\vcpkg
 git pull
 .\bootstrap-vcpkg.bat
