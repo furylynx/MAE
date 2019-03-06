@@ -33,12 +33,12 @@ clone_depth: 1                      # clone entire repository history if not def
 environment:
   matrix:
     - PACKAGE_MANAGER: MSYS2
-      INSTALL_COMMAND: .appveyor/msys2-install.bat
-      BUILD_COMMAND: .appveyor/msys2-build.bat
+      INSTALL_COMMAND:".appveyor/msys2-install.bat"
+      BUILD_COMMAND:".appveyor/msys2-build.bat"
     - PACKAGE_MANAGER: VCPKG
       VCPKG_DEFAULT_TRIPLET:x64-windows
-      INSTALL_COMMAND: .appveyor/vcpkg-install.bat
-      BUILD_COMMAND: .appveyor/vcpkg-build.bat
+      INSTALL_COMMAND:".appveyor/vcpkg-install.bat"
+      BUILD_COMMAND:".appveyor/vcpkg-build.bat"
 
 
 # build platform, i.e. x86, x64, Any CPU. This setting is optional.
