@@ -48,13 +48,13 @@ matrix:
       - cd vcpkg
       - .\bootstrap-vcpkg.bat
       - vcpkg integrate install
-      - set VCPKG_DEFAULT_TRIPLET=%VCPKG_DEFAULT_TRIPLET%
+      - set VCPKG_DEFAULT_TRIPLET=$VCPKG_DEFAULT_TRIPLET
       - vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost-core boost-asio boost-system
-      - cd %TRAVIS_BUILD_DIR%
+      - cd $TRAVIS_BUILD_DIR
       script:
-      - cd libmae/ && cmake . -DCMAKE_TOOLCHAIN_FILE=%HOME%/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G %CMAKE_GENERATOR% && cmake --build . --target install --config Release && cd ..
-      - cd libmae_demo/ && cmake . -DCMAKE_TOOLCHAIN_FILE=%HOME%/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G %CMAKE_GENERATOR% && cmake --build . --target install --config Release && cd ..
-      - cd libmae_eventing/ && cmake . -DCMAKE_TOOLCHAIN_FILE=%HOME%/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G %CMAKE_GENERATOR% && cmake --build . --target install --config Release && cd ..
+      - cd libmae/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
+      - cd libmae_demo/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
+      - cd libmae_eventing/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
 
 deploy:
   - provider: releases
