@@ -6,37 +6,37 @@ services:
 
 matrix:
   include:
-  - os: linux
-    compiler: gcc
-    addons:
-      apt:
-        sources:
-        - ubuntu-toolchain-r-test
-        packages:
-        - jq
-        - docker-ce
-        - g++-6
-        - libopencv-dev
-        - libxml++2.6-dev
-        - libboost-all-dev
-        - libsdl2-dev
-        - libsdl2-image-dev
-        - libsdl2-ttf-dev
-        - swig3.0
-        - openjdk-8-jdk
-        - gradle
-        - groovy
-    env: COMPILER='g++-6' BUILD_TYPE='Release'
-    before_script:
-    - export CXX=${COMPILER}
-    script:
-    - cd libmae/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-    - cd libmae_demo/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-    - cd libmae_eventing/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-    - cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
+  # - os: linux
+  #   compiler: gcc
+  #   addons:
+  #     apt:
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       packages:
+  #       - jq
+  #       - docker-ce
+  #       - g++-6
+  #       - libopencv-dev
+  #       - libxml++2.6-dev
+  #       - libboost-all-dev
+  #       - libsdl2-dev
+  #       - libsdl2-image-dev
+  #       - libsdl2-ttf-dev
+  #       - swig3.0
+  #       - openjdk-8-jdk
+  #       - gradle
+  #       - groovy
+  #   env: COMPILER='g++-6' BUILD_TYPE='Release'
+  #   before_script:
+  #   - export CXX=${COMPILER}
+  #   script:
+  #   - cd libmae/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+  #   - cd libmae_demo/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+  #   - cd libmae_eventing/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+  #   - cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
 
     - os: windows
-      env: VCPKG_DEFAULT_TRIPLET: 'x64-windows' BUILD_TYPE='Release' CMAKE_GENERATOR: '"Visual Studio 15 2017 Win64"'
+      env: VCPKG_DEFAULT_TRIPLET='x64-windows' BUILD_TYPE='Release' CMAKE_GENERATOR='"Visual Studio 15 2017 Win64"'
       before_script:
       - cinst swig gradle maven jdk8 groovy
       - if not exist "C:\Tools\" mkdir C:\Tools
