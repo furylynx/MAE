@@ -43,8 +43,7 @@ matrix:
       env: VCPKG_DEFAULT_TRIPLET='x64-windows' BUILD_TYPE='Release' CMAKE_GENERATOR='"Visual Studio 15 2017 Win64"'
       before_script:
       - cinst -y swig gradle maven jdk8 groovy
-      - mkdir C:\Tools
-      - cd C:\Tools\
+      - cd %HOME%
       - git clone https://github.com/Microsoft/vcpkg.git
       - cd vcpkg
       - .\bootstrap-vcpkg.bat
@@ -53,9 +52,9 @@ matrix:
       - vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost-core boost-asio boost-system
       - cd %TRAVIS_BUILD_DIR%
       script:
-      - cd libmae/ && cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G %CMAKE_GENERATOR% && cmake --build . --target install --config Release && cd ..
-      - cd libmae_demo/ && cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G %CMAKE_GENERATOR% && cmake --build . --target install --config Release && cd ..
-      - cd libmae_eventing/ && cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G %CMAKE_GENERATOR% && cmake --build . --target install --config Release && cd ..
+      - cd libmae/ && cmake . -DCMAKE_TOOLCHAIN_FILE=%HOME%/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G %CMAKE_GENERATOR% && cmake --build . --target install --config Release && cd ..
+      - cd libmae_demo/ && cmake . -DCMAKE_TOOLCHAIN_FILE=%HOME%/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G %CMAKE_GENERATOR% && cmake --build . --target install --config Release && cd ..
+      - cd libmae_eventing/ && cmake . -DCMAKE_TOOLCHAIN_FILE=%HOME%/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G %CMAKE_GENERATOR% && cmake --build . --target install --config Release && cd ..
 
 deploy:
   - provider: releases
