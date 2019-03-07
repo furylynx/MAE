@@ -2,7 +2,7 @@ cinst swig gradle maven jdk8 groovy
 cinst cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 refreshenv
 
-cd C:\Tools\vcpkg
+cd C:\tools\vcpkg
 git pull
 .\bootstrap-vcpkg.bat
 vcpkg integrate install
