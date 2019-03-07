@@ -43,7 +43,7 @@ matrix:
       env: VCPKG_DEFAULT_TRIPLET='x64-windows' BUILD_TYPE='Release' CMAKE_GENERATOR='"Visual Studio 15 2017 Win64"'
       before_script:
       - cinst -y swig gradle maven jdk8 groovy
-      - cd %HOME%
+      - cd $HOME
       - git clone https://github.com/Microsoft/vcpkg.git
       - cd vcpkg
       - .\bootstrap-vcpkg.bat
