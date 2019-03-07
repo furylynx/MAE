@@ -40,7 +40,7 @@ environment:
     #   MPREFIX: "/mingw64/"
     - PACKAGE_MANAGER: VCPKG
       VCPKG_DEFAULT_TRIPLET: x64-windows
-      CMAKE_GENERATOR: "'Visual Studio 15 2017 Win64'"
+      CMAKE_GENERATOR: "Visual Studio 15 2017 Win64"
       INSTALL_COMMAND: ".appveyor\\vcpkg-install.bat"
       BUILD_COMMAND: ".appveyor\\vcpkg-build.bat"
 
