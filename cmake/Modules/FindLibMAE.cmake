@@ -8,6 +8,11 @@
 #   LibMAE_VERSION
 #
 
+# fix for vcpkg
+if (DEFINED ENV{VCPKG_ROOT} OR CMAKE_TOOLCHAIN_FILE MATCHES "vcpkg.cmake$" OR WITH_VCPKG)
+  find_package ( OpenCV REQUIRED )
+endif()
+
 # search using maeConfig.cmake
 if (LibMAE_FIND_VERSION)
   find_package(mae ${LibMAE_FIND_VERSION_MAJOR}.${LibMAE_FIND_VERSION_MINOR}.${LibMAE_FIND_VERSION_PATCH} CONFIG HINTS "$ENV{MAE_HOME}")
@@ -16,7 +21,14 @@ else()
 endif()
 
 if (mae_FOUND)
-  set(LibMAE_LIBRARIES ${MAE_LIBRARIES})
+
+  # Finally the library itself
+  find_library(LibMAE_LIBRARY
+          NAMES mae
+          PATHS ${MAE_LIB_DIRS}
+          )
+
+  set(LibMAE_LIBRARIES ${MAE_LIBRARY} ${LibMAE_LIBRARY})
   set(LibMAE_INCLUDE_DIRS ${MAE_INCLUDE_DIRS})
   set(LibMAE_VERSION ${MAE_VERSION})
   set(LibMAE_FOUND yes)

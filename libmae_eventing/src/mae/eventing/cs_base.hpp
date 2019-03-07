@@ -19,6 +19,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <cctype>
 
 
 namespace mae
