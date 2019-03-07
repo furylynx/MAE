@@ -32,12 +32,12 @@ clone_depth: 1                      # clone entire repository history if not def
 
 environment:
   matrix:
-    - PACKAGE_MANAGER: MSYS2
-      INSTALL_COMMAND: ".appveyor\\msys2-install.bat"
-      BUILD_COMMAND: ".appveyor\\msys2-build.bat"
-      MSYS2_ARCH: x86_64
-      MSYSTEM: MINGW64
-      MPREFIX: "/mingw64/"
+    # - PACKAGE_MANAGER: MSYS2
+    #   INSTALL_COMMAND: ".appveyor\\msys2-install.bat"
+    #   BUILD_COMMAND: ".appveyor\\msys2-build.bat"
+    #   MSYS2_ARCH: x86_64
+    #   MSYSTEM: MINGW64
+    #   MPREFIX: "/mingw64/"
     - PACKAGE_MANAGER: VCPKG
       VCPKG_DEFAULT_TRIPLET: x64-windows
       CMAKE_GENERATOR: "Visual Studio 15 2017 Win64"
