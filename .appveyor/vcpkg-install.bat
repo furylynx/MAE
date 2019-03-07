@@ -3,13 +3,15 @@ cinst cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 
 cd C:\tools\vcpkg
 git pull
+
+ECHO vcpkg bootstrapping...
 .\bootstrap-vcpkg.bat
-echo "vcpkg bootstrapped"
+ECHO vcpkg bootstrapped
 
 .\vcpkg integrate install
-echo "vcpkg integrated"
+ECHO vcpkg integrated
 
 .\vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost-core boost-asio boost-system
-echo "Deps installed"
+ECHO Deps installed
 
 cd %APPVEYOR_BUILD_FOLDER%

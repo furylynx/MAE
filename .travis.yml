@@ -26,13 +26,7 @@ matrix:
         - openjdk-8-jdk
         - gradle
         - groovy
-    env:
-      - COMPILER='g++-6'
-      - BUILD_TYPE='Release'
-      global:
-      - secure: "X0xytT9wRdHK9OagA+TPLyNRqByndX6BI9GHz3Pq0Z+1+c4Vz2wPLrmEEUP/8bcNNlrSeM9+Mt4qz3eaKNMJb19VgtbtnIEtiOtvDMIGjJXk9ro0kT+QBZiLYCzgg1efzIerM37I6MIS5J0agQJn8KXv5HlhS6xx6/6EfPyIXykwsKxhqfaVQv/aVtBYvJ/o0Xtgpxh8TH7Ht6rTomqEhKnmRGqHaIXQxN91oOyDTosdHubj+56gB1cZaS5VkEIE+W1GhEoZr6UXYkPZHDGvrOLBVQniteU22gJjxGHSskfu7naYHd6SCwJtvCPFH+4Fg9QN0xPs07p3pY8sLYhPtZ8ndWXbG9pN1Cn8AJDnUqRCIG1n0+bltUAoeBY1eudOqzthcuUr0oRvUDROI9KF1OgxpmphH+lBG31Qf63DR4iRhey4wQUxcg03CqTnPnN/fe8dkeeioWezkPxigBLA/aVnPYMB+knaCNl1TYhKLyLE49TnO4TJxYYxCg814zBBC75Ne4amJL1GzBWrz/XSXQwsnx5/5C8szpwgKq9gEnDPJwp3PDDNK9hzjPaabr0VKm33Znuh0goc+y3rhmzOhjr2pM0vKUKMeISZyYxOOcDWFqFR2vTK1HgBs1brVF4k59kvmWYMdouAfnJNqbc5U9xWncxps8S/fAuOjZgKYGk="
-      - secure: "RhFltkFZKgibF0FEnXW5SiuL8c7htZDTe1z1o83dfKxT6uw+X5+/vtFYziVPJmZFUmF8hOwif8e/Eurwm/Lu/L8Z1AOcLQNwSD8GQl6IBk/WGJNWbha9n5cnJOKuh9ILNSM3XQi4Nkgg1tCz9fUjiP5uuH8h86AT2OWPgaYdXTHPEJMOMaYZZY4XBQH4sUuSsHADyvs/ZyBxwETaWshThQwVyYvEdiEEMC4dh0XofLT+sDDqwvUBS3lDGqBNfO6T4L+YjuVCzcAEr2RRx3IL4yvZWw0CLnWVnodPBlWYn8H2pXZkAI3LRlSLhFwqJT4gFjR74RX6+LDKBJ48aLe9EotlI69tjYgwfllcqUfgSV9Pf2zBh5FfXgpKKwIVVqeAy9EzgO+xeOwH5O7VF5dbu9JAXRMh+Te1pg0w85kJQM8tTPyHVlDwQ9SjRVtjBXLUvR2MxpHcGCUTDUBqGcK1e/9smTEZh5hyKk3MQ9Qoq2zu7r0M/BEa3evcoYzBCEPbA0fXqazfh3ZViBATYIZxtLc3CRcEaquL8x1kQ5bTSeabM7BgXNBSEOfaehISMXDkww8kjhSIZrqMGwJNzAp1jmTdz73o5vTU4UizBlQ7PdOWidfDeYp0maiuuqtSdHJ5UOXWuPJLWN6tVahjPQKjR02ehdk+1GVhZmU8DlnI6Nc="
-      - secure: "N+XiXutDftgcU1mH4ZsFSHmxGJeZuijpZKCgj0+PPeCh1FZbNxmKtmp3KTAT332IvUS87NtigSlI5+VXhiX0qdvoVMKeNUIL45wDRQSs317D2x05RM0e2TEEHMLUsyrTt0TK3hnZN/akLrqIgWrZE6lEXb7hHQH+ZNvLjdvlB4njXuB5XI2euTS/f5T7/ujFTxnGLAN/coPAZbI+TZw2F6wl0gOyQUmtnKvRYHdEAdca7be47NHBQXCgTTtzJKFfGQ8OGoWvz8hDJn+pSwgm0pcGLZZon0BhNL8WYHf7r+jFSHoC7hZhCMzBkg61oaJ5RfEUjzmSmb+XlgNgq+2gNcBK44wgZ3eTHzZdQf2+yBHm4j1eX2HuHF4QR71V/wuWtPTfpiGY9X8vkzAZxHSbov3jvvYpsj84+RKT7eHAdE0I4EwBSoU9itxTMVvDPWAHKY2NkupacZ1HJP3P12R3dNEGYRz+Yz+XBMECj3ZeHSf4LbGyjG/CmXtt3glZ/1bOSGdQ7UEO9oLFhsRDpNWlaJH/SsY1NXL8XDm17VUeHhichi+4OFYvkMyW3Lz12lM3q2a/Iq7FMAYVMtP/REZpV3BczrPYvnKI4XcbEPsmra6yt2w/hGASzlMqAxZlj7F5hVY5GTh6fY1wHXbOq5xZncX9EFGOUisKekTRVmurC18="
+    env: COMPILER='g++-6' BUILD_TYPE='Release'
     before_script:
     - export CXX=${COMPILER}
     script:
@@ -41,25 +35,31 @@ matrix:
     - cd libmae_eventing/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
     - cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
 
-    - os: windows
-      env: VCPKG_DEFAULT_TRIPLET='x64-windows' BUILD_TYPE='Release' CMAKE_GENERATOR='"Visual Studio 15 2017 Win64"'
-      cache:
-        directories:
-         - $HOME/vcpkg/installed
-      before_script:
-      - cinst -y swig gradle maven jdk8 groovy
-      - cd $HOME
-      - git clone https://github.com/Microsoft/vcpkg.git
-      - cd vcpkg
-      - ./bootstrap-vcpkg.bat
-      - ./vcpkg integrate install
-      - set VCPKG_DEFAULT_TRIPLET=$VCPKG_DEFAULT_TRIPLET
-      - ./vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost-core boost-asio boost-system
-      - cd $TRAVIS_BUILD_DIR
-      script:
-      - cd libmae/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
-      - cd libmae_demo/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
-      - cd libmae_eventing/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
+  # - os: windows
+  #   env: VCPKG_DEFAULT_TRIPLET='x64-windows' BUILD_TYPE='Release' CMAKE_GENERATOR='"Visual Studio 15 2017 Win64"'
+  #   cache:
+  #     directories:
+  #      - $HOME/vcpkg/installed
+  #   before_script:
+  #   - cinst -y swig gradle maven jdk8 groovy
+  #   - cd $HOME
+  #   - git clone https://github.com/Microsoft/vcpkg.git
+  #   - cd vcpkg
+  #   - ./bootstrap-vcpkg.bat
+  #   - ./vcpkg integrate install
+  #   - set VCPKG_DEFAULT_TRIPLET=$VCPKG_DEFAULT_TRIPLET
+  #   - ./vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost-core boost-asio boost-system
+  #   - cd $TRAVIS_BUILD_DIR
+  #   script:
+  #   - cd libmae/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
+  #   - cd libmae_demo/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
+  #   - cd libmae_eventing/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
+
+env:
+  global:
+  - secure: "X0xytT9wRdHK9OagA+TPLyNRqByndX6BI9GHz3Pq0Z+1+c4Vz2wPLrmEEUP/8bcNNlrSeM9+Mt4qz3eaKNMJb19VgtbtnIEtiOtvDMIGjJXk9ro0kT+QBZiLYCzgg1efzIerM37I6MIS5J0agQJn8KXv5HlhS6xx6/6EfPyIXykwsKxhqfaVQv/aVtBYvJ/o0Xtgpxh8TH7Ht6rTomqEhKnmRGqHaIXQxN91oOyDTosdHubj+56gB1cZaS5VkEIE+W1GhEoZr6UXYkPZHDGvrOLBVQniteU22gJjxGHSskfu7naYHd6SCwJtvCPFH+4Fg9QN0xPs07p3pY8sLYhPtZ8ndWXbG9pN1Cn8AJDnUqRCIG1n0+bltUAoeBY1eudOqzthcuUr0oRvUDROI9KF1OgxpmphH+lBG31Qf63DR4iRhey4wQUxcg03CqTnPnN/fe8dkeeioWezkPxigBLA/aVnPYMB+knaCNl1TYhKLyLE49TnO4TJxYYxCg814zBBC75Ne4amJL1GzBWrz/XSXQwsnx5/5C8szpwgKq9gEnDPJwp3PDDNK9hzjPaabr0VKm33Znuh0goc+y3rhmzOhjr2pM0vKUKMeISZyYxOOcDWFqFR2vTK1HgBs1brVF4k59kvmWYMdouAfnJNqbc5U9xWncxps8S/fAuOjZgKYGk="
+  - secure: "RhFltkFZKgibF0FEnXW5SiuL8c7htZDTe1z1o83dfKxT6uw+X5+/vtFYziVPJmZFUmF8hOwif8e/Eurwm/Lu/L8Z1AOcLQNwSD8GQl6IBk/WGJNWbha9n5cnJOKuh9ILNSM3XQi4Nkgg1tCz9fUjiP5uuH8h86AT2OWPgaYdXTHPEJMOMaYZZY4XBQH4sUuSsHADyvs/ZyBxwETaWshThQwVyYvEdiEEMC4dh0XofLT+sDDqwvUBS3lDGqBNfO6T4L+YjuVCzcAEr2RRx3IL4yvZWw0CLnWVnodPBlWYn8H2pXZkAI3LRlSLhFwqJT4gFjR74RX6+LDKBJ48aLe9EotlI69tjYgwfllcqUfgSV9Pf2zBh5FfXgpKKwIVVqeAy9EzgO+xeOwH5O7VF5dbu9JAXRMh+Te1pg0w85kJQM8tTPyHVlDwQ9SjRVtjBXLUvR2MxpHcGCUTDUBqGcK1e/9smTEZh5hyKk3MQ9Qoq2zu7r0M/BEa3evcoYzBCEPbA0fXqazfh3ZViBATYIZxtLc3CRcEaquL8x1kQ5bTSeabM7BgXNBSEOfaehISMXDkww8kjhSIZrqMGwJNzAp1jmTdz73o5vTU4UizBlQ7PdOWidfDeYp0maiuuqtSdHJ5UOXWuPJLWN6tVahjPQKjR02ehdk+1GVhZmU8DlnI6Nc="
+  - secure: "N+XiXutDftgcU1mH4ZsFSHmxGJeZuijpZKCgj0+PPeCh1FZbNxmKtmp3KTAT332IvUS87NtigSlI5+VXhiX0qdvoVMKeNUIL45wDRQSs317D2x05RM0e2TEEHMLUsyrTt0TK3hnZN/akLrqIgWrZE6lEXb7hHQH+ZNvLjdvlB4njXuB5XI2euTS/f5T7/ujFTxnGLAN/coPAZbI+TZw2F6wl0gOyQUmtnKvRYHdEAdca7be47NHBQXCgTTtzJKFfGQ8OGoWvz8hDJn+pSwgm0pcGLZZon0BhNL8WYHf7r+jFSHoC7hZhCMzBkg61oaJ5RfEUjzmSmb+XlgNgq+2gNcBK44wgZ3eTHzZdQf2+yBHm4j1eX2HuHF4QR71V/wuWtPTfpiGY9X8vkzAZxHSbov3jvvYpsj84+RKT7eHAdE0I4EwBSoU9itxTMVvDPWAHKY2NkupacZ1HJP3P12R3dNEGYRz+Yz+XBMECj3ZeHSf4LbGyjG/CmXtt3glZ/1bOSGdQ7UEO9oLFhsRDpNWlaJH/SsY1NXL8XDm17VUeHhichi+4OFYvkMyW3Lz12lM3q2a/Iq7FMAYVMtP/REZpV3BczrPYvnKI4XcbEPsmra6yt2w/hGASzlMqAxZlj7F5hVY5GTh6fY1wHXbOq5xZncX9EFGOUisKekTRVmurC18="
 
 deploy:
   - provider: releases
