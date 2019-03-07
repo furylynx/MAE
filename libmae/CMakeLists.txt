@@ -37,6 +37,7 @@ set(MYLIB_REQUIRES_RPM "glibc >= 2.17, libgcc >= 4.8.5, glibmm24 >= 2.50.0, libs
 
 set(MYLIB_JNI maejava)
 set(MYLIB_CSHARP maecsharp)
+set(MYLIB_CSHARP_LIB maecsharplib)
 
 # Define the project
 project(${MYLIB} VERSION ${MYLIB_VERSION_STRING})
@@ -264,6 +265,7 @@ set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR})
 set(LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR})
 set(BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR})
 set(JNI_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/jni/)
+set(CS_INSTALL_DIR ${CMAKE_INSTALL_BINDIR}/)
 set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/)
 
 # We produce a shared library
@@ -353,23 +355,43 @@ endif()
 include_directories(${JNI_INCLUDE_DIRS})
 
 #SWIG for C#
-set(WRAPPER_PROJECT_DIR_CSHARP ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_csharp_project)
-set(CMAKE_SWIG_OUTDIR ${WRAPPER_PROJECT_DIR_CSHARP}/src/main/csharp/mae/maecsharp)
-set(SWIG_OUTFILE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release/)
+if (WRAP_CSHARP)
+    set(WRAPPER_PROJECT_DIR_CSHARP ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_csharp_project)
+    set(CMAKE_SWIG_OUTDIR_CSHARP ${WRAPPER_PROJECT_DIR_CSHARP}/src/main/csharp/mae/maecsharp)
+    set(SWIG_OUTFILE_DIR_CSHARP ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release/)
+    set(CMAKE_SWIG_OUTDIR ${CMAKE_SWIG_OUTDIR_CSHARP})
+    set(SWIG_OUTFILE_DIR ${SWIG_OUTFILE_DIR_CSHARP})
 
-#create directory for generated java project
-file(MAKE_DIRECTORY ${CMAKE_SWIG_OUTDIR})
-file(MAKE_DIRECTORY ${SWIG_OUTFILE_DIR})
-add_custom_command(TARGET ${MYLIB} PRE_BUILD
-        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SWIG_OUTDIR}
-        COMMAND ${CMAKE_COMMAND} -E make_directory ${SWIG_OUTFILE_DIR}
-        )
+    #create directory for generated java project
+    file(MAKE_DIRECTORY ${CMAKE_SWIG_OUTDIR_CSHARP})
+    file(MAKE_DIRECTORY ${SWIG_OUTFILE_DIR_CSHARP})
+    add_custom_command(TARGET ${MYLIB} PRE_BUILD
+            COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SWIG_OUTDIR_CSHARP}
+            COMMAND ${CMAKE_COMMAND} -E make_directory ${SWIG_OUTFILE_DIR_CSHARP}
+            )
 
-SET(CMAKE_SWIG_FLAGS -namespace ${MYLIB_CSHARP})
+    SET(CMAKE_SWIG_FLAGS -namespace ${MYLIB_CSHARP})
 
-SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_csharp_.i PROPERTY CPLUSPLUS ON)
-SWIG_ADD_LIBRARY(${MYLIB_CSHARP} LANGUAGE csharp SOURCES wrappers/swig/mae/_wrapper_csharp_.i)
-SWIG_LINK_LIBRARIES(${MYLIB_CSHARP} mae)
+    SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_csharp_.i PROPERTY CPLUSPLUS ON)
+    SWIG_ADD_LIBRARY(${MYLIB_CSHARP} LANGUAGE csharp SOURCES wrappers/swig/mae/_wrapper_csharp_.i)
+    SWIG_LINK_LIBRARIES(${MYLIB_CSHARP} mae)
+
+    if (WIN32)
+      install(TARGETS ${MYLIB_CSHARP} DESTINATION "${CS_INSTALL_DIR}")
+    endif()
+
+    #compile C# project
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.maecsharp.in ${WRAPPER_PROJECT_DIR_CSHARP}/CMakeLists.txt @ONLY)
+
+    ADD_CUSTOM_COMMAND(TARGET ${MYLIB_CSHARP}
+            POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E echo "Building C# project..."
+            COMMAND cmake -B${WRAPPER_PROJECT_DIR_CSHARP} -H${WRAPPER_PROJECT_DIR_CSHARP} -G "${CMAKE_GENERATOR}"
+            COMMAND cmake --build ${WRAPPER_PROJECT_DIR_CSHARP} --config Release --target install
+            )
+
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${MYLIB_CSHARP}lib.dll DESTINATION "${CS_INSTALL_DIR}")
+endif()
 
 # SWIG for JNI
 set(WRAPPER_PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_java_project)

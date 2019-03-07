@@ -29,12 +29,12 @@
 
 %rename("%(uppercase)s", %$isenumitem) "";
 
-%rename("%(camelcase)s", %$isfunction) "";
-%rename("%(camelcase)s", %$isvariable) "";
+//%rename("%(camelcase)s", %$isfunction) "";
+//%rename("%(camelcase)s", %$isvariable) "";
 
 //fixes for push_back and empty methods
-%rename(IsEmpty) empty;
-%rename(Add) push_back;
+//%rename(IsEmpty) empty;
+//%rename(Add) push_back;
 
 //-- public methods
 SWIG_CSBODY_PROXY(public, public, SWIGTYPE);
