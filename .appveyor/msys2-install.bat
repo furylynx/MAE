@@ -7,8 +7,8 @@ rem get-content C:\Tools\msys64\mingw64.ini | %{$_ -replace "#MSYS2_PATH_TYPE","
 PATH C:\msys64\%MSYSTEM%\bin;C:\msys64\usr\bin;%PATH%
 
 rem Upgrade the MSYS2 platform
-rem bash -lc "pacman --noconfirm --sync --refresh --refresh pacman"
-rem bash -lc "pacman --noconfirm --sync --refresh --refresh --sysupgrade --sysupgrade"
+bash -lc "pacman --noconfirm --sync --refresh --refresh pacman"
+bash -lc "pacman --noconfirm --sync --refresh --refresh --sysupgrade --sysupgrade"
 
 rem Install required tools
 bash -xlc "pacman --noconfirm -S --needed make ming-w64-%MSYS2_ARCH%-cmake ming-w64-%MSYS2_ARCH%-toolchain swig gradle"

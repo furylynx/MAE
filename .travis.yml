@@ -27,15 +27,13 @@ matrix:
         - gradle
         - groovy
     env: COMPILER='g++-6' BUILD_TYPE='Release'
-
-before_script:
-- export CXX=${COMPILER}
-
-script:
-- cd libmae/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-- cd libmae_demo/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-- cd libmae_eventing/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-- cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
+    before_script:
+    - export CXX=${COMPILER}
+    script:
+    - cd libmae/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+    - cd libmae_demo/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+    - cd libmae_eventing/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+    - cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
 
 env:
   global:
@@ -57,8 +55,10 @@ deploy:
     on:
       repo: furylynx/MAE
       tags: true
+      condition: $TRAVIS_OS_NAME = linux
   - provider: script
     script: bash .travis/docker_push.sh
     on:
       repo: furylynx/MAE
       tags: true
+      condition: $TRAVIS_OS_NAME = linux
