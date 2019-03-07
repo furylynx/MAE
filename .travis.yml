@@ -35,6 +35,24 @@ matrix:
     - cd libmae_eventing/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
     - cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
 
+    - os: windows
+      env: VCPKG_DEFAULT_TRIPLET: 'x64-windows' BUILD_TYPE='Release' CMAKE_GENERATOR: '"Visual Studio 15 2017 Win64"'
+      before_script:
+      - cinst swig gradle maven jdk8 groovy
+      - if not exist "C:\Tools\" mkdir C:\Tools
+      - cd C:\Tools\
+      - git clone https://github.com/Microsoft/vcpkg.git
+      - cd vcpkg
+      - .\bootstrap-vcpkg.bat
+      - vcpkg integrate install
+      - set VCPKG_DEFAULT_TRIPLET=%VCPKG_DEFAULT_TRIPLET%
+      - vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost-core boost-asio boost-system
+      - cd %TRAVIS_BUILD_DIR%
+      script:
+      - cd libmae/ && cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G %CMAKE_GENERATOR% && cmake --build . --target install --config Release && cd ..
+      - cd libmae_demo/ && cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G %CMAKE_GENERATOR% && cmake --build . --target install --config Release && cd ..
+      - cd libmae_eventing/ && cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G %CMAKE_GENERATOR% && cmake --build . --target install --config Release && cd ..
+
 env:
   global:
   - secure: "X0xytT9wRdHK9OagA+TPLyNRqByndX6BI9GHz3Pq0Z+1+c4Vz2wPLrmEEUP/8bcNNlrSeM9+Mt4qz3eaKNMJb19VgtbtnIEtiOtvDMIGjJXk9ro0kT+QBZiLYCzgg1efzIerM37I6MIS5J0agQJn8KXv5HlhS6xx6/6EfPyIXykwsKxhqfaVQv/aVtBYvJ/o0Xtgpxh8TH7Ht6rTomqEhKnmRGqHaIXQxN91oOyDTosdHubj+56gB1cZaS5VkEIE+W1GhEoZr6UXYkPZHDGvrOLBVQniteU22gJjxGHSskfu7naYHd6SCwJtvCPFH+4Fg9QN0xPs07p3pY8sLYhPtZ8ndWXbG9pN1Cn8AJDnUqRCIG1n0+bltUAoeBY1eudOqzthcuUr0oRvUDROI9KF1OgxpmphH+lBG31Qf63DR4iRhey4wQUxcg03CqTnPnN/fe8dkeeioWezkPxigBLA/aVnPYMB+knaCNl1TYhKLyLE49TnO4TJxYYxCg814zBBC75Ne4amJL1GzBWrz/XSXQwsnx5/5C8szpwgKq9gEnDPJwp3PDDNK9hzjPaabr0VKm33Znuh0goc+y3rhmzOhjr2pM0vKUKMeISZyYxOOcDWFqFR2vTK1HgBs1brVF4k59kvmWYMdouAfnJNqbc5U9xWncxps8S/fAuOjZgKYGk="
