@@ -22,13 +22,13 @@
 #image: Visual Studio 2015
 
 # clone directory
-# clone_folder: c:\projects\MAE
+clone_folder: c:\projects\MAE
 
 # fetch repository as zip archive
 #shallow_clone: true                 # default is "false"
 
 # set clone depth
-#clone_depth: 1                      # clone entire repository history if not defined
+clone_depth: 1                      # clone entire repository history if not defined
 
 environment:
   matrix:
@@ -59,7 +59,7 @@ cache: c:\tools\vcpkg\installed\
 # scripts that run after cloning repository
 install:
   # by default, all script lines are interpreted as batch
-  - cmd: '%INSTALL_COMMAND%'
+  - cmd: '%APPVEYOR_BUILD_FOLDER%\%INSTALL_COMMAND%'
 
 #---------------------------------#
 #       build configuration       #
@@ -71,7 +71,7 @@ before_build:
 
 # to run your custom scripts instead of automatic MSBuild
 build_script:
-  - cmd: '%BUILD_COMMAND%'
+  - cmd: '%APPVEYOR_BUILD_FOLDER%\%BUILD_COMMAND%'
 
 # scripts to run after build (working directory and environment changes are persisted from the previous steps)
 after_build:
