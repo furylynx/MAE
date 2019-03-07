@@ -1,5 +1,4 @@
 cinst swig gradle maven jdk8 groovy
-cinst cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 
 cd C:\tools\vcpkg
 git pull
