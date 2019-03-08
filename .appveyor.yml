@@ -1,0 +1,78 @@
+branches:
+  except:
+    - gh-pages
+
+skip_tags: true
+
+image: Visual Studio 2017
+
+clone_folder: c:\projects\MAE
+
+clone_depth: 1
+
+platform:
+  - x64
+#  - x86
+
+configuration: Release
+
+cache:
+  - C:\ProgramData\chocolatey\bin -> appveyor.yml
+  - C:\ProgramData\chocolatey\lib -> appveyor.yml
+  - c:\tools\vcpkg\installed\ -> appveyor.yml
+
+for:
+  -
+    environment:
+      PACKAGE_MANAGER: MSYS2
+      INSTALL_COMMAND: ".appveyor\\msys2-install.bat"
+      BUILD_COMMAND: ".appveyor\\msys2-build.bat"
+      MSYS2_ARCH: x86_64
+      MSYSTEM: MINGW64
+      MPREFIX: "/mingw64/"
+      APPVEYOR_SAVE_CACHE_ON_ERROR: true
+    install:
+      - cinst -y swig gradle maven jdk8 groovy msys2
+      - cinst -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+      - refreshenv
+      - PATH C:\msys64\%MSYSTEM%\bin;C:\msys64\usr\bin;%PATH%
+      - refreshenv
+      - bash -lc "pacman --noconfirm --sync --refresh --refresh pacman"
+      - bash -lc "pacman --noconfirm --sync --refresh --refresh --sysupgrade --sysupgrade"
+      - bash -xlc "pacman --noconfirm -S --needed make ming-w64-%MSYS2_ARCH%-cmake ming-w64-%MSYS2_ARCH%-toolchain swig gradle"
+      - bash -xlc "pacman --noconfirm -S --needed mingw-w64-%MSYS2_ARCH%-libxml++2.6 mingw-w64-%MSYS2_ARCH%-opencv mingw-w64-%MSYS2_ARCH%-boost mingw-w64-%MSYS2_ARCH%-SDL2 mingw-w64-%MSYS2_ARCH%-SDL2_image mingw-w64-%MSYS2_ARCH%-SDL2_ttf"
+      - cd %APPVEYOR_BUILD_FOLDER%
+      - set CHERE_INVOKING=yes
+    build_script:
+      - cd %APPVEYOR_BUILD_FOLDER%\libmae
+      - cmake . -G "MSYS Makefiles" -DCMAKE_INSTALL_PREFIX=%MPREFIX% && make && make install
+      - cd %APPVEYOR_BUILD_FOLDER%\libmae_demo
+      - cmake . -G "MSYS Makefiles" -DCMAKE_INSTALL_PREFIX=%MPREFIX% && make && make install
+      - cd %APPVEYOR_BUILD_FOLDER%\libmae_eventing
+      - cmake . -G "MSYS Makefiles" -DCMAKE_INSTALL_PREFIX=%MPREFIX% && make && make install
+  -
+    environment:
+      PACKAGE_MANAGER: VCPKG
+      VCPKG_DEFAULT_TRIPLET: x64-windows
+      CMAKE_GENERATOR: "Visual Studio 15 2017 Win64"
+      APPVEYOR_SAVE_CACHE_ON_ERROR: true
+    install:
+      - cinst swig gradle maven jdk8 groovy
+      - cinst cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+      - refreshenv
+      - cd C:\tools\vcpkg
+      - git pull
+      - .\bootstrap-vcpkg.bat
+      - vcpkg integrate install
+      - vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost-core boost-asio boost-system
+      - cd %APPVEYOR_BUILD_FOLDER%
+    build_script:
+      - cd %APPVEYOR_BUILD_FOLDER%\libmae
+      - cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%"
+      - cmake --build . --target install --config Release
+      - cd %APPVEYOR_BUILD_FOLDER%\libmae_demo
+      - cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%"
+      - cmake --build . --target install --config Release
+      - cd %APPVEYOR_BUILD_FOLDER%\libmae_eventing
+      - cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%"
+      - cmake --build . --target install --config Release
