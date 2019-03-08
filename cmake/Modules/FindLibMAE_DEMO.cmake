@@ -8,6 +8,11 @@
 #   LibMAE_DEMO_VERSION
 #
 
+# fix for vcpkg
+if (DEFINED ENV{VCPKG_ROOT} OR CMAKE_TOOLCHAIN_FILE MATCHES "vcpkg.cmake$" OR WITH_VCPKG)
+  find_package ( OpenCV REQUIRED )
+endif()
+
 # search using mae_demoConfig.cmake
 if (LibMAE_DEMO_FIND_VERSION)
   find_package(mae_demo ${LibMAE_DEMO_FIND_VERSION_MAJOR}.${LibMAE_DEMO_FIND_VERSION_MINOR}.${LibMAE_DEMO_FIND_VERSION_PATCH} CONFIG HINTS "$ENV{MAE_HOME}")
@@ -16,7 +21,14 @@ else()
 endif()
 
 if (mae_demo_FOUND)
-  set(LibMAE_DEMO_LIBRARIES ${MAE_DEMO_LIBRARIES})
+
+  # Finally the library itself
+  find_library(LibMAE_DEMO_LIBRARY
+          NAMES mae_demo
+          PATHS ${MAE_DEMO_LIB_DIRS}
+          )
+
+  set(LibMAE_DEMO_LIBRARIES ${MAE_DEMO_LIBRARY} ${LibMAE_DEMO_LIBRARY})
   set(LibMAE_DEMO_INCLUDE_DIRS ${MAE_DEMO_INCLUDE_DIRS})
   set(LibMAE_DEMO_VERSION ${MAE_DEMO_VERSION})
   set(LibMAE_DEMO_FOUND yes)

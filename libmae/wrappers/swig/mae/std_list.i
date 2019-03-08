@@ -13,7 +13,7 @@
 %}
 
 namespace std {
-    
+
     template<class T> class list {
       public:
         typedef size_t size_type;
@@ -24,16 +24,21 @@ namespace std {
         %rename(isEmpty) empty;
         bool empty() const;
         void clear();
+
+        //modification by furylynx
+        //%rename(add) push_back;
+        //end modification
+
         void push_back(const value_type& x);
         %extend {
             const_reference get(int i) throw (std::out_of_range) {
                 int size = int(self->size());
                 int j;
                 if (i>=0 && i<size) {
-                    std::list<T>::const_iterator p;  
-                    p=self->begin(); 
+                    std::list<T>::const_iterator p;
+                    p=self->begin();
                     for (j=0; j<i; j++) {p++;}
-                    return (*p);   
+                    return (*p);
                 }
                 else
                     throw std::out_of_range("list index out of range");

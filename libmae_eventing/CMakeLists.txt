@@ -79,6 +79,11 @@ set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/ )
 # We produce a shared library
 add_library(${MYLIB} SHARED ${SOURCE_FILES})
 
+if (MAE_STATIC)
+    add_library(${MYLIB}Static STATIC ${SOURCE_FILES})
+    set_target_properties(${MYLIB}Static PROPERTIES OUTPUT_NAME ${MYLIB})
+endif()
+
 # Install specs
 install (TARGETS ${MYLIB}
         ARCHIVE DESTINATION ${LIB_INSTALL_DIR}
@@ -100,7 +105,8 @@ find_package ( ${MYLIB_REQ_BOOST} ${MYLIB_REQ_BOOST_VERSION} COMPONENTS ${MYLIB_
 set (MYLIB_INCLUDE_DIRS ${LibXML++_INCLUDE_DIRS} ${LibMAE_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 set (MYLIB_LIBRARIES ${LibMAE_LIBRARIES} ${LibXML++_LIBRARIES} ${Boost_LIBRARIES} ${Boost_system_LIBRARY})
 
-if (WIN32)
+if (WIN32 AND NOT DEFINED ENV{VCPKG_ROOT} AND NOT CMAKE_TOOLCHAIN_FILE MATCHES "vcpkg.cmake$" AND NOT WITH_VCPKG)
+    #fix for mingw (link to wsock32 and ws_32)
     find_library(WSOCK32_LIBRARY wsock32)
     find_library(WS2_32_LIBRARY ws2_32)
 

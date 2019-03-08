@@ -19,6 +19,7 @@ matrix:
         - libopencv-dev
         - libxml++2.6-dev
         - libboost-all-dev
+        # Recent version is compiled below
         # - libsdl2-dev
         # - libsdl2-image-dev
         # - libsdl2-ttf-dev
@@ -28,39 +29,57 @@ matrix:
         - gradle
         - groovy
     env: COMPILER='g++-6' BUILD_TYPE='Release'
+    before_script:
+    - export CXX=${COMPILER}
+    # Download, make and install SDL2-2.0.8 (stable)
+    - |
+      travis_retry curl -L https://www.libsdl.org/release/SDL2-2.0.8.tar.gz | tar xz
+      cd SDL2-2.0.8
+      ./configure
+      make
+      sudo make install
+      cd ..
+    # Download, make and install SDL2_image-2.0.3 (stable)
+    - |
+      travis_retry curl -L https://www.libsdl.org/projects/SDL_image/release/SDL2_image-2.0.3.tar.gz | tar xz
+      cd SDL2_image-2.0.3
+      ./configure
+      make
+      sudo make install
+      cd ..
+    # Download, make and install SDL2_ttf-2.0.14 (stable)
+    - |
+      travis_retry curl -L https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.14.tar.gz | tar xz
+      cd SDL2_ttf-2.0.14
+      ./configure
+      make
+      sudo make install
+      cd ..
+    script:
+    - cd libmae/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+    - cd libmae_demo/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+    - cd libmae_eventing/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+    - cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
 
-before_script:
-- export CXX=${COMPILER}
-
-script:
-# Download, make and install SDL2-2.0.8 (stable)
-- |
-  travis_retry curl -L https://www.libsdl.org/release/SDL2-2.0.8.tar.gz | tar xz
-  cd SDL2-2.0.8
-  ./configure
-  make
-  sudo make install
-  cd ..
-# Download, make and install SDL2_image-2.0.3 (stable)
-- |
-  travis_retry curl -L https://www.libsdl.org/projects/SDL_image/release/SDL2_image-2.0.3.tar.gz | tar xz
-  cd SDL2_image-2.0.3
-  ./configure
-  make
-  sudo make install
-  cd ..
-# Download, make and install SDL2_ttf-2.0.14 (stable)
-- |
-  travis_retry curl -L https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.14.tar.gz | tar xz
-  cd SDL2_ttf-2.0.14
-  ./configure
-  make
-  sudo make install
-  cd ..
-- cd libmae/ && cmake . && make && make test && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-- cd libmae_demo/ && cmake . && make && make test && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-- cd libmae_eventing/ && cmake . && make && make test && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-- cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
+  # - os: windows
+  #   env: VCPKG_DEFAULT_TRIPLET='x64-windows' BUILD_TYPE='Release' CMAKE_GENERATOR='"Visual Studio 15 2017 Win64"'
+  #   cache:
+  #     directories:
+  #      - $HOME/vcpkg/installed
+  #   before_script:
+  #   - cinst -y swig gradle maven jdk8 groovy
+  #   - cd $HOME
+  #   - git clone https://github.com/Microsoft/vcpkg.git
+  #   - cd vcpkg
+  #   - ./bootstrap-vcpkg.bat
+  #   - ./vcpkg integrate install
+  #   - set VCPKG_DEFAULT_TRIPLET=$VCPKG_DEFAULT_TRIPLET
+  #   - ./vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost-core boost-asio boost-system
+  #   - cd $TRAVIS_BUILD_DIR
+  #   script:
+  #   - cd libmae/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
+  #   - cd libmae_demo/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
+  #   - cd libmae_eventing/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
 
 env:
   global:
@@ -82,8 +101,10 @@ deploy:
     on:
       repo: furylynx/MAE
       tags: true
+      condition: $TRAVIS_OS_NAME = linux
   - provider: script
     script: bash .travis/docker_push.sh
     on:
       repo: furylynx/MAE
       tags: true
+      condition: $TRAVIS_OS_NAME = linux
