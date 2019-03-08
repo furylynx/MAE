@@ -30,10 +30,13 @@ for:
       MSYS2_ARCH: x86_64
       MSYSTEM: MINGW64
       MPREFIX: "/mingw64/"
+      APPVEYOR_SAVE_CACHE_ON_ERROR: true
     install:
-      - cinst swig gradle maven jdk8 groovy msys2
-      - cinst cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+      - cinst -y swig gradle maven jdk8 groovy msys2
+      - cinst -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+      - refreshenv
       - PATH C:\msys64\%MSYSTEM%\bin;C:\msys64\usr\bin;%PATH%
+      - refreshenv
       - bash -lc "pacman --noconfirm --sync --refresh --refresh pacman"
       - bash -lc "pacman --noconfirm --sync --refresh --refresh --sysupgrade --sysupgrade"
       - bash -xlc "pacman --noconfirm -S --needed make ming-w64-%MSYS2_ARCH%-cmake ming-w64-%MSYS2_ARCH%-toolchain swig gradle"
