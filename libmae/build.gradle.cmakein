@@ -25,7 +25,7 @@ task copyJar {
   doLast {
     copy {
       from jar
-      into copyto
+      into copyToTarget
     }
   }
 }

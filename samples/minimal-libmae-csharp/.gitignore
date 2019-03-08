@@ -1,0 +1,7 @@
+.vs/
+obj/
+x64/
+x86/
+minimal-libmae-csharp.csproj
+UpgradeLog.htm
+*.TMP
