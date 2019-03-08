@@ -16,10 +16,16 @@ dependencies {
 }
 
 task copyJar {
+  def copyToTarget = '../../../'
+
+  if (project.hasProperty('copyto') && null != copyto) {
+      copyToTarget = copyto
+  }
+
   doLast {
     copy {
       from jar
-      into '../../../'
+      into copyToTarget
     }
   }
 }

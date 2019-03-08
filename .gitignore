@@ -97,3 +97,7 @@ gradlew
 #doxygen
 docs/
 
+#visual studio build tools
+*.vcxproj
+*.vcxproj.filters
+*.sln

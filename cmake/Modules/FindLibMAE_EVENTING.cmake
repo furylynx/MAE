@@ -8,6 +8,11 @@
 #   LibMAE_EVENTING_VERSION
 #
 
+# fix for vcpkg
+if (DEFINED ENV{VCPKG_ROOT} OR CMAKE_TOOLCHAIN_FILE MATCHES "vcpkg.cmake$" OR WITH_VCPKG)
+  find_package ( OpenCV REQUIRED )
+endif()
+
 # search using mae_eventingConfig.cmake
 if (LibMAE_EVENTING_FIND_VERSION)
   find_package(mae_eventing ${LibMAE_EVENTING_FIND_VERSION_MAJOR}.${LibMAE_EVENTING_FIND_VERSION_MINOR}.${LibMAE_EVENTING_FIND_VERSION_PATCH} CONFIG HINTS "$ENV{MAE_HOME}")
@@ -16,7 +21,14 @@ else()
 endif()
 
 if (mae_eventing_FOUND)
-  set(LibMAE_EVENTING_LIBRARIES ${MAE_EVENTING_LIBRARIES})
+
+  # Finally the library itself
+  find_library(LibMAE_EVENTING_LIBRARY
+          NAMES mae_eventing
+          PATHS ${MAE_EVENTING_LIB_DIRS}
+          )
+
+  set(LibMAE_EVENTING_LIBRARIES ${MAE_EVENTING_LIBRARY} ${LibMAE_EVENTING_LIBRARY})
   set(LibMAE_EVENTING_INCLUDE_DIRS ${MAE_EVENTING_INCLUDE_DIRS})
   set(LibMAE_EVENTING_VERSION ${MAE_EVENTING_VERSION})
   set(LibMAE_EVENTING_FOUND yes)

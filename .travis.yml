@@ -27,15 +27,33 @@ matrix:
         - gradle
         - groovy
     env: COMPILER='g++-6' BUILD_TYPE='Release'
+    before_script:
+    - export CXX=${COMPILER}
+    script:
+    - cd libmae/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+    - cd libmae_demo/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+    - cd libmae_eventing/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
+    - cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
 
-before_script:
-- export CXX=${COMPILER}
-
-script:
-- cd libmae/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-- cd libmae_demo/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-- cd libmae_eventing/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
-- cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
+  # - os: windows
+  #   env: VCPKG_DEFAULT_TRIPLET='x64-windows' BUILD_TYPE='Release' CMAKE_GENERATOR='"Visual Studio 15 2017 Win64"'
+  #   cache:
+  #     directories:
+  #      - $HOME/vcpkg/installed
+  #   before_script:
+  #   - cinst -y swig gradle maven jdk8 groovy
+  #   - cd $HOME
+  #   - git clone https://github.com/Microsoft/vcpkg.git
+  #   - cd vcpkg
+  #   - ./bootstrap-vcpkg.bat
+  #   - ./vcpkg integrate install
+  #   - set VCPKG_DEFAULT_TRIPLET=$VCPKG_DEFAULT_TRIPLET
+  #   - ./vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost-core boost-asio boost-system
+  #   - cd $TRAVIS_BUILD_DIR
+  #   script:
+  #   - cd libmae/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
+  #   - cd libmae_demo/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
+  #   - cd libmae_eventing/ && cmake . -DCMAKE_TOOLCHAIN_FILE=$HOME/vcpkg/scripts/buildsystems/vcpkg.cmake -DMAE_STATIC=true -G $CMAKE_GENERATOR && cmake --build . --target install --config Release && cd ..
 
 env:
   global:
@@ -57,8 +75,10 @@ deploy:
     on:
       repo: furylynx/MAE
       tags: true
+      condition: $TRAVIS_OS_NAME = linux
   - provider: script
     script: bash .travis/docker_push.sh
     on:
       repo: furylynx/MAE
       tags: true
+      condition: $TRAVIS_OS_NAME = linux

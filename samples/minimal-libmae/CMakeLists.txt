@@ -40,6 +40,8 @@ set(INSTALL_PACKAGE_LOCATION ${CMAKE_INSTALL_LIBDIR}/cmake/lib${MYEXEC})
 set(BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR} )
 set(SYSCONFIG_INSTALL_DIR etc/${MYEXEC}/ )
 
+link_directories("C:/Users/kordt/workspaces/git/ms/vcpkg/installed/x86-windows/lib/" "C:/Program Files (x86)/mae/lib/")
+
 # We produce a shared library
 add_executable(${MYEXEC} ${SOURCE_FILES})
 
@@ -54,8 +56,13 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../../cmake/Modu
 # Dependencies
 find_package ( ${MYEXEC_REQ_MAE} ${MYEXEC_REQ_MAE_VERSION} REQUIRED )
 
+# fix for vcpkg
+if (DEFINED ENV{VCPKG_ROOT} OR CMAKE_TOOLCHAIN_FILE MATCHES "vcpkg.cmake$" OR WITH_VCPKG)
+  find_package ( OpenCV REQUIRED )
+endif()
+
 set (MYEXEC_INCLUDE_DIRS ${LibMAE_INCLUDE_DIRS})
-set (MYEXEC_LIBRARIES ${LibMAE_LIBRARIES} )
+set (MYEXEC_LIBRARIES ${LibMAE_LIBRARIES})
 
 include_directories(${MYEXEC_INCLUDE_DIRS})
 target_link_libraries (${MYEXEC} ${MYEXEC_LIBRARIES} )

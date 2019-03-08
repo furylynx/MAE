@@ -26,14 +26,18 @@ set(MYLIB_REQ_LIBXMLPP "LibXML++")
 set(MYLIB_REQ_LIBXMLPP_V "libxml++-2.6")
 set(MYLIB_REQ_LIBXMLPP_R "libxml++")
 set(MYLIB_REQ_LIBXMLPP_VERSION "2.36")
+
 set(MYLIB_REQ_INTL "Intl")
 set(MYLIB_REQ_INTL_V "intl")
 set(MYLIB_REQ_INTL_VERSION "1.0")
+
 set(MYLIB_REQUIRES "${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}")
 set(MYLIB_REQUIRES_MSYS "${MYLIB_REQ_OPENCV_V}REPLACEMEVERSION >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_V} >= ${MYLIB_REQ_LIBXMLPP_VERSION}")
 set(MYLIB_REQUIRES_RPM "glibc >= 2.17, libgcc >= 4.8.5, glibmm24 >= 2.50.0, libstdc++ >= 4.8.5, ${MYLIB_REQ_OPENCV_V} >= ${MYLIB_REQ_OPENCV_VERSION}, ${MYLIB_REQ_LIBXMLPP_R} >= ${MYLIB_REQ_LIBXMLPP_VERSION}")
 
 set(MYLIB_JNI maejava)
+set(MYLIB_CSHARP maecsharp)
+set(MYLIB_CSHARP_LIB maecsharplib)
 
 # Define the project
 project(${MYLIB} VERSION ${MYLIB_VERSION_STRING})
@@ -262,9 +266,20 @@ set(LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR})
 set(BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR})
 set(JNI_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/jni/)
 set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/)
+# Set CS_INSTALL_DIR
+if (MSVC)
+    set(CS_INSTALL_DIR ${CMAKE_INSTALL_BINDIR}/)
+else()
+    set(CS_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/)
+endif()
 
 # We produce a shared library
 add_library(${MYLIB} SHARED ${SOURCE_FILES})
+
+if (MAE_STATIC)
+    add_library(${MYLIB}Static STATIC ${SOURCE_FILES})
+    set_target_properties(${MYLIB}Static PROPERTIES OUTPUT_NAME ${MYLIB})
+endif()
 
 # Install specs
 install(TARGETS ${MYLIB}
@@ -280,7 +295,11 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/Modules
 
 # Dependencies
 find_package(${MYLIB_REQ_LIBXMLPP} ${MYLIB_REQ_LIBXMLPP_VERSION} REQUIRED)
-find_package(${MYLIB_REQ_INTL} REQUIRED)
+
+if (NOT MSVC)
+    #include intl if required
+    find_package(${MYLIB_REQ_INTL} REQUIRED)
+endif()
 
 # Check OpenCV
 find_package(${MYLIB_REQ_OPENCV} REQUIRED)
@@ -295,6 +314,7 @@ else ()
     message(FATAL_ERROR "Cannot find a compatible OpenCV version.")
 endif ()
 
+message(STATUS ${Intl_LIBRARIES} ${Intl_INCLUDE_DIRS})
 
 set(MYLIB_INCLUDE_DIRS ${LibXML++_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
 set(MYLIB_LIBRARIES ${Intl_LIBRARIES} ${LibXML++_LIBRARIES} ${OpenCV_LIBS})
@@ -334,13 +354,55 @@ include(UseJava)
 include(UseSWIG)
 
 #set swig policy (CMP0078)
-if(${CMAKE_VERSION} VERSION_GREATER "3.13.0")
+if(POLICY CMP0078)
     cmake_policy(SET CMP0078 NEW)
 endif()
 
+
 include_directories(${JNI_INCLUDE_DIRS})
 
+#SWIG for C#
+if (WRAP_CSHARP)
+    set(WRAPPER_PROJECT_DIR_CSHARP ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_csharp_project)
+    set(CMAKE_SWIG_OUTDIR_CSHARP ${WRAPPER_PROJECT_DIR_CSHARP}/src/main/csharp/mae/maecsharp)
+    set(SWIG_OUTFILE_DIR_CSHARP ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release/)
+    set(CMAKE_SWIG_OUTDIR ${CMAKE_SWIG_OUTDIR_CSHARP})
+    set(SWIG_OUTFILE_DIR ${SWIG_OUTFILE_DIR_CSHARP})
 
+    #create directory for generated java project
+    file(MAKE_DIRECTORY ${CMAKE_SWIG_OUTDIR_CSHARP})
+    file(MAKE_DIRECTORY ${SWIG_OUTFILE_DIR_CSHARP})
+    add_custom_command(TARGET ${MYLIB} PRE_BUILD
+            COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SWIG_OUTDIR_CSHARP}
+            COMMAND ${CMAKE_COMMAND} -E make_directory ${SWIG_OUTFILE_DIR_CSHARP}
+            )
+
+    SET(CMAKE_SWIG_FLAGS -namespace ${MYLIB_CSHARP})
+
+    SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_csharp_.i PROPERTY CPLUSPLUS ON)
+    SWIG_ADD_LIBRARY(${MYLIB_CSHARP} LANGUAGE csharp SOURCES wrappers/swig/mae/_wrapper_csharp_.i)
+    SWIG_LINK_LIBRARIES(${MYLIB_CSHARP} mae)
+
+    if (MSVC)
+      install(TARGETS ${MYLIB_CSHARP} DESTINATION "${CS_INSTALL_DIR}")
+
+      #compile C# project
+      configure_file(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.maecsharp.in ${WRAPPER_PROJECT_DIR_CSHARP}/CMakeLists.txt @ONLY)
+
+      ADD_CUSTOM_COMMAND(TARGET ${MYLIB_CSHARP}
+              POST_BUILD
+              COMMAND ${CMAKE_COMMAND} -E echo "Building C# project..."
+              COMMAND cmake -B${WRAPPER_PROJECT_DIR_CSHARP} -H${WRAPPER_PROJECT_DIR_CSHARP} -G "${CMAKE_GENERATOR}"
+              COMMAND cmake --build ${WRAPPER_PROJECT_DIR_CSHARP} --config Release --target install
+              )
+
+      install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${MYLIB_CSHARP}lib.dll DESTINATION "${CS_INSTALL_DIR}")
+    else()
+      message(WARNING "Can only compile the CSharp project using a Visual Studio compiler, but ${CMAKE_GENERATOR} is chosen. You must compile the project manually (see ${WRAPPER_PROJECT_DIR_CSHARP}).")
+    endif()
+endif()
+
+# SWIG for JNI
 set(WRAPPER_PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_java_project)
 set(CMAKE_SWIG_OUTDIR ${WRAPPER_PROJECT_DIR}/src/main/java/mae/maejava)
 set(SWIG_OUTFILE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release/)
@@ -357,7 +419,7 @@ SET(CMAKE_SWIG_FLAGS -package ${MYLIB_JNI})
 
 SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_.i PROPERTY CPLUSPLUS ON)
 SWIG_ADD_LIBRARY(${MYLIB_JNI} LANGUAGE Java SOURCES wrappers/swig/mae/_wrapper_.i)
-SWIG_LINK_LIBRARIES(${MYLIB_JNI} mae)
+SWIG_LINK_LIBRARIES(${MYLIB_JNI} ${MYLIB})
 
 #append version number to jnilib
 if (APPLE)
@@ -381,29 +443,21 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/settings.gradle.cmakein ${WRAPPER_PRO
 if (WIN32)
     ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
             POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E echo "Building Java Project, installing the java library in the local maven repository..."
-            COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar
+            COMMAND ${CMAKE_COMMAND} -E echo "Building Java project, installing the java library in the local maven repository..."
+            COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar -Pcopyto=${CMAKE_CURRENT_BINARY_DIR} --no-daemon
+            COMMAND ${CMAKE_COMMAND} -E echo "Building Java project done."
             )
 
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION} DESTINATION "${JNI_INSTALL_DIR}")
+    install(TARGETS ${MYLIB_JNI} DESTINATION "${JNI_INSTALL_DIR}")
 else()
     ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
             POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E rename "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}"
             COMMAND ${CMAKE_COMMAND} -E create_symlink "${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}"
             COMMAND ${CMAKE_COMMAND} -E create_symlink "${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}"
-            COMMAND ${CMAKE_COMMAND} -E echo "Building Java Project, installing the java library in the local maven repository..."
-            COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar
+            COMMAND ${CMAKE_COMMAND} -E echo "Building Java project, installing the java library in the local maven repository..."
+            COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar -Pcopyto=${CMAKE_CURRENT_BINARY_DIR}
             )
-
-    #ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
-    #        POST_BUILD
-    #        COMMAND ${CMAKE_COMMAND} -E rename "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}"
-    #        COMMAND ${CMAKE_COMMAND} -E create_symlink "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}"
-    #        COMMAND ${CMAKE_COMMAND} -E create_symlink "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}"
-    #        COMMAND cmake -E echo "Building Java Project, installing the java library in the local maven repository..."
-    #        COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar
-    #        )
 
     # install .jnilib into jni folder
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING} DESTINATION "${JNI_INSTALL_DIR}")
