@@ -22,34 +22,34 @@ cache:
   - c:\tools\vcpkg\installed\ -> appveyor.yml
 
 for:
-  -
-    environment:
-      PACKAGE_MANAGER: MSYS2
-      INSTALL_COMMAND: ".appveyor\\msys2-install.bat"
-      BUILD_COMMAND: ".appveyor\\msys2-build.bat"
-      MSYS2_ARCH: x86_64
-      MSYSTEM: MINGW64
-      MPREFIX: "/mingw64/"
-      APPVEYOR_SAVE_CACHE_ON_ERROR: true
-    install:
-      - cinst -y swig gradle maven jdk8 groovy msys2
-      - cinst -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
-      - refreshenv
-      - PATH C:\msys64\%MSYSTEM%\bin;C:\msys64\usr\bin;%PATH%
-      - refreshenv
-      - bash -lc "pacman --noconfirm --sync --refresh --refresh pacman"
-      - bash -lc "pacman --noconfirm --sync --refresh --refresh --sysupgrade --sysupgrade"
-      - bash -xlc "pacman --noconfirm -S --needed make ming-w64-%MSYS2_ARCH%-cmake ming-w64-%MSYS2_ARCH%-toolchain swig gradle"
-      - bash -xlc "pacman --noconfirm -S --needed mingw-w64-%MSYS2_ARCH%-libxml++2.6 mingw-w64-%MSYS2_ARCH%-opencv mingw-w64-%MSYS2_ARCH%-boost mingw-w64-%MSYS2_ARCH%-SDL2 mingw-w64-%MSYS2_ARCH%-SDL2_image mingw-w64-%MSYS2_ARCH%-SDL2_ttf"
-      - cd %APPVEYOR_BUILD_FOLDER%
-      - set CHERE_INVOKING=yes
-    build_script:
-      - cd %APPVEYOR_BUILD_FOLDER%\libmae
-      - cmake . -G "MSYS Makefiles" -DCMAKE_INSTALL_PREFIX=%MPREFIX% && make && make install
-      - cd %APPVEYOR_BUILD_FOLDER%\libmae_demo
-      - cmake . -G "MSYS Makefiles" -DCMAKE_INSTALL_PREFIX=%MPREFIX% && make && make install
-      - cd %APPVEYOR_BUILD_FOLDER%\libmae_eventing
-      - cmake . -G "MSYS Makefiles" -DCMAKE_INSTALL_PREFIX=%MPREFIX% && make && make install
+  # -
+  #   environment:
+  #     PACKAGE_MANAGER: MSYS2
+  #     INSTALL_COMMAND: ".appveyor\\msys2-install.bat"
+  #     BUILD_COMMAND: ".appveyor\\msys2-build.bat"
+  #     MSYS2_ARCH: x86_64
+  #     MSYSTEM: MINGW64
+  #     MPREFIX: "/mingw64/"
+  #     APPVEYOR_SAVE_CACHE_ON_ERROR: true
+  #   install:
+  #     - cinst -y swig gradle maven jdk8 groovy msys2
+  #     - cinst -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+  #     - refreshenv
+  #     - PATH C:\msys64\%MSYSTEM%\bin;C:\msys64\usr\bin;%PATH%
+  #     - refreshenv
+  #     - bash -lc "pacman --noconfirm --sync --refresh --refresh pacman"
+  #     - bash -lc "pacman --noconfirm --sync --refresh --refresh --sysupgrade --sysupgrade"
+  #     - bash -xlc "pacman --noconfirm -S --needed make ming-w64-%MSYS2_ARCH%-cmake ming-w64-%MSYS2_ARCH%-toolchain swig gradle"
+  #     - bash -xlc "pacman --noconfirm -S --needed mingw-w64-%MSYS2_ARCH%-libxml++2.6 mingw-w64-%MSYS2_ARCH%-opencv mingw-w64-%MSYS2_ARCH%-boost mingw-w64-%MSYS2_ARCH%-SDL2 mingw-w64-%MSYS2_ARCH%-SDL2_image mingw-w64-%MSYS2_ARCH%-SDL2_ttf"
+  #     - cd %APPVEYOR_BUILD_FOLDER%
+  #     - set CHERE_INVOKING=yes
+  #   build_script:
+  #     - cd %APPVEYOR_BUILD_FOLDER%\libmae
+  #     - cmake . -G "MSYS Makefiles" -DCMAKE_INSTALL_PREFIX=%MPREFIX% && make && make install
+  #     - cd %APPVEYOR_BUILD_FOLDER%\libmae_demo
+  #     - cmake . -G "MSYS Makefiles" -DCMAKE_INSTALL_PREFIX=%MPREFIX% && make && make install
+  #     - cd %APPVEYOR_BUILD_FOLDER%\libmae_eventing
+  #     - cmake . -G "MSYS Makefiles" -DCMAKE_INSTALL_PREFIX=%MPREFIX% && make && make install
   -
     environment:
       PACKAGE_MANAGER: VCPKG
