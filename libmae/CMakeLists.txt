@@ -314,6 +314,8 @@ else ()
     message(FATAL_ERROR "Cannot find a compatible OpenCV version.")
 endif ()
 
+message(STATUS ${Intl_LIBRARIES} ${Intl_INCLUDE_DIRS})
+
 set(MYLIB_INCLUDE_DIRS ${LibXML++_INCLUDE_DIRS} ${Intl_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
 set(MYLIB_LIBRARIES ${Intl_LIBRARIES} ${LibXML++_LIBRARIES} ${OpenCV_LIBS})
 
@@ -396,7 +398,7 @@ if (WRAP_CSHARP)
 
       install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${MYLIB_CSHARP}lib.dll DESTINATION "${CS_INSTALL_DIR}")
     else()
-      message(WARN "Can only compile the CSharp project using a Visual Studio compiler, but ${CMAKE_GENERATOR} is chosen. You must compile the project manually (see ${WRAPPER_PROJECT_DIR_CSHARP}).")
+      message(WARNING "Can only compile the CSharp project using a Visual Studio compiler, but ${CMAKE_GENERATOR} is chosen. You must compile the project manually (see ${WRAPPER_PROJECT_DIR_CSHARP}).")
     endif()
 endif()
 
