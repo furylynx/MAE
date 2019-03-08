@@ -265,8 +265,13 @@ set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR})
 set(LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR})
 set(BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR})
 set(JNI_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/jni/)
-set(CS_INSTALL_DIR ${CMAKE_INSTALL_BINDIR}/)
 set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/)
+# Set CS_INSTALL_DIR
+if (MSVC)
+    set(CS_INSTALL_DIR ${CMAKE_INSTALL_BINDIR}/)
+else()
+    set(CS_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/)
+endif()
 
 # We produce a shared library
 add_library(${MYLIB} SHARED ${SOURCE_FILES})
@@ -291,7 +296,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/Modules
 # Dependencies
 find_package(${MYLIB_REQ_LIBXMLPP} ${MYLIB_REQ_LIBXMLPP_VERSION} REQUIRED)
 
-if (NOT DEFINED ENV{VCPKG_ROOT} AND NOT CMAKE_TOOLCHAIN_FILE MATCHES "vcpkg.cmake$" AND NOT WITH_VCPKG)
+if (NOT MSVC)
     #include intl if required
     find_package(${MYLIB_REQ_INTL} REQUIRED)
 endif()
@@ -376,21 +381,23 @@ if (WRAP_CSHARP)
     SWIG_ADD_LIBRARY(${MYLIB_CSHARP} LANGUAGE csharp SOURCES wrappers/swig/mae/_wrapper_csharp_.i)
     SWIG_LINK_LIBRARIES(${MYLIB_CSHARP} mae)
 
-    if (WIN32)
+    if (MSVC)
       install(TARGETS ${MYLIB_CSHARP} DESTINATION "${CS_INSTALL_DIR}")
+
+      #compile C# project
+      configure_file(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.maecsharp.in ${WRAPPER_PROJECT_DIR_CSHARP}/CMakeLists.txt @ONLY)
+
+      ADD_CUSTOM_COMMAND(TARGET ${MYLIB_CSHARP}
+              POST_BUILD
+              COMMAND ${CMAKE_COMMAND} -E echo "Building C# project..."
+              COMMAND cmake -B${WRAPPER_PROJECT_DIR_CSHARP} -H${WRAPPER_PROJECT_DIR_CSHARP} -G "${CMAKE_GENERATOR}"
+              COMMAND cmake --build ${WRAPPER_PROJECT_DIR_CSHARP} --config Release --target install
+              )
+
+      install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${MYLIB_CSHARP}lib.dll DESTINATION "${CS_INSTALL_DIR}")
+    else()
+      message(WARN "Can only compile the CSharp project using a Visual Studio compiler, but ${CMAKE_GENERATOR} is chosen. You must compile the project manually (see ${WRAPPER_PROJECT_DIR_CSHARP}).")
     endif()
-
-    #compile C# project
-    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.maecsharp.in ${WRAPPER_PROJECT_DIR_CSHARP}/CMakeLists.txt @ONLY)
-
-    ADD_CUSTOM_COMMAND(TARGET ${MYLIB_CSHARP}
-            POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E echo "Building C# project..."
-            COMMAND cmake -B${WRAPPER_PROJECT_DIR_CSHARP} -H${WRAPPER_PROJECT_DIR_CSHARP} -G "${CMAKE_GENERATOR}"
-            COMMAND cmake --build ${WRAPPER_PROJECT_DIR_CSHARP} --config Release --target install
-            )
-
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${MYLIB_CSHARP}lib.dll DESTINATION "${CS_INSTALL_DIR}")
 endif()
 
 # SWIG for JNI
@@ -434,11 +441,11 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/settings.gradle.cmakein ${WRAPPER_PRO
 if (WIN32)
     ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
             POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E echo "Building Java Project, installing the java library in the local maven repository..."
-            COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar -Pcopyto=${CMAKE_CURRENT_BINARY_DIR}
+            COMMAND ${CMAKE_COMMAND} -E echo "Building Java project, installing the java library in the local maven repository..."
+            COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar -Pcopyto=${CMAKE_CURRENT_BINARY_DIR} --no-daemon
+            COMMAND ${CMAKE_COMMAND} -E echo "Building Java project done."
             )
 
-    #install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION} DESTINATION "${JNI_INSTALL_DIR}")
     install(TARGETS ${MYLIB_JNI} DESTINATION "${JNI_INSTALL_DIR}")
 else()
     ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
@@ -446,7 +453,7 @@ else()
             COMMAND ${CMAKE_COMMAND} -E rename "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}"
             COMMAND ${CMAKE_COMMAND} -E create_symlink "${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}"
             COMMAND ${CMAKE_COMMAND} -E create_symlink "${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}"
-            COMMAND ${CMAKE_COMMAND} -E echo "Building Java Project, installing the java library in the local maven repository..."
+            COMMAND ${CMAKE_COMMAND} -E echo "Building Java project, installing the java library in the local maven repository..."
             COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar -Pcopyto=${CMAKE_CURRENT_BINARY_DIR}
             )
 
