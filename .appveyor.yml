@@ -41,11 +41,11 @@ for:
       - set CHERE_INVOKING=yes
     build_script:
       - cd %APPVEYOR_BUILD_FOLDER%\libmae
-      - cmake . -G "MSYS Makefiles" -DCMAKE_INSTALL_PREFIX=%MPREFIX% && make && make install
+      - cmake . -G "MSYS Makefiles" && make && make install
       - cd %APPVEYOR_BUILD_FOLDER%\libmae_demo
-      - cmake . -G "MSYS Makefiles" -DCMAKE_INSTALL_PREFIX=%MPREFIX% && make && make install
+      - cmake . -G "MSYS Makefiles" && make && make install
       - cd %APPVEYOR_BUILD_FOLDER%\libmae_eventing
-      - cmake . -G "MSYS Makefiles" -DCMAKE_INSTALL_PREFIX=%MPREFIX% && make && make install
+      - cmake . -G "MSYS Makefiles" && make && make install
   -
     environment:
       PACKAGE_MANAGER: VCPKG
@@ -64,7 +64,7 @@ for:
       - cd %APPVEYOR_BUILD_FOLDER%
     build_script:
       - cd %APPVEYOR_BUILD_FOLDER%\libmae
-      - cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%"
+      - cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%" -DWRAP_CSHARP=true
       - cmake --build . --target install --config Release
       - cd %APPVEYOR_BUILD_FOLDER%\libmae_demo
       - cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%"
