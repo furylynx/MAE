@@ -33,7 +33,7 @@ for:
       APPVEYOR_SAVE_CACHE_ON_ERROR: true
     install:
       - cinst -y swig gradle maven jdk8 groovy
-      - cinst -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+        #      - cinst -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
       - refreshenv
       - PATH C:\msys64\%MSYSTEM%\bin;C:\msys64\usr\bin;%PATH%
       - refreshenv
