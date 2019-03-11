@@ -6,7 +6,7 @@
 //-- global includes
 //%include "stl.i"
 
-%include "std_shared_ptr.i"
+%include "std_shared_ptr_fix.i"
 %include "exception.i"
 
 //-- module definition

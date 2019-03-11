@@ -269,9 +269,9 @@ set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/)
 # Set CS_INSTALL_DIR
 if (MSVC)
     set(CS_INSTALL_DIR ${CMAKE_INSTALL_BINDIR}/)
-else()
+else ()
     set(CS_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/)
-endif()
+endif ()
 
 # We produce a shared library
 add_library(${MYLIB} SHARED ${SOURCE_FILES})
@@ -279,7 +279,7 @@ add_library(${MYLIB} SHARED ${SOURCE_FILES})
 if (MAE_STATIC)
     add_library(${MYLIB}Static STATIC ${SOURCE_FILES})
     set_target_properties(${MYLIB}Static PROPERTIES OUTPUT_NAME ${MYLIB})
-endif()
+endif ()
 
 # Install specs
 install(TARGETS ${MYLIB}
@@ -299,7 +299,7 @@ find_package(${MYLIB_REQ_LIBXMLPP} ${MYLIB_REQ_LIBXMLPP_VERSION} REQUIRED)
 if (NOT MSVC)
     #include intl if required
     find_package(${MYLIB_REQ_INTL} REQUIRED)
-endif()
+endif ()
 
 # Check OpenCV
 find_package(${MYLIB_REQ_OPENCV} REQUIRED)
@@ -307,9 +307,9 @@ if ("${${MYLIB_REQ_OPENCV}_VERSION_MAJOR}" IN_LIST MYLIB_REQ_OPENCV_COMPATIBLE_V
     message(STATUS "Found OpenCV version ${${MYLIB_REQ_OPENCV}_VERSION}.")
 
     # fix for msys2 pkgconfig
-    if (${${MYLIB_REQ_OPENCV}_VERSION_MAJOR} GREATER 3 AND WIN32 )
+    if (${${MYLIB_REQ_OPENCV}_VERSION_MAJOR} GREATER 3 AND WIN32)
         string(REPLACE "REPLACEMEVERSION" ${${MYLIB_REQ_OPENCV}_VERSION_MAJOR} MYLIB_REQUIRES ${MYLIB_REQUIRES_MSYS})
-    endif()
+    endif ()
 else ()
     message(FATAL_ERROR "Cannot find a compatible OpenCV version.")
 endif ()
@@ -354,9 +354,9 @@ include(UseJava)
 include(UseSWIG)
 
 #set swig policy (CMP0078)
-if(POLICY CMP0078)
+if (POLICY CMP0078)
     cmake_policy(SET CMP0078 NEW)
-endif()
+endif ()
 
 
 include_directories(${JNI_INCLUDE_DIRS})
@@ -384,23 +384,23 @@ if (WRAP_CSHARP)
     SWIG_LINK_LIBRARIES(${MYLIB_CSHARP} mae)
 
     if (MSVC)
-      install(TARGETS ${MYLIB_CSHARP} DESTINATION "${CS_INSTALL_DIR}")
+        install(TARGETS ${MYLIB_CSHARP} DESTINATION "${CS_INSTALL_DIR}")
 
-      #compile C# project
-      configure_file(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.maecsharp.in ${WRAPPER_PROJECT_DIR_CSHARP}/CMakeLists.txt @ONLY)
+        #compile C# project
+        configure_file(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.maecsharp.in ${WRAPPER_PROJECT_DIR_CSHARP}/CMakeLists.txt @ONLY)
 
-      ADD_CUSTOM_COMMAND(TARGET ${MYLIB_CSHARP}
-              POST_BUILD
-              COMMAND ${CMAKE_COMMAND} -E echo "Building C# project..."
-              COMMAND cmake -B${WRAPPER_PROJECT_DIR_CSHARP} -H${WRAPPER_PROJECT_DIR_CSHARP} -G "${CMAKE_GENERATOR}"
-              COMMAND cmake --build ${WRAPPER_PROJECT_DIR_CSHARP} --config Release --target install
-              )
+        ADD_CUSTOM_COMMAND(TARGET ${MYLIB_CSHARP}
+                POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E echo "Building C# project..."
+                COMMAND cmake -B${WRAPPER_PROJECT_DIR_CSHARP} -H${WRAPPER_PROJECT_DIR_CSHARP} -G "${CMAKE_GENERATOR}"
+                COMMAND cmake --build ${WRAPPER_PROJECT_DIR_CSHARP} --config Release --target install
+                )
 
-      install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${MYLIB_CSHARP}lib.dll DESTINATION "${CS_INSTALL_DIR}")
-    else()
-      message(WARNING "Can only compile the CSharp project using a Visual Studio compiler, but ${CMAKE_GENERATOR} is chosen. You must compile the project manually (see ${WRAPPER_PROJECT_DIR_CSHARP}).")
-    endif()
-endif()
+        install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${MYLIB_CSHARP}lib.dll DESTINATION "${CS_INSTALL_DIR}")
+    else ()
+        message(WARNING "Can only compile the CSharp project using a Visual Studio compiler, but ${CMAKE_GENERATOR} is chosen. You must compile the project manually (see ${WRAPPER_PROJECT_DIR_CSHARP}).")
+    endif ()
+endif ()
 
 # SWIG for JNI
 set(WRAPPER_PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_java_project)
@@ -414,6 +414,12 @@ add_custom_command(TARGET ${MYLIB} PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SWIG_OUTDIR}
         COMMAND ${CMAKE_COMMAND} -E make_directory ${SWIG_OUTFILE_DIR}
         )
+
+# prepare java interfaces required by swig
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/ILabanSequenceSequenceListener.java.cmakein ${CMAKE_SWIG_OUTDIR}/ILabanSequenceSequenceListener.java @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/ILabanSequenceRecognitionListener.java.cmakein ${CMAKE_SWIG_OUTDIR}/ILabanSequenceRecognitionListener.java @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/IPoseListener.java.cmakein ${CMAKE_SWIG_OUTDIR}/IPoseListener.java @ONLY)
+
 
 SET(CMAKE_SWIG_FLAGS -package ${MYLIB_JNI})
 
@@ -449,7 +455,7 @@ if (WIN32)
             )
 
     install(TARGETS ${MYLIB_JNI} DESTINATION "${JNI_INSTALL_DIR}")
-else()
+else ()
     ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
             POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E rename "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}"
@@ -464,8 +470,7 @@ else()
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR} DESTINATION "${JNI_INSTALL_DIR}")
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION} DESTINATION "${JNI_INSTALL_DIR}")
 
-endif()
-
+endif ()
 
 
 # install .jar file to jni folder (besides the installation into the local maven repository)

@@ -5,7 +5,7 @@
 //-- global includes
 //%include "stl.i"
 
-%include "std_shared_ptr.i"
+%include "std_shared_ptr_fix.i"
 %include "std_list.i"
 %include "exception.i"
 

@@ -1,0 +1,5 @@
+package maejava;
+
+public interface IPoseListener {
+    public void onPose(java.math.BigInteger timestamp, GeneralPose pose);
+}

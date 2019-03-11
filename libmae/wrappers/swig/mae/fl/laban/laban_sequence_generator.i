@@ -11,7 +11,7 @@
  
 //-- global includes
 
-%include "std_shared_ptr.i"
+%include "std_shared_ptr_fix.i"
 %include "std_string.i"
 %include "std_vector.i"
 %include "exception.i"

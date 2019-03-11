@@ -1,0 +1,6 @@
+package maejava;
+
+public interface ILabanSequenceRecognitionListener {
+    public void onRecognition(java.math.BigInteger timestamp, LabanSequenceVector sequences);
+    public void onRecognition(java.math.BigInteger timestamp, StringVector title);
+}

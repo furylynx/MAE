@@ -1,0 +1,5 @@
+package maejava;
+
+public interface ILabanSequenceSequenceListener {
+    public void onSequence(java.math.BigInteger timestamp, LabanSequence sequence);
+}

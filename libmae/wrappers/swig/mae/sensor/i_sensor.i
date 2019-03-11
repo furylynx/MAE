@@ -5,7 +5,7 @@
 %include "../general_skeleton_basis_pair.i"
 
 //-- global includes
-%include "std_shared_ptr.i"
+%include "std_shared_ptr_fix.i"
 %include "std_string.i"
 %include "exception.i"
 

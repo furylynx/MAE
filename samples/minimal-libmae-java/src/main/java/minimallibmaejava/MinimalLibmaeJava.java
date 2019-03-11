@@ -1,8 +1,6 @@
 package minimallibmaejava;
 
-import maejava.Bone;
-import maejava.BoneVector;
-import maejava.LabanSequence;
+import maejava.*;
 import maejavawrapper.WrappedMovementController;
 import maejavawrapper.IJSequenceListener;
 
@@ -17,16 +15,41 @@ public class MinimalLibmaeJava {
             System.out.println(bones.get(i).getName());
         }
 
-        WrappedMovementController mvc = new WrappedMovementController();
+//        NativeLabanSequenceSequenceListener listener = MaeJava.makeNative(new ILabanSequenceSequenceListener() {
+//            @Override
+//            public void onSequence(BigInteger bigInteger, LabanSequence labanSequence) {
+//                System.out.println(""+bigInteger.toString()+" - "+labanSequence.getTitle());
+//            }
+//        });
+//
+//        NativePoseListener poseListener = MaeJava.makeNative(new IPoseListener() {
+//            @Override
+//            public void onPose(BigInteger bigInteger, GeneralPose generalPose) {
+//                System.out.println("Pose "+bigInteger.toString());
+//            }
+//        });
+//
+//        FlMovementController mc = new FlMovementController();
+//        mc.addListener(listener);
+//        mc.addListener(poseListener);
+//
+//        BvhController bvhController = new BvhController();
+//        BvhData data = bvhController.readBvhFile("../tutorial-bvhreader/file.bvh", BvhSpec.defaultSpec());
 
-        mvc.addListener(new IJSequenceListener() {
-            @Override
-            public void onSequence(BigInteger bigInteger, LabanSequence labanSequence) {
-                System.out.println("next seq");
-            }
-        });
+//        for (int i = 0; i < data.getSkeletonData().size(); i++) {
+//            mc.nextFrame(BigInteger.valueOf(i), data.getSkeletonData().get(i));
+//        }
 
-        System.out.println(mvc);
+//        WrappedMovementController mvc = new WrappedMovementController();
+//
+//        mvc.addListener(new IJSequenceListener() {
+//            @Override
+//            public void onSequence(BigInteger bigInteger, LabanSequence labanSequence) {
+//                System.out.println("next seq");
+//            }
+//        });
+//
+//        System.out.println(mvc);
 
     }
 }
