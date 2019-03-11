@@ -30,7 +30,7 @@ for:
       MPREFIX: "/mingw64/"
       APPVEYOR_SAVE_CACHE_ON_ERROR: true
     install:
-      - cinst -y swig gradle maven jdk8 groovy
+      - cinst -y gradle maven jdk8 groovy
         #      - cinst -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'
       - PATH C:\msys64\%MSYSTEM%\bin;C:\msys64\usr\bin;%PATH%
       - bash -lc "pacman --noconfirm --sync --refresh --refresh pacman"
