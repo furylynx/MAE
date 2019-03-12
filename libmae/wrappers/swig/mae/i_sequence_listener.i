@@ -1,13 +1,15 @@
 //-- i_sequence_listener.i - SWIG interface
 
-//-- custom includes 
+//-- custom includes
 %include "fl/laban/laban_sequence.i"
 
 //-- global includes
 %include "std_shared_ptr_fix.i"
 %include "stdint.i"
 
+#if defined(SWIGJAVA) || defined(SWIGCSHARP)
 %feature("director") mae::i_sequence_listener;
+#endif
 
 //-- module definition
 %module(directors="1") w_i_sequence_listener
@@ -21,6 +23,7 @@
 %shared_ptr(mae::i_sequence_listener<mae::fl::laban::laban_sequence>);
 
 //-- typemaps to fix shared_ptr
+#ifdef SWIGJAVA
 %typemap(javadirectorin) std::shared_ptr<mae::i_sequence_listener<mae::fl::laban::laban_sequence> > "new $typemap(jstype, mae::i_sequence_listener<mae::fl::laban::laban_sequence>)($1,true)";
 %typemap(directorin,descriptor="L$typemap(jstype, mae::i_sequence_listener<mae::fl::laban::laban_sequence>);") std::shared_ptr<mae::i_sequence_listener<mae::fl::laban::laban_sequence> > %{
     *($&1_type*)&j$1 = new $1_type($1);
@@ -52,7 +55,10 @@
     }
     $result = *tmp;
 %}
-
+#elif defined(SWIGCSHARP)
+%typemap(csdirectorin) std::shared_ptr<mae::i_sequence_listener<mae::fl::laban::laban_sequence> > "new NativeLabanSequenceSequenceListener($iminput, true)"
+%typemap(csdirectorin) std::shared_ptr<mae::fl::laban::laban_sequence> "new LabanSequence($iminput, true)"
+#endif
 
 //-- Parse the original header file
 %include "../../../src/mae/i_sequence_listener.hpp"

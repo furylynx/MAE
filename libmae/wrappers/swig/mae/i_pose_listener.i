@@ -1,8 +1,8 @@
 //-- i_pose_listener.i - SWIG interface
- 
+
 //-- custom includes
 %include "general_pose.i"
- 
+
 //-- global includes
 
 %include "std_shared_ptr_fix.i"
@@ -20,11 +20,12 @@
 //-- Rename the original interface class
 %rename(NativePoseListener) mae::i_pose_listener;
 
-//-- shared_ptr 
+//-- shared_ptr
 %shared_ptr(mae::general_pose);
 %shared_ptr(mae::i_pose_listener);
 
-//-- typemaps to fix shared_ptr
+//-- typemaps to fix shared_ptr (Java and C#)
+#ifdef SWIGJAVA
 %typemap(javadirectorin) std::shared_ptr<mae::i_pose_listener> "new $typemap(jstype, mae::i_pose_listener)($1,true)";
 %typemap(directorin,descriptor="L$typemap(jstype, mae::i_pose_listener);") std::shared_ptr<mae::i_pose_listener> %{
 	*($&1_type*)&j$1 = new $1_type($1);
@@ -56,13 +57,17 @@
 	}
 	$result = *tmp;
 %}
+#elif defined(SWIGCSHARP)
+%typemap(csdirectorin) std::shared_ptr<mae::i_pose_listener> "new NativePoseListener($iminput, true)"
+%typemap(csdirectorin) std::shared_ptr<mae::general_pose> "new GeneralPose($iminput, true)"
+#endif
 
 //-- Parse the original header file
 %include "../../../src/mae/i_pose_listener.hpp"
 
 //-- templates
 //...
-		 
+
 //-- Proxy for actual interface
 %pragma(java) modulecode=%{
 static class NativePoseListenerProxy extends NativePoseListener {

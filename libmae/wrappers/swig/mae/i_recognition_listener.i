@@ -22,6 +22,7 @@
 %shared_ptr(mae::i_recognition_listener<mae::fl::laban::laban_sequence>);
 
 //-- typemaps to fix shared_ptr
+#ifdef SWIGJAVA
 %typemap(javadirectorin) std::shared_ptr<mae::i_recognition_listener<mae::fl::laban::laban_sequence> > "new $typemap(jstype, mae::i_recognition_listener<mae::fl::laban::laban_sequence>)($1,true)";
 %typemap(directorin,descriptor="L$typemap(jstype, mae::i_recognition_listener<mae::fl::laban::laban_sequence>);") std::shared_ptr<mae::i_recognition_listener<mae::fl::laban::laban_sequence> > %{
 	*($&1_type*)&j$1 = new $1_type($1);
@@ -53,6 +54,10 @@
 	}
 	$result = *tmp;
 %}
+#elif defined(SWIGCSHARP)
+%typemap(csdirectorin) std::shared_ptr<mae::i_recognition_listener<mae::fl::laban::laban_sequence> > "new NativeLabanSequenceRecognitionListener($iminput, true)"
+%typemap(csdirectorin) std::shared_ptr<mae::fl::laban::laban_sequence> "new LabanSequence($iminput, true)"
+#endif
 
 //-- Parse the original header file
 %include "../../../src/mae/i_recognition_listener.hpp"
@@ -73,7 +78,7 @@ static class NativeLabanSequenceRecognitionListenerProxy extends NativeLabanSequ
 	public void onRecognition(java.math.BigInteger timestamp, LabanSequenceVector sequences) {
 		delegate.onRecognition(timestamp, sequences);
 	}
-	
+
 	public void onRecognition(java.math.BigInteger timestamp, StringVector title) {
 		delegate.onRecognition(timestamp, title);
 	}
@@ -87,4 +92,3 @@ public static NativeLabanSequenceRecognitionListener makeNative(ILabanSequenceRe
 	return new NativeLabanSequenceRecognitionListenerProxy(i);
 }
 %}
-

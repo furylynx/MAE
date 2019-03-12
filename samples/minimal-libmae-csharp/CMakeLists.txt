@@ -5,7 +5,7 @@ set(MYEXEC minimal-libmae-csharp)
 
 project(${MYEXEC} CSharp)
 
-FILE(GLOB SOURCE_FILES src/main/csharp/minimallibmaecsharp/MinimalLibmaeCsharp.cs)
+FILE(GLOB SOURCE_FILES src/main/csharp/minimallibmaecsharp/*.cs)
 
 ADD_EXECUTABLE(${MYEXEC} ${SOURCE_FILES})
 
