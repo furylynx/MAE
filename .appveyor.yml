@@ -24,7 +24,7 @@ environment:
 cache:
   - C:\ProgramData\chocolatey\bin -> appveyor.yml
   - C:\ProgramData\chocolatey\lib -> appveyor.yml
-  - c:\tools\vcpkg\installed\ -> appveyor.yml
+  - C:\tools\vcpkg\installed\
 
 for:
   -
@@ -66,7 +66,8 @@ for:
       - git pull
       - .\bootstrap-vcpkg.bat
       - vcpkg integrate install
-      - vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost
+      # - vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost
+      - vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf
       - cd %APPVEYOR_BUILD_FOLDER%
     build_script:
       - cd %APPVEYOR_BUILD_FOLDER%\libmae
