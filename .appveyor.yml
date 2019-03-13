@@ -22,9 +22,9 @@ environment:
   - PACKAGE_MANAGER: VCPKG
 
 cache:
-  - C:\ProgramData\chocolatey\bin -> appveyor.yml
-  - C:\ProgramData\chocolatey\lib -> appveyor.yml
-  - C:\tools\vcpkg\installed\
+  - C:\ProgramData\chocolatey\bin #-> appveyor.yml
+  - C:\ProgramData\chocolatey\lib #-> appveyor.yml
+  - C:\tools\vcpkg\installed\ #-> appveyor.yml
 
 for:
   -
@@ -66,15 +66,15 @@ for:
       - git pull
       - .\bootstrap-vcpkg.bat
       - vcpkg integrate install
-      - vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost
+      - vcpkg install opencv #libxmlpp sdl2 sdl2-image sdl2-ttf boost
       - cd %APPVEYOR_BUILD_FOLDER%
     build_script:
       - cd %APPVEYOR_BUILD_FOLDER%\libmae
-      - cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%" -DWRAP_CSHARP=true
-      - cmake --build . --target install --config Release
-      - cd %APPVEYOR_BUILD_FOLDER%\libmae_demo
-      - cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%"
-      - cmake --build . --target install --config Release
-      - cd %APPVEYOR_BUILD_FOLDER%\libmae_eventing
-      - cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%"
-      - cmake --build . --target install --config Release
+        #- cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%" -DWRAP_CSHARP=true
+        #- cmake --build . --target install --config Release
+        #- cd %APPVEYOR_BUILD_FOLDER%\libmae_demo
+        #- cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%"
+        #- cmake --build . --target install --config Release
+        #- cd %APPVEYOR_BUILD_FOLDER%\libmae_eventing
+        #- cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%"
+        #- cmake --build . --target install --config Release
