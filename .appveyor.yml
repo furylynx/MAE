@@ -72,7 +72,7 @@ for:
       - cd %APPVEYOR_BUILD_FOLDER%\libmae
       - cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%" -DWRAP_CSHARP=true
       - cmake --build . --target install --config Release
-      - PATH "C:\Program Files\mae\bin;C:\vcpkg\installed\x64-windows\bin;%PATH%"
+      - PATH C:\Progra~1\mae\bin;C:\vcpkg\installed\x64-windows\bin;%PATH%
       - cd %APPVEYOR_BUILD_FOLDER%\libmae_demo
       - cmake . -DCMAKE_TOOLCHAIN_FILE=C:\Tools\vcpkg\scripts\buildsystems\vcpkg.cmake -DMAE_STATIC=true -G "%CMAKE_GENERATOR%"
       - cmake --build . --target install --config Release
