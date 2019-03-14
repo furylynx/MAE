@@ -33,7 +33,7 @@ if (mae_FOUND)
   set(LibMAE_VERSION ${MAE_VERSION})
   set(LibMAE_FOUND yes)
 
-  message(STATUS "Library libmae found in version ${LibMAE_VERSION}.")
+  message(STATUS "Library libmae found in version ${LibMAE_VERSION} (${LibMAE_LIBRARY}).")
 else()
 
   # search using pkgconfig

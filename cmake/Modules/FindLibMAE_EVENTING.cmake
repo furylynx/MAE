@@ -33,7 +33,7 @@ if (mae_eventing_FOUND)
   set(LibMAE_EVENTING_VERSION ${MAE_EVENTING_VERSION})
   set(LibMAE_EVENTING_FOUND yes)
 
-  message(STATUS "Library libmae_eventing found in version ${LibMAE_EVENTING_VERSION}.")
+  message(STATUS "Library libmae_eventing found in version ${LibMAE_EVENTING_VERSION} (${LibMAE_EVENTING_LIBRARY}).")
 else()
 
   # search using pkgconfig
