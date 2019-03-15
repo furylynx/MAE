@@ -46,6 +46,7 @@ matrix:
         - autoconf-archive
         - cmake
         - libxml++
+        - gettext
         - opencv
         - boost
         - sdl2
