@@ -56,6 +56,9 @@ matrix:
         - gradle
         - groovy
         - maven
+    before_script:
+    - brew unlink gettext
+    - brew link --force gettext
     script:
     - cd libmae/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && sudo rm CMakeCache.txt && cd ..
     - cd libmae_demo/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && sudo rm CMakeCache.txt && cd ..
