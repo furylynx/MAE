@@ -1,6 +1,6 @@
 <img src="./mae_droid_large.png" alt="Movement Analysis Engine" height="200px"/>
 
-[![Build Status](https://travis-ci.org/furylynx/MAE.svg?branch=master)](https://travis-ci.org/furylynx/MAE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Build Status](https://travis-ci.org/furylynx/MAE.svg?branch=master)](https://travis-ci.org/furylynx/MAE) [![Build status](https://ci.appveyor.com/api/projects/status/v7pksx87eua4w41d/branch/master?svg=true)](https://ci.appveyor.com/project/furylynx/mae/branch/master)
 
 
 The Movement Analysis Engine is able to analyze movements and provide events based on a described movements sequence (Labanotation). The engine can be used by other applications for further movement processing and filtering in ambient spaces (i.e., smart environments).
