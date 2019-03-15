@@ -63,7 +63,7 @@ matrix:
     - cd libmae/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && sudo rm CMakeCache.txt && cd ..
     - cd libmae_demo/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && sudo rm CMakeCache.txt && cd ..
     - cd libmae_eventing/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && sudo rm CMakeCache.txt && cd ..
-    - cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
+    - cd samples/laban-sequence-converter/ && cmake . && sudo rm CMakeCache.txt && cd ../..
 
   # - os: windows
   #   env: VCPKG_DEFAULT_TRIPLET='x64-windows' BUILD_TYPE='Release' CMAKE_GENERATOR='"Visual Studio 15 2017 Win64"'
