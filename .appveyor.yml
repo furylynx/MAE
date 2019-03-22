@@ -42,7 +42,7 @@ for:
       - bash -lc "pacman --noconfirm --sync --refresh --refresh pacman"
       - bash -lc "pacman --noconfirm --sync --refresh --refresh --sysupgrade --sysupgrade"
       - bash -xlc "pacman --noconfirm -S --needed base-devel gradle mingw-w64-%MSYS2_ARCH%-swig"
-      - bash -xlc "pacman --noconfirm -S --needed mingw-w64-%MSYS2_ARCH%-libxml++2.6 mingw-w64-%MSYS2_ARCH%-opencv mingw-w64-%MSYS2_ARCH%-boost mingw-w64-%MSYS2_ARCH%-SDL2 mingw-w64-%MSYS2_ARCH%-SDL2_image mingw-w64-%MSYS2_ARCH%-SDL2_ttf"
+      - bash -xlc "pacman --noconfirm -S --needed mingw-w64-%MSYS2_ARCH%-libxml++2.6 mingw-w64-%MSYS2_ARCH%-opencv mingw-w64-%MSYS2_ARCH%-boost mingw-w64-%MSYS2_ARCH%-SDL2 mingw-w64-%MSYS2_ARCH%-SDL2_image mingw-w64-%MSYS2_ARCH%-SDL2_ttf mingw-w64-%MSYS2_ARCH%-librsvg"
       - cd %APPVEYOR_BUILD_FOLDER%
       - set CHERE_INVOKING=yes
     build_script:

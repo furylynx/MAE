@@ -78,6 +78,7 @@ matrix:
         - sdl2
         - sdl2_image
         - sdl2_ttf
+        - librsvg
         - swig
         - gradle
         - groovy
