@@ -30,9 +30,19 @@ namespace mae
             cv::hconcat(v1,v2, observations);
 
             cv::Mat mean, covs;
-            cv::calcCovarMatrix(observations, covs, mean, CV_COVAR_SCRAMBLED|CV_COVAR_ROWS,CV_64F);
 
+#ifndef CV_COVAR_SCRAMBLED
+            cv::calcCovarMatrix(observations, covs, mean, cv::CovarFlags::COVAR_SCRAMBLED|cv::CovarFlags::COVAR_ROWS,CV_64F);
+#else
+            cv::calcCovarMatrix(observations, covs, mean, CV_COVAR_SCRAMBLED|CV_COVAR_ROWS,CV_64F);
+#endif
+
+
+#ifndef CV_SVD
+            return cv::Mahalanobis(v1, v2, covs.inv(cv::DecompTypes::DECOMP_SVD));
+#else
             return cv::Mahalanobis(v1, v2, covs.inv(CV_SVD));
+#endif
         }
 
     }

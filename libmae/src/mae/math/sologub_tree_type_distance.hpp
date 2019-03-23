@@ -14,6 +14,7 @@
 #include <vector>
 #include <limits>
 #include <typeindex>
+#include <algorithm>
 
 namespace mae
 {

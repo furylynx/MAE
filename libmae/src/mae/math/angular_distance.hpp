@@ -13,9 +13,10 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#define _USE_MATH_DEFINES
 #include <cmath>
 #include <vector>
-
+#include <algorithm>
 
 
 namespace mae
