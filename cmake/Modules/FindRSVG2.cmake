@@ -11,11 +11,22 @@
 if (DEFINED ENV{VCPKG_ROOT} OR CMAKE_TOOLCHAIN_FILE MATCHES "vcpkg.cmake$" OR WITH_VCPKG)
     #vcpkg is used to find the library
 
-    #TODO use include dirs and libraries instead of ::
     set(PANGO_LIB_SUFFIX 1.0)
     set(GDK_PIXBUF_LIB_SUFFIX 2.0)
 
-    find_package(unofficial-cairo CONFIG REQUIRED)
+    if(CMAKE_BUILD_TYPE STREQUAL Debug)
+        set(CAIRO_LIB_SUFFIX d)
+    endif()
+    find_library(CAIRO_LIBRARY cairo${CAIRO_LIB_SUFFIX})
+    find_library(CAIRO_GOBJECT_LIBRARY cairo-gobject${CAIRO_LIB_SUFFIX})
+    set(CAIRO_LIBRARIES ${CAIRO_LIBRARY} ${CAIRO_GOBJECT_LIBRARY})
+    find_path(CAIRO_INCLUDE_DIR cairo.h)
+
+    find_library(GLIB_LIBRARY NAMES glib glib-2.0)
+    find_library(GIO_LIBRARY NAMES gio gio-2.0)
+    find_library(GMODULE_LIBRARY NAMES gmodule gmodule-2.0)
+    find_library(GOBJECT_LIBRARY NAMES gobject gobject-2.0)
+    find_package(LibXml2 REQUIRED)
 
     # gdk-pixbuf
     find_path(GDK_PIXBUF_INCLUDE_DIR gdk-pixbuf/gdk-pixbuf.h)
@@ -37,22 +48,45 @@ if (DEFINED ENV{VCPKG_ROOT} OR CMAKE_TOOLCHAIN_FILE MATCHES "vcpkg.cmake$" OR WI
         set(LIBINTL_LIBRARY)
     endif()
 
-    find_package(unofficial-librsvg CONFIG REQUIRED)
+    # Include dir
+    find_path(RSVG2_INCLUDE_DIR
+      NAMES librsvg/rsvg.h
+    )
 
-    set(RSVG2_LIBRARIES
-        unofficial::librsvg
-        unofficial::cairo::cairo
-        unofficial::cairo::cairo-gobject
-        ${GDK_PIXBUF_LIBRARY}
-        ${PANGO_LIBRARIES}
-        ${LIBINTL_LIBRARY})
-    set(RSVG2_INCLUDE_DIRS ${PANGO_INCLUDE_DIR} ${GDK_PIXBUF_INCLUDE_DIR})
-    set(RSVG2_FOUND yes)
+    # Finally the library itself
+    find_library(RSVG2_LIBRARY
+      NAMES librsvg rsvg rsvg-2
+    )
 
-    if (RSVG2_FIND_VERSION)
-        message(WARNING "Found librsvg using vcpkg. Thus, could not check the version. Will continue anyway.")
+    if (RSVG2_INCLUDE_DIR STREQUAL "RSVG2_INCLUDE_DIR-NOTFOUND")
+        if (${RSVG2_FIND_REQUIRED})
+            message(SEND_ERROR "Library librsvg not found using vcpkg.")
+        else()
+            set(RSVG2_LIBRARIES)
+            set(RSVG2_INCLUDE_DIRS)
+            set(RSVG2_VERSION)
+            set(RSVG2_FOUND no)
+        endif()
     else()
-        message(STATUS "Found librsvg using vcpkg.")
+        set(RSVG2_LIBRARIES
+            ${RSVG2_LIBRARY}
+            ${CAIRO_LIBRARIES}
+            ${GMODULE_LIBRARY}
+            ${GOBJECT_LIBRARY}
+            ${GIO_LIBRARY}
+            ${GLIB_LIBRARY}
+            ${GDK_PIXBUF_LIBRARY}
+            ${PANGO_LIBRARIES}
+            ${LIBINTL_LIBRARY}
+            ${LIBXML2_LIBRARIES})
+        set(RSVG2_INCLUDE_DIRS ${RSVG2_INCLUDE_DIR} ${CAIRO_INCLUDE_DIR} ${PANGO_INCLUDE_DIR} ${GDK_PIXBUF_INCLUDE_DIR})
+        set(RSVG2_FOUND yes)
+
+        if (RSVG2_FIND_VERSION)
+            message(WARNING "Found librsvg using vcpkg. Thus, could not check the version. Will continue anyway.")
+        else()
+            message(STATUS "Found librsvg using vcpkg.")
+        endif()
     endif()
 
 else()
