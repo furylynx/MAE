@@ -1,6 +1,24 @@
 //-- ignore the shift operator used to implement the toString method in C++
 %ignore operator<<;
 
+// will not wrap ComplexClass
+%ignore std::type_index;
+// do not wrap that method or any of its overloads
+%ignore mae::fl::laban::i_movement::get_type_path;
+%ignore mae::fl::laban::movement::get_type_path;
+%ignore mae::fl::laban::path::get_type_path;
+%ignore mae::fl::laban::relationship_bow::get_type_path;
+%ignore mae::fl::laban::room_direction::get_type_path;
+%ignore mae::fl::laban::mv::cancellation_symbol::get_type_path;
+%ignore mae::fl::laban::mv::direction_symbol::get_type_path;
+%ignore mae::fl::laban::mv::i_degree_sign::get_type_path;
+%ignore mae::fl::laban::mv::i_symbol::get_type_path;
+%ignore mae::fl::laban::mv::pin::get_type_path;
+%ignore mae::fl::laban::mv::space_measurement::get_type_path;
+%ignore mae::fl::laban::mv::space_symbol::get_type_path;
+%ignore mae::fl::laban::mv::turn_symbol::get_type_path;
+%ignore mae::fl::laban::mv::vibration_symbol::get_type_path;
+
 //-- TODO currently SWIG does not support shared_ptr with java directors and thus polymorphism is not available for smart pointer objects
 //--  "Note: There is currently no support for %shared_ptr and the director feature."
 //-- 		- http://www.swig.org/Doc3.0/Library.html#Library_std_shared_ptr
