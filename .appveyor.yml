@@ -66,7 +66,9 @@ for:
       - git pull
       - .\bootstrap-vcpkg.bat
       - vcpkg integrate install
-      - vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost boost-test
+      - git clone https://github.com/furylynx/vcpkg-ports.git C:\tools\vcpkg-ports
+      - Copy-Item "C:\tools\vcpkg-ports\ports\*" -Destination "C:\tools\vcpkg\ports\" -Recurse
+      - vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost boost-test librsvg
       - cd %APPVEYOR_BUILD_FOLDER%
     build_script:
       - cd %APPVEYOR_BUILD_FOLDER%\libmae
