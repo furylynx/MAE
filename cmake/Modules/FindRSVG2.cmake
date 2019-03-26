@@ -55,7 +55,7 @@ if (DEFINED ENV{VCPKG_ROOT} OR CMAKE_TOOLCHAIN_FILE MATCHES "vcpkg.cmake$" OR WI
 
     # Finally the library itself
     find_library(RSVG2_LIBRARY
-      NAMES librsvg rsvg rsvg-2
+      NAMES rsvg-2
     )
 
     if (RSVG2_INCLUDE_DIR STREQUAL "RSVG2_INCLUDE_DIR-NOTFOUND")
