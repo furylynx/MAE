@@ -22,8 +22,8 @@ environment:
   - PACKAGE_MANAGER: VCPKG
 
 cache:
-  - C:\ProgramData\chocolatey\bin #-> appveyor.yml
-  - C:\ProgramData\chocolatey\lib #-> appveyor.yml
+        #  - C:\ProgramData\chocolatey\bin #-> appveyor.yml
+        #  - C:\ProgramData\chocolatey\lib #-> appveyor.yml
   - C:\tools\vcpkg\installed\ #-> appveyor.yml
 
 for:
