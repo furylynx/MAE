@@ -67,7 +67,7 @@ for:
       - .\bootstrap-vcpkg.bat
       - vcpkg integrate install
       - git clone https://github.com/furylynx/vcpkg-ports.git C:\tools\vcpkg-ports
-      - xcopy C:\tools\vcpkg-ports\ports\ C:\tools\vcpkg\ports\ /s /e
+      - robocopy C:\tools\vcpkg-ports\ports C:\tools\vcpkg\ports /e
       - vcpkg install opencv libxmlpp sdl2 sdl2-image sdl2-ttf boost boost-test librsvg
       - cd %APPVEYOR_BUILD_FOLDER%
     build_script:
