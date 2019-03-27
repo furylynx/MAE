@@ -35,6 +35,36 @@ matrix:
     - cd libmae_eventing/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && make package && sudo rm CMakeCache.txt && cd ..
     - cd samples/laban-sequence-converter/ && cmake . && make package && sudo rm CMakeCache.txt && cd ../..
 
+  - os: osx
+    addons:
+      homebrew:
+        taps: homebrew/cask-versions
+        casks: java8
+        packages:
+        - jq
+        - pkg-config
+        - autoconf-archive
+        - cmake
+        - libxml++
+        - gettext
+        - opencv
+        - boost
+        - sdl2
+        - sdl2_image
+        - sdl2_ttf
+        - swig
+        - gradle
+        - groovy
+        - maven
+    before_script:
+    - brew unlink gettext
+    - brew link --force gettext
+    script:
+    - cd libmae/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && sudo rm CMakeCache.txt && cd ..
+    - cd libmae_demo/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && sudo rm CMakeCache.txt && cd ..
+    - cd libmae_eventing/ && cmake . && make && sudo make install && sudo rm install_manifest.txt && sudo rm CMakeCache.txt && cd ..
+    - cd samples/laban-sequence-converter/ && cmake . && sudo rm CMakeCache.txt && cd ../..
+
   # - os: windows
   #   env: VCPKG_DEFAULT_TRIPLET='x64-windows' BUILD_TYPE='Release' CMAKE_GENERATOR='"Visual Studio 15 2017 Win64"'
   #   cache:

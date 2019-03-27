@@ -344,22 +344,20 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lib${MYLIB}.pc.cmakein ${CMAKE_CURREN
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc DESTINATION "${INSTALL_PKGCONFIG_DIR}")
 
 # create java wrapper using swig
-FIND_PACKAGE(SWIG REQUIRED)
-FIND_PACKAGE(Java REQUIRED)
-FIND_PACKAGE(JNI REQUIRED)
-FIND_PACKAGE(Gradle REQUIRED)
-
-INCLUDE(${SWIG_USE_FILE})
-include(UseJava)
-include(UseSWIG)
-
-#set swig policy (CMP0078)
-if(POLICY CMP0078)
-    cmake_policy(SET CMP0078 NEW)
+if (NOT DEFINED WRAP_JAVA)
+    set(WRAP_JAVA true)
 endif()
 
+if (WRAP_CSHARP OR WRAP_JAVA)
+    FIND_PACKAGE(SWIG REQUIRED)
 
-include_directories(${JNI_INCLUDE_DIRS})
+    include(UseSWIG)
+
+    #set swig policy (CMP0078)
+    if(POLICY CMP0078)
+        cmake_policy(SET CMP0078 NEW)
+    endif()
+endif()
 
 #SWIG for C#
 if (WRAP_CSHARP)
@@ -400,86 +398,104 @@ if (WRAP_CSHARP)
     else()
       message(WARNING "Can only compile the CSharp project using a Visual Studio compiler, but ${CMAKE_GENERATOR} is chosen. You must compile the project manually (see ${WRAPPER_PROJECT_DIR_CSHARP}).")
     endif()
+
+    set_property(DIRECTORY PROPERTY ADDITIONAL_MAKE_CLEAN_FILES
+            "${CMAKE_SWIG_OUTDIR}"
+            "${SWIG_OUTFILE_DIR}"
+            "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB_CSHARP}lib.dll"
+            )
 endif()
 
 # SWIG for JNI
-set(WRAPPER_PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_java_project)
-set(CMAKE_SWIG_OUTDIR ${WRAPPER_PROJECT_DIR}/src/main/java/mae/maejava)
-set(SWIG_OUTFILE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release/)
+if (WRAP_JAVA)
 
-#create directory for generated java project
-file(MAKE_DIRECTORY ${CMAKE_SWIG_OUTDIR})
-file(MAKE_DIRECTORY ${SWIG_OUTFILE_DIR})
-add_custom_command(TARGET ${MYLIB} PRE_BUILD
-        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SWIG_OUTDIR}
-        COMMAND ${CMAKE_COMMAND} -E make_directory ${SWIG_OUTFILE_DIR}
-        )
+    FIND_PACKAGE(Java REQUIRED)
+    FIND_PACKAGE(JNI REQUIRED)
+    FIND_PACKAGE(Gradle REQUIRED)
 
-SET(CMAKE_SWIG_FLAGS -package ${MYLIB_JNI})
+    INCLUDE(${SWIG_USE_FILE})
+    include(UseJava)
+    include_directories(${JNI_INCLUDE_DIRS})
 
-SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_.i PROPERTY CPLUSPLUS ON)
-SWIG_ADD_LIBRARY(${MYLIB_JNI} LANGUAGE Java SOURCES wrappers/swig/mae/_wrapper_.i)
-SWIG_LINK_LIBRARIES(${MYLIB_JNI} ${MYLIB})
+    set(WRAPPER_PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/generated_java_project)
+    set(CMAKE_SWIG_OUTDIR ${WRAPPER_PROJECT_DIR}/src/main/java/mae/maejava)
+    set(SWIG_OUTFILE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/wrappers/swig/release/)
 
-#append version number to jnilib
-if (APPLE)
-    #macos
-    set(JNILIB_FILENAME_EXTENSION ".jnilib")
-    set(JNILIB_PREFIX "lib")
-elseif (WIN32)
-    #windows
-    set(JNILIB_FILENAME_EXTENSION ".dll")
-    set(JNILIB_PREFIX "")
-else ()
-    #unix
-    set(JNILIB_FILENAME_EXTENSION ".so")
-    set(JNILIB_PREFIX "lib")
-endif ()
-
-#compile java project
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/build.gradle.cmakein ${WRAPPER_PROJECT_DIR}/build.gradle @ONLY)
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/settings.gradle.cmakein ${WRAPPER_PROJECT_DIR}/settings.gradle @ONLY)
-
-if (WIN32)
-    ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
-            POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E echo "Building Java project, installing the java library in the local maven repository..."
-            COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar -Pcopyto=${CMAKE_CURRENT_BINARY_DIR} --no-daemon
-            COMMAND ${CMAKE_COMMAND} -E echo "Building Java project done."
+    #create directory for generated java project
+    file(MAKE_DIRECTORY ${CMAKE_SWIG_OUTDIR})
+    file(MAKE_DIRECTORY ${SWIG_OUTFILE_DIR})
+    add_custom_command(TARGET ${MYLIB} PRE_BUILD
+            COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_SWIG_OUTDIR}
+            COMMAND ${CMAKE_COMMAND} -E make_directory ${SWIG_OUTFILE_DIR}
             )
 
-    install(TARGETS ${MYLIB_JNI} DESTINATION "${JNI_INSTALL_DIR}")
-else()
-    ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
-            POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E rename "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}"
-            COMMAND ${CMAKE_COMMAND} -E create_symlink "${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}"
-            COMMAND ${CMAKE_COMMAND} -E create_symlink "${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}"
-            COMMAND ${CMAKE_COMMAND} -E echo "Building Java project, installing the java library in the local maven repository..."
-            COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar -Pcopyto=${CMAKE_CURRENT_BINARY_DIR}
-            )
+    SET(CMAKE_SWIG_FLAGS -package ${MYLIB_JNI})
 
-    # install .jnilib into jni folder
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING} DESTINATION "${JNI_INSTALL_DIR}")
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR} DESTINATION "${JNI_INSTALL_DIR}")
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION} DESTINATION "${JNI_INSTALL_DIR}")
+    SET_PROPERTY(SOURCE wrappers/swig/mae/_wrapper_.i PROPERTY CPLUSPLUS ON)
+    SWIG_ADD_LIBRARY(${MYLIB_JNI} LANGUAGE Java SOURCES wrappers/swig/mae/_wrapper_.i)
+    SWIG_LINK_LIBRARIES(${MYLIB_JNI} ${MYLIB})
+
+    #append version number to jnilib
+    if (APPLE)
+        #macos
+        set(JNILIB_FILENAME_EXTENSION ".jnilib")
+        set(JNILIB_PREFIX "lib")
+    elseif (WIN32)
+        #windows
+        set(JNILIB_FILENAME_EXTENSION ".dll")
+        set(JNILIB_PREFIX "")
+    else ()
+        #unix
+        set(JNILIB_FILENAME_EXTENSION ".so")
+        set(JNILIB_PREFIX "lib")
+    endif ()
+
+    #compile java project
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/build.gradle.cmakein ${WRAPPER_PROJECT_DIR}/build.gradle @ONLY)
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/settings.gradle.cmakein ${WRAPPER_PROJECT_DIR}/settings.gradle @ONLY)
+
+    if (WIN32)
+        ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
+                POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E echo "Building Java project, installing the java library in the local maven repository..."
+                COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar -Pcopyto=${CMAKE_CURRENT_BINARY_DIR} --no-daemon
+                COMMAND ${CMAKE_COMMAND} -E echo "Building Java project done."
+                )
+
+        install(TARGETS ${MYLIB_JNI} DESTINATION "${JNI_INSTALL_DIR}")
+    else()
+        ADD_CUSTOM_COMMAND(TARGET ${MYLIB_JNI}
+                POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E rename "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}"
+                COMMAND ${CMAKE_COMMAND} -E create_symlink "${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}"
+                COMMAND ${CMAKE_COMMAND} -E create_symlink "${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}" "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}"
+                COMMAND ${CMAKE_COMMAND} -E echo "Building Java project, installing the java library in the local maven repository..."
+                COMMAND ${GRADLE_EXECUTABLE} -b ${WRAPPER_PROJECT_DIR}/build.gradle install copyJar -Pcopyto=${CMAKE_CURRENT_BINARY_DIR}
+                )
+
+        # install .jnilib into jni folder
+        install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING} DESTINATION "${JNI_INSTALL_DIR}")
+        install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR} DESTINATION "${JNI_INSTALL_DIR}")
+        install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION} DESTINATION "${JNI_INSTALL_DIR}")
+
+    endif()
+
+
+
+    # install .jar file to jni folder (besides the installation into the local maven repository)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}-${MYLIB_VERSION_STRING}.jar DESTINATION "${JNI_INSTALL_DIR}")
+
+    set_property(DIRECTORY PROPERTY ADDITIONAL_MAKE_CLEAN_FILES
+            "${CMAKE_SWIG_OUTDIR}"
+            "${SWIG_OUTFILE_DIR}"
+            "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}"
+            "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}"
+            "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}"
+            "${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}-${MYLIB_VERSION_STRING}.jar"
+            "${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar"
+            )
 
 endif()
-
-
-
-# install .jar file to jni folder (besides the installation into the local maven repository)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}-${MYLIB_VERSION_STRING}.jar DESTINATION "${JNI_INSTALL_DIR}")
-
-set_property(DIRECTORY PROPERTY ADDITIONAL_MAKE_CLEAN_FILES
-        "${CMAKE_SWIG_OUTDIR}"
-        "${SWIG_OUTFILE_DIR}"
-        "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_STRING}"
-        "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}.${MYLIB_VERSION_MAJOR}"
-        "${CMAKE_CURRENT_BINARY_DIR}/${JNILIB_PREFIX}${MYLIB_JNI}${JNILIB_FILENAME_EXTENSION}"
-        "${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}-${MYLIB_VERSION_STRING}.jar"
-        "${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.jar"
-        )
 
 # configure cpack
 INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Includes/MAECPack.cmake")
