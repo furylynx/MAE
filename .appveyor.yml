@@ -37,7 +37,7 @@ for:
       MPREFIX: "/mingw64/"
       APPVEYOR_SAVE_CACHE_ON_ERROR: true
     install:
-      - cinst -y gradle maven jdk8 groovy
+      - cinst -y --force gradle maven jdk8 groovy
       - PATH C:\msys64\%MSYSTEM%\bin;C:\msys64\usr\bin;%PATH%
       - bash -lc "pacman --noconfirm --sync --refresh --refresh pacman"
       - bash -lc "pacman --noconfirm --sync --refresh --refresh --sysupgrade --sysupgrade"

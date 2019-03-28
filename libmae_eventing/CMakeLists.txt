@@ -73,6 +73,10 @@ set(LIB_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR} )
 set(BIN_INSTALL_DIR ${CMAKE_INSTALL_BINDIR} )
 set(SYSCONFIG_INSTALL_DIR etc/${MYLIB}/ )
 
+if (WIN32)
+  set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+endif()
+
 # We produce a shared library
 add_library(${MYLIB} SHARED ${SOURCE_FILES})
 
