@@ -273,6 +273,10 @@ else()
     set(CS_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/)
 endif()
 
+if (WIN32)
+  set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+endif()
+
 # We produce a shared library
 add_library(${MYLIB} SHARED ${SOURCE_FILES})
 
@@ -351,12 +355,12 @@ endif()
 if (WRAP_CSHARP OR WRAP_JAVA)
     FIND_PACKAGE(SWIG REQUIRED)
 
-    include(UseSWIG)
-
     #set swig policy (CMP0078)
     if(POLICY CMP0078)
         cmake_policy(SET CMP0078 NEW)
     endif()
+
+    include(UseSWIG)
 endif()
 
 #SWIG for C#
