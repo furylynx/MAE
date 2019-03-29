@@ -292,7 +292,9 @@ install(TARGETS ${MYLIB}
         RUNTIME DESTINATION ${BIN_INSTALL_DIR}
         )
 
-install(DIRECTORY src/ DESTINATION ${INCLUDE_INSTALL_DIR} FILES_MATCHING PATTERN "*.h*" PATTERN "*.hh" EXCLUDE)
+if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
+    install(DIRECTORY src/ DESTINATION ${INCLUDE_INSTALL_DIR} FILES_MATCHING PATTERN "*.h*" PATTERN "*.hh" EXCLUDE)
+endif()
 
 # Import additional modules (for libxml++ and libintl)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../cmake/Modules/")
@@ -329,23 +331,25 @@ target_link_libraries(${MYLIB} ${MYLIB_LIBRARIES})
 # Target
 set_target_properties(${MYLIB} PROPERTIES VERSION ${MYLIB_VERSION_STRING} SOVERSION ${MYLIB_VERSION_MAJOR})
 
-# package (version) info
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file(
-        "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}ConfigVersion.cmake"
-        VERSION ${MYLIB_VERSION_STRING}
-        COMPATIBILITY SameMajorVersion)
+if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
+    # package (version) info
+    include(CMakePackageConfigHelpers)
+    write_basic_package_version_file(
+            "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}ConfigVersion.cmake"
+            VERSION ${MYLIB_VERSION_STRING}
+            COMPATIBILITY SameMajorVersion)
 
-configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/${MYLIB}Config.cmakein ${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake
-        INSTALL_DESTINATION ${LIB_INSTALL_DIR}/cmake/${MYLIB}
-        PATH_VARS INCLUDE_INSTALL_DIR SYSCONFIG_INSTALL_DIR)
+    configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/${MYLIB}Config.cmakein ${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake
+            INSTALL_DESTINATION ${LIB_INSTALL_DIR}/cmake/${MYLIB}
+            PATH_VARS INCLUDE_INSTALL_DIR SYSCONFIG_INSTALL_DIR)
 
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake" "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}ConfigVersion.cmake"
-        DESTINATION ${LIB_INSTALL_DIR}/${MYLIB}/cmake)
+    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}Config.cmake" "${CMAKE_CURRENT_BINARY_DIR}/${MYLIB}ConfigVersion.cmake"
+            DESTINATION ${LIB_INSTALL_DIR}/${MYLIB}/cmake)
 
-# configure and install pkg config .pc file
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lib${MYLIB}.pc.cmakein ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc DESTINATION "${INSTALL_PKGCONFIG_DIR}")
+    # configure and install pkg config .pc file
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lib${MYLIB}.pc.cmakein ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc @ONLY)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lib${MYLIB}.pc DESTINATION "${INSTALL_PKGCONFIG_DIR}")
+endif()
 
 # create java wrapper using swig
 if (NOT DEFINED WRAP_JAVA)
