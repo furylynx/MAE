@@ -1,7 +1,7 @@
 # REQUIREMENTS
 sudo apt install build-essential git openjdk-8-jdk groovy gradle maven cmake
 
-echo 'export JAVA_HOME=\"/usr/lib/jvm/java-8-openjdk-amd64\"' >> ~/.profile
+echo 'export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"' >> ~/.profile
 source ~/.profile
 
 sudo apt install swig3.0
