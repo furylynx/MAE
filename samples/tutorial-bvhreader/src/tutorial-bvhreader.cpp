@@ -19,30 +19,34 @@ int main()
 	mae::fl::bvh_controller reader = mae::fl::bvh_controller();
 
 	//read the bvh file 'file.bvh' present in the current directory
-	std::shared_ptr<mae::fl::bvh_data> data = reader.read_bvh_file("file.bvh", mae::fl::bvh_spec::default_spec());
+	std::shared_ptr<mae::fl::bvh_data> data = reader.read_bvh_file("/home/keks/Downloads/2019-11-21_11-10-49.bvh", mae::fl::bvh_spec::motion_builder_spec());
 
 	//get the skeleton data from the bvh data
 	std::vector<std::shared_ptr<mae::general_skeleton> > skeleton_data = data->get_skeleton_data();
 
-	//create a movement controller to handle the skeleton data
-	mae::fl::fl_movement_controller mcontroller = mae::fl::fl_movement_controller();
+//	//create a movement controller to handle the skeleton data
+//	mae::fl::fl_movement_controller mcontroller = mae::fl::fl_movement_controller();
+//
+//	//iterate the frames of skeletons
+//	for (std::size_t i = 0; i < skeleton_data.size(); i++)
+//	{
+//		//hand the skeleton data to the movement controller
+//		mcontroller.next_frame(i, skeleton_data.at(i);
+//	}
+//
+//	//get the produced laban sequence
+//	std::shared_ptr<mae::fl::laban::laban_sequence> sequence = mcontroller.get_current_sequence();
+//
+//	//print the sequence in the xml format
+//	sequence->xml_file("file.laban");
+//
+//	//print the sequence in the svg format (landscape format, 1920x1080)
+//	sequence->svg_file("file.svg", 1080, 1920);
 
-	//iterate the frames of skeletons
-	for (std::size_t i = 0; i < skeleton_data.size(); i++)
-	{
-		//hand the skeleton data to the movement controller
-		mcontroller.next_frame(i, skeleton_data.at(i));
-	}
-
-	//get the produced laban sequence
-	std::shared_ptr<mae::fl::laban::laban_sequence> sequence = mcontroller.get_current_sequence();
-
-	//print the sequence in the xml format
-	sequence->xml_file("file.laban");
-
-	//print the sequence in the svg format (landscape format, 1920x1080)
-	sequence->svg_file("file.svg", 1080, 1920);
-
+    std::cout << "framerate " << data->get_framerate() << std::endl;
+    std::cout << skeleton_data.at(0)->str() << std::endl;
+    
+    reader.print_bvh_file(data->get_skeleton_data(), "/home/keks/Downloads/2019-11-21_11-10-49-out.bvh", 0.03333);
 
 	return 0;
 }

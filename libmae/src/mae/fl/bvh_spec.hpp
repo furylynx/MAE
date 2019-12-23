@@ -107,6 +107,13 @@ namespace mae
 			 * @return The default hand specification.
 			 */
 			static std::shared_ptr<bvh_spec> default_hand_spec(bool is_left);
+                
+            /**
+             * Creates a specification that suits the motion builder hierarchy definition.
+             *
+             * @return The default specification.
+             */
+            static std::shared_ptr<bvh_spec> motion_builder_spec();
 
 		private:
 			std::map<std::string, int> string_id_map_;

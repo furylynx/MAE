@@ -138,6 +138,48 @@ namespace mae
 
 			return std::shared_ptr<bvh_spec>(new bvh_spec(left_anchor, right_anchor, top_anchor, bottom_anchor, string_id_map, string_palm_map));
 		}
-
+        
+        
+        std::shared_ptr<bvh_spec> bvh_spec::motion_builder_spec()
+        {
+            std::map<std::string, int> string_id_map;
+            std::map<std::string, bool> string_torso_map;
+            
+            //fill joint_str map
+            for (e_joint j : e_joint_c::vec())
+            {
+                string_id_map.insert(std::make_pair(mstr::to_lower(e_joint_c::str(j)), e_joint_c::to_int(j)));
+                
+                if (e_joint_c::is_torso(j))
+                {
+                    string_torso_map.insert(std::make_pair(mstr::to_lower(e_joint_c::str(j)), true));
+                }
+            }
+            string_id_map.insert(std::make_pair("lshoulder", e_joint_c::to_int(e_joint::LEFT_SHOULDER)));
+            string_id_map.insert(std::make_pair("rshoulder", e_joint_c::to_int(e_joint::RIGHT_SHOULDER)));
+            string_id_map.insert(std::make_pair("middlespine", e_joint_c::to_int(e_joint::TORSO)));
+    
+            string_torso_map.insert(std::make_pair("lshoulder", true));
+            string_torso_map.insert(std::make_pair("rshoulder", true));
+            string_torso_map.insert(std::make_pair("lthigh", true));
+            string_torso_map.insert(std::make_pair("rthigh", true));
+            string_torso_map.insert(std::make_pair("middlespine", true));
+            
+            //IDs for end sites
+//            string_id_map.insert(std::make_pair("end site#1", e_joint_c::to_int(e_joint::END_LH)));
+//            string_id_map.insert(std::make_pair("end site#2", e_joint_c::to_int(e_joint::END_RH)));
+//            string_id_map.insert(std::make_pair("end site#3", e_joint_c::to_int(e_joint::END_LF)));
+//            string_id_map.insert(std::make_pair("end site#4", e_joint_c::to_int(e_joint::END_RF)));
+//            string_id_map.insert(std::make_pair("end site#5", e_joint_c::to_int(e_joint::END_H)));
+            
+            //left-right top-down directions
+            std::string left_anchor = "lshoulder";
+            std::string right_anchor = "rshoulder";
+            std::string top_anchor = mstr::to_lower(e_joint_c::str(e_joint::NECK));
+            std::string bottom_anchor = "middlespine";
+            
+            return std::shared_ptr<bvh_spec>(new bvh_spec(left_anchor, right_anchor, top_anchor, bottom_anchor, string_id_map, string_torso_map));
+        }
+		
 	} // namespace fl
 } // namespace mae

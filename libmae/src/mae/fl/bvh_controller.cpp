@@ -87,24 +87,29 @@ namespace mae
 				else
 				{
 					//end site before so brackets must get closed
+					int prev_parent_id = elements.at(i-1)->get_parent()->get_id();
 					for (unsigned int j = 1; j <= i; j++)
 					{
-						//print closing brackets
-						std::stringstream bstr;
-						for (unsigned int k = 0; k < indent_count - 1; k++)
-						{
-							bstr << "\t";
-						}
-						bstr << "}" << std::endl;
-
-						sstr << bstr.rdbuf();
-
-						if (elements.at(i)->get_parent()->get_id() == elements.at(i - j)->get_parent()->get_id())
-						{
-							break;
-						}
-
-						indent_count--;
+					    if (1 == j || elements.at(i - j)->get_id() == prev_parent_id) {
+                            
+                            //print closing brackets
+                            std::stringstream bstr;
+                            for (unsigned int k = 0; indent_count > 0 && k < indent_count - 1; k++)
+                            {
+                                bstr << "\t";
+                            }
+                            bstr << "}" << std::endl;
+                        
+                            sstr << bstr.rdbuf();
+                        
+                            if (elements.at(i)->get_parent()->get_id() == elements.at(i - j)->get_parent()->get_id())
+                            {
+                                break;
+                            }
+                        
+                            prev_parent_id = elements.at(i - j)->get_parent()->get_id();
+                            indent_count--;
+					    }
 					}
 				}
 
@@ -196,6 +201,8 @@ namespace mae
 			sstr << "Frames: " << (int) data.size() << std::endl;
 			sstr << "Frame Time: " << std::setprecision(6) << framerate << std::endl;
 
+			std::cout <<  sstr.str() << std::endl;
+			
 			//------------------------------
 			// 	> empty motion data for first frame
 			//------------------------------
@@ -241,7 +248,7 @@ namespace mae
 					if (elements.at(i)->get_parent()->get_children().size() <= 1)
 					{
 						hierarchy_element* pparent = elements.at(i)->get_parent();
-						while (pparent->is_dummy() && pparent->get_parent())
+						while (pparent->get_parent() && (pparent->is_dummy() || pparent->get_parent()->get_children().size() > 1) )
 						{
 							pparent = pparent->get_parent();
 						}
@@ -285,12 +292,22 @@ namespace mae
 			vec.push_back(data);
 			return bvh_str(vec);
 		}
+		
+		void bvh_controller::print_bvh_file(std::shared_ptr<bvh_data> data, std::string filename)
+		{
+			print_bvh_file(data->get_skeleton_data(), filename, data->get_framerate());
+		}
+		
+		void bvh_controller::print_bvh_file(std::vector<std::shared_ptr<general_skeleton> > data, std::string filename, double framerate)
+		{
+			std::ofstream out_file(filename);
+			out_file << bvh_str(data, framerate);
+			out_file.close();
+		}
 
 		void bvh_controller::print_bvh_file(std::vector<std::shared_ptr<general_skeleton> > data, std::string filename)
 		{
-			std::ofstream out_file(filename);
-			out_file << bvh_str(data);
-			out_file.close();
+			print_bvh_file(data, filename, (double) 1 / 30);
 		}
 
 		void bvh_controller::print_bvh_file(std::shared_ptr<general_skeleton> data, std::string filename)
@@ -303,6 +320,9 @@ namespace mae
 		std::shared_ptr<bvh_data> bvh_controller::read_bvh_str(
 				std::string bvh_str, std::shared_ptr<bvh_spec> spec)
 		{
+		    //prepare string
+		    bvh_str = mstr::replace(mstr::replace(mstr::replace(bvh_str, "\t", "   "), "\r\n", "\n"), "\r", "\n");
+		    
 			std::map<std::string, int> joint_str;
 			std::map<std::string, bool> joint_torso;
 
@@ -505,7 +525,7 @@ namespace mae
 
 			if (left_anchor_undef || right_anchor_undef || top_anchor_undef || down_anchor_undef)
 			{
-				std::invalid_argument("At least one anchor could not be found!");
+				throw std::invalid_argument("At least one anchor could not be found!");
 			}
 
 			offset_skel->set_right_left(
