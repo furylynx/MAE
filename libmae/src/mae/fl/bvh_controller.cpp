@@ -13,8 +13,13 @@ namespace mae
 
 		bvh_controller::bvh_controller()
 		{
-
+            precision_ = 2;
 		}
+		
+        bvh_controller::bvh_controller(std::size_t precision)
+        {
+            precision_ = precision;
+        }
 
 		bvh_controller::~bvh_controller()
 		{
@@ -66,15 +71,16 @@ namespace mae
 
 			//offset of root element
 			std::shared_ptr<general_joint> root_joint = data.at(0)->get_joint(elements.at(0)->get_id());
-			sstr << "\t" << "OFFSET" << " " << std::setprecision(2) << root_joint->get_x();
-			sstr << " " << std::setprecision(2) << root_joint->get_y();
-			sstr << " " << std::setprecision(2) << root_joint->get_z() << std::endl;
+			sstr << "\t" << "OFFSET" << " " << std::setprecision(precision_) << root_joint->get_x();
+			sstr << " " << std::setprecision(precision_) << root_joint->get_y();
+			sstr << " " << std::setprecision(precision_) << root_joint->get_z() << std::endl;
 
 			//channels for the root
 			sstr << "\t" << "CHANNELS" << " " << 6;
 			sstr << " " << "Xposition" << " " << "Yposition" << " " << "Zposition";
 			sstr << " " << "Zrotation" << " " << "Xrotation" << " " << "Yrotation" << std::endl;
-
+//            sstr << " " << "Yrotation" << " " << "Zrotation" << " " << "Xrotation" << std::endl;
+            
 			//handle all other elements
 			unsigned int indent_count = 1;
 			for (unsigned int i = 1; i < elements.size(); i++)
@@ -158,17 +164,17 @@ namespace mae
 
 				if (elements.at(i)->is_dummy())
 				{
-					sstr << isstr.str() << "OFFSET" << " " << std::setprecision(2) << 0.0;
-					sstr << " " << std::setprecision(2) << 0.0;
-					sstr << " " << std::setprecision(2) << 0.0 << std::endl;
+					sstr << isstr.str() << "OFFSET" << " " << std::setprecision(precision_) << 0.0;
+					sstr << " " << std::setprecision(precision_) << 0.0;
+					sstr << " " << std::setprecision(precision_) << 0.0 << std::endl;
 				}
 				else
 				{
-					sstr << isstr.str() << "OFFSET" << " " << std::setprecision(2);
+					sstr << isstr.str() << "OFFSET" << " " << std::setprecision(precision_);
 					sstr << current_joint->get_x() - parent_joint->get_x();
-					sstr << " " << std::setprecision(2);
+					sstr << " " << std::setprecision(precision_);
 					sstr << current_joint->get_y() - parent_joint->get_y();
-					sstr << " " << std::setprecision(2);
+					sstr << " " << std::setprecision(precision_);
 					sstr << current_joint->get_z() - parent_joint->get_z();
 					sstr << std::endl;
 				}
@@ -178,6 +184,8 @@ namespace mae
 				{
 					sstr << isstr.str() << "CHANNELS" << " " << 3 << " " << "Zrotation" << " ";
 					sstr << "Xrotation" << " " << "Yrotation" << std::endl;
+//                    sstr << isstr.str() << "CHANNELS" << " " << 3 << " " << "Yrotation" << " ";
+//                    sstr << "Zrotation" << " " << "Xrotation" << std::endl;
 				}
 			}
 
@@ -200,27 +208,23 @@ namespace mae
 			sstr << "MOTION" << std::endl;
 			sstr << "Frames: " << (int) data.size() << std::endl;
 			sstr << "Frame Time: " << std::setprecision(6) << framerate << std::endl;
-
-			std::cout <<  sstr.str() << std::endl;
 			
 			//------------------------------
 			// 	> empty motion data for first frame
 			//------------------------------
 
 			//torso location
-			sstr << std::setprecision(2) << 0.0 << " " << std::setprecision(2) << 0.0 << " " << std::setprecision(2)
-					<< 0.0 << " ";
-			//torso rotation
-			sstr << std::setprecision(2) << 0.0 << " " << std::setprecision(2) << 0.0 << " " << std::setprecision(2)
-					<< 0.0 << " ";
+            sstr << std::setprecision(precision_) << root_joint->get_x() << " ";
+            sstr << std::setprecision(precision_) << root_joint->get_y() << " ";
+            sstr << std::setprecision(precision_) << root_joint->get_z() << " ";
 
-			for (unsigned int i = 1; i < elements.size(); i++)
+			for (unsigned int i = 0; i < elements.size(); i++)
 			{
-				if (elements.at(i)->get_parent()->get_children().size() <= 1)
+				if (elements.at(i)->is_parent())
 				{
 					//rotation for any other joint
-					sstr << std::setprecision(2) << 0.0 << " " << std::setprecision(2) << 0.0 << " "
-							<< std::setprecision(2) << 0.0 << " ";
+					sstr << std::setprecision(precision_) << 0.0 << " " << std::setprecision(precision_) << 0.0 << " "
+							<< std::setprecision(precision_) << 0.0 << " ";
 				}
 			}
 
@@ -233,45 +237,43 @@ namespace mae
 			{
 				//torso location
 				std::shared_ptr<general_joint> next_root_joint = data.at(skel_id)->get_joint(elements.at(0)->get_id());
-				sstr << std::setprecision(2) << next_root_joint->get_x() - root_joint->get_x() << " ";
-				sstr << std::setprecision(2) << next_root_joint->get_y() - root_joint->get_y() << " ";
-				sstr << std::setprecision(2) << next_root_joint->get_z() - root_joint->get_z() << " ";
-				//torso hold unrotated state
-				sstr << std::setprecision(2) << 0.0 << " " << std::setprecision(2) << 0.0 << " " << std::setprecision(2)
-						<< 0.0 << " ";
+				sstr << std::setprecision(precision_) << next_root_joint->get_x() << " ";
+				sstr << std::setprecision(precision_) << next_root_joint->get_y() << " ";
+				sstr << std::setprecision(precision_) << next_root_joint->get_z() << " ";
 
 				std::unordered_map<int, cv::Mat> rotations;
-				rotations.insert(std::make_pair(elements.at(0)->get_id(), cv::Mat::eye(3, 3, CV_64F)));
 
-				for (unsigned int i = 1; i < elements.size(); i++)
+				for (unsigned int i = 0; i < elements.size(); i++)
 				{
-					if (elements.at(i)->get_parent()->get_children().size() <= 1)
-					{
-						hierarchy_element* pparent = elements.at(i)->get_parent();
-						while (pparent->get_parent() && (pparent->is_dummy() || pparent->get_parent()->get_children().size() > 1) )
-						{
-							pparent = pparent->get_parent();
-						}
-
-						cv::Vec3d old_vec = mae::math::internal_math::joint_to_vec(data.at(0)->get_joint(elements.at(i)->get_id()))
-								- mae::math::internal_math::joint_to_vec(data.at(0)->get_joint(pparent->get_id()));
-						cv::Vec3d new_vec = mae::math::internal_math::joint_to_vec(data.at(skel_id)->get_joint(elements.at(i)->get_id()))
-								- mae::math::internal_math::joint_to_vec(data.at(skel_id)->get_joint(pparent->get_id()));
-
-						//rotate old vector according to previous rotations
-						old_vec = mae::math::internal_math::matrix_mul(rotations.at(pparent->get_id()), old_vec);
-
-						//rotation
-						cv::Vec3d angles = mae::math::internal_math::rotation_angles_zxy(old_vec, new_vec);
-						sstr << std::setprecision(2) << mae::math::internal_math::rad_to_deg(angles[0]) << " " << std::setprecision(2)
-								<< mae::math::internal_math::rad_to_deg(angles[1]) << " " << std::setprecision(2)
-								<< mae::math::internal_math::rad_to_deg(angles[2]) << " ";
-
-						//update rotation matrix
-						rotations.insert(
-								std::make_pair(elements.at(i)->get_id(),
-										rotations.at(pparent->get_id())
-												* mae::math::internal_math::matrix_rot_zxy(angles[0], angles[1], angles[2])));
+                    if (elements.at(i)->is_parent())
+                    {
+                        std::size_t el_id = elements.at(i)->get_id();
+                        cv::Mat parent_rot = ( 0 == i ? cv::Mat::eye(3, 3, CV_64F) : rotations.at(elements.at(i)->get_parent()->get_id()) );
+     
+                        std::shared_ptr<hierarchy_element> fchild = elements.at(i)->get_children().at(0);
+    
+                        // bone as defined in the offset skeleton (first skeleton in sequence)
+                        cv::Vec3d old_vec = mae::math::internal_math::joint_to_vec(data.at(0)->get_joint(fchild->get_id()))
+                                            - mae::math::internal_math::joint_to_vec(data.at(0)->get_joint(el_id));
+    
+                        // current orientation of the same bone
+                        cv::Vec3d new_vec = mae::math::internal_math::joint_to_vec(data.at(skel_id)->get_joint(fchild->get_id()))
+                                            - mae::math::internal_math::joint_to_vec(data.at(skel_id)->get_joint(el_id));
+    
+                        //rotate old vector according to previous rotations
+                        cv::Vec3d old_vec_rot = mae::math::internal_math::matrix_mul(parent_rot, old_vec);
+    
+                        //rotation
+                        cv::Vec3d angles = mae::math::internal_math::rotation_angles_zxy(old_vec_rot, new_vec);
+//                        cv::Vec3d angles = mae::math::internal_math::rotation_angles_yzx(old_vec_rot, new_vec);
+                        sstr << std::setprecision(precision_) << mae::math::internal_math::rad_to_deg(angles[0]) << " " << std::setprecision(precision_)
+                             << mae::math::internal_math::rad_to_deg(angles[1]) << " " << std::setprecision(precision_)
+                             << mae::math::internal_math::rad_to_deg(angles[2]) << " ";
+    
+                        //update rotation matrix
+                        rotations.insert(
+                                std::make_pair(elements.at(i)->get_id(),
+                                               parent_rot * mae::math::internal_math::matrix_rot_zxy(angles[0], angles[1], angles[2])));
 					}
 				}
 
@@ -340,200 +342,9 @@ namespace mae
 			//------------------------------
 			// read offsets
 			//------------------------------
-			std::shared_ptr<general_skeleton> offset_skel = std::shared_ptr<general_skeleton>(new general_skeleton());
-
-			std::vector<int> joint_sequence;
-
-			std::unordered_map<int, std::vector<int> > joint_channel;
-			int endeffector_count = 0;
-
-			int element_count = 0;
-
-			std::pair<std::string::size_type, std::string::size_type> pos_root = mstr::find_line(tmp, "root");
-			std::string el_root = mstr::trim(std::string(bvh_str, pos_root.first + 4, pos_root.second - 4));
-
-			//get root element for hierarchy
-			element_count++;
-			std::shared_ptr<hierarchy_element> hy_root = generate_hierarchy_element(spec, element_count, el_root,
-					false);
-
-			//parse root offset
-			offset_skel->set_joint(hy_root->get_id(),
-					parse_offset(tmp, pos_root.first + pos_root.second,
-							std::shared_ptr<general_joint>(new general_joint(0, 0, 0))));
-
-			//parse root channels
-			joint_channel.insert(
-					std::make_pair(hy_root->get_id(), parse_channels(tmp, pos_root.first + pos_root.second)));
-
-			//set sequence
-			joint_sequence.push_back(hy_root->get_id());
-
-			int read_depth = 1;
-			std::string::size_type read_pos = pos_root.first + pos_root.second;
-			int el_parent = hy_root->get_id();
-			hierarchy_element* h_parent = hy_root.get();
-
-			while (read_depth > 0)
-			{
-				std::pair<std::string::size_type, std::string::size_type> pos_joint = mstr::find_line(tmp,
-						std::string("joint"), read_pos);
-				std::string::size_type pos_bracket = tmp.find("}", read_pos);
-
-				if (pos_bracket == std::string::npos)
-				{
-					std::cout << "pos_bracket == npos. el_parent: " << h_parent->get_name() << std::endl;
-					//no bracket to follow, therefore syntax error
-					return std::shared_ptr<bvh_data>(new bvh_data(skeletons, frame_time));
-				}
-				else if (pos_joint.first == std::string::npos)
-				{
-					//no joint to follow, therefore done with header
-					read_depth = 0;
-				}
-				else if ((unsigned int) pos_bracket < (unsigned int) pos_joint.first)
-				{
-					//bracket comes next, decreasing depth
-					read_depth--;
-
-					//reset parent
-					el_parent = h_parent->get_parent()->get_id();
-					h_parent = h_parent->get_parent();
-
-					//set read position
-					read_pos = pos_bracket + 1;
-				}
-				else
-				{
-					std::string el_joint = mstr::trim(std::string(bvh_str, pos_joint.first + 5, pos_joint.second - 5));
-
-					element_count++;
-
-					//update read pos
-					read_pos = pos_joint.first + pos_joint.second;
-
-					std::shared_ptr<general_joint> el_gj = parse_offset(tmp, (unsigned int) read_pos,
-							offset_skel->get_joint(el_parent));
-
-					bool el_dummy = false;
-					if (el_gj->equals(offset_skel->get_joint(el_parent)))
-					{
-						el_dummy = true;
-					}
-					std::shared_ptr<hierarchy_element> hy_element = generate_hierarchy_element(spec, element_count,
-							el_joint, el_dummy);
-					h_parent->push_back(hy_element);
-
-					//parse offset
-					offset_skel->set_joint(hy_element->get_id(), el_gj);
-
-					//parse channels
-					joint_channel.insert(
-							std::make_pair(hy_element->get_id(), parse_channels(tmp, (unsigned int) read_pos)));
-
-					joint_sequence.push_back(hy_element->get_id());
-
-					//set parent to current joint
-					el_parent = hy_element->get_id();
-					h_parent = hy_element.get();
-
-					std::string::size_type pos_joint = tmp.find("joint", read_pos);
-					std::string::size_type pos_end_site = tmp.find("end site", read_pos);
-
-					if (pos_end_site < pos_joint)
-					{
-						endeffector_count++;
-
-						std::stringstream endstr;
-						endstr << "End Site#" << endeffector_count;
-
-						read_pos = pos_end_site + 5;
-						std::shared_ptr<general_joint> el_end_gj = parse_offset(tmp, (unsigned int) read_pos,
-								offset_skel->get_joint(el_parent));
-
-						bool el_end_dummy = false;
-						if (el_end_gj->equals(offset_skel->get_joint(el_parent)))
-						{
-							el_end_dummy = true;
-						}
-
-						element_count++;
-						std::shared_ptr<hierarchy_element> hy_end = generate_hierarchy_element(spec, element_count,
-								endstr.str(), el_end_dummy);
-						h_parent->push_back(hy_end);
-
-						//parse offset
-						offset_skel->set_joint(hy_end->get_id(), el_end_gj);
-
-						//set sequence
-						joint_sequence.push_back(hy_end->get_id());
-
-						read_pos = tmp.find("}", read_pos);
-						if (read_pos == std::string::npos)
-						{
-							std::cout << "no closing bracket found for end effector. el_joint: " << hy_end->get_name()
-									<< std::endl;
-							//no closing bracket found, therefore syntax error
-							return std::shared_ptr<bvh_data>(new bvh_data(skeletons, frame_time));
-						}
-						read_pos++;
-					}
-					read_depth++;
-				}
-			}
-			std::shared_ptr<hierarchy> hy = std::shared_ptr<hierarchy>(new hierarchy(hy_root));
-			offset_skel->set_hierarchy(hy);
-
-			//get anchors and define right-left and top-down direction for the skeleton
-			bool left_anchor_undef = true;
-			int left_anchor_id = -1;
-			bool right_anchor_undef = true;
-			int right_anchor_id = -1;
-			bool top_anchor_undef = true;
-			int top_anchor_id = -1;
-			bool down_anchor_undef = true;
-			int down_anchor_id = -1;
-			std::vector<std::shared_ptr<hierarchy_element> > hy_els = hy->get_element_sequence();
-			for (unsigned int i = 0; i < hy_els.size(); i++)
-			{
-				if (left_anchor_undef && mstr::to_lower(hy_els.at(i)->get_name()) == spec->get_left_anchor())
-				{
-					left_anchor_id = hy_els.at(i)->get_id();
-					left_anchor_undef = false;
-				}
-				else if (right_anchor_undef && mstr::to_lower(hy_els.at(i)->get_name()) == spec->get_right_anchor())
-				{
-					right_anchor_id = hy_els.at(i)->get_id();
-					right_anchor_undef = false;
-				}
-				else if (top_anchor_undef && mstr::to_lower(hy_els.at(i)->get_name()) == spec->get_top_anchor())
-				{
-					top_anchor_id = hy_els.at(i)->get_id();
-					top_anchor_undef = false;
-				}
-				else if (down_anchor_undef && mstr::to_lower(hy_els.at(i)->get_name()) == spec->get_bottom_anchor())
-				{
-					down_anchor_id = hy_els.at(i)->get_id();
-					down_anchor_undef = false;
-				}
-
-				if (!left_anchor_undef && !right_anchor_undef && !top_anchor_undef && !down_anchor_undef)
-				{
-					break;
-				}
-			}
-
-			if (left_anchor_undef || right_anchor_undef || top_anchor_undef || down_anchor_undef)
-			{
-				throw std::invalid_argument("At least one anchor could not be found!");
-			}
-
-			offset_skel->set_right_left(
-					std::shared_ptr<bone>(
-							new bone(bone::RESERVED_RIGHT_LEFT, "RIGHT_LEFT", right_anchor_id, left_anchor_id)));
-			offset_skel->set_top_down(
-					std::shared_ptr<bone>(
-							new bone(bone::RESERVED_TOP_DOWN, "TOP_DOWN", top_anchor_id, down_anchor_id)));
+            std::vector<int> joint_sequence;
+            std::unordered_map<int, std::vector<int> > joint_channel;
+			std::shared_ptr<general_skeleton> offset_skel = read_offset_skeleton(bvh_str, spec, joint_sequence, joint_channel);
 
 			//offset skeleton is not stored. It's just for calculating the other ones
 
@@ -543,7 +354,8 @@ namespace mae
 			std::string::size_type pos_motion = tmp.find("motion");
 			if (pos_motion == std::string::npos)
 			{
-				return std::shared_ptr<bvh_data>(new bvh_data(skeletons, frame_time));
+//				return std::shared_ptr<bvh_data>(new bvh_data(skeletons, frame_time));
+                throw std::invalid_argument("Syntax error in BVH file. Cannot parse motion data.");
 			}
 
 			//frames count
@@ -552,7 +364,7 @@ namespace mae
 					pos_motion);
 
 			std::string frames_string = std::string(tmp, pos_frames.first + 7, pos_frames.second - 7);
-			int frames = std::atoi(frames_string.c_str());
+			int frames = std::stoi(frames_string);
 
 			std::string::size_type pos_motion_data = pos_frames.first + pos_frames.second + 1;
 
@@ -562,7 +374,7 @@ namespace mae
 
 			//frames
 			std::string frame_time_string = std::string(tmp, pos_frame_time.first + 12, pos_frame_time.second - 12);
-			frame_time = std::atof(frame_time_string.c_str());
+			frame_time = std::stod(frame_time_string);
 			pos_motion_data = pos_frame_time.first + pos_frame_time.second + 1;
 
 			std::istringstream tmp_sstr(std::string(tmp, pos_motion_data));
@@ -572,8 +384,7 @@ namespace mae
 				std::string line;
 				std::getline(tmp_sstr, line);
 
-				std::shared_ptr<general_skeleton> next_skel = std::shared_ptr<general_skeleton>(
-						new general_skeleton(hy));
+				std::shared_ptr<general_skeleton> next_skel = std::make_shared<general_skeleton>(offset_skel->get_hierarchy());
 				next_skel->set_right_left(offset_skel->get_right_left());
 				next_skel->set_top_down(offset_skel->get_top_down());
 
@@ -591,31 +402,54 @@ namespace mae
 
 				for (unsigned int i = 0; i < joint_sequence.size(); i++)
 				{
-					if (i != 0 && !hy->at(joint_sequence.at(i))->is_parent())
+					if (i != 0 && !next_skel->get_hierarchy()->at(joint_sequence.at(i))->is_parent())
 					{
 						//joint is end site therefore has no motion information
 
 						//offset
 						cv::Vec3d orig_offset = mae::math::internal_math::joint_to_vec(offset_skel->get_joint(joint_sequence.at(i)))
 								- mae::math::internal_math::joint_to_vec(
-										offset_skel->get_joint(hy->at(joint_sequence.at(i))->get_parent()->get_id()));
+										offset_skel->get_joint(next_skel->get_hierarchy()->at(joint_sequence.at(i))->get_parent()->get_id()));
 
 						cv::Vec3d new_offset = mae::math::internal_math::matrix_mul(
-								joint_rot_mat.at(hy->at(joint_sequence.at(i))->get_parent()->get_id()), orig_offset);
+								joint_rot_mat.at(next_skel->get_hierarchy()->at(joint_sequence.at(i))->get_parent()->get_id()), orig_offset);
 
 						cv::Vec3d parent_pos = mae::math::internal_math::joint_to_vec(
-								next_skel->get_joint(hy->at(joint_sequence.at(i))->get_parent()->get_id()));
+								next_skel->get_joint(next_skel->get_hierarchy()->at(joint_sequence.at(i))->get_parent()->get_id()));
 
 						next_skel->set_joint(joint_sequence.at(i), mae::math::internal_math::vec_to_joint(new_offset + parent_pos));
-
-						joint_rot_mat.insert(
-								std::make_pair(joint_sequence.at(i),
-										joint_rot_mat.at(hy->at(joint_sequence.at(i))->get_parent()->get_id())));
 					}
 					else
 					{
 						int m_read_offset_tmp = 0;
 						std::vector<int> channels = joint_channel.at(joint_sequence.at(i));
+						
+                        //offset
+                        cv::Vec3d motion_offset;
+                        motion_offset[0] = 0;
+                        motion_offset[1] = 0;
+                        motion_offset[2] = 0;
+                        
+                        if (channels.at(0) != -1 || channels.at(1) != -1 || channels.at(2) != -1)
+                        {
+                            if (channels.at(0) != -1)
+                            {
+                                motion_offset[0] = motion.at(m_read_offset + channels.at(0));
+                                m_read_offset_tmp++;
+                            }
+                            
+                            if (channels.at(1) != -1)
+                            {
+                                motion_offset[1] = motion.at(m_read_offset + channels.at(1));
+                                m_read_offset_tmp++;
+                            }
+                            
+                            if (channels.at(2) != -1)
+                            {
+                                motion_offset[2] = motion.at(m_read_offset + channels.at(2));
+                                m_read_offset_tmp++;
+                            }
+                        }
 
 						//rotation
 						cv::Mat motion_rot_mat = cv::Mat::eye(3, 3, CV_64F);
@@ -638,14 +472,15 @@ namespace mae
 						{
 							rot_xi = motion.at(m_read_offset + channels.at(4));
 							m_read_offset_tmp++;
-
-							if (channels.at(4) < channels.at(3))
+                            const cv::Mat &r = mae::math::internal_math::matrix_rot_x(mae::math::math::deg_to_rad(rot_xi));
+                            
+                            if (channels.at(4) < channels.at(3))
 							{
-								rot_mats_tmp_vec.push_front(mae::math::internal_math::matrix_rot_x(mae::math::math::deg_to_rad(rot_xi)));
+								rot_mats_tmp_vec.push_front(r);
 							}
 							else
 							{
-								rot_mats_tmp_vec.push_back(mae::math::internal_math::matrix_rot_x(mae::math::math::deg_to_rad(rot_xi)));
+								rot_mats_tmp_vec.push_back(r);
 							}
 						}
 
@@ -653,20 +488,21 @@ namespace mae
 						{
 							rot_ypsilon = motion.at(m_read_offset + channels.at(5));
 							m_read_offset_tmp++;
-
-							if (channels.at(5) < channels.at(3) && channels.at(5) < channels.at(4))
+                            const cv::Mat &r = mae::math::internal_math::matrix_rot_y(mae::math::math::deg_to_rad(rot_ypsilon));
+                            
+                            if (channels.at(5) < channels.at(3) && channels.at(5) < channels.at(4))
 							{
-								rot_mats_tmp_vec.push_front(mae::math::internal_math::matrix_rot_y(mae::math::math::deg_to_rad(rot_ypsilon)));
+								rot_mats_tmp_vec.push_front(r);
 							}
 							else if (channels.at(5) > channels.at(3) && channels.at(5) > channels.at(4))
 							{
-								rot_mats_tmp_vec.push_back(mae::math::internal_math::matrix_rot_y(mae::math::math::deg_to_rad(rot_ypsilon)));
+								rot_mats_tmp_vec.push_back(r);
 							}
 							else
 							{
 								std::list<cv::Mat>::iterator it = rot_mats_tmp_vec.begin();
 								it++;
-								rot_mats_tmp_vec.insert(it, mae::math::internal_math::matrix_rot_y(mae::math::math::deg_to_rad(rot_ypsilon)));
+								rot_mats_tmp_vec.insert(it, r);
 							}
 						}
 
@@ -678,68 +514,40 @@ namespace mae
 
 						if (i != 0)
 						{
-							motion_rot_mat *= joint_rot_mat.at(hy->at(joint_sequence.at(i))->get_parent()->get_id());
+                            motion_rot_mat = joint_rot_mat.at(next_skel->get_hierarchy()->at(joint_sequence.at(i))->get_parent()->get_id()) * motion_rot_mat;
 						}
 
 						joint_rot_mat.insert(std::make_pair(joint_sequence.at(i), motion_rot_mat));
-
-						//offset
-						cv::Vec3d motion_offset;
-
-						if (channels.at(0) != -1 || channels.at(1) != -1 || channels.at(2) != -1)
-						{
-							motion_offset[0] = 0;
-							motion_offset[1] = 0;
-							motion_offset[2] = 0;
-
-							if (channels.at(0) != -1)
-							{
-								motion_offset[0] = motion.at(m_read_offset + channels.at(0));
-								m_read_offset_tmp++;
-							}
-
-							if (channels.at(1) != -1)
-							{
-								motion_offset[1] = motion.at(m_read_offset + channels.at(1));
-								m_read_offset_tmp++;
-							}
-
-							if (channels.at(2) != -1)
-							{
-								motion_offset[2] = motion.at(m_read_offset + channels.at(2));
-								m_read_offset_tmp++;
-							}
-						}
 
 						//apply rot_mat and offset to joints
 						if (i == 0)
 						{
 							//handle root element
-							cv::Vec3d orig_offset = mae::math::internal_math::joint_to_vec(offset_skel->get_joint(joint_sequence.at(i)));
-							next_skel->set_joint(joint_sequence.at(i), mae::math::internal_math::vec_to_joint(orig_offset + motion_offset));
+                            next_skel->set_joint(joint_sequence.at(i), mae::math::internal_math::vec_to_joint(motion_offset));
 						}
 						else
 						{
 							//handle any other element
+							
+							//determine the bone in the offset skeleton
 							cv::Vec3d orig_offset = mae::math::internal_math::joint_to_vec(offset_skel->get_joint(joint_sequence.at(i)))
 									- mae::math::internal_math::joint_to_vec(
 											offset_skel->get_joint(
-													hy->at(joint_sequence.at(i))->get_parent()->get_id()));
-							cv::Vec3d new_offset = orig_offset;
-							if (i != 0)
-							{
-								new_offset = mae::math::internal_math::matrix_mul(
-										joint_rot_mat.at(hy->at(joint_sequence.at(i))->get_parent()->get_id()),
+                                                    next_skel->get_hierarchy()->at(joint_sequence.at(i))->get_parent()->get_id()));
+							
+							//determine the rotated bone for the current frame
+							cv::Vec3d new_offset = mae::math::internal_math::matrix_mul(
+										joint_rot_mat.at(next_skel->get_hierarchy()->at(joint_sequence.at(i))->get_parent()->get_id()),
 										orig_offset);
-							}
-
+							
 							cv::Vec3d parent_pos = mae::math::internal_math::joint_to_vec(
-									next_skel->get_joint(hy->at(joint_sequence.at(i))->get_parent()->get_id()));
+									next_skel->get_joint(next_skel->get_hierarchy()->at(joint_sequence.at(i))->get_parent()->get_id()));
 
-							next_skel->set_joint(joint_sequence.at(i),
-									mae::math::internal_math::vec_to_joint(new_offset + parent_pos + motion_offset));
+                            next_skel->set_joint(joint_sequence.at(i),
+                                                 mae::math::internal_math::vec_to_joint(new_offset + parent_pos));
 						}
 
+						//move read offset
 						m_read_offset += m_read_offset_tmp;
 					}
 				}
@@ -749,8 +557,63 @@ namespace mae
 
 			return std::shared_ptr<bvh_data>(new bvh_data(skeletons, frame_time));
 		}
+        
+        
+        void bvh_controller::set_anchors_and_directions(std::shared_ptr<bvh_spec> &spec, std::shared_ptr<general_skeleton> offset_skel, const std::shared_ptr<hierarchy> &hy) const
+        {
+		    //get anchors and define right-left and top-down direction for the skeleton
+            bool left_anchor_undef = true;
+            int left_anchor_id = -1;
+            bool right_anchor_undef = true;
+            int right_anchor_id = -1;
+            bool top_anchor_undef = true;
+            int top_anchor_id = -1;
+            bool down_anchor_undef = true;
+            int down_anchor_id = -1;
+            std::vector<std::shared_ptr<hierarchy_element> > hy_els = hy->get_element_sequence();
+            for (unsigned int i = 0; i < hy_els.size(); i++)
+            {
+                if (left_anchor_undef && mstr::to_lower(hy_els.at(i)->get_name()) == spec->get_left_anchor())
+                {
+                    left_anchor_id = hy_els.at(i)->get_id();
+                    left_anchor_undef = false;
+                }
+                else if (right_anchor_undef && mstr::to_lower(hy_els.at(i)->get_name()) == spec->get_right_anchor())
+                {
+                    right_anchor_id = hy_els.at(i)->get_id();
+                    right_anchor_undef = false;
+                }
+                else if (top_anchor_undef && mstr::to_lower(hy_els.at(i)->get_name()) == spec->get_top_anchor())
+                {
+                    top_anchor_id = hy_els.at(i)->get_id();
+                    top_anchor_undef = false;
+                }
+                else if (down_anchor_undef && mstr::to_lower(hy_els.at(i)->get_name()) == spec->get_bottom_anchor())
+                {
+                    down_anchor_id = hy_els.at(i)->get_id();
+                    down_anchor_undef = false;
+                }
 
-		std::shared_ptr<bvh_data> bvh_controller::read_bvh_file(
+                if (!left_anchor_undef && !right_anchor_undef && !top_anchor_undef && !down_anchor_undef)
+                {
+                    break;
+                }
+            }
+            
+            if (left_anchor_undef || right_anchor_undef || top_anchor_undef || down_anchor_undef)
+            {
+				throw std::invalid_argument("At least one anchor could not be found!");
+            }
+            
+            offset_skel->set_right_left(
+                    std::shared_ptr<bone>(
+                            new bone(bone::RESERVED_RIGHT_LEFT, "RIGHT_LEFT", right_anchor_id, left_anchor_id)));
+            offset_skel->set_top_down(
+                    std::shared_ptr<bone>(
+                            new bone(bone::RESERVED_TOP_DOWN, "TOP_DOWN", top_anchor_id, down_anchor_id)));
+        }
+        
+        std::shared_ptr<bvh_data> bvh_controller::read_bvh_file(
 				std::string filename, std::shared_ptr<bvh_spec> spec)
 		{
 			std::ifstream in_file(filename);
@@ -892,6 +755,158 @@ namespace mae
 					new hierarchy_element(element_id, mstr::replace(element_name, "#_", "#"), element_torso, is_dummy));
 
 		}
-
-	} // namespace fl
+        
+        std::shared_ptr<general_skeleton> bvh_controller::read_offset_skeleton(const std::string& bvh_str, std::shared_ptr<bvh_spec> spec, std::vector<int> &joint_sequence, std::unordered_map<int, std::vector<int> > &joint_channel)
+        {
+		    std::string tmp = mstr::to_lower(bvh_str);
+		    
+            std::shared_ptr<general_skeleton> offset_skel = std::make_shared<general_skeleton>();
+            
+            int endeffector_count = 0;
+    
+            int element_count = 0;
+    
+            std::pair<std::string::size_type, std::string::size_type> pos_root = mstr::find_line(tmp, "root");
+            std::string el_root = mstr::trim(std::string(bvh_str, pos_root.first + 4, pos_root.second - 4));
+    
+            //get root element for hierarchy
+            element_count++;
+            std::shared_ptr<hierarchy_element> hy_root = generate_hierarchy_element(spec, element_count, el_root,
+                                                                                    false);
+    
+            //parse root offset
+            offset_skel->set_joint(hy_root->get_id(),
+                                   parse_offset(tmp, pos_root.first + pos_root.second,
+                                                std::shared_ptr<general_joint>(new general_joint(0, 0, 0))));
+    
+            //parse root channels
+            joint_channel.insert(
+                    std::make_pair(hy_root->get_id(), parse_channels(tmp, pos_root.first + pos_root.second)));
+    
+            //set sequence
+            joint_sequence.push_back(hy_root->get_id());
+    
+            int read_depth = 1;
+            std::string::size_type read_pos = pos_root.first + pos_root.second;
+            int el_parent = hy_root->get_id();
+            hierarchy_element* h_parent = hy_root.get();
+    
+            while (read_depth > 0)
+            {
+                std::pair<std::string::size_type, std::string::size_type> pos_joint = mstr::find_line(tmp,
+                                                                                                      std::string("joint"), read_pos);
+                std::string::size_type pos_bracket = tmp.find("}", read_pos);
+        
+                if (pos_bracket == std::string::npos)
+                {
+//                    std::cout << "pos_bracket == npos. el_parent: " << h_parent->get_name() << std::endl;
+                    //no bracket to follow, therefore syntax error
+                    throw std::invalid_argument("Syntax error in BVH file. Cannot parse initial pose.");
+                }
+                else if (pos_joint.first == std::string::npos)
+                {
+                    //no joint to follow, therefore done with header
+                    read_depth = 0;
+                }
+                else if ((unsigned int) pos_bracket < (unsigned int) pos_joint.first)
+                {
+                    //bracket comes next, decreasing depth
+                    read_depth--;
+            
+                    //reset parent
+                    el_parent = h_parent->get_parent()->get_id();
+                    h_parent = h_parent->get_parent();
+            
+                    //set read position
+                    read_pos = pos_bracket + 1;
+                }
+                else
+                {
+                    std::string el_joint = mstr::trim(std::string(bvh_str, pos_joint.first + 5, pos_joint.second - 5));
+            
+                    element_count++;
+            
+                    //update read pos
+                    read_pos = pos_joint.first + pos_joint.second;
+            
+                    std::shared_ptr<general_joint> el_gj = parse_offset(tmp, (unsigned int) read_pos,
+                                                                        offset_skel->get_joint(el_parent));
+            
+                    bool el_dummy = false;
+                    if (el_gj->equals(offset_skel->get_joint(el_parent)))
+                    {
+                        el_dummy = true;
+                    }
+                    std::shared_ptr<hierarchy_element> hy_element = generate_hierarchy_element(spec, element_count,
+                                                                                               el_joint, el_dummy);
+                    h_parent->push_back(hy_element);
+            
+                    //parse offset
+                    offset_skel->set_joint(hy_element->get_id(), el_gj);
+            
+                    //parse channels
+                    joint_channel.insert(
+                            std::make_pair(hy_element->get_id(), parse_channels(tmp, (unsigned int) read_pos)));
+            
+                    joint_sequence.push_back(hy_element->get_id());
+            
+                    //set parent to current joint
+                    el_parent = hy_element->get_id();
+                    h_parent = hy_element.get();
+            
+                    std::string::size_type pos_joint = tmp.find("joint", read_pos);
+                    std::string::size_type pos_end_site = tmp.find("end site", read_pos);
+            
+                    if (pos_end_site < pos_joint)
+                    {
+                        endeffector_count++;
+                
+                        std::stringstream endstr;
+                        endstr << "End Site#" << endeffector_count;
+                
+                        read_pos = pos_end_site + 5;
+                        std::shared_ptr<general_joint> el_end_gj = parse_offset(tmp, (unsigned int) read_pos,
+                                                                                offset_skel->get_joint(el_parent));
+                
+                        bool el_end_dummy = false;
+                        if (el_end_gj->equals(offset_skel->get_joint(el_parent)))
+                        {
+                            el_end_dummy = true;
+                        }
+                
+                        element_count++;
+                        std::shared_ptr<hierarchy_element> hy_end = generate_hierarchy_element(spec, element_count,
+                                                                                               endstr.str(), el_end_dummy);
+                        h_parent->push_back(hy_end);
+                
+                        //parse offset
+                        offset_skel->set_joint(hy_end->get_id(), el_end_gj);
+                
+                        //set sequence
+                        joint_sequence.push_back(hy_end->get_id());
+                
+                        read_pos = tmp.find("}", read_pos);
+                        if (read_pos == std::string::npos)
+                        {
+                            //no closing bracket found, therefore syntax error
+//							return std::shared_ptr<bvh_data>(new bvh_data(skeletons, frame_time));
+                            std::stringstream sstr;
+                            sstr << "Syntax error in BVH file. Cannot parse initial pose: no closing bracket found for end effector. el_joint: " << hy_end->get_name();
+                            throw std::invalid_argument(sstr.str());
+                        }
+                        read_pos++;
+                    }
+                    read_depth++;
+                }
+            }
+            std::shared_ptr<hierarchy> hy = std::shared_ptr<hierarchy>(new hierarchy(hy_root));
+            offset_skel->set_hierarchy(hy);
+    
+            //get anchors and define right-left and top-down direction for the skeleton
+            set_anchors_and_directions(spec, offset_skel, hy);
+            
+            return offset_skel;
+        }
+        
+    } // namespace fl
 } // namespace mae

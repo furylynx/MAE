@@ -316,6 +316,15 @@ namespace mae
 				 * @return True if collinear.
 				 */
 				static bool are_collinear(cv::Vec3d a, cv::Vec3d b);
+                
+                /**
+                 * Returns true if the vectors are pointing approximately in the same direction.
+                 *
+                 * @param a The vector a.
+                 * @param b The vector a.
+                 * @return True if same direction.
+                 */
+                static bool are_same_direction(cv::Vec3d a, cv::Vec3d b);
 
 //				/**
 //				 * Calculates the angle in radian between the two vectors.

@@ -204,8 +204,8 @@ namespace mae
 				element_id = hierarchy_->at(element_id)->get_parent()->get_id();
 			}
 
-			sstr << get_joint(element_id)->get_x() << " " << get_joint(element_id)->get_y() << " "
-					<< get_joint(element_id)->get_z() << std::endl;
+			sstr << get_joint(element_id)->get_x() << " " << -get_joint(element_id)->get_z() << " "
+					<< get_joint(element_id)->get_y() << std::endl;
 		}
 
 		//Print edges for data

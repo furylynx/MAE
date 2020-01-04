@@ -390,85 +390,138 @@ namespace mae
 
 			return cv::Vec3d(zeta, xi, ypsilon);
 		}
-
-		cv::Vec3d internal_math::rotation_angles_yzx(cv::Vec3d a, cv::Vec3d b)
-		{
-			//---------------------------------------------------------------
-			//axis angle approach yzx order!!
-			//---------------------------------------------------------------
-
-			cv::Vec3d e1(1, 0, 0);
-			cv::Vec3d e2(0, 1, 0);
-			cv::Vec3d e3(0, 0, 1);
-
-			//orthogonal vector which is the rotation axis
-			cv::Vec3d v;
-			if (internal_math::are_collinear(a, b))
-			{
-				if (internal_math::are_collinear(a, e1))
-				{
-					if (internal_math::are_collinear(a, e2))
-					{
-						v = cv::normalize(a.cross(e3));
-					}
-					else
-					{
-						v = cv::normalize(a.cross(e2));
-					}
-				}
-				else
-				{
-					v = cv::normalize(a.cross(e1));
-				}
-			}
-			else
-			{
-				v = cv::normalize(a.cross(b));
-			}
-
-			//angle for axis-angle representation
-			double alpha = internal_math::calc_angle_plane(a, b, v);
-
-			if (alpha < 0.01 && alpha > -0.01)
-			{
-				return cv::Vec3d(0,0,0);
-			}
-
-			double s = std::sin(alpha);
-			double c = std::cos(alpha);
-			double t = 1 - c;
-
-			double x = v[0];
-			double y = v[1];
-			double z = v[2];
-
-			double ypsilon = 0;
-			double zeta = 0;
-			double xi = 0;
-
-			//check singularities
-			if ((x * y * t + z * s) > 0.998)
-			{
-				// north pole singularity detected
-				ypsilon = 2 * std::atan2(x * std::sin(alpha / 2), std::cos(alpha / 2));
-				zeta = M_PI_2;
-				xi = 0;
-				return cv::Vec3d(ypsilon, zeta, xi);
-			}
-			if ((x * y * t + z * s) < -0.998)
-			{
-				// south pole singularity detected
-				ypsilon = -2 * std::atan2(x * std::sin(alpha / 2), std::cos(alpha / 2));
-				zeta = M_PI_2;
-				xi = 0;
-				return cv::Vec3d(ypsilon, zeta, xi);
-			}
-			ypsilon = std::atan2(y * s - x * z * t, 1 - (y * y + z * z) * t);
-			zeta = std::asin(x * y * t + z * s);
-			xi = std::atan2(x * s - y * z * t, 1 - (x * x + z * z) * t);
-
-			return cv::Vec3d(ypsilon, zeta, xi);
-		}
+		
+        cv::Vec3d internal_math::rotation_angles_yzx(cv::Vec3d a, cv::Vec3d b)
+        {
+            cv::Vec4d q = internal_math::quaternion(a, b);
+    
+            double qw = q[0];
+            double qx = q[1];
+            double qy = q[2];
+            double qz = q[3];
+		    
+            // http://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToEuler/
+            // http://www.euclideanspace.com/maths/standards/index.htm
+            // Euler angles
+            //      Heading = rotation about y axis
+            //      Attitude = rotation about z axis
+            //      Bank = rotation about x axis
+            // Euler angle order
+            //      Heading applied first
+            //      Attitude applied second
+            //      Bank applied last
+            double sqw = qw*qw;
+            double sqx = qx*qx;
+            double sqy = qy*qy;
+            double sqz = qz*qz;
+            // if normalised is one, otherwise is correction factor
+            double unit = sqx + sqy + sqz + sqw;
+            double test = qx*qy + qz*qw;
+            
+            double heading,attitude,bank;
+            
+            if (test > 0.499*unit)
+            {
+                // singularity at north pole
+                heading = 2 * atan2(qx,qw);
+                attitude = M_PI/2;
+                bank = 0;
+            }
+            else if (test < -0.499*unit)
+            {
+                // singularity at south pole
+                heading = -2 * atan2(qx,qw);
+                attitude = -M_PI/2;
+                bank = 0;
+            }
+            else
+            {
+                heading = atan2(2*qy*qw-2*qx*qz , sqx - sqy - sqz + sqw);
+                attitude = asin(2*test/unit);
+                bank = atan2(2*qx*qw-2*qy*qz , -sqx + sqy - sqz + sqw);
+            }
+            
+            return cv::Vec3d(heading, attitude, bank);
+        }
+        
+//		cv::Vec3d internal_math::rotation_angles_yzx(cv::Vec3d a, cv::Vec3d b)
+//		{
+//			//---------------------------------------------------------------
+//			//axis angle approach yzx order!!
+//			//---------------------------------------------------------------
+//
+//			cv::Vec3d e1(1, 0, 0);
+//			cv::Vec3d e2(0, 1, 0);
+//			cv::Vec3d e3(0, 0, 1);
+//
+//			//orthogonal vector which is the rotation axis
+//			cv::Vec3d v;
+//			if (internal_math::are_collinear(a, b))
+//			{
+//				if (internal_math::are_collinear(a, e1))
+//				{
+//					if (internal_math::are_collinear(a, e2))
+//					{
+//						v = cv::normalize(a.cross(e3));
+//					}
+//					else
+//					{
+//						v = cv::normalize(a.cross(e2));
+//					}
+//				}
+//				else
+//				{
+//					v = cv::normalize(a.cross(e1));
+//				}
+//			}
+//			else
+//			{
+//				v = cv::normalize(a.cross(b));
+//			}
+//
+//			//angle for axis-angle representation
+//			double alpha = internal_math::calc_angle_plane(a, b, v);
+//
+//			if (alpha < 0.01 && alpha > -0.01)
+//			{
+//				return cv::Vec3d(0,0,0);
+//			}
+//
+//			double s = std::sin(alpha);
+//			double c = std::cos(alpha);
+//			double t = 1 - c;
+//
+//			double x = v[0];
+//			double y = v[1];
+//			double z = v[2];
+//
+//			double ypsilon = 0;
+//			double zeta = 0;
+//			double xi = 0;
+//
+//			//check singularities
+//			if ((x * y * t + z * s) > 0.998)
+//			{
+//				// north pole singularity detected
+//				ypsilon = 2 * std::atan2(x * std::sin(alpha / 2), std::cos(alpha / 2));
+//				zeta = M_PI_2;
+//				xi = 0;
+//				return cv::Vec3d(ypsilon, zeta, xi);
+//			}
+//			if ((x * y * t + z * s) < -0.998)
+//			{
+//				// south pole singularity detected
+//				ypsilon = -2 * std::atan2(x * std::sin(alpha / 2), std::cos(alpha / 2));
+//				zeta = M_PI_2;
+//				xi = 0;
+//				return cv::Vec3d(ypsilon, zeta, xi);
+//			}
+//			ypsilon = std::atan2(y * s - x * z * t, 1 - (y * y + z * z) * t);
+//			zeta = std::asin(x * y * t + z * s);
+//			xi = std::atan2(x * s - y * z * t, 1 - (x * x + z * z) * t);
+//
+//			return cv::Vec3d(ypsilon, zeta, xi);
+//		}
 
 		cv::Vec3d internal_math::rotate_zxy(cv::Vec3d a, double zeta, double xi, double ypsilon)
 		{
@@ -555,6 +608,11 @@ namespace mae
 		{
 			a = cv::normalize(a);
 			b = cv::normalize(b);
+			
+			if (internal_math::are_same_direction(a,b))
+			{
+			    return cv::Vec4d(1,0,0,0);
+			}
 
 			cv::Vec3d v;
 			if (internal_math::are_collinear(a, b))
@@ -585,9 +643,16 @@ namespace mae
 			{
 				v = a.cross(b);
 			}
-
+			
+			double dot = a.dot(b);
+			double sin_dot_2 = std::sin(dot/2);
+   
 			cv::Vec4d q(1.0 + a.dot(b), v[0], v[1], v[2]);
-			return cv::normalize(q);
+            return cv::normalize(q);
+
+//            // unit quaternion: cos(a/2) + (x * sin(a/2))i + (y * sin(a/2))j + ( z * sin(a/2))k
+//            cv::Vec4d q(std::cos(dot/2), v[0]*sin_dot_2, v[1]*sin_dot_2, v[2]*sin_dot_2);
+//			return q;
 		}
 
 		bool internal_math::are_collinear(cv::Vec3d a, cv::Vec3d b)
@@ -599,6 +664,15 @@ namespace mae
 			return (angle > -0.01 && angle < 0.01) || (angle > (M_PI - 0.01) && angle < (M_PI + 0.01))
 					|| (angle > (-M_PI - 0.01) && angle < (-M_PI + 0.01));
 		}
+        
+        bool internal_math::are_same_direction(cv::Vec3d a, cv::Vec3d b)
+        {
+            // assumption: angle between both is 0 or 180 degree
+            double angle = internal_math::calc_angle_half(a, b);
+            
+            //fix round-off errors
+            return (angle > -0.01 && angle < 0.01);
+        }
 
 //		double internal_math::calcAngle(cv::Vec3d a, cv::Vec3d b)
 //		{

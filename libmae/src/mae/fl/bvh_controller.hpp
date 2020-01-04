@@ -34,6 +34,13 @@ namespace mae
 				 * Creates a new BVH controller which is used to read and/or write BVH files.
 				 */
 				bvh_controller();
+				
+				/**
+				 * Creates a new BVH controller which is used to read and/or write BVH files. Uses the given number of digits for precision.
+				 *
+				 * @param precision The precision to use.
+				 */
+                bvh_controller(std::size_t precision);
 				virtual ~bvh_controller();
 
 				/**
@@ -121,6 +128,9 @@ namespace mae
 				virtual std::shared_ptr<bvh_data> read_bvh_file(std::string filename, std::shared_ptr<bvh_spec> spec);
 
 			private:
+		        std::size_t precision_;
+		        
+		        
 				/**
 				 * Parses the offset values from the BVH string.
 				 *
@@ -158,8 +168,13 @@ namespace mae
 				const std::string Zrot = "zrotation";
 				const std::string Xrot = "xrotation";
 				const std::string Yrot = "yrotation";
-
-		};
+                
+                void set_anchors_and_directions(std::shared_ptr<bvh_spec> &spec, std::shared_ptr<general_skeleton> offset_skel, const std::shared_ptr<hierarchy> &hy) const;
+                
+                std::shared_ptr<general_skeleton>
+                read_offset_skeleton(const std::string &bvh_str, std::shared_ptr<bvh_spec> spec, std::vector<int> &joint_sequence,
+                                     std::unordered_map<int, std::vector<int>> &joint_channel);
+        };
 
 	} // namespace fl
 } // namespace mae

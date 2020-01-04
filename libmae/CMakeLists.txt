@@ -255,6 +255,11 @@ set(SOURCE_FILES src/mae/bone.cpp
         src/mae/mstr.hpp
         src/mae/sensor/sensor_farm.cpp src/mae/sensor/sensor_farm.hpp src/mae/sensor/i_sensor.hpp src/mae/sensor/sensor_info.cpp src/mae/sensor/sensor_info.hpp src/mae/sensor/sensor.hpp src/mae/general_skeleton_basis_pair.cpp src/mae/general_skeleton_basis_pair.hpp)
 
+# define test files
+set(TEST_FILES
+        test/mae/fl/test_bvh_controller.cpp
+        test/mae/math/test_internal_math.cpp
+        )
 
 INCLUDE("GNUInstallDirs")
 
@@ -504,6 +509,37 @@ if (WRAP_JAVA)
             )
 
 endif()
+
+if (COMPILE_TESTS)
+    # Unit Testing
+    ENABLE_TESTING ( )
+
+    # Use Boost.Test
+    FIND_PACKAGE (Boost COMPONENTS unit_test_framework REQUIRED)
+    INCLUDE_DIRECTORIES (${Boost_INCLUDE_DIRS})
+
+    # Iterate test files
+    FOREACH(TEST_FILE ${TEST_FILES})
+        # Get the filename without an extension (see NAME_WE)
+        GET_FILENAME_COMPONENT (TEST_NAME ${TEST_FILE} NAME_WE)
+
+        # Add a compile target
+        ADD_EXECUTABLE (${TEST_NAME} ${TEST_FILE})
+
+        # Link Boost.Test and MAE target and MAE dependencies
+        TARGET_LINK_LIBRARIES(${TEST_NAME} ${Boost_LIBRARIES} ${MYLIB} ${MYLIB_LIBRARIES})
+
+        # Move testing binaries to the build_test directory
+        SET_TARGET_PROPERTIES(${TEST_NAME} PROPERTIES
+                RUNTIME_OUTPUT_DIRECTORY  ${CMAKE_CURRENT_SOURCE_DIR}/build_test)
+
+        # Add the test (WORKING_DIRECTORY is set to our build_test directory and COMMAND executes the test
+        ADD_TEST(NAME ${TEST_NAME}
+                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/build_test
+                COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/build_test/${TEST_NAME} )
+    ENDFOREACH(TEST_FILE)
+endif()
+
 
 # configure cpack
 INCLUDE("${CMAKE_SOURCE_DIR}/../cmake/Includes/MAECPack.cmake")
